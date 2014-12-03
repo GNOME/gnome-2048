@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file in alphabetical order.
+[encoding: UTF-8]
+data/gnome-2048.desktop.in
+data/mainwindow.ui
+data/menus.ui
+data/preferences.ui
+src/application.c

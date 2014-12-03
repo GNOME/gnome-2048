@@ -1,0 +1,29 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+  type="guide" style="task"
+  id="index">
+  <info>
+    <title type='link' role="trail"> <media type="image" src="media/gnome-spaceduel22.png" its:translate="no" /></title>
+    <title type='link'>Spaceduel</title>
+    <title type='text'>Spaceduel</title>
+    <revision pkgversion="3.5.5" version="0.1" date="2012-08-11" status="review"/>
+    <credit type="author copyright">
+      <name>Juan R. García Blanco</name>
+      <email>juanrgar@gmail.com</email>
+      <years>2014</years>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+<title><media type="image" src="media/gnome-spaceduel.png" its:translate="no"><span its:translate="yes">gnome-spaceduel logo</span></media> Spaceduel</title>
+  <p>
+    <app>Spaceduel</app> is a clone of KDE's KSpaceduel, which in turn is a clone of Spacewar!. In these
+    games, two spaceships try to defeat each other while orbiting around a star. In <app>Spaceduel</app>
+    each player is in control of one spaceship and can fire bullets to cause damage to the opponent's
+    spaceship.
+  </p>
+  <section id="play" style="2column">
+    <title>Game Play</title>
+  </section>
+</page>

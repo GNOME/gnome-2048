@@ -1,0 +1,47 @@
+#mainheaderbar {
+/*  color: white; */
+/*  background-image: url("/org/gnome/gspaceduel/background"); */
+/*  border-image: linear-gradient(to bottom, black); */
+}
+
+#pausebutton:checked {
+  color: white;
+  background-image: linear-gradient(to bottom, red);
+}
+
+#score {
+/*  background-image: url("/org/gnome/gspaceduel/background"); */
+}
+
+/*
+.level-bar.fill-block {
+  border: 1px solid #40760c;
+  background-color: #5aa411;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+}
+
+.level-bar.fill-block:backdrop {
+  border-color: #5aa411;
+  box-shadow: none;
+}
+
+.level-bar.fill-block.level-low {
+  border-color: #990000;
+  background-color: #ff0000;
+}
+
+.level-bar.fill-block.level-low:backdrop {
+  border-color: #ff0000;
+}
+
+.level-bar.fill-block.empty-fill-block {
+  background-color: transparent;
+  border-color: rgba(238, 238, 236, 0.1);
+  box-shadow: none;
+}
+
+.level-bar.fill-block.empty-fill-block:backdrop {
+  border-color: rgba(201, 203, 201, 0.15);
+}
+*/

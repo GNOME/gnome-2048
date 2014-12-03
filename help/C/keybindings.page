@@ -1,0 +1,59 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+  type="guide" style="task"
+  id="keybindings">
+  <info>
+    <link type="guide" xref="index#play"/>
+    <revision pkgversion="3.5.5" version="0.1" date="2012-08-11" status="review"/>
+    <credit type="author copyright">
+      <name>Juan R. García Blanco</name>
+      <email>juanrgar@gmail.com</email>
+      <years>2014</years>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+  <title>Keybindings</title>
+
+  <section id="globalbindings">
+  <title>Global keybindings</title>
+  <p>
+    The following keybindings apply globally.
+  </p>
+  <table frame="all" rules="cols" shade="rows">
+    <tr>
+      <td><p>Start game</p></td> <td><p><key>Space</key></p></td>
+    </tr>
+    <tr>
+      <td><p>Pause/Unpause</p></td> <td><p><key>P</key></p></td>
+    </tr>
+  </table>
+  </section>
+
+  <section id="playerbindings">
+  <title>Control keybindings</title>
+  <p>
+    The following keybindings are used to control each player's ship.
+  </p>
+  <table frame="all" rules="cols" shade="rows">
+    <tr>
+      <td><p>Command</p></td>
+      <td><p>Red player <media type="image" src="media/red.png" its:translate="no"/></p></td>
+      <td><p>Blue player <media type="image" src="media/blue.png" its:translate="no"/></p></td>
+    </tr>
+    <tr>
+      <td><p>Rotate left</p></td> <td><p><key>A</key></p></td> <td><p><key>&#8592;</key></p></td>
+    </tr>
+    <tr>
+      <td><p>Rotate right</p></td> <td><p><key>D</key></p></td> <td><p><key>&#8594;</key></p></td>
+    </tr>
+    <tr>
+      <td><p>Thrust</p></td> <td><p><key>W</key></p></td> <td><p><key>&#8593;</key></p></td>
+    </tr>
+    <tr>
+      <td><p>Fire bullet</p></td> <td><p><key>S</key></p></td> <td><p><key>&#8595;</key></p></td>
+    </tr>
+  </table>
+  </section>
+</page>
