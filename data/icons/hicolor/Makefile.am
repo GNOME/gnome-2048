@@ -7,14 +7,14 @@ icon256dir=$(datadir)/icons/hicolor/256x256/apps
 icon512dir=$(datadir)/icons/hicolor/512x512/apps
 iconscalabledir=$(datadir)/icons/hicolor/scalable/apps
 
-icon16_DATA = 16x16/gnome-spaceduel.png
-icon22_DATA = 22x22/gnome-spaceduel.png
-icon24_DATA = 24x24/gnome-spaceduel.png
-icon32_DATA = 32x32/gnome-spaceduel.png
-icon48_DATA = 48x48/gnome-spaceduel.png
-icon256_DATA = 256x256/gnome-spaceduel.png
-icon512_DATA = 512x512/gnome-spaceduel.png
-iconscalable_DATA = scalable/gnome-spaceduel.svg
+icon16_DATA = 16x16/gnome-2048.png
+icon22_DATA = 22x22/gnome-2048.png
+icon24_DATA = 24x24/gnome-2048.png
+icon32_DATA = 32x32/gnome-2048.png
+icon48_DATA = 48x48/gnome-2048.png
+icon256_DATA = 256x256/gnome-2048.png
+icon512_DATA = 512x512/gnome-2048.png
+iconscalable_DATA = scalable/gnome-2048.svg
 
 EXTRA_DIST = $(icon16_DATA) $(icon22_DATA) $(icon24_DATA) $(icon32_DATA) $(icon48_DATA) $(icon256_DATA) $(icon512_DATA) $(iconscalable_DATA)
 

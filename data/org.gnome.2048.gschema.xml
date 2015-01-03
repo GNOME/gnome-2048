@@ -1,19 +1,29 @@
 <schemalist gettext-domain="gnome-2048">
   <schema id="org.gnome.2048" path="/org/gnome/2048/">
-    <key name="window-size" type="ai">
-      <default>[768, 600]</default>
-      <summary>Window size</summary>
-      <description>Window size (width and height).</description>
+    <key name="window-width" type="i">
+      <default>600</default>
+      <summary>Window width</summary>
+      <description>Window width.</description>
     </key>
-    <key name="window-position" type="ai">
-      <default>[]</default>
-      <summary>Window position</summary>
-      <description>Window position (X and Y).</description>
+    <key name="window-height" type="i">
+      <default>600</default>
+      <summary>Window height</summary>
+      <description>Window height.</description>
     </key>
     <key name="window-maximized" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Window maximized</summary>
       <description>Window maximization state.</description>
+    </key>
+    <key name="rows" type="i">
+      <default>4</default>
+      <summary>Number of rows</summary>
+      <description>Game grid number of rows.</description>
+    </key>
+    <key name="cols" type="i">
+      <default>4</default>
+      <summary>Number of columns</summary>
+      <description>Game grid number of columns.</description>
     </key>
   </schema>
 </schemalist>

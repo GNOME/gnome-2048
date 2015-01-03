@@ -3,6 +3,9 @@ bin_PROGRAMS = gnome-2048
 gnome_2048_SOURCES = \
 	config.vapi \
 	application.vala \
+	game.vala \
+	grid.vala \
+	view.vala \
 	gnome-2048-data.h \
 	gnome-2048-data.c
 
