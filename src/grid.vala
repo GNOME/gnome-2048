@@ -392,6 +392,31 @@ public class Grid : GLib.Object
     }
   }
 
+  public bool is_finished ()
+  {
+    uint val;
+
+    if (!_grid_is_full ())
+      return false;
+    else {
+      for (int i = 0; i < _n_rows; i++) {
+        for (int j = 0; j < _n_cols; j++) {
+          val = _grid[i,j];
+
+          if (i < (_n_rows - 1))
+            if (val == _grid[i+1,j])
+              return false;
+
+          if (j < (_n_cols - 1))
+            if (val == _grid[i,j+1])
+              return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
   public string to_string ()
   {
     string ret = "";

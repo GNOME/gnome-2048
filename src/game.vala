@@ -539,5 +539,8 @@ public class Game : GLib.Object
     _to_hide.clear ();
     _to_move.clear ();
     _to_show.clear ();
+
+    if (_grid.is_finished ())
+      finished ();
   }
 }

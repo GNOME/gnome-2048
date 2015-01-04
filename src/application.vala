@@ -112,6 +112,10 @@ public class Application : Gtk.Application
     _game.notify["score"].connect ((s, p) => {
       _score.label = _game.score.to_string ();
     });
+    _game.finished.connect ((s) => {
+      _header_bar.subtitle = _("Game Over");
+      debug ("finished");
+    });
   }
 
   private void _create_window (Gtk.Builder builder)
@@ -215,6 +219,8 @@ public class Application : Gtk.Application
 
   private void new_game_cb ()
   {
+    _header_bar.subtitle = null;
+
     _game.new_game ();
   }
 
