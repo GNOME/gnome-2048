@@ -4,6 +4,7 @@
     <file preprocess="xml-stripblanks">data/menus.ui</file>
     <file preprocess="xml-stripblanks">data/mainwindow.ui</file>
     <file preprocess="xml-stripblanks">data/preferences.ui</file>
+    <file preprocess="xml-stripblanks">data/scoreboard.ui</file>
     <file>data/style.css</file>
   </gresource>
 </gresources>
