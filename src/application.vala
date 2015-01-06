@@ -167,8 +167,8 @@ public class Application : Gtk.Application
   private void _create_game_view (Gtk.Builder builder)
   {
     var embed = new GtkClutter.Embed ();
-    var grid = builder.get_object ("grid") as Gtk.Grid;
-    grid.attach (embed, 0, 0, 1, 1);
+    var frame = builder.get_object ("aspectframe") as Gtk.AspectFrame;
+    frame.add (embed);
     _game.view = embed.get_stage ();
   }
 
