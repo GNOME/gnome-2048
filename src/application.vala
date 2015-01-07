@@ -153,7 +153,7 @@ public class Application : Gtk.Application
   {
     _header_bar = new Gtk.HeaderBar ();
     _header_bar.show_close_button = true;
-    _header_bar.title = "Gnome 2048";
+    _header_bar.title = "2048";
     _window.set_titlebar (_header_bar);
 
     _score = new Gtk.Label ("0");
@@ -314,7 +314,7 @@ public class Application : Gtk.Application
       return Posix.EXIT_FAILURE;
     }
 
-    Environment.set_application_name (_("2048"));
+    Environment.set_application_name ("2048");
     Gtk.Window.set_default_icon_name ("gnome-2048");
 
     try {
