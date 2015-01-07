@@ -1,0 +1,24 @@
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:gnome="http://api.gnome.org/doap-extensions#"
+         xmlns="http://usefulinc.com/ns/doap#">
+
+  <name xml:lang="en">gnome-2048</name>
+  <shortdesc xml:lang="en">Obtain the 2048 tile</shortdesc>
+  <description xml:lang="en">Move the tiles until you obtain the 2048 tile</description>
+  <homepage rdf:resource="https://wiki.gnome.org/Apps/2048" />
+  <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/games-list" />
+  <download-page rdf:resource="http://download.gnome.org/sources/gnome-2048/" />
+  <bug-database rdf:resource="https://bugzilla.gnome.org/browse.cgi?product=gnome-2048" />
+  <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
+  <programming-language>Vala</programming-language>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Juan R. García Blanco</foaf:name>
+      <foaf:mbox rdf:resource="mailto:juanrgar@gmail.com" />
+      <gnome:userid>juanrgar</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+</Project>
