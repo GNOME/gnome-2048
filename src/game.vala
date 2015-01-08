@@ -114,7 +114,7 @@ public class Game : GLib.Object
     return false;
   }
 
-  public void reload_settings ()
+  public bool reload_settings ()
   {
     int n_rows = _settings.get_int ("rows");
     int n_cols = _settings.get_int ("cols");
@@ -128,7 +128,11 @@ public class Game : GLib.Object
       _init_background ();
 
       _grid = new Grid (_n_rows, _n_cols);
+
+      return true;
     }
+
+    return false;
   }
 
   private uint _upper_key (uint keyval)
