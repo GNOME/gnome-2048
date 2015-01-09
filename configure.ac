@@ -27,6 +27,7 @@ PKG_CHECK_MODULES(GNOME_2048, [
   gee-0.8 >= $GEE_REQUIRED
 ])
 
+AC_PATH_PROG([APPDATA_VALIDATE], [appdata-validate], [/bin/true])
 AC_PATH_PROG([DESKTOP_FILE_VALIDATE], [desktop-file-validate], [/bin/true])
 
 GLIB_COMPILE_RESOURCES=`$PKG_CONFIG --variable glib_compile_resources gio-2.0`
