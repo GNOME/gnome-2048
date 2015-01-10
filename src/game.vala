@@ -26,7 +26,8 @@ public class Game : GLib.Object
     MOVING_RIGHT,
     MOVING_LEFT,
     SHOWING_FIRST_TILE,
-    SHOWING_SECOND_TILE
+    SHOWING_SECOND_TILE,
+    RESTORING_TILES
   }
 
   private int BLANK_ROW_HEIGHT = 10;
@@ -52,6 +53,8 @@ public class Game : GLib.Object
 
   private GLib.Settings _settings;
 
+  private string _saved_path;
+
   public signal void finished ();
 
   public Game (GLib.Settings settings)
@@ -68,6 +71,8 @@ public class Game : GLib.Object
     _to_move = new Gee.LinkedList<TileMovement?> ();
     _to_hide = new Gee.LinkedList<TileMovement?> ();
     _to_show = new Gee.LinkedList<Tile?> ();
+
+    _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
 
     _state = GameState.STOPPED;
   }
@@ -91,6 +96,49 @@ public class Game : GLib.Object
     score = 0;
     _state = GameState.SHOWING_FIRST_TILE;
     _create_random_tile ();
+  }
+
+  public void save_game ()
+  {
+    string contents = "";
+
+    contents += _grid.save ();
+    contents += _score.to_string() + "\n";
+
+    try {
+      DirUtils.create_with_parents (Path.get_dirname (_saved_path), 0775);
+      FileUtils.set_contents (_saved_path, contents);
+      debug ("game saved successfully");
+    } catch (FileError e) {
+      warning ("Failed to save game: %s", e.message);
+    }
+  }
+
+  public bool restore_game ()
+  {
+    string contents;
+    string[] lines;
+
+    try {
+      FileUtils.get_contents (_saved_path, out contents);
+    } catch (FileError e) {
+      warning ("Failed to save game: %s", e.message);
+      return false;
+    }
+
+    if (!_grid.load (contents))
+      return false;
+
+    lines = contents.split ("\n");
+    score = (uint)int.parse (lines[lines.length-2]);
+
+    _n_rows = _grid.rows;
+    _n_cols = _grid.cols;
+    _init_background ();
+    _restore_foreground ();
+
+    debug ("game restored successfully");
+    return true;
   }
 
   public bool key_pressed (Gdk.EventKey event)
@@ -220,6 +268,7 @@ public class Game : GLib.Object
       _create_tile (tile);
       _to_show.add (tile);
       _show_tile (tile.pos);
+      _show_hide_trans.start ();
     }
   }
 
@@ -382,8 +431,6 @@ public class Game : GLib.Object
     trans.set_remove_on_complete (true);
     trans.set_duration (50);
     view.actor.add_transition ("show", trans);
-
-    _show_hide_trans.start ();
   }
 
   private void _move_tile (GridPosition from, GridPosition to)
@@ -463,9 +510,36 @@ public class Game : GLib.Object
     }
   }
 
+  private void _restore_foreground ()
+  {
+    uint val;
+    GridPosition pos;
+    Tile tile;
+
+    _create_show_hide_transition ();
+
+    for (int i = 0; i < _n_rows; i++) {
+      for (int j = 0; j < _n_cols; j++) {
+        val = _grid[i,j];
+        if (val != 0) {
+          pos = { i, j };
+          tile = { pos, val };
+          _create_tile (tile);
+          _to_show.add (tile);
+          _show_tile (pos);
+        }
+      }
+    }
+
+    if (_to_show.size > 0) {
+      _state = GameState.RESTORING_TILES;
+      _show_hide_trans.start ();
+    }
+  }
+
   private void _on_move_trans_stopped (bool is_finished)
   {
-    debug ("move animation stopped");
+    debug (@"move animation stopped; finished $is_finished");
     debug (@"$_grid");
 
     uint delta_score;
@@ -493,7 +567,7 @@ public class Game : GLib.Object
 
   private void _on_show_hide_trans_stopped (bool is_finished)
   {
-    debug ("show/hide animation stopped");
+    debug (@"show/hide animation stopped; finished $is_finished");
     debug (@"$_grid");
 
     _show_hide_trans.remove_all ();

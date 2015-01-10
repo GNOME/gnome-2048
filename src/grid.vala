@@ -18,24 +18,22 @@
 
 public class Grid : GLib.Object
 {
-  private int _n_rows;
-  private int _n_cols;
-
   private uint[,] _grid;
 
-  public Grid (int n_rows, int n_cols)
+  public Grid (int rows, int cols)
   {
-    Object ();
+    Object (rows: rows, cols: cols);
 
-    _n_rows = n_rows;
-    _n_cols = n_cols;
-
-    _grid = new uint[_n_rows, _n_cols];
+    _grid = new uint[rows, cols];
+    clear ();
   }
 
-  construct
-  {
-    clear ();
+  public int rows {
+    get; set;
+  }
+
+  public int cols {
+    get; set;
   }
 
   public void clear ()
@@ -87,16 +85,16 @@ public class Grid : GLib.Object
     to_hide.clear ();
     to_show.clear ();
 
-    for (int i = 0; i < _n_cols; i++) {
-      free = { _n_rows, i };
+    for (int i = 0; i < _cols; i++) {
+      free = { _rows, i };
 
-      for (int j = 0; j < _n_rows; j++) {
-        row = _n_rows - j - 1;
+      for (int j = 0; j < _rows; j++) {
+        row = _rows - j - 1;
         cur = { row, i };
         val = _grid[cur.row,cur.col];
 
         if (val == 0) {
-          if (free.row == _n_rows) {
+          if (free.row == _rows) {
             free.row = row;
           }
           continue;
@@ -120,7 +118,7 @@ public class Grid : GLib.Object
         if (has_match) {
           debug (@"matching tile found at $match");
 
-          if (free.row == _n_rows) {
+          if (free.row == _rows) {
             free.row = row; // temporarily
           }
           mov = { cur, free };
@@ -136,7 +134,7 @@ public class Grid : GLib.Object
           _grid[free.row,free.col] = val*2;
 
           free.row--;
-        } else if (free.row != _n_rows) {
+        } else if (free.row != _rows) {
           debug (@"moving $cur to $free");
 
           mov = { cur, free };
@@ -168,10 +166,10 @@ public class Grid : GLib.Object
     to_hide.clear ();
     to_show.clear ();
 
-    for (int i = 0; i < _n_cols; i++) {
+    for (int i = 0; i < _cols; i++) {
       free = { -1, i };
 
-      for (int j = 0; j < _n_rows; j++) {
+      for (int j = 0; j < _rows; j++) {
         row = j;
         cur = { row, i };
         val = _grid[cur.row,cur.col];
@@ -186,7 +184,7 @@ public class Grid : GLib.Object
         // search for matches
         match = { 0, 0 };
         has_match = false;
-        for (int k = row + 1; k < _n_rows; k++) {
+        for (int k = row + 1; k < _rows; k++) {
           uint k_val = _grid[k,cur.col];
 
           if (k_val != 0) {
@@ -249,10 +247,10 @@ public class Grid : GLib.Object
     to_hide.clear ();
     to_show.clear ();
 
-    for (int i = 0; i < _n_rows; i++) {
+    for (int i = 0; i < _rows; i++) {
       free = { i, -1 };
 
-      for (int j = 0; j < _n_cols; j++) {
+      for (int j = 0; j < _cols; j++) {
         col = j;
         cur = { i, col };
         val = _grid[cur.row,cur.col];
@@ -267,7 +265,7 @@ public class Grid : GLib.Object
         // search for matches
         match = { 0, 0 };
         has_match = false;
-        for (int k = col + 1; k < _n_rows; k++) {
+        for (int k = col + 1; k < _rows; k++) {
           uint k_val = _grid[cur.row,k];
 
           if (k_val != 0) {
@@ -330,16 +328,16 @@ public class Grid : GLib.Object
     to_hide.clear ();
     to_show.clear ();
 
-    for (int i = 0; i < _n_rows; i++) {
-      free = { i, _n_cols };
+    for (int i = 0; i < _rows; i++) {
+      free = { i, _cols };
 
-      for (int j = 0; j < _n_cols; j++) {
-        col = _n_cols - j - 1;
+      for (int j = 0; j < _cols; j++) {
+        col = _cols - j - 1;
         cur = { i, col };
         val = _grid[cur.row,cur.col];
 
         if (val == 0) {
-          if (free.col == _n_cols) {
+          if (free.col == _cols) {
             free.col = col;
           }
           continue;
@@ -363,7 +361,7 @@ public class Grid : GLib.Object
         if (has_match) {
           debug (@"matching tile found at $match");
 
-          if (free.col == _n_cols) {
+          if (free.col == _cols) {
             free.col = col; // temporarily
           }
           mov = { cur, free };
@@ -379,7 +377,7 @@ public class Grid : GLib.Object
           _grid[free.row,free.col] = val*2;
 
           free.col--;
-        } else if (free.col != _n_cols) {
+        } else if (free.col != _cols) {
           debug (@"moving $cur to $free");
 
           mov = { cur, free };
@@ -401,15 +399,15 @@ public class Grid : GLib.Object
     if (!_grid_is_full ())
       return false;
     else {
-      for (int i = 0; i < _n_rows; i++) {
-        for (int j = 0; j < _n_cols; j++) {
+      for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _cols; j++) {
           val = _grid[i,j];
 
-          if (i < (_n_rows - 1))
+          if (i < (_rows - 1))
             if (val == _grid[i+1,j])
               return false;
 
-          if (j < (_n_cols - 1))
+          if (j < (_cols - 1))
             if (val == _grid[i,j+1])
               return false;
         }
@@ -419,24 +417,102 @@ public class Grid : GLib.Object
     return true;
   }
 
-  public string to_string ()
+  public uint get (int row, int col)
+  {
+    if ((row >= _rows) || (col >= _cols))
+      return 0;
+
+    return _grid[row,col];
+  }
+
+  public string save ()
   {
     string ret = "";
 
-    for (uint i = 0; i < _n_rows; i++) {
-      ret += "\n";
-      for (uint j = 0; j < _n_cols; j++) {
-        ret += " " + _grid[i,j].to_string () + " ";
+    ret += _rows.to_string () + " ";
+    ret += _cols.to_string () + "\n";
+
+    ret += _convert_to_string ();
+
+    return ret;
+  }
+
+  public bool load (string content)
+  {
+    return _load_from_string (content);
+  }
+
+  public string to_string ()
+  {
+    string ret = "\n";
+    ret += _convert_to_string ();
+    return ret;
+  }
+
+  private string _convert_to_string ()
+  {
+    string ret = "";
+
+    for (uint i = 0; i < _rows; i++) {
+      for (uint j = 0; j < _cols; j++) {
+        ret += "%u%s".printf (_grid[i,j], (j == (_cols-1)) ? "\n" : " ");
       }
     }
 
     return ret;
   }
 
+  private bool _load_from_string (string contents)
+  {
+    int rows = 0;
+    int cols = 0;
+    string[] lines;
+    string[] tokens;
+    uint[,] grid;
+
+    lines = contents.split ("\n");
+
+    // check that at least it contains 2 rows
+    if (lines.length < 3)
+      return false;
+
+    tokens = lines[0].split (" ");
+    if (tokens.length != 2)
+      return false;
+
+    rows = int.parse (tokens[0]);
+    cols = int.parse (tokens[1]);
+
+    if ((rows < 2) || (cols < 2))
+      return false;
+    // we don't need to be strict here
+    if (lines.length < (rows+1))
+      return false;
+
+    grid = new uint[rows, cols];
+
+    for (int i = 0; i < rows; i++) {
+      tokens = lines[i+1].split (" ");
+      // we do need to be strict here
+      if (tokens.length != cols)
+        return false;
+
+      for (int j = 0; j < cols; j++) {
+        grid[i,j] = int.parse (tokens[j]);
+      }
+    }
+
+    _rows = rows;
+    _cols = cols;
+    _grid = grid;
+
+    return true;
+  }
+
   private bool _grid_is_full ()
   {
-    for (uint i = 0; i < _n_rows; i++) {
-      for (uint j = 0; j < _n_cols; j++) {
+    for (uint i = 0; i < _rows; i++) {
+      for (uint j = 0; j < _cols; j++) {
         if (_grid[i,j] == 0) {
           return false;
         }
@@ -448,8 +524,8 @@ public class Grid : GLib.Object
 
   private GridPosition _random_position ()
   {
-    GridPosition ret = { Random.int_range (0, (int)_n_rows),
-                         Random.int_range (0, (int)_n_cols) };
+    GridPosition ret = { Random.int_range (0, (int)_rows),
+                         Random.int_range (0, (int)_cols) };
 
     return ret;
   }

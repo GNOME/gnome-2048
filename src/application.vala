@@ -70,12 +70,15 @@ public class Application : Gtk.Application
     _create_about_dialog ();
     _create_preferences_dialog (builder);
 
-    _game.new_game ();
+    if (!_game.restore_game ())
+      _game.new_game ();
   }
 
   protected override void shutdown ()
   {
     base.shutdown ();
+
+    _game.save_game ();
 
     _settings.set_int ("window-width", _window_width);
     _settings.set_int ("window-height", _window_height);
