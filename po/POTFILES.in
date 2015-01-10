@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
+data/gnome-2048.appdata.xml.in
 data/gnome-2048.desktop.in
 [type: gettext/glade]data/mainwindow.ui
 [type: gettext/glade]data/menus.ui
