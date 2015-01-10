@@ -1,0 +1,116 @@
+# Brazilian Portuguese translation for gnome-2048.
+# Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Rafael Ferreira <rafael.f.f1@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-01-10 10:20+0000\n"
+"PO-Revision-Date: 2015-01-10 09:15-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.7.1\n"
+
+#: ../data/gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Obtenha o bloco 2048"
+
+#: ../data/gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "quebra-cabeça;puzzle;"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:1 ../src/application.vala:159
+msgid "New Game"
+msgstr "Novo jogo"
+
+#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Preferências"
+
+#: ../data/menus.ui.h:3
+msgid "Help"
+msgstr "Ajuda"
+
+#: ../data/menus.ui.h:4
+msgid "About"
+msgstr "Sobre"
+
+#: ../data/menus.ui.h:5
+msgid "Quit"
+msgstr "Sair"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Largura da janela"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Largura da janela."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Altura da janela"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Altura da janela."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Janela maximizada"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "O estado de janela maximizada."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Número de linhas"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Número de linhas na grade do jogo."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Número de colunas"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Número de grades na grade do jogo."
+
+#: ../data/preferences.ui.h:2
+msgid "Columns"
+msgstr "Colunas"
+
+#: ../data/preferences.ui.h:3
+msgid "Rows"
+msgstr "Linhas"
+
+#: ../data/preferences.ui.h:4
+msgid "Grid"
+msgstr "Grades"
+
+#: ../src/application.vala:118
+msgid "Game Over"
+msgstr "Fim de jogo"
+
+#: ../src/application.vala:181
+msgid "A clone of 2048 for GNOME"
+msgstr "Um colne do 2048 para o GNOME"
