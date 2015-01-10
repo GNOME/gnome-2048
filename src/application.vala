@@ -25,7 +25,6 @@ public class Application : Gtk.Application
   private Gtk.Button _new_game_button;
   private Gtk.AboutDialog _about_dialog;
   private Gtk.Dialog _preferences_dialog;
-  private Gtk.Dialog _scores_dialog;
   private Gtk.Label _score;
 
   private int _window_width;
@@ -70,7 +69,6 @@ public class Application : Gtk.Application
     _create_window (builder);
     _create_about_dialog ();
     _create_preferences_dialog (builder);
-    _create_scores_dialog (builder);
 
     _game.new_game ();
   }
@@ -118,7 +116,6 @@ public class Application : Gtk.Application
     });
     _game.finished.connect ((s) => {
       _header_bar.subtitle = _("Game Over");
-      _scores_dialog.present ();
       debug ("finished");
     });
   }
@@ -221,25 +218,6 @@ public class Application : Gtk.Application
 
     _settings.bind ("rows", builder.get_object ("rowsspin"), "value", GLib.SettingsBindFlags.DEFAULT);
     _settings.bind ("cols", builder.get_object ("colsspin"), "value", GLib.SettingsBindFlags.DEFAULT);
-  }
-
-  private void _create_scores_dialog (Gtk.Builder builder)
-  {
-    try {
-      builder.add_from_resource ("/org/gnome/gnome-2048/data/scoreboard.ui");
-    } catch (GLib.Error e) {
-      stderr.printf ("%s\n", e.message);
-    }
-
-    _scores_dialog = builder.get_object ("scoresdialog") as Gtk.Dialog;
-    _scores_dialog.set_transient_for (_window);
-
-    _scores_dialog.response.connect ((response_id) => {
-      _scores_dialog.hide_on_delete ();
-    });
-    _scores_dialog.delete_event.connect ((response_id) => {
-      return _scores_dialog.hide_on_delete ();
-    });
   }
 
   private void new_game_cb ()

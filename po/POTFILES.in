@@ -6,5 +6,4 @@ data/gnome-2048.desktop.in
 [type: gettext/glade]data/menus.ui
 data/org.gnome.2048.gschema.xml
 [type: gettext/glade]data/preferences.ui
-[type: gettext/glade]data/scoreboard.ui
 src/application.vala
