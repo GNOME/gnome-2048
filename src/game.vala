@@ -33,9 +33,6 @@ public class Game : GLib.Object
   private int BLANK_ROW_HEIGHT = 10;
   private int BLANK_COL_WIDTH = 10;
 
-  private int _n_rows;
-  private int _n_cols;
-
   private Grid _grid;
 
   private Clutter.Actor _view;
@@ -63,10 +60,9 @@ public class Game : GLib.Object
 
     _settings = settings;
 
-    _n_rows = _settings.get_int ("rows");
-    _n_cols = _settings.get_int ("cols");
-
-    _grid = new Grid (_n_rows, _n_cols);
+    int rows = _settings.get_int ("rows");
+    int cols = _settings.get_int ("cols");
+    _grid = new Grid (rows, cols);
 
     _to_move = new Gee.LinkedList<TileMovement?> ();
     _to_hide = new Gee.LinkedList<TileMovement?> ();
@@ -132,8 +128,6 @@ public class Game : GLib.Object
     lines = contents.split ("\n");
     score = (uint)int.parse (lines[lines.length-2]);
 
-    _n_rows = _grid.rows;
-    _n_cols = _grid.cols;
     _init_background ();
     _restore_foreground ();
 
@@ -164,18 +158,16 @@ public class Game : GLib.Object
 
   public bool reload_settings ()
   {
-    int n_rows = _settings.get_int ("rows");
-    int n_cols = _settings.get_int ("cols");
+    int rows = _settings.get_int ("rows");
+    int cols = _settings.get_int ("cols");
 
-    if ((n_rows != _n_rows) || (n_cols != _n_cols)) {
+    if ((rows != _grid.rows) || (cols != _grid.cols)) {
       _clear_foreground ();
       _clear_background ();
 
-      _n_rows = n_rows;
-      _n_cols = n_cols;
       _init_background ();
 
-      _grid = new Grid (_n_rows, _n_cols);
+      _grid = new Grid (rows, cols);
 
       return true;
     }
@@ -199,28 +191,30 @@ public class Game : GLib.Object
 
   private void _init_background ()
   {
+    int rows = _grid.rows;
+    int cols = _grid.cols;
     Clutter.Color background_color = Clutter.Color.from_string ("#babdb6");
     _view.set_background_color (background_color);
 
-    _background = new RoundedRectangle[_n_rows, _n_cols];
-    _foreground_cur = new TileView[_n_rows, _n_cols];
-    _foreground_nxt = new TileView[_n_rows, _n_cols];
+    _background = new RoundedRectangle[rows, cols];
+    _foreground_cur = new TileView[rows, cols];
+    _foreground_nxt = new TileView[rows, cols];
 
     float canvas_width = _view.width;
     float canvas_height = _view.height;
 
-    canvas_width -= (_n_cols + 1) * BLANK_COL_WIDTH;
-    canvas_height -= (_n_rows + 1) * BLANK_ROW_HEIGHT;
+    canvas_width -= (cols + 1) * BLANK_COL_WIDTH;
+    canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
 
-    float tile_width = canvas_width / _n_cols;
-    float tile_height = canvas_height / _n_rows;
+    float tile_width = canvas_width / cols;
+    float tile_height = canvas_height / rows;
 
     Clutter.Color color = Clutter.Color.from_string ("#ffffff");
 
-    for (int row = 0; row < _n_rows; row++) {
-      for (int col = 0; col < _n_cols; col++) {
-        float x = col * tile_width + (col+1) * BLANK_COL_WIDTH;
-        float y = row * tile_height + (row+1) * BLANK_ROW_HEIGHT;
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        float x = j * tile_width + (j+1) * BLANK_COL_WIDTH;
+        float y = i * tile_height + (i+1) * BLANK_ROW_HEIGHT;
 
         RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height, color);
 
@@ -228,24 +222,26 @@ public class Game : GLib.Object
         rect.canvas.invalidate ();
         rect.actor.show ();
 
-        _background[row,col] = rect;
+        _background[i,j] = rect;
       }
     }
   }
 
   private void _resize_view ()
   {
+    int rows = _grid.rows;
+    int cols = _grid.cols;
     float canvas_width = _view.width;
     float canvas_height = _view.height;
 
-    canvas_width -= (_n_cols + 1) * BLANK_COL_WIDTH;
-    canvas_height -= (_n_rows + 1) * BLANK_ROW_HEIGHT;
+    canvas_width -= (cols + 1) * BLANK_COL_WIDTH;
+    canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
 
-    float tile_width = canvas_width / _n_rows;
-    float tile_height = canvas_height / _n_cols;
+    float tile_width = canvas_width / rows;
+    float tile_height = canvas_height / cols;
 
-    for (int i = 0; i < _n_rows; i++) {
-      for (int j = 0; j < _n_cols; j++) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         float x = j * tile_width + (j+1) * BLANK_COL_WIDTH;
         float y = i * tile_height + (i+1) * BLANK_ROW_HEIGHT;
 
@@ -487,8 +483,11 @@ public class Game : GLib.Object
 
   private void _clear_background ()
   {
-    for (int i = 0; i < _n_rows; i++) {
-      for (int j = 0; j < _n_cols; j++) {
+    int rows = _grid.rows;
+    int cols = _grid.cols;
+
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         RoundedRectangle rect = _background[i,j];
         rect.actor.hide ();
         _view.remove_child (rect.actor);
@@ -498,8 +497,11 @@ public class Game : GLib.Object
 
   private void _clear_foreground ()
   {
-    for (int i = 0; i < _n_rows; i++) {
-      for (int j = 0; j < _n_cols; j++) {
+    int rows = _grid.rows;
+    int cols = _grid.cols;
+
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         if (_foreground_cur[i,j] != null) {
           TileView tile = _foreground_cur[i,j];
           tile.actor.hide ();
@@ -515,11 +517,13 @@ public class Game : GLib.Object
     uint val;
     GridPosition pos;
     Tile tile;
+    int rows = _grid.rows;
+    int cols = _grid.cols;
 
     _create_show_hide_transition ();
 
-    for (int i = 0; i < _n_rows; i++) {
-      for (int j = 0; j < _n_cols; j++) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         val = _grid[i,j];
         if (val != 0) {
           pos = { i, j };
