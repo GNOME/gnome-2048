@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-13 19:00+0200\n"
-"PO-Revision-Date: 2015-01-13 19:33+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
+"POT-Creation-Date: 2015-01-13 19:36+0200\n"
+"PO-Revision-Date: 2015-01-13 19:37+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -93,7 +93,7 @@ msgstr "עזרה"
 
 #: ../data/menus.ui.h:4
 msgid "About"
-msgstr "אל אודות"
+msgstr "על אודות"
 
 #: ../data/menus.ui.h:5
 msgid "Quit"
