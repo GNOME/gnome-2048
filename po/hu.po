@@ -1,0 +1,165 @@
+# Hungarian translation for gnome-2048.
+# Copyright (C) 2015 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-2048 package.
+#
+# Balázs Úr <urbalazs@gmail.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-01-18 06:47+0000\n"
+"PO-Revision-Date: 2015-01-18 19:48+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: ../data/gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/gnome-2048.appdata.xml.in.h:2 ../data/gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Szerezze meg a 2048-as csempét"
+
+#: ../data/gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Játsszon az erősen függőséget okozó 2048 játékkal. A GNOME 2048 a népszerű "
+"egyszemélyes kirakós játék klónja. A játékmenet a rácson elhelyezett számok "
+"egyesítéséből és a 2048-as csempe megszerzéséből áll."
+
+#: ../data/gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"A billentyűzet nyíl billentyűi használatával csúsztathatja a csempéket a "
+"kívánt irányba. Legyen óvatos: minden csempe a lehető legtávolabbi "
+"pozíciójába csúszik, nem lehet csak egyetlen csempét, oszlopot vagy sort "
+"csúsztatni. Az azonos értékű csempék egyesülnek, amikor az egyik a másikra "
+"lesz csúsztatva."
+
+#: ../data/gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Minden új megszerzett csempe növeli a pontszámát. Ha úgy érzi, hogy könnyen "
+"el tudta érni a 2048-as csempét, akkor sem hagyjuk, hogy megálljon. A játék "
+"itt nem ér véget, folytathatja a csempék egyesítését és a pontszáma növelését."
+
+#: ../data/gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Eredetileg Gabriele Cirulli készítette, és a 2048 játék az erős függőség "
+"okozása miatt szerzett ilyen nagy népszerűséget. Cirulli 2048 játéka viszont "
+"az 1024 játék klónja, valamint egyéb klónokból merített ötleteket is "
+"tartalmaz."
+
+#: ../data/gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;kirakó;fejtörő;"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:1 ../src/application.vala:162
+msgid "New Game"
+msgstr "Új játék"
+
+#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: ../data/menus.ui.h:3
+msgid "Help"
+msgstr "Súgó"
+
+#: ../data/menus.ui.h:4
+msgid "About"
+msgstr "Névjegy"
+
+#: ../data/menus.ui.h:5
+msgid "Quit"
+msgstr "Kilépés"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Ablakszélesség"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Az ablak szélessége."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Ablakmagasság"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Az ablak magassága."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Ablak teljes méretű"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Az ablak teljes méretű állapota."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Sorok száma"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "A játékrács sorainak száma."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Oszlopok száma"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "A játékrács oszlopainak száma."
+
+#: ../data/preferences.ui.h:2
+msgid "Columns"
+msgstr "Oszlopok"
+
+#: ../data/preferences.ui.h:3
+msgid "Rows"
+msgstr "Sorok"
+
+#: ../data/preferences.ui.h:4
+msgid "Grid"
+msgstr "Rács"
+
+#: ../src/application.vala:121
+msgid "Game Over"
+msgstr "Vége a játéknak"
+
+#: ../src/application.vala:184
+msgid "A clone of 2048 for GNOME"
+msgstr "A 2048 klónja a GNOME-hoz"
+
