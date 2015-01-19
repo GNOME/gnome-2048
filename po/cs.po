@@ -1,0 +1,163 @@
+# Czech translation for gnome-2048.
+# Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Marek Černocký <marek@manet.cz>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-01-18 18:51+0000\n"
+"PO-Revision-Date: 2015-01-19 01:13+0100\n"
+"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/gnome-2048.appdata.xml.in.h:2 ../data/gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Získejte kámen 2048"
+
+#: ../data/gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Zahrajte si vysoce návykovou hru 2048. GNOME 2048 je klon populární logické "
+"hry pro jednoho hráče. Hraní spočívá ve spojování čísel v mřížce a získání "
+"kamene 2048."
+
+#: ../data/gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Použijte šipky na klávesnici k přesunu všech kamenů požadovaným směrem. Ale "
+"pozor, všechny kameny se přesunou do své nejvzdálenější možné pozice, "
+"nemůžete přesunout jen jeden kámen nebo jen jeden řádek nebo sloupec. Kameny "
+"se stejnou hodnotou se spojí, když se přesunou jeden přes druhý."
+
+#: ../data/gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"S každým nově získaným kamenem navýšíte své skóre. Pokud si bude myslet, že "
+"můžete kámen 2048 získat snadno, stejně nepřestávejte. Hra zde nekončí, "
+"můžete pokračovat ve spojování kamenů a ve vylepšování svého skóre."
+
+#: ../data/gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Tato hra, původně vytvořená Gabrielem Cirullim, získala na popularitě díky "
+"tomu, že je velmi návyková. Cirulliho 2048 je pro změnu klon hry 1024 a "
+"zahrnuje nápady z dalších klonů."
+
+#: ../data/gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "logická;hra;hlavolam;"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:1 ../src/application.vala:162
+msgid "New Game"
+msgstr "Nová hra"
+
+#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Předvolby"
+
+#: ../data/menus.ui.h:3
+msgid "Help"
+msgstr "Nápověda"
+
+#: ../data/menus.ui.h:4
+msgid "About"
+msgstr "O aplikaci"
+
+#: ../data/menus.ui.h:5
+msgid "Quit"
+msgstr "Ukončit"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Šířka okna"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Šířka okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Výška okna"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Výška okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Okno maximalizováno"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Stav maximalizace okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Počet řádků"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Počet řádků herní mřížky."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Počet sloupců"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Počet sloupců herní mřížky."
+
+#: ../data/preferences.ui.h:2
+msgid "Columns"
+msgstr "Sloupců"
+
+#: ../data/preferences.ui.h:3
+msgid "Rows"
+msgstr "Řádků"
+
+#: ../data/preferences.ui.h:4
+msgid "Grid"
+msgstr "Mřížka"
+
+#: ../src/application.vala:121
+msgid "Game Over"
+msgstr "Konec hry"
+
+#: ../src/application.vala:184
+msgid "A clone of 2048 for GNOME"
+msgstr "Klon 2048 pro GNOME"
