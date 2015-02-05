@@ -1,0 +1,162 @@
+# Swedish translation for gnome-2048.
+# Copyright © 2015 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-01-14 06:47+0000\n"
+"PO-Revision-Date: 2015-01-15 23:27+0100\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.1\n"
+
+#: ../data/gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/gnome-2048.appdata.xml.in.h:2 ../data/gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Erhåll 2048-brickan"
+
+#: ../data/gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Spela det mycket beroendeframkallande spelet 2048. GNOME 2048 är en klon av "
+"det populära pusselspelet för en person. Spelet går ut på att slå ihop "
+"nummer i ett rutnät och erhålla 2048-brickan."
+
+#: ../data/gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Använd ditt tangentbords piltangenter för att glida alla brickor i den "
+"önskade riktningen. Var försiktig: alla brickor glider så långt som möjligt, "
+"du kan inte glida bara en rad eller en kolumn. Brickor med samma värde slås "
+"ihop då en av dem glider över den andra."
+
+#: ../data/gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Med varje ny bricka du erhåller ökar du din poäng. Om du tror att du lätt "
+"kan få 2048-brickan behöver du inte låta det stoppa dig. Spelet slutar inte "
+"där, du kan fortsätta slå ihop brickor och förbättra din poäng."
+
+#: ../data/gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"2048 skapades ursprungligen av Gabriele Cirulli och har uppnått hög "
+"popularitet eftersom det är så beroendeframkallande. Cirullis 2048 är i sin "
+"tur en klon av spelet 1024 och inkluderar idéer från andra kloner."
+
+#: ../data/gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "pussel;"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:1 ../src/application.vala:162
+msgid "New Game"
+msgstr "Nytt spel"
+
+#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: ../data/menus.ui.h:3
+msgid "Help"
+msgstr "Hjälp"
+
+#: ../data/menus.ui.h:4
+msgid "About"
+msgstr "Om"
+
+#: ../data/menus.ui.h:5
+msgid "Quit"
+msgstr "Avsluta"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Fönsterbredd"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Fönsterbredd."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Fönsterhöjd"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Fönsterhöjd."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Fönster maximerat"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Maximeringstillstånd för fönster."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Antal rader"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Antal rader i spelets rutnät."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Antal kolumner"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Antal kolumner i spelets rutnät."
+
+#: ../data/preferences.ui.h:2
+msgid "Columns"
+msgstr "Kolumner"
+
+#: ../data/preferences.ui.h:3
+msgid "Rows"
+msgstr "Rader"
+
+#: ../data/preferences.ui.h:4
+msgid "Grid"
+msgstr "Rutnät"
+
+#: ../src/application.vala:121
+msgid "Game Over"
+msgstr "Spelet är slut"
+
+#: ../src/application.vala:184
+msgid "A clone of 2048 for GNOME"
+msgstr "En 2048-klon för GNOME"
