@@ -417,7 +417,7 @@ public class Grid : GLib.Object
     return true;
   }
 
-  public uint get (int row, int col)
+  public new uint get (int row, int col)
   {
     if ((row >= _rows) || (col >= _cols))
       return 0;
