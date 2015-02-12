@@ -59,11 +59,17 @@ public class RoundedRectangle : GLib.Object
 
   public void resize (float x, float y, float width, float height)
   {
+    _actor.save_easing_state ();
     _actor.x = x;
     _actor.y = y;
     _actor.width = width;
     _actor.height = height;
-    _canvas.invalidate ();
+    _actor.restore_easing_state ();
+    _actor.transitions_completed.connect ((s) => {
+      _canvas.width = (int)width;
+      _canvas.height = (int)height;
+      _canvas.invalidate ();
+    });
   }
 
   protected virtual bool _draw (Cairo.Context ctx, int width, int height)
@@ -103,7 +109,11 @@ public class TileView : RoundedRectangle
     _text = new Clutter.Text ();
     _text.set_font_name ("Sans 22");
     _text.set_color (Clutter.Color.from_string ("#ffffff"));
+    _text.text = val.to_string ();
+    _text.x = _actor.width/2.0f - _text.width/2.0f;
+    _text.y = _actor.height/2.0f - _text.height/2.0f;
     _actor.add_child (_text);
+    _text.show ();
 
     _value = val;
     _color = _pick_color ();
@@ -113,16 +123,17 @@ public class TileView : RoundedRectangle
     get; set; default = 2;
   }
 
-  protected override bool _draw (Cairo.Context ctx, int width, int height)
+  public void resize (float x, float y, float width, float height)
   {
-    base._draw (ctx, width, height);
+    base.resize (x, y, width, height);
 
-    _text.text = value.to_string ();
-    _text.x = _actor.width/2.0f - _text.width/2.0f;
-    _text.y = _actor.height/2.0f - _text.height/2.0f;
-    _text.show ();
-
-    return true;
+    _actor.transitions_completed.connect ((s) => {
+      _text.save_easing_state ();
+      _text.text = value.to_string ();
+      _text.x = _actor.width/2.0f - _text.width/2.0f;
+      _text.y = _actor.height/2.0f - _text.height/2.0f;
+      _text.restore_easing_state ();
+    });
   }
 
   private Clutter.Color _pick_color ()
