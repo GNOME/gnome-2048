@@ -118,7 +118,7 @@ public class Game : GLib.Object
     try {
       FileUtils.get_contents (_saved_path, out contents);
     } catch (FileError e) {
-      warning ("Failed to save game: %s", e.message);
+      warning ("Failed to restore game: %s", e.message);
       return false;
     }
 
