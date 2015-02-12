@@ -572,6 +572,13 @@ public class Game : GLib.Object
   private void _on_show_hide_trans_stopped (bool is_finished)
   {
     debug (@"show/hide animation stopped; finished $is_finished");
+
+    if (_show_hide_trans.direction == Clutter.TimelineDirection.FORWARD) {
+      _show_hide_trans.direction = Clutter.TimelineDirection.BACKWARD;
+      _show_hide_trans.start ();
+      return;
+    }
+
     debug (@"$_grid");
 
     _show_hide_trans.remove_all ();
@@ -605,8 +612,6 @@ public class Game : GLib.Object
     _show_hide_trans = new Clutter.TransitionGroup ();
     _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
     _show_hide_trans.set_duration (100);
-    _show_hide_trans.set_auto_reverse (true);
-    _show_hide_trans.set_repeat_count (1);
   }
 
   private void _finish_move ()
