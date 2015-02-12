@@ -128,6 +128,8 @@ public class Game : GLib.Object
     lines = contents.split ("\n");
     score = (uint)int.parse (lines[lines.length-2]);
 
+    if (_background != null)
+      _clear_background ();
     _init_background ();
     _restore_foreground ();
 
@@ -163,11 +165,12 @@ public class Game : GLib.Object
 
     if ((rows != _grid.rows) || (cols != _grid.cols)) {
       _clear_foreground ();
+
       _clear_background ();
 
-      _init_background ();
-
       _grid = new Grid (rows, cols);
+
+      _init_background ();
 
       return true;
     }
@@ -223,6 +226,8 @@ public class Game : GLib.Object
         rect.actor.show ();
 
         _background[i,j] = rect;
+        _foreground_cur[i,j] = null;
+        _foreground_nxt[i,j] = null;
       }
     }
   }
@@ -507,6 +512,7 @@ public class Game : GLib.Object
           tile.actor.hide ();
           _view.remove_child (tile.actor);
           _foreground_cur[i,j] = null;
+          _foreground_nxt[i,j] = null;
         }
       }
     }
