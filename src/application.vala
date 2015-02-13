@@ -122,7 +122,7 @@ public class Application : Gtk.Application
       debug ("finished");
     });
     _game.target_value_reached.connect ((s, v) => {
-      _header_bar.subtitle = _("Congratulations!!");
+      _header_bar.subtitle = _("Congratulations!");
       debug ("target value reached");
     });
   }
