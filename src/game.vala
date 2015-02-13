@@ -52,6 +52,8 @@ public class Game : GLib.Object
 
   private string _saved_path;
 
+  private uint _resize_view_id;
+
   public signal void finished ();
 
   public Game (GLib.Settings settings)
@@ -257,6 +259,27 @@ public class Game : GLib.Object
         }
       }
     }
+
+    if (_resize_view_id == 0)
+      _resize_view_id = Clutter.Threads.Timeout.add (1000, _idle_resize_view);
+  }
+
+  private bool _idle_resize_view ()
+  {
+    int rows = _grid.rows;
+    int cols = _grid.cols;
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        _background[i,j].idle_resize ();
+
+        if (_foreground_cur[i,j] != null) {
+          _foreground_cur[i,j].idle_resize ();
+        }
+      }
+    }
+
+    _resize_view_id = 0;
+    return false;
   }
 
   private void _create_random_tile ()

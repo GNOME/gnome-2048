@@ -21,7 +21,6 @@ public class RoundedRectangle : GLib.Object
   protected Clutter.Actor _actor;
   protected Clutter.Canvas _canvas;
   protected Clutter.Color? _color;
-  protected uint _resize_id;
 
   public RoundedRectangle (float x, float y, float width, float height, Clutter.Color? color)
   {
@@ -45,8 +44,7 @@ public class RoundedRectangle : GLib.Object
 
   private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
   {
-    if (_resize_id == 0)
-      Clutter.Threads.Timeout.add (1000, _idle_resize);
+    debug ("allocation changed");
   }
 
   public Clutter.Actor actor {
@@ -73,12 +71,9 @@ public class RoundedRectangle : GLib.Object
     _actor.height = height;
   }
 
-  protected virtual bool _idle_resize ()
+  public void idle_resize ()
   {
     _canvas.invalidate ();
-    _resize_id = 0;
-
-    return false;
   }
 
   protected virtual bool _draw (Cairo.Context ctx, int width, int height)
@@ -133,14 +128,12 @@ public class TileView : RoundedRectangle
     get; set; default = 2;
   }
 
-  protected override bool _idle_resize ()
+  public new void idle_resize ()
   {
-    base._idle_resize ();
+    base.idle_resize ();
 
     _text.x = _actor.width/2.0f - _text.width/2.0f;
     _text.y = _actor.height/2.0f - _text.height/2.0f;
-
-    return false;
   }
 
   private Clutter.Color _pick_color ()
