@@ -242,8 +242,8 @@ public class Game : GLib.Object
     canvas_width -= (cols + 1) * BLANK_COL_WIDTH;
     canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
 
-    float tile_width = canvas_width / rows;
-    float tile_height = canvas_height / cols;
+    float tile_width = canvas_width / cols;
+    float tile_height = canvas_height / rows;
 
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
