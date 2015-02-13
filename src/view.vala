@@ -21,6 +21,7 @@ public class RoundedRectangle : GLib.Object
   protected Clutter.Actor _actor;
   protected Clutter.Canvas _canvas;
   protected Clutter.Color? _color;
+  protected uint _resize_id;
 
   public RoundedRectangle (float x, float y, float width, float height, Clutter.Color? color)
   {
@@ -37,8 +38,15 @@ public class RoundedRectangle : GLib.Object
     _actor.x = x;
     _actor.y = y;
     _actor.set_pivot_point (0.5f, 0.5f);
+    _actor.allocation_changed.connect (_on_allocation_changed);
 
     _canvas.draw.connect (_draw);
+  }
+
+  private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
+  {
+    if (_resize_id == 0)
+      Clutter.Threads.Timeout.add (1000, _idle_resize);
   }
 
   public Clutter.Actor actor {
@@ -59,17 +67,18 @@ public class RoundedRectangle : GLib.Object
 
   public void resize (float x, float y, float width, float height)
   {
-    _actor.save_easing_state ();
     _actor.x = x;
     _actor.y = y;
     _actor.width = width;
     _actor.height = height;
-    _actor.restore_easing_state ();
-    _actor.transitions_completed.connect ((s) => {
-      _canvas.width = (int)width;
-      _canvas.height = (int)height;
-      _canvas.invalidate ();
-    });
+  }
+
+  protected virtual bool _idle_resize ()
+  {
+    _canvas.invalidate ();
+    _resize_id = 0;
+
+    return false;
   }
 
   protected virtual bool _draw (Cairo.Context ctx, int width, int height)
@@ -109,31 +118,29 @@ public class TileView : RoundedRectangle
     _text = new Clutter.Text ();
     _text.set_font_name ("Sans 22");
     _text.set_color (Clutter.Color.from_string ("#ffffff"));
-    _text.text = val.to_string ();
-    _text.x = _actor.width/2.0f - _text.width/2.0f;
-    _text.y = _actor.height/2.0f - _text.height/2.0f;
     _actor.add_child (_text);
-    _text.show ();
 
     _value = val;
     _color = _pick_color ();
+
+    _text.text = val.to_string ();
+    _text.x = _actor.width/2.0f - _text.width/2.0f;
+    _text.y = _actor.height/2.0f - _text.height/2.0f;
+    _text.show ();
   }
 
   public uint value {
     get; set; default = 2;
   }
 
-  public void resize (float x, float y, float width, float height)
+  protected override bool _idle_resize ()
   {
-    base.resize (x, y, width, height);
+    base._idle_resize ();
 
-    _actor.transitions_completed.connect ((s) => {
-      _text.save_easing_state ();
-      _text.text = value.to_string ();
-      _text.x = _actor.width/2.0f - _text.width/2.0f;
-      _text.y = _actor.height/2.0f - _text.height/2.0f;
-      _text.restore_easing_state ();
-    });
+    _text.x = _actor.width/2.0f - _text.width/2.0f;
+    _text.y = _actor.height/2.0f - _text.height/2.0f;
+
+    return false;
   }
 
   private Clutter.Color _pick_color ()
