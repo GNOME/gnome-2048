@@ -146,6 +146,11 @@ public class Application : Gtk.Application
     _window.configure_event.connect (window_configure_event_cb);
     _window.window_state_event.connect (window_state_event_cb);
 
+    Gdk.Geometry geom = Gdk.Geometry ();
+    geom.min_height = _window.default_height;
+    geom.min_width = _window.default_width;
+    _window.set_geometry_hints (_window, geom, Gdk.WindowHints.MIN_SIZE);
+
     _window.show_all ();
   }
 
