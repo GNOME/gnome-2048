@@ -25,5 +25,10 @@
       <summary>Number of columns</summary>
       <description>Game grid number of columns.</description>
     </key>
+    <key name="target-value" type="i">
+      <default>32</default>
+      <summary>Target value</summary>
+      <description>Tile value at which user is congratulated.</description>
+    </key>
   </schema>
 </schemalist>

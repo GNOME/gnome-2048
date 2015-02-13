@@ -26,6 +26,7 @@ public class Grid : GLib.Object
 
     _grid = new uint[rows, cols];
     clear ();
+    _target_value = 0;
   }
 
   public int rows {
@@ -33,6 +34,14 @@ public class Grid : GLib.Object
   }
 
   public int cols {
+    get; set;
+  }
+
+  public uint target_value {
+    get; set;
+  }
+
+  public bool target_value_reached {
     get; set;
   }
 
@@ -62,6 +71,7 @@ public class Grid : GLib.Object
 
       if (_grid[pos.row,pos.col] == 0) {
         _grid[pos.row,pos.col] = val;
+        _check_target_value_reached (val);
         tile = { pos, val };
         return true;
       }
@@ -132,6 +142,7 @@ public class Grid : GLib.Object
           _grid[cur.row,cur.col] = 0;
           _grid[match.row,match.col] = 0;
           _grid[free.row,free.col] = val*2;
+          _check_target_value_reached (val*2);
 
           free.row--;
         } else if (free.row != _rows) {
@@ -213,6 +224,7 @@ public class Grid : GLib.Object
           _grid[cur.row,cur.col] = 0;
           _grid[match.row,match.col] = 0;
           _grid[free.row,free.col] = val*2;
+          _check_target_value_reached (val*2);
 
           free.row++;
         } else if (free.row != -1) {
@@ -294,6 +306,7 @@ public class Grid : GLib.Object
           _grid[cur.row,cur.col] = 0;
           _grid[match.row,match.col] = 0;
           _grid[free.row,free.col] = val*2;
+          _check_target_value_reached (val*2);
 
           free.col++;
         } else if (free.col != -1) {
@@ -375,6 +388,7 @@ public class Grid : GLib.Object
           _grid[cur.row,cur.col] = 0;
           _grid[match.row,match.col] = 0;
           _grid[free.row,free.col] = val*2;
+          _check_target_value_reached (val*2);
 
           free.col--;
         } else if (free.col != _cols) {
@@ -528,6 +542,13 @@ public class Grid : GLib.Object
                          Random.int_range (0, (int)_cols) };
 
     return ret;
+  }
+
+  private void _check_target_value_reached (uint val)
+  {
+    if (target_value != 0)
+      if (val == target_value)
+        target_value_reached = true;
   }
 }
 

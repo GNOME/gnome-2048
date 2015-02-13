@@ -55,6 +55,7 @@ public class Game : GLib.Object
   private uint _resize_view_id;
 
   public signal void finished ();
+  public signal void target_value_reached (uint val);
 
   public Game (GLib.Settings settings)
   {
@@ -65,6 +66,9 @@ public class Game : GLib.Object
     int rows = _settings.get_int ("rows");
     int cols = _settings.get_int ("cols");
     _grid = new Grid (rows, cols);
+
+    uint target_value = _settings.get_int ("target-value");
+    _grid.target_value = target_value;
 
     _to_move = new Gee.LinkedList<TileMovement?> ();
     _to_hide = new Gee.LinkedList<TileMovement?> ();
@@ -657,6 +661,12 @@ public class Game : GLib.Object
     _to_hide.clear ();
     _to_move.clear ();
     _to_show.clear ();
+
+    if (_grid.target_value_reached) {
+      target_value_reached (_grid.target_value);
+      _grid.target_value_reached = false;
+      _grid.target_value = 0;
+    }
 
     if (_grid.is_finished ())
       finished ();
