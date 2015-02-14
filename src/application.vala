@@ -25,6 +25,8 @@ public class Application : Gtk.Application
   private Gtk.Button _new_game_button;
   private Gtk.AboutDialog _about_dialog;
   private Gtk.Dialog _preferences_dialog;
+  private Gtk.Dialog _congrats_dialog;
+  private Gtk.Label _congrats_message;
   private Gtk.Label _score;
 
   private int _window_width;
@@ -69,6 +71,7 @@ public class Application : Gtk.Application
     _create_window (builder);
     _create_about_dialog ();
     _create_preferences_dialog (builder);
+    _create_congrats_dialog (builder);
 
     if (!_game.restore_game ())
       _game.new_game ();
@@ -122,7 +125,12 @@ public class Application : Gtk.Application
       debug ("finished");
     });
     _game.target_value_reached.connect ((s, v) => {
-      _header_bar.subtitle = _("Congratulations!");
+      if (_settings.get_boolean ("do-congrat")) {
+        string message = @"You have obtained the $v tile";
+        _congrats_message.set_text (message);
+        _congrats_dialog.present ();
+        _settings.set_boolean ("do-congrat", false);
+      }
       debug ("target value reached");
     });
   }
@@ -230,6 +238,30 @@ public class Application : Gtk.Application
 
     _settings.bind ("rows", builder.get_object ("rowsspin"), "value", GLib.SettingsBindFlags.DEFAULT);
     _settings.bind ("cols", builder.get_object ("colsspin"), "value", GLib.SettingsBindFlags.DEFAULT);
+    _settings.bind ("do-congrat", builder.get_object ("congratswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
+  }
+
+  private void _create_congrats_dialog (Gtk.Builder builder)
+  {
+    try {
+      builder.add_from_resource ("/org/gnome/gnome-2048/data/congrats.ui");
+    } catch (GLib.Error e) {
+      stderr.printf ("%s\n", e.message);
+    }
+
+    _congrats_dialog = builder.get_object ("congratsdialog") as Gtk.Dialog;
+    _congrats_dialog.set_transient_for (_window);
+
+    _congrats_dialog.response.connect ((response_id) => {
+      if (response_id == 0)
+        _game.new_game ();
+      _congrats_dialog.hide ();
+    });
+    _congrats_dialog.delete_event.connect ((response_id) => {
+      return _congrats_dialog.hide_on_delete ();
+    });
+
+    _congrats_message = builder.get_object ("messagelabel") as Gtk.Label;
   }
 
   private void new_game_cb ()

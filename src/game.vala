@@ -67,8 +67,7 @@ public class Game : GLib.Object
     int cols = _settings.get_int ("cols");
     _grid = new Grid (rows, cols);
 
-    uint target_value = _settings.get_int ("target-value");
-    _grid.target_value = target_value;
+    _settings.bind ("target-value", _grid, "target_value", GLib.SettingsBindFlags.DEFAULT);
 
     _to_move = new Gee.LinkedList<TileMovement?> ();
     _to_hide = new Gee.LinkedList<TileMovement?> ();
@@ -665,7 +664,6 @@ public class Game : GLib.Object
     if (_grid.target_value_reached) {
       target_value_reached (_grid.target_value);
       _grid.target_value_reached = false;
-      _grid.target_value = 0;
     }
 
     if (_grid.is_finished ())

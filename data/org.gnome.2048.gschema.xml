@@ -26,9 +26,14 @@
       <description>Game grid number of columns.</description>
     </key>
     <key name="target-value" type="i">
-      <default>32</default>
+      <default>2048</default>
       <summary>Target value</summary>
       <description>Tile value at which user is congratulated.</description>
+    </key>
+    <key name="do-congrat" type="b">
+      <default>true</default>
+      <summary>Congrat on target tile</summary>
+      <description>Whether the user shall be contratulated on obtaining target tile.</description>
     </key>
   </schema>
 </schemalist>
