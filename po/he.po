@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-13 19:36+0200\n"
-"PO-Revision-Date: 2015-01-13 19:37+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2015-02-14 19:19+0200\n"
+"PO-Revision-Date: 2015-02-14 19:19+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "פאזל;לוח;"
 msgid "gnome-2048"
 msgstr "gnome-2048"
 
-#: ../data/menus.ui.h:1 ../src/application.vala:162
+#: ../data/menus.ui.h:1 ../src/application.vala:179
 msgid "New Game"
 msgstr "משחק חדש"
 
@@ -139,6 +139,22 @@ msgstr "Number of columns"
 msgid "Game grid number of columns."
 msgstr "Game grid number of columns."
 
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Target value"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Tile value at which user is congratulated."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Congrat on target tile"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be contratulated on obtaining target tile."
+msgstr "Whether the user shall be contratulated on obtaining target tile."
+
 #: ../data/preferences.ui.h:2
 msgid "Columns"
 msgstr "עמודות"
@@ -151,10 +167,18 @@ msgstr "שורות"
 msgid "Grid"
 msgstr "רשת"
 
-#: ../src/application.vala:121
+#: ../data/preferences.ui.h:5
+msgid "Display congrats"
+msgstr "הצגת ברכות"
+
+#: ../data/preferences.ui.h:6
+msgid "Interface"
+msgstr "ממשק"
+
+#: ../src/application.vala:124
 msgid "Game Over"
 msgstr "המשחק הסתיים"
 
-#: ../src/application.vala:184
+#: ../src/application.vala:201
 msgid "A clone of 2048 for GNOME"
 msgstr "שיבוט של 2048 עבור GNOME"
