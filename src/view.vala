@@ -177,6 +177,23 @@ public class ColorPalette : GLib.Object
 
   public Clutter.Color pick_color (uint val)
   {
-    return _palette.get (val);
+    Clutter.Color color;
+
+    if (_palette.has_key (val)) {
+      color = _palette.get (val);
+    } else {
+      uint norm_val;
+      uint8 sbits;
+
+      norm_val = val / 2048;
+      color = _palette.get (norm_val);
+
+      sbits = (uint8)(val % 7);
+      color.red <<= sbits;
+      color.green <<= sbits;
+      color.blue <<= sbits;
+    }
+
+    return color;
   }
 }
