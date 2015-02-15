@@ -28,6 +28,7 @@ public class Application : Gtk.Application
   private Gtk.Dialog _congrats_dialog;
   private Gtk.Label _congrats_message;
   private Gtk.Label _score;
+  private Gtk.ComboBoxText _grid_size_combo;
 
   private int _window_width;
   private int _window_height;
@@ -229,18 +230,32 @@ public class Application : Gtk.Application
     _preferences_dialog = builder.get_object ("preferencesdialog") as Gtk.Dialog;
     _preferences_dialog.set_transient_for (_window);
 
+    _grid_size_combo = builder.get_object ("gridsizecombo") as Gtk.ComboBoxText;
+
     _preferences_dialog.response.connect ((response_id) => {
       _preferences_dialog.hide_on_delete ();
     });
     _preferences_dialog.delete_event.connect ((response_id) => {
-      bool settings_changed = _game.reload_settings ();
+      int grid_size;
+      int rows, cols;
+      bool settings_changed;
+
+      grid_size = _grid_size_combo.get_active ();
+      if (grid_size == 0) {
+        rows = cols = 4;
+      } else {
+        rows = cols = 5;
+      }
+
+      _settings.set_int ("rows", rows);
+      _settings.set_int ("cols", cols);
+
+      settings_changed = _game.reload_settings ();
       if (settings_changed)
         _game.new_game ();
       return _preferences_dialog.hide_on_delete ();
     });
 
-    _settings.bind ("rows", builder.get_object ("rowsspin"), "value", GLib.SettingsBindFlags.DEFAULT);
-    _settings.bind ("cols", builder.get_object ("colsspin"), "value", GLib.SettingsBindFlags.DEFAULT);
     _settings.bind ("do-congrat", builder.get_object ("congratswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
   }
 
@@ -281,6 +296,20 @@ public class Application : Gtk.Application
 
   private void preferences_cb ()
   {
+    int grid_size;
+    int rows, cols;
+
+    rows = _settings.get_int ("rows");
+    cols = _settings.get_int ("cols");
+
+    if (rows == 4) {
+      grid_size = 0;
+    } else {
+      grid_size = 1;
+    }
+
+    _grid_size_combo.set_active (grid_size);
+
     _preferences_dialog.present ();
   }
 
