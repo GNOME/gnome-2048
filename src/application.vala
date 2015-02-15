@@ -33,6 +33,9 @@ public class Application : Gtk.Application
   private int _window_height;
   private bool _window_maximized;
 
+  private int WINDOW_MINIMUM_SIZE_HEIGHT = 600;
+  private int WINDOW_MINIMUM_SIZE_WIDTH = 600;
+
   private Game _game;
 
   private const GLib.ActionEntry[] action_entries =
@@ -159,8 +162,8 @@ public class Application : Gtk.Application
     _window.window_state_event.connect (window_state_event_cb);
 
     Gdk.Geometry geom = Gdk.Geometry ();
-    geom.min_height = _window.default_height;
-    geom.min_width = _window.default_width;
+    geom.min_height = WINDOW_MINIMUM_SIZE_HEIGHT;
+    geom.min_width = WINDOW_MINIMUM_SIZE_WIDTH;
     _window.set_geometry_hints (_window, geom, Gdk.WindowHints.MIN_SIZE);
 
     _window.show_all ();
