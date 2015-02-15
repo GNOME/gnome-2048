@@ -33,7 +33,7 @@
     <key name="do-congrat" type="b">
       <default>true</default>
       <summary>Congrat on target tile</summary>
-      <description>Whether the user shall be contratulated on obtaining target tile.</description>
+      <description>Whether the user shall be congratulated on obtaining target tile.</description>
     </key>
   </schema>
 </schemalist>
