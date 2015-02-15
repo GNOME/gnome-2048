@@ -73,7 +73,8 @@ public class RoundedRectangle : GLib.Object
 
   public void idle_resize ()
   {
-    _canvas.invalidate ();
+    if (!_canvas.set_size ((int)Math.ceilf (_actor.width), (int)Math.ceilf (_actor.height)))
+      _canvas.invalidate ();
   }
 
   protected virtual bool _draw (Cairo.Context ctx, int width, int height)
@@ -104,36 +105,41 @@ public class RoundedRectangle : GLib.Object
 
 public class TileView : RoundedRectangle
 {
-  private Clutter.Text _text;
-
   public TileView (float x, float y, float width, float height, uint val)
   {
     base (x, y, width, height, null);
 
-    _text = new Clutter.Text ();
-    _text.set_font_name ("Sans 22");
-    _text.set_color (Clutter.Color.from_string ("#ffffff"));
-    _actor.add_child (_text);
-
     _value = val;
     _color = _pick_color ();
-
-    _text.text = val.to_string ();
-    _text.x = _actor.width/2.0f - _text.width/2.0f;
-    _text.y = _actor.height/2.0f - _text.height/2.0f;
-    _text.show ();
   }
 
   public uint value {
     get; set; default = 2;
   }
 
-  public new void idle_resize ()
-  {
-    base.idle_resize ();
 
-    _text.x = _actor.width/2.0f - _text.width/2.0f;
-    _text.y = _actor.height/2.0f - _text.height/2.0f;
+  protected override bool _draw (Cairo.Context ctx, int width, int height)
+  {
+    Pango.Rectangle logical_rect;
+    Pango.Layout layout;
+    Pango.FontDescription font_desc;
+
+    base._draw (ctx, width, height);
+
+    ctx.set_source_rgb (255, 255, 255);
+
+    layout = Pango.cairo_create_layout (ctx);
+    font_desc = Pango.FontDescription.from_string ("Sans Bold %dpx".printf (height / 4));
+    layout.set_font_description (font_desc);
+
+    layout.set_text (value.to_string(), -1);
+
+    layout.get_extents (null, out logical_rect);
+    ctx.move_to ((width / 2) - (logical_rect.width / 2 / Pango.SCALE),
+                 (height / 2) - (logical_rect.height / 2 / Pango.SCALE));
+    Pango.cairo_show_layout (ctx, layout);
+
+    return false;
   }
 
   private Clutter.Color _pick_color ()
