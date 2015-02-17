@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-14 19:19+0200\n"
-"PO-Revision-Date: 2015-02-14 19:19+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
+"POT-Creation-Date: 2015-02-17 02:07+0200\n"
+"PO-Revision-Date: 2015-02-17 02:08+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= (n!=1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "ברכות!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:183
+msgid "New Game"
+msgstr "משחק חדש"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "להמשיך לשחק"
 
 #: ../data/gnome-2048.appdata.xml.in.h:1
 msgid "GNOME 2048"
@@ -78,10 +90,6 @@ msgstr "פאזל;לוח;"
 #: ../data/mainwindow.ui.h:1
 msgid "gnome-2048"
 msgstr "gnome-2048"
-
-#: ../data/menus.ui.h:1 ../src/application.vala:179
-msgid "New Game"
-msgstr "משחק חדש"
 
 #: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
 msgid "Preferences"
@@ -152,33 +160,38 @@ msgid "Congrat on target tile"
 msgstr "Congrat on target tile"
 
 #: ../data/org.gnome.2048.gschema.xml.h:14
-msgid "Whether the user shall be contratulated on obtaining target tile."
-msgstr "Whether the user shall be contratulated on obtaining target tile."
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Whether the user shall be congratulated on obtaining target tile."
 
 #: ../data/preferences.ui.h:2
-msgid "Columns"
-msgstr "עמודות"
+msgid "Grid size"
+msgstr "גודל רשת"
 
 #: ../data/preferences.ui.h:3
-msgid "Rows"
-msgstr "שורות"
+msgid "4 x 4"
+msgstr "4 x 4"
 
 #: ../data/preferences.ui.h:4
-msgid "Grid"
-msgstr "רשת"
+msgid "5 x 5"
+msgstr "5 x 5"
 
 #: ../data/preferences.ui.h:5
 msgid "Display congrats"
 msgstr "הצגת ברכות"
 
-#: ../data/preferences.ui.h:6
-msgid "Interface"
-msgstr "ממשק"
-
-#: ../src/application.vala:124
+#: ../src/application.vala:128
 msgid "Game Over"
 msgstr "המשחק הסתיים"
 
-#: ../src/application.vala:201
+#: ../src/application.vala:205
 msgid "A clone of 2048 for GNOME"
 msgstr "שיבוט של 2048 עבור GNOME"
+
+#~ msgid "Columns"
+#~ msgstr "עמודות"
+
+#~ msgid "Rows"
+#~ msgstr "שורות"
+
+#~ msgid "Interface"
+#~ msgstr "ממשק"
