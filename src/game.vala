@@ -257,9 +257,11 @@ public class Game : GLib.Object
 
         _background[i,j].resize (x, y, tile_width, tile_height);
 
-        if (_foreground_cur[i,j] != null) {
+        if (_foreground_cur[i,j] != null)
           _foreground_cur[i,j].resize (x, y, tile_width, tile_height);
-        }
+
+        if (_foreground_nxt[i,j] != null)
+          _foreground_nxt[i,j].resize (x, y, tile_width, tile_height);
       }
     }
 
