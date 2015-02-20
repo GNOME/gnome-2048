@@ -17,7 +17,7 @@ dnl ###########################################################################
 
 GTK_REQUIRED=3.12.0
 CLUTTER_REQUIRED=1.12.0
-CLUTTER_GTK_REQUIRED=0.91.6
+CLUTTER_GTK_REQUIRED=1.6.0
 GEE_REQUIRED=0.14.0
 LIBGAMES_REQUIRED=0.1
 
