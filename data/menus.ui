@@ -6,6 +6,10 @@
         <attribute name="label" translatable="yes">New Game</attribute>
         <attribute name="action">app.new-game</attribute>
       </item>
+      <item>
+        <attribute name="label" translatable="yes">Scores</attribute>
+        <attribute name="action">app.scores</attribute>
+      </item>
     </section>
     <section>
       <item>

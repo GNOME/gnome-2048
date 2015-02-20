@@ -624,8 +624,18 @@ public class Game : GLib.Object
       _foreground_cur[e.from.row,e.from.col] = null;
     }
 
-    _finish_move ();
+    GLib.Timeout.add (100, _finish_move);
+  }
 
+  private void _create_show_hide_transition ()
+  {
+    _show_hide_trans = new Clutter.TransitionGroup ();
+    _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
+    _show_hide_trans.set_duration (100);
+  }
+
+  private bool _finish_move ()
+  {
     if (_state == GameState.SHOWING_FIRST_TILE) {
       _state = GameState.SHOWING_SECOND_TILE;
       debug ("state show second tile");
@@ -637,17 +647,7 @@ public class Game : GLib.Object
       _state = GameState.IDLE;
       debug ("state idle");
     }
-  }
 
-  private void _create_show_hide_transition ()
-  {
-    _show_hide_trans = new Clutter.TransitionGroup ();
-    _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
-    _show_hide_trans.set_duration (100);
-  }
-
-  private void _finish_move ()
-  {
     foreach (var e in _to_move) {
       _foreground_cur[e.to.row,e.to.col] = _foreground_nxt[e.to.row,e.to.col];
       _foreground_nxt[e.to.row,e.to.col] = null;
@@ -668,5 +668,7 @@ public class Game : GLib.Object
 
     if (_grid.is_finished ())
       finished ();
+
+    return false;
   }
 }

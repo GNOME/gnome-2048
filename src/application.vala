@@ -16,6 +16,8 @@
  * along with GNOME 2048; if not, see <http://www.gnu.org/licenses/>.
  */
 
+using Games;
+
 public class Application : Gtk.Application
 {
   private GLib.Settings _settings;
@@ -30,6 +32,12 @@ public class Application : Gtk.Application
   private Gtk.Label _score;
   private Gtk.ComboBoxText _grid_size_combo;
 
+  private Scores.Context _scores_ctx;
+  private Scores.Category _grid4_cat;
+  private Scores.Category _grid5_cat;
+
+  private bool _game_restored;
+
   private int _window_width;
   private int _window_height;
   private bool _window_maximized;
@@ -42,6 +50,7 @@ public class Application : Gtk.Application
   private const GLib.ActionEntry[] action_entries =
   {
     { "new-game",       new_game_cb       },
+    { "scores",         scores_cb         },
     { "about",          about_cb          },
     { "preferences",    preferences_cb    },
     { "quit",           quit_cb           },
@@ -77,8 +86,11 @@ public class Application : Gtk.Application
     _create_preferences_dialog (builder);
     _create_congrats_dialog (builder);
 
-    if (!_game.restore_game ())
-      _game.new_game ();
+    _create_scores ();
+
+    _game_restored = _game.restore_game ();
+    if (!_game_restored)
+      new_game_cb ();
   }
 
   protected override void shutdown ()
@@ -126,6 +138,16 @@ public class Application : Gtk.Application
     });
     _game.finished.connect ((s) => {
       _header_bar.subtitle = _("Game Over");
+
+      if (!_game_restored) {
+        try {
+          Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
+          _scores_ctx.add_score (_game.score, cat);
+        } catch (GLib.Error e) {
+          stderr.printf ("%s\n", e.message);
+        }
+      }
+
       debug ("finished");
     });
     _game.target_value_reached.connect ((s, v) => {
@@ -252,7 +274,7 @@ public class Application : Gtk.Application
 
       settings_changed = _game.reload_settings ();
       if (settings_changed)
-        _game.new_game ();
+        new_game_cb ();
       return _preferences_dialog.hide_on_delete ();
     });
 
@@ -272,7 +294,7 @@ public class Application : Gtk.Application
 
     _congrats_dialog.response.connect ((response_id) => {
       if (response_id == 0)
-        _game.new_game ();
+        new_game_cb ();
       _congrats_dialog.hide ();
     });
     _congrats_dialog.delete_event.connect ((response_id) => {
@@ -282,11 +304,24 @@ public class Application : Gtk.Application
     _congrats_message = builder.get_object ("messagelabel") as Gtk.Label;
   }
 
+  private void _create_scores ()
+  {
+    _scores_ctx = new Scores.Context ("gnome-2048", "", _window, Scores.Style.PLAIN_DESCENDING);
+    _grid4_cat = new Scores.Category ("grid4", "Grid 4 x 4");
+    _grid5_cat = new Scores.Category ("grid5", "Grid 5 x 5");
+  }
+
   private void new_game_cb ()
   {
     _header_bar.subtitle = null;
+    _game_restored = false;
 
     _game.new_game ();
+  }
+
+  private void scores_cb ()
+  {
+    _scores_ctx.run_dialog ();
   }
 
   private void about_cb ()
@@ -297,10 +332,9 @@ public class Application : Gtk.Application
   private void preferences_cb ()
   {
     int grid_size;
-    int rows, cols;
+    int rows;
 
     rows = _settings.get_int ("rows");
-    cols = _settings.get_int ("cols");
 
     if (rows == 4) {
       grid_size = 0;
@@ -329,6 +363,8 @@ public class Application : Gtk.Application
 
   private bool key_press_event_cb (Gtk.Widget widget, Gdk.EventKey event)
   {
+    _game_restored = false;
+
     return _game.key_pressed (event);
   }
 
