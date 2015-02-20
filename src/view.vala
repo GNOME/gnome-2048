@@ -37,14 +37,8 @@ public class RoundedRectangle : GLib.Object
     _actor.x = x;
     _actor.y = y;
     _actor.set_pivot_point (0.5f, 0.5f);
-    _actor.allocation_changed.connect (_on_allocation_changed);
 
     _canvas.draw.connect (_draw);
-  }
-
-  private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
-  {
-    debug ("allocation changed");
   }
 
   public Clutter.Actor actor {
