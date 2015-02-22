@@ -158,7 +158,7 @@ public class ColorPalette : GLib.Object
     _palette.set (8,    Clutter.Color.from_string ("#fcaf3e")); // Orange 1
     _palette.set (16,   Clutter.Color.from_string ("#729fcf")); // Sky blue 1
     _palette.set (32,   Clutter.Color.from_string ("#ad7fa8")); // Plum 1
-    _palette.set (64,   Clutter.Color.from_string ("#e9b96e")); // Chocolate 1
+    _palette.set (64,   Clutter.Color.from_string ("#c17d11")); // Chocolate 2
     _palette.set (128,  Clutter.Color.from_string ("#ef2929")); // Scarlet red 1
     _palette.set (256,  Clutter.Color.from_string ("#c4a000")); // Butter 3
     _palette.set (512,  Clutter.Color.from_string ("#4e9a06")); // Chameleon 3
