@@ -26,7 +26,7 @@ PKG_CHECK_MODULES(GNOME_2048, [
   clutter-1.0 >= $CLUTTER_REQUIRED
   clutter-gtk-1.0 >= $CLUTTER_GTK_REQUIRED
   gee-0.8 >= $GEE_REQUIRED
-  libgames-scores >= $LIBGAMES_REQUIRED
+  libgames-support >= $LIBGAMES_REQUIRED
 ])
 
 AC_PATH_PROG([APPDATA_VALIDATE], [appdata-validate], [/bin/true])
