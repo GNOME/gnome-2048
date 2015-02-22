@@ -143,6 +143,7 @@ public class Application : Gtk.Application
         try {
           Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
           _scores_ctx.add_score (_game.score, cat);
+          ((SimpleAction) lookup_action ("scores")).set_enabled (true);
         } catch (GLib.Error e) {
           stderr.printf ("%s\n", e.message);
         }
@@ -310,6 +311,9 @@ public class Application : Gtk.Application
     _scores_ctx = new Scores.Context ("gnome-2048", "", _window, Scores.Style.PLAIN_DESCENDING);
     _grid4_cat = new Scores.Category ("grid4", "Grid 4 x 4");
     _grid5_cat = new Scores.Category ("grid5", "Grid 5 x 5");
+
+    if (!_scores_ctx.has_scores ())
+      ((SimpleAction) lookup_action ("scores")).set_enabled (false);
   }
 
   private void new_game_cb ()
