@@ -47,6 +47,7 @@ public class Game : GLib.Object
   private GameState _state;
   private Clutter.TransitionGroup _show_hide_trans;
   private Clutter.TransitionGroup _move_trans;
+  private int _animations_duration;
 
   private GLib.Settings _settings;
 
@@ -66,6 +67,8 @@ public class Game : GLib.Object
     int rows = _settings.get_int ("rows");
     int cols = _settings.get_int ("cols");
     _grid = new Grid (rows, cols);
+
+    _animations_duration = (int)_settings.get_double ("animations-speed");
 
     _settings.bind ("target-value", _grid, "target_value", GLib.SettingsBindFlags.DEFAULT);
 
@@ -165,8 +168,12 @@ public class Game : GLib.Object
 
   public bool reload_settings ()
   {
-    int rows = _settings.get_int ("rows");
-    int cols = _settings.get_int ("cols");
+    int rows, cols;
+
+    _animations_duration = (int)_settings.get_double ("animations-speed");
+
+    rows = _settings.get_int ("rows");
+    cols = _settings.get_int ("cols");
 
     if ((rows != _grid.rows) || (cols != _grid.cols)) {
       _clear_foreground ();
@@ -331,7 +338,7 @@ public class Game : GLib.Object
 
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
-    _move_trans.set_duration (100);
+    _move_trans.set_duration (_animations_duration);
 
     _grid.move_down (_to_move, _to_hide, _to_show);
 
@@ -357,7 +364,7 @@ public class Game : GLib.Object
 
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
-    _move_trans.set_duration (100);
+    _move_trans.set_duration (_animations_duration);
 
     _grid.move_up (_to_move, _to_hide, _to_show);
 
@@ -383,7 +390,7 @@ public class Game : GLib.Object
 
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
-    _move_trans.set_duration (100);
+    _move_trans.set_duration (_animations_duration);
 
     _grid.move_left (_to_move, _to_hide, _to_show);
 
@@ -409,7 +416,7 @@ public class Game : GLib.Object
 
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
-    _move_trans.set_duration (100);
+    _move_trans.set_duration (_animations_duration);
 
     _grid.move_right (_to_move, _to_hide, _to_show);
 
@@ -443,14 +450,14 @@ public class Game : GLib.Object
     trans = new Clutter.PropertyTransition ("scale-x");
     trans.set_from_value (1.0);
     trans.set_to_value (1.1);
-    trans.set_duration (100);
+    trans.set_duration (_animations_duration);
     trans.set_animatable (view.actor);
     _show_hide_trans.add_transition (trans);
 
     trans = new Clutter.PropertyTransition ("scale-y");
     trans.set_from_value (1.0);
     trans.set_to_value (1.1);
-    trans.set_duration (100);
+    trans.set_duration (_animations_duration);
     trans.set_animatable (view.actor);
     _show_hide_trans.add_transition (trans);
 
@@ -458,7 +465,7 @@ public class Game : GLib.Object
     trans.set_from_value (0);
     trans.set_to_value (255);
     trans.set_remove_on_complete (true);
-    trans.set_duration (50);
+    trans.set_duration (_animations_duration / 2);
     view.actor.add_transition ("show", trans);
   }
 
@@ -491,7 +498,7 @@ public class Game : GLib.Object
     trans = new Clutter.PropertyTransition (trans_name);
     trans.set_from_value (row_move ? rect_from.actor.y : rect_from.actor.x);
     trans.set_to_value (row_move ? rect_to.actor.y : rect_to.actor.x);
-    trans.set_duration (100);
+    trans.set_duration (_animations_duration);
     trans.set_animatable (_foreground_cur[from.row,from.col].actor);
     _move_trans.add_transition (trans);
   }
@@ -508,7 +515,7 @@ public class Game : GLib.Object
     trans = new Clutter.PropertyTransition ("opacity");
     trans.set_from_value (actor.opacity);
     trans.set_to_value (0);
-    trans.set_duration (100);
+    trans.set_duration (_animations_duration);
     trans.set_animatable (actor);
 
     _show_hide_trans.add_transition (trans);
@@ -633,7 +640,7 @@ public class Game : GLib.Object
   {
     _show_hide_trans = new Clutter.TransitionGroup ();
     _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
-    _show_hide_trans.set_duration (100);
+    _show_hide_trans.set_duration (_animations_duration);
   }
 
   private bool _finish_move ()

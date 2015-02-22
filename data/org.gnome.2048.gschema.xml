@@ -35,5 +35,10 @@
       <summary>Congrat on target tile</summary>
       <description>Whether the user shall be congratulated on obtaining target tile.</description>
     </key>
+    <key name="animations-speed" type="d">
+      <default>100.0</default>
+      <summary>Animations speed</summary>
+      <description>Duration of animations: show tile, move tile, and dim tile.</description>
+    </key>
   </schema>
 </schemalist>

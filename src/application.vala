@@ -279,6 +279,7 @@ public class Application : Gtk.Application
     });
 
     _settings.bind ("do-congrat", builder.get_object ("congratswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
+    _settings.bind ("animations-speed", builder.get_object ("animationsspeed"), "value", GLib.SettingsBindFlags.DEFAULT);
   }
 
   private void _create_congrats_dialog (Gtk.Builder builder)
