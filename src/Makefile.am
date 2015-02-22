@@ -55,9 +55,7 @@ EXTRA_DIST = \
 	gnome-2048.gresource.xml \
 	$(data_files)
 
-CLEANFILES = \
-	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
-	*_vala.stamp \
+MAINTAINERCLEANFILES = \
 	gnome-2048-data.h \
 	gnome-2048-data.c
 
