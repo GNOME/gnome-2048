@@ -410,7 +410,7 @@ public class Application : Gtk.Application
       return Posix.EXIT_FAILURE;
     }
 
-    Environment.set_application_name ("org.gnome.2048");
+    Environment.set_application_name ("org.gnome.gnome-2048");
     Gtk.Window.set_default_icon_name ("gnome-2048");
 
     try {
