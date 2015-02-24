@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-02-23 18:49+0000\n"
-"PO-Revision-Date: 2015-02-23 23:00+0100\n"
+"PO-Revision-Date: 2015-02-24 19:03+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: Slovenian\n"
@@ -24,83 +24,83 @@ msgstr ""
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
-msgstr ""
+msgstr "Čestitke!"
 
 #: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:206
 msgid "New Game"
-msgstr ""
+msgstr "Nova igra"
 
 #: ../data/congrats.ui.h:3
 msgid "Keep Playing"
-msgstr ""
+msgstr "Nadaljuj z igranjem"
 
 #: ../data/mainwindow.ui.h:1
 msgid "gnome-2048"
-msgstr ""
+msgstr "gnome-2048"
 
 #: ../data/menus.ui.h:2
 msgid "Scores"
-msgstr ""
+msgstr "Rezultati"
 
 #: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Možnosti"
 
 #: ../data/menus.ui.h:4
 msgid "Help"
-msgstr ""
+msgstr "Pomoč"
 
 #: ../data/menus.ui.h:5
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
 #: ../data/menus.ui.h:6
 msgid "Quit"
-msgstr ""
+msgstr "Končaj"
 
 #: ../data/org.gnome.2048.gschema.xml.h:1
 msgid "Window width"
-msgstr ""
+msgstr "Širina okna"
 
 #: ../data/org.gnome.2048.gschema.xml.h:2
 msgid "Window width."
-msgstr ""
+msgstr "Širina okna igralnega polja."
 
 #: ../data/org.gnome.2048.gschema.xml.h:3
 msgid "Window height"
-msgstr ""
+msgstr "Višina okna"
 
 #: ../data/org.gnome.2048.gschema.xml.h:4
 msgid "Window height."
-msgstr ""
+msgstr "Višina okna igralnega polja."
 
 #: ../data/org.gnome.2048.gschema.xml.h:5
 msgid "Window maximized"
-msgstr ""
+msgstr "Razpeto okno"
 
 #: ../data/org.gnome.2048.gschema.xml.h:6
 msgid "Window maximization state."
-msgstr ""
+msgstr "Okno bo v razpetem stanju."
 
 #: ../data/org.gnome.2048.gschema.xml.h:7
 msgid "Number of rows"
-msgstr ""
+msgstr "Število vrstic"
 
 #: ../data/org.gnome.2048.gschema.xml.h:8
 msgid "Game grid number of rows."
-msgstr ""
+msgstr "Število vrstic v mreži igralnega polja."
 
 #: ../data/org.gnome.2048.gschema.xml.h:9
 msgid "Number of columns"
-msgstr ""
+msgstr "Število stolpcev"
 
 #: ../data/org.gnome.2048.gschema.xml.h:10
 msgid "Game grid number of columns."
-msgstr ""
+msgstr "Število stolpcev v mreži igralnega polja."
 
 #: ../data/org.gnome.2048.gschema.xml.h:11
 msgid "Target value"
-msgstr ""
+msgstr "Vrednost cilja"
 
 #: ../data/org.gnome.2048.gschema.xml.h:12
 msgid "Tile value at which user is congratulated."
@@ -190,4 +190,4 @@ msgstr "Konec igra"
 
 #: ../src/application.vala:228
 msgid "A clone of 2048 for GNOME"
-msgstr ""
+msgstr "Klon igra 2048 za GNOME"
