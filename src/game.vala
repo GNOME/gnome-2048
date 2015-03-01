@@ -49,6 +49,10 @@ public class Game : GLib.Object
   private Clutter.TransitionGroup _move_trans;
   private int _animations_duration;
 
+  private bool _allow_undo;
+  private uint _undo_stack_max_size;
+  private Gee.LinkedList<Grid> _undo_stack;
+
   private GLib.Settings _settings;
 
   private string _saved_path;
@@ -57,6 +61,8 @@ public class Game : GLib.Object
 
   public signal void finished ();
   public signal void target_value_reached (uint val);
+  public signal void undo_enabled ();
+  public signal void undo_disabled ();
 
   public Game (GLib.Settings settings)
   {
@@ -75,6 +81,10 @@ public class Game : GLib.Object
     _to_move = new Gee.LinkedList<TileMovement?> ();
     _to_hide = new Gee.LinkedList<TileMovement?> ();
     _to_show = new Gee.LinkedList<Tile?> ();
+
+    _undo_stack = new Gee.LinkedList<Grid> ();
+    _allow_undo = _settings.get_boolean ("allow-undo");
+    _undo_stack_max_size = _settings.get_int ("allow-undo-max");
 
     _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
 
@@ -96,10 +106,22 @@ public class Game : GLib.Object
   public void new_game ()
   {
     _grid.clear ();
+    _undo_stack.clear ();
     _clear_foreground ();
     score = 0;
     _state = GameState.SHOWING_FIRST_TILE;
     _create_random_tile ();
+  }
+
+  public void undo ()
+  {
+    Grid grid = _undo_stack.poll_head ();
+    _clear_foreground ();
+    _grid = grid;
+    _restore_foreground (false);
+
+    if (_undo_stack.size == 0)
+      undo_disabled ();
   }
 
   public void save_game ()
@@ -139,7 +161,7 @@ public class Game : GLib.Object
     if (_background != null)
       _clear_background ();
     _init_background ();
-    _restore_foreground ();
+    _restore_foreground (true);
 
     debug ("game restored successfully");
     return true;
@@ -169,8 +191,17 @@ public class Game : GLib.Object
   public bool reload_settings ()
   {
     int rows, cols;
+    bool allow_undo;
 
     _animations_duration = (int)_settings.get_double ("animations-speed");
+
+    allow_undo = _settings.get_boolean ("allow-undo");
+    if (_allow_undo && !allow_undo) {
+      _undo_stack.clear ();
+      undo_disabled ();
+    }
+    _allow_undo = allow_undo;
+    _undo_stack_max_size = _settings.get_int ("allow-undo-max");
 
     rows = _settings.get_int ("rows");
     cols = _settings.get_int ("cols");
@@ -299,7 +330,7 @@ public class Game : GLib.Object
     Tile tile;
 
     if (_grid.new_tile (out tile)) {
-      _create_show_hide_transition ();
+      _create_show_hide_transition (true);
 
       _create_tile (tile);
       _to_show.add (tile);
@@ -336,6 +367,8 @@ public class Game : GLib.Object
 
     bool has_moved;
 
+    _store_movement ();
+
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
     _move_trans.set_duration (_animations_duration);
@@ -361,6 +394,8 @@ public class Game : GLib.Object
     debug ("move up");
 
     bool has_moved;
+
+    _store_movement ();
 
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
@@ -388,6 +423,8 @@ public class Game : GLib.Object
 
     bool has_moved;
 
+    _store_movement ();
+
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
     _move_trans.set_duration (_animations_duration);
@@ -413,6 +450,8 @@ public class Game : GLib.Object
     debug ("move right");
 
     bool has_moved;
+
+    _store_movement ();
 
     _move_trans = new Clutter.TransitionGroup ();
     _move_trans.stopped.connect (_on_move_trans_stopped);
@@ -553,7 +592,7 @@ public class Game : GLib.Object
     }
   }
 
-  private void _restore_foreground ()
+  private void _restore_foreground (bool animate)
   {
     uint val;
     GridPosition pos;
@@ -561,7 +600,7 @@ public class Game : GLib.Object
     int rows = _grid.rows;
     int cols = _grid.cols;
 
-    _create_show_hide_transition ();
+    _create_show_hide_transition (animate);
 
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
@@ -591,7 +630,7 @@ public class Game : GLib.Object
 
     _move_trans.remove_all ();
 
-    _create_show_hide_transition ();
+    _create_show_hide_transition (true);
 
     foreach (var e in _to_hide) {
       _dim_tile (e.from);
@@ -636,11 +675,11 @@ public class Game : GLib.Object
     GLib.Timeout.add (100, _finish_move);
   }
 
-  private void _create_show_hide_transition ()
+  private void _create_show_hide_transition (bool animate)
   {
     _show_hide_trans = new Clutter.TransitionGroup ();
     _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
-    _show_hide_trans.set_duration (_animations_duration);
+    _show_hide_trans.set_duration (animate ? _animations_duration : 10);
   }
 
   private bool _finish_move ()
@@ -679,5 +718,17 @@ public class Game : GLib.Object
       finished ();
 
     return false;
+  }
+
+  private void _store_movement ()
+  {
+    if (_allow_undo) {
+      if (_undo_stack.size == _undo_stack_max_size)
+        _undo_stack.poll_tail ();
+      _undo_stack.offer_head (_grid.clone ());
+      if (_undo_stack.size == 1) {
+        undo_enabled ();
+      }
+    }
   }
 }

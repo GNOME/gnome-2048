@@ -40,5 +40,15 @@
       <summary>Animations speed</summary>
       <description>Duration of animations: show tile, move tile, and dim tile.</description>
     </key>
+    <key name="allow-undo" type="b">
+      <default>false</default>
+      <summary>Allow undo</summary>
+      <description>Whether tile movements can be undone.</description>
+    </key>
+    <key name="allow-undo-max" type="i">
+      <default>10</default>
+      <summary>Number of undo movements</summary>
+      <description>Maximum number of tile movements that can be undone.</description>
+    </key>
   </schema>
 </schemalist>

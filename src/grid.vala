@@ -45,6 +45,16 @@ public class Grid : GLib.Object
     get; set;
   }
 
+  public Grid clone ()
+  {
+    Grid grid = new Grid (_rows, _cols);
+    grid._grid = _grid;
+    grid._target_value = _target_value;
+    grid._target_value_reached = _target_value_reached;
+
+    return grid;
+  }
+
   public void clear ()
   {
     for (uint i = 0; i < _grid.length[0]; i++) {

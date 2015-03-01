@@ -24,6 +24,7 @@ public class Application : Gtk.Application
 
   private Gtk.Window _window;
   private Gtk.HeaderBar _header_bar;
+  private Gtk.Button _undo_button;
   private Gtk.Button _new_game_button;
   private Gtk.AboutDialog _about_dialog;
   private Gtk.Dialog _preferences_dialog;
@@ -50,6 +51,7 @@ public class Application : Gtk.Application
   private const GLib.ActionEntry[] action_entries =
   {
     { "new-game",       new_game_cb       },
+    { "undo",           undo_cb           },
     { "scores",         scores_cb         },
     { "about",          about_cb          },
     { "preferences",    preferences_cb    },
@@ -160,6 +162,12 @@ public class Application : Gtk.Application
       }
       debug ("target value reached");
     });
+    _game.undo_enabled.connect ((s) => {
+      ((SimpleAction) lookup_action ("undo")).set_enabled (true);
+    });
+    _game.undo_disabled.connect ((s) => {
+      ((SimpleAction) lookup_action ("undo")).set_enabled (false);
+    });
   }
 
   private void _create_window (Gtk.Builder builder)
@@ -202,6 +210,11 @@ public class Application : Gtk.Application
 
     _score = new Gtk.Label ("0");
     _header_bar.pack_end (_score);
+
+    _undo_button = new Gtk.Button.from_icon_name ("edit-undo-symbolic");
+    _undo_button.set_action_name ("app.undo");
+    _header_bar.pack_start (_undo_button);
+    ((SimpleAction) lookup_action ("undo")).set_enabled (false);
 
     _new_game_button = new Gtk.Button.with_label (_("New Game"));
     _new_game_button.set_action_name ("app.new-game");
@@ -281,6 +294,7 @@ public class Application : Gtk.Application
 
     _settings.bind ("do-congrat", builder.get_object ("congratswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
     _settings.bind ("animations-speed", builder.get_object ("animationsspeed"), "value", GLib.SettingsBindFlags.DEFAULT);
+    _settings.bind ("allow-undo", builder.get_object ("undoswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
   }
 
   private void _create_congrats_dialog (Gtk.Builder builder)
@@ -322,6 +336,11 @@ public class Application : Gtk.Application
     _game_restored = false;
 
     _game.new_game ();
+  }
+
+  private void undo_cb ()
+  {
+    _game.undo ();
   }
 
   private void scores_cb ()
