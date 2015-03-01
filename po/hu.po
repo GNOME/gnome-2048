@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-18 06:47+0000\n"
-"PO-Revision-Date: 2015-01-18 19:48+0100\n"
+"POT-Creation-Date: 2015-02-22 20:11+0000\n"
+"PO-Revision-Date: 2015-03-01 16:56+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -18,6 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.2\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Gratulálunk!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:205
+msgid "New Game"
+msgstr "Új játék"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Játék folytatása"
 
 #: ../data/gnome-2048.appdata.xml.in.h:1
 msgid "GNOME 2048"
@@ -58,7 +70,8 @@ msgid ""
 msgstr ""
 "Minden új megszerzett csempe növeli a pontszámát. Ha úgy érzi, hogy könnyen "
 "el tudta érni a 2048-as csempét, akkor sem hagyjuk, hogy megálljon. A játék "
-"itt nem ér véget, folytathatja a csempék egyesítését és a pontszáma növelését."
+"itt nem ér véget, folytathatja a csempék egyesítését és a pontszáma "
+"növelését."
 
 #: ../data/gnome-2048.appdata.xml.in.h:6
 msgid ""
@@ -83,23 +96,23 @@ msgstr "puzzle;kirakó;fejtörő;"
 msgid "gnome-2048"
 msgstr "gnome-2048"
 
-#: ../data/menus.ui.h:1 ../src/application.vala:162
-msgid "New Game"
-msgstr "Új játék"
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Pontszámok"
 
-#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: ../data/menus.ui.h:3
+#: ../data/menus.ui.h:4
 msgid "Help"
 msgstr "Súgó"
 
-#: ../data/menus.ui.h:4
+#: ../data/menus.ui.h:5
 msgid "About"
 msgstr "Névjegy"
 
-#: ../data/menus.ui.h:5
+#: ../data/menus.ui.h:6
 msgid "Quit"
 msgstr "Kilépés"
 
@@ -143,23 +156,59 @@ msgstr "Oszlopok száma"
 msgid "Game grid number of columns."
 msgstr "A játékrács oszlopainak száma."
 
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Célérték"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Csempeérték, amelynél gratulálnak a felhasználónak."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Gratuláció a célcsempénél"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Fognak-e gratulálni a felhasználónak a célcsempe elérésekor."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:6
+msgid "Animations speed"
+msgstr "Animációk sebessége"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Az animációk időtartama: csempe megjelenítése, csempe mozgatása és csempe "
+"elhomályosítása."
+
 #: ../data/preferences.ui.h:2
-msgid "Columns"
-msgstr "Oszlopok"
+#| msgid "Grid"
+msgid "Grid size"
+msgstr "Rácsméret"
 
 #: ../data/preferences.ui.h:3
-msgid "Rows"
-msgstr "Sorok"
+msgid "4 x 4"
+msgstr "4 x 4"
 
 #: ../data/preferences.ui.h:4
-msgid "Grid"
-msgstr "Rács"
+msgid "5 x 5"
+msgstr "5 x 5"
 
-#: ../src/application.vala:121
+#: ../data/preferences.ui.h:5
+msgid "Display congrats"
+msgstr "Gratuláció megjelenítése"
+
+#: ../src/application.vala:140
 msgid "Game Over"
 msgstr "Vége a játéknak"
 
-#: ../src/application.vala:184
+#: ../src/application.vala:227
 msgid "A clone of 2048 for GNOME"
 msgstr "A 2048 klónja a GNOME-hoz"
 
+#~ msgid "Columns"
+#~ msgstr "Oszlopok"
+
+#~ msgid "Rows"
+#~ msgstr "Sorok"
