@@ -155,7 +155,7 @@ public class Application : Gtk.Application
     });
     _game.target_value_reached.connect ((s, v) => {
       if (_settings.get_boolean ("do-congrat")) {
-        string message = @"You have obtained the $v tile";
+        string message = @_("You have obtained the $v tile");
         _congrats_message.set_text (message);
         _congrats_dialog.present ();
         _settings.set_boolean ("do-congrat", false);
