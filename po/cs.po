@@ -1,7 +1,7 @@
 # Czech translation for gnome-2048.
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 # Marek Černocký <marek@manet.cz>, 2015.
 #
 msgid ""
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-01 21:06+0000\n"
-"PO-Revision-Date: 2015-03-02 07:11+0100\n"
+"POT-Creation-Date: 2015-03-02 14:53+0000\n"
+"PO-Revision-Date: 2015-03-02 18:27+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -216,6 +216,10 @@ msgstr "Zobrazovat gratulace"
 #: ../src/application.vala:142
 msgid "Game Over"
 msgstr "Konec hry"
+
+#: ../src/application.vala:158
+msgid "You have obtained the $v tile"
+msgstr "Získali jste kámen $v"
 
 #: ../src/application.vala:241
 msgid "A clone of 2048 for GNOME"
