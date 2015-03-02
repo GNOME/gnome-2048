@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 16:38+0200\n"
-"PO-Revision-Date: 2015-03-02 16:40+0200\n"
+"POT-Creation-Date: 2015-03-02 16:51+0200\n"
+"PO-Revision-Date: 2015-03-02 16:52+0200\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
@@ -211,6 +211,10 @@ msgstr "הצגת ברכות"
 #: ../src/application.vala:142
 msgid "Game Over"
 msgstr "המשחק הסתיים"
+
+#: ../src/application.vala:158
+msgid "You have obtained the $v tile"
+msgstr "השגת את האריח $v"
 
 #: ../src/application.vala:241
 msgid "A clone of 2048 for GNOME"
