@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 02:07+0200\n"
-"PO-Revision-Date: 2015-02-17 02:08+0200\n"
+"POT-Creation-Date: 2015-03-02 16:38+0200\n"
+"PO-Revision-Date: 2015-03-02 16:40+0200\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "ברכות!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:183
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
 msgid "New Game"
 msgstr "משחק חדש"
 
@@ -31,79 +31,27 @@ msgstr "משחק חדש"
 msgid "Keep Playing"
 msgstr "להמשיך לשחק"
 
-#: ../data/gnome-2048.appdata.xml.in.h:1
-msgid "GNOME 2048"
-msgstr "‏GNOME 2048"
-
-#: ../data/gnome-2048.appdata.xml.in.h:2 ../data/gnome-2048.desktop.in.h:2
-msgid "Obtain the 2048 tile"
-msgstr "להשיג את האריח 2048"
-
-#: ../data/gnome-2048.appdata.xml.in.h:3
-msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
-msgstr ""
-"לשחק את המשחק הממכר 2048. ‏GNOME 2048 הוא שיבוט של משחק הלוח ליחיד הפופולרי. "
-"המשחק מורכב מצירוף מספרים ברשת על מנת להשיג את האריח 2048."
-
-#: ../data/gnome-2048.appdata.xml.in.h:4
-msgid ""
-"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
-"Be careful: all tiles slide to their farthest possible positions, you cannot "
-"slide just one tile or one row or column. Tiles with the same value are "
-"joined when slided one over the other."
-msgstr ""
-"יש להשתמש במקשי החצים במקלדת שלך על מנת על מנת להחליק את כל האריחים לכיוון "
-"הרצוי. יש להיזהר: כל האריחים מוחלקים למקום הרחוק ביותר האפשרי להם, לא ניתן "
-"להחליק רק אריח בודד או שורה אחת או עמודה. אריחים עם ערך זהה יצטרפו כאשר "
-"יוחלקו אחד אל השני."
-
-#: ../data/gnome-2048.appdata.xml.in.h:5
-msgid ""
-"With every new tile obtained you increase your score. If you think you can "
-"easily get the 2048 tile, do not let it stop you, the game does not end "
-"there, you can continue joining tiles and improving your score."
-msgstr ""
-"עם כל אריח חדש שמתקבל הניקוד שלך גדל. אם סברת שניתן להגיע בקלות לאריח 2048, "
-"אל תיתן לכך לעצור אותך, המשחק לא מסתיים שם, ניתן להמשיך לצרף אריחים ולשפר את "
-"הניקוד שלך."
-
-#: ../data/gnome-2048.appdata.xml.in.h:6
-msgid ""
-"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
-"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
-"game and includes ideas from other clones."
-msgstr ""
-"2048 נוצר במקור על ידי Gabriele Cirulli וצבר פופולריות רבה בשל היותו ממכר. "
-"2048 של Cirulli הוא בתורו שיבוט של המשחק 1024 וכולל רעיונות משיבוטים נוספים."
-
-#: ../data/gnome-2048.desktop.in.h:1
-msgid "2048"
-msgstr "2048"
-
-#: ../data/gnome-2048.desktop.in.h:3
-msgid "puzzle;"
-msgstr "פאזל;לוח;"
-
 #: ../data/mainwindow.ui.h:1
 msgid "gnome-2048"
 msgstr "gnome-2048"
 
-#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "תוצאות"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
 msgid "Preferences"
 msgstr "העדפות"
 
-#: ../data/menus.ui.h:3
+#: ../data/menus.ui.h:4
 msgid "Help"
 msgstr "עזרה"
 
-#: ../data/menus.ui.h:4
+#: ../data/menus.ui.h:5
 msgid "About"
 msgstr "על אודות"
 
-#: ../data/menus.ui.h:5
+#: ../data/menus.ui.h:6
 msgid "Quit"
 msgstr "יציאה"
 
@@ -163,6 +111,87 @@ msgstr "Congrat on target tile"
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr "Whether the user shall be congratulated on obtaining target tile."
 
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "מהירות הנפשות"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Duration of animations: show tile, move tile, and dim tile."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "לאפשר ביטול"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Whether tile movements can be undone."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Number of undo movements"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Maximum number of tile movements that can be undone."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "‏GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "להשיג את האריח 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"לשחק את המשחק הממכר 2048. ‏GNOME 2048 הוא שיבוט של משחק הלוח ליחיד הפופולרי. "
+"המשחק מורכב מצירוף מספרים ברשת על מנת להשיג את האריח 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"יש להשתמש במקשי החצים במקלדת שלך על מנת על מנת להחליק את כל האריחים לכיוון "
+"הרצוי. יש להיזהר: כל האריחים מוחלקים למקום הרחוק ביותר האפשרי להם, לא ניתן "
+"להחליק רק אריח בודד או שורה אחת או עמודה. אריחים עם ערך זהה יצטרפו כאשר "
+"יוחלקו אחד אל השני."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"עם כל אריח חדש שמתקבל הניקוד שלך גדל. אם סברת שניתן להגיע בקלות לאריח 2048, "
+"אל תיתן לכך לעצור אותך, המשחק לא מסתיים שם, ניתן להמשיך לצרף אריחים ולשפר את "
+"הניקוד שלך."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"2048 נוצר במקור על ידי Gabriele Cirulli וצבר פופולריות רבה בשל היותו ממכר. "
+"2048 של Cirulli הוא בתורו שיבוט של המשחק 1024 וכולל רעיונות משיבוטים נוספים."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "פאזל;לוח;"
+
 #: ../data/preferences.ui.h:2
 msgid "Grid size"
 msgstr "גודל רשת"
@@ -175,15 +204,15 @@ msgstr "4 x 4"
 msgid "5 x 5"
 msgstr "5 x 5"
 
-#: ../data/preferences.ui.h:5
+#: ../data/preferences.ui.h:6
 msgid "Display congrats"
 msgstr "הצגת ברכות"
 
-#: ../src/application.vala:128
+#: ../src/application.vala:142
 msgid "Game Over"
 msgstr "המשחק הסתיים"
 
-#: ../src/application.vala:205
+#: ../src/application.vala:241
 msgid "A clone of 2048 for GNOME"
 msgstr "שיבוט של 2048 עבור GNOME"
 
