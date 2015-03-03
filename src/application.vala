@@ -326,6 +326,15 @@ public class Application : Gtk.Application
     _grid4_cat = new Scores.Category ("grid4", "Grid 4 x 4");
     _grid5_cat = new Scores.Category ("grid5", "Grid 5 x 5");
 
+    _scores_ctx.category_request.connect ( (s, key) => {
+      if (key == "grid4")
+        return _grid4_cat;
+      else if (key == "grid5")
+        return _grid5_cat;
+      else
+        return null;
+    });
+
     if (!_scores_ctx.has_scores ())
       ((SimpleAction) lookup_action ("scores")).set_enabled (false);
   }
