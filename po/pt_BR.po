@@ -9,22 +9,22 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-15 21:57+0000\n"
-"PO-Revision-Date: 2015-02-19 16:36-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2015-03-02 14:53+0000\n"
+"PO-Revision-Date: 2015-03-03 11:41-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.7.4\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "﻿Parabéns!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:183
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
 msgid "New Game"
 msgstr "Novo jogo"
 
@@ -32,83 +32,27 @@ msgstr "Novo jogo"
 msgid "Keep Playing"
 msgstr "Continuar jogando"
 
-#: ../data/gnome-2048.appdata.xml.in.h:1
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
-
-#: ../data/gnome-2048.appdata.xml.in.h:2 ../data/gnome-2048.desktop.in.h:2
-msgid "Obtain the 2048 tile"
-msgstr "Obtenha o bloco 2048"
-
-#: ../data/gnome-2048.appdata.xml.in.h:3
-msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
-msgstr ""
-"Jogue o altamente viciante jogo 2048. O GNOME 2048 é um clone deste popular "
-"jogo de quebra-cabeça de 1 jogador. A partida consiste em juntar números de "
-"uma grade e obter o bloco 2048."
-
-#: ../data/gnome-2048.appdata.xml.in.h:4
-msgid ""
-"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
-"Be careful: all tiles slide to their farthest possible positions, you cannot "
-"slide just one tile or one row or column. Tiles with the same value are "
-"joined when slided one over the other."
-msgstr ""
-"Use as teclas direcionais do teclado para deslizar todos os blocos para a "
-"direção desejada. Tenha cuidado: todos os blocos deslizam para as suas "
-"respectivas posições mais distantes, deste modo, você não pode deslizar "
-"apenas um bloco, uma linha ou uma coluna. Os blocos de mesmo valor são "
-"unidos quando deslizados uns sobre os outros."
-
-#: ../data/gnome-2048.appdata.xml.in.h:5
-msgid ""
-"With every new tile obtained you increase your score. If you think you can "
-"easily get the 2048 tile, do not let it stop you, the game does not end "
-"there, you can continue joining tiles and improving your score."
-msgstr ""
-"Com cada novo bloco obtido, você aumenta sua pontuação. Se você pensa que "
-"pode facilmente obter o bloco 2048, não deixe isso parar você, pois o jogo "
-"não termina aí: você pode continuar juntando blocos e aumentando sua "
-"pontuação."
-
-#: ../data/gnome-2048.appdata.xml.in.h:6
-msgid ""
-"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
-"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
-"game and includes ideas from other clones."
-msgstr ""
-"Criado originalmente por Gabriele Cirulli, o jogo 2048 ganhou muita "
-"popularidade por ser muito viciante. O 2048 de Cirulli é, por sua vez, um "
-"clone do jogo 1024 e inclui ideias de outros clones."
-
-#: ../data/gnome-2048.desktop.in.h:1
-msgid "2048"
-msgstr "2048"
-
-#: ../data/gnome-2048.desktop.in.h:3
-msgid "puzzle;"
-msgstr "quebra-cabeça;puzzle;"
-
 #: ../data/mainwindow.ui.h:1
 msgid "gnome-2048"
 msgstr "gnome-2048"
 
-#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Pontuações"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
 msgid "Preferences"
 msgstr "Preferências"
 
-#: ../data/menus.ui.h:3
+#: ../data/menus.ui.h:4
 msgid "Help"
 msgstr "Ajuda"
 
-#: ../data/menus.ui.h:4
+#: ../data/menus.ui.h:5
 msgid "About"
 msgstr "Sobre"
 
-#: ../data/menus.ui.h:5
+#: ../data/menus.ui.h:6
 msgid "Quit"
 msgstr "Sair"
 
@@ -168,6 +112,91 @@ msgstr "Felicitação pelo bloco alvo"
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr "Se o usuário deve, ou não, ser felicitado ao obter o bloco alvo."
 
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Velocidade de animações"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Duração das animações: mostrar bloco, mover bloco, sumir bloco."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Permitir desfazer"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Se movimentos de blocos podem ser desfeitos."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Número de movimentos desfeitos"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Número máximo de movimentos de blocos que podem ser desfeitos."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Obtenha o bloco 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Jogue o altamente viciante jogo 2048. O GNOME 2048 é um clone deste popular "
+"jogo de quebra-cabeça de 1 jogador. A partida consiste em juntar números de "
+"uma grade e obter o bloco 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Use as teclas direcionais do teclado para deslizar todos os blocos para a "
+"direção desejada. Tenha cuidado: todos os blocos deslizam para as suas "
+"respectivas posições mais distantes, deste modo, você não pode deslizar "
+"apenas um bloco, uma linha ou uma coluna. Os blocos de mesmo valor são "
+"unidos quando deslizados uns sobre os outros."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Com cada novo bloco obtido, você aumenta sua pontuação. Se você pensa que "
+"pode facilmente obter o bloco 2048, não deixe isso parar você, pois o jogo "
+"não termina aí: você pode continuar juntando blocos e aumentando sua "
+"pontuação."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Criado originalmente por Gabriele Cirulli, o jogo 2048 ganhou muita "
+"popularidade por ser muito viciante. O 2048 de Cirulli é, por sua vez, um "
+"clone do jogo 1024 e inclui ideias de outros clones."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "quebra-cabeça;puzzle;"
+
 #: ../data/preferences.ui.h:2
 msgid "Grid size"
 msgstr "Tamanho da grade"
@@ -180,15 +209,19 @@ msgstr "4 x 4"
 msgid "5 x 5"
 msgstr "5 x 5"
 
-#: ../data/preferences.ui.h:5
+#: ../data/preferences.ui.h:6
 msgid "Display congrats"
 msgstr "Exibir parabéns"
 
-#: ../src/application.vala:128
+#: ../src/application.vala:142
 msgid "Game Over"
 msgstr "Fim de jogo"
 
-#: ../src/application.vala:205
+#: ../src/application.vala:158
+msgid "You have obtained the $v tile"
+msgstr "Você obteve o bloco $v"
+
+#: ../src/application.vala:241
 msgid "A clone of 2048 for GNOME"
 msgstr "Um clone do 2048 para o GNOME"
 
