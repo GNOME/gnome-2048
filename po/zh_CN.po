@@ -1,0 +1,217 @@
+# Chinese (China) translation for gnome-2048.
+# Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Mingpei Zheng <1824139500@qq.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-03-02 14:53+0000\n"
+"PO-Revision-Date: 2015-03-04 17:19+0800\n"
+"Last-Translator: Mingpei Zheng <1824139500@qq.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "恭喜！"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+msgid "New Game"
+msgstr "新游戏"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "继续游戏"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "得分"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "首选项"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "帮助"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "关于"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "退出"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "窗口宽度"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "窗口宽度"
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "窗口高度"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "窗口高度"
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "窗口最大化"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "窗口最大化状态"
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "行数"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "游戏方格行数"
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "列数"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "游戏方格列数"
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "目标值"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "用户被祝贺时需得到的方块。"
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "达到目标方块时祝贺用户"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "用户得到的方块时是否需祝贺。"
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "动画速度"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "动画时长：显示、移动和变暗方块。"
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "允许后退"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "移动是否可以取消。"
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "可后退的步数"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "可后退的最大步数"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "获得值为 2048 的方块"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"玩很容易上瘾的游戏 2048。 GNOME 2048 是一款热门单机益智游戏的克隆版本。游戏玩法"
+"是将数字合并到一个网格中而获得2048。"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"使用键盘上的箭头键往所需方向滑动所有的瓷砖。要小心：所有的方块将会尽可能滑到"
+"最远的位置，你不能滑动单独一个、一行或一列方块。具有相同值的方块在被滑动时将"
+"会被合并。"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"随着每一个新方块产生，你的分数都将会增加。如果你认为你可以轻松获得值为 2048 的"
+"方块，比赛还没有结束，你可以继续合并方块和来提高你的分数。"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"2048 最初由 Gabriele Cirulli 编写的，由于本身极容易上瘾，这款游戏已经获得"
+"相当的人气。Cirulli 的2048又是游戏1024的模仿品，也借鉴了其他模仿品的思路。"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;谜;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "网格尺寸"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "显示祝贺"
+
+#: ../src/application.vala:142
+msgid "Game Over"
+msgstr "游戏结束"
+
+#: ../src/application.vala:158
+msgid "You have obtained the $v tile"
+msgstr "您已获得值为 2048 的方块"
+
+#: ../src/application.vala:241
+msgid "A clone of 2048 for GNOME"
+msgstr "2048 游戏的 GNOME 版本"
