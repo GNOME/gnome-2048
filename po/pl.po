@@ -1,0 +1,236 @@
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Aviary.pl
+# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
+# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
+# gnomepl@aviary.pl
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Joanna Lisek <jlisek@gmail.com>, 2015.
+# Aviary.pl <gnomepl@aviary.pl>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-11 16:30+0100\n"
+"PO-Revision-Date: 2015-03-11 11:22+0100\n"
+"Last-Translator: Joanna Lisek <jlisek@gmail.com>\n"
+"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: Poland\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Gratulacje!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+msgid "New Game"
+msgstr "Nowa gra"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Kontynuuj grę"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Wynik"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Pomoc"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "O grze"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Zakończ"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Szerokość okna"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Szerokość okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Wysokość okna"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Wysokość okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Okno zmaksymalizowane"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Stan maksymalizacji okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Liczba wierszy"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Liczba wierszy na siatce."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Liczba kolumn"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Liczba kolumn na siatce."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Cel"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Wynik, za który składane są użytkownikowi gratulacje."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Gratulacje za osiągnięcie wyznaczonego celu"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr ""
+"Czy użytkownikowi należy pogratulować za osiągnięcie wyznaczonego celu."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Prędkość animacji"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Czas trwania animacji: wyświetlenie płytki, przesunięcie płytki oraz "
+"przyciemnienie płytki."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Pozwalanie na cofanie"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Czy przesunięcie płytki może być cofnięte."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Liczba cofnięć przesunięcia płytki"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Maksymalna liczba przesunięć płytki, która może być cofnięta."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Uzyskanie liczby 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Zagraj w bardzo uzależniającą grę \"2048\". GNOME 2048 wzoruje się na "
+"popularnej grze w puzzle dla jednej osoby. Gra polega na przesuwaniu "
+"elementów tak, aby na jednym z nich uzyskać liczbę 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Użyj strzałek na klawiaturze, aby przesuwać elementy. Na początku gry "
+"pojawią się dwa elementy z liczbami \"2\". Gdy przesunięty element znajdzie "
+"się obok elementu z taką samą liczbą, połączą się one w jedną płytkę, która "
+"będzie miała liczbę będącą sumą liczb znajdujących się na połączonych "
+"elementach (2+2=4; 4+4=8; ...; 1024+1024=2048), a na losowym elemencie "
+"pojawi się nowa liczba. Uwaga: wszystkie elementy przesuną się na najdalszą "
+"pozycję, nie można przesunąć tylko jednego elementu albo jednego wiersza czy "
+"jednej kolumny."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Z każdym nowym elementem, który uzyskasz, zwiększa się wynik. Jeśli sądzisz, "
+"że możesz z łatwością uzyskać element \"2048\", nie pozwól, aby to cię "
+"powstrzymało, ponieważ możesz kontynuować łączenie elementów i poprawić swój "
+"wynik."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Gra \"2048\", stworzona przez Gabriele'a Cirulliego, zdobyła dużą "
+"popularność ze względu na to, że jest bardzo uzależniająca. \"2048\" "
+"Cirulliego jest kopią gry \"1024\" oraz zawiera pomysły z innych kopii tej "
+"gry."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;puzle;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Rozmiar siatki"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4×4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5×5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Wyświetlanie gratulacji"
+
+#: ../src/application.vala:142
+msgid "Game Over"
+msgstr "Koniec gry"
+
+#: ../src/application.vala:158
+msgid "You have obtained the $v tile"
+msgstr "Uzyskano płytkę z liczbą $v"
+
+#: ../src/application.vala:241
+msgid "A clone of 2048 for GNOME"
+msgstr "Kopia gry \"2048\" dla środowiska GNOME"
