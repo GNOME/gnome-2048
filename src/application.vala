@@ -354,7 +354,11 @@ public class Application : Gtk.Application
 
   private void scores_cb ()
   {
-    _scores_ctx.run_dialog ();
+    try {
+      _scores_ctx.run_dialog ();
+    } catch (GLib.Error e) {
+      warning ("Failed to run scores dialog: %s", e.message);
+    }
   }
 
   private void about_cb ()
