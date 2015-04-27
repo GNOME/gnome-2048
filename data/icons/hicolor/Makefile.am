@@ -1,3 +1,5 @@
+dist_noinst_DATA = scalable/gnome-2048-symbolic-model.svg
+
 icon16dir=$(datadir)/icons/hicolor/16x16/apps
 icon22dir=$(datadir)/icons/hicolor/22x22/apps
 icon24dir=$(datadir)/icons/hicolor/24x24/apps
@@ -14,7 +16,7 @@ icon32_DATA = 32x32/gnome-2048.png
 icon48_DATA = 48x48/gnome-2048.png
 icon256_DATA = 256x256/gnome-2048.png
 icon512_DATA = 512x512/gnome-2048.png
-iconscalable_DATA = scalable/gnome-2048.svg
+iconscalable_DATA = scalable/gnome-2048.svg scalable/gnome-2048-symbolic.svg
 
 EXTRA_DIST = $(icon16_DATA) $(icon22_DATA) $(icon24_DATA) $(icon32_DATA) $(icon48_DATA) $(icon256_DATA) $(icon512_DATA) $(iconscalable_DATA)
 
