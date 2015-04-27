@@ -1,0 +1,12 @@
+GNOME 2048   3.17.1                                        2015-04-27
+=====================================================================
+Translations
+ * bs (Samir Ribic), cs (Marek Černocký), de (Christian Kirbach),
+   es (Daniel Mustieles), fi (Jiri Grönroos), fr (Alexandre Franke),
+   he (Yosef Or Boczko), hu (Balázs Úr), pl (Joanna Lisek),
+   pt_BR (Enrico Nicoletto), pt_BR (Rafael Ferreira),
+   sl (Matej Urbančič), sr@latin (Мирослав Николић),
+   sv (Anders Jonsson), zh_CN (Mingpei Zheng)
+
+Application
+ * Initial release
