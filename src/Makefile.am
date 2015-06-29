@@ -26,7 +26,7 @@ gnome_2048_VALAFLAGS = \
 	--pkg clutter-gtk-1.0 \
 	--pkg cogl-1.0 \
 	--pkg gee-0.8 \
-	--pkg games-support-1.0
+	--pkg libgames-support-1.0
 
 gnome_2048_LDADD = \
 	$(GNOME_2048_LIBS) \
