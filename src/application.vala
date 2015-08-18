@@ -90,6 +90,8 @@ public class Application : Gtk.Application
 
     _create_scores ();
 
+    _window.show_all ();
+
     _game_restored = _game.restore_game ();
     if (!_game_restored)
       new_game_cb ();
@@ -197,8 +199,6 @@ public class Application : Gtk.Application
     geom.min_height = WINDOW_MINIMUM_SIZE_HEIGHT;
     geom.min_width = WINDOW_MINIMUM_SIZE_WIDTH;
     _window.set_geometry_hints (_window, geom, Gdk.WindowHints.MIN_SIZE);
-
-    _window.show_all ();
   }
 
   private void _create_header_bar ()
