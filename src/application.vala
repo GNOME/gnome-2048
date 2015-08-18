@@ -242,7 +242,7 @@ public class Application : Gtk.Application
 
     _about_dialog.authors = {"Juan R. García Blanco"};
     _about_dialog.copyright = "Copyright © 2014-2015 Juan R. García Blanco";
-    _about_dialog.version = "0.1";
+    _about_dialog.version = VERSION;
     _about_dialog.website = "http://www.gnome.org";
     _about_dialog.license_type = Gtk.License.GPL_3_0;
     _about_dialog.wrap_license = false;
