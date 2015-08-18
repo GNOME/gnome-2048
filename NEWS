@@ -1,3 +1,15 @@
+GNOME 2048   3.17.90                                       2015-08-18
+=====================================================================
+Translations
+ * es (Daniel Mustieles)
+
+Application
+ * Adapt to libgames-support .pc name change (Michael Catanzaro)
+ * libgames-support now has an API-versioned vapi file
+   (Michael Catanzaro)
+ * Show window after creating scores dialog (Juan R. García Blanco)
+ * Dynamically set version in about dialog (Juan R. García Blanco)
+
 GNOME 2048   3.17.1                                        2015-04-27
 =====================================================================
 Translations
