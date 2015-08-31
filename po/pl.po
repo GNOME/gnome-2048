@@ -5,14 +5,15 @@
 # gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Joanna Lisek <jlisek@gmail.com>, 2015.
+# Piotr Drąg <piotrdrag@gmail.com>, 2015.
 # Aviary.pl <gnomepl@aviary.pl>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 16:30+0100\n"
-"PO-Revision-Date: 2015-03-11 11:22+0100\n"
-"Last-Translator: Joanna Lisek <jlisek@gmail.com>\n"
+"POT-Creation-Date: 2015-08-31 02:22+0200\n"
+"PO-Revision-Date: 2015-08-31 02:23+0200\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgstr "Kontynuuj grę"
 
 #: ../data/mainwindow.ui.h:1
 msgid "gnome-2048"
-msgstr "gnome-2048"
+msgstr "GNOME 2048"
 
 #: ../data/menus.ui.h:2
 msgid "Scores"
@@ -157,7 +158,7 @@ msgid ""
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
 "and obtain the 2048 tile."
 msgstr ""
-"Zagraj w bardzo uzależniającą grę \"2048\". GNOME 2048 wzoruje się na "
+"Zagraj w bardzo uzależniającą grę „2048”. GNOME 2048 wzoruje się na "
 "popularnej grze w puzzle dla jednej osoby. Gra polega na przesuwaniu "
 "elementów tak, aby na jednym z nich uzyskać liczbę 2048."
 
@@ -169,11 +170,11 @@ msgid ""
 "joined when slided one over the other."
 msgstr ""
 "Użyj strzałek na klawiaturze, aby przesuwać elementy. Na początku gry "
-"pojawią się dwa elementy z liczbami \"2\". Gdy przesunięty element znajdzie "
+"pojawią się dwa elementy z liczbami „2”. Gdy przesunięty element znajdzie "
 "się obok elementu z taką samą liczbą, połączą się one w jedną płytkę, która "
 "będzie miała liczbę będącą sumą liczb znajdujących się na połączonych "
-"elementach (2+2=4; 4+4=8; ...; 1024+1024=2048), a na losowym elemencie "
-"pojawi się nowa liczba. Uwaga: wszystkie elementy przesuną się na najdalszą "
+"elementach (2+2=4; 4+4=8; …; 1024+1024=2048), a na losowym elemencie pojawi "
+"się nowa liczba. Uwaga: wszystkie elementy przesuną się na najdalszą "
 "pozycję, nie można przesunąć tylko jednego elementu albo jednego wiersza czy "
 "jednej kolumny."
 
@@ -184,7 +185,7 @@ msgid ""
 "there, you can continue joining tiles and improving your score."
 msgstr ""
 "Z każdym nowym elementem, który uzyskasz, zwiększa się wynik. Jeśli sądzisz, "
-"że możesz z łatwością uzyskać element \"2048\", nie pozwól, aby to cię "
+"że możesz z łatwością uzyskać element „2048”, nie pozwól, aby to cię "
 "powstrzymało, ponieważ możesz kontynuować łączenie elementów i poprawić swój "
 "wynik."
 
@@ -194,10 +195,9 @@ msgid ""
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
 "game and includes ideas from other clones."
 msgstr ""
-"Gra \"2048\", stworzona przez Gabriele'a Cirulliego, zdobyła dużą "
-"popularność ze względu na to, że jest bardzo uzależniająca. \"2048\" "
-"Cirulliego jest kopią gry \"1024\" oraz zawiera pomysły z innych kopii tej "
-"gry."
+"Gra „2048”, stworzona przez Gabriele’a Cirulliego, zdobyła dużą popularność "
+"ze względu na to, że jest bardzo uzależniająca. „2048” Cirulliego jest kopią "
+"gry „1024” oraz zawiera pomysły z innych kopii tej gry."
 
 #: ../data/org.gnome.gnome-2048.desktop.in.h:1
 msgid "2048"
@@ -223,14 +223,14 @@ msgstr "5×5"
 msgid "Display congrats"
 msgstr "Wyświetlanie gratulacji"
 
-#: ../src/application.vala:142
+#: ../src/application.vala:144
 msgid "Game Over"
 msgstr "Koniec gry"
 
-#: ../src/application.vala:158
+#: ../src/application.vala:160
 msgid "You have obtained the $v tile"
 msgstr "Uzyskano płytkę z liczbą $v"
 
 #: ../src/application.vala:241
 msgid "A clone of 2048 for GNOME"
-msgstr "Kopia gry \"2048\" dla środowiska GNOME"
+msgstr "Kopia gry „2048” dla środowiska GNOME"
