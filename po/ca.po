@@ -1,0 +1,226 @@
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Jordi Mas i Hernàndez <jmas@softcatala.org>, 2015
+#
+#
+#   Tile -> casella
+#   Grid -> graella
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-05 12:10+0200\n"
+"PO-Revision-Date: 2015-03-22 11:38-0500\n"
+"Last-Translator: Jordi Mas i Hernàndez <jmas@softcatala.org>\n"
+"Language-Team: ca_ES <tradgnome@softcatala.net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Felicitats!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+msgid "New Game"
+msgstr "Partida nova"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Continua jugant"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Puntuacions"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Preferències"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Ajuda"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Quant a"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Surt"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Amplada de la finestra"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Amplada de la finestra."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Alçada de la finestra"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Alçada de la finestra."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Finestra maximitzada"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Estat de la finestra maximitzada."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Nombre de files"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Nombre de files de la graella de joc."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "El nombre de columnes"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Nombre de columnes de la graella de joc."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Valor objectiu"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Valor de la casella a partir del qual es felicita a l'usuari."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Felicita en la casella objectiu"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Si l'usuari ha de ser felicitat al obtenir la casella objectiu."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Velocitat de les animacions"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Duració de les animacions: mostra casella, mou casella i enfosqueix la "
+"casella."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Permetre desfer"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Si els moviments de les caselles es poden desfer."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Nombre de moviments que es poden desfer"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Nombre màxim de moviments de les caselles que es poden desfer."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Obteniu la casella 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Jugueu al altament addictiu joc del 2048. El GNOME 2048 és un clon del popular "
+"trencaclosques per a un jugador. El joc consisteix en unir els nombres a una "
+"graella per obtenir la casella amb el número 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Utilitzeu les tecles del cursor per desplaçar les caselles en la direcció "
+"desitjada. Totes les caselles es desplacen a les posicions més allunyades "
+"possibles, no podeu simplement desplaçar una casella, fila o columna. Les "
+"caselles amb el mateix valor s'agrupen quan es desplacen sobre un altre."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Amb cada casella que obteniu incrementeu la vostra puntuació. Si penseu que "
+"podeu obtenir la casella 2048 fàcilment, no us atureu aquí, podeu continuar "
+"agrupant caselles per millorar la vostra puntuació."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Va ser creat originalment per en Gabriele Cirulli. El 2048 ha guanyat molta "
+"popularitat per ser altament addictiu. El 2048 de Cirulli és un clon del joc "
+"1024 i inclou idees d'altres clons."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "trencaclosques;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Mida de la graella"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Mostra felicitacions"
+
+#: ../src/application.vala:144
+msgid "Game Over"
+msgstr "Partida acabada"
+
+#: ../src/application.vala:160
+msgid "You have obtained the $v tile"
+msgstr "Heu obtingut la casella $v"
+
+#: ../src/application.vala:241
+msgid "A clone of 2048 for GNOME"
+msgstr "Una clon del 2048 per al GNOME"
