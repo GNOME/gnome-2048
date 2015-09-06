@@ -110,7 +110,7 @@ msgstr "Felicita en la casella objectiu"
 
 #: ../data/org.gnome.2048.gschema.xml.h:14
 msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Si l'usuari ha de ser felicitat al obtenir la casella objectiu."
+msgstr "Si l'usuari ha de ser felicitat a l'obtenir la casella objectiu."
 
 #: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
 msgid "Animations speed"
@@ -153,7 +153,7 @@ msgid ""
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
 "and obtain the 2048 tile."
 msgstr ""
-"Jugueu al altament addictiu joc del 2048. El GNOME 2048 és un clon del popular "
+"Jugueu a l'altament addictiu joc del 2048. El GNOME 2048 és un clon del popular "
 "trencaclosques per a un jugador. El joc consisteix en unir els nombres a una "
 "graella per obtenir la casella amb el número 2048."
 
