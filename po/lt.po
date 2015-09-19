@@ -1,0 +1,228 @@
+# Lithuanian translation for gnome-2048.
+# Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Moo <hazap@hotmail.com>, 2015.
+# Aurimas Černius <aurisc4@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-16 18:05+0000\n"
+"PO-Revision-Date: 2015-09-19 18:27+0300\n"
+"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Sveikiname!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+msgid "New Game"
+msgstr "Naujas žaidimas"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Tęsti žaidimą"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Rezultatai"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Nustatymai"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Žinynas"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Apie"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Išeiti"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Lango plotis"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Lango plotis."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Lango aukštis"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Lango aukštis."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Langas išdidintas"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Lango išdidinimo būsena."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Eilučių skaičius"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Žaidimo tinklelio eilučių skaičius."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Stulpelių skaičius"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Žaidimo tinklelio stulpelių skaičius."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Galutinė reikšmė"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Plytelės reikšmė, kurią pasiekęs, naudotojas bus pasveikintas."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Pasveikinti, pasiekus galutinę plytelę"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Ar naudotojas, pasiekęs galutinę plytelę, turėtų būti pasveikintas."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Animacijų greitis"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Animacijų trukmė: plytelės rodymas, plytelės perkėlimas, plytelės išblukimas."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Leisti atšaukimą"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Ar plytelių perkėlimai gali būti atšaukiami."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Atšaukimo žingsnių skaičius"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Didžiausias skaičius plytelių judesių, kurie gali būti atšaukti."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Pasiekti 2048 plytelę"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Žaiskite įtraukiantį žaidimą 2048. GNOME 2048 yra, populiarios vieno žaidėjo "
+"dėlionės, žaidimo klonas. Žaidimo eiga susideda iš tinklelyje esančių "
+"skaičių sujungimo ir 2048 plytelės pasiekimo."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Naudokite savo klaviatūros rodyklių klavišus, kad slankiotumėte visomis "
+"plytelėmis norima kryptimi. Būkite atsargūs: visos plytelės slenka į "
+"toliausias joms įmanomas vietas, jūs negalite paslinkti tik vienos plytelės "
+"ar vienos eilutės, ar vieno stulpelio. Plytelės su tokia pačia reikšme, kai "
+"užslenkamos viena ant kitos, yra sujungiamos."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Su kiekviena pasiekta plytele, jūs didinate savo rezultatą. Jeigu galvojate, "
+"kad galite lengvai pasiekti 2048 plytelę, nesustokite, žaidimas tuo "
+"nesibaigia, taigi, galite toliau sujunginėti plyteles ir gerinti savo "
+"rezultatą."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Gabriele Cirulli sukurtas žaidimas įgavo didelį populiarumą, kadangi buvo "
+"labai įtraukiantis žaidimas. Cirulli žaidimas 2048, savo ruožtu yra žaidimo "
+"1024 klonas, ir įtraukia idėjas iš kitų klonų."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "dėlionė;galvosūkis;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Tinklelio dydis"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Rodyti pasveikinimus"
+
+#: ../src/application.vala:144
+msgid "Game Over"
+msgstr "Žaidimas baigtas"
+
+#: ../src/application.vala:160
+msgid "You have obtained the $v tile"
+msgstr "Jūs pasiekėte $v plytelę"
+
+#: ../src/application.vala:241
+msgid "A clone of 2048 for GNOME"
+msgstr "2048 klonas GNOME aplinkai"
