@@ -340,9 +340,6 @@ public class Application : Gtk.Application
 
     // FIXME: The second parameter should be _("Grid Size:") but we're in string freeze.
     _scores_ctx = new Scores.Context ("gnome-2048", "", _window, category_request, Scores.Style.PLAIN_DESCENDING);
-
-    if (!_scores_ctx.has_scores ())
-      ((SimpleAction) lookup_action ("scores")).set_enabled (false);
   }
 
   private void new_game_cb ()
