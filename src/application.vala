@@ -334,11 +334,12 @@ public class Application : Gtk.Application
 
   private void _create_scores ()
   {
-    // FIXME: The second parameter should be _("Grid Size:") but we're in string freeze.
-    _scores_ctx = new Scores.Context ("gnome-2048", "", _window, category_request, Scores.Style.PLAIN_DESCENDING);
     // FIXME: The category names should be marked for translation and use the × character.
     _grid4_cat = new Scores.Category ("grid4", "Grid 4 x 4");
     _grid5_cat = new Scores.Category ("grid5", "Grid 5 x 5");
+
+    // FIXME: The second parameter should be _("Grid Size:") but we're in string freeze.
+    _scores_ctx = new Scores.Context ("gnome-2048", "", _window, category_request, Scores.Style.PLAIN_DESCENDING);
 
     if (!_scores_ctx.has_scores ())
       ((SimpleAction) lookup_action ("scores")).set_enabled (false);
