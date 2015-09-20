@@ -144,13 +144,16 @@ public class Application : Gtk.Application
       _header_bar.subtitle = _("Game Over");
 
       if (!_game_restored) {
-        try {
-          Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
-          _scores_ctx.add_score (_game.score, cat);
+        Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
+        _scores_ctx.add_score.begin (_game.score, cat, (object, result) => {
+          try {
+            _scores_ctx.add_score.end (result);
+          } catch (GLib.Error e) {
+            stderr.printf ("%s\n", e.message);
+          }
           ((SimpleAction) lookup_action ("scores")).set_enabled (true);
-        } catch (GLib.Error e) {
-          stderr.printf ("%s\n", e.message);
-        }
+          debug ("score added");
+        });
       }
 
       debug ("finished");
