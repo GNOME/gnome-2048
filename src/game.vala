@@ -148,8 +148,15 @@ public class Game : GLib.Object
     try {
       FileUtils.get_contents (_saved_path, out contents);
     } catch (FileError e) {
-      warning ("Failed to restore game: %s", e.message);
-      return false;
+      // FIXME: Returning false guarantees a crash, because _clear_foreground
+      // will be called before _init_background(). Also, warning here makes no
+      // sense, since restoring is expected to fail if no previously-saved game
+      // exists. Someone needs to take a closer look at this to see what should
+      // happen if this function needs to return false, or if it needs a return
+      // value at all.
+
+      // warning ("Failed to restore game: %s", e.message);
+      // return false;
     }
 
     if (!_grid.load (contents))
