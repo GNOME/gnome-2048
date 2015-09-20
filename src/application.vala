@@ -145,7 +145,7 @@ public class Application : Gtk.Application
 
       if (!_game_restored) {
         Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
-        _scores_ctx.add_score.begin (_game.score, cat, (object, result) => {
+        _scores_ctx.add_score.begin (_game.score, cat, null, (object, result) => {
           try {
             _scores_ctx.add_score.end (result);
           } catch (GLib.Error e) {
