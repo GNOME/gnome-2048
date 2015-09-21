@@ -1,3 +1,13 @@
+GNOME 2048   3.18.0                                        2015-09-21
+=====================================================================
+New translations
+ * pt (Pedro Albuquerque)
+ * lt (Aurimas Černius)
+
+Application
+ * Changes caused by libgames-support API change (Michael Catanzaro)
+ * Fix starting game for the first time (Michael Catanzaro)
+
 GNOME 2048   3.17.92                                       2015-09-15
 =====================================================================
 Translations
