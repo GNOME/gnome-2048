@@ -107,7 +107,11 @@ public class Game : GLib.Object
   {
     _grid.clear ();
     _undo_stack.clear ();
-    _clear_foreground ();
+    // new_game could be called without an existing game
+    if (_background == null)
+      _init_background ();
+    else
+      _clear_foreground ();
     score = 0;
     _state = GameState.SHOWING_FIRST_TILE;
     _create_random_tile ();
@@ -148,19 +152,13 @@ public class Game : GLib.Object
     try {
       FileUtils.get_contents (_saved_path, out contents);
     } catch (FileError e) {
-      // FIXME: Returning false guarantees a crash, because _clear_foreground
-      // will be called before _init_background(). Also, warning here makes no
-      // sense, since restoring is expected to fail if no previously-saved game
-      // exists. Someone needs to take a closer look at this to see what should
-      // happen if this function needs to return false, or if it needs a return
-      // value at all.
-
-      // warning ("Failed to restore game: %s", e.message);
-      // return false;
+      return false;
     }
 
-    if (!_grid.load (contents))
+    if (!_grid.load (contents)) {
+      warning ("Failed to restore game from saved file");
       return false;
+    }
 
     lines = contents.split ("\n");
     score = (uint)int.parse (lines[lines.length-2]);
