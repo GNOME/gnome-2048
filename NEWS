@@ -3,6 +3,9 @@ GNOME 2048   3.18.1                                        2015-10-12
 New translation
  * cs (Marek Černocký)
 
+Application
+ * Fix starting game for the first time (Yanko Kaneti)
+
 GNOME 2048   3.18.0                                        2015-09-21
 =====================================================================
 New translations
