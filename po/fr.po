@@ -205,15 +205,15 @@ msgstr "Taille de la grille"
 
 #: ../data/preferences.ui.h:3
 msgid "4 x 4"
-msgstr "4 x 4"
+msgstr "4 × 4"
 
 #: ../data/preferences.ui.h:4
 msgid "5 x 5"
-msgstr "5 x 5"
+msgstr "5 × 5"
 
 #: ../data/preferences.ui.h:6
 msgid "Display congrats"
-msgstr "Afficher les féliciations"
+msgstr "Afficher les félicitations"
 
 #: ../src/application.vala:142
 msgid "Game Over"
