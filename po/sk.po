@@ -1,0 +1,227 @@
+# Slovak translation for gnome-2048.
+# Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Dušan Kazik <prescott66@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-11-08 07:42+0000\n"
+"PO-Revision-Date: 2015-11-08 14:18+0100\n"
+"Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Blahoželáme!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
+msgid "New Game"
+msgstr "Nová hra"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Pokračovať v hre"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Skóre"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Nastavenia"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Pomocník"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "O programe"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Ukončiť"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Šírka okna"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Šírka okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Výška okna"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Výška okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Maximalizované okno"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Maximalizovaný stav okna."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Počet riadkov"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Počet riadkov hracej mriežky."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Počet stĺpcov"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Počet stĺpcov hracej mriežky."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Cieľová hodnota"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Hodnota dlaždice, pri ktorej sa má blahoželať používateľovi."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Blahoželať pri cieľovej dlaždici"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr ""
+"Určuje, či sa má blahoželať používateľovi, pri dosiahnutí cieľovej dlaždice."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Rýchlosť animácií"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Trvanie animácií: zobrazenie dlaždice, presunutie dlaždice a stlmenie "
+"dlaždice."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Povoliť vrátenie späť"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Určuje, či môžu byť ťahy dlaždíc vrátené späť."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Počet ťahov vrátenia späť"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Maximálny počet ťahov dlaždíc, ktoré je možné vrátiť späť."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Získajte dlaždicu 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Hrajte silno návykovú hru 2048. GNOME 2048 je klon obľúbeného hlavolamu pre "
+"jedného hráča. Hranie spočíva zo spájania čísiel v mriežke a získaním "
+"dlaždice 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Použite klávesy šípok na vašej klávesnici na posunutie všetkých dlaždíc v "
+"požadovanom smere. Buďte opatrný: všetky dlaždice sa posúvajú do ich "
+"najvzdialenejších pozícií. Nemôžete posunúť iba jednu dlaždicu, alebo jeden "
+"riadok, alebo stĺpec. Dlaždice s rovnakou hodnotou budú spojené pri posunutí "
+"jednej cez druhú."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"S každou novo získanou dlaždicou rastie vaše skóre. Ak si myslíte, že môžete "
+"ľahko získať dlaždicu 2048, neprestávajte, pretože hra ešte nekončí. Môžete "
+"pokračovať spájaním dlaždíc a zlepšovaním vášho skóre."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Hru pôvodne vytvoril Gabriele Cirulli. 2048 si získala veľkú obľúbenosť, "
+"pretože je silno návyková. Cirulliho 2048 zahŕňa klon hry 1024 a nápady z "
+"iných klonov."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;hlavolam;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Veľkosť mriežky"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Zobraziť blahoželanie"
+
+#: ../src/application.vala:144
+msgid "Game Over"
+msgstr "Koniec hry"
+
+#: ../src/application.vala:163
+msgid "You have obtained the $v tile"
+msgstr "Získali ste dlaždicu $v"
+
+#: ../src/application.vala:244
+msgid "A clone of 2048 for GNOME"
+msgstr "Klon hry 2048 pre GNOME"
