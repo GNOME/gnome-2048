@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([gnome-2048], [3.18.1], [http://www.gnome.org],
+AC_INIT([gnome-2048], [3.18.2], [http://www.gnome.org],
         [gnome-2048])
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz foreign])
 AM_SILENT_RULES([yes])
