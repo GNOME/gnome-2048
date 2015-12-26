@@ -35,7 +35,10 @@ public class Game : GLib.Object
 
   private Grid _grid;
 
+  private uint _finish_move_id = 0;
   private Clutter.Actor _view;
+  private Clutter.Actor _view_background;
+  private Clutter.Actor _view_foreground;
   private RoundedRectangle[,] _background;
   private TileView[,] _foreground_cur;
   private TileView[,] _foreground_nxt;
@@ -82,6 +85,11 @@ public class Game : GLib.Object
     _to_hide = new Gee.LinkedList<TileMovement?> ();
     _to_show = new Gee.LinkedList<Tile?> ();
 
+    _view_background = new Clutter.Actor ();
+    _view_foreground = new Clutter.Actor ();
+    _view_background.show ();
+    _view_foreground.show ();
+
     _undo_stack = new Gee.LinkedList<Grid> ();
     _allow_undo = _settings.get_boolean ("allow-undo");
     _undo_stack_max_size = _settings.get_int ("allow-undo-max");
@@ -96,6 +104,8 @@ public class Game : GLib.Object
     set {
       _view = value;
       _view.allocation_changed.connect (_on_allocation_changed);
+      _view.add_child (_view_background);
+      _view.add_child (_view_foreground);
     }
   }
 
@@ -105,6 +115,8 @@ public class Game : GLib.Object
 
   public void new_game ()
   {
+    if (_finish_move_id > 0)
+      Source.remove (_finish_move_id);
     _grid.clear ();
     _undo_stack.clear ();
     // new_game could be called without an existing game
@@ -269,7 +281,7 @@ public class Game : GLib.Object
 
         RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height, color);
 
-        _view.add_child (rect.actor);
+        _view_background.add_child (rect.actor);
         rect.canvas.invalidate ();
         rect.actor.show ();
 
@@ -489,7 +501,7 @@ public class Game : GLib.Object
     view.canvas.invalidate ();
     view.actor.set_opacity (0);
     view.actor.show ();
-    _view.add_child (view.actor);
+    _view_foreground.add_child (view.actor);
 
     trans = new Clutter.PropertyTransition ("scale-x");
     trans.set_from_value (1.0);
@@ -567,32 +579,20 @@ public class Game : GLib.Object
 
   private void _clear_background ()
   {
-    int rows = _grid.rows;
-    int cols = _grid.cols;
-
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
-        RoundedRectangle rect = _background[i,j];
-        rect.actor.hide ();
-        _view.remove_child (rect.actor);
-      }
-    }
+    _view_background.remove_all_children ();
   }
 
   private void _clear_foreground ()
   {
     int rows = _grid.rows;
     int cols = _grid.cols;
-
+    _view_foreground.remove_all_children ();
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        if (_foreground_cur[i,j] != null) {
-          TileView tile = _foreground_cur[i,j];
-          tile.actor.hide ();
-          _view.remove_child (tile.actor);
+        if (_foreground_cur[i,j] != null)
           _foreground_cur[i,j] = null;
+        if (_foreground_nxt[i,j] != null)
           _foreground_nxt[i,j] = null;
-        }
       }
     }
   }
@@ -672,12 +672,12 @@ public class Game : GLib.Object
       TileView view = _foreground_cur[e.from.row,e.from.col];
       view.actor.hide ();
       debug (@"remove child " + _foreground_cur[e.from.row,e.from.col].value.to_string ());
-      _view.remove_child (view.actor);
+      _view_foreground.remove_child (view.actor);
 
       _foreground_cur[e.from.row,e.from.col] = null;
     }
 
-    GLib.Timeout.add (100, _finish_move);
+    _finish_move_id = GLib.Timeout.add (100, _finish_move);
   }
 
   private void _create_show_hide_transition (bool animate)
@@ -722,6 +722,7 @@ public class Game : GLib.Object
     if (_grid.is_finished ())
       finished ();
 
+    _finish_move_id = 0;
     return false;
   }
 
