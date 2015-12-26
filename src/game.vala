@@ -55,6 +55,7 @@ public class Game : GLib.Object
   private bool _allow_undo;
   private uint _undo_stack_max_size;
   private Gee.LinkedList<Grid> _undo_stack;
+  private Gee.LinkedList<uint> _undo_score_stack;
 
   private GLib.Settings _settings;
 
@@ -91,6 +92,7 @@ public class Game : GLib.Object
     _view_foreground.show ();
 
     _undo_stack = new Gee.LinkedList<Grid> ();
+    _undo_score_stack = new Gee.LinkedList<uint> ();
     _allow_undo = _settings.get_boolean ("allow-undo");
     _undo_stack_max_size = _settings.get_int ("allow-undo-max");
 
@@ -119,6 +121,7 @@ public class Game : GLib.Object
       Source.remove (_finish_move_id);
     _grid.clear ();
     _undo_stack.clear ();
+    _undo_score_stack.clear ();
     // new_game could be called without an existing game
     if (_background == null)
       _init_background ();
@@ -133,9 +136,12 @@ public class Game : GLib.Object
   public void undo ()
   {
     Grid grid = _undo_stack.poll_head ();
+    uint delta_score = _undo_score_stack.poll_head ();
+
     _clear_foreground ();
     _grid = grid;
     _restore_foreground (false);
+    score -= delta_score;
 
     if (_undo_stack.size == 0)
       undo_disabled ();
@@ -216,6 +222,7 @@ public class Game : GLib.Object
     allow_undo = _settings.get_boolean ("allow-undo");
     if (_allow_undo && !allow_undo) {
       _undo_stack.clear ();
+      _undo_score_stack.clear ();
       undo_disabled ();
     }
     _allow_undo = allow_undo;
@@ -649,6 +656,7 @@ public class Game : GLib.Object
       delta_score += e.val;
     }
     score += delta_score;
+    _store_score_update (delta_score);
 
     _create_random_tile ();
 
@@ -736,6 +744,15 @@ public class Game : GLib.Object
       if (_undo_stack.size == 1) {
         undo_enabled ();
       }
+    }
+  }
+
+  private void _store_score_update (uint delta_score)
+  {
+    if (_allow_undo) {
+      if (_undo_score_stack.size == _undo_stack_max_size)
+        _undo_score_stack.poll_tail ();
+      _undo_score_stack.offer_head (delta_score);
     }
   }
 }
