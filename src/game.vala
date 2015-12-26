@@ -127,6 +127,7 @@ public class Game : GLib.Object
     score = 0;
     _state = GameState.SHOWING_FIRST_TILE;
     _create_random_tile ();
+    undo_disabled ();
   }
 
   public void undo ()
