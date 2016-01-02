@@ -1,14 +1,14 @@
 # Serbian translation for gnome-2048.
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2015.
+# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2015—2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-2"
 "048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-12 06:47+0000\n"
-"PO-Revision-Date: 2015-01-13 11:07+0200\n"
+"POT-Creation-Date: 2015-09-07 22:02+0000\n"
+"PO-Revision-Date: 2016-01-02 18:50+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -19,86 +19,39 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-2048.appdata.xml.in.h:1
-msgid "GNOME 2048"
-msgstr "Gnom 2048"
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Čestitamo!"
 
-#: ../data/gnome-2048.appdata.xml.in.h:2 ../data/gnome-2048.desktop.in.h:2
-msgid "Obtain the 2048 tile"
-msgstr "Dobijte 2048 pločicu"
-
-#: ../data/gnome-2048.appdata.xml.in.h:3
-msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
-msgstr ""
-"Igrajte vrlo zaraznu igru 2048. Gnom 2048 je preslik popularne igre "
-"slagalica za jednog igrača. Igranje se sastoji od spajanja brojeva u mreži da "
-"bi se dobila pločica 2048."
-
-#: ../data/gnome-2048.appdata.xml.in.h:4
-msgid ""
-"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
-"Be careful: all tiles slide to their farthest possible positions, you cannot "
-"slide just one tile or one row or column. Tiles with the same value are "
-"joined when slided one over the other."
-msgstr ""
-"Koristite strelice na tastaturi da pogurate sve pločice u željenom pravcu. "
-"Budite oprezni: sve pločice klize na svoje najudaljenije moguće položaje, ne "
-"možete pogurati samo jednu pločicu ili jedan red ili kolonu. Pločice sa "
-"istom vrednošću se spajaju kada skliznu jedna iznad druge."
-
-#: ../data/gnome-2048.appdata.xml.in.h:5
-msgid ""
-"With every new tile obtained you increase your score. If you think you can "
-"easily get the 2048 tile, do not let it stop you, the game does not end "
-"there, you can continue joining tiles and improving your score."
-msgstr ""
-"Sa svakom novom dobijenom pločicom povećavate rezultat. Ako mislite da "
-"možete lako dobiti pločicu 2048, nemojte na tome da se zaustavite, igra se "
-"tu ne završava, možete nastaviti sa spajanjem pločica i poboljšavanjem "
-"rezultata."
-
-#: ../data/gnome-2048.appdata.xml.in.h:6
-msgid ""
-"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
-"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
-"game and includes ideas from other clones."
-msgstr ""
-"Izvorno ju je napravio Gabriele Ćiruli, i kao takva 2048 je stekla veliku "
-"popularnost zbog same svoje zaraznosti. Ćirulijeva 2048 je zapravo preslik "
-"igre 1024 i uključuje ideje iz drugih preslika."
-
-#: ../data/gnome-2048.desktop.in.h:1
-msgid "2048"
-msgstr "2048"
-
-#: ../data/gnome-2048.desktop.in.h:3
-msgid "puzzle;"
-msgstr "slagalica;"
-
-#: ../data/mainwindow.ui.h:1
-msgid "gnome-2048"
-msgstr "gnome-2048"
-
-#: ../data/menus.ui.h:1 ../src/application.vala:162
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
 msgid "New Game"
 msgstr "Nova igra"
 
-#: ../data/menus.ui.h:2 ../data/preferences.ui.h:1
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Nastavi sa igrom"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "Gnom-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Rezultati"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
 msgid "Preferences"
 msgstr "Postavke"
 
-#: ../data/menus.ui.h:3
+#: ../data/menus.ui.h:4
 msgid "Help"
 msgstr "Pomoć"
 
-#: ../data/menus.ui.h:4
+#: ../data/menus.ui.h:5
 msgid "About"
 msgstr "O programu"
 
-#: ../data/menus.ui.h:5
+#: ../data/menus.ui.h:6
 msgid "Quit"
 msgstr "Izađi"
 
@@ -132,7 +85,7 @@ msgstr "Broj redova"
 
 #: ../data/org.gnome.2048.gschema.xml.h:8
 msgid "Game grid number of rows."
-msgstr "Broj redova mreže igre."
+msgstr "Broj redova mreže."
 
 #: ../data/org.gnome.2048.gschema.xml.h:9
 msgid "Number of columns"
@@ -140,24 +93,141 @@ msgstr "Broj stubaca"
 
 #: ../data/org.gnome.2048.gschema.xml.h:10
 msgid "Game grid number of columns."
-msgstr "Broj stubaca mreže igre."
+msgstr "Broj stubaca mreže."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Vrednost cilja"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Vrednost pločice pri kojoj se čestita korisniku."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Čestitke za ciljnu pločicu"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Da li će se čestitati korisniku kada osvoji ciljnu pločicu."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Brzina animacije"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Trajanje animacije: prikazivanje, pomeranje i iščezavanje pločice."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Omogući opozivanje"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Da li pomeranja pločice mogu biti opozvana."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+#| msgid "Number of columns"
+msgid "Number of undo movements"
+msgstr "Broj opozivanja poteza"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Najveći broj pomeranja pločice koja mogu biti opozvana."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "Gnom 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Dobijte 2048 pločicu"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Igrajte vrlo zaraznu igru 2048. Gnom 2048 je preslik popularne igre "
+"slagalica za jednog igrača. Igranje se sastoji od spajanja brojeva u mreži da "
+"bi se dobila pločica 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Koristite strelice na tastaturi da pogurate sve pločice u željenom pravcu. "
+"Budite oprezni: sve pločice klize na svoje najudaljenije moguće položaje, ne "
+"možete pogurati samo jednu pločicu ili jedan red ili kolonu. Pločice sa "
+"istom vrednošću se spajaju kada skliznu jedna iznad druge."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Sa svakom novom dobijenom pločicom povećavate rezultat. Ako mislite da "
+"možete lako dobiti pločicu 2048, nemojte na tome da se zaustavite, igra se "
+"tu ne završava, možete nastaviti sa spajanjem pločica i poboljšavanjem "
+"rezultata."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Izvorno ju je napravio Gabriele Ćiruli, i kao takva 2048 je stekla veliku "
+"popularnost zbog same svoje zaraznosti. Ćirulijeva 2048 je zapravo preslik "
+"igre 1024 i uključuje ideje iz drugih preslika."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "slagalica;"
 
 #: ../data/preferences.ui.h:2
-msgid "Columns"
-msgstr "Stupci"
+#| msgid "Grid"
+msgid "Grid size"
+msgstr "Veličina mreže"
 
 #: ../data/preferences.ui.h:3
-msgid "Rows"
-msgstr "Redovi"
+msgid "4 x 4"
+msgstr "4 x 4"
 
 #: ../data/preferences.ui.h:4
-msgid "Grid"
-msgstr "Mreža"
+msgid "5 x 5"
+msgstr "5 x 5"
 
-#: ../src/application.vala:121
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Prilaži čestittanja"
+
+#: ../src/application.vala:144
 msgid "Game Over"
 msgstr "Igra je završena"
 
-#: ../src/application.vala:184
+#: ../src/application.vala:160
+#| msgid "Obtain the 2048 tile"
+msgid "You have obtained the $v tile"
+msgstr "Broj osvojenih pločica: $v "
+
+#: ../src/application.vala:241
 msgid "A clone of 2048 for GNOME"
 msgstr "Preslik igre 2048 za Gnoma"
+
+#~ msgid "Columns"
+#~ msgstr "Stupci"
+
+#~ msgid "Rows"
+#~ msgstr "Redovi"
