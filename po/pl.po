@@ -5,14 +5,14 @@
 # gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Joanna Lisek <jlisek@gmail.com>, 2015.
-# Piotr Drąg <piotrdrag@gmail.com>, 2015.
-# Aviary.pl <gnomepl@aviary.pl>, 2015.
+# Piotr Drąg <piotrdrag@gmail.com>, 2015-2016.
+# Aviary.pl <gnomepl@aviary.pl>, 2015-2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-31 02:22+0200\n"
-"PO-Revision-Date: 2015-08-31 02:23+0200\n"
+"POT-Creation-Date: 2016-01-18 22:44+0100\n"
+"PO-Revision-Date: 2016-01-18 22:45+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Gratulacje!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
 msgid "New Game"
 msgstr "Nowa gra"
 
@@ -227,10 +227,11 @@ msgstr "Wyświetlanie gratulacji"
 msgid "Game Over"
 msgstr "Koniec gry"
 
-#: ../src/application.vala:160
-msgid "You have obtained the $v tile"
-msgstr "Uzyskano płytkę z liczbą $v"
+#: ../src/application.vala:163
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Uzyskano płytkę z liczbą %u"
 
-#: ../src/application.vala:241
+#: ../src/application.vala:244
 msgid "A clone of 2048 for GNOME"
 msgstr "Kopia gry „2048” dla środowiska GNOME"
