@@ -1,3 +1,26 @@
+GNOME 2048   3.19.4                                        2016-01-18
+=====================================================================
+Translations
+  * cs (Marek Černocký) 
+  * de (Bernd Homuth, Mario Blättermann)
+  * el (Tom Tryfonidis)
+  * fr (Guillaume Bernard)
+  * po (Piotr Drąg)
+  * sk (Dušan Kazik)
+  * sr (Мирослав Николић) 
+  * sr@latin Miroslav Nikolić)
+  * sv, (Anders Jonsson)
+
+Application
+ * Make new game work in if game does not exist (Yanko Kaneti)
+ * Fixed new game glitch (Robert Roth)
+ * Stop using deprecated gnome-common (Sahil Sareen)
+ * Add pre-commit and pre-applypatch hooks (Sahil Sareem)
+ * Fixed congrat message (Robert Roth)
+ * Undo score changes with undo (Robert Roth)
+ * Disable undo on new game (Robert Roth)
+
+
 GNOME 2048   3.18.1                                        2015-10-12
 =====================================================================
 New translation
