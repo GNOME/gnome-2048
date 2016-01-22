@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2015 Juan R. García Blanco -->
-<application>
- <id type="desktop">org.gnome.gnome-2048.desktop</id>
- <metadata_license>CC-BY-SA-3.0</metadata_license>
- <project_license>GPL-3.0+</project_license>
- <_name>GNOME 2048</_name>
- <_summary>Obtain the 2048 tile</_summary>
- <description>
-  <_p>
-   Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular
-   single-player puzzle game. Gameplay consists of joining numbers in a grid
-   and obtain the 2048 tile.
-  </_p>
-  <_p>
-   Use your keyboard's arrow keys to slide all tiles in the desired direction.
-   Be careful: all tiles slide to their farthest possible positions, you cannot
-   slide just one tile or one row or column. Tiles with the same value are
-   joined when slided one over the other.
-  </_p>
-  <_p>
-   With every new tile obtained you increase your score. If you think you can easily
-   get the 2048 tile, do not let it stop you, the game does not end there, you can
-   continue joining tiles and improving your score.
-  </_p>
-  <_p>
-   Originally created by Gabriele Cirulli, 2048 has gained much popularity
-   due to it being highly addictive. Cirulli's 2048 is in turn a clone of
-   the 1024 game and includes ideas from other clones.
-  </_p>
- </description>
- <screenshots>
-  <screenshot type="default" width="1280" height="720">https://wiki.gnome.org/Apps/2048?action=AttachFile&amp;do=get&amp;target=gnome-2048-software.png</screenshot>
- </screenshots>
- <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
- <updatecontact>games_list_at_gnome.org</updatecontact>
- <project_group>GNOME</project_group>
-</application>
+<component type="desktop">
+  <id>org.gnome.gnome-2048.desktop</id>
+  <metadata_license>CC-BY-SA-3.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <_name>GNOME 2048</_name>
+  <_summary>Obtain the 2048 tile</_summary>
+  <description>
+    <_p>
+     Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular
+     single-player puzzle game. Gameplay consists of joining numbers in a grid
+     and obtain the 2048 tile.
+    </_p>
+    <_p>
+     Use your keyboard's arrow keys to slide all tiles in the desired direction.
+     Be careful: all tiles slide to their farthest possible positions, you cannot
+     slide just one tile or one row or column. Tiles with the same value are
+     joined when slided one over the other.
+    </_p>
+    <_p>
+     With every new tile obtained you increase your score. If you think you can easily
+     get the 2048 tile, do not let it stop you, the game does not end there, you can
+     continue joining tiles and improving your score.
+    </_p>
+    <_p>
+     Originally created by Gabriele Cirulli, 2048 has gained much popularity
+     due to it being highly addictive. Cirulli's 2048 is in turn a clone of
+     the 1024 game and includes ideas from other clones.
+    </_p>
+  </description>
+  <screenshots>
+    <screenshot height="720" width="1280" type="default">
+      <image>https://wiki.gnome.org/Apps/2048?action=AttachFile&amp;do=get&amp;target=gnome-2048-software.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
+  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-2048</url>
+  <url type="donation">http://www.gnome.org/friends/</url>
+  <update_contact>games_list_at_gnome.org</update_contact>
+  <project_group>GNOME</project_group>
+  <kudos>
+    <kudo>AppMenu</kudo>
+    <kudo>ModernToolkit</kudo>
+    <kudo>UserDocs</kudo>
+  </kudos>
+</component>
