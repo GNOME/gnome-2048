@@ -2,15 +2,15 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 # Moo <hazap@hotmail.com>, 2015.
-# Aurimas Černius <aurisc4@gmail.com>, 2015.
+# Aurimas Černius <aurisc4@gmail.com>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-16 18:05+0000\n"
-"PO-Revision-Date: 2015-09-19 18:27+0300\n"
+"POT-Creation-Date: 2016-01-18 21:28+0000\n"
+"PO-Revision-Date: 2016-01-23 18:04+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Sveikiname!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
 msgid "New Game"
 msgstr "Naujas žaidimas"
 
@@ -43,7 +43,7 @@ msgstr "Rezultatai"
 
 #: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
 msgid "Preferences"
-msgstr "Nustatymai"
+msgstr "Nuostatos"
 
 #: ../data/menus.ui.h:4
 msgid "Help"
@@ -219,10 +219,12 @@ msgstr "Rodyti pasveikinimus"
 msgid "Game Over"
 msgstr "Žaidimas baigtas"
 
-#: ../src/application.vala:160
-msgid "You have obtained the $v tile"
-msgstr "Jūs pasiekėte $v plytelę"
+#: ../src/application.vala:163
+#, c-format
+#| msgid "You have obtained the $v tile"
+msgid "You have obtained the %u tile"
+msgstr "Jūs pasiekėte %u plytelę"
 
-#: ../src/application.vala:241
+#: ../src/application.vala:244
 msgid "A clone of 2048 for GNOME"
 msgstr "2048 klonas GNOME aplinkai"
