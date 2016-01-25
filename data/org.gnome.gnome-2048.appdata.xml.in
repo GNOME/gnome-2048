@@ -44,4 +44,5 @@
     <kudo>ModernToolkit</kudo>
     <kudo>UserDocs</kudo>
   </kudos>
+  <translation type="gettext">gnome-2048</translation>
 </component>
