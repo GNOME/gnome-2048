@@ -1,15 +1,15 @@
 # Swedish translation for gnome-2048.
-# Copyright © 2015 gnome-2048's COPYRIGHT HOLDER
+# Copyright © 2015, 2016 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-02 14:53+0000\n"
-"PO-Revision-Date: 2015-03-17 18:54+0100\n"
+"POT-Creation-Date: 2016-01-18 21:28+0000\n"
+"PO-Revision-Date: 2016-01-26 22:52+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "Grattis!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
 msgid "New Game"
 msgstr "Nytt spel"
 
@@ -210,15 +210,16 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Visa gratulationer"
 
-#: ../src/application.vala:142
+#: ../src/application.vala:144
 msgid "Game Over"
 msgstr "Spelet är slut"
 
-#: ../src/application.vala:158
-msgid "You have obtained the $v tile"
-msgstr "Du har erhållit $v-brickan"
+#: ../src/application.vala:163
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Du har erhållit %u-brickan"
 
-#: ../src/application.vala:241
+#: ../src/application.vala:244
 msgid "A clone of 2048 for GNOME"
 msgstr "En 2048-klon för GNOME"
 
