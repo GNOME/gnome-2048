@@ -74,7 +74,6 @@ public class Application : Gtk.Application
     _settings = new Settings ("org.gnome.2048");
 
     _init_style ();
-    _init_app_menu ();
     _init_game ();
   }
 
@@ -118,18 +117,6 @@ public class Application : Gtk.Application
     }
     catch (GLib.Error e)
     {
-      stderr.printf ("%s\n", e.message);
-    }
-  }
-
-  private void _init_app_menu ()
-  {
-    var builder = new Gtk.Builder ();
-    try {
-      builder.add_from_resource ("/org/gnome/gnome-2048/data/menus.ui");
-      var menu = builder.get_object ("app-menu") as GLib.MenuModel;
-      set_app_menu (menu);
-    } catch (GLib.Error e) {
       stderr.printf ("%s\n", e.message);
     }
   }

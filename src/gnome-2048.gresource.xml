@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/gnome-2048">
-    <file preprocess="xml-stripblanks">data/menus.ui</file>
     <file preprocess="xml-stripblanks">data/mainwindow.ui</file>
     <file preprocess="xml-stripblanks">data/preferences.ui</file>
     <file preprocess="xml-stripblanks">data/congrats.ui</file>
     <file>data/style.css</file>
+  </gresource>
+  <gresource prefix="/org/gnome/gnome-2048/gtk">
+    <file preprocess="xml-stripblanks" alias="menus.ui">data/menus.ui</file>
   </gresource>
 </gresources>
