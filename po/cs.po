@@ -2,15 +2,15 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Marek Černocký <marek@manet.cz>, 2015.
+# Marek Černocký <marek@manet.cz>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-02 14:53+0000\n"
-"PO-Revision-Date: 2015-03-02 18:27+0100\n"
+"POT-Creation-Date: 2016-01-18 21:28+0000\n"
+"PO-Revision-Date: 2016-02-02 21:35+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Gratulujeme!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
 msgid "New Game"
 msgstr "Nová hra"
 
@@ -213,14 +213,15 @@ msgstr "5 × 5"
 msgid "Display congrats"
 msgstr "Zobrazovat gratulace"
 
-#: ../src/application.vala:142
+#: ../src/application.vala:144
 msgid "Game Over"
 msgstr "Konec hry"
 
-#: ../src/application.vala:158
-msgid "You have obtained the $v tile"
-msgstr "Získali jste kámen $v"
+#: ../src/application.vala:163
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Získali jste kámen %u"
 
-#: ../src/application.vala:241
+#: ../src/application.vala:244
 msgid "A clone of 2048 for GNOME"
 msgstr "Klon 2048 pro GNOME"
