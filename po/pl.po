@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 22:44+0100\n"
-"PO-Revision-Date: 2016-01-18 22:45+0100\n"
+"POT-Creation-Date: 2016-02-17 18:55+0100\n"
+"PO-Revision-Date: 2016-02-17 18:57+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Gratulacje!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:200
 msgid "New Game"
 msgstr "Nowa gra"
 
@@ -223,15 +223,30 @@ msgstr "5×5"
 msgid "Display congrats"
 msgstr "Wyświetlanie gratulacji"
 
-#: ../src/application.vala:144
+#: ../src/application.vala:122
 msgid "Game Over"
 msgstr "Koniec gry"
 
-#: ../src/application.vala:163
+#: ../src/application.vala:141
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Uzyskano płytkę z liczbą %u"
 
-#: ../src/application.vala:244
+#: ../src/application.vala:321
 msgid "A clone of 2048 for GNOME"
 msgstr "Kopia gry „2048” dla środowiska GNOME"
+
+#: ../src/application.vala:322
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:326
+msgid "translator-credits"
+msgstr ""
+"Joanna Lisek <jlisek@gmail.com>, 2015\n"
+"Piotr Drąg <piotrdrag@gmail.com>, 2015-2016\n"
+"Aviary.pl <gnomepl@aviary.pl>, 2015-2016"
