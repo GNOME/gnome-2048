@@ -76,7 +76,10 @@ public class Application : Gtk.Application
 
     _settings = new Settings ("org.gnome.2048");
 
-    _init_style ();
+/*    Gtk.CssProvider provider = new Gtk.CssProvider ();
+    provider.load_from_resource ("/org/gnome/gnome-2048/data/style.css");
+    Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION); */
+
     _init_game ();
   }
 
@@ -108,20 +111,6 @@ public class Application : Gtk.Application
     _settings.set_int ("window-width", _window_width);
     _settings.set_int ("window-height", _window_height);
     _settings.set_boolean ("window-maximized", _window_maximized);
-  }
-
-  private void _init_style ()
-  {
-    var provider = new Gtk.CssProvider ();
-    try
-    {
-      provider.load_from_file (GLib.File.new_for_uri ("resource://org/gnome/gnome-2048/data/style.css"));
-      Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-    }
-    catch (GLib.Error e)
-    {
-      stderr.printf ("%s\n", e.message);
-    }
   }
 
   private void _init_game ()
