@@ -50,13 +50,17 @@ public class Application : Gtk.Application
 
   private const GLib.ActionEntry[] action_entries =
   {
-    { "new-game",       new_game_cb       },
     { "undo",           undo_cb           },
+
+    // app-menu
+    { "new-game",       new_game_cb       },
     { "scores",         scores_cb         },
-    { "about",          about_cb          },
+
     { "preferences",    preferences_cb    },
-    { "quit",           quit_cb           },
-    { "help",           help_cb           }
+
+/*    { "help",           help_cb           }, */
+    { "about",          about_cb          },
+    { "quit",           quit_cb           }
   };
 
   public Application ()
@@ -69,7 +73,6 @@ public class Application : Gtk.Application
     base.startup ();
 
     add_action_entries (action_entries, this);
-    add_accelerator ("F1", "app.help", null);
 
     _settings = new Settings ("org.gnome.2048");
 
@@ -230,8 +233,8 @@ public class Application : Gtk.Application
     _about_dialog.logo_icon_name = "gnome-2048";
     _about_dialog.comments = _("A clone of 2048 for GNOME");
 
-    _about_dialog.authors = {"Juan R. García Blanco"};
-    _about_dialog.copyright = "Copyright © 2014-2015 Juan R. García Blanco";
+    _about_dialog.authors = {"Juan R. García Blanco","Arnaud Bonatti"};
+    _about_dialog.copyright = "Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016 – Arnaud Bonatti";
     _about_dialog.version = VERSION;
     _about_dialog.website = "http://www.gnome.org";
     _about_dialog.license_type = Gtk.License.GPL_3_0;
@@ -375,14 +378,14 @@ public class Application : Gtk.Application
     _window.destroy ();
   }
 
-  private void help_cb ()
+/*  private void help_cb ()
   {
     try {
       Gtk.show_uri (_window.get_screen (), "help:gnome-2048", Gtk.get_current_event_time ());
     } catch (GLib.Error e) {
       warning ("Failed to show help: %s", e.message);
     }
-  }
+  } */
 
   private bool key_press_event_cb (Gtk.Widget widget, Gdk.EventKey event)
   {

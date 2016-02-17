@@ -18,14 +18,15 @@
       </item>
     </section>
     <section>
-      <item>
+      <!-- item>
         <attribute name="label" translatable="yes">Help</attribute>
         <attribute name="action">app.help</attribute>
         <attribute name="accel">F1</attribute>
-      </item>
+      </item -->
       <item>
         <attribute name="label" translatable="yes">About</attribute>
         <attribute name="action">app.about</attribute>
+        <attribute name="accel">&lt;Primary&gt;&lt;Shift&gt;F1</attribute>
       </item>
       <item>
         <attribute name="label" translatable="yes">Quit</attribute>
