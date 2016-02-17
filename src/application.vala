@@ -326,7 +326,7 @@ public class Application : Gtk.Application
     _grid5_cat = new Scores.Category ("grid5", "Grid 5 x 5");
 
     // FIXME: The second parameter should be _("Grid Size:") but we're in string freeze.
-    _scores_ctx = new Scores.Context ("gnome-2048", "", _window, category_request, Scores.Style.PLAIN_DESCENDING);
+    _scores_ctx = new Scores.Context ("gnome-2048", "", _window, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
   }
 
   private void new_game_cb ()
