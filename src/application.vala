@@ -17,21 +17,21 @@
  */
 
 using Games;
+using Gtk;
 
 public class Application : Gtk.Application
 {
   private GLib.Settings _settings;
 
-  private Gtk.Window _window;
-  private Gtk.HeaderBar _header_bar;
-  private Gtk.Button _undo_button;
-  private Gtk.Button _new_game_button;
-  private Gtk.AboutDialog _about_dialog;
-  private Gtk.Dialog _preferences_dialog;
-  private Gtk.Dialog _congrats_dialog;
-  private Gtk.Label _congrats_message;
-  private Gtk.Label _score;
-  private Gtk.ComboBoxText _grid_size_combo;
+  private Window _window;
+  private HeaderBar _header_bar;
+  private Button _undo_button;
+  private Button _new_game_button;
+  private Dialog _preferences_dialog;
+  private Dialog _congrats_dialog;
+  private Label _congrats_message;
+  private Label _score;
+  private ComboBoxText _grid_size_combo;
 
   private Scores.Context _scores_ctx;
   private Scores.Category _grid4_cat;
@@ -74,11 +74,11 @@ public class Application : Gtk.Application
 
     add_action_entries (action_entries, this);
 
-    _settings = new Settings ("org.gnome.2048");
+    _settings = new GLib.Settings ("org.gnome.2048");
 
-/*    Gtk.CssProvider provider = new Gtk.CssProvider ();
+/*    CssProvider provider = new CssProvider ();
     provider.load_from_resource ("/org/gnome/gnome-2048/data/style.css");
-    Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION); */
+    StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, STYLE_PROVIDER_PRIORITY_APPLICATION); */
 
     _init_game ();
   }
@@ -87,9 +87,8 @@ public class Application : Gtk.Application
   {
     base.activate ();
 
-    var builder = new Gtk.Builder ();
+    var builder = new Builder ();
     _create_window (builder);
-    _create_about_dialog ();
     _create_preferences_dialog (builder);
     _create_congrats_dialog (builder);
 
@@ -154,7 +153,7 @@ public class Application : Gtk.Application
     });
   }
 
-  private void _create_window (Gtk.Builder builder)
+  private void _create_window (Builder builder)
   {
     try {
       builder.add_from_resource ("/org/gnome/gnome-2048/data/mainwindow.ui");
@@ -162,7 +161,7 @@ public class Application : Gtk.Application
       stderr.printf ("%s\n", e.message);
     }
 
-    _window = builder.get_object ("applicationwindow") as Gtk.ApplicationWindow;
+    _window = (ApplicationWindow) builder.get_object ("applicationwindow");
     _window.set_default_size (_settings.get_int ("window-width"), _settings.get_int ("window-height"));
     if (_settings.get_boolean ("window-maximized"))
       _window.maximize ();
@@ -185,59 +184,33 @@ public class Application : Gtk.Application
 
   private void _create_header_bar ()
   {
-    _header_bar = new Gtk.HeaderBar ();
+    _header_bar = new HeaderBar ();
     _header_bar.show_close_button = true;
     _header_bar.title = "2048";
     _window.set_titlebar (_header_bar);
 
-    _score = new Gtk.Label ("0");
+    _score = new Label ("0");
     _header_bar.pack_end (_score);
 
-    _undo_button = new Gtk.Button.from_icon_name ("edit-undo-symbolic");
+    _undo_button = new Button.from_icon_name ("edit-undo-symbolic");
     _undo_button.set_action_name ("app.undo");
     _header_bar.pack_start (_undo_button);
     ((SimpleAction) lookup_action ("undo")).set_enabled (false);
 
-    _new_game_button = new Gtk.Button.with_label (_("New Game"));
+    _new_game_button = new Button.with_label (_("New Game"));
     _new_game_button.set_action_name ("app.new-game");
     _header_bar.pack_start (_new_game_button);
   }
 
-  private void _create_game_view (Gtk.Builder builder)
+  private void _create_game_view (Builder builder)
   {
     var embed = new GtkClutter.Embed ();
-    var frame = builder.get_object ("aspectframe") as Gtk.AspectFrame;
+    var frame = (AspectFrame) builder.get_object ("aspectframe");
     frame.add (embed);
     _game.view = embed.get_stage ();
   }
 
-  private void _create_about_dialog ()
-  {
-    _about_dialog = new Gtk.AboutDialog ();
-    _about_dialog.set_transient_for (_window);
-    _about_dialog.destroy_with_parent = true;
-    _about_dialog.modal = true;
-
-    _about_dialog.program_name = "2048";
-    _about_dialog.logo_icon_name = "gnome-2048";
-    _about_dialog.comments = _("A clone of 2048 for GNOME");
-
-    _about_dialog.authors = {"Juan R. García Blanco","Arnaud Bonatti"};
-    _about_dialog.copyright = "Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016 – Arnaud Bonatti";
-    _about_dialog.version = VERSION;
-    _about_dialog.website = "http://www.gnome.org";
-    _about_dialog.license_type = Gtk.License.GPL_3_0;
-    _about_dialog.wrap_license = false;
-
-    _about_dialog.response.connect ((response_id) => {
-      _about_dialog.hide ();
-    });
-    _about_dialog.delete_event.connect ((response_id) => {
-      return _about_dialog.hide_on_delete ();
-    });
-  }
-
-  private void _create_preferences_dialog (Gtk.Builder builder)
+  private void _create_preferences_dialog (Builder builder)
   {
     try {
       builder.add_from_resource ("/org/gnome/gnome-2048/data/preferences.ui");
@@ -245,10 +218,10 @@ public class Application : Gtk.Application
       stderr.printf ("%s\n", e.message);
     }
 
-    _preferences_dialog = builder.get_object ("preferencesdialog") as Gtk.Dialog;
+    _preferences_dialog = (Dialog) builder.get_object ("preferencesdialog");
     _preferences_dialog.set_transient_for (_window);
 
-    _grid_size_combo = builder.get_object ("gridsizecombo") as Gtk.ComboBoxText;
+    _grid_size_combo = (ComboBoxText) builder.get_object ("gridsizecombo");
 
     _preferences_dialog.response.connect ((response_id) => {
       _preferences_dialog.hide_on_delete ();
@@ -279,7 +252,7 @@ public class Application : Gtk.Application
     _settings.bind ("allow-undo", builder.get_object ("undoswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
   }
 
-  private void _create_congrats_dialog (Gtk.Builder builder)
+  private void _create_congrats_dialog (Builder builder)
   {
     try {
       builder.add_from_resource ("/org/gnome/gnome-2048/data/congrats.ui");
@@ -287,7 +260,7 @@ public class Application : Gtk.Application
       stderr.printf ("%s\n", e.message);
     }
 
-    _congrats_dialog = builder.get_object ("congratsdialog") as Gtk.Dialog;
+    _congrats_dialog = (Dialog) builder.get_object ("congratsdialog");
     _congrats_dialog.set_transient_for (_window);
 
     _congrats_dialog.response.connect ((response_id) => {
@@ -299,7 +272,7 @@ public class Application : Gtk.Application
       return _congrats_dialog.hide_on_delete ();
     });
 
-    _congrats_message = builder.get_object ("messagelabel") as Gtk.Label;
+    _congrats_message = (Label) builder.get_object ("messagelabel");
   }
 
   private Games.Scores.Category category_request (string key)
@@ -341,7 +314,19 @@ public class Application : Gtk.Application
 
   private void about_cb ()
   {
-    _about_dialog.present ();
+    string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
+    show_about_dialog (_window /* get_active_window () */,
+                       "program-name", "2048" /* TODO _("2048") */,
+                       "version", VERSION,
+                       "comments", _("A clone of 2048 for GNOME"),
+                       "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016 – Arnaud Bonatti"),
+                       "license-type", License.GPL_3_0,
+                       "wrap-license", false /* TODO true? */,
+                       "authors", authors,
+                       "translator-credits", _("translator-credits"),
+                       "logo-icon-name", "gnome-2048",
+                       "website", "http://www.gnome.org", /* TODO remove? better? */
+                       null);
   }
 
   private void preferences_cb ()
@@ -370,13 +355,13 @@ public class Application : Gtk.Application
 /*  private void help_cb ()
   {
     try {
-      Gtk.show_uri (_window.get_screen (), "help:gnome-2048", Gtk.get_current_event_time ());
+      show_uri (_window.get_screen (), "help:gnome-2048", get_current_event_time ());
     } catch (GLib.Error e) {
       warning ("Failed to show help: %s", e.message);
     }
   } */
 
-  private bool key_press_event_cb (Gtk.Widget widget, Gdk.EventKey event)
+  private bool key_press_event_cb (Widget widget, Gdk.EventKey event)
   {
     _game_restored = false;
 
@@ -407,7 +392,7 @@ public class Application : Gtk.Application
 
     var context = new OptionContext ("");
 
-    context.add_group (Gtk.get_option_group (true));
+    context.add_group (get_option_group (true));
     context.add_group (Clutter.get_option_group_without_init ());
 
     try {
@@ -418,12 +403,16 @@ public class Application : Gtk.Application
     }
 
     Environment.set_application_name ("org.gnome.gnome-2048");
-    Gtk.Window.set_default_icon_name ("gnome-2048");
+    Window.set_default_icon_name ("gnome-2048");
 
     try {
       GtkClutter.init_with_args (ref args, "", new OptionEntry[0], null);
     } catch (Error e) {
-      var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.NONE, "Unable to initialize Clutter:\n%s", e.message);
+      MessageDialog dialog = new MessageDialog (null,
+                                                DialogFlags.MODAL,
+                                                MessageType.ERROR,
+                                                ButtonsType.NONE,
+                                                "Unable to initialize Clutter:\n%s", e.message);
       dialog.set_title (Environment.get_application_name ());
       dialog.run ();
       dialog.destroy ();
