@@ -185,7 +185,7 @@ public class Application : Gtk.Application
 
     _window.set_events (_window.get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
     _window.key_press_event.connect (key_press_event_cb);
-    _window.configure_event.connect (window_configure_event_cb);
+    _window.size_allocate.connect (window_size_allocate_cb);
     _window.window_state_event.connect (window_state_event_cb);
 
     Gdk.Geometry geom = Gdk.Geometry ();
@@ -394,14 +394,11 @@ public class Application : Gtk.Application
     return _game.key_pressed (event);
   }
 
-  private bool window_configure_event_cb (Gdk.EventConfigure event)
+  private void window_size_allocate_cb ()
   {
-    if (!_window_maximized) {
-      _window_width = event.width;
-      _window_height = event.height;
-    }
-
-    return false;
+    if (_window_maximized)
+      return;
+    _window.get_size (out _window_width, out _window_height);
   }
 
   private bool window_state_event_cb (Gdk.EventWindowState event)
