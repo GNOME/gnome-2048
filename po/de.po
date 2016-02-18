@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-18 21:28+0000\n"
-"PO-Revision-Date: 2016-01-21 20:33+0100\n"
+"POT-Creation-Date: 2016-02-18 19:39+0000\n"
+"PO-Revision-Date: 2016-02-18 21:06+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "Glückwunsch!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:200
 msgid "New Game"
 msgstr "Neues Spiel"
 
@@ -217,18 +217,33 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Glückwünsche anzeigen"
 
-#: ../src/application.vala:144
+#: ../src/application.vala:122
 msgid "Game Over"
 msgstr "Spiel vorbei"
 
-#: ../src/application.vala:163
+#: ../src/application.vala:141
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Sie haben die %u-Kachel erreicht"
 
-#: ../src/application.vala:244
+#: ../src/application.vala:321
 msgid "A clone of 2048 for GNOME"
 msgstr "Ein Klon von 2048 für GNOME"
+
+#: ../src/application.vala:322
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:326
+msgid "translator-credits"
+msgstr ""
+"Christian Kirbach <Christian.Kirbach@gmail.com>\n"
+"Bernd Homuth <dev@hmt.im>\n"
+"Mario Blättermann <mario.blaettermann@gmail.com>"
 
 #~ msgid "Columns"
 #~ msgstr "Spalten"
