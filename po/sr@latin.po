@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-2"
 "048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-07 22:02+0000\n"
-"PO-Revision-Date: 2016-01-02 18:50+0200\n"
+"POT-Creation-Date: 2016-02-20 19:42+0000\n"
+"PO-Revision-Date: 2016-02-21 07:12+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Čestitamo!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:200
 msgid "New Game"
 msgstr "Nova igra"
 
@@ -128,7 +128,6 @@ msgid "Whether tile movements can be undone."
 msgstr "Da li pomeranja pločice mogu biti opozvana."
 
 #: ../data/org.gnome.2048.gschema.xml.h:19
-#| msgid "Number of columns"
 msgid "Number of undo movements"
 msgstr "Broj opozivanja poteza"
 
@@ -197,7 +196,6 @@ msgid "puzzle;"
 msgstr "slagalica;"
 
 #: ../data/preferences.ui.h:2
-#| msgid "Grid"
 msgid "Grid size"
 msgstr "Veličina mreže"
 
@@ -213,18 +211,34 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Prilaži čestittanja"
 
-#: ../src/application.vala:144
+#: ../src/application.vala:122
 msgid "Game Over"
 msgstr "Igra je završena"
 
-#: ../src/application.vala:160
-#| msgid "Obtain the 2048 tile"
-msgid "You have obtained the $v tile"
-msgstr "Broj osvojenih pločica: $v "
+#: ../src/application.vala:141
+#, c-format
+#| msgid "You have obtained the $v tile"
+msgid "You have obtained the %u tile"
+msgstr "Broj osvojenih pločica: %u"
 
-#: ../src/application.vala:241
+#: ../src/application.vala:321
 msgid "A clone of 2048 for GNOME"
 msgstr "Preslik igre 2048 za Gnoma"
+
+#: ../src/application.vala:322
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Autorska prava © 2014-2015 – Huan R. Garsija Blanko\n"
+"Autorska prava © 2016 – Arno Bonati"
+
+#: ../src/application.vala:326
+msgid "translator-credits"
+msgstr ""
+"Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
+"\n"
+"http://prevod.org — prevod na srpski jezik"
 
 #~ msgid "Columns"
 #~ msgstr "Stupci"
