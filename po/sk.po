@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-11-08 07:42+0000\n"
-"PO-Revision-Date: 2015-11-08 14:18+0100\n"
+"POT-Creation-Date: 2016-03-02 07:43+0000\n"
+"PO-Revision-Date: 2016-03-02 18:46+0100\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "Blahoželáme!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:200
 msgid "New Game"
 msgstr "Nová hra"
 
@@ -214,14 +214,27 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Zobraziť blahoželanie"
 
-#: ../src/application.vala:144
+#: ../src/application.vala:122
 msgid "Game Over"
 msgstr "Koniec hry"
 
-#: ../src/application.vala:163
-msgid "You have obtained the $v tile"
-msgstr "Získali ste dlaždicu $v"
+#: ../src/application.vala:141
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Získali ste dlaždicu %u"
 
-#: ../src/application.vala:244
+#: ../src/application.vala:321
 msgid "A clone of 2048 for GNOME"
 msgstr "Klon hry 2048 pre GNOME"
+
+#: ../src/application.vala:322
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Autorské práva © 2014-2015 – Juan R. García Blanco\n"
+"Autorské práva © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:326
+msgid "translator-credits"
+msgstr "Dušan Kazik <prescott66@gmail.com>"
