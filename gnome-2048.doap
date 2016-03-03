@@ -16,6 +16,13 @@
 
   <maintainer>
     <foaf:Person>
+      <foaf:name>Arnaud Bonatti</foaf:name>
+      <foaf:mbox rdf:resource="mailto:arnaud.bonatti@gmail.com" />
+      <gnome:userid>arnaudb</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+  <maintainer>
+    <foaf:Person>
       <foaf:name>Juan R. García Blanco</foaf:name>
       <foaf:mbox rdf:resource="mailto:juanrgar@gmail.com" />
       <gnome:userid>juanrgar</gnome:userid>

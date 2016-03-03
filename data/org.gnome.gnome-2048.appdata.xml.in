@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2015 Juan R. García Blanco -->
+<!-- Copyright 2015 Juan R. García Blanco <juanrgar@gmail.com>
+     Copyright 2016 Arnaud Bonatti <arnaud.bonatti@gmail.com> -->
 <component type="desktop">
   <id>org.gnome.gnome-2048.desktop</id>
   <metadata_license>CC-BY-SA-3.0</metadata_license>

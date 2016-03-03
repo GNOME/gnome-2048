@@ -1,4 +1,5 @@
-/* Copyright (C) 2014-2015 Juan R. García Blanco
+/* Copyright (C) 2014-2015 Juan R. García Blanco <juanrgar@gmail.com>
+ * Copyright (C) 2016 Arnaud Bonatti <arnaud.bonatti@gmail.com>
  *
  * This file is part of GNOME 2048.
  *
