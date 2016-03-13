@@ -2,15 +2,15 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2015.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-07 06:51+0000\n"
-"PO-Revision-Date: 2015-03-07 20:35+0200\n"
+"POT-Creation-Date: 2016-02-17 15:06+0000\n"
+"PO-Revision-Date: 2016-03-13 17:55+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "Onnittelut!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:200
 msgid "New Game"
 msgstr "Uusi peli"
 
@@ -213,14 +213,28 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Näytä onnittelut"
 
-#: ../src/application.vala:142
+#: ../src/application.vala:122
 msgid "Game Over"
 msgstr "Peli loppui"
 
-#: ../src/application.vala:158
-msgid "You have obtained the $v tile"
-msgstr "Saavutit $v-laatan"
+#: ../src/application.vala:141
+#, c-format
+#| msgid "You have obtained the $v tile"
+msgid "You have obtained the %u tile"
+msgstr "Saavutit %u-laatan"
 
-#: ../src/application.vala:241
+#: ../src/application.vala:321
 msgid "A clone of 2048 for GNOME"
 msgstr "2048-pelin klooni Gnomelle"
+
+#: ../src/application.vala:322
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Tekijänoikeus © 2014-2015 – Juan R. García Blanco\n"
+"Tekijänoikeus © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:326
+msgid "translator-credits"
+msgstr "Jiri Grönroos"
