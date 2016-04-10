@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-2048.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-18 21:28+0000\n"
-"PO-Revision-Date: 2016-02-01 15:50+0100\n"
+"POT-Creation-Date: 2016-04-07 07:01+0000\n"
+"PO-Revision-Date: 2016-04-07 12:50+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Enhorabuena."
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:222
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
 msgid "New Game"
 msgstr "Partida nueva"
 
@@ -215,19 +215,30 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Mostrar enhorabuena"
 
-#: ../src/application.vala:144
+#: ../src/application.vala:166
 msgid "Game Over"
 msgstr "Juego terminado"
 
-#: ../src/application.vala:163
+#: ../src/application.vala:187
 #, c-format
-#| msgid "You have obtained the $v tile"
 msgid "You have obtained the %u tile"
 msgstr "Ha obtenido la ficha %u"
 
-#: ../src/application.vala:244
+#: ../src/application.vala:387
 msgid "A clone of 2048 for GNOME"
 msgstr "Un clon de 2048 para GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr "Daniel Mustieles, <daniel.mustieles@gmail.com>"
 
 #~ msgid "Columns"
 #~ msgstr "Columnas"
