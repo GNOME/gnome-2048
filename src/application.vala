@@ -125,11 +125,6 @@ public class Application : Gtk.Application
         StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, STYLE_PROVIDER_PRIORITY_APPLICATION); */
 
         _init_game ();
-    }
-
-    protected override void activate ()
-    {
-        base.activate ();
 
         Builder builder = new Builder ();
         _create_window (builder);
@@ -143,6 +138,11 @@ public class Application : Gtk.Application
         _game_restored = _game.restore_game ();
         if (!_game_restored)
             new_game_cb ();
+    }
+
+    protected override void activate ()
+    {
+        _window.present ();
     }
 
     protected override void shutdown ()
