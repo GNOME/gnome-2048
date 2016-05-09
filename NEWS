@@ -1,3 +1,9 @@
+GNOME 2048   3.20.2                                        2016-05-09
+=====================================================================
+
+A severe bug (#765825) related to launching the application more than one time
+using the command line has been reported by Moritz Lottermann and corrected.
+
 GNOME 2048   3.20.1                                        2016-04-14
 =====================================================================
 
