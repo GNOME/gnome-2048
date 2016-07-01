@@ -1,0 +1,236 @@
+# Indonesian translation for gnome-2048.
+# Copyright (C) 2016 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Andika Triwidada <atriwidada@gnome.org>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 gnome-3-20\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-06-08 09:06+0000\n"
+"PO-Revision-Date: 2016-07-01 23:47+0700\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 1.8.8\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Selamat!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+msgid "New Game"
+msgstr "Permainan Baru"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Tetap Bermain"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Nilai"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Preferensi"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Bantuan"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Tentang"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Keluar"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Lebar jendela"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Lebar jendela."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Tinggi jendela"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Tinggi jendela."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Jendela termaksimalkan"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Keadaan jendela termaksimalkan."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Cacah baris"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Cacah baris kisi permainan."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Cacah kolom"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Cacah kolom kisi permainan."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Nilai target"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Nilai ubin saat pengguna diberi ucapan selamat."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Ucapan selamat pada ubin target"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Apakah pengguna diberi ucapan selamat saat mencapai ubin target."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Kecepatan animasi"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Durasi animasi: tampilkan ubin, pindahkan ubin, dan redupkan ubin."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Ijinkan tak jadi"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Apakah pergerakan ubin dapat dibatalkan."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Cacah pembatalan langkah"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Cacah maksimum pergerakan ubin yang dapat dibatalkan."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Dapatkan ubin 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Mainkan 2048 yang sangat membuat ketagihan. GNOME 2048 adalah klon permainan "
+"tekai-teki pemain tunggal yang populer. Permainan terdiri dari penggabungan "
+"angka-angka dalam suatu kisi dan mendapatkan ubin 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Gunakan tombol panah papan tik Anda untuk menggeser ubin pada arah yang "
+"diinginkan. Berhati-hatilah: semua ubin menggeser ke posisi terjauh yang "
+"mungkin, Anda tidak bisa menggeser hanya satu ubin atau satu baris atau "
+"kolom. Ubin dengan nilai sama akan digabung ketika diadu satu sama lain."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Dengan diperolehnya setiap ubin baru maka skor Anda naik. Bila Anda pikir "
+"Anda dapat dengan mudah memperoleh ubin 2048, jangan biarkan itu "
+"menghentikan Anda, permainan tidak berhenti di sana, Anda dapat melanjutkan "
+"menggabung ubin dan memperbaiki nilai Anda."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Aslinya diciptakan oleh Gabriele Cirulli, 2048 sangat meningkat "
+"popularitasnya karena sangat membuat kecanduan. 2048 Cirulli adalah klon "
+"dari permainan 1024 dan menyertakan ide-ide dari klon lain."
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "teka-teki;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Ukuran kisi"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Tampilkan ucapan selamat"
+
+#: ../src/application.vala:166
+msgid "Game Over"
+msgstr "Permainan Berakhir"
+
+#: ../src/application.vala:187
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Anda telah memperoleh ubin %u"
+
+#: ../src/application.vala:387
+msgid "A clone of 2048 for GNOME"
+msgstr "Klon 2048 untuk GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Hak Cipta © 2014-2015 – Juan R. García Blanco\n"
+"Hak Cipta © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr "Andika Triwidada <andika@gmail.com>, 2016."
