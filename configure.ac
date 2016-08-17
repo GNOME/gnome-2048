@@ -22,14 +22,13 @@ GTK_REQUIRED=3.12.0
 CLUTTER_REQUIRED=1.12.0
 CLUTTER_GTK_REQUIRED=1.6.0
 GEE_REQUIRED=0.14.0
-LIBGAMES_REQUIRED=0.90
 
 PKG_CHECK_MODULES(GNOME_2048, [
   gtk+-3.0 >= $GTK_REQUIRED
   clutter-1.0 >= $CLUTTER_REQUIRED
   clutter-gtk-1.0 >= $CLUTTER_GTK_REQUIRED
   gee-0.8 >= $GEE_REQUIRED
-  libgames-support-1.0 >= $LIBGAMES_REQUIRED
+  libgnome-games-support-1.0
 ])
 
 AC_PATH_PROG([DESKTOP_FILE_VALIDATE], [desktop-file-validate], [/bin/true])
