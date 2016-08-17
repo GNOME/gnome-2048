@@ -31,19 +31,23 @@
     </_p>
   </description>
   <screenshots>
-    <screenshot height="720" width="1280" type="default">
+    <screenshot type="default" height="720" width="1280">
       <image>https://wiki.gnome.org/Apps/2048?action=AttachFile&amp;do=get&amp;target=gnome-2048-software.png</image>
     </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
   <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-2048</url>
   <url type="donation">http://www.gnome.org/friends/</url>
-  <update_contact>games_list_at_gnome.org</update_contact>
+  <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
+  <!-- this is a translatable version of project_group-->
+  <_developer_name>The GNOME Project</_developer_name>
+
   <kudos>
     <kudo>AppMenu</kudo>
     <kudo>ModernToolkit</kudo>
     <kudo>UserDocs</kudo>
   </kudos>
   <translation type="gettext">gnome-2048</translation>
+  <url type="translate">https://wiki.gnome.org/TranslationProject</url>
 </component>
