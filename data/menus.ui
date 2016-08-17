@@ -5,6 +5,7 @@
       <item>
         <attribute name="label" translatable="yes">New Game</attribute>
         <attribute name="action">app.new-game</attribute>
+        <attribute name="accel">&lt;Primary&gt;n</attribute>
       </item>
       <item>
         <attribute name="label" translatable="yes">Scores</attribute>
