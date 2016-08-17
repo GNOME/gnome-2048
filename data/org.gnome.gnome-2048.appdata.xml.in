@@ -33,7 +33,7 @@
   <screenshots>
     <screenshot type="default" height="702" width="1248">
       <image>https://git.gnome.org/browse/gnome-2048/plain/data/screenshot.png</image>
-      <_caption>A running game having reached the 2048 tile.</_caption>
+      <_caption>A running game having reached the 2048 tile</_caption>
     </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
