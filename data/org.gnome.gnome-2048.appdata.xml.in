@@ -31,8 +31,9 @@
     </_p>
   </description>
   <screenshots>
-    <screenshot type="default" height="720" width="1280">
-      <image>https://wiki.gnome.org/Apps/2048?action=AttachFile&amp;do=get&amp;target=gnome-2048-software.png</image>
+    <screenshot type="default" height="702" width="1248">
+      <image>https://git.gnome.org/browse/gnome-2048/plain/data/screenshot.png</image>
+      <_caption>A running game having reached the 2048 tile.</_caption>
     </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
@@ -45,8 +46,9 @@
 
   <kudos>
     <kudo>AppMenu</kudo>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>HighContrast</kudo>
     <kudo>ModernToolkit</kudo>
-    <kudo>UserDocs</kudo>
   </kudos>
   <translation type="gettext">gnome-2048</translation>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
