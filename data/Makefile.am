@@ -1,5 +1,12 @@
 SUBDIRS = icons
 
+dist_noinst_DATA = \
+	congrats.ui \
+	mainwindow.ui \
+	menus.ui \
+	preferences.ui \
+	style.css
+
 gsettings_SCHEMAS = org.gnome.2048.gschema.xml
 @GSETTINGS_RULES@
 
