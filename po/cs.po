@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-12 19:41+0000\n"
-"PO-Revision-Date: 2016-03-13 08:35+0100\n"
+"POT-Creation-Date: 2016-08-17 20:39+0000\n"
+"PO-Revision-Date: 2016-08-19 14:57+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
-"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,6 +187,15 @@ msgstr ""
 "Tato hra, původně vytvořená Gabrielem Cirullim, získala na popularitě díky "
 "tomu, že je velmi návyková. Cirulliho 2048 je pro změnu klon hry 1024 a "
 "zahrnuje nápady z dalších klonů."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Rozehraná hra, ve které bylo dosaženo 2048 kamenů"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
 
 #: ../data/org.gnome.gnome-2048.desktop.in.h:1
 msgid "2048"
