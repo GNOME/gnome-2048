@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-21 19:43+0000\n"
-"PO-Revision-Date: 2016-02-21 21:26+0100\n"
-"Last-Translator: Josef Andersson <josef.andersson@fripost.org>\n"
+"POT-Creation-Date: 2016-08-17 20:39+0000\n"
+"PO-Revision-Date: 2016-08-20 22:37+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "Grattis!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:200
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
 msgid "New Game"
 msgstr "Nytt spel"
 
@@ -186,6 +186,15 @@ msgstr ""
 "popularitet eftersom det är så beroendeframkallande. Cirullis 2048 är i sin "
 "tur en klon av spelet 1024 och inkluderar idéer från andra kloner."
 
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Ett körande spel som nått 2048-brickan"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "GNOME-projektet"
+
 #: ../data/org.gnome.gnome-2048.desktop.in.h:1
 msgid "2048"
 msgstr "2048"
@@ -210,20 +219,20 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Visa gratulationer"
 
-#: ../src/application.vala:122
+#: ../src/application.vala:166
 msgid "Game Over"
 msgstr "Spelet är slut"
 
-#: ../src/application.vala:141
+#: ../src/application.vala:187
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Du har erhållit %u-brickan"
 
-#: ../src/application.vala:321
+#: ../src/application.vala:387
 msgid "A clone of 2048 for GNOME"
 msgstr "En 2048-klon för GNOME"
 
-#: ../src/application.vala:322
+#: ../src/application.vala:388
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -231,7 +240,7 @@ msgstr ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
 
-#: ../src/application.vala:326
+#: ../src/application.vala:392
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
