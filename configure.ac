@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([gnome-2048], [3.21.91], [http://www.gnome.org],
+AC_INIT([gnome-2048], [3.21.92], [http://www.gnome.org],
         [gnome-2048])
 AC_CONFIG_MACRO_DIR([m4])
 
