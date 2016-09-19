@@ -10,22 +10,22 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-18 19:39+0000\n"
-"PO-Revision-Date: 2016-02-18 21:06+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2016-08-17 20:39+0000\n"
+"PO-Revision-Date: 2016-09-18 23:28+0200\n"
+"Last-Translator: Bernd Homuth <dev@hmt.im>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "Glückwunsch!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:200
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
 msgid "New Game"
 msgstr "Neues Spiel"
 
@@ -193,6 +193,15 @@ msgstr ""
 "dessen Erfolg auf seinem Suchtfaktor beruht. Cirullis 2048 ist wiederum ein "
 "Klon des 1024-Spiels und beinhaltet zusätzlich Ideen anderer Klone."
 
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Ein Spiel, das gerade die 2048-Kachel erreicht hat"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Das GNOME-Projekt"
+
 #: ../data/org.gnome.gnome-2048.desktop.in.h:1
 msgid "2048"
 msgstr "2048"
@@ -217,20 +226,20 @@ msgstr "5 x 5"
 msgid "Display congrats"
 msgstr "Glückwünsche anzeigen"
 
-#: ../src/application.vala:122
+#: ../src/application.vala:166
 msgid "Game Over"
 msgstr "Spiel vorbei"
 
-#: ../src/application.vala:141
+#: ../src/application.vala:187
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Sie haben die %u-Kachel erreicht"
 
-#: ../src/application.vala:321
+#: ../src/application.vala:387
 msgid "A clone of 2048 for GNOME"
 msgstr "Ein Klon von 2048 für GNOME"
 
-#: ../src/application.vala:322
+#: ../src/application.vala:388
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -238,7 +247,7 @@ msgstr ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
 
-#: ../src/application.vala:326
+#: ../src/application.vala:392
 msgid "translator-credits"
 msgstr ""
 "Christian Kirbach <Christian.Kirbach@gmail.com>\n"
