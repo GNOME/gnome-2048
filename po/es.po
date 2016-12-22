@@ -2,7 +2,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2015, 2016.
 #
 msgid ""
@@ -10,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gnome-2048.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-07 07:01+0000\n"
-"PO-Revision-Date: 2016-04-07 12:50+0200\n"
+"POT-Creation-Date: 2016-09-23 19:52+0000\n"
+"PO-Revision-Date: 2016-12-22 12:35+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,6 +189,15 @@ msgstr ""
 "Creado originalmente por Gabriele Cirulli, 2048 ha ganado mucha popularidad "
 "ya que es muy adictivo. La versión de 2048 de Cirulli es de hecho un clon "
 "del juego 1024 e incluye ideas de otros clones."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Una partida en ejecución que haya alcanzado la ficha 2048"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "El Proyecto GNOME"
 
 #: ../data/org.gnome.gnome-2048.desktop.in.h:1
 msgid "2048"
