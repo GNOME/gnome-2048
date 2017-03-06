@@ -1,0 +1,246 @@
+# Friulian translation for gnome-2048.
+# Copyright (C) 2017 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Fabio Tomat <f.t.public@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-03-04 04:13+0000\n"
+"PO-Revision-Date: 2017-03-06 23:05+0100\n"
+"Language-Team: Friulian <fur@li.org>\n"
+"Language: fur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"X-Generator: Poedit 1.8.12\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Congratulazions!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+msgid "New Game"
+msgstr "Gnove partide"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Continue Zuie"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Risultâts"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Preferencis"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Jutori"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Informazions"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Jes"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Largjece barcon"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Largjece dal barcon."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Altece barcon"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Altece dal barcon."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Barcon slargjât"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Stât slargjât dal barcon."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Numar di riis"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Numar di riis de gridele dal zûc."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Numar di colonis."
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Numar di colonis de gridele dal zûc."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Valôr destinazion"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Valôr di bloc al cuâl l'utent al ven complasût."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Complasê al bloc di destinazion"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr ""
+"Indiche se l'utent al à di jessi complasût su cemût otignî il bloc di "
+"destinazion."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Velocitât animazions"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Durade des animazions: mostre bloc, sposte bloc e plate bloc."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Permet il disfâ"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Indiche se i moviments dai blocs a puedin jessi anulâts."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Numar di moviments anulâts"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Massim numar di moviments di bloc che e puedin jessi anulâts."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Oten il bloc 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Zuie al zûc 2048 che al dâ une vore di dipendence. GNOME 2048 al è un clon "
+"dal popolâr gredei a zuiadôr ugnul. Il zûc al consist tal unî numars intune "
+"gridele e otegni il bloc 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Dopre lis frecis de tastiere par movi ducj i blocs inte direzion desiderade. "
+"Sta atent: ducj i blocs si movin tes lôr posizions plui pussibil lontanis, "
+"nol è pussibil spostâ di nome un bloc o une rie o une colone. I blocs cul "
+"stes valôr si unissin cuant che a vegnin spostât un parsore di chel altri."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Cun ogni gnûf bloc otignût tu aumentis i tiei ponts. Se tu pensis che tu "
+"puedis otignî facilmentri il bloc 2048, no stâ lassâ che ti fermi, il zûc "
+"nol finìs lì, tu puedis continuâ a unî blocs e miorâ il tô risultât."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Creât in origjin di Gabriele Cirulli, 2048 al à vuadagnât une vore di "
+"popolaritât par vie dal so dâ dipendence. Il 2048 di Cirulli al è a sô volte "
+"un clon dal zûc 1024 e al inclût ideis di altris clons."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Un zûc in esecuzion dulà che si è rivâts al bloc 2048"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Il progjet GNOME"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;gredei;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Dimension gridele"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Mostre complasiments"
+
+#: ../src/application.vala:166
+msgid "Game Over"
+msgstr "Partide finide"
+
+#: ../src/application.vala:187
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Tu âs otignût il bloc %u"
+
+#: ../src/application.vala:387
+msgid "A clone of 2048 for GNOME"
+msgstr "Un clon di 2048 par GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr "Fabio Tomat <f.t.public@gmail.com>"
