@@ -1,22 +1,22 @@
 # Indonesian translation for gnome-2048.
 # Copyright (C) 2016 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Andika Triwidada <atriwidada@gnome.org>, 2016.
+# Andika Triwidada <atriwidada@gnome.org>, 2016, 2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-2048 gnome-3-20\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-06-08 09:06+0000\n"
-"PO-Revision-Date: 2016-07-01 23:47+0700\n"
+"POT-Creation-Date: 2017-03-04 04:13+0000\n"
+"PO-Revision-Date: 2017-03-20 19:07+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
@@ -186,6 +186,15 @@ msgstr ""
 "popularitasnya karena sangat membuat kecanduan. 2048 Cirulli adalah klon "
 "dari permainan 1024 dan menyertakan ide-ide dari klon lain."
 
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Sebuah permainan yang sedang berjalan telah mencapai 2048 ubin"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Proyek GNOME"
+
 #: ../data/org.gnome.gnome-2048.desktop.in.h:1
 msgid "2048"
 msgstr "2048"
@@ -233,4 +242,4 @@ msgstr ""
 
 #: ../src/application.vala:392
 msgid "translator-credits"
-msgstr "Andika Triwidada <andika@gmail.com>, 2016."
+msgstr "Andika Triwidada <andika@gmail.com>, 2016, 2017."
