@@ -2,24 +2,25 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2015–2016.
+# Matej Urbančič <mateju@svn.gnome.org>, 2015–2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-12-22 08:24+0100\n"
-"PO-Revision-Date: 2016-12-22 08:29+0100\n"
+"POT-Creation-Date: 2017-05-04 08:26+0200\n"
+"PO-Revision-Date: 2017-05-04 08:34+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
@@ -154,6 +155,8 @@ msgid ""
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
 "and obtain the 2048 tile."
 msgstr ""
+"Igra GNOME 2048 je klon popularne številske igre. Cilj igre je z "
+"združevanjem enakih števil v mreži doseči število 2048."
 
 #: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
 msgid ""
@@ -162,6 +165,11 @@ msgid ""
 "slide just one tile or one row or column. Tiles with the same value are "
 "joined when slided one over the other."
 msgstr ""
+"Uporabite smerne tipke za premikanje med polji v želeni smeri. Bodite "
+"previdni: ob pritisku smerne tipke, se polje postavi na najoddaljenejše "
+"mesto v mreži. Ni se mogoče premakniti le za eno polje oziroma za eno "
+"vrstico oziroma stolpec. Polja z isto vrednostjo števila se združijo in "
+"prekrijejo."
 
 #: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
 msgid ""
@@ -169,6 +177,9 @@ msgid ""
 "easily get the 2048 tile, do not let it stop you, the game does not end "
 "there, you can continue joining tiles and improving your score."
 msgstr ""
+"Z vsakim združenim poljem se poveča rezultat igre. Če se vam zdi, da je "
+"doseči število 2048 enostavno, se preizkusite. Igra se tam sicer še ne "
+"konča. Za najvstrajnejše je še veliko prostora."
 
 #: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
 msgid ""
@@ -177,8 +188,17 @@ msgid ""
 "game and includes ideas from other clones."
 msgstr ""
 "Igra 2048, ki jo je ustvaril Gabriele Cirulli, je postala uspešnica zaradi "
-"svoje velike zasvojljivosti. Igra vključuje različne ideje tudi drugih "
-"podobnih iger."
+"velike zasvojljivosti. Igra vključuje različne ideje tudi drugih podobnih "
+"iger."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr ""
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
 
 #: ../data/org.gnome.gnome-2048.desktop.in.h:1
 msgid "2048"
