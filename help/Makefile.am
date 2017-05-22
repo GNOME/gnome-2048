@@ -8,6 +8,6 @@ HELP_MEDIA = \
 HELP_FILES = \
 	index.page
 
-HELP_LINGUAS = cs de el es hu pt_BR sv
+HELP_LINGUAS = cs de el es hu pl pt_BR sv
 
 -include $(top_srcdir)/git.mk
