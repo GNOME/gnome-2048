@@ -1,0 +1,248 @@
+# Italian translation for gnome-2048.
+# Copyright (C) 2017 The Free Software Foundation.
+# This file is distributed under the same license as the gnome-2048 package.
+# Milo Casagrande <milo@milo.name>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-08-08 18:57+0000\n"
+"PO-Revision-Date: 2017-09-11 18:52+0200\n"
+"Language-Team: Italian <gnome-it-list@gnome.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: Milo Casagrande <milo@milo.name>\n"
+"X-Generator: Poedit 2.0.1\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Congratulazioni!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+msgid "New Game"
+msgstr "Nuova partita"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Continua a giocare"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Punteggi"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Preferenze"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Aiuto"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Informazioni"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Esci"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Larghezza della finestra"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Larghezza della finestra."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Altezza della finestra"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Altezza della finestra."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Finestra massimizzata"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Stato di massimizzazione della finestra."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Numero di righe"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Il numero di righe in una partita."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Numero di colonne"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Il numero di colonne in una partita."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Valore da raggiungere"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr ""
+"Il valore della tessera a cui il giocatore riceverà le congratulazioni."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Congratula al raggiungimento della tessera"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr ""
+"Indica se l'utente debba essere congratulato al raggiungimento del valore "
+"stabilito."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Velocità animazioni"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Durata delle animazioni: mostra tessera, sposta tessera e oscura tessera."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Annulla tutto"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Indica se i movimenti delle tessere possono essere annullati."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Numero di movimenti da annullare"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Massimo numero di movimenti che possono essere annullati."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Raggiungi il fatidico numero 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Gioca all'avvincente puzzle 2048. GNOME 2048 è un clone del famoso gioco: "
+"aggiungi i vari numeri sulla griglia fino a ottenere 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Utilizza le frecce direzionali per spostare le varie tessere di gioco nella "
+"direzione desiderata. Ma fai attenzione: le tessere si spostano verso la "
+"posizione più lontana, non puoi spostarle di una sola riga o colonna. Le "
+"tessere con lo stesso valore vengono unite quando sono vicine."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Ogni volta che ottieni una nuova tessera, il tuo punteggio aumenta. Se pensi "
+"di poter raggiungere facilmente 2048, non fermarti lì, il gioco ti consente "
+"di andare oltre: continue a unire le tessere per ottenere sempre più punti."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Creato da Gabriele Cirulli, 2048 è diventato famosissimo in poco tempo. La "
+"versione di Cirulli è a sua volta un clone del gioco 1024 che incorpora idee "
+"da altri giochi."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Una partita in cui il giocatore ha raggiunto 2048"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Il progetto GNOME"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;rompicapo;gioco;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Dimensione griglia"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 × 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 × 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Mostra le congratulazioni"
+
+#: ../src/application.vala:166
+msgid "Game Over"
+msgstr "Partita finita"
+
+#: ../src/application.vala:187
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Hai raggiunto la tessera %u"
+
+#: ../src/application.vala:387
+msgid "A clone of 2048 for GNOME"
+msgstr "Un clone del gioco 2048 per GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr "Milo Casagrande <milo@milo.name>, 2017"
