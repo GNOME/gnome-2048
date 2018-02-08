@@ -1,13 +1,13 @@
 # Polish translation for gnome-2048 help.
 # Copyright © 2017 the gnome-2048 authors.
-# This file is distributed under the same license as the gnome-2048 package.
+# This file is distributed under the same license as the gnome-2048 help.
 # Piotr Drąg <piotrdrag@gmail.com>, 2017.
 # Aviary.pl <community-poland@mozilla.org>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048-help\n"
-"POT-Creation-Date: 2017-05-05 11:20+0000\n"
+"POT-Creation-Date: 2017-10-20 14:56+0000\n"
 "PO-Revision-Date: 2017-05-22 18:00+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
