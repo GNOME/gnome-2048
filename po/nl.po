@@ -1,0 +1,251 @@
+# Dutch translation for gnome-2048.
+# Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Nathan Follens <nthn@unseen.is>, 2015-2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-09-11 16:54+0000\n"
+"PO-Revision-Date: 2018-03-02 20:59+0100\n"
+"Last-Translator: Justin van Steijn <jvs@fsfe.org>\n"
+"Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Gefeliciteerd!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+msgid "New Game"
+msgstr "Nieuw spel"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Blijven spelen"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Scores"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Hulp"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Over"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Sluiten"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Vensterbreedte"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Vensterbreedte."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Vensterhoogte"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Vensterhoogte."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Venster gemaximaliseerd"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Venster in gemaximaliseerde staat."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Aantal rijen"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Aantal rijen in het spelraster."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Aantal kolommen"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Aantal kolommen in het spelraster."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Doelwaarde"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Waarde van tegel waarbij gebruiker wordt gefeliciteerd."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Feliciteren bij doeltegel"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr ""
+"Of de gebruiker gefeliciteerd zal worden bij het bereiken van de doeltegel."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Animatiesnelheid"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Duur van animaties: tegel tonen, tegel bewegen en tegel dimmen."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Ongedaan maken toestaan"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Of tegelbewegingen ongedaan gemaakt kunnen worden."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Aantal bewegingen die ongedaan gemaakt kunnen worden"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Maximaal aantal tegelbewegingen die ongedaan gemaakt kunnen worden."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "Gnome 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Bereik de 2048-tegel"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Speel het uiterst verslavende 2048-spel. Gnome 2048 is een kloon van het "
+"populaire één-speler puzzelspel. Het doel van het spel is cijfers in een "
+"raster bij elkaar te voegen om de 2048-tegel te bereiken."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Gebruik de pijltjestoetsen op uw toetsenbord om de tegel in de gewenste "
+"richting te verschuiven. Let op: alle tegels worden zo ver mogelijk "
+"verschoven, u kan niet slechts één tegel, één rij of één kolom verschuiven. "
+"Tegels met dezelfde waarde worden samengevoegd wanneer ze over elkaar "
+"schuiven."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Bij elke nieuwe tegel die u bereikt verhoogt uw score. Als u denkt dat u de "
+"2048-tegel makkelijk kan bereiken, laat dat u niet stoppen. Het spel eindigt "
+"daar niet, u kan doorgaan met tegels samen te voegen en uw score te "
+"verbeteren."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Oorspronkelijk gemaakt door Gabriele Cirulli is 2048 erg populair geworden "
+"omdat het uiterst verslavend is. Cirulli’s 2048 is op zijn beurt een kloon "
+"van het 1024-spel en bevat ideeën van andere klonen."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Een spel waarin de 2048-tegel bereikt is"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Het Gnome-project"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;puzzel;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Rastergrootte"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Felicitaties tonen"
+
+#: ../src/application.vala:166
+msgid "Game Over"
+msgstr "Spel afgelopen"
+
+#: ../src/application.vala:187
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "U heeft de %u-tegel bereikt"
+
+#: ../src/application.vala:387
+msgid "A clone of 2048 for GNOME"
+msgstr "Een kloon van 2048 voor GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr ""
+"Nathan Follens <nthn@unseen.is>\n"
+"\n"
+"Meer info over Gnome-NL http://nl.gnome.org"
