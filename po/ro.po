@@ -1,0 +1,247 @@
+# Romanian translation for gnome-2048.
+# Copyright (C) 2018 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Floren <>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=gnome-2048&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-03-26 17:38+0000\n"
+"PO-Revision-Date: 2018-04-06 00:28+0300\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Felicitări!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+msgid "New Game"
+msgstr "Joc nou"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Continuă jocul"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Scoruri"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Preferințe"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Ajutor"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Despre"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Ieșire"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Lățime fereastră"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Lățime fereastră."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Înălțime fereastră"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Înălțime fereastră."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Fereastră maximizată"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Starea de maximizare a ferestrei."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Număr de rânduri"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Numărul de rânduri al grilei jocului."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Număr de coloane"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Numărul de coloane al grilei jocului."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Valoare țintă"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Valoarea dalei la care utilizatorul este felicitat."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Felicitări la dala țintă"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Dacă utilizatorul va fi sau nu felicitat pentru obținerea dalei țintă."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Viteză animații"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Durata animațiilor: afișează dala, mută dala, și reduce dala."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Permite anularea"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Dacă se pot sau nu anula mutările de dale."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Numărul de mișcări de anulare"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Numărul maxim de mutări de dale care poate fi anulat."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "2048 GNOME"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Obțineți dala 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Jucați jocul 2048 care creează dependență. 2048 GNOME este o clonă a jocului "
+"puzzle popular de un singur jucător. Modul de joc consistă în alăturarea de "
+"numere într-o grilă și obținerea dalei 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Utilizați tastele cu săgeți de pe tastatură pentru a glisa toate dalele în "
+"direcția dorită. Aveți grijă: toate dalele alunecă în cele mai îndepărtate "
+"poziții posibile ale acestora, nu puteți să glisați doar o singură dală sau "
+"un singur rând sau coloană. Dalele cu aceeași valoare sunt unite când sunt "
+"glisate una peste cealaltă."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Cu fiecare dală nou obținută măriți scorul. Dacă credeți că puteți obține "
+"ușor dala 2048, nu lăsați asta să vă oprească, jocul nu se termină acolo, "
+"puteți continua alăturarea de dale și îmbunătățirea scorului."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Creat original de Gabriele Cirulli, 2048 a obținut multă popularitate "
+"deoarece creează dependență. Jocul 2048 al lui Cirulli este la rândul său o "
+"clonă a jocului 1024 și include idei de la alte clone."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Un joc care rulează în care ați ajuns la dala 2048"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Proiectul GNOME"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Dimensiune grilă"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Afișează felicitările"
+
+#: ../src/application.vala:166
+msgid "Game Over"
+msgstr "Joc terminat"
+
+#: ../src/application.vala:187
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Ați obținut dala %u"
+
+#: ../src/application.vala:387
+msgid "A clone of 2048 for GNOME"
+msgstr "O clonă a jocului 2048 pentru GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Drepturi de autor © 2014-2015 – Juan R. García Blanco\n"
+"Drepturi de autor © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr "Florentina Mușat <florentina.musat.28@gmail.com>"
