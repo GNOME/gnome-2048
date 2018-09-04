@@ -1,6 +1,7 @@
 AC_PREREQ([2.63])
-AC_INIT([gnome-2048], [3.26.1], [http://www.gnome.org],
-        [gnome-2048])
+AC_INIT([gnome-2048], [3.30.0],
+        [https://gitlab.gnome.org/GNOME/gnome-2048/issues],
+        [gnome-2048], [https://wiki.gnome.org/Apps/2048])
 AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz foreign])

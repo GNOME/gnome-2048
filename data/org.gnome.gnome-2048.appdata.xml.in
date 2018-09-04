@@ -32,12 +32,12 @@
   </description>
   <screenshots>
     <screenshot type="default" height="702" width="1248">
-      <image>https://git.gnome.org/browse/gnome-2048/plain/data/screenshot.png</image>
+      <image>https://gitlab.gnome.org/GNOME/gnome-2048/raw/master/data/screenshot.png</image>
       <_caption>A running game having reached the 2048 tile</_caption>
     </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
-  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-2048</url>
+  <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-2048/issues</url>
   <url type="donation">http://www.gnome.org/friends/</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
