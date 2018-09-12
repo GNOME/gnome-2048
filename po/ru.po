@@ -1,0 +1,244 @@
+# Russian translation for gnome-2048
+# Copyright (C) 2018 gnome-2048's HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Eaglers <eaglersdeveloper@gmail.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2018-06-10 16:40+0000\n"
+"PO-Revision-Date: 2018-09-12 21:34+0300\n"
+"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
+"Language-Team: русский <gnome-cyr@gnome.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.1.1\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Поздравляем!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+msgid "New Game"
+msgstr "Новая игра"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Продолжить игру"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Результаты"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Настройки"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Справка"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "О приложении"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Завершить"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Ширина окна"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Ширина окна."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Высота окна"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Высота окна."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Окно развёрнуто"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Окно максимального размера."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Число строк"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Количество строк игровой сетки."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Число столбцов"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Количество столбцов игровой сетки."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Целевое значение"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Значение плитки, получив которую пользователь будет поздравлен."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Поздравить при получении целевой плитки"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Поздравлять пользователя при получении целевой плитки."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Скорость анимаций"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Продолжительность анимаций: показ, перемещение и скрытие плитки."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Разрешить отмену действия"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Разрешена ли отмена перемещения плиток."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Количество отмен перемещений"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr ""
+"Максимальное количество перемещений плиток, которые могут быть отменены."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Получите плитку 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Играйте в очень захватывающую игру «2048». GNOME 2048 — это клон популярной "
+"однопользовательской головоломки. Геймплей состоит из объединения чисел в "
+"сетке и получения плитки 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Используйте клавиши стрелок на клавиатуре, чтобы переместить все плитки в "
+"нужное направление. Будьте осторожны: все плитки перемещаются в возможные "
+"положения, вы не можете переместить только одну плитку, строку или столбец."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"С каждой новой плитки вы увеличиваете свой счёт. Если вы получили плитку "
+"2048, не останавливайтесь! Вы можете продолжить игру и улучшить свой счёт."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Первоначально созданная Габриэле Чирулли, игра «2048» стала очень "
+"популярной, так как сильно затягивает. «2048» от Чирулли в свою очередь "
+"является клоном игры «1024» и включает идеи других клонов."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Запущенная игра достигла плитки 2048"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "Проект GNOME"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "головоломка;пазл;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Размер сетки"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Уведомлять о выигрыше"
+
+#: ../src/application.vala:166
+msgid "Game Over"
+msgstr "Игра окончена"
+
+#: ../src/application.vala:187
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Вы получили плитку %u"
+
+#: ../src/application.vala:387
+msgid "A clone of 2048 for GNOME"
+msgstr "Клон игры «2048» для GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr "Stas Solovey <whats_up@tut.by>, 2018."
