@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=2048
-_Comment=Obtain the 2048 tile
+Name=2048
+Comment=Obtain the 2048 tile
 TryExec=gnome-2048
 Exec=gnome-2048
 Icon=gnome-2048
@@ -8,4 +8,4 @@ Terminal=false
 Type=Application
 StartupNotify=true
 Categories=GNOME;GTK;Game;
-_Keywords=puzzle;
+Keywords=puzzle;
