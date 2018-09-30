@@ -5,35 +5,35 @@
   <id>org.gnome.gnome-2048.desktop</id>
   <metadata_license>CC-BY-SA-3.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <_name>GNOME 2048</_name>
-  <_summary>Obtain the 2048 tile</_summary>
+  <name>GNOME 2048</name>
+  <summary>Obtain the 2048 tile</summary>
   <description>
-    <_p>
+    <p>
      Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular
      single-player puzzle game. Gameplay consists of joining numbers in a grid
      and obtain the 2048 tile.
-    </_p>
-    <_p>
+    </p>
+    <p>
      Use your keyboard's arrow keys to slide all tiles in the desired direction.
      Be careful: all tiles slide to their farthest possible positions, you cannot
      slide just one tile or one row or column. Tiles with the same value are
      joined when slided one over the other.
-    </_p>
-    <_p>
+    </p>
+    <p>
      With every new tile obtained you increase your score. If you think you can easily
      get the 2048 tile, do not let it stop you, the game does not end there, you can
      continue joining tiles and improving your score.
-    </_p>
-    <_p>
+    </p>
+    <p>
      Originally created by Gabriele Cirulli, 2048 has gained much popularity
      due to it being highly addictive. Cirulli's 2048 is in turn a clone of
      the 1024 game and includes ideas from other clones.
-    </_p>
+    </p>
   </description>
   <screenshots>
     <screenshot type="default" height="702" width="1248">
       <image>https://gitlab.gnome.org/GNOME/gnome-2048/raw/master/data/screenshot.png</image>
-      <_caption>A running game having reached the 2048 tile</_caption>
+      <caption>A running game having reached the 2048 tile</caption>
     </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
@@ -42,7 +42,7 @@
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
   <!-- this is a translatable version of project_group-->
-  <_developer_name>The GNOME Project</_developer_name>
+  <developer_name>The GNOME Project</developer_name>
 
   <kudos>
     <kudo>AppMenu</kudo>
