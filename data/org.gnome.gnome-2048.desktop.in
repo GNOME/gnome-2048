@@ -1,11 +1,13 @@
 [Desktop Entry]
-_Name=2048
-_Comment=Obtain the 2048 tile
+Name=2048
+Comment=Obtain the 2048 tile
 TryExec=gnome-2048
 Exec=gnome-2048
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=gnome-2048
 Terminal=false
 Type=Application
 StartupNotify=true
 Categories=GNOME;GTK;Game;
-_Keywords=puzzle;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=puzzle;
