@@ -329,12 +329,10 @@ public class Application : Gtk.Application
 
     private void _create_scores ()
     {
-        // FIXME: The category names should be marked for translation and use the × character.
-        _grid4_cat = new Scores.Category ("grid4", "Grid 4 x 4");
-        _grid5_cat = new Scores.Category ("grid5", "Grid 5 x 5");
+        _grid4_cat = new Scores.Category ("grid4", _("Grid 4 × 4"));
+        _grid5_cat = new Scores.Category ("grid5", _("Grid 5 × 5"));
 
-        // FIXME: The second parameter should be _("Grid Size:") but we're in string freeze.
-        _scores_ctx = new Scores.Context ("gnome-2048", "", _window, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
+        _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size:"), _window, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
     }
 
     /*\
@@ -382,7 +380,7 @@ public class Application : Gtk.Application
     {
         string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
         show_about_dialog (_window /* get_active_window () */,
-                           "program-name", "2048" /* TODO _("2048") */,
+                           "program-name", _("2048")
                            "version", VERSION,
                            "comments", _("A clone of 2048 for GNOME"),
                            "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016 – Arnaud Bonatti"),
