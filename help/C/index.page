@@ -16,7 +16,7 @@
       <p>Creative Commons Share Alike 3.0</p>
     </license>
   </info>
-<title><media type="image" src="media/gnome-2048.png" its:translate="no"><span its:translate="yes">gnome-2048 logo</span></media> GNOME 2048</title>
+<title><media type="image" src="media/gnome-2048.png" its:translate="no"><span its:translate="yes">GNOME 2048 logo</span></media> GNOME 2048</title>
   <p>
     <app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based on Veewo Studios' 1024.
   </p>
