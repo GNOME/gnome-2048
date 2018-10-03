@@ -1,11 +1,10 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-[encoding: UTF-8]
-[type: gettext/glade]data/congrats.ui
-[type: gettext/glade]data/mainwindow.ui
-[type: gettext/glade]data/menus.ui
+data/congrats.ui
+data/mainwindow.ui
+data/menus.ui
 data/org.gnome.2048.gschema.xml
 data/org.gnome.gnome-2048.appdata.xml.in
 data/org.gnome.gnome-2048.desktop.in
-[type: gettext/glade]data/preferences.ui
+data/preferences.ui
 src/application.vala
