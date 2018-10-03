@@ -4,7 +4,7 @@
   <requires lib="gtk+" version="3.12"/>
   <object class="GtkApplicationWindow" id="applicationwindow">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">gnome-2048</property>
+    <property name="title" translatable="yes">GNOME 2048</property>
     <property name="window_position">center</property>
     <property name="default_width">600</property>
     <property name="default_height">600</property>
