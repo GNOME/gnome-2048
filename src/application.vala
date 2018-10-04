@@ -56,7 +56,7 @@ public class Application : Gtk.Application
     {
         { "undo",           undo_cb           },
 
-        // app-menu
+        // hamburger-menu
         { "new-game",       new_game_cb       },
         { "scores",         scores_cb         },
 
@@ -328,7 +328,7 @@ public class Application : Gtk.Application
     }
 
     /*\
-    * * App-menu (and undo action) callbacks
+    * * Hamburger-menu (and undo action) callbacks
     \*/
 
     private void undo_cb ()

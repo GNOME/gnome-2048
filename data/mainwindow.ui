@@ -52,6 +52,27 @@
           </packing>
         </child>
         <child>
+          <object class="GtkMenuButton">
+            <property name="visible">True</property>
+            <property name="halign">end</property>
+            <property name="valign">center</property>
+            <property name="menu-model">hamburger-menu</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkLabel" id="score">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -94,4 +115,33 @@
       </object>
     </child>
   </object>
+  <menu id="hamburger-menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">New Game</attribute>
+        <attribute name="action">app.new-game</attribute>
+        <attribute name="accel">&lt;Primary&gt;n</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Scores</attribute>
+        <attribute name="action">app.scores</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <!-- item>
+        <attribute name="label" translatable="yes">Help</attribute>
+        <attribute name="action">app.help</attribute>
+        <attribute name="accel">F1</attribute>
+      </item -->
+      <item>
+        <attribute name="label" translatable="yes">About 2048</attribute>
+        <attribute name="action">app.about</attribute>
+        <attribute name="accel">&lt;Primary&gt;&lt;Shift&gt;F1</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>

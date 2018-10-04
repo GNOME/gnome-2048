@@ -2,7 +2,6 @@
 # Please keep this file in alphabetical order.
 data/congrats.ui
 data/mainwindow.ui
-data/menus.ui
 data/org.gnome.2048.gschema.xml
 data/org.gnome.gnome-2048.appdata.xml.in
 data/org.gnome.gnome-2048.desktop.in
