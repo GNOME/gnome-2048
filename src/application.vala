@@ -380,7 +380,7 @@ public class Application : Gtk.Application
     {
         string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
         show_about_dialog (_window /* get_active_window () */,
-                           "program-name", _("2048")
+                           "program-name", _("2048"),
                            "version", VERSION,
                            "comments", _("A clone of 2048 for GNOME"),
                            "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016 – Arnaud Bonatti"),
