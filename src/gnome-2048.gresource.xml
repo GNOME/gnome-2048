@@ -6,7 +6,4 @@
     <file preprocess="xml-stripblanks">data/congrats.ui</file>
     <!-- file>data/style.css</file -->
   </gresource>
-  <gresource prefix="/org/gnome/gnome-2048/gtk">
-    <file preprocess="xml-stripblanks" alias="menus.ui">data/menus.ui</file>
-  </gresource>
 </gresources>
