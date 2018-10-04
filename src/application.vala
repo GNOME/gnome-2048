@@ -214,7 +214,7 @@ public class Application : Gtk.Application
 
         add_window (_window);
 
-        _create_header_bar ();
+        _create_header_bar (builder);
         _create_game_view (builder);
 
         _window.set_events (_window.get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
@@ -228,24 +228,16 @@ public class Application : Gtk.Application
         _window.set_geometry_hints (_window, geom, Gdk.WindowHints.MIN_SIZE);
     }
 
-    private void _create_header_bar ()
+    private void _create_header_bar (Builder builder)
     {
-        _header_bar = new HeaderBar ();
-        _header_bar.show_close_button = true;
-        _header_bar.title = "2048";
-        _window.set_titlebar (_header_bar);
+        _header_bar = (HeaderBar) builder.get_object ("headerbar");
 
-        _score = new Label ("0");
-        _header_bar.pack_end (_score);
+        _score = (Label) builder.get_object ("score");
 
-        _undo_button = new Button.from_icon_name ("edit-undo-symbolic");
-        _undo_button.set_action_name ("app.undo");
-        _header_bar.pack_start (_undo_button);
+        _undo_button = (Button) builder.get_object ("undo-button");
         ((SimpleAction) lookup_action ("undo")).set_enabled (false);
 
-        _new_game_button = new Button.with_label (_("New Game"));
-        _new_game_button.set_action_name ("app.new-game");
-        _header_bar.pack_start (_new_game_button);
+        _new_game_button = (Button) builder.get_object ("new-game-button");
     }
 
     private void _create_game_view (Builder builder)
