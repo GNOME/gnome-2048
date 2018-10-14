@@ -7,10 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-17 20:39+0000\n"
-"PO-Revision-Date: 2016-08-21 12:55+0300\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2018-10-03 19:56+0000\n"
+"PO-Revision-Date: 2018-10-14 12:27+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -18,134 +17,126 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: ../data/congrats.ui.h:1
+#: data/congrats.ui:8
 msgid "Congratulations!"
 msgstr "Onnittelut!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
 msgid "New Game"
 msgstr "Uusi peli"
 
-#: ../data/congrats.ui.h:3
+#: data/congrats.ui:38
 msgid "Keep Playing"
 msgstr "Jatka pelaamista"
 
-#: ../data/mainwindow.ui.h:1
-msgid "gnome-2048"
-msgstr "gnome-2048"
-
-#: ../data/menus.ui.h:2
-msgid "Scores"
-msgstr "Pisteet"
-
-#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
-msgid "Preferences"
-msgstr "Asetukset"
-
-#: ../data/menus.ui.h:4
-msgid "Help"
-msgstr "Ohje"
-
-#: ../data/menus.ui.h:5
-msgid "About"
-msgstr "Tietoja"
-
-#: ../data/menus.ui.h:6
-msgid "Quit"
-msgstr "Lopeta"
-
-#: ../data/org.gnome.2048.gschema.xml.h:1
-msgid "Window width"
-msgstr "Ikkunan leveys"
-
-#: ../data/org.gnome.2048.gschema.xml.h:2
-msgid "Window width."
-msgstr "Ikkunan leveys."
-
-#: ../data/org.gnome.2048.gschema.xml.h:3
-msgid "Window height"
-msgstr "Ikkunan korkeus"
-
-#: ../data/org.gnome.2048.gschema.xml.h:4
-msgid "Window height."
-msgstr "Ikkunan korkeus."
-
-#: ../data/org.gnome.2048.gschema.xml.h:5
-msgid "Window maximized"
-msgstr "Suurennettu ikkuna"
-
-#: ../data/org.gnome.2048.gschema.xml.h:6
-msgid "Window maximization state."
-msgstr "Ikkunan suurennoksen tila."
-
-#: ../data/org.gnome.2048.gschema.xml.h:7
-msgid "Number of rows"
-msgstr "Rivien määrä"
-
-#: ../data/org.gnome.2048.gschema.xml.h:8
-msgid "Game grid number of rows."
-msgstr "Peliruudukon rivien määrä."
-
-#: ../data/org.gnome.2048.gschema.xml.h:9
-msgid "Number of columns"
-msgstr "Sarakkeiden määrä"
-
-#: ../data/org.gnome.2048.gschema.xml.h:10
-msgid "Game grid number of columns."
-msgstr "Peliruudukon sarakkeiden määrä."
-
-#: ../data/org.gnome.2048.gschema.xml.h:11
-msgid "Target value"
-msgstr "Kohdearvo"
-
-#: ../data/org.gnome.2048.gschema.xml.h:12
-msgid "Tile value at which user is congratulated."
-msgstr "Laatta-arvo, jolloin pelaajaa onnitellaan."
-
-#: ../data/org.gnome.2048.gschema.xml.h:13
-msgid "Congrat on target tile"
-msgstr "Onnittele kohdelaatan kohdalla"
-
-#: ../data/org.gnome.2048.gschema.xml.h:14
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Onnitellaanko pelaajaa kohdelaatan saavuttamisen johdosta."
-
-#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
-msgid "Animations speed"
-msgstr "Animaation nopeus"
-
-#: ../data/org.gnome.2048.gschema.xml.h:16
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr "Animaatioiden kesto: show tile, move tile ja dim tile."
-
-#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
-msgid "Allow undo"
-msgstr "Salli kumoaminen"
-
-#: ../data/org.gnome.2048.gschema.xml.h:18
-msgid "Whether tile movements can be undone."
-msgstr "Onko laattojen liikkeitä mahdollista kumota."
-
-#: ../data/org.gnome.2048.gschema.xml.h:19
-msgid "Number of undo movements"
-msgstr "Kumoamisliikkeiden määrä"
-
-#: ../data/org.gnome.2048.gschema.xml.h:20
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Laattasiirrosten enimmäismäärä, jotka voidaan kumota."
-
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "Gnomen 2048"
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
-#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+#: data/menus.ui:11
+msgid "Scores"
+msgstr "Pisteet"
+
+#: data/menus.ui:17 data/preferences.ui:15
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: data/menus.ui:28
+msgid "About"
+msgstr "Tietoja"
+
+#: data/menus.ui:33
+msgid "Quit"
+msgstr "Lopeta"
+
+#: data/org.gnome.2048.gschema.xml:5
+msgid "Window width"
+msgstr "Ikkunan leveys"
+
+#: data/org.gnome.2048.gschema.xml:6
+msgid "Window width."
+msgstr "Ikkunan leveys."
+
+#: data/org.gnome.2048.gschema.xml:10
+msgid "Window height"
+msgstr "Ikkunan korkeus"
+
+#: data/org.gnome.2048.gschema.xml:11
+msgid "Window height."
+msgstr "Ikkunan korkeus."
+
+#: data/org.gnome.2048.gschema.xml:15
+msgid "Window maximized"
+msgstr "Suurennettu ikkuna"
+
+#: data/org.gnome.2048.gschema.xml:16
+msgid "Window maximization state."
+msgstr "Ikkunan suurennoksen tila."
+
+#: data/org.gnome.2048.gschema.xml:20
+msgid "Number of rows"
+msgstr "Rivien määrä"
+
+#: data/org.gnome.2048.gschema.xml:21
+msgid "Game grid number of rows."
+msgstr "Peliruudukon rivien määrä."
+
+#: data/org.gnome.2048.gschema.xml:25
+msgid "Number of columns"
+msgstr "Sarakkeiden määrä"
+
+#: data/org.gnome.2048.gschema.xml:26
+msgid "Game grid number of columns."
+msgstr "Peliruudukon sarakkeiden määrä."
+
+#: data/org.gnome.2048.gschema.xml:30
+msgid "Target value"
+msgstr "Kohdearvo"
+
+#: data/org.gnome.2048.gschema.xml:31
+msgid "Tile value at which user is congratulated."
+msgstr "Laatta-arvo, jolloin pelaajaa onnitellaan."
+
+#: data/org.gnome.2048.gschema.xml:35
+msgid "Congrat on target tile"
+msgstr "Onnittele kohdelaatan kohdalla"
+
+#: data/org.gnome.2048.gschema.xml:36
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Onnitellaanko pelaajaa kohdelaatan saavuttamisen johdosta."
+
+#: data/org.gnome.2048.gschema.xml:40 data/preferences.ui:80
+msgid "Animations speed"
+msgstr "Animaation nopeus"
+
+#: data/org.gnome.2048.gschema.xml:41
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Animaatioiden kesto: show tile, move tile ja dim tile."
+
+#: data/org.gnome.2048.gschema.xml:45 data/preferences.ui:129
+msgid "Allow undo"
+msgstr "Salli kumoaminen"
+
+#: data/org.gnome.2048.gschema.xml:46
+msgid "Whether tile movements can be undone."
+msgstr "Onko laattojen liikkeitä mahdollista kumota."
+
+#: data/org.gnome.2048.gschema.xml:50
+msgid "Number of undo movements"
+msgstr "Kumoamisliikkeiden määrä"
+
+#: data/org.gnome.2048.gschema.xml:51
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Laattasiirrosten enimmäismäärä, jotka voidaan kumota."
+
+#: data/org.gnome.gnome-2048.appdata.xml.in:9
+#: data/org.gnome.gnome-2048.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Saavuta 2048-laatta"
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+#: data/org.gnome.gnome-2048.appdata.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
@@ -155,7 +146,7 @@ msgstr ""
 "pulmapelistä, jota pelataan yksin. Pelaaminen koostuu numeroiden "
 "liittämisestä toisiinsa ruudukossa, tavoitteena on saavuttaa 2048-laatta."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+#: data/org.gnome.gnome-2048.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -168,7 +159,7 @@ msgstr ""
 "tai saraketta. Samat arvot omaavat laatat liitetään toisiinsa, kun ne "
 "kohtaavat."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+#: data/org.gnome.gnome-2048.appdata.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -179,7 +170,7 @@ msgstr ""
 "peli ei lopu siihen. Voit jatkaa laattojen liittämistä ja parantaa "
 "pisteitäsi."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+#: data/org.gnome.gnome-2048.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -189,53 +180,72 @@ msgstr ""
 "peli on erittäin koukuttava. Cirullin 2048 on klooni 1024-pelistä, ja 2048 "
 "sisältää ideoita muista klooneista."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+#: data/org.gnome.gnome-2048.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Peli, jossa on saavutettu 2048-laatta"
 
 #. this is a translatable version of project_group
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+#: data/org.gnome.gnome-2048.appdata.xml.in:45
 msgid "The GNOME Project"
 msgstr "Gnome-projekti"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+#. get_active_window ()
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
 msgid "2048"
 msgstr "2048"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.gnome-2048.desktop.in:8
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.gnome-2048.desktop.in:14
 msgid "puzzle;"
 msgstr "puzzle;pulmapeli;"
 
-#: ../data/preferences.ui.h:2
+#: data/preferences.ui:54
 msgid "Grid size"
 msgstr "Ruudukon koko"
 
-#: ../data/preferences.ui.h:3
-msgid "4 x 4"
-msgstr "4 x 4"
+#: data/preferences.ui:67
+msgid "4 × 4"
+msgstr "4 × 4"
 
-#: ../data/preferences.ui.h:4
-msgid "5 x 5"
-msgstr "5 x 5"
+#: data/preferences.ui:68
+msgid "5 × 5"
+msgstr "5 × 5"
 
-#: ../data/preferences.ui.h:6
+#: data/preferences.ui:106
 msgid "Display congrats"
 msgstr "Näytä onnittelut"
 
-#: ../src/application.vala:166
+#: src/application.vala:166
 msgid "Game Over"
 msgstr "Peli loppui"
 
-#: ../src/application.vala:187
+#: src/application.vala:187
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Saavutit %u-laatan"
 
-#: ../src/application.vala:387
+#: src/application.vala:332
+msgid "Grid 4 × 4"
+msgstr "Ruudukko 4 × 4"
+
+#: src/application.vala:333
+msgid "Grid 5 × 5"
+msgstr "Ruudukko 5 × 5"
+
+#: src/application.vala:335
+msgid "Grid Size:"
+msgstr "Ruudukon koko:"
+
+#: src/application.vala:385
 msgid "A clone of 2048 for GNOME"
 msgstr "2048-pelin klooni Gnomelle"
 
-#: ../src/application.vala:388
+#: src/application.vala:386
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -243,6 +253,15 @@ msgstr ""
 "Tekijänoikeus © 2014-2015 – Juan R. García Blanco\n"
 "Tekijänoikeus © 2016 – Arnaud Bonatti"
 
-#: ../src/application.vala:392
+#: src/application.vala:390
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
+
+#~ msgid "Help"
+#~ msgstr "Ohje"
+
+#~ msgid "4 x 4"
+#~ msgstr "4 x 4"
+
+#~ msgid "5 x 5"
+#~ msgstr "5 x 5"
