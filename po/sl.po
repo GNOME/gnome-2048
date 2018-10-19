@@ -2,15 +2,14 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, + 2015–2017.
+# Matej Urbančič <mateju@svn.gnome.org>, + 2015–2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-23 21:28+0200\n"
-"PO-Revision-Date: 2017-07-23 21:29+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2018-10-14 09:28+0000\n"
+"PO-Revision-Date: 2018-10-19 17:54+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -20,142 +19,137 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.1.1\n"
 
-#: ../data/congrats.ui.h:1
+#: data/congrats.ui:8
 msgid "Congratulations!"
 msgstr "Čestitke!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
 msgid "New Game"
 msgstr "Nova igra"
 
-#: ../data/congrats.ui.h:3
+#: data/congrats.ui:38
 msgid "Keep Playing"
 msgstr "Nadaljuj z igranjem"
 
-#: ../data/mainwindow.ui.h:1
-msgid "gnome-2048"
-msgstr "gnome-2048"
-
-#: ../data/menus.ui.h:2
-msgid "Scores"
-msgstr "Rezultati"
-
-#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
-msgid "Preferences"
-msgstr "Možnosti"
-
-#: ../data/menus.ui.h:4
-msgid "Help"
-msgstr "Pomoč"
-
-#: ../data/menus.ui.h:5
-msgid "About"
-msgstr "O programu"
-
-#: ../data/menus.ui.h:6
-msgid "Quit"
-msgstr "Končaj"
-
-#: ../data/org.gnome.2048.gschema.xml.h:1
-msgid "Window width"
-msgstr "Širina okna"
-
-#: ../data/org.gnome.2048.gschema.xml.h:2
-msgid "Window width."
-msgstr "Širina okna igralnega polja."
-
-#: ../data/org.gnome.2048.gschema.xml.h:3
-msgid "Window height"
-msgstr "Višina okna"
-
-#: ../data/org.gnome.2048.gschema.xml.h:4
-msgid "Window height."
-msgstr "Višina okna igralnega polja."
-
-#: ../data/org.gnome.2048.gschema.xml.h:5
-msgid "Window maximized"
-msgstr "Razpeto okno"
-
-#: ../data/org.gnome.2048.gschema.xml.h:6
-msgid "Window maximization state."
-msgstr "Okno naj bo prikazanoo v razpetem stanju."
-
-#: ../data/org.gnome.2048.gschema.xml.h:7
-msgid "Number of rows"
-msgstr "Število vrstic"
-
-#: ../data/org.gnome.2048.gschema.xml.h:8
-msgid "Game grid number of rows."
-msgstr "Število vrstic v mreži igralnega polja."
-
-#: ../data/org.gnome.2048.gschema.xml.h:9
-msgid "Number of columns"
-msgstr "Število stolpcev"
-
-#: ../data/org.gnome.2048.gschema.xml.h:10
-msgid "Game grid number of columns."
-msgstr "Število stolpcev v mreži igralnega polja."
-
-#: ../data/org.gnome.2048.gschema.xml.h:11
-msgid "Target value"
-msgstr "Vrednost cilja"
-
-#: ../data/org.gnome.2048.gschema.xml.h:12
-msgid "Tile value at which user is congratulated."
-msgstr "Vrednost polja, pri katerem se uporabniku pokaže čestitka."
-
-#: ../data/org.gnome.2048.gschema.xml.h:13
-msgid "Congrat on target tile"
-msgstr "Pokaži čestitko pri odkritju ciljnega polja"
-
-#: ../data/org.gnome.2048.gschema.xml.h:14
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Možnost določa, ali naj se uporabniku prikaže čestitka ob odkritju ciljnega polja."
-
-#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
-msgid "Animations speed"
-msgstr "Hitrost animiranja"
-
-#: ../data/org.gnome.2048.gschema.xml.h:16
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr "Trajanje animacije: pokaži polje, premakni polje in zamegli polje."
-
-#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
-msgid "Allow undo"
-msgstr "Dovoli razveljavitve"
-
-#: ../data/org.gnome.2048.gschema.xml.h:18
-msgid "Whether tile movements can be undone."
-msgstr "Možnost določa, ali je poteze mogoče razveljaviti."
-
-#: ../data/org.gnome.2048.gschema.xml.h:19
-msgid "Number of undo movements"
-msgstr "Število razveljavitev"
-
-#: ../data/org.gnome.2048.gschema.xml.h:20
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Največje število potez polj, ki jih je še mogoče razveljaviti."
-
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
-#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+#: data/menus.ui:11
+msgid "Scores"
+msgstr "Rezultati"
+
+#: data/menus.ui:17 data/preferences.ui:15
+msgid "Preferences"
+msgstr "Možnosti"
+
+#: data/menus.ui:28
+msgid "About"
+msgstr "O programu"
+
+#: data/menus.ui:33
+msgid "Quit"
+msgstr "Končaj"
+
+#: data/org.gnome.2048.gschema.xml:5
+msgid "Window width"
+msgstr "Širina okna"
+
+#: data/org.gnome.2048.gschema.xml:6
+msgid "Window width."
+msgstr "Širina okna igralnega polja."
+
+#: data/org.gnome.2048.gschema.xml:10
+msgid "Window height"
+msgstr "Višina okna"
+
+#: data/org.gnome.2048.gschema.xml:11
+msgid "Window height."
+msgstr "Višina okna igralnega polja."
+
+#: data/org.gnome.2048.gschema.xml:15
+msgid "Window maximized"
+msgstr "Razpeto okno"
+
+#: data/org.gnome.2048.gschema.xml:16
+msgid "Window maximization state."
+msgstr "Okno naj bo prikazanoo v razpetem stanju."
+
+#: data/org.gnome.2048.gschema.xml:20
+msgid "Number of rows"
+msgstr "Število vrstic"
+
+#: data/org.gnome.2048.gschema.xml:21
+msgid "Game grid number of rows."
+msgstr "Število vrstic v mreži igralnega polja."
+
+#: data/org.gnome.2048.gschema.xml:25
+msgid "Number of columns"
+msgstr "Število stolpcev"
+
+#: data/org.gnome.2048.gschema.xml:26
+msgid "Game grid number of columns."
+msgstr "Število stolpcev v mreži igralnega polja."
+
+#: data/org.gnome.2048.gschema.xml:30
+msgid "Target value"
+msgstr "Vrednost cilja"
+
+#: data/org.gnome.2048.gschema.xml:31
+msgid "Tile value at which user is congratulated."
+msgstr "Vrednost polja, pri katerem se uporabniku pokaže čestitka."
+
+#: data/org.gnome.2048.gschema.xml:35
+msgid "Congrat on target tile"
+msgstr "Pokaži čestitko pri odkritju ciljnega polja"
+
+#: data/org.gnome.2048.gschema.xml:36
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr ""
+"Možnost določa, ali naj se uporabniku prikaže čestitka ob odkritju ciljnega "
+"polja."
+
+#: data/org.gnome.2048.gschema.xml:40 data/preferences.ui:80
+msgid "Animations speed"
+msgstr "Hitrost animiranja"
+
+#: data/org.gnome.2048.gschema.xml:41
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Trajanje animacije: pokaži polje, premakni polje in zamegli polje."
+
+#: data/org.gnome.2048.gschema.xml:45 data/preferences.ui:129
+msgid "Allow undo"
+msgstr "Dovoli razveljavitve"
+
+#: data/org.gnome.2048.gschema.xml:46
+msgid "Whether tile movements can be undone."
+msgstr "Možnost določa, ali je poteze mogoče razveljaviti."
+
+#: data/org.gnome.2048.gschema.xml:50
+msgid "Number of undo movements"
+msgstr "Število razveljavitev"
+
+#: data/org.gnome.2048.gschema.xml:51
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Največje število potez polj, ki jih je še mogoče razveljaviti."
+
+#: data/org.gnome.gnome-2048.appdata.xml.in:9
+#: data/org.gnome.gnome-2048.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Cilj je polje 2048"
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+#: data/org.gnome.gnome-2048.appdata.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
 "and obtain the 2048 tile."
 msgstr ""
-"Igra Gnome 2048 je klon popularne številske igre. Cilj igre je doseči število 2048 z združevanjem enakih števil v mreži."
+"Igra Gnome 2048 je klon popularne številske igre. Cilj igre je doseči "
+"število 2048 z združevanjem enakih števil v mreži."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+#: data/org.gnome.gnome-2048.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -165,10 +159,10 @@ msgstr ""
 "Uporabite smerne tipke za premikanje med polji v želeni smeri. Bodite "
 "previdni: ob pritisku smerne tipke, se polje postavi na najbolj oddaljeno "
 "mesto v mreži. Ni se mogoče premakniti le za eno polje oziroma le za eno "
-"vrstico ali stolpec. Polja z isto vrednostjo števila se seštejejo in nato"
-"prekrijejo."
+"vrstico ali stolpec. Polja z isto vrednostjo števila se seštejejo in "
+"natoprekrijejo."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+#: data/org.gnome.gnome-2048.appdata.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -178,7 +172,7 @@ msgstr ""
 "da je doseči število 2048 enostavno, se lahko preizkusite. Igra se tam sicer "
 "še ne konča. Za najvstrajnejše je še veliko prostora."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+#: data/org.gnome.gnome-2048.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -188,53 +182,72 @@ msgstr ""
 "velike zasvojljivosti. Igra vključuje različne ideje tudi drugih podobnih "
 "iger."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+#: data/org.gnome.gnome-2048.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Igra, pri kateri je treba s seštevanjem doseči število 2048"
 
 #. this is a translatable version of project_group
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+#: data/org.gnome.gnome-2048.appdata.xml.in:45
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+#. get_active_window ()
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
 msgid "2048"
 msgstr "2048"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.gnome-2048.desktop.in:8
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.gnome-2048.desktop.in:14
 msgid "puzzle;"
 msgstr "igra;uganka;sudoku;seštevanje;"
 
-#: ../data/preferences.ui.h:2
+#: data/preferences.ui:54
 msgid "Grid size"
 msgstr "Velikost mreže"
 
-#: ../data/preferences.ui.h:3
-msgid "4 x 4"
-msgstr "4 x 4"
+#: data/preferences.ui:67
+msgid "4 × 4"
+msgstr "4 × 4"
 
-#: ../data/preferences.ui.h:4
-msgid "5 x 5"
-msgstr "5 x 5"
+#: data/preferences.ui:68
+msgid "5 × 5"
+msgstr "5 × 5"
 
-#: ../data/preferences.ui.h:6
+#: data/preferences.ui:106
 msgid "Display congrats"
 msgstr "Pokaži čestitke"
 
-#: ../src/application.vala:166
+#: src/application.vala:166
 msgid "Game Over"
 msgstr "Konec igra"
 
-#: ../src/application.vala:187
+#: src/application.vala:187
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Odkrito je polje %u"
 
-#: ../src/application.vala:387
+#: src/application.vala:332
+msgid "Grid 4 × 4"
+msgstr "Mreža 4 × 4"
+
+#: src/application.vala:333
+msgid "Grid 5 × 5"
+msgstr "Mreža 5 × 5"
+
+#: src/application.vala:335
+msgid "Grid Size:"
+msgstr "Velikost mreže:"
+
+#: src/application.vala:385
 msgid "A clone of 2048 for GNOME"
 msgstr "Klon igre 2048 za GNOME"
 
-#: ../src/application.vala:388
+#: src/application.vala:386
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -242,6 +255,15 @@ msgstr ""
 "Avtorske pravice © 2014-2015 – Juan R. García Blanco\n"
 "Avtorske pravice © 2016 – Arnaud Bonatti"
 
-#: ../src/application.vala:392
+#: src/application.vala:390
 msgid "translator-credits"
 msgstr "Matej Urbančič <matej.u@svn.gnome.org>"
+
+#~ msgid "Help"
+#~ msgstr "Pomoč"
+
+#~ msgid "4 x 4"
+#~ msgstr "4 x 4"
+
+#~ msgid "5 x 5"
+#~ msgstr "5 x 5"
