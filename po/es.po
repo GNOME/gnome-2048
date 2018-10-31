@@ -2,15 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2015, 2016.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2015, 2016, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048.master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-09-23 19:52+0000\n"
-"PO-Revision-Date: 2016-12-22 12:35+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2018-10-03 19:56+0000\n"
+"PO-Revision-Date: 2018-10-31 16:25+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -18,136 +17,128 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
-#: ../data/congrats.ui.h:1
+#: data/congrats.ui:8
 msgid "Congratulations!"
 msgstr "Enhorabuena."
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
 msgid "New Game"
 msgstr "Partida nueva"
 
-#: ../data/congrats.ui.h:3
+#: data/congrats.ui:38
 msgid "Keep Playing"
 msgstr "Seguir jugando"
 
-#: ../data/mainwindow.ui.h:1
-msgid "gnome-2048"
-msgstr "gnome-2048"
+#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
 
-#: ../data/menus.ui.h:2
+#: data/menus.ui:11
 msgid "Scores"
 msgstr "Puntuación"
 
-#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+#: data/menus.ui:17 data/preferences.ui:15
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: ../data/menus.ui.h:4
-msgid "Help"
-msgstr "Ayuda"
-
-#: ../data/menus.ui.h:5
+#: data/menus.ui:28
 msgid "About"
 msgstr "Acerca de"
 
-#: ../data/menus.ui.h:6
+#: data/menus.ui:33
 msgid "Quit"
 msgstr "Salir"
 
-#: ../data/org.gnome.2048.gschema.xml.h:1
+#: data/org.gnome.2048.gschema.xml:5
 msgid "Window width"
 msgstr "Anchura de la ventana"
 
-#: ../data/org.gnome.2048.gschema.xml.h:2
+#: data/org.gnome.2048.gschema.xml:6
 msgid "Window width."
 msgstr "Anchura de la ventana-"
 
-#: ../data/org.gnome.2048.gschema.xml.h:3
+#: data/org.gnome.2048.gschema.xml:10
 msgid "Window height"
 msgstr "Altura de la ventana"
 
-#: ../data/org.gnome.2048.gschema.xml.h:4
+#: data/org.gnome.2048.gschema.xml:11
 msgid "Window height."
 msgstr "Altura de la ventana."
 
-#: ../data/org.gnome.2048.gschema.xml.h:5
+#: data/org.gnome.2048.gschema.xml:15
 msgid "Window maximized"
 msgstr "Ventana maximizada"
 
-#: ../data/org.gnome.2048.gschema.xml.h:6
+#: data/org.gnome.2048.gschema.xml:16
 msgid "Window maximization state."
 msgstr "Estado maximizado de la ventana."
 
-#: ../data/org.gnome.2048.gschema.xml.h:7
+#: data/org.gnome.2048.gschema.xml:20
 msgid "Number of rows"
 msgstr "Número de filas"
 
-#: ../data/org.gnome.2048.gschema.xml.h:8
+#: data/org.gnome.2048.gschema.xml:21
 msgid "Game grid number of rows."
 msgstr "Número de filas de la rejilla del juego."
 
-#: ../data/org.gnome.2048.gschema.xml.h:9
+#: data/org.gnome.2048.gschema.xml:25
 msgid "Number of columns"
 msgstr "Número de columnas"
 
-#: ../data/org.gnome.2048.gschema.xml.h:10
+#: data/org.gnome.2048.gschema.xml:26
 msgid "Game grid number of columns."
 msgstr "Número de columnas de la rejilla del juego."
 
-#: ../data/org.gnome.2048.gschema.xml.h:11
+#: data/org.gnome.2048.gschema.xml:30
 msgid "Target value"
 msgstr "Valor objetivo"
 
-#: ../data/org.gnome.2048.gschema.xml.h:12
+#: data/org.gnome.2048.gschema.xml:31
 msgid "Tile value at which user is congratulated."
 msgstr "Casilla objetivo en la que felicitar al usuario."
 
-#: ../data/org.gnome.2048.gschema.xml.h:13
+#: data/org.gnome.2048.gschema.xml:35
 msgid "Congrat on target tile"
 msgstr "Felicitar en la casilla objetivo"
 
-#: ../data/org.gnome.2048.gschema.xml.h:14
+#: data/org.gnome.2048.gschema.xml:36
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr "Indica si se debe felicitar al usuario al obtener la casilla objetivo."
 
-#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+#: data/org.gnome.2048.gschema.xml:40 data/preferences.ui:80
 msgid "Animations speed"
 msgstr "Velocidad de las animaciones"
 
-#: ../data/org.gnome.2048.gschema.xml.h:16
+#: data/org.gnome.2048.gschema.xml:41
 msgid "Duration of animations: show tile, move tile, and dim tile."
 msgstr ""
 "Duración de las animaciones: mostrar casilla, mover casilla y atenuar "
 "casilla."
 
-#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+#: data/org.gnome.2048.gschema.xml:45 data/preferences.ui:129
 msgid "Allow undo"
 msgstr "Permitir deshacer"
 
-#: ../data/org.gnome.2048.gschema.xml.h:18
+#: data/org.gnome.2048.gschema.xml:46
 msgid "Whether tile movements can be undone."
 msgstr "Indica si los los movimientos se pueden deshacer."
 
-#: ../data/org.gnome.2048.gschema.xml.h:19
+#: data/org.gnome.2048.gschema.xml:50
 msgid "Number of undo movements"
 msgstr "Número de movimientos de deshacer"
 
-#: ../data/org.gnome.2048.gschema.xml.h:20
+#: data/org.gnome.2048.gschema.xml:51
 msgid "Maximum number of tile movements that can be undone."
 msgstr "Número máximo de movimientos que se pueden deshacer."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
-
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
-#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+#: data/org.gnome.gnome-2048.appdata.xml.in:9
+#: data/org.gnome.gnome-2048.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Obtener la ficha 2048"
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+#: data/org.gnome.gnome-2048.appdata.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
@@ -157,7 +148,7 @@ msgstr ""
 "de un solo jugador. El objetivo del juego consiste en unir números en una "
 "rejilla y obtener la ficha 2048."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+#: data/org.gnome.gnome-2048.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -170,7 +161,7 @@ msgstr ""
 "sólo una fila o una columna. Las fichas con el mismo valor se unen cuando se "
 "desliza una sobre la otra."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+#: data/org.gnome.gnome-2048.appdata.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -180,7 +171,7 @@ msgstr ""
 "obtener la ficha 2048 fácilmente, no deje que esto le impida continuar, el "
 "juego no acaba aquí. Puede seguir uniendo fichas y mejorando su puntuación."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+#: data/org.gnome.gnome-2048.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -190,53 +181,73 @@ msgstr ""
 "ya que es muy adictivo. La versión de 2048 de Cirulli es de hecho un clon "
 "del juego 1024 e incluye ideas de otros clones."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+#: data/org.gnome.gnome-2048.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Una partida en ejecución que haya alcanzado la ficha 2048"
 
 #. this is a translatable version of project_group
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+#: data/org.gnome.gnome-2048.appdata.xml.in:45
 msgid "The GNOME Project"
 msgstr "El Proyecto GNOME"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+#. get_active_window ()
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
 msgid "2048"
 msgstr "2048"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.gnome-2048.desktop.in:8
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.gnome-2048.desktop.in:14
 msgid "puzzle;"
 msgstr "puzle;"
 
-#: ../data/preferences.ui.h:2
+#: data/preferences.ui:54
 msgid "Grid size"
 msgstr "Tamaño de rejilla"
 
-#: ../data/preferences.ui.h:3
-msgid "4 x 4"
-msgstr "4 x 4"
+#: data/preferences.ui:67
+msgid "4 × 4"
+msgstr "4 × 4"
 
-#: ../data/preferences.ui.h:4
-msgid "5 x 5"
-msgstr "5 x 5"
+#: data/preferences.ui:68
+msgid "5 × 5"
+msgstr "5 × 5"
 
-#: ../data/preferences.ui.h:6
+#: data/preferences.ui:106
 msgid "Display congrats"
 msgstr "Mostrar enhorabuena"
 
-#: ../src/application.vala:166
+#: src/application.vala:166
 msgid "Game Over"
 msgstr "Juego terminado"
 
-#: ../src/application.vala:187
+#: src/application.vala:187
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Ha obtenido la ficha %u"
 
-#: ../src/application.vala:387
+#: src/application.vala:332
+msgid "Grid 4 × 4"
+msgstr "Rejilla 4 × 4"
+
+#: src/application.vala:333
+msgid "Grid 5 × 5"
+msgstr "Rejilla 5 × 5"
+
+#: src/application.vala:335
+#| msgid "Grid size"
+msgid "Grid Size:"
+msgstr "Tamaño de rejilla:"
+
+#: src/application.vala:385
 msgid "A clone of 2048 for GNOME"
 msgstr "Un clon de 2048 para GNOME"
 
-#: ../src/application.vala:388
+#: src/application.vala:386
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -244,9 +255,18 @@ msgstr ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
 
-#: ../src/application.vala:392
+#: src/application.vala:390
 msgid "translator-credits"
 msgstr "Daniel Mustieles, <daniel.mustieles@gmail.com>"
+
+#~ msgid "Help"
+#~ msgstr "Ayuda"
+
+#~ msgid "4 x 4"
+#~ msgstr "4 x 4"
+
+#~ msgid "5 x 5"
+#~ msgstr "5 x 5"
 
 #~ msgid "Columns"
 #~ msgstr "Columnas"
