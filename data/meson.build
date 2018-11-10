@@ -1,20 +1,10 @@
-icon_sizes = [
-  '16x16',
-  '22x22',
-  '24x24',
-  '32x32',
-  '48x48',
-  '256x256',
-  '512x512',
-]
-foreach size : icon_sizes
-  install_data(
-    join_paths('icons', 'hicolor', size, 'gnome-2048.png'),
-    install_dir: join_paths(datadir, 'icons', 'hicolor', size, 'apps'),
-  )
-endforeach
 install_data(
-  join_paths('icons', 'hicolor', 'symbolic', 'gnome-2048-symbolic.svg'),
+  join_paths('icons', 'hicolor', size, 'org.gnome.gnome-2048-symbolic.svg'),
+  install_dir: join_paths(datadir, 'icons', 'hicolor', 'scalable', 'apps'),
+)
+
+install_data(
+  join_paths('icons', 'hicolor', 'symbolic', 'org.gnome.gnome-2048-symbolic.svg'),
   install_dir: join_paths(datadir, 'icons', 'hicolor', 'symbolic', 'apps'),
 )
 
