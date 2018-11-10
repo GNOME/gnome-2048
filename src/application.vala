@@ -92,7 +92,7 @@ public class Application : Gtk.Application
         }
 
         Environment.set_application_name ("org.gnome.gnome-2048");
-        Window.set_default_icon_name ("gnome-2048");
+        Window.set_default_icon_name ("org.gnome.TwentyFortyEight");
 
         try {
             GtkClutter.init_with_args (ref args, "", new OptionEntry[0], null);
@@ -407,7 +407,7 @@ public class Application : Gtk.Application
                            "wrap-license", false /* TODO true? */,
                            "authors", authors,
                            "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "gnome-2048",
+                           "logo-icon-name", "org.gnome.TwentyFortyEight",
                            "website", "http://www.gnome.org", /* TODO remove? better? */
                            null);
     }

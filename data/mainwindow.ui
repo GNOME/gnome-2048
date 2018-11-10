@@ -7,7 +7,7 @@
     <property name="window_position">center</property>
     <property name="default_width">600</property>
     <property name="default_height">600</property>
-    <property name="icon_name">gnome-2048</property>
+    <property name="icon_name">org.gnome.TwentyFortyEight</property>
     <property name="show_menubar">False</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="headerbar">
