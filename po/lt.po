@@ -2,15 +2,14 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 # Moo <hazap@hotmail.com>, 2015.
-# Aurimas Černius <aurisc4@gmail.com>, 2015, 2016.
+# Aurimas Černius <aurisc4@gmail.com>, 2015-2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-17 20:39+0000\n"
-"PO-Revision-Date: 2016-08-21 17:29+0300\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2018-10-03 19:56+0000\n"
+"PO-Revision-Date: 2018-11-25 18:32+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -19,135 +18,127 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Gtranslator 3.30.1\n"
 
-#: ../data/congrats.ui.h:1
+#: data/congrats.ui:8
 msgid "Congratulations!"
 msgstr "Sveikiname!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
 msgid "New Game"
 msgstr "Naujas žaidimas"
 
-#: ../data/congrats.ui.h:3
+#: data/congrats.ui:38
 msgid "Keep Playing"
 msgstr "Tęsti žaidimą"
 
-#: ../data/mainwindow.ui.h:1
-msgid "gnome-2048"
-msgstr "gnome-2048"
+#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
 
-#: ../data/menus.ui.h:2
+#: data/menus.ui:11
 msgid "Scores"
 msgstr "Rezultatai"
 
-#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+#: data/menus.ui:17 data/preferences.ui:15
 msgid "Preferences"
 msgstr "Nuostatos"
 
-#: ../data/menus.ui.h:4
-msgid "Help"
-msgstr "Žinynas"
-
-#: ../data/menus.ui.h:5
+#: data/menus.ui:28
 msgid "About"
 msgstr "Apie"
 
-#: ../data/menus.ui.h:6
+#: data/menus.ui:33
 msgid "Quit"
 msgstr "Išeiti"
 
-#: ../data/org.gnome.2048.gschema.xml.h:1
+#: data/org.gnome.2048.gschema.xml:5
 msgid "Window width"
 msgstr "Lango plotis"
 
-#: ../data/org.gnome.2048.gschema.xml.h:2
+#: data/org.gnome.2048.gschema.xml:6
 msgid "Window width."
 msgstr "Lango plotis."
 
-#: ../data/org.gnome.2048.gschema.xml.h:3
+#: data/org.gnome.2048.gschema.xml:10
 msgid "Window height"
 msgstr "Lango aukštis"
 
-#: ../data/org.gnome.2048.gschema.xml.h:4
+#: data/org.gnome.2048.gschema.xml:11
 msgid "Window height."
 msgstr "Lango aukštis."
 
-#: ../data/org.gnome.2048.gschema.xml.h:5
+#: data/org.gnome.2048.gschema.xml:15
 msgid "Window maximized"
 msgstr "Langas išdidintas"
 
-#: ../data/org.gnome.2048.gschema.xml.h:6
+#: data/org.gnome.2048.gschema.xml:16
 msgid "Window maximization state."
 msgstr "Lango išdidinimo būsena."
 
-#: ../data/org.gnome.2048.gschema.xml.h:7
+#: data/org.gnome.2048.gschema.xml:20
 msgid "Number of rows"
 msgstr "Eilučių skaičius"
 
-#: ../data/org.gnome.2048.gschema.xml.h:8
+#: data/org.gnome.2048.gschema.xml:21
 msgid "Game grid number of rows."
 msgstr "Žaidimo tinklelio eilučių skaičius."
 
-#: ../data/org.gnome.2048.gschema.xml.h:9
+#: data/org.gnome.2048.gschema.xml:25
 msgid "Number of columns"
 msgstr "Stulpelių skaičius"
 
-#: ../data/org.gnome.2048.gschema.xml.h:10
+#: data/org.gnome.2048.gschema.xml:26
 msgid "Game grid number of columns."
 msgstr "Žaidimo tinklelio stulpelių skaičius."
 
-#: ../data/org.gnome.2048.gschema.xml.h:11
+#: data/org.gnome.2048.gschema.xml:30
 msgid "Target value"
 msgstr "Galutinė reikšmė"
 
-#: ../data/org.gnome.2048.gschema.xml.h:12
+#: data/org.gnome.2048.gschema.xml:31
 msgid "Tile value at which user is congratulated."
 msgstr "Plytelės reikšmė, kurią pasiekęs, naudotojas bus pasveikintas."
 
-#: ../data/org.gnome.2048.gschema.xml.h:13
+#: data/org.gnome.2048.gschema.xml:35
 msgid "Congrat on target tile"
 msgstr "Pasveikinti, pasiekus galutinę plytelę"
 
-#: ../data/org.gnome.2048.gschema.xml.h:14
+#: data/org.gnome.2048.gschema.xml:36
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr "Ar naudotojas, pasiekęs galutinę plytelę, turėtų būti pasveikintas."
 
-#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+#: data/org.gnome.2048.gschema.xml:40 data/preferences.ui:80
 msgid "Animations speed"
 msgstr "Animacijų greitis"
 
-#: ../data/org.gnome.2048.gschema.xml.h:16
+#: data/org.gnome.2048.gschema.xml:41
 msgid "Duration of animations: show tile, move tile, and dim tile."
 msgstr ""
 "Animacijų trukmė: plytelės rodymas, plytelės perkėlimas, plytelės išblukimas."
 
-#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+#: data/org.gnome.2048.gschema.xml:45 data/preferences.ui:129
 msgid "Allow undo"
 msgstr "Leisti atšaukimą"
 
-#: ../data/org.gnome.2048.gschema.xml.h:18
+#: data/org.gnome.2048.gschema.xml:46
 msgid "Whether tile movements can be undone."
 msgstr "Ar plytelių perkėlimai gali būti atšaukiami."
 
-#: ../data/org.gnome.2048.gschema.xml.h:19
+#: data/org.gnome.2048.gschema.xml:50
 msgid "Number of undo movements"
 msgstr "Atšaukimo žingsnių skaičius"
 
-#: ../data/org.gnome.2048.gschema.xml.h:20
+#: data/org.gnome.2048.gschema.xml:51
 msgid "Maximum number of tile movements that can be undone."
 msgstr "Didžiausias skaičius plytelių judesių, kurie gali būti atšaukti."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
-
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
-#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+#: data/org.gnome.gnome-2048.appdata.xml.in:9
+#: data/org.gnome.gnome-2048.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Pasiekti 2048 plytelę"
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+#: data/org.gnome.gnome-2048.appdata.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
@@ -157,7 +148,7 @@ msgstr ""
 "dėlionės, žaidimo klonas. Žaidimo eiga susideda iš tinklelyje esančių "
 "skaičių sujungimo ir 2048 plytelės pasiekimo."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+#: data/org.gnome.gnome-2048.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -170,7 +161,7 @@ msgstr ""
 "ar vienos eilutės, ar vieno stulpelio. Plytelės su tokia pačia reikšme, kai "
 "užslenkamos viena ant kitos, yra sujungiamos."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+#: data/org.gnome.gnome-2048.appdata.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -181,7 +172,7 @@ msgstr ""
 "nesibaigia, taigi, galite toliau sujunginėti plyteles ir gerinti savo "
 "rezultatą."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+#: data/org.gnome.gnome-2048.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -191,53 +182,73 @@ msgstr ""
 "labai įtraukiantis žaidimas. Cirulli žaidimas 2048, savo ruožtu yra žaidimo "
 "1024 klonas, ir įtraukia idėjas iš kitų klonų."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+#: data/org.gnome.gnome-2048.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Veikiantis žaidimas pasiekęs 2048 plytelę"
 
 #. this is a translatable version of project_group
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+#: data/org.gnome.gnome-2048.appdata.xml.in:45
 msgid "The GNOME Project"
 msgstr "GNOME projektas"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+#. get_active_window ()
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
 msgid "2048"
 msgstr "2048"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.gnome-2048.desktop.in:8
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.gnome-2048.desktop.in:14
 msgid "puzzle;"
 msgstr "dėlionė;galvosūkis;"
 
-#: ../data/preferences.ui.h:2
+#: data/preferences.ui:54
 msgid "Grid size"
 msgstr "Tinklelio dydis"
 
-#: ../data/preferences.ui.h:3
-msgid "4 x 4"
-msgstr "4 x 4"
+#: data/preferences.ui:67
+msgid "4 × 4"
+msgstr "4 × 4"
 
-#: ../data/preferences.ui.h:4
-msgid "5 x 5"
-msgstr "5 x 5"
+#: data/preferences.ui:68
+msgid "5 × 5"
+msgstr "5 × 5"
 
-#: ../data/preferences.ui.h:6
+#: data/preferences.ui:106
 msgid "Display congrats"
 msgstr "Rodyti pasveikinimus"
 
-#: ../src/application.vala:166
+#: src/application.vala:166
 msgid "Game Over"
 msgstr "Žaidimas baigtas"
 
-#: ../src/application.vala:187
+#: src/application.vala:187
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Jūs pasiekėte %u plytelę"
 
-#: ../src/application.vala:387
+#: src/application.vala:332
+msgid "Grid 4 × 4"
+msgstr "Tinklelis 4 × 4"
+
+#: src/application.vala:333
+msgid "Grid 5 × 5"
+msgstr "Tinklelis 5 × 5"
+
+#: src/application.vala:335
+#| msgid "Grid size"
+msgid "Grid Size:"
+msgstr "Tinklelio dydis:"
+
+#: src/application.vala:385
 msgid "A clone of 2048 for GNOME"
 msgstr "2048 klonas GNOME aplinkai"
 
-#: ../src/application.vala:388
+#: src/application.vala:386
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -245,8 +256,17 @@ msgstr ""
 "Autorinės teisės © 2014-2015 – Juan R. García Blanco\n"
 "Autorinės teisės © 2016 – Arnaud Bonatti"
 
-#: ../src/application.vala:392
+#: src/application.vala:390
 msgid "translator-credits"
 msgstr ""
 "Išvertė:\n"
 "Aurimas Černius <aurisc4@gmail.com>"
+
+#~ msgid "Help"
+#~ msgstr "Žinynas"
+
+#~ msgid "4 x 4"
+#~ msgstr "4 x 4"
+
+#~ msgid "5 x 5"
+#~ msgstr "5 x 5"
