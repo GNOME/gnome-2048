@@ -42,6 +42,7 @@ public class Application : Gtk.Application
     private Label _congrats_message;
     private Label _score;
     private ComboBoxText _grid_size_combo;
+    private MenuButton _hamburger_button;
 
     private Scores.Context _scores_ctx;
     private Scores.Category _grid4_cat;
@@ -54,17 +55,19 @@ public class Application : Gtk.Application
     /* actions */
     private const GLib.ActionEntry[] action_entries =
     {
-        { "undo",           undo_cb           },
+        { "undo",               undo_cb                 },
 
         // hamburger-menu
-        { "new-game",       new_game_cb       },
-        { "scores",         scores_cb         },
+        { "toggle-hamburger",   toggle_hamburger_menu   },
 
-        { "preferences",    preferences_cb    },
+        { "new-game",           new_game_cb             },
+        { "scores",             scores_cb               },
 
-/*        { "help",           help_cb           }, */
-        { "about",          about_cb          },
-        { "quit",           quit_cb           }
+        { "preferences",        preferences_cb          },
+
+/*      { "help",               help_cb                 }, */
+        { "about",              about_cb                },
+        { "quit",               quit_cb                 }
     };
 
     public static int main (string[] args)
@@ -133,11 +136,13 @@ public class Application : Gtk.Application
 
         _create_scores ();
 
-        set_accels_for_action ("app.new-game",  {        "<Primary>n"   });
-        set_accels_for_action ("app.quit",      {        "<Primary>q"   });
-        set_accels_for_action ("app.about",     { "<Shift><Primary>F1",
-                                                         "<Primary>F1",
-                                                           "<Shift>F1"  });
+        set_accels_for_action ("app.new-game",          {        "<Primary>n"       });
+        set_accels_for_action ("app.quit",              {        "<Primary>q"       });
+        set_accels_for_action ("app.about",             { "<Shift><Primary>F1",
+                                                                 "<Primary>F1",
+                                                                   "<Shift>F1"      });
+        set_accels_for_action ("app.toggle-hamburger",  {                 "F10",
+                                                                          "Menu"    });
 
         _window.show_all ();
 
@@ -244,6 +249,8 @@ public class Application : Gtk.Application
         ((SimpleAction) lookup_action ("undo")).set_enabled (false);
 
         _new_game_button = (Button) builder.get_object ("new-game-button");
+
+        _hamburger_button = (MenuButton) builder.get_object ("hamburger-button");
     }
 
     private void _create_game_view (Builder builder)
@@ -336,6 +343,11 @@ public class Application : Gtk.Application
     /*\
     * * Hamburger-menu (and undo action) callbacks
     \*/
+
+    private void toggle_hamburger_menu ()
+    {
+        _hamburger_button.active = !_hamburger_button.active;
+    }
 
     private void undo_cb ()
     {
