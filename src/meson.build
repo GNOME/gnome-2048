@@ -18,6 +18,7 @@ gnome_2048 = executable(
   gnome_2048_sources,
   dependencies: [
     posix,
+    libm,
     gtk,
     clutter,
     clutter_gtk,
