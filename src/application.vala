@@ -134,7 +134,8 @@ public class Application : Gtk.Application
         _create_scores ();
 
         set_accels_for_action ("app.new-game",  {        "<Primary>n"   });
-        set_accels_for_action ("app.about",     { "<Shift><Primary>F1"  });
+        set_accels_for_action ("app.about",     { "<Shift><Primary>F1",
+                                                         "<Primary>F1"  });
 
         _window.show_all ();
 
