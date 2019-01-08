@@ -414,6 +414,9 @@ public class Application : Gtk.Application
     {
         _game_restored = false;
 
+        if (_hamburger_button.active && (event.keyval == Gdk.Key.Down || event.keyval == Gdk.Key.Up))
+            return false;
+
         return _game.key_pressed (event);
     }
 
