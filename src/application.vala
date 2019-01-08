@@ -44,6 +44,8 @@ public class Application : Gtk.Application
     private ComboBoxText _grid_size_combo;
     private MenuButton _hamburger_button;
 
+    private GtkClutter.Embed embed;
+
     private Scores.Context _scores_ctx;
     private Scores.Category _grid4_cat;
     private Scores.Category _grid5_cat;
@@ -144,6 +146,7 @@ public class Application : Gtk.Application
         set_accels_for_action ("app.toggle-hamburger",  {                 "F10",
                                                                           "Menu"    });
 
+        _window.notify ["has-toplevel-focus"].connect (() => embed.grab_focus ());
         _window.show_all ();
 
         _game_restored = _game.restore_game ();
@@ -251,11 +254,15 @@ public class Application : Gtk.Application
         _new_game_button = (Button) builder.get_object ("new-game-button");
 
         _hamburger_button = (MenuButton) builder.get_object ("hamburger-button");
+        _hamburger_button.notify ["active"].connect (() => {
+                if (!_hamburger_button.active)
+                    embed.grab_focus ();
+            });
     }
 
     private void _create_game_view (Builder builder)
     {
-        GtkClutter.Embed embed = new GtkClutter.Embed ();
+        embed = new GtkClutter.Embed ();
         AspectFrame frame = (AspectFrame) builder.get_object ("aspectframe");
         frame.add (embed);
         _game.view = embed.get_stage ();
@@ -360,6 +367,8 @@ public class Application : Gtk.Application
         _game_restored = false;
 
         _game.new_game ();
+
+        embed.grab_focus ();
     }
 
     private void scores_cb ()
@@ -415,6 +424,9 @@ public class Application : Gtk.Application
     private bool key_press_event_cb (Widget widget, Gdk.EventKey event)
     {
         _game_restored = false;
+
+        if (_hamburger_button.active || (_window.focus_visible && !embed.is_focus))
+            return false;
 
         return _game.key_pressed (event);
     }

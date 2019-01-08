@@ -23,6 +23,7 @@
             <property name="action_name">app.undo</property>
             <property name="tooltip_text" translatable="yes">Undo</property>
             <property name="always_show_image">True</property>
+            <property name="focus-on-click">False</property>
             <style>
               <class name="image-button"/>
             </style>
@@ -46,6 +47,7 @@
             <property name="receives_default">True</property>
             <property name="action_name">app.new-game</property>
             <property name="use_underline">True</property>
+            <property name="focus-on-click">False</property>
           </object>
           <packing>
             <property name="position">2</property>
@@ -57,6 +59,7 @@
             <property name="halign">end</property>
             <property name="valign">center</property>
             <property name="menu-model">hamburger-menu</property>
+            <property name="focus-on-click">False</property>
             <style>
               <class name="image-button"/>
             </style>
