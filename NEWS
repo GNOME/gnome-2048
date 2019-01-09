@@ -1,3 +1,26 @@
+GNOME 2048   3.31.4                                        2019-09-01
+=====================================================================
+
+On the UI side, the migration from an app-menu to a hamburger menu is
+done. And on the technical side, the migration to Meson is done also.
+Many thanks to Jan Tojnar for his work, and happy new year everybody.
+
+New translation:
+  Russian: Stas Solovey
+
+Translations updated:
+  Croatian: gogo
+  Czech: Marek Cernocky
+  Finnish: Jiri Grönroos
+  German: Mario Blättermann
+  Indonesian: Kukuh Syafaat
+  Lithuanian: Aurimas Černius
+  Polish: Piotr Drąg
+  Brazilian Portuguese: Rafael Fontenelle
+  Slovenian: Matej Urbančič
+  Spanish: Daniel Mustieles
+  Swedish: Anders Jonsson
+
 GNOME 2048   3.30.0                                        2018-09-04
 =====================================================================
 
