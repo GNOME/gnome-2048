@@ -8,6 +8,7 @@ project(
 gnome = import('gnome')
 i18n = import('i18n')
 
+cc = meson.get_compiler('c')
 valac = meson.get_compiler('vala')
 
 # Paths
@@ -20,6 +21,7 @@ podir = join_paths(meson.current_source_dir(), 'po')
 
 # Dependencies
 posix = valac.find_library('posix')
+libm = cc.find_library('m', required: false) # some platforms do not have libm separated from libc
 gtk = dependency('gtk+-3.0', version: '>= 3.12.0')
 clutter = dependency('clutter-1.0', version: '>= 1.12.0')
 clutter_gtk = dependency('clutter-gtk-1.0', version: '>= 1.6.0')
