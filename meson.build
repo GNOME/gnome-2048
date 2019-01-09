@@ -35,3 +35,8 @@ subdir('po')
 subdir('data')
 subdir('help')
 subdir('src')
+
+meson.add_install_script(
+  'meson_post_install.py',
+  datadir
+)

@@ -22,7 +22,6 @@ install_data(
   'org.gnome.2048.gschema.xml',
   install_dir: schemadir,
 )
-meson.add_install_script('glib-compile-schemas', schemadir)
 
 desktop_file = i18n.merge_file(
   'desktop-file',
