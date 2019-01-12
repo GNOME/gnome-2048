@@ -1,16 +1,16 @@
 # Polish translation for gnome-2048.
-# Copyright © 2015-2018 the gnome-2048 authors.
+# Copyright © 2015-2019 the gnome-2048 authors.
 # This file is distributed under the same license as the gnome-2048 package.
 # Joanna Lisek <jlisek@gmail.com>, 2015.
-# Piotr Drąg <piotrdrag@gmail.com>, 2015-2018.
-# Aviary.pl <community-poland@mozilla.org>, 2015-2018.
+# Piotr Drąg <piotrdrag@gmail.com>, 2015-2019.
+# Aviary.pl <community-poland@mozilla.org>, 2015-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2018-10-03 19:38+0000\n"
-"PO-Revision-Date: 2018-10-03 21:52+0200\n"
+"POT-Creation-Date: 2019-01-09 20:34+0000\n"
+"PO-Revision-Date: 2019-01-12 12:47+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Gratulacje!"
 
-#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
+#: data/congrats.ui:22 data/mainwindow.ui:124
 msgid "New Game"
 msgstr "Nowa gra"
 
@@ -32,25 +32,29 @@ msgstr "Nowa gra"
 msgid "Keep Playing"
 msgstr "Kontynuuj grę"
 
-#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
+#: data/mainwindow.ui:16 data/org.gnome.gnome-2048.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: data/menus.ui:11
+#: data/mainwindow.ui:24
+msgid "Undo"
+msgstr "Cofnij"
+
+#: data/mainwindow.ui:44
+msgid "_New Game"
+msgstr "_Nowa gra"
+
+#: data/mainwindow.ui:128
 msgid "Scores"
 msgstr "Wyniki"
 
-#: data/menus.ui:17 data/preferences.ui:15
+#: data/mainwindow.ui:134 data/preferences.ui:15
 msgid "Preferences"
 msgstr "Preferencje"
 
-#: data/menus.ui:28
-msgid "About"
+#: data/mainwindow.ui:142
+msgid "About 2048"
 msgstr "O grze"
-
-#: data/menus.ui:33
-msgid "Quit"
-msgstr "Zakończ"
 
 #: data/org.gnome.2048.gschema.xml:5
 msgid "Window width"
@@ -196,7 +200,7 @@ msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
 #. get_active_window ()
-#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:402
 msgid "2048"
 msgstr "2048"
 
@@ -226,32 +230,32 @@ msgstr "5×5"
 msgid "Display congrats"
 msgstr "Wyświetlanie gratulacji"
 
-#: src/application.vala:166
+#: src/application.vala:180
 msgid "Game Over"
 msgstr "Koniec gry"
 
-#: src/application.vala:187
+#: src/application.vala:201
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Uzyskano płytkę z liczbą %u"
 
-#: src/application.vala:332
+#: src/application.vala:344
 msgid "Grid 4 × 4"
 msgstr "Siatka 4×4"
 
-#: src/application.vala:333
+#: src/application.vala:345
 msgid "Grid 5 × 5"
 msgstr "Siatka 5×5"
 
-#: src/application.vala:335
+#: src/application.vala:347
 msgid "Grid Size:"
 msgstr "Rozmiar siatki:"
 
-#: src/application.vala:385
+#: src/application.vala:404
 msgid "A clone of 2048 for GNOME"
 msgstr "Kopia gry „2048” dla środowiska GNOME"
 
-#: src/application.vala:386
+#: src/application.vala:405
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -259,9 +263,12 @@ msgstr ""
 "Copyright © 2014-2015 Juan R. García Blanco\n"
 "Copyright © 2016 Arnaud Bonatti"
 
-#: src/application.vala:390
+#: src/application.vala:409
 msgid "translator-credits"
 msgstr ""
 "Joanna Lisek <jlisek@gmail.com>, 2015\n"
-"Piotr Drąg <piotrdrag@gmail.com>, 2015-2018\n"
-"Aviary.pl <community-poland@mozilla.org>, 2015-2018"
+"Piotr Drąg <piotrdrag@gmail.com>, 2015-2019\n"
+"Aviary.pl <community-poland@mozilla.org>, 2015-2019"
+
+msgid "Help"
+msgstr "Pomoc"
