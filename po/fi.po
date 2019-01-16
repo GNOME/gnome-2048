@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2018-10-03 19:56+0000\n"
-"PO-Revision-Date: 2018-10-14 12:27+0300\n"
+"POT-Creation-Date: 2019-01-09 20:34+0000\n"
+"PO-Revision-Date: 2019-01-16 19:53+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Onnittelut!"
 
-#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
+#: data/congrats.ui:22 data/mainwindow.ui:124
 msgid "New Game"
 msgstr "Uusi peli"
 
@@ -31,25 +31,29 @@ msgstr "Uusi peli"
 msgid "Keep Playing"
 msgstr "Jatka pelaamista"
 
-#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
+#: data/mainwindow.ui:16 data/org.gnome.gnome-2048.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "Gnomen 2048"
 
-#: data/menus.ui:11
+#: data/mainwindow.ui:24
+msgid "Undo"
+msgstr "Kumoa"
+
+#: data/mainwindow.ui:44
+msgid "_New Game"
+msgstr "_Uusi peli"
+
+#: data/mainwindow.ui:128
 msgid "Scores"
 msgstr "Pisteet"
 
-#: data/menus.ui:17 data/preferences.ui:15
+#: data/mainwindow.ui:134 data/preferences.ui:15
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: data/menus.ui:28
-msgid "About"
-msgstr "Tietoja"
-
-#: data/menus.ui:33
-msgid "Quit"
-msgstr "Lopeta"
+#: data/mainwindow.ui:142
+msgid "About 2048"
+msgstr "Tietoja - 2048"
 
 #: data/org.gnome.2048.gschema.xml:5
 msgid "Window width"
@@ -190,7 +194,7 @@ msgid "The GNOME Project"
 msgstr "Gnome-projekti"
 
 #. get_active_window ()
-#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:402
 msgid "2048"
 msgstr "2048"
 
@@ -220,32 +224,32 @@ msgstr "5 × 5"
 msgid "Display congrats"
 msgstr "Näytä onnittelut"
 
-#: src/application.vala:166
+#: src/application.vala:180
 msgid "Game Over"
 msgstr "Peli loppui"
 
-#: src/application.vala:187
+#: src/application.vala:201
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Saavutit %u-laatan"
 
-#: src/application.vala:332
+#: src/application.vala:344
 msgid "Grid 4 × 4"
 msgstr "Ruudukko 4 × 4"
 
-#: src/application.vala:333
+#: src/application.vala:345
 msgid "Grid 5 × 5"
 msgstr "Ruudukko 5 × 5"
 
-#: src/application.vala:335
+#: src/application.vala:347
 msgid "Grid Size:"
 msgstr "Ruudukon koko:"
 
-#: src/application.vala:385
+#: src/application.vala:404
 msgid "A clone of 2048 for GNOME"
 msgstr "2048-pelin klooni Gnomelle"
 
-#: src/application.vala:386
+#: src/application.vala:405
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -253,9 +257,12 @@ msgstr ""
 "Tekijänoikeus © 2014-2015 – Juan R. García Blanco\n"
 "Tekijänoikeus © 2016 – Arnaud Bonatti"
 
-#: src/application.vala:390
+#: src/application.vala:409
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
+
+#~ msgid "Quit"
+#~ msgstr "Lopeta"
 
 #~ msgid "Help"
 #~ msgstr "Ohje"
