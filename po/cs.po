@@ -1,14 +1,14 @@
 # Czech translation for gnome-2048.
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Marek Černocký <marek@manet.cz>, 2015, 2016, 2018.
+# Marek Černocký <marek@manet.cz>, 2015, 2016, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2018-10-03 19:56+0000\n"
-"PO-Revision-Date: 2018-10-04 13:06+0200\n"
+"POT-Creation-Date: 2019-01-09 20:34+0000\n"
+"PO-Revision-Date: 2019-01-16 17:18+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Congratulations!"
 msgstr "Gratulujeme!"
 
-#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
+#: data/congrats.ui:22 data/mainwindow.ui:124
 msgid "New Game"
 msgstr "Nová hra"
 
@@ -30,25 +30,29 @@ msgstr "Nová hra"
 msgid "Keep Playing"
 msgstr "Pokračovat v hraní"
 
-#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
+#: data/mainwindow.ui:16 data/org.gnome.gnome-2048.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: data/menus.ui:11
+#: data/mainwindow.ui:24
+msgid "Undo"
+msgstr "Zpět"
+
+#: data/mainwindow.ui:44
+msgid "_New Game"
+msgstr "_Nová hra"
+
+#: data/mainwindow.ui:128
 msgid "Scores"
 msgstr "Skóre"
 
-#: data/menus.ui:17 data/preferences.ui:15
+#: data/mainwindow.ui:134 data/preferences.ui:15
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: data/menus.ui:28
-msgid "About"
-msgstr "O aplikaci"
-
-#: data/menus.ui:33
-msgid "Quit"
-msgstr "Ukončit"
+#: data/mainwindow.ui:142
+msgid "About 2048"
+msgstr "O aplikaci 2048"
 
 #: data/org.gnome.2048.gschema.xml:5
 msgid "Window width"
@@ -189,7 +193,7 @@ msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
 #. get_active_window ()
-#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:402
 msgid "2048"
 msgstr "2048"
 
@@ -219,33 +223,32 @@ msgstr "5 × 5"
 msgid "Display congrats"
 msgstr "Zobrazovat gratulace"
 
-#: src/application.vala:166
+#: src/application.vala:180
 msgid "Game Over"
 msgstr "Konec hry"
 
-#: src/application.vala:187
+#: src/application.vala:201
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Získali jste kámen %u"
 
-#: src/application.vala:332
+#: src/application.vala:344
 msgid "Grid 4 × 4"
 msgstr "Mřížka 4 × 4"
 
-#: src/application.vala:333
+#: src/application.vala:345
 msgid "Grid 5 × 5"
 msgstr "Mřížka 5 × 5"
 
-#: src/application.vala:335
-#| msgid "Grid size"
+#: src/application.vala:347
 msgid "Grid Size:"
 msgstr "Velikost mřížky:"
 
-#: src/application.vala:385
+#: src/application.vala:404
 msgid "A clone of 2048 for GNOME"
 msgstr "Klon 2048 pro GNOME"
 
-#: src/application.vala:386
+#: src/application.vala:405
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -253,15 +256,6 @@ msgstr ""
 "Copyright © 2014 - 2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
 
-#: src/application.vala:390
+#: src/application.vala:409
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
-
-#~ msgid "Help"
-#~ msgstr "Nápověda"
-
-#~ msgid "4 x 4"
-#~ msgstr "4 × 4"
-
-#~ msgid "5 x 5"
-#~ msgstr "5 × 5"
