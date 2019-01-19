@@ -1,5 +1,5 @@
 {
-    "app-id":"org.gnome.Gnome2048",
+    "app-id":"org.gnome.TwentyFortyEight",
     "runtime":"org.gnome.Platform",
     "runtime-version":"3.30",
     "sdk":"org.gnome.Sdk",
@@ -14,9 +14,6 @@
         "--socket=wayland",
         "--socket=x11",
         "--socket=session-bus",
-        "--filesystem=home",
-        "--share=network",
-        "--share=ipc",
         "--filesystem=xdg-run/dconf",
         "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf",
@@ -34,6 +31,7 @@
             "sources":[
                 {
                     "type":"git",
+                    "branch":"master",
                     "url":"https://gitlab.gnome.org/GNOME/libgee.git"
                 }
             ]
@@ -54,6 +52,7 @@
             "sources":[
                 {
                     "type":"git",
+                    "branch":"master",
                     "url":"https://git.gnome.org/browse/gnome-2048"
                 }
             ]
