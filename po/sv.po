@@ -1,14 +1,14 @@
 # Swedish translation for gnome-2048.
-# Copyright © 2015, 2016, 2018 gnome-2048's COPYRIGHT HOLDER
+# Copyright © 2015, 2016, 2018, 2019 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016, 2018.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2018-10-03 19:56+0000\n"
-"PO-Revision-Date: 2018-10-05 22:28+0200\n"
+"POT-Creation-Date: 2019-01-09 20:34+0000\n"
+"PO-Revision-Date: 2019-01-20 21:16+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -16,13 +16,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 
 #: data/congrats.ui:8
 msgid "Congratulations!"
 msgstr "Grattis!"
 
-#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
+#: data/congrats.ui:22 data/mainwindow.ui:124
 msgid "New Game"
 msgstr "Nytt spel"
 
@@ -30,25 +30,29 @@ msgstr "Nytt spel"
 msgid "Keep Playing"
 msgstr "Fortsätt spela"
 
-#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
+#: data/mainwindow.ui:16 data/org.gnome.gnome-2048.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: data/menus.ui:11
+#: data/mainwindow.ui:24
+msgid "Undo"
+msgstr "Ångra"
+
+#: data/mainwindow.ui:44
+msgid "_New Game"
+msgstr "_Nytt spel"
+
+#: data/mainwindow.ui:128
 msgid "Scores"
 msgstr "Poäng"
 
-#: data/menus.ui:17 data/preferences.ui:15
+#: data/mainwindow.ui:134 data/preferences.ui:15
 msgid "Preferences"
 msgstr "Inställningar"
 
-#: data/menus.ui:28
-msgid "About"
-msgstr "Om"
-
-#: data/menus.ui:33
-msgid "Quit"
-msgstr "Avsluta"
+#: data/mainwindow.ui:142
+msgid "About 2048"
+msgstr "Om 2048"
 
 #: data/org.gnome.2048.gschema.xml:5
 msgid "Window width"
@@ -187,7 +191,7 @@ msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
 #. get_active_window ()
-#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:402
 msgid "2048"
 msgstr "2048"
 
@@ -217,32 +221,32 @@ msgstr "5 × 5"
 msgid "Display congrats"
 msgstr "Visa gratulationer"
 
-#: src/application.vala:166
+#: src/application.vala:180
 msgid "Game Over"
 msgstr "Spelet är slut"
 
-#: src/application.vala:187
+#: src/application.vala:201
 #, c-format
 msgid "You have obtained the %u tile"
 msgstr "Du har erhållit %u-brickan"
 
-#: src/application.vala:332
+#: src/application.vala:344
 msgid "Grid 4 × 4"
 msgstr "4×4-rutnät"
 
-#: src/application.vala:333
+#: src/application.vala:345
 msgid "Grid 5 × 5"
 msgstr "5×5-rutnät"
 
-#: src/application.vala:335
+#: src/application.vala:347
 msgid "Grid Size:"
 msgstr "Rutnätsstorlek:"
 
-#: src/application.vala:385
+#: src/application.vala:404
 msgid "A clone of 2048 for GNOME"
 msgstr "En 2048-klon för GNOME"
 
-#: src/application.vala:386
+#: src/application.vala:405
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
@@ -250,13 +254,16 @@ msgstr ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016 – Arnaud Bonatti"
 
-#: src/application.vala:390
+#: src/application.vala:409
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "\n"
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>."
+
+#~ msgid "Quit"
+#~ msgstr "Avsluta"
 
 #~ msgid "Help"
 #~ msgstr "Hjälp"
