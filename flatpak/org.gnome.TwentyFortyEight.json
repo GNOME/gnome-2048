@@ -6,22 +6,14 @@
     "command":"gnome-2048",
     "rename-icon":"gnome-2048",
     "rename-desktop-file":"org.gnome.gnome-2048.desktop.in",
-    "tags":[
-        "nightly"
-    ],
-    "desktop-file-name-prefix":"(Nightly) ",
     "finish-args":[
         "--socket=wayland",
         "--socket=x11",
-        "--socket=session-bus",
         "--filesystem=xdg-run/dconf",
         "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf",
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
-    "build-options":{
-        "cflags":"-O2 -g"
-    },
     "modules":[
         {
             "name":"libgee",
@@ -30,9 +22,9 @@
             ],
             "sources":[
                 {
-                    "type":"git",
-                    "branch":"master",
-                    "url":"https://gitlab.gnome.org/GNOME/libgee.git"
+                    "type":"archive",
+                    "url":"https://gitlab.gnome.org/GNOME/libgee/-/archive/3b931369f1cfc190d39fbba4f4e5d235f401b3d5/libgee-3b931369f1cfc190d39fbba4f4e5d235f401b3d5.zip",
+                    "sha256":"b0adff25f569ec87ca1333b20c41f88b88f522000ada6738dc8758bc95401dee"
                 }
             ]
         },
@@ -40,9 +32,9 @@
             "name":"libgnome-games-support",
             "sources":[
                 {
-                    "type":"git",
-                    "branch":"master",
-                    "url":"https://gitlab.gnome.org/GNOME/libgnome-games-support.git"
+                    "type":"archive",
+                    "url":"https://gitlab.gnome.org/GNOME/libgnome-games-support/-/archive/9298ef54e22a4b0e81163b3f68b52a24bb41d8bf/libgnome-games-support-9298ef54e22a4b0e81163b3f68b52a24bb41d8bf.zip",
+                    "sha256":"7c3e0d9be38dde40e60212ac5352d3bbd63fb9d270728ea55c74cd53c3e452a8"
                 }
             ]
         },
@@ -52,7 +44,7 @@
             "sources":[
                 {
                     "type":"git",
-                    "branch":"master",
+                    "branch":"gnome-3-30",
                     "url":"https://git.gnome.org/browse/gnome-2048"
                 }
             ]
