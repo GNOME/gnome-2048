@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!--
+  This file is part of GNOME 2048
+
+  GNOME 2048 is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNOME 2048 is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
+-->
 <interface>
   <requires lib="gtk+" version="3.12"/>
   <object class="GtkApplicationWindow" id="applicationwindow">
-    <property name="can_focus">False</property>
-    <property name="window_position">center</property>
-    <property name="default_width">600</property>
-    <property name="default_height">600</property>
-    <property name="icon_name">gnome-2048</property>
-    <property name="show_menubar">False</property>
+    <property name="can-focus">False</property>
+    <property name="window-position">center</property>
+    <property name="default-width">600</property>
+    <property name="default-height">600</property>
+    <property name="icon-name">gnome-2048</property>
+    <property name="show-menubar">False</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="headerbar">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <!-- Translators: title of the window, displayed in the headerbar -->
         <property name="title" translatable="yes">GNOME 2048</property>
-        <property name="show_close_button">True</property>
+        <property name="show-close-button">True</property>
         <child>
           <object class="GtkButton" id="undo-button">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">app.undo</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="action-name">app.undo</property>
             <!-- Translators: tooltip text of the Undo button in the headerbar -->
-            <property name="tooltip_text" translatable="yes">Undo</property>
-            <property name="always_show_image">True</property>
+            <property name="tooltip-text" translatable="yes">Undo</property>
+            <property name="always-show-image">True</property>
             <property name="focus-on-click">False</property>
             <style>
               <class name="image-button"/>
@@ -32,8 +47,8 @@
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">edit-undo-symbolic</property>
+                <property name="can-focus">False</property>
+                <property name="icon-name">edit-undo-symbolic</property>
               </object>
             </child>
           </object>
@@ -46,10 +61,10 @@
             <!-- Translators: button in the headerbar -->
             <property name="label" translatable="yes">_New Game</property>
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">app.new-game</property>
-            <property name="use_underline">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="action-name">app.new-game</property>
+            <property name="use-underline">True</property>
             <property name="focus-on-click">False</property>
           </object>
           <packing>
@@ -81,32 +96,32 @@
         <child>
           <object class="GtkLabel" id="score">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="label">0</property>
           </object>
           <packing>
-            <property name="pack_type">end</property>
+            <property name="pack-type">end</property>
           </packing>
         </child>
       </object>
     </child>
     <child>
-      <object class="GtkGrid" id="grid">
+      <object class="GtkGrid">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <child>
           <object class="GtkAspectFrame" id="aspectframe">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
-            <property name="shadow_type">none</property>
+            <property name="can-focus">False</property>
+            <property name="label-xalign">0</property>
+            <property name="shadow-type">none</property>
             <child>
               <placeholder/>
             </child>
           </object>
           <packing>
-            <property name="left_attach">1</property>
-            <property name="top_attach">1</property>
+            <property name="left-attach">1</property>
+            <property name="top-attach">1</property>
           </packing>
         </child>
         <child>
