@@ -35,7 +35,6 @@ public class Application : Gtk.Application
     /* private widgets */
     private Window _window;
     private HeaderBar _header_bar;
-    private Dialog _congrats_dialog;
     private Label _congrats_message;
     private Label _score;
     private MenuButton _hamburger_button;
@@ -127,9 +126,7 @@ public class Application : Gtk.Application
 
         _init_game ();
 
-        Builder builder = new Builder ();
-        _create_window (builder);
-        _create_congrats_dialog (builder);
+        _create_window ();
 
         _create_scores ();
 
@@ -191,17 +188,7 @@ public class Application : Gtk.Application
 
                 debug ("finished");
             });
-        _game.target_value_reached.connect ((s, v) => {
-                if (_settings.get_boolean ("do-congrat"))
-                {
-                    /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game */
-                    string message = _("You have obtained the %u tile".printf (v));
-                    _congrats_message.set_text (message);
-                    _congrats_dialog.present ();
-                    _settings.set_boolean ("do-congrat", false);
-                }
-                debug ("target value reached");
-            });
+        _game.target_value_reached.connect (target_value_reached_cb);
         _game.undo_enabled.connect ((s) => {
                 ((SimpleAction) lookup_action ("undo")).set_enabled (true);
             });
@@ -210,13 +197,9 @@ public class Application : Gtk.Application
             });
     }
 
-    private void _create_window (Builder builder)
+    private void _create_window ()
     {
-        try {
-            builder.add_from_resource ("/org/gnome/gnome-2048/data/mainwindow.ui");
-        } catch (GLib.Error e) {
-            stderr.printf ("%s\n", e.message);
-        }
+        Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/mainwindow.ui");
 
         _window = (ApplicationWindow) builder.get_object ("applicationwindow");
         _window.set_default_size (_settings.get_int ("window-width"), _settings.get_int ("window-height"));
@@ -260,29 +243,6 @@ public class Application : Gtk.Application
         AspectFrame frame = (AspectFrame) builder.get_object ("aspectframe");
         frame.add (embed);
         _game.view = embed.get_stage ();
-    }
-
-    private void _create_congrats_dialog (Builder builder)
-    {
-        try {
-            builder.add_from_resource ("/org/gnome/gnome-2048/data/congrats.ui");
-        } catch (GLib.Error e) {
-            stderr.printf ("%s\n", e.message);
-        }
-
-        _congrats_dialog = (Dialog) builder.get_object ("congratsdialog");
-        _congrats_dialog.set_transient_for (_window);
-
-        _congrats_dialog.response.connect ((response_id) => {
-                if (response_id == 0)
-                    new_game_cb ();
-                _congrats_dialog.hide ();
-            });
-        _congrats_dialog.delete_event.connect ((response_id) => {
-                return _congrats_dialog.hide_on_delete ();
-            });
-
-        _congrats_message = (Label) builder.get_object ("messagelabel");
     }
 
     private Games.Scores.Category category_request (string key)
@@ -460,5 +420,50 @@ public class Application : Gtk.Application
             _grid_size_combo.set_active (1);
 
         _preferences_dialog.present ();
+    }
+
+    /*\
+    * * congratulations dialog
+    \*/
+
+    private Dialog _congrats_dialog;
+
+    private bool _should_create_congrats_dialog = true;
+    private inline void _create_congrats_dialog ()
+    {
+        Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/congrats.ui");
+
+        _congrats_dialog = (Dialog) builder.get_object ("congratsdialog");
+        _congrats_dialog.set_transient_for (_window);
+
+        _congrats_dialog.response.connect ((response_id) => {
+                if (response_id == 0)
+                    new_game_cb ();
+                _congrats_dialog.hide ();
+            });
+        _congrats_dialog.delete_event.connect ((response_id) => {
+                return _congrats_dialog.hide_on_delete ();
+            });
+
+        _congrats_message = (Label) builder.get_object ("messagelabel");
+    }
+
+    private inline void target_value_reached_cb (uint v) // the way the message string is constructed, “v” appears in translations, do not change
+    {
+        if (_settings.get_boolean ("do-congrat"))
+        {
+            if (_should_create_congrats_dialog)
+            {
+                _create_congrats_dialog ();
+                _should_create_congrats_dialog = false;
+            }
+
+            /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game */
+            string message = _("You have obtained the %u tile".printf (v));
+            _congrats_message.set_text (message);
+            _congrats_dialog.present ();
+            _settings.set_boolean ("do-congrat", false);
+        }
+        debug ("target value reached");
     }
 }
