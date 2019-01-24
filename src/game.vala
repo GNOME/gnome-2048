@@ -208,7 +208,7 @@ public class Game : Object
         return false;
     }
 
-    public bool reload_settings ()
+    public void reload_settings ()
     {
         int rows, cols;
         bool allow_undo;
@@ -237,10 +237,10 @@ public class Game : Object
 
             _init_background ();
 
-            return true;
+         // return true;
         }
 
-        return false;
+     // return false;
     }
 
     private uint _upper_key (uint keyval)

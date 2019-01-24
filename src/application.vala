@@ -37,6 +37,7 @@ public class Application : Gtk.Application
     private HeaderBar _header_bar;
     private Label _congrats_message;
     private Label _score;
+    private MenuButton _new_game_button;
     private MenuButton _hamburger_button;
 
     private GtkClutter.Embed embed;
@@ -54,17 +55,18 @@ public class Application : Gtk.Application
     {
         { "undo",               undo_cb                 },
 
+        { "new-game",           new_game_cb             },
+        { "toggle-new-game",    toggle_new_game_cb      },
+        { "new-game-sized",     new_game_sized_cb, "s"  },  // no way to make it take an int8/int32
+
+        { "quit",               quit_cb                 },
+
         // hamburger-menu
         { "toggle-hamburger",   toggle_hamburger_menu   },
 
-        { "new-game",           new_game_cb             },
         { "scores",             scores_cb               },
-
         { "preferences",        preferences_cb          },
-
-/*      { "help",               help_cb                 }, */
         { "about",              about_cb                },
-        { "quit",               quit_cb                 }
     };
 
     public static int main (string[] args)
@@ -130,7 +132,8 @@ public class Application : Gtk.Application
 
         _create_scores ();
 
-        set_accels_for_action ("app.new-game",          {        "<Primary>n"       });
+        set_accels_for_action ("app.toggle-new-game",   {        "<Primary>n"       });
+        set_accels_for_action ("app.new-game",          { "<Shift><Primary>n"       });
         set_accels_for_action ("app.quit",              {        "<Primary>q"       });
         set_accels_for_action ("app.about",             { "<Shift><Primary>F1",
                                                                  "<Primary>F1",
@@ -230,6 +233,8 @@ public class Application : Gtk.Application
 
         ((SimpleAction) lookup_action ("undo")).set_enabled (false);
 
+        _new_game_button = (MenuButton) builder.get_object ("new-game-button");
+
         _hamburger_button = (MenuButton) builder.get_object ("hamburger-button");
         _hamburger_button.notify ["active"].connect (() => {
                 if (!_hamburger_button.active)
@@ -268,17 +273,17 @@ public class Application : Gtk.Application
     * * Hamburger-menu (and undo action) callbacks
     \*/
 
-    private void toggle_hamburger_menu ()
+    private void toggle_hamburger_menu (/* SimpleAction action, Variant? variant */)
     {
         _hamburger_button.active = !_hamburger_button.active;
     }
 
-    private void undo_cb ()
+    private void undo_cb (/* SimpleAction action, Variant? variant */)
     {
         _game.undo ();
     }
 
-    private void new_game_cb ()
+    private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
         _header_bar.subtitle = null;
         _game_restored = false;
@@ -288,7 +293,23 @@ public class Application : Gtk.Application
         embed.grab_focus ();
     }
 
-    private void scores_cb ()
+    private void toggle_new_game_cb (/* SimpleAction action, Variant? variant */)
+    {
+        _new_game_button.active = !_new_game_button.active;
+    }
+
+    private void new_game_sized_cb (SimpleAction action, Variant? variant)
+        requires (variant != null)
+    {
+        int size = int.parse (((!) variant).get_string ());
+        _settings.set_int ("rows", size);
+        _settings.set_int ("cols", size);
+
+        _game.reload_settings ();
+        new_game_cb ();
+    }
+
+    private void scores_cb (/* SimpleAction action, Variant? variant */)
     {
         _scores_ctx.run_dialog ();
     }
@@ -302,7 +323,7 @@ public class Application : Gtk.Application
         }
     } */
 
-    private void about_cb ()
+    private void about_cb (/* SimpleAction action, Variant? variant */)
     {
         string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
         show_about_dialog (_window,
@@ -327,7 +348,7 @@ public class Application : Gtk.Application
                            null);
     }
 
-    private void quit_cb ()
+    private void quit_cb (/* SimpleAction action, Variant? variant */)
     {
         _window.destroy ();
     }
@@ -365,8 +386,7 @@ public class Application : Gtk.Application
     * * preferences dialog
     \*/
 
-    private Dialog          _preferences_dialog;
-    private ComboBoxText    _grid_size_combo;
+    private Dialog _preferences_dialog;
 
     private bool _should_create_preferences_dialog = true;
     private inline void _create_preferences_dialog ()
@@ -376,34 +396,17 @@ public class Application : Gtk.Application
         _preferences_dialog = (Dialog) builder.get_object ("preferencesdialog");
         _preferences_dialog.set_transient_for (_window);
 
-        _grid_size_combo = (ComboBoxText) builder.get_object ("gridsizecombo");
-
         _preferences_dialog.response.connect ((response_id) => {
                 _preferences_dialog.hide_on_delete ();
             });
         _preferences_dialog.delete_event.connect ((response_id) => {
-                int grid_size;
-                int rows, cols;
-                bool settings_changed;
-
-                grid_size = _grid_size_combo.get_active ();
-                if (grid_size == 0)
-                    rows = cols = 4;
-                else
-                    rows = cols = 5;
-
-                _settings.set_int ("rows", rows);
-                _settings.set_int ("cols", cols);
-
-                settings_changed = _game.reload_settings ();
-                if (settings_changed)
-                    new_game_cb ();
+                _game.reload_settings ();
                 return _preferences_dialog.hide_on_delete ();
             });
 
-        _settings.bind ("do-congrat", builder.get_object ("congratswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
-        _settings.bind ("animations-speed", builder.get_object ("animationsspeed"), "value", GLib.SettingsBindFlags.DEFAULT);
-        _settings.bind ("allow-undo", builder.get_object ("undoswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
+        _settings.bind ("do-congrat",       builder.get_object ("congratswitch"),   "active", GLib.SettingsBindFlags.DEFAULT);
+        _settings.bind ("animations-speed", builder.get_object ("animationsspeed"), "value",  GLib.SettingsBindFlags.DEFAULT);
+        _settings.bind ("allow-undo",       builder.get_object ("undoswitch"),      "active", GLib.SettingsBindFlags.DEFAULT);
     }
 
     private inline void preferences_cb (/* SimpleAction action, Variant? variant */)
@@ -413,11 +416,6 @@ public class Application : Gtk.Application
             _create_preferences_dialog ();
             _should_create_preferences_dialog = false;
         }
-
-        if (_settings.get_int ("rows") == 4)
-            _grid_size_combo.set_active (0);
-        else
-            _grid_size_combo.set_active (1);
 
         _preferences_dialog.present ();
     }

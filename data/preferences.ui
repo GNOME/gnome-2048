@@ -67,36 +67,6 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="xalign">1</property>
-                <!-- Translators: in the preferences dialog; label introducing an option, to change grid size to 4 × 4 or 5 × 5 -->
-                <property name="label" translatable="yes">Grid size</property>
-              </object>
-              <packing>
-                <property name="left-attach">0</property>
-                <property name="top-attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText" id="gridsizecombo">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="active">0</property>
-                <items>
-                  <!-- Translators: in the preferences dialog; combobox entry, to change grid size to 4 × 4 -->
-                  <item id="0" translatable="yes">4 × 4</item>
-                  <!-- Translators: in the preferences dialog; combobox entry, to change grid size to 5 × 5 -->
-                  <item id="1" translatable="yes">5 × 5</item>
-                </items>
-              </object>
-              <packing>
-                <property name="left-attach">1</property>
-                <property name="top-attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
                 <!-- Translators: in the preferences dialog; label introducing an option, to change the animations speed -->
                 <property name="label" translatable="yes">Animations speed</property>
               </object>
