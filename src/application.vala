@@ -35,13 +35,9 @@ public class Application : Gtk.Application
     /* private widgets */
     private Window _window;
     private HeaderBar _header_bar;
-    private Button _undo_button;
-    private Button _new_game_button;
-    private Dialog _preferences_dialog;
     private Dialog _congrats_dialog;
     private Label _congrats_message;
     private Label _score;
-    private ComboBoxText _grid_size_combo;
     private MenuButton _hamburger_button;
 
     private GtkClutter.Embed embed;
@@ -133,7 +129,6 @@ public class Application : Gtk.Application
 
         Builder builder = new Builder ();
         _create_window (builder);
-        _create_preferences_dialog (builder);
         _create_congrats_dialog (builder);
 
         _create_scores ();
@@ -250,10 +245,7 @@ public class Application : Gtk.Application
 
         _score = (Label) builder.get_object ("score");
 
-        _undo_button = (Button) builder.get_object ("undo-button");
         ((SimpleAction) lookup_action ("undo")).set_enabled (false);
-
-        _new_game_button = (Button) builder.get_object ("new-game-button");
 
         _hamburger_button = (MenuButton) builder.get_object ("hamburger-button");
         _hamburger_button.notify ["active"].connect (() => {
@@ -268,47 +260,6 @@ public class Application : Gtk.Application
         AspectFrame frame = (AspectFrame) builder.get_object ("aspectframe");
         frame.add (embed);
         _game.view = embed.get_stage ();
-    }
-
-    private void _create_preferences_dialog (Builder builder)
-    {
-        try {
-            builder.add_from_resource ("/org/gnome/gnome-2048/data/preferences.ui");
-        } catch (GLib.Error e) {
-            stderr.printf ("%s\n", e.message);
-        }
-
-        _preferences_dialog = (Dialog) builder.get_object ("preferencesdialog");
-        _preferences_dialog.set_transient_for (_window);
-
-        _grid_size_combo = (ComboBoxText) builder.get_object ("gridsizecombo");
-
-        _preferences_dialog.response.connect ((response_id) => {
-                _preferences_dialog.hide_on_delete ();
-            });
-        _preferences_dialog.delete_event.connect ((response_id) => {
-                int grid_size;
-                int rows, cols;
-                bool settings_changed;
-
-                grid_size = _grid_size_combo.get_active ();
-                if (grid_size == 0)
-                    rows = cols = 4;
-                else
-                    rows = cols = 5;
-
-                _settings.set_int ("rows", rows);
-                _settings.set_int ("cols", cols);
-
-                settings_changed = _game.reload_settings ();
-                if (settings_changed)
-                    new_game_cb ();
-                return _preferences_dialog.hide_on_delete ();
-            });
-
-        _settings.bind ("do-congrat", builder.get_object ("congratswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
-        _settings.bind ("animations-speed", builder.get_object ("animationsspeed"), "value", GLib.SettingsBindFlags.DEFAULT);
-        _settings.bind ("allow-undo", builder.get_object ("undoswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
     }
 
     private void _create_congrats_dialog (Builder builder)
@@ -382,16 +333,6 @@ public class Application : Gtk.Application
         _scores_ctx.run_dialog ();
     }
 
-    private void preferences_cb ()
-    {
-        if (_settings.get_int ("rows") == 4)
-            _grid_size_combo.set_active (0);
-        else
-            _grid_size_combo.set_active (1);
-
-        _preferences_dialog.present ();
-    }
-
 /*    private void help_cb ()
     {
         try {
@@ -458,5 +399,66 @@ public class Application : Gtk.Application
             _window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
 
         return false;
+    }
+
+    /*\
+    * * preferences dialog
+    \*/
+
+    private Dialog          _preferences_dialog;
+    private ComboBoxText    _grid_size_combo;
+
+    private bool _should_create_preferences_dialog = true;
+    private inline void _create_preferences_dialog ()
+    {
+        Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/preferences.ui");
+
+        _preferences_dialog = (Dialog) builder.get_object ("preferencesdialog");
+        _preferences_dialog.set_transient_for (_window);
+
+        _grid_size_combo = (ComboBoxText) builder.get_object ("gridsizecombo");
+
+        _preferences_dialog.response.connect ((response_id) => {
+                _preferences_dialog.hide_on_delete ();
+            });
+        _preferences_dialog.delete_event.connect ((response_id) => {
+                int grid_size;
+                int rows, cols;
+                bool settings_changed;
+
+                grid_size = _grid_size_combo.get_active ();
+                if (grid_size == 0)
+                    rows = cols = 4;
+                else
+                    rows = cols = 5;
+
+                _settings.set_int ("rows", rows);
+                _settings.set_int ("cols", cols);
+
+                settings_changed = _game.reload_settings ();
+                if (settings_changed)
+                    new_game_cb ();
+                return _preferences_dialog.hide_on_delete ();
+            });
+
+        _settings.bind ("do-congrat", builder.get_object ("congratswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
+        _settings.bind ("animations-speed", builder.get_object ("animationsspeed"), "value", GLib.SettingsBindFlags.DEFAULT);
+        _settings.bind ("allow-undo", builder.get_object ("undoswitch"), "active", GLib.SettingsBindFlags.DEFAULT);
+    }
+
+    private inline void preferences_cb (/* SimpleAction action, Variant? variant */)
+    {
+        if (_should_create_preferences_dialog)
+        {
+            _create_preferences_dialog ();
+            _should_create_preferences_dialog = false;
+        }
+
+        if (_settings.get_int ("rows") == 4)
+            _grid_size_combo.set_active (0);
+        else
+            _grid_size_combo.set_active (1);
+
+        _preferences_dialog.present ();
     }
 }

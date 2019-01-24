@@ -32,7 +32,7 @@
         <property name="title" translatable="yes">GNOME 2048</property>
         <property name="show-close-button">True</property>
         <child>
-          <object class="GtkButton" id="undo-button">
+          <object class="GtkButton">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -57,7 +57,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="new-game-button">
+          <object class="GtkButton">
             <!-- Translators: button in the headerbar -->
             <property name="label" translatable="yes">_New Game</property>
             <property name="visible">True</property>
