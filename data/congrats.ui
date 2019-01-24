@@ -5,6 +5,7 @@
   <object class="GtkDialog" id="congratsdialog">
     <property name="can_focus">False</property>
     <property name="border_width">12</property>
+    <!-- Translators: title of the dialog that appears (with default settings) when you reach 2048 -->
     <property name="title" translatable="yes">Congratulations!</property>
     <property name="resizable">False</property>
     <property name="type_hint">dialog</property>
@@ -19,6 +20,7 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="button1">
+                <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 -->
                 <property name="label" translatable="yes">New Game</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -35,6 +37,7 @@
             </child>
             <child>
               <object class="GtkButton" id="button2">
+                <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after 2048 -->
                 <property name="label" translatable="yes">Keep Playing</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>

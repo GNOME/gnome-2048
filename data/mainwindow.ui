@@ -13,6 +13,7 @@
       <object class="GtkHeaderBar" id="headerbar">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <!-- Translators: title of the window, displayed in the headerbar -->
         <property name="title" translatable="yes">GNOME 2048</property>
         <property name="show_close_button">True</property>
         <child>
@@ -21,6 +22,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="action_name">app.undo</property>
+            <!-- Translators: tooltip text of the Undo button in the headerbar -->
             <property name="tooltip_text" translatable="yes">Undo</property>
             <property name="always_show_image">True</property>
             <property name="focus-on-click">False</property>
@@ -41,6 +43,7 @@
         </child>
         <child>
           <object class="GtkButton" id="new-game-button">
+            <!-- Translators: button in the headerbar -->
             <property name="label" translatable="yes">_New Game</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -121,12 +124,14 @@
   <menu id="hamburger-menu">
     <section>
       <item>
+        <!-- Translators: entry in the hamburger menu; opens a window showing best scores -->
         <attribute name="label" translatable="yes">Scores</attribute>
         <attribute name="action">app.scores</attribute>
       </item>
     </section>
     <section>
       <item>
+        <!-- Translators: entry in the hamburger menu; opens a window for configuring application -->
         <attribute name="label" translatable="yes">Preferences</attribute>
         <attribute name="action">app.preferences</attribute>
       </item>
@@ -135,6 +140,7 @@
         <attribute name="action">app.help</attribute>
       </item -->
       <item>
+        <!-- Translators: entry in the hamburger menu -->
         <attribute name="label" translatable="yes">About 2048</attribute>
         <attribute name="action">app.about</attribute>
       </item>

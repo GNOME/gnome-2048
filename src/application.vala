@@ -177,6 +177,7 @@ public class Application : Gtk.Application
                 _score.label = _game.score.to_string ();
             });
         _game.finished.connect ((s) => {
+                /* Translators: subtitle of the headerbar, when the user cannot move anymore */
                 _header_bar.subtitle = _("Game Over");
 
                 if (!_game_restored)
@@ -198,6 +199,7 @@ public class Application : Gtk.Application
         _game.target_value_reached.connect ((s, v) => {
                 if (_settings.get_boolean ("do-congrat"))
                 {
+                    /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game */
                     string message = _("You have obtained the %u tile".printf (v));
                     _congrats_message.set_text (message);
                     _congrats_dialog.present ();
@@ -341,9 +343,13 @@ public class Application : Gtk.Application
 
     private void _create_scores ()
     {
+        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
         _grid4_cat = new Scores.Category ("grid4", _("Grid 4 × 4"));
+
+        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
         _grid5_cat = new Scores.Category ("grid5", _("Grid 5 × 5"));
 
+        /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
         _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size:"), _window, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
     }
 
@@ -398,17 +404,25 @@ public class Application : Gtk.Application
     private void about_cb ()
     {
         string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
-        show_about_dialog (_window /* get_active_window () */,
+        show_about_dialog (_window,
+                           /* Translators: about dialog text; the program name */
                            "program-name", _("2048"),
                            "version", VERSION,
+
+                           /* Translators: about dialog text; a introduction to the game */
                            "comments", _("A clone of 2048 for GNOME"),
-                           "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016 – Arnaud Bonatti"),
                            "license-type", License.GPL_3_0,
-                           "wrap-license", false /* TODO true? */,
+
+                           /* Translators: about dialog text; the main copyright holders */
+                           "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016-2019 – Arnaud Bonatti"),
+                           "wrap-license", true,
                            "authors", authors,
+                           /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
                            "translator-credits", _("translator-credits"),
                            "logo-icon-name", "gnome-2048",
-                           "website", "http://www.gnome.org", /* TODO remove? better? */
+                           "website", "https://wiki.gnome.org/Apps/2048",
+                           /* Translators: about dialog text; label of the website link */
+                           "website-label", _("Page on GNOME wiki"),
                            null);
     }
 
