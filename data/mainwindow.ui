@@ -76,7 +76,6 @@
             <property name="visible">True</property>
             <property name="halign">end</property>
             <property name="valign">center</property>
-            <property name="menu-model">hamburger-menu</property>
             <property name="focus-on-click">False</property>
             <style>
               <class name="image-button"/>
@@ -149,31 +148,5 @@
       <attribute name="action">app.new-game-sized</attribute>
       <attribute name="target">5</attribute>
     </item>
-  </menu>
-  <menu id="hamburger-menu">
-    <section>
-      <item>
-        <!-- Translators: entry in the hamburger menu; opens a window showing best scores -->
-        <attribute name="label" translatable="yes">Scores</attribute>
-        <attribute name="action">app.scores</attribute>
-      </item>
-    </section>
-    <section>
-      <item>
-        <!-- Translators: entry in the hamburger menu; opens a window for configuring application -->
-        <attribute name="label" translatable="yes">Preferences</attribute>
-        <attribute name="action">app.preferences</attribute>
-      </item>
-      <item>
-        <!-- Translators: usual menu entry of the hamburger menu -->
-        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
-        <attribute name="action">win.show-help-overlay</attribute>
-      </item>
-      <item>
-        <!-- Translators: entry in the hamburger menu -->
-        <attribute name="label" translatable="yes">About 2048</attribute>
-        <attribute name="action">app.about</attribute>
-      </item>
-    </section>
   </menu>
 </interface>

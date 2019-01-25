@@ -227,6 +227,7 @@ public class Application : Gtk.Application
                 if (!_hamburger_button.active)
                     embed.grab_focus ();
             });
+        _update_hamburger_menu ();
     }
 
     private void _create_game_view (Builder builder)
@@ -238,8 +239,47 @@ public class Application : Gtk.Application
     }
 
     /*\
-    * * Hamburger-menu (and undo action) callbacks
+    * * hamburger menu (and undo action) callbacks
     \*/
+
+    private void _update_hamburger_menu ()
+    {
+        GLib.Menu menu = new GLib.Menu ();
+
+        _append_scores_section (ref menu);
+        _append_app_actions_section (ref menu);
+
+        menu.freeze ();
+        _hamburger_button.set_menu_model ((MenuModel) menu);
+    }
+
+    private static inline void _append_scores_section (ref GLib.Menu menu)
+    {
+        GLib.Menu section = new GLib.Menu ();
+
+        /* Translators: entry in the hamburger menu; opens a window showing best scores */
+        section.append (_("Scores"), "app.scores");
+
+        section.freeze ();
+        menu.append_section (null, section);
+    }
+
+    private static inline void _append_app_actions_section (ref GLib.Menu menu)
+    {
+        GLib.Menu section = new GLib.Menu ();
+
+        /* Translators: entry in the hamburger menu; opens a window for configuring application */
+        section.append (_("Preferences"), "app.preferences");
+
+        /* Translators: usual menu entry of the hamburger menu */
+        section.append (_("Keyboard Shortcuts"), "win.show-help-overlay");
+
+        /* Translators: entry in the hamburger menu */
+        section.append (_("About 2048"), "app.about");
+
+        section.freeze ();
+        menu.append_section (null, section);
+    }
 
     private void toggle_hamburger_menu (/* SimpleAction action, Variant? variant */)
     {
