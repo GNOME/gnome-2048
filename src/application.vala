@@ -127,9 +127,11 @@ public class Application : Gtk.Application
 
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
+        set_accels_for_action ("app.preferences",       {        "<Primary>e"       });
         set_accels_for_action ("app.toggle-new-game",   {        "<Primary>n"       });
         set_accels_for_action ("app.new-game",          { "<Shift><Primary>n"       });
         set_accels_for_action ("app.quit",              {        "<Primary>q"       });
+        set_accels_for_action ("app.undo",              {        "<Primary>z"       });
         set_accels_for_action ("app.about",             {          "<Shift>F1",
                                                           "<Shift><Primary>F1"      }); // as usual, this second shortcut does not work
         set_accels_for_action ("win.show-help-overlay", {                 "F1",
@@ -302,7 +304,8 @@ public class Application : Gtk.Application
 
     private void undo_cb (/* SimpleAction action, Variant? variant */)
     {
-        _game.undo ();
+        if (_settings.get_boolean ("allow-undo"))   // for the keyboard shortcut
+            _game.undo ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
