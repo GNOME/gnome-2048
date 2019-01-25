@@ -227,6 +227,7 @@ public class Application : Gtk.Application
                 if (!_hamburger_button.active)
                     embed.grab_focus ();
             });
+        _settings.changed ["allow-undo"].connect (_update_hamburger_menu);
         _update_hamburger_menu ();
     }
 
@@ -246,11 +247,24 @@ public class Application : Gtk.Application
     {
         GLib.Menu menu = new GLib.Menu ();
 
+        if (_settings.get_boolean ("allow-undo"))
+            _append_undo_section (ref menu);
         _append_scores_section (ref menu);
         _append_app_actions_section (ref menu);
 
         menu.freeze ();
         _hamburger_button.set_menu_model ((MenuModel) menu);
+    }
+
+    private static inline void _append_undo_section (ref GLib.Menu menu)
+    {
+        GLib.Menu section = new GLib.Menu ();
+
+        /* Translators: entry in the hamburger menu, if the "Allow undo" option is set to true */
+        section.append (_("Undo"), "app.undo");
+
+        section.freeze ();
+        menu.append_section (null, section);
     }
 
     private static inline void _append_scores_section (ref GLib.Menu menu)

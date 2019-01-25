@@ -32,31 +32,6 @@
         <property name="title" translatable="yes">GNOME 2048</property>
         <property name="show-close-button">True</property>
         <child>
-          <object class="GtkButton">
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="action-name">app.undo</property>
-            <!-- Translators: tooltip text of the Undo button in the headerbar -->
-            <property name="tooltip-text" translatable="yes">Undo</property>
-            <property name="always-show-image">True</property>
-            <property name="focus-on-click">False</property>
-            <style>
-              <class name="image-button"/>
-            </style>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="icon-name">edit-undo-symbolic</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkMenuButton" id="new-game-button">
             <!-- Translators: button in the headerbar -->
             <property name="label" translatable="yes">_New Game</property>
@@ -67,9 +42,6 @@
             <property name="focus-on-click">False</property>
             <property name="menu-model">new-game-menu</property>
           </object>
-          <packing>
-            <property name="position">2</property>
-          </packing>
         </child>
         <child>
           <object class="GtkMenuButton" id="hamburger-button">
