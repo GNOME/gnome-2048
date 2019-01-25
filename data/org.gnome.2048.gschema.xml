@@ -51,6 +51,8 @@
     </key>
     <key name="animations-speed" type="d">
       <default>100.0</default>
+      <!-- as in the preferences.ui file -->
+      <range min="20.0" max="2000.0"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed' -->
       <summary>Animations speed</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed' -->
