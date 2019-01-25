@@ -41,10 +41,6 @@ public class Application : Gtk.Application
 
     private GtkClutter.Embed embed;
 
-    private Scores.Context _scores_ctx;
-    private Scores.Category _grid4_cat;
-    private Scores.Category _grid5_cat;
-
     private bool _game_restored;
 
     private Game _game;
@@ -129,7 +125,7 @@ public class Application : Gtk.Application
 
         _create_window ();
 
-        _create_scores ();
+        _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
         set_accels_for_action ("app.toggle-new-game",   {        "<Primary>n"       });
         set_accels_for_action ("app.new-game",          { "<Shift><Primary>n"       });
@@ -178,18 +174,7 @@ public class Application : Gtk.Application
                 _header_bar.subtitle = _("Game Over");
 
                 if (!_game_restored)
-                {
-                    Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
-                    _scores_ctx.add_score.begin (_game.score, cat, null, (object, result) => {
-                            try {
-                                _scores_ctx.add_score.end (result);
-                            } catch (GLib.Error e) {
-                                stderr.printf ("%s\n", e.message);
-                            }
-                            ((SimpleAction) lookup_action ("scores")).set_enabled (true);
-                            debug ("score added");
-                        });
-                }
+                    _show_best_scores ();
 
                 debug ("finished");
             });
@@ -252,25 +237,6 @@ public class Application : Gtk.Application
         _game.view = embed.get_stage ();
     }
 
-    private Games.Scores.Category category_request (string key)
-    {
-        if (key == "grid4") return _grid4_cat;
-        if (key == "grid5") return _grid5_cat;
-        assert_not_reached ();
-    }
-
-    private void _create_scores ()
-    {
-        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
-        _grid4_cat = new Scores.Category ("grid4", _("Grid 4 × 4"));
-
-        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
-        _grid5_cat = new Scores.Category ("grid5", _("Grid 5 × 5"));
-
-        /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
-        _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size:"), _window, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
-    }
-
     /*\
     * * Hamburger-menu (and undo action) callbacks
     \*/
@@ -309,11 +275,6 @@ public class Application : Gtk.Application
 
         _game.reload_settings ();
         new_game_cb ();
-    }
-
-    private void scores_cb (/* SimpleAction action, Variant? variant */)
-    {
-        _scores_ctx.run_dialog ();
     }
 
     private void about_cb (/* SimpleAction action, Variant? variant */)
@@ -453,5 +414,53 @@ public class Application : Gtk.Application
             _settings.set_boolean ("do-congrat", false);
         }
         debug ("target value reached");
+    }
+
+    /*\
+    * * scores dialog
+    \*/
+
+    private Scores.Context _scores_ctx;
+    private Scores.Category _grid4_cat;
+    private Scores.Category _grid5_cat;
+
+    private inline void _create_scores_dialog ()
+    {
+        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
+        _grid4_cat = new Scores.Category ("grid4", _("Grid 4 × 4"));
+
+        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
+        _grid5_cat = new Scores.Category ("grid5", _("Grid 5 × 5"));
+
+        /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
+        _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size:"), _window, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
+    }
+    private inline Games.Scores.Category category_request (string key)
+    {
+        switch (key)
+        {
+            case "grid4": return _grid4_cat;
+            case "grid5": return _grid5_cat;
+            default: assert_not_reached ();
+        }
+    }
+
+    private inline void scores_cb (/* SimpleAction action, Variant? variant */)
+    {
+        _scores_ctx.run_dialog ();  // TODO open it for current Scores.Category
+    }
+
+    private inline void _show_best_scores ()
+    {
+        Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
+        _scores_ctx.add_score.begin (_game.score, cat, null, (object, result) => {
+                try {
+                    _scores_ctx.add_score.end (result);
+                } catch (GLib.Error e) {
+                    stderr.printf ("%s\n", e.message);
+                }
+                _scores_ctx.run_dialog ();
+                debug ("score added");
+            });
     }
 }
