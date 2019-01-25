@@ -17,100 +17,51 @@
 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
-  <object class="GtkDialog" id="congratsdialog">
+  <object class="GtkMessageDialog" id="congratsdialog">
     <property name="can-focus">False</property>
-    <property name="border-width">12</property>
     <!-- Translators: title of the dialog that appears (with default settings) when you reach 2048 -->
-    <property name="title" translatable="yes">Congratulations!</property>
+    <property name="text" translatable="yes">Congratulations!</property>
     <property name="resizable">False</property>
-    <property name="type-hint">dialog</property>
-    <child internal-child="vbox">
+    <property name="buttons">none</property>
+    <child internal-child="message_area">
       <object class="GtkBox">
-        <property name="can-focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">12</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox">
-            <property name="can-focus">False</property>
-            <property name="layout-style">end</property>
-            <child>
-              <object class="GtkButton" id="button1">
-                <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 -->
-                <property name="label" translatable="yes">New Game</property>
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-                <style>
-                  <class name="suggested-action"/>
-                </style>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="button2">
-                <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after 2048 -->
-                <property name="label" translatable="yes">Keep Playing</property>
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
-          <object class="GtkGrid">
+          <object class="GtkImage">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="column-homogeneous">True</property>
-            <child>
-              <object class="GtkLabel" id="messagelabel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-              </object>
-              <packing>
-                <property name="left-attach">0</property>
-                <property name="top-attach">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="pixel-size">145</property>
-                <property name="icon-name">face-wink</property>
-                <property name="icon-size">6</property>
-              </object>
-              <packing>
-                <property name="left-attach">0</property>
-                <property name="top-attach">0</property>
-              </packing>
-            </child>
+            <property name="pixel-size">64</property>
+            <property name="icon-name">face-wink</property>
+            <property name="icon-size">6</property>
           </object>
           <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
       </object>
     </child>
+    <child type="action">
+      <object class="GtkButton" id="new-game-button">
+        <property name="visible">True</property>
+        <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)-->
+        <property name="label" translatable="yes">_New Game</property>
+        <property name="use-underline">True</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="continue-button">
+        <property name="visible">True</property>
+        <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after 2048 (with a mnemonic that appears pressing Alt) -->
+        <property name="label" translatable="yes">_Keep Playing</property>
+        <property name="use-underline">True</property>
+        <property name="can-default">True</property>
+        <style>
+          <class name="suggested-action"/>
+        </style>
+      </object>
+    </child>
     <action-widgets>
-      <action-widget response="0">button1</action-widget>
-      <action-widget response="1">button2</action-widget>
+      <action-widget response="0">new-game-button</action-widget>
+      <action-widget response="1" default="true">continue-button</action-widget>
     </action-widgets>
   </object>
 </interface>

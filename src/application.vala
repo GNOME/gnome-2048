@@ -35,7 +35,6 @@ public class Application : Gtk.Application
     /* private widgets */
     private Window _window;
     private HeaderBar _header_bar;
-    private Label _congrats_message;
     private Label _score;
     private MenuButton _new_game_button;
     private MenuButton _hamburger_button;
@@ -418,14 +417,14 @@ public class Application : Gtk.Application
     * * congratulations dialog
     \*/
 
-    private Dialog _congrats_dialog;
+    private MessageDialog _congrats_dialog;
 
     private bool _should_create_congrats_dialog = true;
     private inline void _create_congrats_dialog ()
     {
         Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/congrats.ui");
 
-        _congrats_dialog = (Dialog) builder.get_object ("congratsdialog");
+        _congrats_dialog = (MessageDialog) builder.get_object ("congratsdialog");
         _congrats_dialog.set_transient_for (_window);
 
         _congrats_dialog.response.connect ((response_id) => {
@@ -436,8 +435,6 @@ public class Application : Gtk.Application
         _congrats_dialog.delete_event.connect ((response_id) => {
                 return _congrats_dialog.hide_on_delete ();
             });
-
-        _congrats_message = (Label) builder.get_object ("messagelabel");
     }
 
     private inline void target_value_reached_cb (uint target_value)
@@ -451,8 +448,7 @@ public class Application : Gtk.Application
             }
 
             /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048) */
-            string message = _("You have obtained the %u tile for the first time!").printf (target_value);
-            _congrats_message.set_text (message);
+            _congrats_dialog.format_secondary_text (_("You have obtained the %u tile for the first time!"), target_value);
             _congrats_dialog.present ();
             _settings.set_boolean ("do-congrat", false);
         }
