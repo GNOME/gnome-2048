@@ -440,7 +440,7 @@ public class Application : Gtk.Application
         _congrats_message = (Label) builder.get_object ("messagelabel");
     }
 
-    private inline void target_value_reached_cb (uint v) // the way the message string is constructed, “v” appears in translations, do not change
+    private inline void target_value_reached_cb (uint target_value)
     {
         if (_settings.get_boolean ("do-congrat"))
         {
@@ -450,8 +450,8 @@ public class Application : Gtk.Application
                 _should_create_congrats_dialog = false;
             }
 
-            /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game */
-            string message = _("You have obtained the %u tile".printf (v));
+            /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048) */
+            string message = _("You have obtained the %u tile for the first time!").printf (target_value);
             _congrats_message.set_text (message);
             _congrats_dialog.present ();
             _settings.set_boolean ("do-congrat", false);
