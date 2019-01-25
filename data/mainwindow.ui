@@ -164,10 +164,11 @@
         <attribute name="label" translatable="yes">Preferences</attribute>
         <attribute name="action">app.preferences</attribute>
       </item>
-      <!-- item>
-        <attribute name="label" translatable="yes">Help</attribute>
-        <attribute name="action">app.help</attribute>
-      </item -->
+      <item>
+        <!-- Translators: usual menu entry of the hamburger menu -->
+        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
       <item>
         <!-- Translators: entry in the hamburger menu -->
         <attribute name="label" translatable="yes">About 2048</attribute>

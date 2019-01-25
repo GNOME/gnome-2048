@@ -135,9 +135,12 @@ public class Application : Gtk.Application
         set_accels_for_action ("app.toggle-new-game",   {        "<Primary>n"       });
         set_accels_for_action ("app.new-game",          { "<Shift><Primary>n"       });
         set_accels_for_action ("app.quit",              {        "<Primary>q"       });
-        set_accels_for_action ("app.about",             { "<Shift><Primary>F1",
+        set_accels_for_action ("app.about",             {          "<Shift>F1",
+                                                          "<Shift><Primary>F1"      }); // as usual, this second shortcut does not work
+        set_accels_for_action ("win.show-help-overlay", {                 "F1",
                                                                  "<Primary>F1",
-                                                                   "<Shift>F1"      });
+                                                                 "<Primary>question",
+                                                          "<Shift><Primary>question"});
         set_accels_for_action ("app.toggle-hamburger",  {                 "F10",
                                                                           "Menu"    });
 
@@ -313,15 +316,6 @@ public class Application : Gtk.Application
     {
         _scores_ctx.run_dialog ();
     }
-
-/*    private void help_cb ()
-    {
-        try {
-            show_uri (_window.get_screen (), "help:gnome-2048", get_current_event_time ());
-        } catch (GLib.Error e) {
-            warning ("Failed to show help: %s", e.message);
-        }
-    } */
 
     private void about_cb (/* SimpleAction action, Variant? variant */)
     {

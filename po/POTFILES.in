@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
 data/congrats.ui
+data/help-overlay.ui
 data/mainwindow.ui
 data/org.gnome.2048.gschema.xml
 data/org.gnome.gnome-2048.appdata.xml.in
