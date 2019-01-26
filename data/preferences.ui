@@ -17,13 +17,6 @@
 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
-  <object class="GtkAdjustment" id="animationsspeed">
-    <property name="lower">20</property>  <!-- also enforced in -->
-    <property name="upper">200</property> <!-- gschema.xml file -->
-    <property name="value">100</property>
-    <property name="step-increment">5</property>
-    <property name="page-increment">10</property>
-  </object>
   <object class="GtkDialog" id="preferencesdialog">
     <property name="border-width">12</property>
     <!-- Translators: title of the dialog that appears when the users clicks the "Preferences" entry in the hamburger menu -->
@@ -33,6 +26,7 @@
     <property name="type-hint">dialog</property>
     <property name="use-header-bar">1</property>
     <property name="modal">True</property>
+    <property name="destroy-with-parent">True</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <child>
@@ -53,12 +47,9 @@
               </packing>
             </child>
             <child>
-              <object class="GtkScale">
+              <object class="GtkMenuButton" id="animations-button">
                 <property name="visible">True</property>
-                <property name="adjustment">animationsspeed</property>
-                <property name="inverted">True</property>
-                <property name="round-digits">1</property>
-                <property name="draw-value">False</property>
+                <property name="menu-model">animations-menu</property>
               </object>
               <packing>
                 <property name="left-attach">1</property>
@@ -112,4 +103,24 @@
       </object>
     </child>
   </object>
+  <menu id="animations-menu">
+    <item>
+      <!-- Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)-->
+      <attribute name="label" translatable="yes">_Slow</attribute>
+      <attribute name="action">app.animations-speed</attribute>
+      <attribute name="target">250.0</attribute>
+    </item>
+    <item>
+      <!-- Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt) -->
+      <attribute name="label" translatable="yes">_Normal</attribute>
+      <attribute name="action">app.animations-speed</attribute>
+      <attribute name="target">100.0</attribute>
+    </item>
+    <item>
+      <!-- Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt) -->
+      <attribute name="label" translatable="yes">_Fast</attribute>
+      <attribute name="action">app.animations-speed</attribute>
+      <attribute name="target">40.0</attribute>
+    </item>
+  </menu>
 </interface>

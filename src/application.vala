@@ -53,6 +53,7 @@ public class Application : Gtk.Application
         { "new-game",           new_game_cb             },
         { "toggle-new-game",    toggle_new_game_cb      },
         { "new-game-sized",     new_game_sized_cb, "s"  },  // no way to make it take an int8/int32
+        { "animations-speed",   _animations_speed, "s"  },  // idem, for a double
 
         { "quit",               quit_cb                 },
 
@@ -397,7 +398,8 @@ public class Application : Gtk.Application
     * * preferences dialog
     \*/
 
-    private Dialog _preferences_dialog;
+    private Dialog      _preferences_dialog;
+    private MenuButton  _animations_button;
 
     private bool _should_create_preferences_dialog = true;
     private inline void _create_preferences_dialog ()
@@ -405,6 +407,7 @@ public class Application : Gtk.Application
         Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/preferences.ui");
 
         _preferences_dialog = (Dialog) builder.get_object ("preferencesdialog");
+        _preferences_dialog.set_application (this); // else we cannot use "app." actions in the dialog
         _preferences_dialog.set_transient_for (_window);
 
         _preferences_dialog.response.connect ((response_id) => {
@@ -416,8 +419,43 @@ public class Application : Gtk.Application
             });
 
         _settings.bind ("do-congrat",       builder.get_object ("congratswitch"),   "active", GLib.SettingsBindFlags.DEFAULT);
-        _settings.bind ("animations-speed", builder.get_object ("animationsspeed"), "value",  GLib.SettingsBindFlags.DEFAULT);
         _settings.bind ("allow-undo",       builder.get_object ("undoswitch"),      "active", GLib.SettingsBindFlags.DEFAULT);
+
+        _animations_button = (MenuButton) builder.get_object ("animations-button");
+        _settings.changed ["animations-speed"].connect (_set_animations_button_label);
+        _set_animations_button_label (_settings, "animations-speed");
+    }
+    private inline void _set_animations_button_label (GLib.Settings settings, string key_name)
+    {
+        double speed = settings.get_double (key_name);
+        string _animations_button_label;
+        _get_animations_button_label (ref speed, out _animations_button_label);
+        _animations_button.set_label (_animations_button_label);
+    }
+    private static inline void _get_animations_button_label (ref double speed, out string _animations_button_label)
+    {
+        if (speed == 100.0)
+            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
+            _animations_button_label = _("Normal");
+
+        else if (speed == 40.0)
+            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
+            _animations_button_label = _("Fast");
+
+        else if (speed == 250.0)
+            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
+            _animations_button_label = _("Slow");
+
+        else
+            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
+            _animations_button_label = _("Custom");
+    }
+
+    private inline void _animations_speed (SimpleAction action, Variant? variant)
+        requires (variant != null)
+    {
+        double speed = double.parse (((!) variant).get_string ());
+        _settings.set_double ("animations-speed", speed);
     }
 
     private inline void preferences_cb (/* SimpleAction action, Variant? variant */)
