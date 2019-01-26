@@ -1,17 +1,16 @@
 # Hungarian translation for gnome-2048.
-# Copyright (C) 2015-2016 Free Software Foundation, Inc.
+# Copyright (C) 2015, 2016, 2019 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Balázs Úr <urbalazs@gmail.com>, 2015, 2016.
+# Balázs Úr <urbalazs at gmail dot com>, 2015, 2016, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gnome-2048&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-17 20:39+0000\n"
-"PO-Revision-Date: 2016-08-19 21:06+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2019-01-26 11:46+0000\n"
+"PO-Revision-Date: 2019-01-26 23:04+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,134 +18,216 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.2\n"
 
-#: ../data/congrats.ui.h:1
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
+#: data/congrats.ui:23
 msgid "Congratulations!"
 msgstr "Gratulálunk!"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
-msgid "New Game"
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#. Translators: button in the headerbar
+#: data/congrats.ui:46 data/mainwindow.ui:37
+msgid "_New Game"
+msgstr "Ú_j játék"
+
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after 2048 (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:54
+msgid "_Keep Playing"
+msgstr "Játék _folytatása"
+
+#: data/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Játék"
+
+#. Translators: the application has no help, so the use of arrows for playing is documented here
+#: data/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Play"
+msgstr "Játszma"
+
+#. Translators: undo is not allowed by default, it is an option available in the Preferences dialog
+#: data/help-overlay.ui:41
+msgctxt "shortcut window"
+msgid "Undo (if enabled)"
+msgstr "Visszavonás (ha engedélyezve van)"
+
+#: data/help-overlay.ui:50
+msgctxt "shortcut window"
+msgid "New game"
 msgstr "Új játék"
 
-#: ../data/congrats.ui.h:3
-msgid "Keep Playing"
-msgstr "Játék folytatása"
+#. Translators: that opens the New Game menu, that allow to choose the board size of the next game
+#: data/help-overlay.ui:55
+msgctxt "shortcut window"
+msgid "Choose a new game"
+msgstr "Új játék választása"
 
-#: ../data/mainwindow.ui.h:1
-msgid "gnome-2048"
-msgstr "gnome-2048"
+#. Translators: that is an immediate start of a new game, with similar options
+#: data/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Új játék indítása"
 
-#: ../data/menus.ui.h:2
-msgid "Scores"
-msgstr "Pontszámok"
+#: data/help-overlay.ui:72
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "Általános"
 
-#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+#. Translators: toggles the hamburger menu
+#: data/help-overlay.ui:77
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Főmenü ki- és bekapcsolása"
+
+#. Translators: opens Prefences dialog
+#: data/help-overlay.ui:85
+msgctxt "shortcut window"
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: ../data/menus.ui.h:4
-msgid "Help"
-msgstr "Súgó"
+#. Translators: opens Keyboard Shortcuts window
+#: data/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Gyorsbillentyűk"
 
-#: ../data/menus.ui.h:5
+#. Translators: opens About dialog
+#: data/help-overlay.ui:101
+msgctxt "shortcut window"
 msgid "About"
 msgstr "Névjegy"
 
-#: ../data/menus.ui.h:6
+#. Translators: quit application
+#: data/help-overlay.ui:109
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
 
-#: ../data/org.gnome.2048.gschema.xml.h:1
+#. Translators: title of the window, displayed in the headerbar
+#: data/mainwindow.ui:32 data/org.gnome.gnome-2048.appdata.xml.in:8
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
+#: data/mainwindow.ui:113
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
+#: data/mainwindow.ui:119
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.2048.gschema.xml:6
 msgid "Window width"
 msgstr "Ablakszélesség"
 
-#: ../data/org.gnome.2048.gschema.xml.h:2
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.2048.gschema.xml:8
 msgid "Window width."
 msgstr "Az ablak szélessége."
 
-#: ../data/org.gnome.2048.gschema.xml.h:3
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.2048.gschema.xml:13
 msgid "Window height"
 msgstr "Ablakmagasság"
 
-#: ../data/org.gnome.2048.gschema.xml.h:4
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.2048.gschema.xml:15
 msgid "Window height."
 msgstr "Az ablak magassága."
 
-#: ../data/org.gnome.2048.gschema.xml.h:5
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.2048.gschema.xml:20
 msgid "Window maximized"
 msgstr "Ablak teljes méretű"
 
-#: ../data/org.gnome.2048.gschema.xml.h:6
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.2048.gschema.xml:22
 msgid "Window maximization state."
 msgstr "Az ablak teljes méretű állapota."
 
-#: ../data/org.gnome.2048.gschema.xml.h:7
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.2048.gschema.xml:27
 msgid "Number of rows"
 msgstr "Sorok száma"
 
-#: ../data/org.gnome.2048.gschema.xml.h:8
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.2048.gschema.xml:29
 msgid "Game grid number of rows."
 msgstr "A játékrács sorainak száma."
 
-#: ../data/org.gnome.2048.gschema.xml.h:9
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.2048.gschema.xml:34
 msgid "Number of columns"
 msgstr "Oszlopok száma"
 
-#: ../data/org.gnome.2048.gschema.xml.h:10
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.2048.gschema.xml:36
 msgid "Game grid number of columns."
 msgstr "A játékrács oszlopainak száma."
 
-#: ../data/org.gnome.2048.gschema.xml.h:11
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.2048.gschema.xml:42
 msgid "Target value"
 msgstr "Célérték"
 
-#: ../data/org.gnome.2048.gschema.xml.h:12
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.2048.gschema.xml:44
 msgid "Tile value at which user is congratulated."
 msgstr "Csempeérték, amelynél gratulálnak a felhasználónak."
 
-#: ../data/org.gnome.2048.gschema.xml.h:13
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.2048.gschema.xml:49
 msgid "Congrat on target tile"
 msgstr "Gratuláció a célcsempénél"
 
-#: ../data/org.gnome.2048.gschema.xml.h:14
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.2048.gschema.xml:51
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr "Fognak-e gratulálni a felhasználónak a célcsempe elérésekor."
 
-#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#. Translators: in the preferences dialog; label introducing an option, to change the animations speed
+#: data/org.gnome.2048.gschema.xml:58 data/preferences.ui:42
 msgid "Animations speed"
 msgstr "Animációk sebessége"
 
-#: ../data/org.gnome.2048.gschema.xml.h:16
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.2048.gschema.xml:60
 msgid "Duration of animations: show tile, move tile, and dim tile."
 msgstr ""
 "Az animációk időtartama: csempe megjelenítése, csempe mozgatása és csempe "
 "elhomályosítása."
 
-#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#. Translators: in the preferences dialog; label introducing an option, a switch to allow or not undoing a move
+#: data/org.gnome.2048.gschema.xml:65 data/preferences.ui:85
 msgid "Allow undo"
 msgstr "Visszavonás engedélyezése"
 
-#: ../data/org.gnome.2048.gschema.xml.h:18
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.2048.gschema.xml:67
 msgid "Whether tile movements can be undone."
 msgstr "A csempemozgatások visszavonhatók legyenek-e."
 
-#: ../data/org.gnome.2048.gschema.xml.h:19
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.2048.gschema.xml:73
 msgid "Number of undo movements"
 msgstr "Visszavonási lépések száma"
 
-#: ../data/org.gnome.2048.gschema.xml.h:20
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.2048.gschema.xml:75
 msgid "Maximum number of tile movements that can be undone."
 msgstr "A visszavonható csempemozgatások maximális száma."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
-
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
-#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+#: data/org.gnome.gnome-2048.appdata.xml.in:9
+#: data/org.gnome.gnome-2048.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Szerezze meg a 2048-as csempét"
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+#: data/org.gnome.gnome-2048.appdata.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
@@ -156,7 +237,7 @@ msgstr ""
 "egyszemélyes kirakós játék klónja. A játékmenet a rácson elhelyezett számok "
 "egyesítéséből és a 2048-as csempe megszerzéséből áll."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+#: data/org.gnome.gnome-2048.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -169,7 +250,7 @@ msgstr ""
 "csúsztatni. Az azonos értékű csempék egyesülnek, amikor az egyik a másikra "
 "lesz csúsztatva."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+#: data/org.gnome.gnome-2048.appdata.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -180,7 +261,7 @@ msgstr ""
 "itt nem ér véget, folytathatja a csempék egyesítését és a pontszáma "
 "növelését."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+#: data/org.gnome.gnome-2048.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -191,66 +272,143 @@ msgstr ""
 "az 1024 játék klónja, valamint egyéb klónokból merített ötleteket is "
 "tartalmaz."
 
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+#: data/org.gnome.gnome-2048.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Egy futó játék elérte a 2048-as csempét"
 
 #. this is a translatable version of project_group
-#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+#: data/org.gnome.gnome-2048.appdata.xml.in:45
 msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+#. Translators: about dialog text; the program name
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:343
 msgid "2048"
 msgstr "2048"
 
-#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.gnome-2048.desktop.in:8
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.gnome-2048.desktop.in:14
 msgid "puzzle;"
 msgstr "puzzle;kirakó;fejtörő;"
 
-#: ../data/preferences.ui.h:2
-msgid "Grid size"
-msgstr "Rácsméret"
+#. Translators: title of the dialog that appears when the users clicks the "Preferences" entry in the hamburger menu
+#. Translators: entry in the hamburger menu; opens a window for configuring application
+#: data/preferences.ui:23 src/application.vala:289
+msgid "Preferences"
+msgstr "Beállítások"
 
-#: ../data/preferences.ui.h:3
-msgid "4 x 4"
-msgstr "4 x 4"
-
-#: ../data/preferences.ui.h:4
-msgid "5 x 5"
-msgstr "5 x 5"
-
-#: ../data/preferences.ui.h:6
+#. Translators: in the preferences dialog; label introducing an option, a switch to display or no congratulations when reaching 2048
+#: data/preferences.ui:64
 msgid "Display congrats"
 msgstr "Gratuláció megjelenítése"
 
-#: ../src/application.vala:166
+#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
+#: data/preferences.ui:109
+msgid "_Slow"
+msgstr "_Lassú"
+
+#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
+#: data/preferences.ui:115
+msgid "_Normal"
+msgstr "_Normál"
+
+#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
+#: data/preferences.ui:121
+msgid "_Fast"
+msgstr "_Gyors"
+
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/application.vala:177
 msgid "Game Over"
 msgstr "Vége a játéknak"
 
-#: ../src/application.vala:187
-#, c-format
-msgid "You have obtained the %u tile"
-msgstr "Megszerezte a(z) %u értékű csempét"
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/application.vala:267
+msgid "Undo"
+msgstr "Visszavonás"
 
-#: ../src/application.vala:387
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/application.vala:278
+msgid "Scores"
+msgstr "Pontszámok"
+
+#. Translators: usual menu entry of the hamburger menu
+#: src/application.vala:292
+msgid "Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#. Translators: entry in the hamburger menu
+#: src/application.vala:295
+msgid "About 2048"
+msgstr "A 2048 névjegye"
+
+#. Translators: about dialog text; a introduction to the game
+#: src/application.vala:347
 msgid "A clone of 2048 for GNOME"
 msgstr "A 2048 klónja a GNOME-hoz"
 
-#: ../src/application.vala:388
+#. Translators: about dialog text; the main copyright holders
+#: src/application.vala:351
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
+"Copyright © 2016-2019 – Arnaud Bonatti"
 msgstr ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
+"Copyright © 2016-2019 – Arnaud Bonatti"
 
-#: ../src/application.vala:392
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/application.vala:355
 msgid "translator-credits"
 msgstr "Úr Balázs <urbalazs@gmail.com>"
 
-#~ msgid "Columns"
-#~ msgstr "Oszlopok"
+#. Translators: about dialog text; label of the website link
+#: src/application.vala:359
+msgid "Page on GNOME wiki"
+msgstr "Szócikk a GNOME wikin"
 
-#~ msgid "Rows"
-#~ msgstr "Sorok"
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:439
+msgid "Normal"
+msgstr "Normál"
+
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:443
+msgid "Fast"
+msgstr "Gyors"
+
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:447
+msgid "Slow"
+msgstr "Lassú"
+
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:451
+msgid "Custom"
+msgstr "Egyéni"
+
+#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
+#: src/application.vala:507
+#, c-format
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Először szerezte meg a(z) %u értékű csempét!"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
+#: src/application.vala:525
+msgid "Grid 4 × 4"
+msgstr "Rács, 4 × 4"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
+#: src/application.vala:528
+msgid "Grid 5 × 5"
+msgstr "Rács, 5 × 5"
+
+#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
+#: src/application.vala:531
+msgid "Grid Size:"
+msgstr "Rácsméret:"
+
