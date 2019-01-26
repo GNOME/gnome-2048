@@ -35,8 +35,9 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols' -->
       <description>Game grid number of columns.</description>
     </key>
-    <key name="target-value" type="i">
+    <key name="target-value" type="i"> <!-- TODO type="y", only storing the power of 2 -->
       <default>2048</default>
+      <range min="4"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value' -->
       <summary>Target value</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value' -->

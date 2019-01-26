@@ -81,7 +81,7 @@ public class Game : Object
 
         _animations_duration = (int)_settings.get_double ("animations-speed");
 
-        _settings.bind ("target-value", _grid, "target_value", GLib.SettingsBindFlags.DEFAULT);
+        _settings.bind ("target-value", _grid, "target-value", GLib.SettingsBindFlags.DEFAULT);
 
         _to_move = new Gee.LinkedList<TileMovement?> ();
         _to_hide = new Gee.LinkedList<TileMovement?> ();
