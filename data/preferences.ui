@@ -25,7 +25,6 @@
     <property name="page-increment">10</property>
   </object>
   <object class="GtkDialog" id="preferencesdialog">
-    <property name="can-focus">False</property>
     <property name="border-width">12</property>
     <!-- Translators: title of the dialog that appears when the users clicks the "Preferences" entry in the hamburger menu -->
     <property name="title" translatable="yes">Preferences</property>
@@ -36,37 +35,15 @@
     <property name="modal">True</property>
     <child internal-child="vbox">
       <object class="GtkBox">
-        <property name="can-focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox">
-            <property name="can-focus">False</property>
-            <property name="layout-style">end</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="pack-type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkGrid">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
             <property name="row-spacing">12</property>
-            <property name="column-spacing">6</property>
+            <property name="column-spacing">12</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="xalign">1</property>
                 <!-- Translators: in the preferences dialog; label introducing an option, to change the animations speed -->
                 <property name="label" translatable="yes">Animations speed</property>
               </object>
@@ -78,7 +55,6 @@
             <child>
               <object class="GtkScale">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
                 <property name="adjustment">animationsspeed</property>
                 <property name="inverted">True</property>
                 <property name="round-digits">1</property>
@@ -92,7 +68,6 @@
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
                 <property name="xalign">1</property>
                 <!-- Translators: in the preferences dialog; label introducing an option, a switch to display or no congratulations when reaching 2048 -->
                 <property name="label" translatable="yes">Display congrats</property>
@@ -105,8 +80,6 @@
             <child>
               <object class="GtkSwitch" id="congratswitch">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="active">True</property>
               </object>
               <packing>
                 <property name="left-attach">1</property>
@@ -114,9 +87,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label4">
+              <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
                 <property name="xalign">1</property>
                 <!-- Translators: in the preferences dialog; label introducing an option, a switch to allow or not undoing a move -->
                 <property name="label" translatable="yes">Allow undo</property>
@@ -129,7 +101,6 @@
             <child>
               <object class="GtkSwitch" id="undoswitch">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
               </object>
               <packing>
                 <property name="left-attach">1</property>
@@ -137,26 +108,8 @@
               </packing>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkAdjustment">
-    <property name="lower">1</property>
-    <property name="upper">8</property>
-    <property name="step-increment">1</property>
-    <property name="page-increment">1</property>
-  </object>
-  <object class="GtkAdjustment">
-    <property name="lower">1</property>
-    <property name="upper">8</property>
-    <property name="value">4</property>
-    <property name="step-increment">1</property>
-    <property name="page-increment">1</property>
   </object>
 </interface>
