@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2019-01-25 16:09+0000\n"
-"PO-Revision-Date: 2019-01-26 11:05+0100\n"
+"POT-Creation-Date: 2019-01-26 11:46+0000\n"
+"PO-Revision-Date: 2019-01-26 20:37+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -171,34 +171,34 @@ msgid "Game grid number of columns."
 msgstr "Liczba kolumn na siatce."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.2048.gschema.xml:41
+#: data/org.gnome.2048.gschema.xml:42
 msgid "Target value"
 msgstr "Cel"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.2048.gschema.xml:43
+#: data/org.gnome.2048.gschema.xml:44
 msgid "Tile value at which user is congratulated."
 msgstr "Wynik, za który składane są użytkownikowi gratulacje."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.2048.gschema.xml:48
+#: data/org.gnome.2048.gschema.xml:49
 msgid "Congrat on target tile"
 msgstr "Gratulacje za osiągnięcie wyznaczonego celu"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.2048.gschema.xml:50
+#: data/org.gnome.2048.gschema.xml:51
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr ""
 "Czy użytkownikowi należy pogratulować za osiągnięcie wyznaczonego celu."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
 #. Translators: in the preferences dialog; label introducing an option, to change the animations speed
-#: data/org.gnome.2048.gschema.xml:55 data/preferences.ui:71
+#: data/org.gnome.2048.gschema.xml:58 data/preferences.ui:42
 msgid "Animations speed"
 msgstr "Prędkość animacji"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.2048.gschema.xml:57
+#: data/org.gnome.2048.gschema.xml:60
 msgid "Duration of animations: show tile, move tile, and dim tile."
 msgstr ""
 "Czas trwania animacji: wyświetlenie płytki, przesunięcie płytki oraz "
@@ -206,22 +206,22 @@ msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
 #. Translators: in the preferences dialog; label introducing an option, a switch to allow or not undoing a move
-#: data/org.gnome.2048.gschema.xml:62 data/preferences.ui:122
+#: data/org.gnome.2048.gschema.xml:65 data/preferences.ui:85
 msgid "Allow undo"
 msgstr "Cofanie"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.2048.gschema.xml:64
+#: data/org.gnome.2048.gschema.xml:67
 msgid "Whether tile movements can be undone."
 msgstr "Czy przesunięcie płytki może być cofnięte."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.2048.gschema.xml:69
+#: data/org.gnome.2048.gschema.xml:73
 msgid "Number of undo movements"
 msgstr "Liczba cofnięć przesunięcia płytki"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.2048.gschema.xml:71
+#: data/org.gnome.2048.gschema.xml:75
 msgid "Maximum number of tile movements that can be undone."
 msgstr "Maksymalna liczba przesunięć płytki, która może być cofnięta."
 
@@ -286,7 +286,7 @@ msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
 #. Translators: about dialog text; the program name
-#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:342
+#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:343
 msgid "2048"
 msgstr "2048"
 
@@ -302,47 +302,62 @@ msgstr "łamigłówka;puzzle;puzle;"
 
 #. Translators: title of the dialog that appears when the users clicks the "Preferences" entry in the hamburger menu
 #. Translators: entry in the hamburger menu; opens a window for configuring application
-#: data/preferences.ui:31 src/application.vala:288
+#: data/preferences.ui:23 src/application.vala:289
 msgid "Preferences"
 msgstr "Preferencje"
 
 #. Translators: in the preferences dialog; label introducing an option, a switch to display or no congratulations when reaching 2048
-#: data/preferences.ui:98
+#: data/preferences.ui:64
 msgid "Display congrats"
 msgstr "Wyświetlanie gratulacji"
 
+#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
+#: data/preferences.ui:109
+msgid "_Slow"
+msgstr "_Wolna"
+
+#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
+#: data/preferences.ui:115
+msgid "_Normal"
+msgstr "_Zwykła"
+
+#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
+#: data/preferences.ui:121
+msgid "_Fast"
+msgstr "_Szybka"
+
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/application.vala:176
+#: src/application.vala:177
 msgid "Game Over"
 msgstr "Koniec gry"
 
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/application.vala:266
+#: src/application.vala:267
 msgid "Undo"
 msgstr "Cofnij"
 
 #. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/application.vala:277
+#: src/application.vala:278
 msgid "Scores"
 msgstr "Wyniki"
 
 #. Translators: usual menu entry of the hamburger menu
-#: src/application.vala:291
+#: src/application.vala:292
 msgid "Keyboard Shortcuts"
 msgstr "Skróty klawiszowe"
 
 #. Translators: entry in the hamburger menu
-#: src/application.vala:294
+#: src/application.vala:295
 msgid "About 2048"
 msgstr "O grze"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/application.vala:346
+#: src/application.vala:347
 msgid "A clone of 2048 for GNOME"
 msgstr "Kopia gry „2048” dla środowiska GNOME"
 
 #. Translators: about dialog text; the main copyright holders
-#: src/application.vala:350
+#: src/application.vala:351
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016-2019 – Arnaud Bonatti"
@@ -351,7 +366,7 @@ msgstr ""
 "Copyright © 2016-2019 Arnaud Bonatti"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/application.vala:354
+#: src/application.vala:355
 msgid "translator-credits"
 msgstr ""
 "Joanna Lisek <jlisek@gmail.com>, 2015\n"
@@ -359,27 +374,47 @@ msgstr ""
 "Aviary.pl <community-poland@mozilla.org>, 2015-2019"
 
 #. Translators: about dialog text; label of the website link
-#: src/application.vala:358
+#: src/application.vala:359
 msgid "Page on GNOME wiki"
 msgstr "Strona na wiki projektu GNOME"
 
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:439
+msgid "Normal"
+msgstr "Zwykła"
+
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:443
+msgid "Fast"
+msgstr "Szybka"
+
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:447
+msgid "Slow"
+msgstr "Wolna"
+
+#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
+#: src/application.vala:451
+msgid "Custom"
+msgstr "Inna"
+
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/application.vala:469
+#: src/application.vala:507
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Uzyskano pierwszą płytkę z liczbą %u."
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
-#: src/application.vala:487
+#: src/application.vala:525
 msgid "Grid 4 × 4"
 msgstr "Siatka 4×4"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
-#: src/application.vala:490
+#: src/application.vala:528
 msgid "Grid 5 × 5"
 msgstr "Siatka 5×5"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
-#: src/application.vala:493
+#: src/application.vala:531
 msgid "Grid Size:"
 msgstr "Rozmiar siatki:"
