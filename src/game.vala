@@ -95,7 +95,7 @@ public class Game : Object
         _undo_stack = new Gee.LinkedList<Grid> ();
         _undo_score_stack = new Gee.LinkedList<uint> ();
         _allow_undo = _settings.get_boolean ("allow-undo");
-        _undo_stack_max_size = _settings.get_int ("allow-undo-max");
+        _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
 
         _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
 
@@ -223,7 +223,7 @@ public class Game : Object
             undo_disabled ();
         }
         _allow_undo = allow_undo;
-        _undo_stack_max_size = _settings.get_int ("allow-undo-max");
+        _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
 
         rows = _settings.get_int ("rows");
         cols = _settings.get_int ("cols");
@@ -764,7 +764,7 @@ public class Game : Object
         if (!_allow_undo)
             return;
 
-        if (_undo_stack.size == _undo_stack_max_size)
+        if (_undo_stack.size >= _undo_stack_max_size)
             _undo_stack.poll_tail ();
         _undo_stack.offer_head (_grid.clone ());
         if (_undo_stack.size == 1)
@@ -776,7 +776,7 @@ public class Game : Object
         if (!_allow_undo)
             return;
 
-        if (_undo_score_stack.size == _undo_stack_max_size)
+        if (_undo_score_stack.size >= _undo_stack_max_size)
             _undo_score_stack.poll_tail ();
         _undo_score_stack.offer_head (delta_score);
     }

@@ -65,8 +65,9 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo' -->
       <description>Whether tile movements can be undone.</description>
     </key>
-    <key name="allow-undo-max" type="i">
+    <key name="allow-undo-max" type="u">
       <default>10</default>
+      <range min="1"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max' -->
       <summary>Number of undo movements</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max' -->
