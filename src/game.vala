@@ -392,9 +392,7 @@ public class Game : Object
     {
         debug ("move down");
 
-        bool has_moved;
-
-        _store_movement ();
+        Grid clone = _grid.clone ();
 
         _move_trans = new Clutter.TransitionGroup ();
         _move_trans.stopped.connect (_on_move_trans_stopped);
@@ -408,12 +406,11 @@ public class Game : Object
         foreach (var e in _to_hide)
             _prepare_move_tile (e.from, e.to);
 
-        has_moved = (_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0);
-
-        if (has_moved)
+        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
             _state = GameState.MOVING_DOWN;
             _move_trans.start ();
+            _store_movement (clone);
         }
     }
 
@@ -421,9 +418,7 @@ public class Game : Object
     {
         debug ("move up");
 
-        bool has_moved;
-
-        _store_movement ();
+        Grid clone = _grid.clone ();
 
         _move_trans = new Clutter.TransitionGroup ();
         _move_trans.stopped.connect (_on_move_trans_stopped);
@@ -437,12 +432,11 @@ public class Game : Object
         foreach (var e in _to_hide)
             _prepare_move_tile (e.from, e.to);
 
-        has_moved = (_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0);
-
-        if (has_moved)
+        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
             _state = GameState.MOVING_UP;
             _move_trans.start ();
+            _store_movement (clone);
         }
     }
 
@@ -450,9 +444,7 @@ public class Game : Object
     {
         debug ("move left");
 
-        bool has_moved;
-
-        _store_movement ();
+        Grid clone = _grid.clone ();
 
         _move_trans = new Clutter.TransitionGroup ();
         _move_trans.stopped.connect (_on_move_trans_stopped);
@@ -466,12 +458,11 @@ public class Game : Object
         foreach (var e in _to_hide)
             _prepare_move_tile (e.from, e.to);
 
-        has_moved = (_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0);
-
-        if (has_moved)
+        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
             _state = GameState.MOVING_LEFT;
             _move_trans.start ();
+            _store_movement (clone);
         }
     }
 
@@ -479,9 +470,7 @@ public class Game : Object
     {
         debug ("move right");
 
-        bool has_moved;
-
-        _store_movement ();
+        Grid clone = _grid.clone ();
 
         _move_trans = new Clutter.TransitionGroup ();
         _move_trans.stopped.connect (_on_move_trans_stopped);
@@ -495,12 +484,11 @@ public class Game : Object
         foreach (var e in _to_hide)
             _prepare_move_tile (e.from, e.to);
 
-        has_moved = (_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0);
-
-        if (has_moved)
+        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
             _state = GameState.MOVING_LEFT;
             _move_trans.start ();
+            _store_movement (clone);
         }
     }
 
@@ -651,8 +639,6 @@ public class Game : Object
         debug (@"move animation stopped; finished $is_finished");
         debug (@"$_grid");
 
-        uint delta_score;
-
         _move_trans.remove_all ();
 
         _create_show_hide_transition (true);
@@ -662,7 +648,7 @@ public class Game : Object
             _dim_tile (e.from);
         }
 
-        delta_score = 0;
+        uint delta_score = 0;
         foreach (var e in _to_show)
         {
             _create_tile (e);
@@ -759,14 +745,14 @@ public class Game : Object
         return false;
     }
 
-    private void _store_movement ()
+    private void _store_movement (Grid clone)
     {
         if (!_allow_undo)
             return;
 
         if (_undo_stack.size >= _undo_stack_max_size)
             _undo_stack.poll_tail ();
-        _undo_stack.offer_head (_grid.clone ());
+        _undo_stack.offer_head (clone);
         if (_undo_stack.size == 1)
             undo_enabled ();
     }
