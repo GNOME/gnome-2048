@@ -1,6 +1,6 @@
 resources = gnome.compile_resources(
   'resources',
-  'gnome-2048.gresource.xml',
+  'org.gnome.TwentyFortyEight.gresource.xml',
   source_dir: '..',
   c_name: 'resources',
 )

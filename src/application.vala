@@ -118,10 +118,6 @@ public class Application : Gtk.Application
 
         _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
 
-/*        CssProvider provider = new CssProvider ();
-        provider.load_from_resource ("/org/gnome/gnome-2048/data/style.css");
-        StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, STYLE_PROVIDER_PRIORITY_APPLICATION); */
-
         _init_game ();
 
         _create_window ();
@@ -194,7 +190,7 @@ public class Application : Gtk.Application
 
     private void _create_window ()
     {
-        Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/mainwindow.ui");
+        Builder builder = new Builder.from_resource ("/org/gnome/TwentyFortyEight/ui/mainwindow.ui");
 
         _window = (ApplicationWindow) builder.get_object ("applicationwindow");
         _window.set_default_size (_settings.get_int ("window-width"), _settings.get_int ("window-height"));
@@ -453,7 +449,7 @@ public class Application : Gtk.Application
     private bool _should_create_preferences_dialog = true;
     private inline void _create_preferences_dialog ()
     {
-        Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/preferences.ui");
+        Builder builder = new Builder.from_resource ("/org/gnome/TwentyFortyEight/ui/preferences.ui");
 
         _preferences_dialog = (Dialog) builder.get_object ("preferencesdialog");
         _preferences_dialog.set_application (this); // else we cannot use "app." actions in the dialog
@@ -527,7 +523,7 @@ public class Application : Gtk.Application
     private bool _should_create_congrats_dialog = true;
     private inline void _create_congrats_dialog ()
     {
-        Builder builder = new Builder.from_resource ("/org/gnome/gnome-2048/data/congrats.ui");
+        Builder builder = new Builder.from_resource ("/org/gnome/TwentyFortyEight/ui/congrats.ui");
 
         _congrats_dialog = (MessageDialog) builder.get_object ("congratsdialog");
         _congrats_dialog.set_transient_for (_window);
