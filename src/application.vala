@@ -379,6 +379,9 @@ public class Application : Gtk.Application
     {
         GLib.Menu menu = new GLib.Menu ();
 
+        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3 */
+        _append_new_game_item (_("3 × 3"), /* rows */ 3, /* cols */ 3, ref menu);
+
         /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4 */
         _append_new_game_item (_("4 × 4"), /* rows */ 4, /* cols */ 4, ref menu);
 
@@ -392,7 +395,7 @@ public class Application : Gtk.Application
             warning (_("Grids of size 1 by 2 are disallowed."));
 
         if (((rows != cols) && !disallowed_grid)
-         || ((rows == cols) && rows != 4 && rows != 5))
+         || ((rows == cols) && rows != 4 && rows != 3 && rows != 5))
             /* Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually */
             _append_new_game_item (_("Custom"), /* rows */ rows, /* cols */ cols, ref menu);
 
@@ -562,17 +565,21 @@ public class Application : Gtk.Application
 
     private Scores.Context _scores_ctx;
     private Scores.Category _grid4_cat;
+    private Scores.Category _grid3_cat;
     private Scores.Category _grid5_cat;
 
     private inline void _create_scores_dialog ()
     {
-        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
+        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size */
+        _grid3_cat = new Scores.Category ("grid3", _("Grid 3 × 3"));
+
+        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size */
         _grid4_cat = new Scores.Category ("grid4", _("Grid 4 × 4"));
 
-        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
+        /* Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size */
         _grid5_cat = new Scores.Category ("grid5", _("Grid 5 × 5"));
 
-        /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game */
+        /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5) */
         _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size:"), _window, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
     }
     private inline Games.Scores.Category category_request (string key)
@@ -580,6 +587,7 @@ public class Application : Gtk.Application
         switch (key)
         {
             case "grid4": return _grid4_cat;
+            case "grid3": return _grid3_cat;
             case "grid5": return _grid5_cat;
             default: assert_not_reached ();
         }
@@ -596,10 +604,14 @@ public class Application : Gtk.Application
         int cols = _settings.get_int ("cols");
         if (rows != cols)
             return;                 // FIXME add categories for non-square grids
-        if (rows != 4 && rows != 5)
-            return;                 // FIXME add categories for non-usual square grids
-
-        Scores.Category cat = (rows == 4) ? _grid4_cat : _grid5_cat;
+        Scores.Category cat;
+        switch (rows)
+        {
+            case 4: cat = _grid4_cat; break;
+            case 3: cat = _grid3_cat; break;
+            case 5: cat = _grid5_cat; break;
+            default: return; // FIXME add categories for non-usual square grids
+        }
         _scores_ctx.add_score.begin (_game.score, cat, null, (object, result) => {
                 try {
                     _scores_ctx.add_score.end (result);
