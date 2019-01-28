@@ -9,12 +9,12 @@ icon_sizes = [
 ]
 foreach size : icon_sizes
   install_data(
-    join_paths('icons', 'hicolor', size, 'gnome-2048.png'),
+    join_paths('icons', 'hicolor', size, 'org.gnome.TwentyFortyEight.png'),
     install_dir: join_paths(icondir, size, 'apps'),
   )
 endforeach
 install_data(
-  join_paths('icons', 'hicolor', 'symbolic', 'gnome-2048-symbolic.svg'),
+  join_paths('icons', 'hicolor', 'symbolic', 'org.gnome.TwentyFortyEight-symbolic.svg'),
   install_dir: join_paths(icondir, 'symbolic', 'apps'),
 )
 

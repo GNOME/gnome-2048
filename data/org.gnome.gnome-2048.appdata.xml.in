@@ -45,7 +45,6 @@
   <developer_name>The GNOME Project</developer_name>
 
   <kudos>
-    <kudo>AppMenu</kudo>
     <kudo>HiDpiIcon</kudo>
     <kudo>HighContrast</kudo>
     <kudo>ModernToolkit</kudo>
