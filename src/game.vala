@@ -182,7 +182,7 @@ public class Game : Object
         }
 
         lines = contents.split ("\n");
-        score = (uint)int.parse (lines[lines.length-2]);
+        score = (uint) int.parse (lines [lines.length - 2]);
 
         if (_background != null)
             _clear_background ();

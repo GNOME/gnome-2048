@@ -481,14 +481,14 @@ public class Grid : Object
     {
         int rows = 0;
         int cols = 0;
-        string[] lines;
-        string[] tokens;
-        uint[,] grid;
+        string [] lines;
+        string [] tokens;
+        uint [,] grid;
 
         lines = contents.split ("\n");
 
-        // check that at least it contains 2 rows
-        if (lines.length < 3)
+        // check that at least it contains 3 rows: size, content, score
+        if (lines.length < 4)
             return false;
 
         tokens = lines[0].split (" ");
@@ -498,23 +498,25 @@ public class Grid : Object
         rows = int.parse (tokens[0]);
         cols = int.parse (tokens[1]);
 
-        if ((rows < 2) || (cols < 2))
+        if ((rows < 1) || (cols < 1))
+            return false;
+        if (Application.is_disallowed_grid_size (ref rows, ref cols))
             return false;
         // we don't need to be strict here
-        if (lines.length < (rows+1))
+        if (lines.length < rows + 1)
             return false;
 
-        grid = new uint[rows, cols];
+        grid = new uint [rows, cols];
 
         for (int i = 0; i < rows; i++)
         {
-            tokens = lines[i+1].split (" ");
+            tokens = lines [i + 1].split (" ");
             // we do need to be strict here
             if (tokens.length != cols)
                 return false;
 
             for (int j = 0; j < cols; j++)
-                grid[i,j] = int.parse (tokens[j]);
+                grid [i, j] = int.parse (tokens [j]);
         }
 
         _rows = rows;

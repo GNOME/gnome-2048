@@ -391,7 +391,7 @@ public class Application : Gtk.Application
 
         int rows = _settings.get_int ("rows");
         int cols = _settings.get_int ("cols");
-        bool disallowed_grid = (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
+        bool disallowed_grid = is_disallowed_grid_size (ref rows, ref cols);
         if (disallowed_grid)
             warning (_("Grids of size 1 by 2 are disallowed."));
 
@@ -407,6 +407,11 @@ public class Application : Gtk.Application
     {
         Variant variant = new Variant ("(ii)", rows, cols);
         menu.append (label, "app.new-game-sized(" + variant.print (/* annotate types */ true) + ")");
+    }
+
+    public static bool is_disallowed_grid_size (ref int rows, ref int cols)
+    {
+        return (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
     }
 
     /*\
