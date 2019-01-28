@@ -48,21 +48,21 @@ public class Application : Gtk.Application
     /* actions */
     private const GLib.ActionEntry[] action_entries =
     {
-        { "undo",               undo_cb                 },
+        { "undo",               undo_cb                     },
 
-        { "new-game",           new_game_cb             },
-        { "toggle-new-game",    toggle_new_game_cb      },
-        { "new-game-sized",     new_game_sized_cb, "s"  },  // no way to make it take an int8/int32
-        { "animations-speed",   _animations_speed, "s"  },  // idem, for a double
+        { "new-game",           new_game_cb                 },
+        { "toggle-new-game",    toggle_new_game_cb          },
+        { "new-game-sized",     new_game_sized_cb, "(ii)"   },
+        { "animations-speed",   _animations_speed, "s"      },  // no way to make it take a double
 
-        { "quit",               quit_cb                 },
+        { "quit",               quit_cb                     },
 
         // hamburger-menu
-        { "toggle-hamburger",   toggle_hamburger_menu   },
+        { "toggle-hamburger",   toggle_hamburger_menu       },
 
-        { "scores",             scores_cb               },
-        { "preferences",        preferences_cb          },
-        { "about",              about_cb                },
+        { "scores",             scores_cb                   },
+        { "preferences",        preferences_cb              },
+        { "about",              about_cb                    },
     };
 
     public static int main (string[] args)
@@ -161,9 +161,11 @@ public class Application : Gtk.Application
 
         _game.save_game ();
 
+        _settings.delay ();
         _settings.set_int ("window-width", _window_width);
         _settings.set_int ("window-height", _window_height);
         _settings.set_boolean ("window-maximized", _window_maximized);
+        _settings.apply ();
     }
 
     private void _init_game ()
@@ -224,6 +226,11 @@ public class Application : Gtk.Application
         ((SimpleAction) lookup_action ("undo")).set_enabled (false);
 
         _new_game_button = (MenuButton) builder.get_object ("new-game-button");
+        _settings.changed.connect ((settings, key_name) => {
+                if (key_name == "cols" || key_name == "rows")
+                    _update_new_game_menu ();
+            });
+        _update_new_game_menu ();
 
         _hamburger_button = (MenuButton) builder.get_object ("hamburger-button");
         _hamburger_button.notify ["active"].connect (() => {
@@ -327,9 +334,12 @@ public class Application : Gtk.Application
     private void new_game_sized_cb (SimpleAction action, Variant? variant)
         requires (variant != null)
     {
-        int size = int.parse (((!) variant).get_string ());
-        _settings.set_int ("rows", size);
-        _settings.set_int ("cols", size);
+        int rows, cols;
+        ((!) variant).@get ("(ii)", out rows, out cols);
+        _settings.delay ();
+        _settings.set_int ("rows", rows);
+        _settings.set_int ("cols", cols);
+        _settings.apply ();
 
         _game.reload_settings ();
         new_game_cb ();
@@ -366,7 +376,41 @@ public class Application : Gtk.Application
     }
 
     /*\
-    * * Window management callbacks
+    * * new-game menu
+    \*/
+
+    private void _update_new_game_menu ()
+    {
+        GLib.Menu menu = new GLib.Menu ();
+
+        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4 */
+        _append_new_game_item (_("4 × 4"), /* rows */ 4, /* cols */ 4, ref menu);
+
+        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5 */
+        _append_new_game_item (_("5 × 5"), /* rows */ 5, /* cols */ 5, ref menu);
+
+        int rows = _settings.get_int ("rows");
+        int cols = _settings.get_int ("cols");
+        bool disallowed_grid = (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
+        if (disallowed_grid)
+            warning (_("Grids of size 1 by 2 are disallowed."));
+
+        if (((rows != cols) && !disallowed_grid)
+         || ((rows == cols) && rows != 4 && rows != 5))
+            /* Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually */
+            _append_new_game_item (_("Custom"), /* rows */ rows, /* cols */ cols, ref menu);
+
+        menu.freeze ();
+        _new_game_button.set_menu_model ((MenuModel) menu);
+    }
+    private static void _append_new_game_item (string label, int rows, int cols, ref GLib.Menu menu)
+    {
+        Variant variant = new Variant ("(ii)", rows, cols);
+        menu.append (label, "app.new-game-sized(" + variant.print (/* annotate types */ true) + ")");
+    }
+
+    /*\
+    * * window management callbacks
     \*/
 
     private bool key_press_event_cb (Widget widget, Gdk.EventKey event)
@@ -547,7 +591,14 @@ public class Application : Gtk.Application
 
     private inline void _show_best_scores ()
     {
-        Scores.Category cat = (_settings.get_int ("rows") == 4) ? _grid4_cat : _grid5_cat;
+        int rows = _settings.get_int ("rows");
+        int cols = _settings.get_int ("cols");
+        if (rows != cols)
+            return;                 // FIXME add categories for non-square grids
+        if (rows != 4 && rows != 5)
+            return;                 // FIXME add categories for non-usual square grids
+
+        Scores.Category cat = (rows == 4) ? _grid4_cat : _grid5_cat;
         _scores_ctx.add_score.begin (_game.score, cat, null, (object, result) => {
                 try {
                     _scores_ctx.add_score.end (result);
