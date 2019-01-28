@@ -486,7 +486,7 @@ public class Game : Object
 
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
-            _state = GameState.MOVING_LEFT;
+            _state = GameState.MOVING_RIGHT;
             _move_trans.start ();
             _store_movement (clone);
         }

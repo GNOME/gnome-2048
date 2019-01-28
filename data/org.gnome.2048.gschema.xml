@@ -23,6 +23,7 @@
     </key>
     <key name="rows" type="i">
       <default>4</default>
+      <range min="1" max="9"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows' -->
       <summary>Number of rows</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows' -->
@@ -30,6 +31,7 @@
     </key>
     <key name="cols" type="i">
       <default>4</default>
+      <range min="1" max="9"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols' -->
       <summary>Number of columns</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols' -->
