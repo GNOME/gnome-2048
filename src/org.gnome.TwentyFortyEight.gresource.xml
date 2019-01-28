@@ -6,7 +6,7 @@
     <file preprocess="xml-stripblanks" alias="congrats.ui">data/congrats.ui</file>
     <!-- file>data/style.css</file -->
   </gresource>
-  <gresource prefix="/org/gnome/gnome-2048/gtk">
+  <gresource prefix="/org/gnome/TwentyFortyEight/gtk">
     <file preprocess="xml-stripblanks" alias="help-overlay.ui">data/help-overlay.ui</file>
   </gresource>
 </gresources>

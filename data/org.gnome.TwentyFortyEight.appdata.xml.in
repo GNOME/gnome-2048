@@ -2,7 +2,7 @@
 <!-- Copyright 2015 Juan R. García Blanco <juanrgar@gmail.com>
      Copyright 2016 Arnaud Bonatti <arnaud.bonatti@gmail.com> -->
 <component type="desktop">
-  <id>org.gnome.gnome-2048.desktop</id>
+  <id>org.gnome.TwentyFortyEight.desktop</id>
   <metadata_license>CC-BY-SA-3.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>GNOME 2048</name>

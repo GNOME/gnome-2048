@@ -25,8 +25,8 @@ install_data(
 
 desktop_file = i18n.merge_file(
   'desktop-file',
-  input: 'org.gnome.gnome-2048.desktop.in',
-  output: 'org.gnome.gnome-2048.desktop',
+  input: 'org.gnome.TwentyFortyEight.desktop.in',
+  output: 'org.gnome.TwentyFortyEight.desktop',
   install: true,
   install_dir: join_paths(datadir, 'applications'),
   po_dir: podir,
@@ -42,8 +42,8 @@ endif
 
 appdata_file = i18n.merge_file(
   'appdata-file',
-  input: 'org.gnome.gnome-2048.appdata.xml.in',
-  output: 'org.gnome.gnome-2048.appdata.xml',
+  input: 'org.gnome.TwentyFortyEight.appdata.xml.in',
+  output: 'org.gnome.TwentyFortyEight.appdata.xml',
   install: true,
   install_dir: join_paths(datadir, 'metainfo'),
   po_dir: podir,

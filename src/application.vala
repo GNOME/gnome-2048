@@ -84,7 +84,7 @@ public class Application : Gtk.Application
             return Posix.EXIT_FAILURE;
         }
 
-        Environment.set_application_name ("org.gnome.gnome-2048");
+        Environment.set_application_name ("org.gnome.TwentyFortyEight");
         Window.set_default_icon_name ("org.gnome.TwentyFortyEight");
 
         try {
@@ -107,7 +107,7 @@ public class Application : Gtk.Application
 
     public Application ()
     {
-        Object (application_id: "org.gnome.gnome-2048", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.FLAGS_NONE);
     }
 
     protected override void startup ()
