@@ -116,7 +116,7 @@ public class Application : Gtk.Application
 
         add_action_entries (action_entries, this);
 
-        _settings = new GLib.Settings ("org.gnome.2048");
+        _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
 
 /*        CssProvider provider = new CssProvider ();
         provider.load_from_resource ("/org/gnome/gnome-2048/data/style.css");

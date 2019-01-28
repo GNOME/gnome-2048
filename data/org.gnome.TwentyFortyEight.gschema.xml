@@ -1,5 +1,5 @@
 <schemalist gettext-domain="gnome-2048">
-  <schema id="org.gnome.2048" path="/org/gnome/2048/">
+  <schema id="org.gnome.TwentyFortyEight" path="/org/gnome/2048/">
     <key name="window-width" type="i">
       <default>600</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width' -->

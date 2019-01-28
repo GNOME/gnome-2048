@@ -19,7 +19,7 @@ install_data(
 )
 
 install_data(
-  'org.gnome.2048.gschema.xml',
+  'org.gnome.TwentyFortyEight.gschema.xml',
   install_dir: schemadir,
 )
 
