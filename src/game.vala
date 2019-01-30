@@ -200,12 +200,13 @@ public class Game : Object
 
         uint keyval = _upper_key (event.keyval);
 
-        if (keyval == Gdk.Key.Down)       _move_down ();
-        else if (keyval == Gdk.Key.Up)    _move_up ();
-        else if (keyval == Gdk.Key.Left)  _move_left ();
-        else if (keyval == Gdk.Key.Right) _move_right ();
-
-        return false;
+        if      (keyval == Gdk.Key.Down)  move_down ();
+        else if (keyval == Gdk.Key.Up)    move_up ();
+        else if (keyval == Gdk.Key.Left)  move_left ();
+        else if (keyval == Gdk.Key.Right) move_right ();
+        else
+            return false;
+        return true;
     }
 
     public void reload_settings ()
@@ -388,7 +389,7 @@ public class Game : Object
         _foreground_nxt[pos.row,pos.col] = view;
     }
 
-    private void _move_down ()
+    internal void move_down ()
     {
         debug ("move down");
 
@@ -414,7 +415,7 @@ public class Game : Object
         }
     }
 
-    private void _move_up ()
+    internal void move_up ()
     {
         debug ("move up");
 
@@ -440,7 +441,7 @@ public class Game : Object
         }
     }
 
-    private void _move_left ()
+    internal void move_left ()
     {
         debug ("move left");
 
@@ -466,7 +467,7 @@ public class Game : Object
         }
     }
 
-    private void _move_right ()
+    internal void move_right ()
     {
         debug ("move right");
 

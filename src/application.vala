@@ -38,8 +38,7 @@ public class Application : Gtk.Application
     private Label _score;
     private MenuButton _new_game_button;
     private MenuButton _hamburger_button;
-
-    private GtkClutter.Embed embed;
+    private GtkClutter.Embed _embed;
 
     private bool _game_restored;
 
@@ -138,8 +137,9 @@ public class Application : Gtk.Application
         set_accels_for_action ("app.toggle-hamburger",  {                 "F10",
                                                                           "Menu"    });
 
-        _window.notify ["has-toplevel-focus"].connect (() => embed.grab_focus ());
+        _window.notify ["has-toplevel-focus"].connect (() => _embed.grab_focus ());
         _window.show_all ();
+        _init_gesture ();
 
         _game_restored = _game.restore_game ();
         if (!_game_restored)
@@ -231,7 +231,7 @@ public class Application : Gtk.Application
         _hamburger_button = (MenuButton) builder.get_object ("hamburger-button");
         _hamburger_button.notify ["active"].connect (() => {
                 if (!_hamburger_button.active)
-                    embed.grab_focus ();
+                    _embed.grab_focus ();
             });
         _settings.changed ["allow-undo"].connect (_update_hamburger_menu);
         _update_hamburger_menu ();
@@ -239,10 +239,10 @@ public class Application : Gtk.Application
 
     private void _create_game_view (Builder builder)
     {
-        embed = new GtkClutter.Embed ();
-        AspectFrame frame = (AspectFrame) builder.get_object ("aspectframe");
-        frame.add (embed);
-        _game.view = embed.get_stage ();
+        _embed = new GtkClutter.Embed ();
+        AspectFrame _frame = (AspectFrame) builder.get_object ("aspectframe");
+        _frame.add (_embed);
+        _game.view = _embed.get_stage ();
     }
 
     /*\
@@ -319,7 +319,7 @@ public class Application : Gtk.Application
 
         _game.new_game ();
 
-        embed.grab_focus ();
+        _embed.grab_focus ();
     }
 
     private void toggle_new_game_cb (/* SimpleAction action, Variant? variant */)
@@ -421,7 +421,7 @@ public class Application : Gtk.Application
     {
         _game_restored = false;
 
-        if (_hamburger_button.active || (_window.focus_visible && !embed.is_focus))
+        if (_hamburger_button.active || (_window.focus_visible && !_embed.is_focus))
             return false;
 
         return _game.key_pressed (event);
@@ -621,5 +621,44 @@ public class Application : Gtk.Application
                 _scores_ctx.run_dialog ();
                 debug ("score added");
             });
+    }
+
+    /*\
+    * * gesture
+    \*/
+
+    private GestureSwipe gesture;
+    private inline void _init_gesture ()
+    {
+        gesture = new GestureSwipe (_embed); // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
+        gesture.set_propagation_phase (PropagationPhase.CAPTURE);
+        gesture.set_button (/* all events */ 0);
+        gesture.swipe.connect (_on_swipe);
+    }
+
+    private inline void _on_swipe (GestureSwipe gesture, double velocity_x, double velocity_y)
+    {
+        double abs_x = velocity_x.abs ();
+        double abs_y = velocity_y.abs ();
+        if (abs_x * abs_x + abs_y * abs_y < 400.0)
+            return;
+        bool left_or_right = abs_y * 4.0 < abs_x;
+        bool up_or_down = abs_x * 4.0 < abs_y;
+        if (left_or_right)
+        {
+            if (velocity_x < -10.0)
+                _game.move_left ();
+            else if (velocity_x > 10.0)
+                _game.move_right ();
+        }
+        else if (up_or_down)
+        {
+            if (velocity_y < -10.0)
+                _game.move_up ();
+            else if (velocity_y > 10.0)
+                _game.move_down ();
+        }
+        else
+            return;
     }
 }
