@@ -1,0 +1,112 @@
+name: gnome-2048
+version: git
+summary: Obtain the 2048 tile
+description: |
+  Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular
+  single-player puzzle game. Gameplay consists of joining numbers in a grid
+  and obtain the 2048 tile.
+
+  Use your keyboard's arrow keys to slide all tiles in the desired direction.
+  Be careful: all tiles slide to their farthest possible positions, you cannot
+  slide just one tile or one row or column. Tiles with the same value are
+  joined when slided one over the other.
+
+   With every new tile obtained you increase your score. If you think you can easily
+   get the 2048 tile, do not let it stop you, the game does not end there, you can
+   continue joining tiles and improving your score.
+
+   Originally created by Gabriele Cirulli, 2048 has gained much popularity
+   due to it being highly addictive. Cirulli's 2048 is in turn a clone of
+   the 1024 game and includes ideas from other clones.
+
+grade: stable
+confinement: strict
+base: core18
+
+# Launchpad doesn't recognize these fields yet
+passthrough:
+  license: GPL-3.0+
+  title: GNOME 2048
+
+plugs:
+  gnome-3-28-1804:
+    interface: content
+    target: $SNAP/gnome-platform
+    default-provider: gnome-3-28-1804
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes
+
+slots:
+  # for GtkApplication registration
+  gnome-2048:
+    interface: dbus
+    bus: session
+    name: org.gnome.TwentyFortyEight
+
+apps:
+  gnome-2048:
+    command: desktop-launch snapcraft-preload gnome-2048
+    plugs:
+      - desktop
+      - desktop-legacy
+      - gsettings
+      - opengl
+      - unity7
+      - wayland
+    desktop: usr/share/applications/org.gnome.TwentyFortyEight.desktop
+    environment:
+      GSETTINGS_SCHEMA_DIR: $SNAP/share/glib-2.0/schemas
+
+parts:
+# needed for clutter to work
+  snapcraft-preload:
+    source: https://github.com/sergiusens/snapcraft-preload.git
+    plugin: cmake
+    build-packages:
+      - gcc-multilib
+      - g++-multilib
+
+  desktop-gnome-platform:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: gtk
+    plugin: make
+    make-parameters: ["FLAVOR=gtk3"]
+    build-packages:
+      - build-essential
+      - libgtk-3-dev
+    override-build: |
+      snapcraftctl build
+      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
+
+  gnome-2048:
+    after: [desktop-gnome-platform]
+    source: https://gitlab.gnome.org/GNOME/gnome-2048.git
+    source-type: git
+    plugin: meson
+    meson-parameters: [--prefix=/snap/gnome-2048/current/usr]
+    override-build: |
+      sed -i.bak -e 's|Icon=org.gnome.TwentyFortyEight$|Icon=${SNAP}/meta/gui/org.gnome.TwentyFortyEight.png|g' data/org.gnome.TwentyFortyEight.desktop.in
+      sed -i.bak -e "s|'gnome-2048',|'gnome-2048', symlink_media: false,|g" help/meson.build
+      snapcraftctl build
+      mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
+      cp ../src/data/icons/hicolor/256x256/org.gnome.TwentyFortyEight.png $SNAPCRAFT_PART_INSTALL/meta/gui/
+      cp ../install/snap/gnome-2048/current/usr/share/applications/org.gnome.TwentyFortyEight.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
+    organize:
+      snap/gnome-2048/current/usr: usr
+    build-packages:
+      - gettext
+      - itstool
+      - libclutter-gtk-1.0-dev
+      - libgee-0.8-dev
+      - libgnome-games-support-1-dev
+      - libgtk-3-dev
+      - valac
+    stage-packages:
+      - libclutter-gtk-1.0-0
+      - libgnome-games-support-1-3
