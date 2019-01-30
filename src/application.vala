@@ -419,6 +419,11 @@ public class Application : Gtk.Application
     * * window management callbacks
     \*/
 
+    private const uint16 KEYCODE_W = 25;
+    private const uint16 KEYCODE_A = 38;
+    private const uint16 KEYCODE_S = 39;
+    private const uint16 KEYCODE_D = 40;
+
     private bool key_press_event_cb (Widget widget, Gdk.EventKey event)
     {
         if (_hamburger_button.active || (_window.focus_visible && !_embed.is_focus))
@@ -426,14 +431,21 @@ public class Application : Gtk.Application
         if (_game.cannot_move ())
             return false;
 
+        switch (event.hardware_keycode)
+        {
+            case KEYCODE_W:     _request_move (MoveRequest.UP);     return true;    // or KEYCODE_UP    = 111;
+            case KEYCODE_A:     _request_move (MoveRequest.LEFT);   return true;    // or KEYCODE_LEFT  = 113;
+            case KEYCODE_S:     _request_move (MoveRequest.DOWN);   return true;    // or KEYCODE_DOWN  = 116;
+            case KEYCODE_D:     _request_move (MoveRequest.RIGHT);  return true;    // or KEYCODE_RIGHT = 114;
+        }
         switch (_upper_key (event.keyval))
         {
-            case Gdk.Key.Down:  _request_move (MoveRequest.DOWN);   return true;
             case Gdk.Key.Up:    _request_move (MoveRequest.UP);     return true;
             case Gdk.Key.Left:  _request_move (MoveRequest.LEFT);   return true;
+            case Gdk.Key.Down:  _request_move (MoveRequest.DOWN);   return true;
             case Gdk.Key.Right: _request_move (MoveRequest.RIGHT);  return true;
-            default: return false;
         }
+        return false;
     }
     private static inline uint _upper_key (uint keyval)
     {
