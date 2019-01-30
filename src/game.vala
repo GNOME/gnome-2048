@@ -112,9 +112,7 @@ public class Game : Object
         }
     }
 
-    public uint score {
-        get; set;
-    }
+    internal uint score { internal get; private set; default = 0; }
 
     public void new_game ()
     {
@@ -193,20 +191,9 @@ public class Game : Object
         return true;
     }
 
-    public bool key_pressed (Gdk.EventKey event)
+    internal bool cannot_move ()
     {
-        if (_state != GameState.IDLE)
-            return true;
-
-        uint keyval = _upper_key (event.keyval);
-
-        if      (keyval == Gdk.Key.Down)  move_down ();
-        else if (keyval == Gdk.Key.Up)    move_up ();
-        else if (keyval == Gdk.Key.Left)  move_left ();
-        else if (keyval == Gdk.Key.Right) move_right ();
-        else
-            return false;
-        return true;
+        return _state != GameState.IDLE;
     }
 
     public void reload_settings ()
@@ -242,11 +229,6 @@ public class Game : Object
         }
 
      // return false;
-    }
-
-    private uint _upper_key (uint keyval)
-    {
-        return (keyval > 255) ? keyval : ((char) keyval).toupper ();
     }
 
     private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
@@ -369,24 +351,15 @@ public class Game : Object
 
     private void _create_tile (Tile tile)
     {
-        GridPosition pos;
-        RoundedRectangle rect;
-        TileView view;
-        float x;
-        float y;
-        float width;
-        float height;
+        GridPosition pos = tile.pos;
+        assert (_foreground_nxt [pos.row, pos.col] == null);
 
-        pos = tile.pos;
-        rect = _background[pos.row,pos.col];
-        x = rect.actor.x;
-        y = rect.actor.y;
-        width = rect.actor.width;
-        height = rect.actor.height;
-
-        assert (_foreground_nxt[pos.row,pos.col] == null);
-        view = new TileView (x, y, width, height, tile.val);
-        _foreground_nxt[pos.row,pos.col] = view;
+        Clutter.Actor actor = _background [pos.row, pos.col].actor;
+        _foreground_nxt [pos.row, pos.col] = new TileView (actor.x,
+                                                           actor.y,
+                                                           actor.width,
+                                                           actor.height,
+                                                           tile.val);
     }
 
     internal void move_down ()

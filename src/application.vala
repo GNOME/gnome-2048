@@ -41,6 +41,7 @@ public class Application : Gtk.Application
     private GtkClutter.Embed _embed;
 
     private bool _game_restored;
+    private bool _game_should_init = true;
 
     private Game _game;
 
@@ -144,6 +145,7 @@ public class Application : Gtk.Application
         _game_restored = _game.restore_game ();
         if (!_game_restored)
             new_game_cb ();
+        _game_should_init = false;
     }
 
     protected override void activate ()
@@ -419,12 +421,23 @@ public class Application : Gtk.Application
 
     private bool key_press_event_cb (Widget widget, Gdk.EventKey event)
     {
-        _game_restored = false;
-
         if (_hamburger_button.active || (_window.focus_visible && !_embed.is_focus))
             return false;
+        if (_game.cannot_move ())
+            return false;
 
-        return _game.key_pressed (event);
+        switch (_upper_key (event.keyval))
+        {
+            case Gdk.Key.Down:  _request_move (MoveRequest.DOWN);   return true;
+            case Gdk.Key.Up:    _request_move (MoveRequest.UP);     return true;
+            case Gdk.Key.Left:  _request_move (MoveRequest.LEFT);   return true;
+            case Gdk.Key.Right: _request_move (MoveRequest.RIGHT);  return true;
+            default: return false;
+        }
+    }
+    private static inline uint _upper_key (uint keyval)
+    {
+        return (keyval > 255) ? keyval : ((char) keyval).toupper ();
     }
 
     private void window_size_allocate_cb ()
@@ -647,18 +660,44 @@ public class Application : Gtk.Application
         if (left_or_right)
         {
             if (velocity_x < -10.0)
-                _game.move_left ();
+                _request_move (MoveRequest.LEFT);
             else if (velocity_x > 10.0)
-                _game.move_right ();
+                _request_move (MoveRequest.RIGHT);
         }
         else if (up_or_down)
         {
             if (velocity_y < -10.0)
-                _game.move_up ();
+                _request_move (MoveRequest.UP);
             else if (velocity_y > 10.0)
-                _game.move_down ();
+                _request_move (MoveRequest.DOWN);
         }
         else
             return;
+    }
+
+    /*\
+    * * move requests
+    \*/
+
+    private enum MoveRequest {
+        UP,
+        RIGHT,
+        DOWN,
+        LEFT;
+    }
+
+    private void _request_move (MoveRequest request)
+    {
+        if (_game_should_init)
+            return;
+
+        _game_restored = false;
+        switch (request)
+        {
+            case MoveRequest.UP     : _game.move_up ();     break;
+            case MoveRequest.RIGHT  : _game.move_right ();  break;
+            case MoveRequest.DOWN   : _game.move_down ();   break;
+            case MoveRequest.LEFT   : _game.move_left ();   break;
+        }
     }
 }
