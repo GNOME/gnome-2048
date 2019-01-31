@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2015 Juan R. García Blanco <juanrgar@gmail.com>
      Copyright 2016 Arnaud Bonatti <arnaud.bonatti@gmail.com> -->
-<component type="desktop">
-  <id>org.gnome.TwentyFortyEight.desktop</id>
+<component type="desktop-application">
+  <id>org.gnome.TwentyFortyEight</id>
   <metadata_license>CC-BY-SA-3.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>GNOME 2048</name>
@@ -36,9 +36,14 @@
       <caption>A running game having reached the 2048 tile</caption>
     </screenshot>
   </screenshots>
+  <provides>
+    <id>org.gnome.gnome-2048.desktop</id>
+  </provides>
+  <launchable type="desktop-id">org.gnome.TwentyFortyEight</launchable>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-2048/issues</url>
   <url type="donation">http://www.gnome.org/friends/</url>
+  <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
   <!-- this is a translatable version of project_group-->
@@ -50,7 +55,6 @@
     <kudo>ModernToolkit</kudo>
   </kudos>
   <translation type="gettext">gnome-2048</translation>
-  <url type="translate">https://wiki.gnome.org/TranslationProject</url>
 
   <content_rating type="oars-1.0">
     <content_attribute id="violence-cartoon">none</content_attribute>
