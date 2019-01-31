@@ -22,10 +22,7 @@ private class Game : Object
     enum GameState {
         STOPPED,
         IDLE,
-        MOVING_DOWN,
-        MOVING_UP,
-        MOVING_RIGHT,
-        MOVING_LEFT,
+        MOVING,
         SHOWING_FIRST_TILE,
         SHOWING_SECOND_TILE,
         RESTORING_TILES
@@ -368,9 +365,9 @@ private class Game : Object
                                                            tile.val);
     }
 
-    internal void move_down ()
+    internal void move (MoveRequest request)
     {
-        debug ("move down");
+        debug (MoveRequest.debug_string (request));
 
         Grid clone = _grid.clone ();
 
@@ -378,7 +375,7 @@ private class Game : Object
         _move_trans.stopped.connect (_on_move_trans_stopped);
         _move_trans.set_duration (_animations_duration);
 
-        _grid.move_down (_to_move, _to_hide, _to_show);
+        _grid.move (request, _to_move, _to_hide, _to_show);
 
         foreach (TileMovement? e in _to_move)
         {
@@ -395,106 +392,7 @@ private class Game : Object
 
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
-            _state = GameState.MOVING_DOWN;
-            _move_trans.start ();
-            _store_movement (clone);
-        }
-    }
-
-    internal void move_up ()
-    {
-        debug ("move up");
-
-        Grid clone = _grid.clone ();
-
-        _move_trans = new Clutter.TransitionGroup ();
-        _move_trans.stopped.connect (_on_move_trans_stopped);
-        _move_trans.set_duration (_animations_duration);
-
-        _grid.move_up (_to_move, _to_hide, _to_show);
-
-        foreach (TileMovement? e in _to_move)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _move_tile (((!) e).from, ((!) e).to);
-        }
-        foreach (TileMovement? e in _to_hide)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _prepare_move_tile (((!) e).from, ((!) e).to);
-        }
-
-        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
-        {
-            _state = GameState.MOVING_UP;
-            _move_trans.start ();
-            _store_movement (clone);
-        }
-    }
-
-    internal void move_left ()
-    {
-        debug ("move left");
-
-        Grid clone = _grid.clone ();
-
-        _move_trans = new Clutter.TransitionGroup ();
-        _move_trans.stopped.connect (_on_move_trans_stopped);
-        _move_trans.set_duration (_animations_duration);
-
-        _grid.move_left (_to_move, _to_hide, _to_show);
-
-        foreach (TileMovement? e in _to_move)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _move_tile (((!) e).from, ((!) e).to);
-        }
-        foreach (TileMovement? e in _to_hide)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _prepare_move_tile (((!) e).from, ((!) e).to);
-        }
-
-        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
-        {
-            _state = GameState.MOVING_LEFT;
-            _move_trans.start ();
-            _store_movement (clone);
-        }
-    }
-
-    internal void move_right ()
-    {
-        debug ("move right");
-
-        Grid clone = _grid.clone ();
-
-        _move_trans = new Clutter.TransitionGroup ();
-        _move_trans.stopped.connect (_on_move_trans_stopped);
-        _move_trans.set_duration (_animations_duration);
-
-        _grid.move_right (_to_move, _to_hide, _to_show);
-
-        foreach (TileMovement? e in _to_move)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _move_tile (((!) e).from, ((!) e).to);
-        }
-        foreach (TileMovement? e in _to_hide)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _prepare_move_tile (((!) e).from, ((!) e).to);
-        }
-
-        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
-        {
-            _state = GameState.MOVING_RIGHT;
+            _state = GameState.MOVING;
             _move_trans.start ();
             _store_movement (clone);
         }
@@ -614,9 +512,6 @@ private class Game : Object
 
     private void _restore_foreground (bool animate)
     {
-        uint val;
-        GridPosition pos;
-        Tile tile;
         int rows = _grid.rows;
         int cols = _grid.cols;
 
@@ -626,11 +521,11 @@ private class Game : Object
         {
             for (int j = 0; j < cols; j++)
             {
-                val = _grid [i, j];
+                uint val = _grid [i, j];
                 if (val != 0)
                 {
-                    pos = { i, j };
-                    tile = { pos, val };
+                    GridPosition pos = { i, j };
+                    Tile tile = { pos, val };
                     _create_tile (tile);
                     _to_show.add (tile);
                     _show_tile (pos);

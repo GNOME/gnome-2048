@@ -80,9 +80,23 @@ private class Grid : Object
         }
     }
 
-    internal void move_down (Gee.LinkedList<TileMovement?> to_move,
-                             Gee.LinkedList<TileMovement?> to_hide,
-                             Gee.LinkedList<Tile?> to_show)
+    internal inline void move (MoveRequest request,
+                               Gee.LinkedList<TileMovement?> to_move,
+                               Gee.LinkedList<TileMovement?> to_hide,
+                               Gee.LinkedList<Tile?> to_show)
+    {
+        switch (request)
+        {
+            case MoveRequest.DOWN:  move_down  (to_move, to_hide, to_show); return;
+            case MoveRequest.UP:    move_up    (to_move, to_hide, to_show); return;
+            case MoveRequest.LEFT:  move_left  (to_move, to_hide, to_show); return;
+            case MoveRequest.RIGHT: move_right (to_move, to_hide, to_show); return;
+        }
+    }
+
+    private void move_down (Gee.LinkedList<TileMovement?> to_move,
+                            Gee.LinkedList<TileMovement?> to_hide,
+                            Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
@@ -161,9 +175,9 @@ private class Grid : Object
         }
     }
 
-    internal void move_up (Gee.LinkedList<TileMovement?> to_move,
-                           Gee.LinkedList<TileMovement?> to_hide,
-                           Gee.LinkedList<Tile?> to_show)
+    private void move_up (Gee.LinkedList<TileMovement?> to_move,
+                          Gee.LinkedList<TileMovement?> to_hide,
+                          Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
@@ -242,9 +256,9 @@ private class Grid : Object
         }
     }
 
-    internal void move_left (Gee.LinkedList<TileMovement?> to_move,
-                             Gee.LinkedList<TileMovement?> to_hide,
-                             Gee.LinkedList<Tile?> to_show)
+    private void move_left (Gee.LinkedList<TileMovement?> to_move,
+                            Gee.LinkedList<TileMovement?> to_hide,
+                            Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
@@ -323,9 +337,9 @@ private class Grid : Object
         }
     }
 
-    internal void move_right (Gee.LinkedList<TileMovement?> to_move,
-                              Gee.LinkedList<TileMovement?> to_hide,
-                              Gee.LinkedList<Tile?> to_show)
+    private void move_right (Gee.LinkedList<TileMovement?> to_move,
+                             Gee.LinkedList<TileMovement?> to_hide,
+                             Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();

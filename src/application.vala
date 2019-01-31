@@ -706,25 +706,31 @@ private class Application : Gtk.Application
     * * move requests
     \*/
 
-    private enum MoveRequest {
-        UP,
-        RIGHT,
-        DOWN,
-        LEFT;
-    }
-
     private void _request_move (MoveRequest request)
     {
         if (_game_should_init)
             return;
 
         _game_restored = false;
+        _game.move (request);
+    }
+}
+
+private enum MoveRequest {
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT;
+
+    internal static string debug_string (MoveRequest request)
+    {
         switch (request)
         {
-            case MoveRequest.UP     : _game.move_up ();     break;
-            case MoveRequest.RIGHT  : _game.move_right ();  break;
-            case MoveRequest.DOWN   : _game.move_down ();   break;
-            case MoveRequest.LEFT   : _game.move_left ();   break;
+            case UP:    return "move up";
+            case RIGHT: return "move right";
+            case DOWN:  return "move down";
+            case LEFT:  return "move left";
+            default:    assert_not_reached ();
         }
     }
 }
