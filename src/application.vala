@@ -675,6 +675,9 @@ private class Application : Gtk.Application
 
     private inline void _on_swipe (GestureSwipe gesture, double velocity_x, double velocity_y)
     {
+        if (_game.cannot_move ())
+            return;
+
         double abs_x = velocity_x.abs ();
         double abs_y = velocity_y.abs ();
         if (abs_x * abs_x + abs_y * abs_y < 400.0)
