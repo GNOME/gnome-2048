@@ -40,13 +40,14 @@ public class Game : Object
     private Clutter.Actor _view;
     private Clutter.Actor _view_background;
     private Clutter.Actor _view_foreground;
-    private RoundedRectangle[,] _background;
-    private TileView[,] _foreground_cur;
-    private TileView[,] _foreground_nxt;
+    private RoundedRectangle [,] _background;
+    private bool _background_init_done = false;
+    private TileView? [,] _foreground_cur;
+    private TileView? [,] _foreground_nxt;
 
-    private Gee.LinkedList<TileMovement?> _to_move;
-    private Gee.LinkedList<TileMovement?> _to_hide;
-    private Gee.LinkedList<Tile?> _to_show;
+    private Gee.LinkedList<TileMovement?> _to_move = new Gee.LinkedList<TileMovement?> ();
+    private Gee.LinkedList<TileMovement?> _to_hide = new Gee.LinkedList<TileMovement?> ();
+    private Gee.LinkedList<Tile?>         _to_show = new Gee.LinkedList<Tile?> ();
 
     private GameState _state;
     private Clutter.TransitionGroup _show_hide_trans;
@@ -55,8 +56,8 @@ public class Game : Object
 
     private bool _allow_undo;
     private uint _undo_stack_max_size;
-    private Gee.LinkedList<Grid> _undo_stack;
-    private Gee.LinkedList<uint> _undo_score_stack;
+    private Gee.LinkedList<Grid> _undo_stack       = new Gee.LinkedList<Grid> ();
+    private Gee.LinkedList<uint> _undo_score_stack = new Gee.LinkedList<uint> ();
 
     private GLib.Settings _settings;
 
@@ -83,17 +84,11 @@ public class Game : Object
 
         _settings.bind ("target-value", _grid, "target-value", GLib.SettingsBindFlags.DEFAULT);
 
-        _to_move = new Gee.LinkedList<TileMovement?> ();
-        _to_hide = new Gee.LinkedList<TileMovement?> ();
-        _to_show = new Gee.LinkedList<Tile?> ();
-
         _view_background = new Clutter.Actor ();
         _view_foreground = new Clutter.Actor ();
         _view_background.show ();
         _view_foreground.show ();
 
-        _undo_stack = new Gee.LinkedList<Grid> ();
-        _undo_score_stack = new Gee.LinkedList<uint> ();
         _allow_undo = _settings.get_boolean ("allow-undo");
         _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
 
@@ -121,11 +116,12 @@ public class Game : Object
         _grid.clear ();
         _undo_stack.clear ();
         _undo_score_stack.clear ();
-        // new_game could be called without an existing game
-        if (_background == null)
-            _init_background ();
-        else
+
+        if (_background_init_done)
             _clear_foreground ();
+        else // new_game could be called without an existing game
+            _init_background ();
+
         score = 0;
         _state = GameState.SHOWING_FIRST_TILE;
         _create_random_tile ();
@@ -165,7 +161,7 @@ public class Game : Object
     public bool restore_game ()
     {
         string contents;
-        string[] lines;
+        string [] lines;
 
         try {
             FileUtils.get_contents (_saved_path, out contents);
@@ -182,7 +178,7 @@ public class Game : Object
         lines = contents.split ("\n");
         score = (uint) int.parse (lines [lines.length - 2]);
 
-        if (_background != null)
+        if (_background_init_done)
             _clear_background ();
         _init_background ();
         _restore_foreground (true);
@@ -233,10 +229,10 @@ public class Game : Object
 
     private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
     {
-        if (_background == null)
-            _init_background ();
-        else
+        if (_background_init_done)
             _resize_view ();
+        else
+            _init_background ();
     }
 
     private void _init_background ()
@@ -246,9 +242,9 @@ public class Game : Object
         Clutter.Color background_color = Clutter.Color.from_string ("#babdb6");
         _view.set_background_color (background_color);
 
-        _background = new RoundedRectangle[rows, cols];
-        _foreground_cur = new TileView[rows, cols];
-        _foreground_nxt = new TileView[rows, cols];
+        _background     = new RoundedRectangle [rows, cols];
+        _foreground_cur = new TileView? [rows, cols];
+        _foreground_nxt = new TileView? [rows, cols];
 
         float canvas_width = _view.width;
         float canvas_height = _view.height;
@@ -274,11 +270,12 @@ public class Game : Object
                 rect.canvas.invalidate ();
                 rect.actor.show ();
 
-                _background[i,j] = rect;
-                _foreground_cur[i,j] = null;
-                _foreground_nxt[i,j] = null;
+                _background     [i, j] = rect;
+                _foreground_cur [i, j] = null;
+                _foreground_nxt [i, j] = null;
             }
         }
+        _background_init_done = true;
     }
 
     private void _resize_view ()
@@ -298,16 +295,16 @@ public class Game : Object
         {
             for (int j = 0; j < cols; j++)
             {
-                float x = j * tile_width + (j+1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i+1) * BLANK_ROW_HEIGHT;
+                float x = j * tile_width + (j + 1) * BLANK_COL_WIDTH;
+                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
 
-                _background[i,j].resize (x, y, tile_width, tile_height);
+                _background [i, j].resize (x, y, tile_width, tile_height);
 
-                if (_foreground_cur[i,j] != null)
-                    _foreground_cur[i,j].resize (x, y, tile_width, tile_height);
+                if (_foreground_cur [i, j] != null)
+                    ((!) _foreground_cur [i, j]).resize (x, y, tile_width, tile_height);
 
-                if (_foreground_nxt[i,j] != null)
-                    _foreground_nxt[i,j].resize (x, y, tile_width, tile_height);
+                if (_foreground_nxt [i, j] != null)
+                    ((!) _foreground_nxt [i, j]).resize (x, y, tile_width, tile_height);
             }
         }
 
@@ -323,10 +320,10 @@ public class Game : Object
         {
             for (int j = 0; j < cols; j++)
             {
-                _background[i,j].idle_resize ();
+                _background [i, j].idle_resize ();
 
-                if (_foreground_cur[i,j] != null)
-                    _foreground_cur[i,j].idle_resize ();
+                if (_foreground_cur [i, j] != null)
+                    ((!) _foreground_cur [i, j]).idle_resize ();
             }
         }
 
@@ -374,11 +371,18 @@ public class Game : Object
 
         _grid.move_down (_to_move, _to_hide, _to_show);
 
-        foreach (var e in _to_move)
-            _move_tile (e.from, e.to);
-
-        foreach (var e in _to_hide)
-            _prepare_move_tile (e.from, e.to);
+        foreach (TileMovement? e in _to_move)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _move_tile (((!) e).from, ((!) e).to);
+        }
+        foreach (TileMovement? e in _to_hide)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _prepare_move_tile (((!) e).from, ((!) e).to);
+        }
 
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
@@ -400,11 +404,18 @@ public class Game : Object
 
         _grid.move_up (_to_move, _to_hide, _to_show);
 
-        foreach (var e in _to_move)
-            _move_tile (e.from, e.to);
-
-        foreach (var e in _to_hide)
-            _prepare_move_tile (e.from, e.to);
+        foreach (TileMovement? e in _to_move)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _move_tile (((!) e).from, ((!) e).to);
+        }
+        foreach (TileMovement? e in _to_hide)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _prepare_move_tile (((!) e).from, ((!) e).to);
+        }
 
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
@@ -426,11 +437,18 @@ public class Game : Object
 
         _grid.move_left (_to_move, _to_hide, _to_show);
 
-        foreach (var e in _to_move)
-            _move_tile (e.from, e.to);
-
-        foreach (var e in _to_hide)
-            _prepare_move_tile (e.from, e.to);
+        foreach (TileMovement? e in _to_move)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _move_tile (((!) e).from, ((!) e).to);
+        }
+        foreach (TileMovement? e in _to_hide)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _prepare_move_tile (((!) e).from, ((!) e).to);
+        }
 
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
@@ -452,11 +470,18 @@ public class Game : Object
 
         _grid.move_right (_to_move, _to_hide, _to_show);
 
-        foreach (var e in _to_move)
-            _move_tile (e.from, e.to);
-
-        foreach (var e in _to_hide)
-            _prepare_move_tile (e.from, e.to);
+        foreach (TileMovement? e in _to_move)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _move_tile (((!) e).from, ((!) e).to);
+        }
+        foreach (TileMovement? e in _to_hide)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _prepare_move_tile (((!) e).from, ((!) e).to);
+        }
 
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
@@ -471,26 +496,29 @@ public class Game : Object
         debug (@"show tile pos $pos");
 
         Clutter.PropertyTransition trans;
-        TileView view;
 
-        view = _foreground_nxt[pos.row,pos.col];
-        view.canvas.invalidate ();
-        view.actor.set_opacity (0);
-        view.actor.show ();
-        _view_foreground.add_child (view.actor);
+        TileView? tile_view = _foreground_nxt [pos.row, pos.col];
+        if (tile_view == null)
+            assert_not_reached ();
+        Clutter.Actor actor = ((!) tile_view).actor;
+
+        ((!) tile_view).canvas.invalidate ();
+        actor.set_opacity (0);
+        actor.show ();
+        _view_foreground.add_child (actor);
 
         trans = new Clutter.PropertyTransition ("scale-x");
         trans.set_from_value (1.0);
         trans.set_to_value (1.1);
         trans.set_duration (_animations_duration);
-        trans.set_animatable (view.actor);
+        trans.set_animatable (actor);
         _show_hide_trans.add_transition (trans);
 
         trans = new Clutter.PropertyTransition ("scale-y");
         trans.set_from_value (1.0);
         trans.set_to_value (1.1);
         trans.set_duration (_animations_duration);
-        trans.set_animatable (view.actor);
+        trans.set_animatable (actor);
         _show_hide_trans.add_transition (trans);
 
         trans = new Clutter.PropertyTransition ("opacity");
@@ -498,7 +526,7 @@ public class Game : Object
         trans.set_to_value (255);
         trans.set_remove_on_complete (true);
         trans.set_duration (_animations_duration / 2);
-        view.actor.add_transition ("show", trans);
+        actor.add_transition ("show", trans);
     }
 
     private void _move_tile (GridPosition from, GridPosition to)
@@ -507,42 +535,42 @@ public class Game : Object
 
         _prepare_move_tile (from, to);
 
-        _foreground_nxt[to.row,to.col] = _foreground_cur[from.row,from.col];
-        _foreground_cur[from.row,from.col] = null;
+        _foreground_nxt [  to.row,   to.col] = _foreground_cur [from.row, from.col];
+        _foreground_cur [from.row, from.col] = null;
     }
 
     private void _prepare_move_tile (GridPosition from, GridPosition to)
     {
         debug (@"prepare move tile from $from to $to");
 
-        bool row_move;
-        string trans_name;
-        Clutter.PropertyTransition trans;
-        RoundedRectangle rect_from;
-        RoundedRectangle rect_to;
+        bool row_move = (from.col == to.col);
 
-        row_move = (from.col == to.col);
-        trans_name = row_move ? "y" : "x";
+        RoundedRectangle rect_from = _background [from.row, from.col];
+        RoundedRectangle rect_to   = _background [  to.row,   to.col];
 
-        rect_from = _background[from.row,from.col];
-        rect_to = _background[to.row,to.col];
+        TileView? tile_view = _foreground_cur [from.row, from.col];
+        if (tile_view == null)
+            assert_not_reached ();
 
-        trans = new Clutter.PropertyTransition (trans_name);
+        Clutter.PropertyTransition trans = new Clutter.PropertyTransition (row_move ? "y" : "x");
         trans.set_from_value (row_move ? rect_from.actor.y : rect_from.actor.x);
         trans.set_to_value (row_move ? rect_to.actor.y : rect_to.actor.x);
         trans.set_duration (_animations_duration);
-        trans.set_animatable (_foreground_cur[from.row,from.col].actor);
+        trans.set_animatable (((!) tile_view).actor);
         _move_trans.add_transition (trans);
     }
 
     private void _dim_tile (GridPosition pos)
     {
-        debug (@"diming tile at $pos " + _foreground_cur[pos.row,pos.col].value.to_string ());
+        TileView? tile_view = _foreground_cur [pos.row, pos.col];
+        if (tile_view == null)
+            assert_not_reached ();
+        debug (@"diming tile at $pos " + ((!) tile_view).@value.to_string ());
 
         Clutter.Actor actor;
         Clutter.PropertyTransition trans;
 
-        actor = _foreground_cur[pos.row,pos.col].actor;
+        actor = ((!) tile_view).actor;
 
         trans = new Clutter.PropertyTransition ("opacity");
         trans.set_from_value (actor.opacity);
@@ -567,10 +595,10 @@ public class Game : Object
         {
             for (int j = 0; j < cols; j++)
             {
-                if (_foreground_cur[i,j] != null)
-                    _foreground_cur[i,j] = null;
-                if (_foreground_nxt[i,j] != null)
-                    _foreground_nxt[i,j] = null;
+                if (_foreground_cur [i, j] != null)
+                    _foreground_cur [i, j] = null;
+                if (_foreground_nxt [i, j] != null)
+                    _foreground_nxt [i, j] = null;
             }
         }
     }
@@ -589,7 +617,7 @@ public class Game : Object
         {
             for (int j = 0; j < cols; j++)
             {
-                val = _grid[i,j];
+                val = _grid [i, j];
                 if (val != 0)
                 {
                     pos = { i, j };
@@ -617,17 +645,21 @@ public class Game : Object
 
         _create_show_hide_transition (true);
 
-        foreach (var e in _to_hide)
+        foreach (TileMovement? e in _to_hide)
         {
-            _dim_tile (e.from);
+            if (e == null)
+                assert_not_reached ();
+            _dim_tile (((!) e).from);
         }
 
         uint delta_score = 0;
-        foreach (var e in _to_show)
+        foreach (Tile? e in _to_show)
         {
-            _create_tile (e);
-            _show_tile (e.pos);
-            delta_score += e.val;
+            if (e == null)
+                assert_not_reached ();
+            _create_tile ((!) e);
+            _show_tile (((!) e).pos);
+            delta_score += ((!) e).val;
         }
         score += delta_score;
         _store_score_update (delta_score);
@@ -652,14 +684,19 @@ public class Game : Object
 
         _show_hide_trans.remove_all ();
 
-        foreach (var e in _to_hide)
+        foreach (TileMovement? e in _to_hide)
         {
-            TileView view = _foreground_cur[e.from.row,e.from.col];
-            view.actor.hide ();
-            debug (@"remove child " + _foreground_cur[e.from.row,e.from.col].value.to_string ());
-            _view_foreground.remove_child (view.actor);
+            if (e == null)
+                assert_not_reached ();
+            GridPosition pos = ((!) e).from;
+            TileView? tile_view = _foreground_cur [pos.row, pos.col];
+            if (tile_view == null)
+                assert_not_reached ();
+            ((!) tile_view).actor.hide ();
+            debug (@"remove child " + ((!) tile_view).@value.to_string ());
+            _view_foreground.remove_child (((!) tile_view).actor);
 
-            _foreground_cur[e.from.row,e.from.col] = null;
+            _foreground_cur [pos.row, pos.col] = null;
         }
 
         _finish_move_id = GLib.Timeout.add (100, _finish_move);
@@ -691,15 +728,21 @@ public class Game : Object
             debug ("state idle");
         }
 
-        foreach (var e in _to_move)
+        foreach (TileMovement? e in _to_move)
         {
-            _foreground_cur[e.to.row,e.to.col] = _foreground_nxt[e.to.row,e.to.col];
-            _foreground_nxt[e.to.row,e.to.col] = null;
+            if (e == null)
+                assert_not_reached ();
+            GridPosition to = ((!) e).to;
+            _foreground_cur [to.row, to.col] = _foreground_nxt [to.row, to.col];
+            _foreground_nxt [to.row, to.col] = null;
         }
-        foreach (var e in _to_show)
+        foreach (Tile? e in _to_show)
         {
-            _foreground_cur[e.pos.row,e.pos.col] = _foreground_nxt[e.pos.row,e.pos.col];
-            _foreground_nxt[e.pos.row,e.pos.col] = null;
+            if (e == null)
+                assert_not_reached ();
+            GridPosition pos = ((!) e).pos;
+            _foreground_cur [pos.row, pos.col] = _foreground_nxt [pos.row, pos.col];
+            _foreground_nxt [pos.row, pos.col] = null;
         }
 
         _to_hide.clear ();

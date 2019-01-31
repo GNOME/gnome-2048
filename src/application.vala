@@ -84,7 +84,8 @@ public class Application : Gtk.Application
             return Posix.EXIT_FAILURE;
         }
 
-        Environment.set_application_name ("org.gnome.TwentyFortyEight");
+        const string application_name = "org.gnome.TwentyFortyEight";
+        Environment.set_application_name (application_name);
         Window.set_default_icon_name ("org.gnome.TwentyFortyEight");
 
         try {
@@ -95,7 +96,7 @@ public class Application : Gtk.Application
                                                       MessageType.ERROR,
                                                       ButtonsType.NONE,
                                                       "Unable to initialize Clutter:\n%s", e.message);
-            dialog.set_title (Environment.get_application_name ());
+            dialog.set_title (application_name);
             dialog.run ();
             dialog.destroy ();
             return Posix.EXIT_FAILURE;
@@ -173,6 +174,7 @@ public class Application : Gtk.Application
                 _score.label = _game.score.to_string ();
             });
         _game.finished.connect ((s) => {
+                _header_bar.set_has_subtitle (true);
                 /* Translators: subtitle of the headerbar, when the user cannot move anymore */
                 _header_bar.subtitle = _("Game Over");
 
@@ -316,7 +318,8 @@ public class Application : Gtk.Application
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
-        _header_bar.subtitle = null;
+        _header_bar.set_subtitle (null);
+        _header_bar.set_has_subtitle (false);
         _game_restored = false;
 
         _game.new_game ();
@@ -491,8 +494,12 @@ public class Application : Gtk.Application
                 return _preferences_dialog.hide_on_delete ();
             });
 
-        _settings.bind ("do-congrat",       builder.get_object ("congratswitch"),   "active", GLib.SettingsBindFlags.DEFAULT);
-        _settings.bind ("allow-undo",       builder.get_object ("undoswitch"),      "active", GLib.SettingsBindFlags.DEFAULT);
+        Object? congratswitch = builder.get_object ("congratswitch");
+        Object? undoswitch    = builder.get_object ("undoswitch");
+        if (congratswitch == null || undoswitch == null)
+            assert_not_reached ();
+        _settings.bind ("do-congrat", (!) congratswitch,   "active", GLib.SettingsBindFlags.DEFAULT);
+        _settings.bind ("allow-undo", (!) undoswitch,      "active", GLib.SettingsBindFlags.DEFAULT);
 
         _animations_button = (MenuButton) builder.get_object ("animations-button");
         _settings.changed ["animations-speed"].connect (_set_animations_button_label);

@@ -31,5 +31,8 @@ gnome_2048 = executable(
     '-DDATA_DIRECTORY="@0@"'.format(pkgdatadir),
     '-DLOCALEDIR="@0@"'.format(localedir),
   ],
+  vala_args: [
+    '--enable-experimental-non-null'
+  ],
   install: true,
 )

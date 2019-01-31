@@ -47,7 +47,7 @@ public class RoundedRectangle : Object
     }
 
     public Clutter.Color color {
-        get { return _color; }
+        get { if (_color == null) assert_not_reached (); return (!) _color; }
         set {
             _color = value;
             _canvas.invalidate ();
@@ -91,7 +91,7 @@ public class RoundedRectangle : Object
 
         if (_color != null)
         {
-            Clutter.cairo_set_source_color (ctx, _color);
+            Clutter.cairo_set_source_color (ctx, (!) _color);
             ctx.fill ();
         }
 
@@ -145,15 +145,11 @@ public class TileView : RoundedRectangle
 
 public class ColorPalette : Object
 {
-    private Gee.HashMap<uint,Clutter.Color?> _palette;
+    private Gee.HashMap<uint,Clutter.Color?> _palette = new Gee.HashMap<uint,Clutter.Color?> ();
     private static ColorPalette? _singleton = null;
 
-    public ColorPalette ()
+    construct
     {
-        Object ();
-
-        _palette = new Gee.HashMap<uint,Clutter.Color?> ();
-
         _palette.set (2,    Clutter.Color.from_string ("#fce94f")); // Butter 1
         _palette.set (4,    Clutter.Color.from_string ("#8ae234")); // Chameleon 1
         _palette.set (8,    Clutter.Color.from_string ("#fcaf3e")); // Orange 1
@@ -172,21 +168,29 @@ public class ColorPalette : Object
         if (_singleton == null)
             ColorPalette._singleton = new ColorPalette ();
 
-        return _singleton;
+        return (!) _singleton;
     }
 
     public Clutter.Color pick_color (uint val)
     {
         if (_palette.has_key (val))
-            return _palette.get (val);
+        {
+            Clutter.Color? color = _palette.@get (val);
+            if (color == null)
+                assert_not_reached ();
+            return (!) color;
+        }
 
         uint norm_val = val / 2048;
-        Clutter.Color color = _palette.get (norm_val);
+        Clutter.Color? nullable_color = _palette.@get (norm_val);
+        if (nullable_color == null)
+            assert_not_reached ();
+        Clutter.Color color = (!) nullable_color;
 
         uint8 sbits = (uint8) (val % 7);
-        color.red <<= sbits;
+        color.red   <<= sbits;
         color.green <<= sbits;
-        color.blue <<= sbits;
+        color.blue  <<= sbits;
 
         return color;
     }
