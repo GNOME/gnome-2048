@@ -312,8 +312,13 @@ private class Application : Gtk.Application
 
     private void undo_cb (/* SimpleAction action, Variant? variant */)
     {
-        if (_settings.get_boolean ("allow-undo"))   // for the keyboard shortcut
-            _game.undo ();
+        if (!_settings.get_boolean ("allow-undo"))   // for the keyboard shortcut
+            return;
+
+        _header_bar.set_subtitle (null);
+        _header_bar.set_has_subtitle (false);
+
+        _game.undo ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
