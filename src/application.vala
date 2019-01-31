@@ -20,7 +20,7 @@
 using Games;
 using Gtk;
 
-public class Application : Gtk.Application
+private class Application : Gtk.Application
 {
     /* settings */
     private GLib.Settings _settings;
@@ -65,7 +65,7 @@ public class Application : Gtk.Application
         { "about",              about_cb                    },
     };
 
-    public static int main (string[] args)
+    private static int main (string [] args)
     {
         Intl.setlocale (LocaleCategory.ALL, "");
         Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
@@ -106,7 +106,7 @@ public class Application : Gtk.Application
         return app.run (args);
     }
 
-    public Application ()
+    private Application ()
     {
         Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.FLAGS_NONE);
     }
@@ -413,7 +413,7 @@ public class Application : Gtk.Application
         menu.append (label, "app.new-game-sized(" + variant.print (/* annotate types */ true) + ")");
     }
 
-    public static bool is_disallowed_grid_size (ref int rows, ref int cols)
+    internal static bool is_disallowed_grid_size (ref int rows, ref int cols)
     {
         return (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
     }

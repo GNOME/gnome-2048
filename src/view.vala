@@ -17,59 +17,47 @@
  * along with GNOME 2048; if not, see <http://www.gnu.org/licenses/>.
  */
 
-public class RoundedRectangle : Object
+private class RoundedRectangle : Object
 {
-    protected Clutter.Actor _actor;
-    protected Clutter.Canvas _canvas;
-    protected Clutter.Color? _color;
+    internal Clutter.Actor  actor   { internal get; private set; default = new Clutter.Actor (); }
+    internal Clutter.Canvas canvas  { internal get; private set; default = new Clutter.Canvas (); }
 
-    public RoundedRectangle (float x, float y, float width, float height, Clutter.Color? color)
-    {
-        Object ();
-
-        _color = color;
-
-        _canvas = new Clutter.Canvas ();
-        _canvas.set_size ((int)Math.ceilf (width), (int)Math.ceilf (height));
-
-        _actor = new Clutter.Actor ();
-        _actor.set_size (width, height);
-        _actor.set_content (_canvas);
-        _actor.x = x;
-        _actor.y = y;
-        _actor.set_pivot_point (0.5f, 0.5f);
-
-        _canvas.draw.connect (_draw);
-    }
-
-    public Clutter.Actor actor {
-        get { return _actor; }
-    }
-
+    private Clutter.Color _color;
     public Clutter.Color color {
-        get { if (_color == null) assert_not_reached (); return (!) _color; }
-        set {
+        get { return _color; }
+        construct {
             _color = value;
-            _canvas.invalidate ();
+            canvas.invalidate ();
         }
     }
 
-    public Clutter.Canvas canvas {
-        get { return _canvas; }
+    internal RoundedRectangle (float x, float y, float width, float height, Clutter.Color color)
+    {
+        Object (color: color);
+
+        canvas.set_size ((int)Math.ceilf (width), (int)Math.ceilf (height));
+
+        actor.set_size (width, height);
+        actor.set_content (canvas);
+        actor.x = x;
+        actor.y = y;
+        actor.set_pivot_point (0.5f, 0.5f);
+
+        canvas.draw.connect (_draw);
     }
 
-    public void resize (float x, float y, float width, float height)
+    internal void resize (float x, float y, float width, float height)
     {
-        _actor.x = x;
-        _actor.y = y;
-        _actor.width = width;
-        _actor.height = height;
+        actor.x = x;
+        actor.y = y;
+        actor.width = width;
+        actor.height = height;
     }
 
-    public void idle_resize ()
+    internal void idle_resize ()
     {
-        if (!_canvas.set_size ((int)Math.ceilf (_actor.width), (int)Math.ceilf (_actor.height)))
-            _canvas.invalidate ();
+        if (!canvas.set_size ((int)Math.ceilf (actor.width), (int)Math.ceilf (actor.height)))
+            canvas.invalidate ();
     }
 
     protected virtual bool _draw (Cairo.Context ctx, int width, int height)
@@ -89,28 +77,21 @@ public class RoundedRectangle : Object
         ctx.arc (radius, radius, radius, 180 * degrees, 270 * degrees);
         ctx.close_path ();
 
-        if (_color != null)
-        {
-            Clutter.cairo_set_source_color (ctx, (!) _color);
-            ctx.fill ();
-        }
+        Clutter.cairo_set_source_color (ctx, (!) _color);
+        ctx.fill ();
 
         return false;
     }
 }
 
-public class TileView : RoundedRectangle
+private class TileView : RoundedRectangle
 {
-    public TileView (float x, float y, float width, float height, uint val)
+    internal uint tile_value { internal get; private set; default = 2; }
+
+    internal TileView (float x, float y, float width, float height, uint val)
     {
-        base (x, y, width, height, null);
-
-        _value = val;
-        _color = _pick_color ();
-    }
-
-    public uint value {
-        get; set; default = 2;
+        base (x, y, width, height, _pick_color (val));
+        tile_value = val;
     }
 
     protected override bool _draw (Cairo.Context ctx, int width, int height)
@@ -127,7 +108,7 @@ public class TileView : RoundedRectangle
         font_desc = Pango.FontDescription.from_string ("Sans Bold %dpx".printf (height / 4));
         layout.set_font_description (font_desc);
 
-        layout.set_text (value.to_string (), -1);
+        layout.set_text (tile_value.to_string (), -1);
 
         layout.get_extents (null, out logical_rect);
         ctx.move_to ((width / 2) - (logical_rect.width / 2 / Pango.SCALE),
@@ -137,57 +118,46 @@ public class TileView : RoundedRectangle
         return false;
     }
 
-    private Clutter.Color _pick_color ()
-    {
-        return ColorPalette.get_instance ().pick_color (_value);
-    }
-}
+    /*\
+    * * color
+    \*/
 
-public class ColorPalette : Object
-{
-    private Gee.HashMap<uint,Clutter.Color?> _palette = new Gee.HashMap<uint,Clutter.Color?> ();
-    private static ColorPalette? _singleton = null;
-
-    construct
+    private static Clutter.Color _pick_color (uint tile_value)
     {
-        _palette.set (2,    Clutter.Color.from_string ("#fce94f")); // Butter 1
-        _palette.set (4,    Clutter.Color.from_string ("#8ae234")); // Chameleon 1
-        _palette.set (8,    Clutter.Color.from_string ("#fcaf3e")); // Orange 1
-        _palette.set (16,   Clutter.Color.from_string ("#729fcf")); // Sky blue 1
-        _palette.set (32,   Clutter.Color.from_string ("#ad7fa8")); // Plum 1
-        _palette.set (64,   Clutter.Color.from_string ("#c17d11")); // Chocolate 2
-        _palette.set (128,  Clutter.Color.from_string ("#ef2929")); // Scarlet red 1
-        _palette.set (256,  Clutter.Color.from_string ("#c4a000")); // Butter 3
-        _palette.set (512,  Clutter.Color.from_string ("#4e9a06")); // Chameleon 3
-        _palette.set (1024, Clutter.Color.from_string ("#ce5c00")); // Orange 3
-        _palette.set (2048, Clutter.Color.from_string ("#204a87")); // Sky blue 3
+        if (tile_value <= 2048)
+            return _pick_palette_color (tile_value);
+        else
+            return _calculate_color (tile_value);
     }
 
-    public static ColorPalette get_instance ()
+    private static Clutter.Color _pick_palette_color (uint tile_value)
     {
-        if (_singleton == null)
-            ColorPalette._singleton = new ColorPalette ();
-
-        return (!) _singleton;
-    }
-
-    public Clutter.Color pick_color (uint val)
-    {
-        if (_palette.has_key (val))
+        switch (tile_value)
         {
-            Clutter.Color? color = _palette.@get (val);
-            if (color == null)
-                assert_not_reached ();
-            return (!) color;
+            case 2:    return Clutter.Color.from_string ("#fce94f"); // Butter 1
+            case 4:    return Clutter.Color.from_string ("#8ae234"); // Chameleon 1
+            case 8:    return Clutter.Color.from_string ("#fcaf3e"); // Orange 1
+            case 16:   return Clutter.Color.from_string ("#729fcf"); // Sky blue 1
+            case 32:   return Clutter.Color.from_string ("#ad7fa8"); // Plum 1
+            case 64:   return Clutter.Color.from_string ("#c17d11"); // Chocolate 2
+            case 128:  return Clutter.Color.from_string ("#ef2929"); // Scarlet red 1
+            case 256:  return Clutter.Color.from_string ("#c4a000"); // Butter 3
+            case 512:  return Clutter.Color.from_string ("#4e9a06"); // Chameleon 3
+            case 1024: return Clutter.Color.from_string ("#ce5c00"); // Orange 3
+            case 2048: return Clutter.Color.from_string ("#204a87"); // Sky blue 3
+            default:   assert_not_reached ();
         }
+    }
 
-        uint norm_val = val / 2048;
-        Clutter.Color? nullable_color = _palette.@get (norm_val);
+    private static Clutter.Color _calculate_color (uint tile_value)
+    {
+        uint norm_val = tile_value / 2048;
+        Clutter.Color? nullable_color = _pick_palette_color (norm_val);
         if (nullable_color == null)
             assert_not_reached ();
         Clutter.Color color = (!) nullable_color;
 
-        uint8 sbits = (uint8) (val % 7);
+        uint8 sbits = (uint8) (tile_value % 7);
         color.red   <<= sbits;
         color.green <<= sbits;
         color.blue  <<= sbits;

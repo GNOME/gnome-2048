@@ -17,7 +17,7 @@
  * along with GNOME 2048; if not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Game : Object
+private class Game : Object
 {
     enum GameState {
         STOPPED,
@@ -37,9 +37,6 @@ public class Game : Object
     private Grid _grid;
 
     private uint _finish_move_id = 0;
-    private Clutter.Actor _view;
-    private Clutter.Actor _view_background;
-    private Clutter.Actor _view_foreground;
     private RoundedRectangle [,] _background;
     private bool _background_init_done = false;
     private TileView? [,] _foreground_cur;
@@ -65,12 +62,12 @@ public class Game : Object
 
     private uint _resize_view_id;
 
-    public signal void finished ();
-    public signal void target_value_reached (uint val);
-    public signal void undo_enabled ();
-    public signal void undo_disabled ();
+    internal signal void finished ();
+    internal signal void target_value_reached (uint val);
+    internal signal void undo_enabled ();
+    internal signal void undo_disabled ();
 
-    public Game (GLib.Settings settings)
+    internal Game (GLib.Settings settings)
     {
         Object ();
 
@@ -84,11 +81,6 @@ public class Game : Object
 
         _settings.bind ("target-value", _grid, "target-value", GLib.SettingsBindFlags.DEFAULT);
 
-        _view_background = new Clutter.Actor ();
-        _view_foreground = new Clutter.Actor ();
-        _view_background.show ();
-        _view_foreground.show ();
-
         _allow_undo = _settings.get_boolean ("allow-undo");
         _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
 
@@ -97,19 +89,44 @@ public class Game : Object
         _state = GameState.STOPPED;
     }
 
-    public Clutter.Actor view {
-        get { return _view; }
-        set {
+    /*\
+    * * view
+    \*/
+
+    private Clutter.Actor _view;
+    private Clutter.Actor _view_background;
+    private Clutter.Actor _view_foreground;
+
+    internal Clutter.Actor view {
+        internal get { return _view; }
+        internal set {
             _view = value;
             _view.allocation_changed.connect (_on_allocation_changed);
+
+            _view_background = new Clutter.Actor ();
+            _view_foreground = new Clutter.Actor ();
+            _view_background.show ();
+            _view_foreground.show ();
             _view.add_child (_view_background);
             _view.add_child (_view_foreground);
         }
     }
 
+    private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
+    {
+        if (_background_init_done)
+            _resize_view ();
+        else
+            _init_background ();
+    }
+
+    /*\
+    * * others
+    \*/
+
     internal uint score { internal get; private set; default = 0; }
 
-    public void new_game ()
+    internal void new_game ()
     {
         if (_finish_move_id > 0)
             Source.remove (_finish_move_id);
@@ -128,7 +145,7 @@ public class Game : Object
         undo_disabled ();
     }
 
-    public void undo ()
+    internal void undo ()
     {
         Grid grid = _undo_stack.poll_head ();
         uint delta_score = _undo_score_stack.poll_head ();
@@ -142,7 +159,7 @@ public class Game : Object
             undo_disabled ();
     }
 
-    public void save_game ()
+    internal void save_game ()
     {
         string contents = "";
 
@@ -158,7 +175,7 @@ public class Game : Object
         }
     }
 
-    public bool restore_game ()
+    internal bool restore_game ()
     {
         string contents;
         string [] lines;
@@ -192,7 +209,7 @@ public class Game : Object
         return _state != GameState.IDLE;
     }
 
-    public void reload_settings ()
+    internal void reload_settings ()
     {
         int rows, cols;
         bool allow_undo;
@@ -225,14 +242,6 @@ public class Game : Object
         }
 
      // return false;
-    }
-
-    private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
-    {
-        if (_background_init_done)
-            _resize_view ();
-        else
-            _init_background ();
     }
 
     private void _init_background ()
@@ -565,7 +574,7 @@ public class Game : Object
         TileView? tile_view = _foreground_cur [pos.row, pos.col];
         if (tile_view == null)
             assert_not_reached ();
-        debug (@"diming tile at $pos " + ((!) tile_view).@value.to_string ());
+        debug (@"diming tile at $pos " + ((!) tile_view).@tile_value.to_string ());
 
         Clutter.Actor actor;
         Clutter.PropertyTransition trans;
@@ -693,7 +702,7 @@ public class Game : Object
             if (tile_view == null)
                 assert_not_reached ();
             ((!) tile_view).actor.hide ();
-            debug (@"remove child " + ((!) tile_view).@value.to_string ());
+            debug (@"remove child " + ((!) tile_view).@tile_value.to_string ());
             _view_foreground.remove_child (((!) tile_view).actor);
 
             _foreground_cur [pos.row, pos.col] = null;

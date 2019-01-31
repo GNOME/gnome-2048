@@ -17,36 +17,28 @@
  * along with GNOME 2048; if not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Grid : Object
+private class Grid : Object
 {
-    private uint[,] _grid;
+    private uint [,] _grid;
 
-    public Grid (int rows, int cols)
+    construct
+    {
+        _grid = new uint [rows, cols];
+        clear ();
+    }
+
+    internal Grid (int rows, int cols)
     {
         Object (rows: rows, cols: cols);
-
-        _grid = new uint[rows, cols];
-        clear ();
-        _target_value = 0;
     }
 
-    public int rows {
-        get; set;
-    }
+    public int rows { internal get; protected construct; }
+    public int cols { internal get; protected construct; }
 
-    public int cols {
-        get; set;
-    }
+    internal uint target_value          { internal get; internal set; default = 0; }
+    internal bool target_value_reached  { internal get; internal set; default = false; }
 
-    public uint target_value {
-        get; set;
-    }
-
-    public bool target_value_reached {
-        get; set;
-    }
-
-    public Grid clone ()
+    internal Grid clone ()
     {
         Grid grid = new Grid (_rows, _cols);
         grid._grid = _grid;
@@ -56,14 +48,14 @@ public class Grid : Object
         return grid;
     }
 
-    public void clear ()
+    internal void clear ()
     {
-        for (uint i = 0; i < _grid.length[0]; i++)
-            for (uint j = 0; j < _grid.length[1]; j++)
-                _grid[i,j] = 0;
+        for (uint i = 0; i < _grid.length [0]; i++)
+            for (uint j = 0; j < _grid.length [1]; j++)
+                _grid [i, j] = 0;
     }
 
-    public bool new_tile (out Tile tile)
+    internal bool new_tile (out Tile tile)
     {
         GridPosition pos = { 0, 0 };
         uint val;
@@ -88,9 +80,9 @@ public class Grid : Object
         }
     }
 
-    public void move_down (Gee.LinkedList<TileMovement?> to_move,
-                           Gee.LinkedList<TileMovement?> to_hide,
-                           Gee.LinkedList<Tile?> to_show)
+    internal void move_down (Gee.LinkedList<TileMovement?> to_move,
+                             Gee.LinkedList<TileMovement?> to_hide,
+                             Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
@@ -169,9 +161,9 @@ public class Grid : Object
         }
     }
 
-    public void move_up (Gee.LinkedList<TileMovement?> to_move,
-                         Gee.LinkedList<TileMovement?> to_hide,
-                         Gee.LinkedList<Tile?> to_show)
+    internal void move_up (Gee.LinkedList<TileMovement?> to_move,
+                           Gee.LinkedList<TileMovement?> to_hide,
+                           Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
@@ -250,9 +242,9 @@ public class Grid : Object
         }
     }
 
-    public void move_left (Gee.LinkedList<TileMovement?> to_move,
-                           Gee.LinkedList<TileMovement?> to_hide,
-                           Gee.LinkedList<Tile?> to_show)
+    internal void move_left (Gee.LinkedList<TileMovement?> to_move,
+                             Gee.LinkedList<TileMovement?> to_hide,
+                             Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
@@ -331,9 +323,9 @@ public class Grid : Object
         }
     }
 
-    public void move_right (Gee.LinkedList<TileMovement?> to_move,
-                            Gee.LinkedList<TileMovement?> to_hide,
-                            Gee.LinkedList<Tile?> to_show)
+    internal void move_right (Gee.LinkedList<TileMovement?> to_move,
+                              Gee.LinkedList<TileMovement?> to_hide,
+                              Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
@@ -412,7 +404,7 @@ public class Grid : Object
         }
     }
 
-    public bool is_finished ()
+    internal bool is_finished ()
     {
         if (!_grid_is_full ())
             return false;
@@ -434,15 +426,15 @@ public class Grid : Object
         return true;
     }
 
-    public new uint get (int row, int col)
+    internal new uint get (int row, int col)
     {
         if ((row >= _rows) || (col >= _cols))
             return 0;
 
-        return _grid[row,col];
+        return _grid [row, col];
     }
 
-    public string save ()
+    internal string save ()
     {
         string ret = "";
 
@@ -454,12 +446,12 @@ public class Grid : Object
         return ret;
     }
 
-    public bool load (string content)
+    internal bool load (string content)
     {
         return _load_from_string (content);
     }
 
-    public string to_string ()
+    internal string to_string ()
     {
         string ret = "\n";
         ret += _convert_to_string ();
@@ -551,24 +543,24 @@ public class Grid : Object
     }
 }
 
-public struct GridPosition
+private struct GridPosition
 {
     public int row;
     public int col;
 
-    public string to_string ()
+    internal string to_string ()
     {
         return @"($row,$col)";
     }
 }
 
-public struct TileMovement
+private struct TileMovement
 {
     public GridPosition from;
     public GridPosition to;
 }
 
-public struct Tile
+private struct Tile
 {
     public GridPosition pos;
     public uint val;
