@@ -48,11 +48,6 @@ private class Game : Object
     private Clutter.TransitionGroup _move_trans;
     private int _animations_duration;
 
-    private bool _allow_undo;
-    private uint _undo_stack_max_size;
-    private Gee.LinkedList<Grid> _undo_stack       = new Gee.LinkedList<Grid> ();
-    private Gee.LinkedList<uint> _undo_score_stack = new Gee.LinkedList<uint> ();
-
     private GLib.Settings _settings;
 
     private string _saved_path;
@@ -61,8 +56,6 @@ private class Game : Object
 
     internal signal void finished ();
     internal signal void target_value_reached (uint val);
-    internal signal void undo_enabled ();
-    internal signal void undo_disabled ();
 
     internal Game (GLib.Settings settings)
     {
@@ -76,9 +69,7 @@ private class Game : Object
         _init_grid (rows, cols, out _grid, ref _settings);
 
         _animations_duration = (int)_settings.get_double ("animations-speed");
-
-        _allow_undo = _settings.get_boolean ("allow-undo");
-        _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
+        _load_undo_settings ();
 
         _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
 
@@ -133,8 +124,7 @@ private class Game : Object
         if (_finish_move_id > 0)
             Source.remove (_finish_move_id);
         _grid.clear ();
-        _undo_stack.clear ();
-        _undo_score_stack.clear ();
+        _clear_history ();
 
         if (_background_init_done)
             _clear_foreground ();
@@ -145,20 +135,6 @@ private class Game : Object
         _state = GameState.SHOWING_FIRST_TILE;
         _create_random_tile ();
         undo_disabled ();
-    }
-
-    internal void undo ()
-    {
-        Grid grid = _undo_stack.poll_head ();
-        uint delta_score = _undo_score_stack.poll_head ();
-
-        _clear_foreground ();
-        _grid = grid;
-        _restore_foreground (false);
-        score -= delta_score;
-
-        if (_undo_stack.size == 0)
-            undo_disabled ();
     }
 
     internal void save_game ()
@@ -213,23 +189,11 @@ private class Game : Object
 
     internal void reload_settings ()
     {
-        int rows, cols;
-        bool allow_undo;
-
         _animations_duration = (int)_settings.get_double ("animations-speed");
+        _load_undo_settings ();
 
-        allow_undo = _settings.get_boolean ("allow-undo");
-        if (_allow_undo && !allow_undo)
-        {
-            _undo_stack.clear ();
-            _undo_score_stack.clear ();
-            undo_disabled ();
-        }
-        _allow_undo = allow_undo;
-        _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
-
-        rows = _settings.get_int ("rows");
-        cols = _settings.get_int ("cols");
+        int rows = _settings.get_int ("rows");
+        int cols = _settings.get_int ("cols");
 
         if ((rows != _grid.rows) || (cols != _grid.cols))
         {
@@ -239,11 +203,7 @@ private class Game : Object
             _init_grid (rows, cols, out _grid, ref _settings);
 
             _init_background ();
-
-         // return true;
         }
-
-     // return false;
     }
 
     private void _init_background ()
@@ -366,39 +326,6 @@ private class Game : Object
                                                            actor.width,
                                                            actor.height,
                                                            tile.val);
-    }
-
-    internal void move (MoveRequest request)
-    {
-        debug (MoveRequest.debug_string (request));
-
-        Grid clone = _grid.clone ();
-
-        _move_trans = new Clutter.TransitionGroup ();
-        _move_trans.stopped.connect (_on_move_trans_stopped);
-        _move_trans.set_duration (_animations_duration);
-
-        _grid.move (request, _to_move, _to_hide, _to_show);
-
-        foreach (TileMovement? e in _to_move)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _move_tile (((!) e).from, ((!) e).to);
-        }
-        foreach (TileMovement? e in _to_hide)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _prepare_move_tile (((!) e).from, ((!) e).to);
-        }
-
-        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
-        {
-            _state = GameState.MOVING;
-            _move_trans.start ();
-            _store_movement (clone);
-        }
     }
 
     private void _show_tile (GridPosition pos)
@@ -543,6 +470,43 @@ private class Game : Object
         }
     }
 
+    /*\
+    * * move animation
+    \*/
+
+    internal void move (MoveRequest request)
+    {
+        debug (MoveRequest.debug_string (request));
+
+        Grid clone = _grid.clone ();
+
+        _move_trans = new Clutter.TransitionGroup ();
+        _move_trans.stopped.connect (_on_move_trans_stopped);
+        _move_trans.set_duration (_animations_duration);
+
+        _grid.move (request, _to_move, _to_hide, _to_show);
+
+        foreach (TileMovement? e in _to_move)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _move_tile (((!) e).from, ((!) e).to);
+        }
+        foreach (TileMovement? e in _to_hide)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _prepare_move_tile (((!) e).from, ((!) e).to);
+        }
+
+        if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
+        {
+            _state = GameState.MOVING;
+            _move_trans.start ();
+            _store_movement (clone);
+        }
+    }
+
     private void _on_move_trans_stopped (bool is_finished)
     {
         debug (@"move animation stopped; finished $is_finished");
@@ -572,6 +536,17 @@ private class Game : Object
         _create_random_tile ();
 
         _show_hide_trans.start ();
+    }
+
+    /*\
+    * * new tile animation
+    \*/
+
+    private void _create_show_hide_transition (bool animate)
+    {
+        _show_hide_trans = new Clutter.TransitionGroup ();
+        _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
+        _show_hide_trans.set_duration (animate ? _animations_duration : 10);
     }
 
     private void _on_show_hide_trans_stopped (bool is_finished)
@@ -605,13 +580,6 @@ private class Game : Object
         }
 
         _finish_move_id = GLib.Timeout.add (100, _finish_move);
-    }
-
-    private void _create_show_hide_transition (bool animate)
-    {
-        _show_hide_trans = new Clutter.TransitionGroup ();
-        _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
-        _show_hide_trans.set_duration (animate ? _animations_duration : 10);
     }
 
     private bool _finish_move ()
@@ -665,6 +633,50 @@ private class Game : Object
 
         _finish_move_id = 0;
         return false;
+    }
+
+    /*\
+    * * history
+    \*/
+
+    internal signal void undo_enabled ();
+    internal signal void undo_disabled ();
+
+    private bool _allow_undo = false;
+    private uint _undo_stack_max_size;
+    private Gee.LinkedList<Grid> _undo_stack       = new Gee.LinkedList<Grid> ();
+    private Gee.LinkedList<uint> _undo_score_stack = new Gee.LinkedList<uint> ();
+
+    internal void undo ()
+    {
+        Grid grid = _undo_stack.poll_head ();
+        uint delta_score = _undo_score_stack.poll_head ();
+
+        _clear_foreground ();
+        _grid = grid;
+        _restore_foreground (false);
+        score -= delta_score;
+
+        if (_undo_stack.size == 0)
+            undo_disabled ();
+    }
+
+    private void _load_undo_settings ()
+    {
+        bool allow_undo = _settings.get_boolean ("allow-undo");
+        if (_allow_undo && !allow_undo)
+        {
+            _clear_history ();
+            undo_disabled ();
+        }
+        _allow_undo = allow_undo;
+        _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
+    }
+
+    private void _clear_history ()
+    {
+        _undo_stack.clear ();
+        _undo_score_stack.clear ();
     }
 
     private void _store_movement (Grid clone)
