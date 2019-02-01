@@ -42,34 +42,20 @@ private class Game : Object
     private Gee.LinkedList<TileMovement?> _to_hide = new Gee.LinkedList<TileMovement?> ();
     private Gee.LinkedList<Tile?>         _to_show = new Gee.LinkedList<Tile?> ();
 
-    private GameState _state;
+    private GameState _state = GameState.STOPPED;
     private Clutter.TransitionGroup _show_hide_trans;
     private Clutter.TransitionGroup _move_trans;
     private int _animations_duration;
 
-    private GLib.Settings _settings;
-
-    private string _saved_path;
+    private string _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
 
     private uint _resize_view_id;
 
-    internal Game (GLib.Settings settings)
+    internal Game (ref GLib.Settings settings)
     {
-        Object ();
-
-        _settings = settings;
-
-        int rows = _settings.get_int ("rows");
-        int cols = _settings.get_int ("cols");
-
-        _init_grid (rows, cols, out _grid, ref _settings);
-
-        _animations_duration = (int)_settings.get_double ("animations-speed");
-        _load_undo_settings ();
-
-        _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
-
-        _state = GameState.STOPPED;
+        int rows = settings.get_int ("rows");
+        int cols = settings.get_int ("cols");
+        _init_grid (rows, cols, out _grid, ref settings);
     }
 
     private static void _init_grid (int rows, int cols, out Grid grid, ref GLib.Settings settings)
@@ -115,13 +101,25 @@ private class Game : Object
 
     internal uint score { internal get; private set; default = 0; }
 
-    internal void new_game ()
+    internal void new_game (ref GLib.Settings settings)
     {
         _clean_finish_move_animation ();
         _grid.clear ();
         _clear_history ();
 
-        if (_background_init_done)
+        int rows = settings.get_int ("rows");
+        int cols = settings.get_int ("cols");
+
+        if ((rows != _grid.rows) || (cols != _grid.cols))
+        {
+            _clear_foreground ();
+            _clear_background ();
+
+            _init_grid (rows, cols, out _grid, ref settings);
+
+            _init_background ();
+        }
+        else if (_background_init_done)
             _clear_foreground ();
         else // new_game could be called without an existing game
             _init_background ();
@@ -182,23 +180,10 @@ private class Game : Object
         return _state != GameState.IDLE;
     }
 
-    internal void reload_settings ()
+    internal void load_settings (ref GLib.Settings settings)
     {
-        _animations_duration = (int)_settings.get_double ("animations-speed");
-        _load_undo_settings ();
-
-        int rows = _settings.get_int ("rows");
-        int cols = _settings.get_int ("cols");
-
-        if ((rows != _grid.rows) || (cols != _grid.cols))
-        {
-            _clear_foreground ();
-            _clear_background ();
-
-            _init_grid (rows, cols, out _grid, ref _settings);
-
-            _init_background ();
-        }
+        _animations_duration = (int) settings.get_double ("animations-speed");
+        _load_undo_settings (ref settings);
     }
 
     private void _init_background ()
@@ -667,16 +652,16 @@ private class Game : Object
             undo_disabled ();
     }
 
-    private void _load_undo_settings ()
+    private void _load_undo_settings (ref GLib.Settings settings)
     {
-        bool allow_undo = _settings.get_boolean ("allow-undo");
+        bool allow_undo = settings.get_boolean ("allow-undo");
         if (_allow_undo && !allow_undo)
         {
             _clear_history ();
             undo_disabled ();
         }
         _allow_undo = allow_undo;
-        _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
+        _undo_stack_max_size = settings.get_uint ("allow-undo-max");
     }
 
     private void _clear_history ()

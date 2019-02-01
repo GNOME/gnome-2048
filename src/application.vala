@@ -169,7 +169,7 @@ private class Application : Gtk.Application
 
     private void _init_game ()
     {
-        _game = new Game (_settings);
+        _game = new Game (ref _settings);
         _game.notify["score"].connect ((s, p) => {
                 _score.label = _game.score.to_string ();
             });
@@ -203,8 +203,9 @@ private class Application : Gtk.Application
 
         add_window (_window);
 
-        _create_header_bar (builder);
-        _create_game_view (builder);
+        _create_header_bar (builder, out _header_bar, out _score, out _new_game_button, out _hamburger_button);
+        _connect_and_update ();
+        _create_game_view (builder, out _embed, ref _game);
 
         _window.set_events (_window.get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
         _window.key_press_event.connect (key_press_event_cb);
@@ -217,36 +218,56 @@ private class Application : Gtk.Application
         _window.set_geometry_hints (_window, geom, Gdk.WindowHints.MIN_SIZE);
     }
 
-    private void _create_header_bar (Builder builder)
+    private static inline void _create_header_bar (Builder     builder,
+                                               out HeaderBar   header_bar,
+                                               out Label       score,
+                                               out MenuButton  new_game_button,
+                                               out MenuButton  hamburger_button)
     {
-        _header_bar = (HeaderBar) builder.get_object ("headerbar");
+        header_bar          = (HeaderBar)   builder.get_object ("headerbar");
+        score               = (Label)       builder.get_object ("score");
+        new_game_button     = (MenuButton)  builder.get_object ("new-game-button");
+        hamburger_button    = (MenuButton)  builder.get_object ("hamburger-button");
+    }
 
-        _score = (Label) builder.get_object ("score");
-
+    private inline void _connect_and_update ()
+    {
         ((SimpleAction) lookup_action ("undo")).set_enabled (false);
 
-        _new_game_button = (MenuButton) builder.get_object ("new-game-button");
-        _settings.changed.connect ((settings, key_name) => {
-                if (key_name == "cols" || key_name == "rows")
-                    _update_new_game_menu ();
-            });
-        _update_new_game_menu ();
-
-        _hamburger_button = (MenuButton) builder.get_object ("hamburger-button");
         _hamburger_button.notify ["active"].connect (() => {
                 if (!_hamburger_button.active)
                     _embed.grab_focus ();
             });
-        _settings.changed ["allow-undo"].connect (_update_hamburger_menu);
+        _settings.changed.connect ((settings, key_name) => {
+                switch (key_name)
+                {
+                    case "cols":
+                    case "rows":
+                        _update_new_game_menu ();
+                        return;
+                    case "allow-undo":
+                        _update_hamburger_menu ();
+                        _game.load_settings (ref _settings);
+                        return;
+                    case "allow-undo-max":
+                    case "animations-speed":
+                        _game.load_settings (ref _settings);
+                        return;
+                }
+            });
+        _update_new_game_menu ();
         _update_hamburger_menu ();
+        _game.load_settings (ref _settings);
     }
 
-    private void _create_game_view (Builder builder)
+    private static inline void _create_game_view (Builder          builder,
+                                              out GtkClutter.Embed embed,
+                                              ref Game             game)
     {
-        _embed = new GtkClutter.Embed ();
+        embed = new GtkClutter.Embed ();
         AspectFrame _frame = (AspectFrame) builder.get_object ("aspectframe");
-        _frame.add (_embed);
-        _game.view = _embed.get_stage ();
+        _frame.add (embed);
+        game.view = embed.get_stage ();
     }
 
     /*\
@@ -327,7 +348,7 @@ private class Application : Gtk.Application
         _header_bar.set_has_subtitle (false);
         _game_restored = false;
 
-        _game.new_game ();
+        _game.new_game (ref _settings);
 
         _embed.grab_focus ();
     }
@@ -347,7 +368,6 @@ private class Application : Gtk.Application
         _settings.set_int ("cols", cols);
         _settings.apply ();
 
-        _game.reload_settings ();
         new_game_cb ();
     }
 
@@ -491,13 +511,8 @@ private class Application : Gtk.Application
         _preferences_dialog.set_application (this); // else we cannot use "app." actions in the dialog
         _preferences_dialog.set_transient_for (_window);
 
-        _preferences_dialog.response.connect ((response_id) => {
-                _preferences_dialog.hide_on_delete ();
-            });
-        _preferences_dialog.delete_event.connect ((response_id) => {
-                _game.reload_settings ();
-                return _preferences_dialog.hide_on_delete ();
-            });
+        _preferences_dialog.response.connect ((dialog, response_id) => { dialog.hide_on_delete (); });
+        _preferences_dialog.delete_event.connect ((dialog, event) => { return dialog.hide_on_delete (); });
 
         Object? congratswitch = builder.get_object ("congratswitch");
         Object? undoswitch    = builder.get_object ("undoswitch");
