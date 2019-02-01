@@ -33,7 +33,6 @@ private class Game : Object
 
     private Grid _grid;
 
-    private uint _finish_move_id = 0;
     private RoundedRectangle [,] _background;
     private bool _background_init_done = false;
     private TileView? [,] _foreground_cur;
@@ -53,9 +52,6 @@ private class Game : Object
     private string _saved_path;
 
     private uint _resize_view_id;
-
-    internal signal void finished ();
-    internal signal void target_value_reached (uint val);
 
     internal Game (GLib.Settings settings)
     {
@@ -121,8 +117,7 @@ private class Game : Object
 
     internal void new_game ()
     {
-        if (_finish_move_id > 0)
-            Source.remove (_finish_move_id);
+        _clean_finish_move_animation ();
         _grid.clear ();
         _clear_history ();
 
@@ -542,6 +537,11 @@ private class Game : Object
     * * new tile animation
     \*/
 
+    internal signal void finished ();
+    internal signal void target_value_reached (uint val);
+
+    private uint _finish_move_id = 0;
+
     private void _create_show_hide_transition (bool animate)
     {
         _show_hide_trans = new Clutter.TransitionGroup ();
@@ -579,11 +579,6 @@ private class Game : Object
             _foreground_cur [pos.row, pos.col] = null;
         }
 
-        _finish_move_id = GLib.Timeout.add (100, _finish_move);
-    }
-
-    private bool _finish_move ()
-    {
         if (_state == GameState.SHOWING_FIRST_TILE)
         {
             _state = GameState.SHOWING_SECOND_TILE;
@@ -628,11 +623,22 @@ private class Game : Object
             _grid.target_value_reached = false;
         }
 
+        _finish_move_id = GLib.Timeout.add (100, _finish_move);
+    }
+
+    private bool _finish_move ()
+    {
         if (_grid.is_finished ())
             finished ();
 
         _finish_move_id = 0;
         return false;
+    }
+
+    private inline void _clean_finish_move_animation ()
+    {
+        if (_finish_move_id > 0)
+            Source.remove (_finish_move_id);
     }
 
     /*\
