@@ -531,7 +531,7 @@ private class Game : Object
     {
         _show_hide_trans = new Clutter.TransitionGroup ();
         _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
-        _show_hide_trans.set_duration (animate ? _animations_duration : 10);
+        _show_hide_trans.set_duration (animate ? _animations_duration / 2 : 10);
     }
 
     private void _on_show_hide_trans_stopped (bool is_finished)
