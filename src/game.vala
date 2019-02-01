@@ -72,11 +72,10 @@ private class Game : Object
 
         int rows = _settings.get_int ("rows");
         int cols = _settings.get_int ("cols");
-        _grid = new Grid (rows, cols);
+
+        _init_grid (rows, cols, out _grid, ref _settings);
 
         _animations_duration = (int)_settings.get_double ("animations-speed");
-
-        _settings.bind ("target-value", _grid, "target-value", GLib.SettingsBindFlags.DEFAULT);
 
         _allow_undo = _settings.get_boolean ("allow-undo");
         _undo_stack_max_size = _settings.get_uint ("allow-undo-max");
@@ -84,6 +83,12 @@ private class Game : Object
         _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
 
         _state = GameState.STOPPED;
+    }
+
+    private static void _init_grid (int rows, int cols, out Grid grid, ref GLib.Settings settings)
+    {
+        grid = new Grid (rows, cols);
+        settings.bind ("target-value", grid, "target-value", GLib.SettingsBindFlags.DEFAULT | GLib.SettingsBindFlags.NO_SENSITIVITY);
     }
 
     /*\
@@ -231,7 +236,7 @@ private class Game : Object
             _clear_foreground ();
             _clear_background ();
 
-            _grid = new Grid (rows, cols);
+            _init_grid (rows, cols, out _grid, ref _settings);
 
             _init_background ();
 
@@ -340,16 +345,14 @@ private class Game : Object
     private void _create_random_tile ()
     {
         Tile tile;
+        _grid.new_tile (out tile);
 
-        if (_grid.new_tile (out tile))
-        {
-            _create_show_hide_transition (true);
+        _create_show_hide_transition (true);
 
-            _create_tile (tile);
-            _to_show.add (tile);
-            _show_tile (tile.pos);
-            _show_hide_trans.start ();
-        }
+        _create_tile (tile);
+        _to_show.add (tile);
+        _show_tile (tile.pos);
+        _show_hide_trans.start ();
     }
 
     private void _create_tile (Tile tile)
@@ -546,8 +549,6 @@ private class Game : Object
         debug (@"$_grid");
 
         _move_trans.remove_all ();
-
-        _create_show_hide_transition (true);
 
         foreach (TileMovement? e in _to_hide)
         {

@@ -55,29 +55,24 @@ private class Grid : Object
                 _grid [i, j] = 0;
     }
 
-    internal bool new_tile (out Tile tile)
+    internal void new_tile (out Tile tile)
     {
-        GridPosition pos = { 0, 0 };
-        uint val;
-        tile = { pos, 0 };
-
         if (_grid_is_full ())
-            return false;
+            assert_not_reached ();
 
-        val = 2;
+        GridPosition pos = { 0, 0 }; // TODO report bug: garbage init needed
+        do { _generate_random_position (rows, cols, out pos); }
+        while (_grid [pos.row, pos.col] != 0);
 
-        while (true)
-        {
-            pos = _random_position ();
-
-            if (_grid[pos.row,pos.col] == 0)
-            {
-                _grid[pos.row,pos.col] = val;
-                _check_target_value_reached (val);
-                tile = { pos, val };
-                return true;
-            }
-        }
+        _grid [pos.row, pos.col] = 2;
+        tile = { pos, /* tile value */ 2 };
+    }
+    private static inline void _generate_random_position (int rows, int cols, out GridPosition pos)
+        requires (rows > 0)
+        requires (cols > 0)
+    {
+        pos = { Random.int_range (0, rows),
+                Random.int_range (0, cols) };
     }
 
     internal inline void move (MoveRequest request,
@@ -542,17 +537,10 @@ private class Grid : Object
         return true;
     }
 
-    private GridPosition _random_position ()
-    {
-        GridPosition ret = { Random.int_range (0, (int)_rows),
-                             Random.int_range (0, (int)_cols) };
-
-        return ret;
-    }
-
     private void _check_target_value_reached (uint val)
+        requires (target_value > 3)
     {
-        if (target_value != 0 && val == target_value)
+        if ( val == target_value)
             target_value_reached = true;
     }
 }
