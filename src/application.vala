@@ -53,7 +53,6 @@ private class Application : Gtk.Application
         { "new-game",           new_game_cb                 },
         { "toggle-new-game",    toggle_new_game_cb          },
         { "new-game-sized",     new_game_sized_cb, "(ii)"   },
-        { "animations-speed",   _animations_speed, "s"      },  // no way to make it take a double
 
         { "quit",               quit_cb                     },
 
@@ -61,7 +60,6 @@ private class Application : Gtk.Application
         { "toggle-hamburger",   toggle_hamburger_menu       },
 
         { "scores",             scores_cb                   },
-        { "preferences",        preferences_cb              },
         { "about",              about_cb                    },
     };
 
@@ -118,6 +116,9 @@ private class Application : Gtk.Application
         add_action_entries (action_entries, this);
 
         _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
+        ((ActionMap) this).add_action (_settings.create_action ("allow-undo"));
+        ((ActionMap) this).add_action (_settings.create_action ("do-congrat"));
+        ((ActionMap) this).add_action (_settings.create_action ("animations-speed"));
 
         _init_game ();
 
@@ -125,7 +126,6 @@ private class Application : Gtk.Application
 
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
-        set_accels_for_action ("app.preferences",       {        "<Primary>e"       });
         set_accels_for_action ("app.toggle-new-game",   {        "<Primary>n"       });
         set_accels_for_action ("app.new-game",          { "<Shift><Primary>n"       });
         set_accels_for_action ("app.quit",              {        "<Primary>q"       });
@@ -256,7 +256,7 @@ private class Application : Gtk.Application
                 }
             });
         _update_new_game_menu ();
-        _update_hamburger_menu ();
+        _create_hamburger_menu ();
         _game.load_settings (ref _settings);
     }
 
@@ -274,20 +274,44 @@ private class Application : Gtk.Application
     * * hamburger menu (and undo action) callbacks
     \*/
 
+    private bool _undo_section_visible = false;
+
     private void _update_hamburger_menu ()
+    {
+        GLib.MenuModel? menu_model = _hamburger_button.get_menu_model ();
+        if (menu_model == null)
+            return;
+        GLib.Menu menu = (GLib.Menu) (!) menu_model;
+
+        bool allow_undo = _settings.get_boolean ("allow-undo");
+        if (allow_undo && !_undo_section_visible)
+        {
+            _undo_section_visible = true;
+            _prepend_undo_section (ref menu);
+        }
+        else if (!allow_undo && _undo_section_visible)
+        {
+            _undo_section_visible = false;
+            menu.remove (0);
+        }
+    }
+
+    private void _create_hamburger_menu ()
     {
         GLib.Menu menu = new GLib.Menu ();
 
         if (_settings.get_boolean ("allow-undo"))
-            _append_undo_section (ref menu);
+        {
+            _undo_section_visible = true;
+            _prepend_undo_section (ref menu);
+        }
         _append_scores_section (ref menu);
         _append_app_actions_section (ref menu);
 
-        menu.freeze ();
         _hamburger_button.set_menu_model ((MenuModel) menu);
     }
 
-    private static inline void _append_undo_section (ref GLib.Menu menu)
+    private static inline void _prepend_undo_section (ref GLib.Menu menu)
     {
         GLib.Menu section = new GLib.Menu ();
 
@@ -295,7 +319,7 @@ private class Application : Gtk.Application
         section.append (_("Undo"), "app.undo");
 
         section.freeze ();
-        menu.append_section (null, section);
+        menu.prepend_section (null, section);
     }
 
     private static inline void _append_scores_section (ref GLib.Menu menu)
@@ -311,10 +335,46 @@ private class Application : Gtk.Application
 
     private static inline void _append_app_actions_section (ref GLib.Menu menu)
     {
-        GLib.Menu section = new GLib.Menu ();
+        GLib.Menu submenu = new GLib.Menu ();
+        GLib.Menu section;
+
+        // preferences submenu: booleans
+
+        section = new GLib.Menu ();
+
+        /* Translators: in the preferences submenu of the hamburger menu; boolean option (with a mnemponic that appears when pressing Alt) */
+        section.append (_("Allow _undo"), "app.allow-undo");
+
+        /* Translators: in the preferences submenu of the hamburger menu; boolean option (with a mnemponic that appears when pressing Alt) */
+        section.append (_("Display _congrats"), "app.do-congrat");
+
+        section.freeze ();
+        submenu.append_section (null, section);
+
+        // preferences submenu: animations speed
+
+        section = new GLib.Menu ();
+
+        /* Translators: in the preferences submenu of the hamburger menu; animations speed choice (with a mnemponic that appears when pressing Alt) */
+        section.append (_("_Slow"), "app.animations-speed(250.0)");
+
+        /* Translators: in the preferences submenu of the hamburger menu; animations speed choice (with a mnemponic that appears when pressing Alt) */
+        section.append (_("_Normal"), "app.animations-speed(100.0)");
+
+        /* Translators: in the preferences submenu of the hamburger menu; animations speed choice (with a mnemponic that appears when pressing Alt) */
+        section.append (_("_Fast"), "app.animations-speed(40.0)");
+
+        section.freeze ();
+        /* Translators: in the preferences submenu of the hamburger menu; animations speed section header */
+        submenu.append_section (_("Animations speed"), section);
+
+        // actions section
+
+        submenu.freeze ();
+        section = new GLib.Menu ();
 
         /* Translators: entry in the hamburger menu; opens a window for configuring application */
-        section.append (_("Preferences"), "app.preferences");
+        section.append_submenu (_("Preferences"), submenu);
 
         /* Translators: usual menu entry of the hamburger menu */
         section.append (_("Keyboard Shortcuts"), "win.show-help-overlay");
@@ -493,80 +553,6 @@ private class Application : Gtk.Application
             _window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
 
         return false;
-    }
-
-    /*\
-    * * preferences dialog
-    \*/
-
-    private Dialog      _preferences_dialog;
-    private MenuButton  _animations_button;
-
-    private bool _should_create_preferences_dialog = true;
-    private inline void _create_preferences_dialog ()
-    {
-        Builder builder = new Builder.from_resource ("/org/gnome/TwentyFortyEight/ui/preferences.ui");
-
-        _preferences_dialog = (Dialog) builder.get_object ("preferencesdialog");
-        _preferences_dialog.set_application (this); // else we cannot use "app." actions in the dialog
-        _preferences_dialog.set_transient_for (_window);
-
-        _preferences_dialog.response.connect ((dialog, response_id) => { dialog.hide_on_delete (); });
-        _preferences_dialog.delete_event.connect ((dialog, event) => { return dialog.hide_on_delete (); });
-
-        Object? congratswitch = builder.get_object ("congratswitch");
-        Object? undoswitch    = builder.get_object ("undoswitch");
-        if (congratswitch == null || undoswitch == null)
-            assert_not_reached ();
-        _settings.bind ("do-congrat", (!) congratswitch,   "active", GLib.SettingsBindFlags.DEFAULT);
-        _settings.bind ("allow-undo", (!) undoswitch,      "active", GLib.SettingsBindFlags.DEFAULT);
-
-        _animations_button = (MenuButton) builder.get_object ("animations-button");
-        _settings.changed ["animations-speed"].connect (_set_animations_button_label);
-        _set_animations_button_label (_settings, "animations-speed");
-    }
-    private inline void _set_animations_button_label (GLib.Settings settings, string key_name)
-    {
-        double speed = settings.get_double (key_name);
-        string _animations_button_label;
-        _get_animations_button_label (ref speed, out _animations_button_label);
-        _animations_button.set_label (_animations_button_label);
-    }
-    private static inline void _get_animations_button_label (ref double speed, out string _animations_button_label)
-    {
-        if (speed == 100.0)
-            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
-            _animations_button_label = _("Normal");
-
-        else if (speed == 40.0)
-            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
-            _animations_button_label = _("Fast");
-
-        else if (speed == 250.0)
-            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
-            _animations_button_label = _("Slow");
-
-        else
-            /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
-            _animations_button_label = _("Custom");
-    }
-
-    private inline void _animations_speed (SimpleAction action, Variant? variant)
-        requires (variant != null)
-    {
-        double speed = double.parse (((!) variant).get_string ());
-        _settings.set_double ("animations-speed", speed);
-    }
-
-    private inline void preferences_cb (/* SimpleAction action, Variant? variant */)
-    {
-        if (_should_create_preferences_dialog)
-        {
-            _create_preferences_dialog ();
-            _should_create_preferences_dialog = false;
-        }
-
-        _preferences_dialog.present ();
     }
 
     /*\

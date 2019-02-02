@@ -2,7 +2,6 @@
 <gresources>
   <gresource prefix="/org/gnome/TwentyFortyEight/ui">
     <file preprocess="xml-stripblanks" alias="mainwindow.ui">data/mainwindow.ui</file>
-    <file preprocess="xml-stripblanks" alias="preferences.ui">data/preferences.ui</file>
     <file preprocess="xml-stripblanks" alias="congrats.ui">data/congrats.ui</file>
     <!-- file>data/style.css</file -->
   </gresource>

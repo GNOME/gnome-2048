@@ -81,14 +81,6 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: opens Prefences dialog -->
-                <property name="title" translatable="yes" context="shortcut window">Preferences</property>
-                <property name="accelerator">&lt;Primary&gt;e</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: opens Keyboard Shortcuts window -->
                 <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
                 <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
