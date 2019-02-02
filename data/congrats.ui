@@ -50,7 +50,7 @@
     <child type="action">
       <object class="GtkButton" id="continue-button">
         <property name="visible">True</property>
-        <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after 2048 (with a mnemonic that appears pressing Alt) -->
+        <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt) -->
         <property name="label" translatable="yes">_Keep Playing</property>
         <property name="use-underline">True</property>
         <property name="can-default">True</property>

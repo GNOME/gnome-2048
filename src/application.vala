@@ -410,18 +410,28 @@ private class Application : Gtk.Application
         GLib.Menu menu = new GLib.Menu ();
 
         /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3 */
-        _append_new_game_item (_("3 × 3"), /* rows */ 3, /* cols */ 3, ref menu);
+        _append_new_game_item (_("3 × 3"),
+                    /* rows */ 3,
+                    /* cols */ 3,
+                           ref menu);
 
         /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4 */
-        _append_new_game_item (_("4 × 4"), /* rows */ 4, /* cols */ 4, ref menu);
+        _append_new_game_item (_("4 × 4"),
+                    /* rows */ 4,
+                    /* cols */ 4,
+                           ref menu);
 
         /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5 */
-        _append_new_game_item (_("5 × 5"), /* rows */ 5, /* cols */ 5, ref menu);
+        _append_new_game_item (_("5 × 5"),
+                    /* rows */ 5,
+                    /* cols */ 5,
+                           ref menu);
 
         int rows = _settings.get_int ("rows");
         int cols = _settings.get_int ("cols");
         bool disallowed_grid = is_disallowed_grid_size (ref rows, ref cols);
         if (disallowed_grid)
+            /* Translators: command-line warning displayed if the user manually sets a invalid grid size */
             warning (_("Grids of size 1 by 2 are disallowed."));
 
         if (((rows != cols) && !disallowed_grid)

@@ -28,7 +28,7 @@
       <object class="GtkHeaderBar" id="headerbar">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <!-- Translators: title of the window, displayed in the headerbar -->
+        <!-- Translators: title of the window, displayed in the headerbar (with a mnemonic that appears pressing Alt) -->
         <property name="title" translatable="yes">GNOME 2048</property>
         <property name="show-close-button">True</property>
         <child>

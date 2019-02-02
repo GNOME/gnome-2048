@@ -25,12 +25,13 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="visible">True</property>
+            <!-- Translators: header of the "Play" and "Undo (if enabled)" shortcuts section -->
             <property name="title" translatable="yes" context="shortcut window">Game</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <!-- Translators: the application has no help, so the use of arrows for playing is documented here -->
-                <property name="title" translatable="yes" context="shortcut window">Play</property>
+                <property name="title" translatable="yes" context="shortcut window">Play with arrows</property>
                 <property name="accelerator">Left Up Right Down</property>
               </object>
             </child>
@@ -47,11 +48,12 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="visible">True</property>
+            <!-- Translators: header of the "Choose a new game" and "Start a new game" shortcuts section -->
             <property name="title" translatable="yes" context="shortcut window">New game</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: that opens the New Game menu, that allow to choose the board size of the next game -->
+                <!-- Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game -->
                 <property name="title" translatable="yes" context="shortcut window">Choose a new game</property>
                 <property name="accelerator">&lt;Primary&gt;n</property>
               </object>
@@ -59,7 +61,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: that is an immediate start of a new game, with similar options -->
+                <!-- Translators: shortcut that starts immediately a new game, with similar options -->
                 <property name="title" translatable="yes" context="shortcut window">Start a new game</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Primary&gt;n</property>
               </object>
@@ -69,11 +71,12 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="visible">True</property>
+            <!-- Translators: header of the "Toggle main menu," "Preferences," "Quit," etc. shortcuts section -->
             <property name="title" translatable="yes" context="shortcut window">Generic</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: toggles the hamburger menu -->
+                <!-- Translators: shortcut that toggles the hamburger menu -->
                 <property name="title" translatable="yes" context="shortcut window">Toggle main menu</property>
                 <property name="accelerator">F10 Menu</property>
               </object>
@@ -81,7 +84,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: opens Prefences dialog -->
+                <!-- Translators: shortcut that opens Prefences dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Preferences</property>
                 <property name="accelerator">&lt;Primary&gt;e</property>
               </object>
@@ -89,7 +92,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: opens Keyboard Shortcuts window -->
+                <!-- Translators: shortcut that opens Keyboard Shortcuts window -->
                 <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
                 <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
               </object>
@@ -97,7 +100,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: opens About dialog -->
+                <!-- Translators: shortcut that opens About dialog -->
                 <property name="title" translatable="yes" context="shortcut window">About</property>
                 <property name="accelerator">&lt;Shift&gt;F1</property>
               </object>
@@ -105,7 +108,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <!-- Translators: quit application -->
+                <!-- Translators: shortcut that quits application -->
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
                 <property name="accelerator">&lt;Primary&gt;q</property>
               </object>
