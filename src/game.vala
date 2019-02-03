@@ -24,7 +24,7 @@ private class Game : Object
         IDLE,
         MOVING,
         SHOWING_FIRST_TILE,
-        SHOWING_SECOND_TILE,
+        SHOWING_NEW_TILE,
         RESTORING_TILES
     }
 
@@ -177,7 +177,8 @@ private class Game : Object
 
     internal bool cannot_move ()
     {
-        return _state != GameState.IDLE;
+        return _state != GameState.IDLE
+            && _state != GameState.SHOWING_NEW_TILE;
     }
 
     internal void load_settings (ref GLib.Settings settings)
@@ -287,6 +288,13 @@ private class Game : Object
         Tile tile;
         _grid.new_tile (out tile);
 
+        if (_state == GameState.SHOWING_FIRST_TILE)
+            _update_handled = true;
+        else
+        {
+            _update_handled = false;
+            _state = GameState.SHOWING_NEW_TILE;
+        }
         _create_show_hide_transition (true);
 
         _create_tile (tile);
@@ -456,6 +464,11 @@ private class Game : Object
 
     internal void move (MoveRequest request)
     {
+        if (_state == GameState.SHOWING_NEW_TILE)
+            _apply_move ();
+        else if (_state != GameState.IDLE)
+            assert_not_reached ();
+
         debug (MoveRequest.debug_string (request));
 
         Grid clone = _grid.clone ();
@@ -487,12 +500,11 @@ private class Game : Object
         }
     }
 
-    private void _on_move_trans_stopped (bool is_finished)
+    private void _on_move_trans_stopped (Clutter.Timeline trans, bool is_finished)
     {
-        debug (@"move animation stopped; finished $is_finished");
-        debug (@"$_grid");
+        debug (@"move animation stopped\n$_grid");
 
-        _move_trans.remove_all ();
+        ((Clutter.TransitionGroup) trans).remove_all ();
 
         foreach (TileMovement? e in _to_hide)
         {
@@ -514,8 +526,6 @@ private class Game : Object
         _store_score_update (delta_score);
 
         _create_random_tile ();
-
-        _show_hide_trans.start ();
     }
 
     /*\
@@ -526,28 +536,39 @@ private class Game : Object
     internal signal void target_value_reached (uint val);
 
     private uint _finish_move_id = 0;
+    private bool _update_handled = false;
 
     private void _create_show_hide_transition (bool animate)
     {
         _show_hide_trans = new Clutter.TransitionGroup ();
         _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
-        _show_hide_trans.set_duration (animate ? _animations_duration / 2 : 10);
+        /* _show_hide_trans should be finished two times (forward and backward) before
+           one _move_trans is done, so at least animation time should be strictly half */
+        _show_hide_trans.set_duration (animate ? _animations_duration / 3 : 10);
     }
 
-    private void _on_show_hide_trans_stopped (bool is_finished)
+    private void _on_show_hide_trans_stopped (Clutter.Timeline trans, bool is_finished)
     {
-        debug (@"show/hide animation stopped; finished $is_finished");
+        debug ("show/hide animation stopped");
 
-        if (_show_hide_trans.direction == Clutter.TimelineDirection.FORWARD)
+        if (trans.direction == Clutter.TimelineDirection.FORWARD)
         {
-            _show_hide_trans.direction = Clutter.TimelineDirection.BACKWARD;
-            _show_hide_trans.start ();
+            trans.direction = Clutter.TimelineDirection.BACKWARD;
+            trans.start ();
             return;
         }
 
+        ((Clutter.TransitionGroup) trans).remove_all ();
+        _apply_move ();
+    }
+
+    private void _apply_move ()
+    {
         debug (@"$_grid");
 
-        _show_hide_trans.remove_all ();
+        if (_update_handled && _state != GameState.SHOWING_FIRST_TILE)
+            return;
+        _update_handled = true;
 
         foreach (TileMovement? e in _to_hide)
         {
@@ -566,14 +587,9 @@ private class Game : Object
 
         if (_state == GameState.SHOWING_FIRST_TILE)
         {
-            _state = GameState.SHOWING_SECOND_TILE;
+            _state = GameState.SHOWING_NEW_TILE;
             debug ("state show second tile");
             _create_random_tile ();
-        }
-        else if (_state == GameState.SHOWING_SECOND_TILE)
-        {
-            _state = GameState.IDLE;
-            debug ("state idle");
         }
         else if (_state != GameState.IDLE)
         {
@@ -639,17 +655,19 @@ private class Game : Object
     private Gee.LinkedList<uint> _undo_score_stack = new Gee.LinkedList<uint> ();
 
     internal void undo ()
+        requires (_allow_undo == true)
     {
-        Grid grid = _undo_stack.poll_head ();
-        uint delta_score = _undo_score_stack.poll_head ();
+        if (_state != GameState.IDLE)
+            return;
 
         _clear_foreground ();
-        _grid = grid;
+        _grid = _undo_stack.poll_head ();
         _restore_foreground (false);
-        score -= delta_score;
+        score -= _undo_score_stack.poll_head ();
 
         if (_undo_stack.size == 0)
             undo_disabled ();
+        _update_handled = false;
     }
 
     private void _load_undo_settings (ref GLib.Settings settings)

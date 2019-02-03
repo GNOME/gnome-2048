@@ -544,15 +544,15 @@ private class Application : Gtk.Application
     }
     private static inline void _get_animations_button_label (ref double speed, out string _animations_button_label)
     {
-        if (speed == 100.0)
+        if (speed == 130.0)
             /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
             _animations_button_label = _("Normal");
 
-        else if (speed == 40.0)
+        else if (speed == 65.0)
             /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
             _animations_button_label = _("Fast");
 
-        else if (speed == 250.0)
+        else if (speed == 260.0)
             /* Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed */
             _animations_button_label = _("Slow");
 

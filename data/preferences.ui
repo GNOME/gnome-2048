@@ -108,19 +108,19 @@
       <!-- Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)-->
       <attribute name="label" translatable="yes">_Slow</attribute>
       <attribute name="action">app.animations-speed</attribute>
-      <attribute name="target">250.0</attribute>
+      <attribute name="target">260.0</attribute>
     </item>
     <item>
       <!-- Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt) -->
       <attribute name="label" translatable="yes">_Normal</attribute>
       <attribute name="action">app.animations-speed</attribute>
-      <attribute name="target">100.0</attribute>
+      <attribute name="target">130.0</attribute>
     </item>
     <item>
       <!-- Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt) -->
       <attribute name="label" translatable="yes">_Fast</attribute>
       <attribute name="action">app.animations-speed</attribute>
-      <attribute name="target">40.0</attribute>
+      <attribute name="target">65.0</attribute>
     </item>
   </menu>
 </interface>

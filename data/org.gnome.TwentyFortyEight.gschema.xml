@@ -53,7 +53,7 @@
       <description>Whether the user shall be congratulated on obtaining target tile.</description>
     </key>
     <key name="animations-speed" type="d">
-      <default>100.0</default>
+      <default>130.0</default>
       <!-- as in the preferences.ui file -->
       <range min="20.0" max="2000.0"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed' -->
