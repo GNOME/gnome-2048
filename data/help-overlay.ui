@@ -35,14 +35,6 @@
                 <property name="accelerator">Left Up Right Down</property>
               </object>
             </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
-                <!-- Translators: undo is not allowed by default, it is an option available in the Preferences dialog -->
-                <property name="title" translatable="yes" context="shortcut window">Undo (if enabled)</property>
-                <property name="accelerator">&lt;Primary&gt;z</property>
-              </object>
-            </child>
           </object>
         </child>
         <child>
@@ -79,14 +71,6 @@
                 <!-- Translators: shortcut that toggles the hamburger menu -->
                 <property name="title" translatable="yes" context="shortcut window">Toggle main menu</property>
                 <property name="accelerator">F10 Menu</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
-                <!-- Translators: shortcut that opens Prefences dialog -->
-                <property name="title" translatable="yes" context="shortcut window">Preferences</property>
-                <property name="accelerator">&lt;Primary&gt;e</property>
               </object>
             </child>
             <child>
