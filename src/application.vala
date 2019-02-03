@@ -28,6 +28,7 @@ private class Application : Gtk.Application
     private int _window_width;
     private int _window_height;
     private bool _window_maximized;
+    private bool _window_is_tiled;
 
     private int WINDOW_MINIMUM_SIZE_HEIGHT = 600;
     private int WINDOW_MINIMUM_SIZE_WIDTH = 600;
@@ -490,15 +491,24 @@ private class Application : Gtk.Application
 
     private void window_size_allocate_cb ()
     {
-        if (_window_maximized)
+        if (_window_maximized || _window_is_tiled)
             return;
-        _window.get_size (out _window_width, out _window_height);
+        int? window_width = null;
+        int? window_height = null;
+        _window.get_size (out window_width, out window_height);
+        if (window_width == null || window_height == null)
+            return;
+        _window_width = (!) window_width;
+        _window_height = (!) window_height;
     }
 
     private bool window_state_event_cb (Gdk.EventWindowState event)
     {
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
             _window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+        /* We don’t save this state, but track it for saving size allocation */
+        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
+            _window_is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
 
         return false;
     }
