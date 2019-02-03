@@ -499,7 +499,7 @@ private class Grid : Object
         rows = int.parse (tokens[0]);
         cols = int.parse (tokens[1]);
 
-        if ((rows < 1) || (cols < 1))
+        if ((rows < 1) || (cols < 1) || (rows > 9) || (cols > 9))
             return false;
         if (Application.is_disallowed_grid_size (ref rows, ref cols))
             return false;

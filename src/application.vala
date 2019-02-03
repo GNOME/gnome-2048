@@ -429,13 +429,13 @@ private class Application : Gtk.Application
 
         int rows = _settings.get_int ("rows");
         int cols = _settings.get_int ("cols");
+        bool is_square = rows == cols;
         bool disallowed_grid = is_disallowed_grid_size (ref rows, ref cols);
-        if (disallowed_grid)
+        if (disallowed_grid && !is_square)
             /* Translators: command-line warning displayed if the user manually sets a invalid grid size */
             warning (_("Grids of size 1 by 2 are disallowed."));
 
-        if (((rows != cols) && !disallowed_grid)
-         || ((rows == cols) && rows != 4 && rows != 3 && rows != 5))
+        if (!disallowed_grid && (!is_square || (is_square && rows != 4 && rows != 3 && rows != 5)))
             /* Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually */
             _append_new_game_item (_("Custom"), /* rows */ rows, /* cols */ cols, ref menu);
 
@@ -449,8 +449,12 @@ private class Application : Gtk.Application
     }
 
     internal static bool is_disallowed_grid_size (ref int rows, ref int cols)
+        requires (rows >= 1)
+        requires (rows <= 9)
+        requires (cols >= 1)
+        requires (cols <= 9)
     {
-        return (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
+        return (rows == 1 && cols == 1) || (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
     }
 
     /*\
