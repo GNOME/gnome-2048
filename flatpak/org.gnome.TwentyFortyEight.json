@@ -4,8 +4,6 @@
     "runtime-version":"3.30",
     "sdk":"org.gnome.Sdk",
     "command":"gnome-2048",
-    "rename-icon":"gnome-2048",
-    "rename-desktop-file":"org.gnome.gnome-2048.desktop.in",
     "finish-args":[
         "--socket=wayland",
         "--socket=x11",
@@ -45,7 +43,7 @@
                 {
                     "type":"git",
                     "branch":"gnome-3-30",
-                    "url":"https://git.gnome.org/browse/gnome-2048"
+                    "url":"https://gitlab.gnome.org/GNOME/gnome-2048.git"
                 }
             ]
         }

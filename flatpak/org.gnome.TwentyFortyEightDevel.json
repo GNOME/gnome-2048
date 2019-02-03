@@ -4,8 +4,6 @@
     "runtime-version":"3.30",
     "sdk":"org.gnome.Sdk",
     "command":"gnome-2048",
-    "rename-icon":"gnome-2048",
-    "rename-desktop-file":"org.gnome.gnome-2048.desktop.in",
     "tags":[
         "nightly"
     ],
@@ -49,7 +47,7 @@
                 {
                     "type":"git",
                     "branch":"master",
-                    "url":"https://git.gnome.org/browse/gnome-2048"
+                    "url":"https://gitlab.gnome.org/GNOME/gnome-2048.git"
                 }
             ]
         }
