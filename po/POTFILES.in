@@ -6,5 +6,4 @@ data/mainwindow.ui
 data/org.gnome.TwentyFortyEight.appdata.xml.in
 data/org.gnome.TwentyFortyEight.desktop.in
 data/org.gnome.TwentyFortyEight.gschema.xml
-data/preferences.ui
 src/application.vala
