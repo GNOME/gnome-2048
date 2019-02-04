@@ -46,7 +46,6 @@
             "sources":[
                 {
                     "type":"git",
-                    "branch":"master",
                     "url":"https://gitlab.gnome.org/GNOME/gnome-2048.git"
                 }
             ]
