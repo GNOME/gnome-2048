@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2019-01-26 11:46+0000\n"
-"PO-Revision-Date: 2019-01-28 17:59-0200\n"
+"POT-Creation-Date: 2019-02-03 18:45+0000\n"
+"PO-Revision-Date: 2019-02-03 23:02-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese - Brazil <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -26,208 +26,87 @@ msgid "Congratulations!"
 msgstr "﻿Parabéns!"
 
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#. Translators: button in the headerbar
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:46 data/mainwindow.ui:37
 msgid "_New Game"
 msgstr "_Novo jogo"
 
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after 2048 (with a mnemonic that appears pressing Alt)
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:54
 msgid "_Keep Playing"
 msgstr "_Continuar jogando"
 
-#: data/help-overlay.ui:28
+#. Translators: header of the "Play" and "Undo (if enabled)" shortcuts section
+#: data/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "Game"
 msgstr "Jogo"
 
 #. Translators: the application has no help, so the use of arrows for playing is documented here
-#: data/help-overlay.ui:33
+#: data/help-overlay.ui:34
 msgctxt "shortcut window"
-msgid "Play"
-msgstr "Jogar"
+msgid "Play with arrows"
+msgstr "Joga com setas"
 
-#. Translators: undo is not allowed by default, it is an option available in the Preferences dialog
-#: data/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Undo (if enabled)"
-msgstr "Desfazer (se habilitado)"
-
-#: data/help-overlay.ui:50
+#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
+#: data/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Novo jogo"
 
-#. Translators: that opens the New Game menu, that allow to choose the board size of the next game
-#: data/help-overlay.ui:55
+#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
+#: data/help-overlay.ui:49
 msgctxt "shortcut window"
 msgid "Choose a new game"
 msgstr "Escolhe um novo jogo"
 
-#. Translators: that is an immediate start of a new game, with similar options
-#: data/help-overlay.ui:63
+#. Translators: shortcut that starts immediately a new game, with similar options
+#: data/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Start a new game"
 msgstr "Inicia um novo jogo"
 
-#: data/help-overlay.ui:72
+#. Translators: header of the "Toggle main menu," "Preferences," "Quit," etc. shortcuts section
+#: data/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Genérico"
 
-#. Translators: toggles the hamburger menu
-#: data/help-overlay.ui:77
+#. Translators: shortcut that toggles the hamburger menu
+#: data/help-overlay.ui:72
 msgctxt "shortcut window"
 msgid "Toggle main menu"
 msgstr "Acessa o menu principal"
 
-#. Translators: opens Prefences dialog
-#: data/help-overlay.ui:85
-msgctxt "shortcut window"
-msgid "Preferences"
-msgstr "Preferências"
-
-#. Translators: opens Keyboard Shortcuts window
-#: data/help-overlay.ui:93
+#. Translators: shortcut that opens Keyboard Shortcuts window
+#: data/help-overlay.ui:80
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Atalhos de teclado"
 
-#. Translators: opens About dialog
-#: data/help-overlay.ui:101
+#. Translators: shortcut that opens About dialog
+#: data/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Sobre"
 
-#. Translators: quit application
-#: data/help-overlay.ui:109
+#. Translators: shortcut that quits application
+#: data/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Sai"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/mainwindow.ui:32 data/org.gnome.gnome-2048.appdata.xml.in:8
+#: data/mainwindow.ui:32 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
-#: data/mainwindow.ui:113
-msgid "4 × 4"
-msgstr "4 × 4"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
-#: data/mainwindow.ui:119
-msgid "5 × 5"
-msgstr "5 × 5"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.2048.gschema.xml:6
-msgid "Window width"
-msgstr "Largura da janela"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.2048.gschema.xml:8
-msgid "Window width."
-msgstr "Largura da janela."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.2048.gschema.xml:13
-msgid "Window height"
-msgstr "Altura da janela"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.2048.gschema.xml:15
-msgid "Window height."
-msgstr "Altura da janela."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.2048.gschema.xml:20
-msgid "Window maximized"
-msgstr "Janela maximizada"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.2048.gschema.xml:22
-msgid "Window maximization state."
-msgstr "O estado de janela maximizada."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.2048.gschema.xml:27
-msgid "Number of rows"
-msgstr "Número de linhas"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.2048.gschema.xml:29
-msgid "Game grid number of rows."
-msgstr "Número de linhas na grade do jogo."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.2048.gschema.xml:34
-msgid "Number of columns"
-msgstr "Número de colunas"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.2048.gschema.xml:36
-msgid "Game grid number of columns."
-msgstr "Número de colunas na grade do jogo."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.2048.gschema.xml:42
-msgid "Target value"
-msgstr "Valor do alvo"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.2048.gschema.xml:44
-msgid "Tile value at which user is congratulated."
-msgstr "Valor do bloco no qual o usuário é felicitado."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.2048.gschema.xml:49
-msgid "Congrat on target tile"
-msgstr "Felicitação pelo bloco alvo"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.2048.gschema.xml:51
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Se o usuário deve, ou não, ser felicitado ao obter o bloco alvo."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#. Translators: in the preferences dialog; label introducing an option, to change the animations speed
-#: data/org.gnome.2048.gschema.xml:58 data/preferences.ui:42
-msgid "Animations speed"
-msgstr "Velocidade de animações"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.2048.gschema.xml:60
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr "Duração das animações: mostrar bloco, mover bloco, sumir bloco."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#. Translators: in the preferences dialog; label introducing an option, a switch to allow or not undoing a move
-#: data/org.gnome.2048.gschema.xml:65 data/preferences.ui:85
-msgid "Allow undo"
-msgstr "Permitir desfazer"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.2048.gschema.xml:67
-msgid "Whether tile movements can be undone."
-msgstr "Se movimentos de blocos podem ser desfeitos."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.2048.gschema.xml:73
-msgid "Number of undo movements"
-msgstr "Número de movimentos desfeitos"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.2048.gschema.xml:75
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Número máximo de movimentos de blocos que podem ser desfeitos."
-
-#: data/org.gnome.gnome-2048.appdata.xml.in:9
-#: data/org.gnome.gnome-2048.desktop.in:4
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
+#: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Obtenha o bloco 2048"
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:11
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
@@ -237,7 +116,7 @@ msgstr ""
 "jogo de quebra-cabeça de 1 jogador. A partida consiste em juntar números de "
 "uma grade e obter o bloco 2048."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:16
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -250,7 +129,7 @@ msgstr ""
 "apenas um bloco, uma linha ou uma coluna. Os blocos de mesmo valor são "
 "unidos quando deslizados uns sobre os outros."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:22
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -261,7 +140,7 @@ msgstr ""
 "não termina aí: você pode continuar juntando blocos e aumentando sua "
 "pontuação."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:27
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -271,55 +150,129 @@ msgstr ""
 "popularidade por ser muito viciante. O 2048 de Cirulli é, por sua vez, um "
 "clone do jogo 1024 e inclui ideias de outros clones."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:36
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Um jogo atingiu o bloco 2048"
 
 #. this is a translatable version of project_group
-#: data/org.gnome.gnome-2048.appdata.xml.in:45
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
 msgid "The GNOME Project"
 msgstr "O Projeto GNOME"
 
 #. Translators: about dialog text; the program name
-#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:343
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/application.vala:374
 msgid "2048"
 msgstr "2048"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.gnome-2048.desktop.in:8
-msgid "gnome-2048"
-msgstr "gnome-2048"
+#: data/org.gnome.TwentyFortyEight.desktop.in:8
+msgid "org.gnome.TwentyFortyEight"
+msgstr "org.gnome.TwentyFortyEight"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.gnome-2048.desktop.in:14
+#: data/org.gnome.TwentyFortyEight.desktop.in:14
 msgid "puzzle;"
 msgstr "quebra-cabeça;puzzle;"
 
-#. Translators: title of the dialog that appears when the users clicks the "Preferences" entry in the hamburger menu
-#. Translators: entry in the hamburger menu; opens a window for configuring application
-#: data/preferences.ui:23 src/application.vala:289
-msgid "Preferences"
-msgstr "Preferências"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:6
+msgid "Window width"
+msgstr "Largura da janela"
 
-#. Translators: in the preferences dialog; label introducing an option, a switch to display or no congratulations when reaching 2048
-#: data/preferences.ui:64
-msgid "Display congrats"
-msgstr "Exibir parabéns"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:8
+msgid "Window width."
+msgstr "Largura da janela."
 
-#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
-#: data/preferences.ui:109
-msgid "_Slow"
-msgstr "_Lento"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:13
+msgid "Window height"
+msgstr "Altura da janela"
 
-#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
-#: data/preferences.ui:115
-msgid "_Normal"
-msgstr "_Normal"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
+msgid "Window height."
+msgstr "Altura da janela."
 
-#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
-#: data/preferences.ui:121
-msgid "_Fast"
-msgstr "_Rápido"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:20
+msgid "Window maximized"
+msgstr "Janela maximizada"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
+msgid "Window maximization state."
+msgstr "O estado de janela maximizada."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:28
+msgid "Number of rows"
+msgstr "Número de linhas"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:30
+msgid "Game grid number of rows."
+msgstr "Número de linhas na grade do jogo."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:36
+msgid "Number of columns"
+msgstr "Número de colunas"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:38
+msgid "Game grid number of columns."
+msgstr "Número de colunas na grade do jogo."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:44
+msgid "Target value"
+msgstr "Valor do alvo"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:46
+msgid "Tile value at which user is congratulated."
+msgstr "Valor do bloco no qual o usuário é felicitado."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:51
+msgid "Congrat on target tile"
+msgstr "Felicitação pelo bloco alvo"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Se o usuário deve, ou não, ser felicitado ao obter o bloco alvo."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Animations speed"
+msgstr "Velocidade de animações"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Duração das animações: mostrar bloco, mover bloco, sumir bloco."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
+msgid "Allow undo"
+msgstr "Permitir desfazer"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
+msgid "Whether tile movements can be undone."
+msgstr "Se movimentos de blocos podem ser desfeitos."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:75
+msgid "Number of undo movements"
+msgstr "Número de movimentos desfeitos"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:77
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Número máximo de movimentos de blocos que podem ser desfeitos."
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
 #: src/application.vala:177
@@ -327,32 +280,32 @@ msgid "Game Over"
 msgstr "Fim de jogo"
 
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/application.vala:267
+#: src/application.vala:293
 msgid "Undo"
 msgstr "Desfazer"
 
 #. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/application.vala:278
+#: src/application.vala:304
 msgid "Scores"
 msgstr "Pontuações"
 
 #. Translators: usual menu entry of the hamburger menu
-#: src/application.vala:292
+#: src/application.vala:315
 msgid "Keyboard Shortcuts"
 msgstr "Atalhos de teclado"
 
 #. Translators: entry in the hamburger menu
-#: src/application.vala:295
+#: src/application.vala:318
 msgid "About 2048"
 msgstr "Sobre o 2048"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/application.vala:347
+#: src/application.vala:378
 msgid "A clone of 2048 for GNOME"
 msgstr "Um clone do 2048 para o GNOME"
 
 #. Translators: about dialog text; the main copyright holders
-#: src/application.vala:351
+#: src/application.vala:382
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
 "Copyright © 2016-2019 – Arnaud Bonatti"
@@ -361,56 +314,105 @@ msgstr ""
 "Copyright © 2016-2019 – Arnaud Bonatti"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/application.vala:355
+#: src/application.vala:386
 msgid "translator-credits"
 msgstr ""
 "Enrico Nicoletto <liverig@gmail.com>Rafael Fontenelle <rafaelff@gnome.org>,"
 
 #. Translators: about dialog text; label of the website link
-#: src/application.vala:359
+#: src/application.vala:390
 msgid "Page on GNOME wiki"
 msgstr "Página no wiki do GNOME"
 
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:439
-msgid "Normal"
-msgstr "Normal"
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
+#: src/application.vala:408
+msgid "3 × 3"
+msgstr "3 × 3"
 
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:443
-msgid "Fast"
-msgstr "Rápido"
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
+#: src/application.vala:414
+msgid "4 × 4"
+msgstr "4 × 4"
 
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:447
-msgid "Slow"
-msgstr "Lento"
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
+#: src/application.vala:420
+msgid "5 × 5"
+msgstr "5 × 5"
 
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:451
+#. Translators: command-line warning displayed if the user manually sets a invalid grid size
+#: src/application.vala:431
+msgid "Grids of size 1 by 2 are disallowed."
+msgstr "Grades de tamanho 1 por 2 não são permitidos."
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/application.vala:435
 msgid "Custom"
 msgstr "Personalizado"
 
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/application.vala:507
+#: src/application.vala:551
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Você obteve o bloco %u bloco pela primeira vez!"
 
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
-#: src/application.vala:525
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
+#: src/application.vala:570
+msgid "Grid 3 × 3"
+msgstr "Grade 3 × 3"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
+#: src/application.vala:573
 msgid "Grid 4 × 4"
 msgstr "Grade 4 × 4"
 
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
-#: src/application.vala:528
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
+#: src/application.vala:576
 msgid "Grid 5 × 5"
 msgstr "Grade 5 × 5"
 
-#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 and one 5 × 5 game
-#: src/application.vala:531
+#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
+#: src/application.vala:579
 msgid "Grid Size:"
 msgstr "Tamanho da grade:"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Play"
+#~ msgstr "Jogar"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Undo (if enabled)"
+#~ msgstr "Desfazer (se habilitado)"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Preferences"
+#~ msgstr "Preferências"
+
+#~ msgid "gnome-2048"
+#~ msgstr "gnome-2048"
+
+#~ msgid "Preferences"
+#~ msgstr "Preferências"
+
+#~ msgid "Display congrats"
+#~ msgstr "Exibir parabéns"
+
+#~ msgid "_Slow"
+#~ msgstr "_Lento"
+
+#~ msgid "_Normal"
+#~ msgstr "_Normal"
+
+#~ msgid "_Fast"
+#~ msgstr "_Rápido"
+
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgid "Fast"
+#~ msgstr "Rápido"
+
+#~ msgid "Slow"
+#~ msgstr "Lento"
 
 #~ msgid "Grid size"
 #~ msgstr "Tamanho da grade"
