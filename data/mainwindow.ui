@@ -36,6 +36,7 @@
             <!-- Translators: button in the headerbar (with a mnemonic that appears pressing Alt) -->
             <property name="label" translatable="yes">_New Game</property>
             <property name="visible">True</property>
+            <property name="valign">center</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="use-underline">True</property>
