@@ -25,7 +25,7 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="visible">True</property>
-            <!-- Translators: header of the "Play" and "Undo (if enabled)" shortcuts section -->
+            <!-- Translators: header of the "Play with arrows" shortcut section -->
             <property name="title" translatable="yes" context="shortcut window">Game</property>
             <child>
               <object class="GtkShortcutsShortcut">
@@ -63,7 +63,7 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="visible">True</property>
-            <!-- Translators: header of the "Toggle main menu," "Preferences," "Quit," etc. shortcuts section -->
+            <!-- Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section -->
             <property name="title" translatable="yes" context="shortcut window">Generic</property>
             <child>
               <object class="GtkShortcutsShortcut">
