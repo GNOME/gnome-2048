@@ -1,7 +1,7 @@
 {
     "app-id":"org.gnome.TwentyFortyEight",
     "runtime":"org.gnome.Platform",
-    "runtime-version":"3.30",
+    "runtime-version":"master",
     "sdk":"org.gnome.Sdk",
     "command":"gnome-2048",
     "tags":[
@@ -46,7 +46,6 @@
             "sources":[
                 {
                     "type":"git",
-                    "branch":"master",
                     "url":"https://gitlab.gnome.org/GNOME/gnome-2048.git"
                 }
             ]

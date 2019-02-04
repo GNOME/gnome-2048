@@ -39,7 +39,7 @@
   <provides>
     <id>org.gnome.gnome-2048.desktop</id>
   </provides>
-  <launchable type="desktop-id">org.gnome.TwentyFortyEight</launchable>
+  <launchable type="desktop-id">org.gnome.TwentyFortyEight.desktop</launchable>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-2048/issues</url>
   <url type="donation">http://www.gnome.org/friends/</url>
