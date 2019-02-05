@@ -539,10 +539,30 @@ private class Grid : Object
             {
                 if (!int64.try_parse (tokens [j], out cols_64))
                     return false;
+                if (_bad_tile_number (ref cols_64))
+                    return false;
                 grid [i, j] = (int) cols_64;
             }
         }
 
+        return true;
+    }
+
+    private static inline bool _bad_tile_number (ref int64 number)
+    {
+        if (number < 0)
+            return true;
+        if (number == 0)
+            return false;
+        if (number == 1)
+            return true;
+        for (int64 i = 2; i < (int64) int.MAX; i *= 2)
+        {
+            if (number == i)
+                return false;
+            if (number < i)
+                return true;
+        }
         return true;
     }
 }

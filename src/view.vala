@@ -151,7 +151,9 @@ private class TileView : RoundedRectangle
 
     private static Clutter.Color _calculate_color (uint tile_value)
     {
-        uint norm_val = tile_value / 2048;
+        uint norm_val = tile_value / 2048;  /* 2^12 to 2^22 */
+        if (norm_val > 2048)
+            norm_val /= 2048;               /* 2^23 to 2^31 */
         Clutter.Color? nullable_color = _pick_palette_color (norm_val);
         if (nullable_color == null)
             assert_not_reached ();
