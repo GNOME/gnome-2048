@@ -1,3 +1,24 @@
+GNOME 2048   3.31.90                                       2019-05-02
+=====================================================================
+
+Various changes. The main is probably the removing of the Preferences
+dialog: the Undo action is now hidden (and a bug in score restoration
+was fixed); the game is now responsive, and proposing to change speed
+was now mostly useless; and multiple game sizes are now proposed when
+you click on the New Game button (including a 3 by 3). Also, the game
+can now be played with gestures (and with WASD keys). About technical
+things, the application changed to use the org.gnome.TwentyFortyEight
+app-id, and it can be built using the Gitlab CI. Looks good for 3.32!
+
+Translations updated:
+  Czech: Marek Cernocky
+  Finnish: Jiri Grönroos
+  Hungarian: Balázs Úr
+  Polish: Piotr Drąg
+  Brazilian Portuguese: Rafael Fontenelle
+  Spanish: Daniel Mustieles
+  Swedish: Anders Jonsson
+
 GNOME 2048   3.31.4                                        2019-09-01
 =====================================================================
 
