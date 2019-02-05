@@ -21,6 +21,12 @@ private class Grid : Object
 {
     private uint [,] _grid;
 
+    public int rows { internal get; protected construct; }
+    public int cols { internal get; protected construct; }
+
+    internal uint target_value          { internal get; internal set; default = 0; }
+    internal bool target_value_reached  { internal get; internal set; default = false; }
+
     construct
     {
         _grid = new uint [rows, cols];
@@ -32,28 +38,9 @@ private class Grid : Object
         Object (rows: rows, cols: cols);
     }
 
-    public int rows { internal get; protected construct; }
-    public int cols { internal get; protected construct; }
-
-    internal uint target_value          { internal get; internal set; default = 0; }
-    internal bool target_value_reached  { internal get; internal set; default = false; }
-
-    internal Grid clone ()
-    {
-        Grid grid = new Grid (_rows, _cols);
-        grid._grid = _grid;
-        grid._target_value = _target_value;
-        grid._target_value_reached = _target_value_reached;
-
-        return grid;
-    }
-
-    internal void clear ()
-    {
-        for (uint i = 0; i < _grid.length [0]; i++)
-            for (uint j = 0; j < _grid.length [1]; j++)
-                _grid [i, j] = 0;
-    }
+    /*\
+    * * adding new tile
+    \*/
 
     internal void new_tile (out Tile tile)
     {
@@ -67,6 +54,7 @@ private class Grid : Object
         _grid [pos.row, pos.col] = 2;
         tile = { pos, /* tile value */ 2 };
     }
+
     private static inline void _generate_random_position (int rows, int cols, out GridPosition pos)
         requires (rows > 0)
         requires (cols > 0)
@@ -391,7 +379,7 @@ private class Grid : Object
     }
 
     /*\
-    * * others
+    * * work on all the grid
     \*/
 
     internal bool is_finished ()
@@ -403,12 +391,12 @@ private class Grid : Object
         {
             for (int j = 0; j < _cols; j++)
             {
-                uint val = _grid[i,j];
+                uint val = _grid [i, j];
 
-                if (i < (_rows - 1) && val == _grid[i+1,j])
+                if (i < (_rows - 1) && val == _grid [i+1, j])
                     return false;
 
-                if (j < (_cols - 1) && val == _grid[i,j+1])
+                if (j < (_cols - 1) && val == _grid [i, j+1])
                     return false;
             }
         }
@@ -416,7 +404,38 @@ private class Grid : Object
         return true;
     }
 
-    internal new uint get (int row, int col)
+    private bool _grid_is_full ()
+    {
+        for (uint i = 0; i < _rows; i++)
+            for (uint j = 0; j < _cols; j++)
+                if (_grid [i, j] == 0)
+                    return false;
+
+        return true;
+    }
+
+    internal void clear ()
+    {
+        for (uint i = 0; i < _grid.length [0]; i++)
+            for (uint j = 0; j < _grid.length [1]; j++)
+                _grid [i, j] = 0;
+    }
+
+    /*\
+    * * saving and restoring
+    \*/
+
+    internal Grid clone ()
+    {
+        Grid grid = new Grid (_rows, _cols);
+        grid._grid = _grid;
+        grid._target_value = _target_value;
+        grid._target_value_reached = _target_value_reached;
+
+        return grid;
+    }
+
+    internal new uint get (int row, int col)    // allows calling "uint val = _grid [i, j];" in game.vala
     {
         if ((row >= _rows) || (col >= _cols))
             return 0;
@@ -504,16 +523,6 @@ private class Grid : Object
         _rows = rows;
         _cols = cols;
         _grid = grid;
-
-        return true;
-    }
-
-    private bool _grid_is_full ()
-    {
-        for (uint i = 0; i < _rows; i++)
-            for (uint j = 0; j < _cols; j++)
-                if (_grid[i,j] == 0)
-                    return false;
 
         return true;
     }
