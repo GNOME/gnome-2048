@@ -141,7 +141,7 @@ private class Application : Gtk.Application
         _window.show_all ();
         _init_gesture ();
 
-        _game_restored = _game.restore_game ();
+        _game_restored = _game.restore_game (ref _settings);
         if (!_game_restored)
             new_game_cb ();
         _game_should_init = false;

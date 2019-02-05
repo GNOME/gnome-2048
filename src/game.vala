@@ -146,7 +146,7 @@ private class Game : Object
         }
     }
 
-    internal bool restore_game ()
+    internal bool restore_game (ref GLib.Settings settings)
     {
         string contents;
         try {
@@ -176,6 +176,11 @@ private class Game : Object
             _clear_background ();
         _init_background ();
         _restore_foreground (true);
+
+        settings.delay ();
+        settings.set_int ("rows", _grid.rows);
+        settings.set_int ("cols", _grid.cols);
+        settings.apply ();
 
         debug ("game restored successfully");
         return true;
