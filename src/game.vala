@@ -149,22 +149,28 @@ private class Game : Object
     internal bool restore_game ()
     {
         string contents;
-        string [] lines;
-
         try {
             FileUtils.get_contents (_saved_path, out contents);
         } catch (FileError e) {
             return false;
         }
 
-        if (!_grid.load (contents))
+        if (!_grid.load (ref contents))
         {
             warning ("Failed to restore game from saved file");
             return false;
         }
 
-        lines = contents.split ("\n");
-        score = (uint) int.parse (lines [lines.length - 2]);
+        string [] lines = contents.split ("\n");
+        string last_line = lines [lines.length - 1];    // not UNIX?
+        if (last_line == "")
+            last_line = lines [lines.length - 2];
+        int64 score_64;
+        if (!int64.try_parse (last_line, out score_64))
+            return false;
+        if (score_64 < 0 || score_64 > (int64) uint.MAX)
+            return false;
+        score = (uint) score_64;
 
         if (_background_init_done)
             _clear_background ();

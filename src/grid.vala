@@ -30,7 +30,7 @@ private class Grid : Object
     construct
     {
         _grid = new uint [rows, cols];
-        clear ();
+        _clear (ref _grid);
     }
 
     internal Grid (int rows, int cols)
@@ -44,7 +44,7 @@ private class Grid : Object
 
     internal void new_tile (out Tile tile)
     {
-        if (_grid_is_full ())
+        if (_grid_is_full (ref _grid))
             assert_not_reached ();
 
         GridPosition pos = { 0, 0 }; // TODO report bug: garbage init needed
@@ -384,7 +384,7 @@ private class Grid : Object
 
     internal bool is_finished ()
     {
-        if (!_grid_is_full ())
+        if (!_grid_is_full (ref _grid))
             return false;
 
         for (int i = 0; i < _rows; i++)
@@ -404,25 +404,34 @@ private class Grid : Object
         return true;
     }
 
-    private bool _grid_is_full ()
+    private static bool _grid_is_full (ref uint [,] grid)
     {
-        for (uint i = 0; i < _rows; i++)
-            for (uint j = 0; j < _cols; j++)
-                if (_grid [i, j] == 0)
-                    return false;
+        uint rows = grid.length [0];
+        uint cols = grid.length [1];
 
+        for (uint i = 0; i < rows; i++)
+            for (uint j = 0; j < cols; j++)
+                if (grid [i, j] == 0)
+                    return false;
         return true;
     }
 
     internal void clear ()
     {
-        for (uint i = 0; i < _grid.length [0]; i++)
-            for (uint j = 0; j < _grid.length [1]; j++)
-                _grid [i, j] = 0;
+        _clear (ref _grid);
+    }
+    private static void _clear (ref uint [,] grid)
+    {
+        uint rows = grid.length [0];
+        uint cols = grid.length [1];
+
+        for (uint i = 0; i < rows; i++)
+            for (uint j = 0; j < cols; j++)
+                grid [i, j] = 0;
     }
 
     /*\
-    * * saving and restoring
+    * * getting values
     \*/
 
     internal Grid clone ()
@@ -443,68 +452,78 @@ private class Grid : Object
         return _grid [row, col];
     }
 
+    /*\
+    * * saving
+    \*/
+
     internal string save ()
     {
-        string ret = "";
-
-        ret += _rows.to_string () + " ";
-        ret += _cols.to_string () + "\n";
-
-        ret += _convert_to_string ();
-
-        return ret;
+        string ret_string = @"$_rows $_cols\n";
+        _convert_to_string (ref _grid, ref ret_string);
+        return ret_string;
     }
 
-    internal bool load (string content)
+    internal string to_string ()                // for debug, in @"$_grid" strings
     {
-        return _load_from_string (content);
+        string ret_string = "\n";
+        _convert_to_string (ref _grid, ref ret_string);
+        return ret_string;
     }
 
-    internal string to_string ()
+    private static void _convert_to_string (ref uint [,] grid, ref string ret_string)
     {
-        string ret = "\n";
-        ret += _convert_to_string ();
-        return ret;
+        uint rows = grid.length [0];
+        uint cols = grid.length [1];
+
+        for (uint i = 0; i < rows; i++)
+            for (uint j = 0; j < cols; j++)
+                ret_string += "%u%s".printf (grid [i, j], (j == (cols - 1)) ? "\n" : " ");
     }
 
-    private string _convert_to_string ()
+    /*\
+    * * restoring
+    \*/
+
+    internal bool load (ref string content)
     {
-        string ret = "";
+        uint [,] grid = {{}};   // garbage
+        if (!_load_from_string (ref content, ref grid))
+            return false;
 
-        for (uint i = 0; i < _rows; i++)
-            for (uint j = 0; j < _cols; j++)
-                ret += "%u%s".printf (_grid[i,j], (j == (_cols-1)) ? "\n" : " ");
-
-        return ret;
+        _rows = grid.length [0];
+        _cols = grid.length [1];
+        _grid = grid;
+        return true;
     }
 
-    private bool _load_from_string (string contents)
+    private static bool _load_from_string (ref string content,
+                                           ref uint [,] grid)
     {
-        int rows = 0;
-        int cols = 0;
-        string [] lines;
-        string [] tokens;
-        uint [,] grid;
-
-        lines = contents.split ("\n");
+        string [] lines = content.split ("\n");
 
         // check that at least it contains 3 rows: size, content, score
         if (lines.length < 4)
             return false;
 
-        tokens = lines[0].split (" ");
+        string [] tokens = lines [0].split (" ");
         if (tokens.length != 2)
             return false;
 
-        rows = int.parse (tokens[0]);
-        cols = int.parse (tokens[1]);
-
-        if ((rows < 1) || (cols < 1) || (rows > 9) || (cols > 9))
+        int64 rows_64;
+        if (!int64.try_parse (tokens [0], out rows_64))
             return false;
+        int64 cols_64;
+        if (!int64.try_parse (tokens [1], out cols_64))
+            return false;
+
+        if ((rows_64 < 1) || (cols_64 < 1) || (rows_64 > 9) || (cols_64 > 9))
+            return false;
+        int rows = (int) rows_64;
+        int cols = (int) cols_64;
         if (Application.is_disallowed_grid_size (ref rows, ref cols))
             return false;
-        // we don't need to be strict here
-        if (lines.length < rows + 1)
+        // number of rows + 1 for size + 1 for score; maybe an empty line at end
+        if (lines.length < rows + 2)
             return false;
 
         grid = new uint [rows, cols];
@@ -517,12 +536,12 @@ private class Grid : Object
                 return false;
 
             for (int j = 0; j < cols; j++)
-                grid [i, j] = int.parse (tokens [j]);
+            {
+                if (!int64.try_parse (tokens [j], out cols_64))
+                    return false;
+                grid [i, j] = (int) cols_64;
+            }
         }
-
-        _rows = rows;
-        _cols = cols;
-        _grid = grid;
 
         return true;
     }
