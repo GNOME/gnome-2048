@@ -75,6 +75,10 @@ private class Grid : Object
                 Random.int_range (0, cols) };
     }
 
+    /*\
+    * * moving
+    \*/
+
     internal inline void move (MoveRequest request,
                            ref Gee.LinkedList<TileMovement?> to_move,
                            ref Gee.LinkedList<TileMovement?> to_hide,
@@ -145,38 +149,15 @@ private class Grid : Object
 
                 if (has_match)
                 {
-                    debug (@"matching tile found at $match");
-
                     if (free.row == rows)
                         free.row = row; // temporarily
 
-                    TileMovement mov = { cur, free };
-                    to_hide.add (mov);
-                    mov = { match, free };
-                    to_hide.add (mov);
-
-                    uint new_val = 2 * val;
-                    Tile tile = { free, new_val };
-                    to_show.add (tile);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [match.row, match.col] = 0;
-                    grid [free.row, free.col] = new_val;
-                    if (max_changed < new_val)
-                        max_changed = new_val;
-
+                    _move_to_match (ref to_hide, ref to_show, ref cur, ref free, ref match, ref grid, ref val, ref max_changed);
                     free.row--;
                 }
                 else if (free.row != rows)
                 {
-                    debug (@"moving $cur to $free");
-
-                    TileMovement mov = { cur, free };
-                    to_move.add (mov);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [free.row, free.col] = val;
-
+                    _move_to_end (ref to_move, ref cur, ref free, ref grid, ref val);
                     free.row--;
                 }
             }
@@ -228,38 +209,15 @@ private class Grid : Object
 
                 if (has_match)
                 {
-                    debug (@"matching tile found at $match");
-
                     if (free.row == -1)
                         free.row = row; // temporarily
 
-                    TileMovement mov = { cur, free };
-                    to_hide.add (mov);
-                    mov = { match, free };
-                    to_hide.add (mov);
-
-                    uint new_val = 2 * val;
-                    Tile tile = { free, new_val };
-                    to_show.add (tile);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [match.row, match.col] = 0;
-                    grid [free.row, free.col] = new_val;
-                    if (max_changed < new_val)
-                        max_changed = new_val;
-
+                    _move_to_match (ref to_hide, ref to_show, ref cur, ref free, ref match, ref grid, ref val, ref max_changed);
                     free.row++;
                 }
                 else if (free.row != -1)
                 {
-                    debug (@"moving $cur to $free");
-
-                    TileMovement mov = { cur, free };
-                    to_move.add (mov);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [free.row, free.col] = val;
-
+                    _move_to_end (ref to_move, ref cur, ref free, ref grid, ref val);
                     free.row++;
                 }
             }
@@ -311,38 +269,15 @@ private class Grid : Object
 
                 if (has_match)
                 {
-                    debug (@"matching tile found at $match");
-
                     if (free.col == -1)
                         free.col = col; // temporarily
 
-                    TileMovement mov = { cur, free };
-                    to_hide.add (mov);
-                    mov = { match, free };
-                    to_hide.add (mov);
-
-                    uint new_val = 2 * val;
-                    Tile tile = { free, new_val };
-                    to_show.add (tile);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [match.row, match.col] = 0;
-                    grid [free.row, free.col] = new_val;
-                    if (max_changed < new_val)
-                        max_changed = new_val;
-
+                    _move_to_match (ref to_hide, ref to_show, ref cur, ref free, ref match, ref grid, ref val, ref max_changed);
                     free.col++;
                 }
                 else if (free.col != -1)
                 {
-                    debug (@"moving $cur to $free");
-
-                    TileMovement mov = { cur, free };
-                    to_move.add (mov);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [free.row, free.col] = val;
-
+                    _move_to_end (ref to_move, ref cur, ref free, ref grid, ref val);
                     free.col++;
                 }
             }
@@ -394,43 +329,70 @@ private class Grid : Object
 
                 if (has_match)
                 {
-                    debug (@"matching tile found at $match");
-
                     if (free.col == cols)
                         free.col = col; // temporarily
 
-                    TileMovement mov = { cur, free };
-                    to_hide.add (mov);
-                    mov = { match, free };
-                    to_hide.add (mov);
-
-                    uint new_val = 2 * val;
-                    Tile tile = { free, new_val };
-                    to_show.add (tile);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [match.row, match.col] = 0;
-                    grid [free.row, free.col] = new_val;
-                    if (max_changed < new_val)
-                        max_changed = new_val;
-
+                    _move_to_match (ref to_hide, ref to_show, ref cur, ref free, ref match, ref grid, ref val, ref max_changed);
                     free.col--;
                 }
                 else if (free.col != cols)
                 {
-                    debug (@"moving $cur to $free");
-
-                    TileMovement mov = { cur, free };
-                    to_move.add (mov);
-
-                    grid [cur.row, cur.col] = 0;
-                    grid [free.row, free.col] = val;
-
+                    _move_to_end (ref to_move, ref cur, ref free, ref grid, ref val);
                     free.col--;
                 }
             }
         }
     }
+
+    /*\
+    * * move utilities
+    \*/
+
+    private static void _move_to_match (ref Gee.LinkedList<TileMovement?> to_hide,
+                                        ref Gee.LinkedList<Tile?> to_show,
+                                        ref GridPosition cur,
+                                        ref GridPosition free,
+                                        ref GridPosition match,
+                                        ref uint [,] grid,
+                                        ref uint val,
+                                        ref uint max_changed)
+    {
+        debug (@"matching tile found at $match");
+
+        TileMovement mov = { cur, free };
+        to_hide.add (mov);
+        mov = { match, free };
+        to_hide.add (mov);
+
+        uint new_val = 2 * val;
+        Tile tile = { free, new_val };
+        to_show.add (tile);
+
+        grid [cur.row, cur.col] = 0;
+        grid [match.row, match.col] = 0;
+        grid [free.row, free.col] = new_val;
+        if (max_changed < new_val)
+            max_changed = new_val;
+    }
+
+    private static void _move_to_end (ref Gee.LinkedList<TileMovement?> to_move,
+                                      ref GridPosition cur,
+                                      ref GridPosition free,
+                                      ref uint [,] grid,
+                                      ref uint val)
+    {
+        debug (@"moving $cur to $free");
+
+        TileMovement mov = { cur, free };
+        to_move.add (mov);
+
+        grid [cur.row, cur.col] = 0;
+        grid [free.row, free.col] = val;
+    }
+
+    /*\
+    * * others
+    \*/
 
     internal bool is_finished ()
     {
