@@ -477,7 +477,7 @@ private class Game : Object
         _move_trans.stopped.connect (_on_move_trans_stopped);
         _move_trans.set_duration (_animations_duration);
 
-        _grid.move (request, _to_move, _to_hide, _to_show);
+        _grid.move (request, ref _to_move, ref _to_hide, ref _to_show);
 
         foreach (TileMovement? e in _to_move)
         {

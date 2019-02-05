@@ -76,40 +76,51 @@ private class Grid : Object
     }
 
     internal inline void move (MoveRequest request,
-                               Gee.LinkedList<TileMovement?> to_move,
-                               Gee.LinkedList<TileMovement?> to_hide,
-                               Gee.LinkedList<Tile?> to_show)
-    {
-        switch (request)
-        {
-            case MoveRequest.DOWN:  move_down  (to_move, to_hide, to_show); return;
-            case MoveRequest.UP:    move_up    (to_move, to_hide, to_show); return;
-            case MoveRequest.LEFT:  move_left  (to_move, to_hide, to_show); return;
-            case MoveRequest.RIGHT: move_right (to_move, to_hide, to_show); return;
-        }
-    }
-
-    private void move_down (Gee.LinkedList<TileMovement?> to_move,
-                            Gee.LinkedList<TileMovement?> to_hide,
-                            Gee.LinkedList<Tile?> to_show)
+                           ref Gee.LinkedList<TileMovement?> to_move,
+                           ref Gee.LinkedList<TileMovement?> to_hide,
+                           ref Gee.LinkedList<Tile?> to_show)
     {
         to_move.clear ();
         to_hide.clear ();
         to_show.clear ();
 
-        for (int i = 0; i < _cols; i++)
+        uint max_changed = 0;
+        switch (request)
         {
-            GridPosition free = { _rows, i };
+            case MoveRequest.DOWN:
+                _move_down  (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+            case MoveRequest.UP:
+                _move_up    (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+            case MoveRequest.LEFT:
+                _move_left  (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+            case MoveRequest.RIGHT:
+                _move_right (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+        }
+        if (max_changed >= target_value)
+            target_value_reached = true;
+    }
 
-            for (int j = 0; j < _rows; j++)
+    private static void _move_down (int cols,
+                                    int rows,
+                                ref uint max_changed,
+                                ref uint [,] grid,
+                                ref Gee.LinkedList<TileMovement?> to_move,
+                                ref Gee.LinkedList<TileMovement?> to_hide,
+                                ref Gee.LinkedList<Tile?> to_show)
+    {
+        for (int i = 0; i < cols; i++)
+        {
+            GridPosition free = { rows, i };
+
+            for (int j = 0; j < rows; j++)
             {
-                int row = _rows - j - 1;
+                int row = rows - j - 1;
                 GridPosition cur = { row, i };
-                uint val = _grid[cur.row,cur.col];
+                uint val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
-                    if (free.row == _rows)
+                    if (free.row == rows)
                         free.row = row;
                     continue;
                 }
@@ -119,7 +130,7 @@ private class Grid : Object
                 bool has_match = false;
                 for (int k = row - 1; k >= 0; k--)
                 {
-                    uint k_val = _grid[k,cur.col];
+                    uint k_val = grid [k, cur.col];
 
                     if (k_val != 0)
                     {
@@ -136,7 +147,7 @@ private class Grid : Object
                 {
                     debug (@"matching tile found at $match");
 
-                    if (free.row == _rows)
+                    if (free.row == rows)
                         free.row = row; // temporarily
 
                     TileMovement mov = { cur, free };
@@ -144,25 +155,27 @@ private class Grid : Object
                     mov = { match, free };
                     to_hide.add (mov);
 
-                    Tile tile = { free, val*2 };
+                    uint new_val = 2 * val;
+                    Tile tile = { free, new_val };
                     to_show.add (tile);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[match.row,match.col] = 0;
-                    _grid[free.row,free.col] = val*2;
-                    _check_target_value_reached (val*2);
+                    grid [cur.row, cur.col] = 0;
+                    grid [match.row, match.col] = 0;
+                    grid [free.row, free.col] = new_val;
+                    if (max_changed < new_val)
+                        max_changed = new_val;
 
                     free.row--;
                 }
-                else if (free.row != _rows)
+                else if (free.row != rows)
                 {
                     debug (@"moving $cur to $free");
 
                     TileMovement mov = { cur, free };
                     to_move.add (mov);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[free.row,free.col] = val;
+                    grid [cur.row, cur.col] = 0;
+                    grid [free.row, free.col] = val;
 
                     free.row--;
                 }
@@ -170,23 +183,23 @@ private class Grid : Object
         }
     }
 
-    private void move_up (Gee.LinkedList<TileMovement?> to_move,
-                          Gee.LinkedList<TileMovement?> to_hide,
-                          Gee.LinkedList<Tile?> to_show)
+    private static void _move_up (int cols,
+                                  int rows,
+                              ref uint max_changed,
+                              ref uint [,] grid,
+                              ref Gee.LinkedList<TileMovement?> to_move,
+                              ref Gee.LinkedList<TileMovement?> to_hide,
+                              ref Gee.LinkedList<Tile?> to_show)
     {
-        to_move.clear ();
-        to_hide.clear ();
-        to_show.clear ();
-
-        for (int i = 0; i < _cols; i++)
+        for (int i = 0; i < cols; i++)
         {
             GridPosition free = { -1, i };
 
-            for (int j = 0; j < _rows; j++)
+            for (int j = 0; j < rows; j++)
             {
                 int row = j;
                 GridPosition cur = { row, i };
-                uint val = _grid[cur.row,cur.col];
+                uint val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
@@ -198,9 +211,9 @@ private class Grid : Object
                 // search for matches
                 GridPosition match = { 0, 0 };
                 bool has_match = false;
-                for (int k = row + 1; k < _rows; k++)
+                for (int k = row + 1; k < rows; k++)
                 {
-                    uint k_val = _grid[k,cur.col];
+                    uint k_val = grid [k, cur.col];
 
                     if (k_val != 0)
                     {
@@ -225,13 +238,15 @@ private class Grid : Object
                     mov = { match, free };
                     to_hide.add (mov);
 
-                    Tile tile = { free, val*2 };
+                    uint new_val = 2 * val;
+                    Tile tile = { free, new_val };
                     to_show.add (tile);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[match.row,match.col] = 0;
-                    _grid[free.row,free.col] = val*2;
-                    _check_target_value_reached (val*2);
+                    grid [cur.row, cur.col] = 0;
+                    grid [match.row, match.col] = 0;
+                    grid [free.row, free.col] = new_val;
+                    if (max_changed < new_val)
+                        max_changed = new_val;
 
                     free.row++;
                 }
@@ -242,8 +257,8 @@ private class Grid : Object
                     TileMovement mov = { cur, free };
                     to_move.add (mov);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[free.row,free.col] = val;
+                    grid [cur.row, cur.col] = 0;
+                    grid [free.row, free.col] = val;
 
                     free.row++;
                 }
@@ -251,23 +266,23 @@ private class Grid : Object
         }
     }
 
-    private void move_left (Gee.LinkedList<TileMovement?> to_move,
-                            Gee.LinkedList<TileMovement?> to_hide,
-                            Gee.LinkedList<Tile?> to_show)
+    private static void _move_left (int cols,
+                                    int rows,
+                                ref uint max_changed,
+                                ref uint [,] grid,
+                                ref Gee.LinkedList<TileMovement?> to_move,
+                                ref Gee.LinkedList<TileMovement?> to_hide,
+                                ref Gee.LinkedList<Tile?> to_show)
     {
-        to_move.clear ();
-        to_hide.clear ();
-        to_show.clear ();
-
-        for (int i = 0; i < _rows; i++)
+        for (int i = 0; i < rows; i++)
         {
             GridPosition free = { i, -1 };
 
-            for (int j = 0; j < _cols; j++)
+            for (int j = 0; j < cols; j++)
             {
                 int col = j;
                 GridPosition cur = { i, col };
-                uint val = _grid[cur.row,cur.col];
+                uint val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
@@ -279,9 +294,9 @@ private class Grid : Object
                 // search for matches
                 GridPosition match = { 0, 0 };
                 bool has_match = false;
-                for (int k = col + 1; k < _cols; k++)
+                for (int k = col + 1; k < cols; k++)
                 {
-                    uint k_val = _grid[cur.row,k];
+                    uint k_val = grid [cur.row, k];
 
                     if (k_val != 0)
                     {
@@ -306,13 +321,15 @@ private class Grid : Object
                     mov = { match, free };
                     to_hide.add (mov);
 
-                    Tile tile = { free, val*2 };
+                    uint new_val = 2 * val;
+                    Tile tile = { free, new_val };
                     to_show.add (tile);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[match.row,match.col] = 0;
-                    _grid[free.row,free.col] = val*2;
-                    _check_target_value_reached (val*2);
+                    grid [cur.row, cur.col] = 0;
+                    grid [match.row, match.col] = 0;
+                    grid [free.row, free.col] = new_val;
+                    if (max_changed < new_val)
+                        max_changed = new_val;
 
                     free.col++;
                 }
@@ -323,8 +340,8 @@ private class Grid : Object
                     TileMovement mov = { cur, free };
                     to_move.add (mov);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[free.row,free.col] = val;
+                    grid [cur.row, cur.col] = 0;
+                    grid [free.row, free.col] = val;
 
                     free.col++;
                 }
@@ -332,27 +349,27 @@ private class Grid : Object
         }
     }
 
-    private void move_right (Gee.LinkedList<TileMovement?> to_move,
-                             Gee.LinkedList<TileMovement?> to_hide,
-                             Gee.LinkedList<Tile?> to_show)
+    private static void _move_right (int cols,
+                                     int rows,
+                                 ref uint max_changed,
+                                 ref uint [,] grid,
+                                 ref Gee.LinkedList<TileMovement?> to_move,
+                                 ref Gee.LinkedList<TileMovement?> to_hide,
+                                 ref Gee.LinkedList<Tile?> to_show)
     {
-        to_move.clear ();
-        to_hide.clear ();
-        to_show.clear ();
-
-        for (int i = 0; i < _rows; i++)
+        for (int i = 0; i < rows; i++)
         {
-            GridPosition free = { i, _cols };
+            GridPosition free = { i, cols };
 
-            for (int j = 0; j < _cols; j++)
+            for (int j = 0; j < cols; j++)
             {
-                int col = _cols - j - 1;
+                int col = cols - j - 1;
                 GridPosition cur = { i, col };
-                uint val = _grid[cur.row,cur.col];
+                uint val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
-                    if (free.col == _cols)
+                    if (free.col == cols)
                         free.col = col;
                     continue;
                 }
@@ -362,7 +379,7 @@ private class Grid : Object
                 bool has_match = false;
                 for (int k = col - 1; k >= 0; k--)
                 {
-                    uint k_val = _grid[cur.row,k];
+                    uint k_val = grid [cur.row, k];
 
                     if (k_val != 0)
                     {
@@ -379,7 +396,7 @@ private class Grid : Object
                 {
                     debug (@"matching tile found at $match");
 
-                    if (free.col == _cols)
+                    if (free.col == cols)
                         free.col = col; // temporarily
 
                     TileMovement mov = { cur, free };
@@ -387,25 +404,27 @@ private class Grid : Object
                     mov = { match, free };
                     to_hide.add (mov);
 
-                    Tile tile = { free, val*2 };
+                    uint new_val = 2 * val;
+                    Tile tile = { free, new_val };
                     to_show.add (tile);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[match.row,match.col] = 0;
-                    _grid[free.row,free.col] = val*2;
-                    _check_target_value_reached (val*2);
+                    grid [cur.row, cur.col] = 0;
+                    grid [match.row, match.col] = 0;
+                    grid [free.row, free.col] = new_val;
+                    if (max_changed < new_val)
+                        max_changed = new_val;
 
                     free.col--;
                 }
-                else if (free.col != _cols)
+                else if (free.col != cols)
                 {
                     debug (@"moving $cur to $free");
 
                     TileMovement mov = { cur, free };
                     to_move.add (mov);
 
-                    _grid[cur.row,cur.col] = 0;
-                    _grid[free.row,free.col] = val;
+                    grid [cur.row, cur.col] = 0;
+                    grid [free.row, free.col] = val;
 
                     free.col--;
                 }
@@ -535,13 +554,6 @@ private class Grid : Object
                     return false;
 
         return true;
-    }
-
-    private void _check_target_value_reached (uint val)
-        requires (target_value > 3)
-    {
-        if ( val == target_value)
-            target_value_reached = true;
     }
 }
 
