@@ -430,6 +430,29 @@ private class Grid : Object
                 grid [i, j] = 0;
     }
 
+    internal long get_score ()
+    {
+        return _get_score (ref _grid);
+    }
+    private static long _get_score (ref uint8 [,] grid)
+    {
+        long score = 0;
+
+        uint rows = grid.length [0];
+        uint cols = grid.length [1];
+
+        for (uint i = 0; i < rows; i++)
+            for (uint j = 0; j < cols; j++)
+                score += _calculate_score_value (grid [i, j]);
+        return score;
+    }
+    private static inline long _calculate_score_value (uint8 tile_value)
+    {
+        if (tile_value < 2)
+            return 0;
+        return (long) (Math.pow (2, tile_value) * (tile_value - 1));
+    }
+
     /*\
     * * getting values
     \*/
@@ -460,6 +483,8 @@ private class Grid : Object
     {
         string ret_string = @"$_rows $_cols\n";
         _convert_to_string (ref _grid, ref ret_string);
+        ret_string += _get_score (ref _grid).to_string ();  // historical, not
+        ret_string += "\n";                                // used when loading
         return ret_string;
     }
 

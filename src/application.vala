@@ -168,7 +168,7 @@ private class Application : Gtk.Application
     private void _init_game ()
     {
         _game = new Game (ref _settings);
-        _game.notify["score"].connect ((s, p) => {
+        _game.notify ["score"].connect ((s, p) => {
                 _score.label = _game.score.to_string ();
             });
         _game.finished.connect ((s) => {

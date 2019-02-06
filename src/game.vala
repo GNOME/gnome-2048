@@ -99,7 +99,7 @@ private class Game : Object
     * * others
     \*/
 
-    internal uint score { internal get; private set; default = 0; }
+    internal long score { internal get; private set; default = 0; }
 
     internal void new_game (ref GLib.Settings settings)
     {
@@ -132,11 +132,7 @@ private class Game : Object
 
     internal void save_game ()
     {
-        string contents = "";
-
-        contents += _grid.save ();
-        contents += _score.to_string () + "\n";
-
+        string contents = _grid.save ();
         try {
             DirUtils.create_with_parents (Path.get_dirname (_saved_path), 0775);
             FileUtils.set_contents (_saved_path, contents);
@@ -161,16 +157,7 @@ private class Game : Object
             return false;
         }
 
-        string [] lines = contents.split ("\n");
-        string last_line = lines [lines.length - 1];    // not UNIX?
-        if (last_line == "")
-            last_line = lines [lines.length - 2];
-        uint64 score_64;
-        if (!uint64.try_parse (last_line, out score_64))
-            return false;
-        if (score_64 > (uint64) uint.MAX)
-            return false;
-        score = (uint) score_64;
+        score = _grid.get_score ();
 
         if (_background_init_done)
             _clear_background ();
@@ -524,17 +511,16 @@ private class Game : Object
             _dim_tile (((!) e).from);
         }
 
-        uint delta_score = 0;
+        long delta_score = 0;   // do not notify["score"] multiple times
         foreach (Tile? e in _to_show)
         {
             if (e == null)
                 assert_not_reached ();
             _create_tile ((!) e);
             _show_tile (((!) e).pos);
-            delta_score += (uint) Math.pow (2, ((!) e).val);
+            delta_score += (long) Math.pow (2, ((!) e).val);
         }
         score += delta_score;
-        _store_score_update (delta_score);
 
         _create_random_tile ();
     }
@@ -662,8 +648,7 @@ private class Game : Object
 
     private bool _allow_undo = false;
     private uint _undo_stack_max_size;
-    private Gee.LinkedList<Grid> _undo_stack       = new Gee.LinkedList<Grid> ();
-    private Gee.LinkedList<uint> _undo_score_stack = new Gee.LinkedList<uint> ();
+    private Gee.LinkedList<Grid> _undo_stack = new Gee.LinkedList<Grid> ();
 
     internal void undo ()
         requires (_allow_undo == true)
@@ -674,7 +659,7 @@ private class Game : Object
         _clear_foreground ();
         _grid = _undo_stack.poll_head ();
         _restore_foreground (false);
-        score -= _undo_score_stack.poll_head ();
+        score = _grid.get_score ();
 
         if (_undo_stack.size == 0)
             undo_disabled ();
@@ -696,7 +681,6 @@ private class Game : Object
     private void _clear_history ()
     {
         _undo_stack.clear ();
-        _undo_score_stack.clear ();
     }
 
     private void _store_movement (Grid clone)
@@ -709,15 +693,5 @@ private class Game : Object
         _undo_stack.offer_head (clone);
         if (_undo_stack.size == 1)
             undo_enabled ();
-    }
-
-    private void _store_score_update (uint delta_score)
-    {
-        if (!_allow_undo)
-            return;
-
-        if (_undo_score_stack.size >= _undo_stack_max_size)
-            _undo_score_stack.poll_tail ();
-        _undo_score_stack.offer_head (delta_score);
     }
 }
