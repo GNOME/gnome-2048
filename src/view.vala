@@ -60,10 +60,10 @@ private class RoundedRectangle : Object
             canvas.invalidate ();
     }
 
+    const double HALF_PI = Math.PI / 2.0;
     protected virtual bool _draw (Cairo.Context ctx, int width, int height)
     {
-        double radius = height / 20.0;
-        double degrees = Math.PI / 180.0;
+        double radius = (height > width) ? (height / 20.0) : (width / 20.0);
 
         ctx.save ();
         ctx.set_operator (Cairo.Operator.CLEAR);
@@ -71,10 +71,10 @@ private class RoundedRectangle : Object
         ctx.restore ();
 
         ctx.new_sub_path ();
-        ctx.arc (width - radius, radius,          radius,  -90 * degrees,   0 * degrees);
-        ctx.arc (width - radius, height - radius, radius,    0 * degrees,  90 * degrees);
-        ctx.arc (radius,         height - radius, radius,   90 * degrees, 180 * degrees);
-        ctx.arc (radius,         radius,          radius,  180 * degrees, 270 * degrees);
+        ctx.arc (radius,         radius,          radius,  Math.PI, -HALF_PI);
+        ctx.arc (width - radius, radius,          radius, -HALF_PI,        0);
+        ctx.arc (width - radius, height - radius, radius,        0,  HALF_PI);
+        ctx.arc (radius,         height - radius, radius,  HALF_PI,  Math.PI);
         ctx.close_path ();
 
         Clutter.cairo_set_source_color (ctx, (!) _color);
