@@ -531,7 +531,7 @@ private class Game : Object
                 assert_not_reached ();
             _create_tile ((!) e);
             _show_tile (((!) e).pos);
-            delta_score += ((!) e).val;
+            delta_score += (uint) Math.pow (2, ((!) e).val);
         }
         score += delta_score;
         _store_score_update (delta_score);
