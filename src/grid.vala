@@ -19,7 +19,7 @@
 
 private class Grid : Object
 {
-    private uint [,] _grid;
+    private uint8 [,] _grid;
 
     public int rows { internal get; protected construct; }
     public int cols { internal get; protected construct; }
@@ -29,7 +29,7 @@ private class Grid : Object
 
     construct
     {
-        _grid = new uint [rows, cols];
+        _grid = new uint8 [rows, cols];
         _clear (ref _grid);
     }
 
@@ -76,7 +76,7 @@ private class Grid : Object
         to_hide.clear ();
         to_show.clear ();
 
-        uint max_changed = 0;
+        uint8 max_changed = 0;
         switch (request)
         {
             case MoveRequest.DOWN:
@@ -94,8 +94,8 @@ private class Grid : Object
 
     private static void _move_down (int cols,
                                     int rows,
-                                ref uint max_changed,
-                                ref uint [,] grid,
+                                ref uint8 max_changed,
+                                ref uint8 [,] grid,
                                 ref Gee.LinkedList<TileMovement?> to_move,
                                 ref Gee.LinkedList<TileMovement?> to_hide,
                                 ref Gee.LinkedList<Tile?> to_show)
@@ -108,7 +108,7 @@ private class Grid : Object
             {
                 int row = rows - j - 1;
                 GridPosition cur = { row, i };
-                uint val = grid [cur.row, cur.col];
+                uint8 val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
@@ -122,7 +122,7 @@ private class Grid : Object
                 bool has_match = false;
                 for (int k = row - 1; k >= 0; k--)
                 {
-                    uint k_val = grid [k, cur.col];
+                    uint8 k_val = grid [k, cur.col];
 
                     if (k_val != 0)
                     {
@@ -154,8 +154,8 @@ private class Grid : Object
 
     private static void _move_up (int cols,
                                   int rows,
-                              ref uint max_changed,
-                              ref uint [,] grid,
+                              ref uint8 max_changed,
+                              ref uint8 [,] grid,
                               ref Gee.LinkedList<TileMovement?> to_move,
                               ref Gee.LinkedList<TileMovement?> to_hide,
                               ref Gee.LinkedList<Tile?> to_show)
@@ -168,7 +168,7 @@ private class Grid : Object
             {
                 int row = j;
                 GridPosition cur = { row, i };
-                uint val = grid [cur.row, cur.col];
+                uint8 val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
@@ -182,7 +182,7 @@ private class Grid : Object
                 bool has_match = false;
                 for (int k = row + 1; k < rows; k++)
                 {
-                    uint k_val = grid [k, cur.col];
+                    uint8 k_val = grid [k, cur.col];
 
                     if (k_val != 0)
                     {
@@ -214,8 +214,8 @@ private class Grid : Object
 
     private static void _move_left (int cols,
                                     int rows,
-                                ref uint max_changed,
-                                ref uint [,] grid,
+                                ref uint8 max_changed,
+                                ref uint8 [,] grid,
                                 ref Gee.LinkedList<TileMovement?> to_move,
                                 ref Gee.LinkedList<TileMovement?> to_hide,
                                 ref Gee.LinkedList<Tile?> to_show)
@@ -228,7 +228,7 @@ private class Grid : Object
             {
                 int col = j;
                 GridPosition cur = { i, col };
-                uint val = grid [cur.row, cur.col];
+                uint8 val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
@@ -242,7 +242,7 @@ private class Grid : Object
                 bool has_match = false;
                 for (int k = col + 1; k < cols; k++)
                 {
-                    uint k_val = grid [cur.row, k];
+                    uint8 k_val = grid [cur.row, k];
 
                     if (k_val != 0)
                     {
@@ -274,8 +274,8 @@ private class Grid : Object
 
     private static void _move_right (int cols,
                                      int rows,
-                                 ref uint max_changed,
-                                 ref uint [,] grid,
+                                 ref uint8 max_changed,
+                                 ref uint8 [,] grid,
                                  ref Gee.LinkedList<TileMovement?> to_move,
                                  ref Gee.LinkedList<TileMovement?> to_hide,
                                  ref Gee.LinkedList<Tile?> to_show)
@@ -288,7 +288,7 @@ private class Grid : Object
             {
                 int col = cols - j - 1;
                 GridPosition cur = { i, col };
-                uint val = grid [cur.row, cur.col];
+                uint8 val = grid [cur.row, cur.col];
 
                 if (val == 0)
                 {
@@ -302,7 +302,7 @@ private class Grid : Object
                 bool has_match = false;
                 for (int k = col - 1; k >= 0; k--)
                 {
-                    uint k_val = grid [cur.row, k];
+                    uint8 k_val = grid [cur.row, k];
 
                     if (k_val != 0)
                     {
@@ -341,9 +341,9 @@ private class Grid : Object
                                         ref GridPosition cur,
                                         ref GridPosition free,
                                         ref GridPosition match,
-                                        ref uint [,] grid,
-                                        ref uint val,
-                                        ref uint max_changed)
+                                        ref uint8 [,] grid,
+                                        ref uint8 val,
+                                        ref uint8 max_changed)
     {
         debug (@"matching tile found at $match");
 
@@ -366,8 +366,8 @@ private class Grid : Object
     private static void _move_to_end (ref Gee.LinkedList<TileMovement?> to_move,
                                       ref GridPosition cur,
                                       ref GridPosition free,
-                                      ref uint [,] grid,
-                                      ref uint val)
+                                      ref uint8 [,] grid,
+                                      ref uint8 val)
     {
         debug (@"moving $cur to $free");
 
@@ -391,7 +391,7 @@ private class Grid : Object
         {
             for (int j = 0; j < _cols; j++)
             {
-                uint val = _grid [i, j];
+                uint8 val = _grid [i, j];
 
                 if (i < (_rows - 1) && val == _grid [i+1, j])
                     return false;
@@ -404,7 +404,7 @@ private class Grid : Object
         return true;
     }
 
-    private static bool _grid_is_full (ref uint [,] grid)
+    private static bool _grid_is_full (ref uint8 [,] grid)
     {
         uint rows = grid.length [0];
         uint cols = grid.length [1];
@@ -420,7 +420,7 @@ private class Grid : Object
     {
         _clear (ref _grid);
     }
-    private static void _clear (ref uint [,] grid)
+    private static void _clear (ref uint8 [,] grid)
     {
         uint rows = grid.length [0];
         uint cols = grid.length [1];
@@ -444,7 +444,7 @@ private class Grid : Object
         return grid;
     }
 
-    internal new uint get (int row, int col)    // allows calling "uint val = _grid [i, j];" in game.vala
+    internal new uint8 get (int row, int col)    // allows calling "uint val = _grid [i, j];" in game.vala
     {
         if ((row >= _rows) || (col >= _cols))
             return 0;
@@ -470,7 +470,7 @@ private class Grid : Object
         return ret_string;
     }
 
-    private static void _convert_to_string (ref uint [,] grid, ref string ret_string)
+    private static void _convert_to_string (ref uint8 [,] grid, ref string ret_string)
     {
         uint rows = grid.length [0];
         uint cols = grid.length [1];
@@ -495,7 +495,7 @@ private class Grid : Object
 
     internal bool load (ref string content)
     {
-        uint [,] grid = {{}};   // garbage
+        uint8 [,] grid = {{}};   // garbage
         if (!_load_from_string (ref content, ref grid))
             return false;
 
@@ -506,7 +506,7 @@ private class Grid : Object
     }
 
     private static bool _load_from_string (ref string content,
-                                           ref uint [,] grid)
+                                           ref uint8 [,] grid)
     {
         string [] lines = content.split ("\n");
 
@@ -535,7 +535,7 @@ private class Grid : Object
         if (lines.length < rows + 2)
             return false;
 
-        grid = new uint [rows, cols];
+        grid = new uint8 [rows, cols];
 
         for (uint i = 0; i < rows; i++)
         {
@@ -548,7 +548,7 @@ private class Grid : Object
             {
                 if (!int64.try_parse (tokens [j], out cols_64))
                     return false;
-                uint number;
+                uint8 number;
                 if (!_convert_tile_number (ref cols_64, out number))
                     return false;
                 grid [i, j] = number;
@@ -559,7 +559,7 @@ private class Grid : Object
     }
 
     private static inline bool _convert_tile_number (ref int64 number_64,
-                                                     out uint  number)
+                                                     out uint8 number)
     {
         if (number_64 < 0)
         {
@@ -599,5 +599,5 @@ private struct TileMovement
 private struct Tile
 {
     public GridPosition pos;
-    public uint val;
+    public uint8 val;
 }

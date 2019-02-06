@@ -86,9 +86,9 @@ private class RoundedRectangle : Object
 
 private class TileView : RoundedRectangle
 {
-    internal uint tile_value { internal get; private set; default = 1; }
+    internal uint8 tile_value { internal get; private set; default = 1; }
 
-    internal TileView (float x, float y, float width, float height, uint val)
+    internal TileView (float x, float y, float width, float height, uint8 val)
     {
         base (x, y, width, height, _pick_color (val));
         tile_value = val;
@@ -122,7 +122,7 @@ private class TileView : RoundedRectangle
     * * color
     \*/
 
-    private static Clutter.Color _pick_color (uint tile_value)
+    private static Clutter.Color _pick_color (uint8 tile_value)
     {
         if (tile_value <= 11)
             return _pick_palette_color (tile_value);
@@ -130,7 +130,7 @@ private class TileView : RoundedRectangle
             return _calculate_color (tile_value);
     }
 
-    private static Clutter.Color _pick_palette_color (uint tile_value)
+    private static Clutter.Color _pick_palette_color (uint8 tile_value)
         requires (tile_value != 0)
         requires (tile_value <= 11)
     {
@@ -151,9 +151,9 @@ private class TileView : RoundedRectangle
         }
     }
 
-    private static Clutter.Color _calculate_color (uint tile_value)
+    private static Clutter.Color _calculate_color (uint8 tile_value)
     {
-        uint norm_val = (tile_value - 1) % 11 + 1;
+        uint8 norm_val = (tile_value - 1) % 11 + 1;
         Clutter.Color? nullable_color = _pick_palette_color (norm_val);
         if (nullable_color == null)
             assert_not_reached ();

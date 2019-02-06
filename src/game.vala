@@ -450,7 +450,7 @@ private class Game : Object
         {
             for (int j = 0; j < cols; j++)
             {
-                uint val = _grid [i, j];
+                uint8 val = _grid [i, j];
                 if (val != 0)
                 {
                     GridPosition pos = { i, j };
