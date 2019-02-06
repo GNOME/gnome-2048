@@ -518,17 +518,20 @@ private class Grid : Object
         if (tokens.length != 2)
             return false;
 
-        int64 rows_64;
-        if (!int64.try_parse (tokens [0], out rows_64))
+        uint64 number_64;
+        // rows
+        if (!uint64.try_parse (tokens [0], out number_64))
             return false;
-        int64 cols_64;
-        if (!int64.try_parse (tokens [1], out cols_64))
+        if ((number_64 == 0) || (number_64 > 9))
             return false;
+        int rows = (int) number_64;
+        // cols
+        if (!uint64.try_parse (tokens [1], out number_64))
+            return false;
+        if ((number_64 == 0) || (number_64 > 9))
+            return false;
+        int cols = (int) number_64;
 
-        if ((rows_64 < 1) || (cols_64 < 1) || (rows_64 > 9) || (cols_64 > 9))
-            return false;
-        int rows = (int) rows_64;
-        int cols = (int) cols_64;
         if (Application.is_disallowed_grid_size (ref rows, ref cols))
             return false;
         // number of rows + 1 for size + 1 for score; maybe an empty line at end
@@ -546,10 +549,10 @@ private class Grid : Object
 
             for (uint j = 0; j < cols; j++)
             {
-                if (!int64.try_parse (tokens [j], out cols_64))
+                if (!uint64.try_parse (tokens [j], out number_64))
                     return false;
                 uint8 number;
-                if (!_convert_tile_number (ref cols_64, out number))
+                if (!_convert_tile_number (ref number_64, out number))
                     return false;
                 grid [i, j] = number;
             }
@@ -558,21 +561,16 @@ private class Grid : Object
         return true;
     }
 
-    private static inline bool _convert_tile_number (ref int64 number_64,
+    private static inline bool _convert_tile_number (ref uint64 number_64,
                                                      out uint8 number)
     {
-        if (number_64 < 0)
-        {
-            number = 0; // garbage
-            return false;
-        }
         if (number_64 == 0)
         {
             number = 0;
             return true;
         }
         for (number = 1; number <= 81; number++)
-            if (Math.pow (2, number) == (double) number_64)
+            if (number_64 == (uint64) Math.pow (2, number))
                 return true;
 
         return false;
