@@ -123,11 +123,25 @@ private class TileView : RoundedRectangle
     \*/
 
     private static Clutter.Color _pick_color (uint8 tile_value)
+        requires (tile_value != 0)
     {
-        if (tile_value <= 11)
-            return _pick_palette_color (tile_value);
-        else
+        if (tile_value > 11)
             return _calculate_color (tile_value);
+        else
+            return _pick_palette_color (tile_value);
+    }
+
+    private static Clutter.Color _calculate_color (uint8 tile_value)
+        requires (tile_value != 0)
+    {
+        Clutter.Color color = _pick_palette_color ((tile_value - 1) % 11 + 1);
+
+        uint8 sbits = (uint8) (Math.pow (2, tile_value) % 7);
+        color.red   <<= sbits;
+        color.green <<= sbits;
+        color.blue  <<= sbits;
+
+        return color;
     }
 
     private static Clutter.Color _pick_palette_color (uint8 tile_value)
@@ -149,21 +163,5 @@ private class TileView : RoundedRectangle
             case 11: return Clutter.Color.from_string ("#204a87"); // Sky blue 3
             default: assert_not_reached ();
         }
-    }
-
-    private static Clutter.Color _calculate_color (uint8 tile_value)
-    {
-        uint8 norm_val = (tile_value - 1) % 11 + 1;
-        Clutter.Color? nullable_color = _pick_palette_color (norm_val);
-        if (nullable_color == null)
-            assert_not_reached ();
-        Clutter.Color color = (!) nullable_color;
-
-        uint8 sbits = (uint8) (Math.pow (2, tile_value) % 7);
-        color.red   <<= sbits;
-        color.green <<= sbits;
-        color.blue  <<= sbits;
-
-        return color;
     }
 }
