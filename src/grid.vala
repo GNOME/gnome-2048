@@ -51,8 +51,8 @@ private class Grid : Object
         do { _generate_random_position (rows, cols, out pos); }
         while (_grid [pos.row, pos.col] != 0);
 
-        _grid [pos.row, pos.col] = 2;
-        tile = { pos, /* tile value */ 2 };
+        _grid [pos.row, pos.col] = 1;
+        tile = { pos, /* tile value */ 1 };
     }
 
     private static inline void _generate_random_position (int rows, int cols, out GridPosition pos)
@@ -88,7 +88,7 @@ private class Grid : Object
             case MoveRequest.RIGHT:
                 _move_right (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
         }
-        if (max_changed >= target_value)
+        if (Math.pow (2, max_changed) >= target_value)
             target_value_reached = true;
     }
 
@@ -352,15 +352,15 @@ private class Grid : Object
         mov = { match, free };
         to_hide.add (mov);
 
-        uint new_val = 2 * val;
-        Tile tile = { free, new_val };
+        val++;
+        Tile tile = { free, val };
         to_show.add (tile);
 
         grid [cur.row, cur.col] = 0;
         grid [match.row, match.col] = 0;
-        grid [free.row, free.col] = new_val;
-        if (max_changed < new_val)
-            max_changed = new_val;
+        grid [free.row, free.col] = val;
+        if (max_changed < val)
+            max_changed = val;
     }
 
     private static void _move_to_end (ref Gee.LinkedList<TileMovement?> to_move,
@@ -476,8 +476,17 @@ private class Grid : Object
         uint cols = grid.length [1];
 
         for (uint i = 0; i < rows; i++)
+        {
             for (uint j = 0; j < cols; j++)
-                ret_string += "%u%s".printf (grid [i, j], (j == (cols - 1)) ? "\n" : " ");
+            {
+                uint64 val;
+                if (grid [i, j] == 0)
+                    val = 0;
+                else
+                    val = (uint64) Math.pow (2, grid [i, j]);
+                ret_string += "%llu%s".printf (val, (j == (cols - 1)) ? "\n" : " ");
+            }
+        }
     }
 
     /*\
@@ -528,42 +537,45 @@ private class Grid : Object
 
         grid = new uint [rows, cols];
 
-        for (int i = 0; i < rows; i++)
+        for (uint i = 0; i < rows; i++)
         {
             tokens = lines [i + 1].split (" ");
             // we do need to be strict here
             if (tokens.length != cols)
                 return false;
 
-            for (int j = 0; j < cols; j++)
+            for (uint j = 0; j < cols; j++)
             {
                 if (!int64.try_parse (tokens [j], out cols_64))
                     return false;
-                if (_bad_tile_number (ref cols_64))
+                uint number;
+                if (!_convert_tile_number (ref cols_64, out number))
                     return false;
-                grid [i, j] = (int) cols_64;
+                grid [i, j] = number;
             }
         }
 
         return true;
     }
 
-    private static inline bool _bad_tile_number (ref int64 number)
+    private static inline bool _convert_tile_number (ref int64 number_64,
+                                                     out uint  number)
     {
-        if (number < 0)
-            return true;
-        if (number == 0)
-            return false;
-        if (number == 1)
-            return true;
-        for (int64 i = 2; i < (int64) int.MAX; i *= 2)
+        if (number_64 < 0)
         {
-            if (number == i)
-                return false;
-            if (number < i)
-                return true;
+            number = 0; // garbage
+            return false;
         }
-        return true;
+        if (number_64 == 0)
+        {
+            number = 0;
+            return true;
+        }
+        for (number = 1; number <= 81; number++)
+            if (Math.pow (2, number) == (double) number_64)
+                return true;
+
+        return false;
     }
 }
 

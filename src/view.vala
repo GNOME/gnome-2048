@@ -56,7 +56,7 @@ private class RoundedRectangle : Object
 
     internal void idle_resize ()
     {
-        if (!canvas.set_size ((int)Math.ceilf (actor.width), (int)Math.ceilf (actor.height)))
+        if (!canvas.set_size ((int) Math.ceilf (actor.width), (int) Math.ceilf (actor.height)))
             canvas.invalidate ();
     }
 
@@ -71,10 +71,10 @@ private class RoundedRectangle : Object
         ctx.restore ();
 
         ctx.new_sub_path ();
-        ctx.arc (width - radius, radius, radius, -90 * degrees, 0 * degrees);
-        ctx.arc (width - radius, height - radius, radius, 0 * degrees, 90 * degrees);
-        ctx.arc (radius, height - radius, radius, 90 * degrees, 180 * degrees);
-        ctx.arc (radius, radius, radius, 180 * degrees, 270 * degrees);
+        ctx.arc (width - radius, radius,          radius,  -90 * degrees,   0 * degrees);
+        ctx.arc (width - radius, height - radius, radius,    0 * degrees,  90 * degrees);
+        ctx.arc (radius,         height - radius, radius,   90 * degrees, 180 * degrees);
+        ctx.arc (radius,         radius,          radius,  180 * degrees, 270 * degrees);
         ctx.close_path ();
 
         Clutter.cairo_set_source_color (ctx, (!) _color);
@@ -86,7 +86,7 @@ private class RoundedRectangle : Object
 
 private class TileView : RoundedRectangle
 {
-    internal uint tile_value { internal get; private set; default = 2; }
+    internal uint tile_value { internal get; private set; default = 1; }
 
     internal TileView (float x, float y, float width, float height, uint val)
     {
@@ -108,7 +108,7 @@ private class TileView : RoundedRectangle
         font_desc = Pango.FontDescription.from_string ("Sans Bold %dpx".printf (height / 4));
         layout.set_font_description (font_desc);
 
-        layout.set_text (tile_value.to_string (), -1);
+        layout.set_text (Math.pow (2, tile_value).to_string (), -1);
 
         layout.get_extents (null, out logical_rect);
         ctx.move_to ((width / 2) - (logical_rect.width / 2 / Pango.SCALE),
@@ -124,42 +124,42 @@ private class TileView : RoundedRectangle
 
     private static Clutter.Color _pick_color (uint tile_value)
     {
-        if (tile_value <= 2048)
+        if (tile_value <= 11)
             return _pick_palette_color (tile_value);
         else
             return _calculate_color (tile_value);
     }
 
     private static Clutter.Color _pick_palette_color (uint tile_value)
+        requires (tile_value != 0)
+        requires (tile_value <= 11)
     {
         switch (tile_value)
         {
-            case 2:    return Clutter.Color.from_string ("#fce94f"); // Butter 1
-            case 4:    return Clutter.Color.from_string ("#8ae234"); // Chameleon 1
-            case 8:    return Clutter.Color.from_string ("#fcaf3e"); // Orange 1
-            case 16:   return Clutter.Color.from_string ("#729fcf"); // Sky blue 1
-            case 32:   return Clutter.Color.from_string ("#ad7fa8"); // Plum 1
-            case 64:   return Clutter.Color.from_string ("#c17d11"); // Chocolate 2
-            case 128:  return Clutter.Color.from_string ("#ef2929"); // Scarlet red 1
-            case 256:  return Clutter.Color.from_string ("#c4a000"); // Butter 3
-            case 512:  return Clutter.Color.from_string ("#4e9a06"); // Chameleon 3
-            case 1024: return Clutter.Color.from_string ("#ce5c00"); // Orange 3
-            case 2048: return Clutter.Color.from_string ("#204a87"); // Sky blue 3
-            default:   assert_not_reached ();
+            case 1:  return Clutter.Color.from_string ("#fce94f"); // Butter 1
+            case 2:  return Clutter.Color.from_string ("#8ae234"); // Chameleon 1
+            case 3:  return Clutter.Color.from_string ("#fcaf3e"); // Orange 1
+            case 4:  return Clutter.Color.from_string ("#729fcf"); // Sky blue 1
+            case 5:  return Clutter.Color.from_string ("#ad7fa8"); // Plum 1
+            case 6:  return Clutter.Color.from_string ("#c17d11"); // Chocolate 2
+            case 7:  return Clutter.Color.from_string ("#ef2929"); // Scarlet red 1
+            case 8:  return Clutter.Color.from_string ("#c4a000"); // Butter 3
+            case 9:  return Clutter.Color.from_string ("#4e9a06"); // Chameleon 3
+            case 10: return Clutter.Color.from_string ("#ce5c00"); // Orange 3
+            case 11: return Clutter.Color.from_string ("#204a87"); // Sky blue 3
+            default: assert_not_reached ();
         }
     }
 
     private static Clutter.Color _calculate_color (uint tile_value)
     {
-        uint norm_val = tile_value / 2048;  /* 2^12 to 2^22 */
-        if (norm_val > 2048)
-            norm_val /= 2048;               /* 2^23 to 2^31 */
+        uint norm_val = (tile_value - 1) % 11 + 1;
         Clutter.Color? nullable_color = _pick_palette_color (norm_val);
         if (nullable_color == null)
             assert_not_reached ();
         Clutter.Color color = (!) nullable_color;
 
-        uint8 sbits = (uint8) (tile_value % 7);
+        uint8 sbits = (uint8) (Math.pow (2, tile_value) % 7);
         color.red   <<= sbits;
         color.green <<= sbits;
         color.blue  <<= sbits;
