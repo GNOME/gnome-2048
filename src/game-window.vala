@@ -33,12 +33,11 @@ private class GameWindow : ApplicationWindow
     private bool _window_maximized;
     private bool _window_is_tiled;
 
-    [GtkChild] private HeaderBar    _header_bar;
-    [GtkChild] private Label        _score;
-    [GtkChild] private MenuButton   _new_game_button;
-    [GtkChild] private MenuButton   _hamburger_button;
-    [GtkChild] private AspectFrame  _frame;
-    private GtkClutter.Embed _embed;
+    [GtkChild] private HeaderBar        _header_bar;
+    [GtkChild] private Label            _score;
+    [GtkChild] private MenuButton       _new_game_button;
+    [GtkChild] private MenuButton       _hamburger_button;
+    [GtkChild] private GtkClutter.Embed _embed;
 
     private Game _game;
     private bool _game_restored;
@@ -156,8 +155,6 @@ private class GameWindow : ApplicationWindow
         _update_hamburger_menu ();
         _game.load_settings (ref _settings);
 
-        _embed = new GtkClutter.Embed ();
-        _frame.add (_embed);
         _game.view = _embed.get_stage ();
 
         set_events (get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
