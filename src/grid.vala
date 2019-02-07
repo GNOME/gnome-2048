@@ -557,7 +557,7 @@ private class Grid : Object
             return false;
         int cols = (int) number_64;
 
-        if (Application.is_disallowed_grid_size (ref rows, ref cols))
+        if (GameWindow.is_disallowed_grid_size (ref rows, ref cols))
             return false;
         // number of rows + 1 for size + 1 for score; maybe an empty line at end
         if (lines.length < rows + 2)
