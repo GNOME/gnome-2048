@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/org/gnome/TwentyFortyEight/ui">
     <file preprocess="xml-stripblanks" alias="congrats.ui">../data/congrats.ui</file>
+    <file preprocess="xml-stripblanks" alias="game-headerbar.ui">../data/game-headerbar.ui</file>
     <file preprocess="xml-stripblanks" alias="game-window.ui">../data/mainwindow.ui</file>
     <!-- file>data/style.css</file -->
   </gresource>

@@ -33,10 +33,7 @@ private class GameWindow : ApplicationWindow
     private bool _window_maximized;
     private bool _window_is_tiled;
 
-    [GtkChild] private HeaderBar        _header_bar;
-    [GtkChild] private Label            _score;
-    [GtkChild] private MenuButton       _new_game_button;
-    [GtkChild] private MenuButton       _hamburger_button;
+    [GtkChild] private GameHeaderBar    _header_bar;
     [GtkChild] private GtkClutter.Embed _embed;
 
     private Game _game;
@@ -96,19 +93,29 @@ private class GameWindow : ApplicationWindow
     };
 
     /*\
+    * * menus
+    \*/
+
+    private void toggle_new_game_cb (/* SimpleAction action, Variant? variant */)
+    {
+        _header_bar.toggle_new_game ();
+    }
+
+    private void toggle_hamburger_menu (/* SimpleAction action, Variant? variant */)
+    {
+        _header_bar.toggle_hamburger_menu ();
+    }
+
+    /*\
     * * game
     \*/
 
     private void _init_game ()
     {
         _game = new Game (ref _settings);
-        _game.notify ["score"].connect ((s, p) => {
-                _score.label = _game.score.to_string ();
-            });
+        _game.notify ["score"].connect (_header_bar.set_score);
         _game.finished.connect ((s) => {
-                _header_bar.set_has_subtitle (true);
-                /* Translators: subtitle of the headerbar, when the user cannot move anymore */
-                _header_bar.subtitle = _("Game Over");
+                _header_bar.finished ();
 
                 if (!_game_restored)
                     _show_best_scores ();
@@ -130,19 +137,16 @@ private class GameWindow : ApplicationWindow
         if (_settings.get_boolean ("window-maximized"))
             maximize ();
 
-        _hamburger_button.notify ["active"].connect (() => {
-                if (!_hamburger_button.active)
-                    _embed.grab_focus ();
-            });
+        _header_bar.popover_closed.connect (() => _embed.grab_focus ());
         _settings.changed.connect ((settings, key_name) => {
                 switch (key_name)
                 {
                     case "cols":
                     case "rows":
-                        _update_new_game_menu ();
+                        _header_bar._update_new_game_menu (_settings.get_int ("rows"), _settings.get_int ("cols"));
                         return;
                     case "allow-undo":
-                        _update_hamburger_menu ();
+                        _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
                         _game.load_settings (ref _settings);
                         return;
                     case "allow-undo-max":
@@ -151,8 +155,8 @@ private class GameWindow : ApplicationWindow
                         return;
                 }
             });
-        _update_new_game_menu ();
-        _update_hamburger_menu ();
+        _header_bar._update_new_game_menu (_settings.get_int ("rows"), _settings.get_int ("cols"));
+        _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
         _game.load_settings (ref _settings);
 
         _game.view = _embed.get_stage ();
@@ -166,88 +170,27 @@ private class GameWindow : ApplicationWindow
     }
 
     /*\
-    * * hamburger menu (and undo action) callbacks
+    * * undo action
     \*/
-
-    private void _update_hamburger_menu ()
-    {
-        GLib.Menu menu = new GLib.Menu ();
-
-        if (_settings.get_boolean ("allow-undo"))
-            _append_undo_section (ref menu);
-        _append_scores_section (ref menu);
-        _append_app_actions_section (ref menu);
-
-        menu.freeze ();
-        _hamburger_button.set_menu_model ((MenuModel) menu);
-    }
-
-    private static inline void _append_undo_section (ref GLib.Menu menu)
-    {
-        GLib.Menu section = new GLib.Menu ();
-
-        /* Translators: entry in the hamburger menu, if the "Allow undo" option is set to true */
-        section.append (_("Undo"), "ui.undo");
-
-        section.freeze ();
-        menu.append_section (null, section);
-    }
-
-    private static inline void _append_scores_section (ref GLib.Menu menu)
-    {
-        GLib.Menu section = new GLib.Menu ();
-
-        /* Translators: entry in the hamburger menu; opens a window showing best scores */
-        section.append (_("Scores"), "ui.scores");
-
-        section.freeze ();
-        menu.append_section (null, section);
-    }
-
-    private static inline void _append_app_actions_section (ref GLib.Menu menu)
-    {
-        GLib.Menu section = new GLib.Menu ();
-
-        /* Translators: usual menu entry of the hamburger menu */
-        section.append (_("Keyboard Shortcuts"), "win.show-help-overlay");
-
-        /* Translators: entry in the hamburger menu */
-        section.append (_("About 2048"), "ui.about");
-
-        section.freeze ();
-        menu.append_section (null, section);
-    }
-
-    private void toggle_hamburger_menu (/* SimpleAction action, Variant? variant */)
-    {
-        _hamburger_button.active = !_hamburger_button.active;
-    }
 
     private void undo_cb (/* SimpleAction action, Variant? variant */)
     {
         if (!_settings.get_boolean ("allow-undo"))   // for the keyboard shortcut
             return;
 
-        _header_bar.set_subtitle (null);
-        _header_bar.set_has_subtitle (false);
+        _header_bar.clear_subtitle ();
 
         _game.undo ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
-        _header_bar.set_subtitle (null);
-        _header_bar.set_has_subtitle (false);
+        _header_bar.clear_subtitle ();
         _game_restored = false;
 
         _game.new_game (ref _settings);
 
         _embed.grab_focus ();
-    }
-
-    private void toggle_new_game_cb (/* SimpleAction action, Variant? variant */)
-    {
-        _new_game_button.active = !_new_game_button.active;
     }
 
     private void new_game_sized_cb (SimpleAction action, Variant? variant)
@@ -289,62 +232,6 @@ private class GameWindow : ApplicationWindow
     }
 
     /*\
-    * * new-game menu
-    \*/
-
-    private void _update_new_game_menu ()
-    {
-        GLib.Menu menu = new GLib.Menu ();
-
-        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3 */
-        _append_new_game_item (_("3 × 3"),
-                    /* rows */ 3,
-                    /* cols */ 3,
-                           ref menu);
-
-        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4 */
-        _append_new_game_item (_("4 × 4"),
-                    /* rows */ 4,
-                    /* cols */ 4,
-                           ref menu);
-
-        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5 */
-        _append_new_game_item (_("5 × 5"),
-                    /* rows */ 5,
-                    /* cols */ 5,
-                           ref menu);
-
-        int rows = _settings.get_int ("rows");
-        int cols = _settings.get_int ("cols");
-        bool is_square = rows == cols;
-        bool disallowed_grid = is_disallowed_grid_size (ref rows, ref cols);
-        if (disallowed_grid && !is_square)
-            /* Translators: command-line warning displayed if the user manually sets a invalid grid size */
-            warning (_("Grids of size 1 by 2 are disallowed."));
-
-        if (!disallowed_grid && (!is_square || (is_square && rows != 4 && rows != 3 && rows != 5)))
-            /* Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually */
-            _append_new_game_item (_("Custom"), /* rows */ rows, /* cols */ cols, ref menu);
-
-        menu.freeze ();
-        _new_game_button.set_menu_model ((MenuModel) menu);
-    }
-    private static void _append_new_game_item (string label, int rows, int cols, ref GLib.Menu menu)
-    {
-        Variant variant = new Variant ("(ii)", rows, cols);
-        menu.append (label, "ui.new-game-sized(" + variant.print (/* annotate types */ true) + ")");
-    }
-
-    internal static bool is_disallowed_grid_size (ref int rows, ref int cols)
-        requires (rows >= 1)
-        requires (rows <= 9)
-        requires (cols >= 1)
-        requires (cols <= 9)
-    {
-        return (rows == 1 && cols == 1) || (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
-    }
-
-    /*\
     * * window management callbacks
     \*/
 
@@ -356,7 +243,7 @@ private class GameWindow : ApplicationWindow
     [GtkCallback]
     private bool key_press_event_cb (Widget widget, Gdk.EventKey event)
     {
-        if (_hamburger_button.active || (((Window) widget).focus_visible && !_embed.is_focus))
+        if (_header_bar.has_popover () || (((Window) widget).focus_visible && !_embed.is_focus))
             return false;
         if (_game.cannot_move ())
             return false;
@@ -523,6 +410,15 @@ private class GameWindow : ApplicationWindow
                 _scores_ctx.run_dialog ();
                 debug ("score added");
             });
+    }
+
+    internal static bool is_disallowed_grid_size (ref int rows, ref int cols)
+        requires (rows >= 1)
+        requires (rows <= 9)
+        requires (cols >= 1)
+        requires (cols <= 9)
+    {
+        return (rows == 1 && cols == 1) || (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
     }
 
     /*\

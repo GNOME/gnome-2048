@@ -1,9 +1,11 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
 data/congrats.ui
+data/game-headerbar.ui
 data/help-overlay.ui
 data/mainwindow.ui
 data/org.gnome.TwentyFortyEight.appdata.xml.in
 data/org.gnome.TwentyFortyEight.desktop.in
 data/org.gnome.TwentyFortyEight.gschema.xml
+src/game-headerbar.vala
 src/game-window.vala

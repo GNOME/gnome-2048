@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is part of GNOME 2048
+
+  GNOME 2048 is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNOME 2048 is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <template class="GameHeaderBar" parent="GtkHeaderBar">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <!-- Translators: title of the window, displayed in the headerbar -->
+    <property name="title" translatable="yes">GNOME 2048</property>
+    <property name="show-close-button">True</property>
+    <child>
+      <object class="GtkMenuButton" id="_new_game_button">
+        <!-- Translators: button in the headerbar (with a mnemonic that appears pressing Alt) -->
+        <property name="label" translatable="yes">_New Game</property>
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">True</property>
+        <property name="use-underline">True</property>
+        <property name="focus-on-click">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuButton" id="_hamburger_button">
+        <property name="visible">True</property>
+        <property name="halign">end</property>
+        <property name="valign">center</property>
+        <property name="focus-on-click">False</property>
+        <style>
+          <class name="image-button"/>
+        </style>
+        <child>
+          <object class="GtkImage">
+            <property name="visible">True</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="icon-size">1</property>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkLabel" id="_score">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label">0</property>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
+  </template>
+</interface>

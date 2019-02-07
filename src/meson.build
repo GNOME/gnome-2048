@@ -8,6 +8,7 @@ gnome_2048_sources = [
   'application.vala',
   'config.vapi',
   'game.vala',
+  'game-headerbar.vala',
   'game-window.vala',
   'grid.vala',
   'view.vala',

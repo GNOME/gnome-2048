@@ -28,55 +28,8 @@
     <signal name="size-allocate"        handler="size_allocate_cb"/>
     <signal name="window-state-event"   handler="state_event_cb"/>
     <child type="titlebar">
-      <object class="GtkHeaderBar" id="_header_bar">
+      <object class="GameHeaderBar" id="_header_bar">
         <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <!-- Translators: title of the window, displayed in the headerbar -->
-        <property name="title" translatable="yes">GNOME 2048</property>
-        <property name="show-close-button">True</property>
-        <child>
-          <object class="GtkMenuButton" id="_new_game_button">
-            <!-- Translators: button in the headerbar (with a mnemonic that appears pressing Alt) -->
-            <property name="label" translatable="yes">_New Game</property>
-            <property name="visible">True</property>
-            <property name="valign">center</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="use-underline">True</property>
-            <property name="focus-on-click">False</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkMenuButton" id="_hamburger_button">
-            <property name="visible">True</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
-            <property name="focus-on-click">False</property>
-            <style>
-              <class name="image-button"/>
-            </style>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="icon-name">open-menu-symbolic</property>
-                <property name="icon-size">1</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="pack-type">end</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="_score">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="label">0</property>
-          </object>
-          <packing>
-            <property name="pack-type">end</property>
-          </packing>
-        </child>
       </object>
     </child>
     <child>
