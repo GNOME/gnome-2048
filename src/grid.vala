@@ -21,11 +21,11 @@ private class Grid : Object
 {
     private uint8 [,] _grid;
 
-    public int rows { internal get; protected construct; }
-    public int cols { internal get; protected construct; }
+    [CCode (notify = false)] public int rows { internal get; protected construct; }
+    [CCode (notify = false)] public int cols { internal get; protected construct; }
 
-    internal uint target_value          { internal get; internal set; default = 0; }
-    internal bool target_value_reached  { internal get; internal set; default = false; }
+    [CCode (notify = false)] internal uint target_value          { internal get; internal set; default = 0; }
+    [CCode (notify = false)] internal bool target_value_reached  { internal get; internal set; default = false; }
 
     construct
     {

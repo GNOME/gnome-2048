@@ -19,11 +19,11 @@
 
 private class RoundedRectangle : Object
 {
-    internal Clutter.Actor  actor   { internal get; private set; default = new Clutter.Actor (); }
-    internal Clutter.Canvas canvas  { internal get; private set; default = new Clutter.Canvas (); }
+    [CCode (notify = false)] internal Clutter.Actor  actor   { internal get; private set; default = new Clutter.Actor (); }
+    [CCode (notify = false)] internal Clutter.Canvas canvas  { internal get; private set; default = new Clutter.Canvas (); }
 
     private Clutter.Color _color;
-    public Clutter.Color color {
+    [CCode (notify = false)] public Clutter.Color color {
         get { return _color; }
         construct {
             _color = value;
@@ -86,7 +86,7 @@ private class RoundedRectangle : Object
 
 private class TileView : RoundedRectangle
 {
-    internal uint8 tile_value { internal get; private set; default = 1; }
+    [CCode (notify = false)] internal uint8 tile_value { internal get; private set; default = 1; }
 
     internal TileView (float x, float y, float width, float height, uint8 val)
     {

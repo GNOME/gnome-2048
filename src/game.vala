@@ -72,7 +72,7 @@ private class Game : Object
     private Clutter.Actor _view_background;
     private Clutter.Actor _view_foreground;
 
-    internal Clutter.Actor view {
+    [CCode (notify = false)] internal Clutter.Actor view {
         internal get { return _view; }
         internal set {
             _view = value;
@@ -99,7 +99,7 @@ private class Game : Object
     * * others
     \*/
 
-    internal long score { internal get; private set; default = 0; }
+    [CCode (notify = true)] internal long score { internal get; private set; default = 0; }
 
     internal void new_game (ref GLib.Settings settings)
     {
