@@ -164,10 +164,18 @@ private class Game : Object
         _init_background ();
         _restore_foreground (true);
 
-        settings.delay ();
-        settings.set_int ("rows", _grid.rows);
-        settings.set_int ("cols", _grid.cols);
-        settings.apply ();
+        int rows = _grid.rows;
+        int cols = _grid.cols;
+        if ((rows == 3 && cols != 3)
+         || (rows == 4 && cols != 4)
+         || (rows == 5 && cols != 5)
+         || (rows != 3 && rows != 4 && rows != 5))
+        {
+            settings.delay ();
+            settings.set_int ("rows", rows);
+            settings.set_int ("cols", cols);
+            settings.apply ();
+        }
 
         debug ("game restored successfully");
         return true;
