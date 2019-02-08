@@ -19,7 +19,7 @@
 
 private class Grid : Object
 {
-    private uint8 [,] _grid;
+    protected uint8 [,] _grid;
 
     [CCode (notify = false)] public int rows { internal get; protected construct; }
     [CCode (notify = false)] public int cols { internal get; protected construct; }
@@ -404,7 +404,7 @@ private class Grid : Object
         return true;
     }
 
-    private static bool _grid_is_full (ref uint8 [,] grid)
+    protected static bool _grid_is_full (ref uint8 [,] grid)
     {
         uint rows = grid.length [0];
         uint cols = grid.length [1];
@@ -473,6 +473,15 @@ private class Grid : Object
             return 0;
 
         return _grid [row, col];
+    }
+
+    internal static bool is_disallowed_grid_size (ref int rows, ref int cols)
+        requires (rows >= 1)
+        requires (rows <= 9)
+        requires (cols >= 1)
+        requires (cols <= 9)
+    {
+        return (rows == 1 && cols == 1) || (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
     }
 
     /*\
@@ -557,7 +566,7 @@ private class Grid : Object
             return false;
         int cols = (int) number_64;
 
-        if (GameWindow.is_disallowed_grid_size (ref rows, ref cols))
+        if (is_disallowed_grid_size (ref rows, ref cols))
             return false;
         // number of rows + 1 for size + 1 for score; maybe an empty line at end
         if (lines.length < rows + 2)
@@ -602,6 +611,19 @@ private class Grid : Object
     }
 }
 
+private class TestGrid : Grid
+{
+    internal TestGrid (int rows, int cols)
+    {
+        Object (rows: rows, cols: cols);
+    }
+
+    internal bool grid_is_full ()
+    {
+        return _grid_is_full (ref _grid);
+    }
+}
+
 private struct GridPosition
 {
     public int row;
@@ -623,4 +645,23 @@ private struct Tile
 {
     public GridPosition pos;
     public uint8 val;
+}
+
+private enum MoveRequest {
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT;
+
+    internal static string debug_string (MoveRequest request)
+    {
+        switch (request)
+        {
+            case UP:    return "move up";
+            case RIGHT: return "move right";
+            case DOWN:  return "move down";
+            case LEFT:  return "move left";
+            default:    assert_not_reached ();
+        }
+    }
 }

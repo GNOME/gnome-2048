@@ -27,6 +27,7 @@ podir = join_paths(meson.current_source_dir(), 'po')
 posix_dependency = valac.find_library('posix')
 libm_dependency = cc.find_library('m', required: false) # some platforms do not have libm separated from libc
 gio_dependency = dependency('gio-2.0', version: '>= 2.40.0')
+glib_dependency = dependency('glib-2.0', version: '>= 2.40.0')
 gtk_dependency = dependency('gtk+-3.0', version: '>= 3.12.0')
 clutter_dependency = dependency('clutter-1.0', version: '>= 1.12.0')
 clutter_gtk_dependency = dependency('clutter-gtk-1.0', version: '>= 1.6.0')

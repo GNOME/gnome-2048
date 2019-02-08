@@ -23,6 +23,8 @@ private class TestTw12ht : Object
         Test.init (ref args);
         Test.add_func ("/Tw12ht/test tests",
                                 test_tests);
+        Test.add_func ("/Tw12ht/test full game",
+                                test_full_game);
         return Test.run ();
     }
 
@@ -32,6 +34,31 @@ private class TestTw12ht : Object
     }
 
     /*\
-    * * tests
+    * * test full game
     \*/
+
+    private static void test_full_game ()
+    {
+        test_full_grid (3, 3);
+        test_full_grid (4, 4);
+        test_full_grid (5, 5);
+        test_full_grid (3, 5);
+        test_full_grid (4, 3);
+    }
+
+    private static void test_full_grid (int rows, int cols)
+    {
+        TestGrid grid = new TestGrid (rows, cols);
+        for (int i = 0; i < rows * cols; i++)
+        {
+            Tile unused;
+            grid.new_tile (out unused);
+        }
+
+        assert_true (grid.grid_is_full ());
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++)
+                assert_true (grid [i, j] == 1);
+    }
 }

@@ -412,15 +412,6 @@ private class GameWindow : ApplicationWindow
             });
     }
 
-    internal static bool is_disallowed_grid_size (ref int rows, ref int cols)
-        requires (rows >= 1)
-        requires (rows <= 9)
-        requires (cols >= 1)
-        requires (cols <= 9)
-    {
-        return (rows == 1 && cols == 1) || (rows == 1 && cols == 2) || (rows == 2 && cols == 1);
-    }
-
     /*\
     * * gesture
     \*/
@@ -474,24 +465,5 @@ private class GameWindow : ApplicationWindow
 
         _game_restored = false;
         _game.move (request);
-    }
-}
-
-private enum MoveRequest {
-    UP,
-    RIGHT,
-    DOWN,
-    LEFT;
-
-    internal static string debug_string (MoveRequest request)
-    {
-        switch (request)
-        {
-            case UP:    return "move up";
-            case RIGHT: return "move right";
-            case DOWN:  return "move down";
-            case LEFT:  return "move left";
-            default:    assert_not_reached ();
-        }
     }
 }

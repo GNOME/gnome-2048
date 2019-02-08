@@ -2,10 +2,14 @@
 tw12ht_tests = executable(
     'tw12ht_tests',
     [
+        'grid.vala',
         'test-tw12ht.vala'
     ],
     dependencies : [
-        gio_dependency
+        gee_dependency,
+        gio_dependency,
+        glib_dependency,
+        libm_dependency
     ]
 )
 test('tw12ht-tests', tw12ht_tests)

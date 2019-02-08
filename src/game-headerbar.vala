@@ -156,7 +156,7 @@ private class GameHeaderBar : HeaderBar
                            ref menu);
 
         bool is_square = rows == cols;
-        bool disallowed_grid = GameWindow.is_disallowed_grid_size (ref rows, ref cols);
+        bool disallowed_grid = Grid.is_disallowed_grid_size (ref rows, ref cols);
         if (disallowed_grid && !is_square)
             /* Translators: command-line warning displayed if the user manually sets a invalid grid size */
             warning (_("Grids of size 1 by 2 are disallowed."));
