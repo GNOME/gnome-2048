@@ -29,6 +29,9 @@ private class Grid : Object
 
     construct
     {
+        if (rows < 1 || cols < 1)
+            assert_not_reached ();
+
         _grid = new uint8 [rows, cols];
         _clear (ref _grid);
     }
@@ -527,7 +530,7 @@ private class Grid : Object
     * * restoring
     \*/
 
-    internal bool load (ref string content)
+    internal bool load (ref string content) // TODO transform into a constructor
     {
         uint8 [,] grid = {{}};   // garbage
         if (!_load_from_string (ref content, ref grid))

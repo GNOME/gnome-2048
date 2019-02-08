@@ -25,6 +25,8 @@ private class TestTw12ht : Object
                                 test_tests);
         Test.add_func ("/Tw12ht/test full game",
                                 test_full_game);
+        Test.add_func ("/Tw12ht/test load game",
+                                test_load_game);
         return Test.run ();
     }
 
@@ -60,5 +62,76 @@ private class TestTw12ht : Object
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < cols; j++)
                 assert_true (grid [i, j] == 1);
+    }
+
+    /*\
+    * * test load game
+    \*/
+
+    private static void test_load_game ()
+    {
+        int rows, cols;
+        string old_content, new_content;
+        bool loaded;
+
+        // correct square game
+        old_content = "2 2\n0 2\n2 4\n4\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == true && rows == 2 && cols == 2 && new_content == old_content);
+
+        // incorrect: inverted rows & cols numbers
+        old_content = "3 2\n0 2 0\n0 2 4\n-42\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == false);
+
+        // correct non-square game
+        old_content = "3 2\n0 2\n0 4\n4 2\n8\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == true && rows == 3 && cols == 2 && new_content == old_content);
+
+        // incorrect: bad tile 3
+        old_content = "3 2\n0 2\n0 4\n4 3\n-42\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == false);
+
+        // incorrect: bad tile -2
+        old_content = "3 2\n0 2\n0 4\n4 -2\n-42\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == false);
+
+        // incorrect: bad rows number 10
+        old_content = "10 2\n0 2\n0 4\n4 2\n0 2\n0 4\n4 2\n0 2\n0 4\n4 2\n0 1\n-42\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == false);
+
+        // incorrect: bad cols number 10
+        old_content = "2 10\n0 2 4 8 2 4 8 2 4 8\n0 4 0 2 0 4 0 2 0 8\n-42\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == false);
+
+        // incorrect: second row not matching cols number
+        old_content = "3 2\n0 2\n0 4 2\n4 2\n-42\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == false);
+
+        // incorrect score
+        old_content = "3 2\n0 2\n0 4\n8 2\n16\n";
+        test_load_grid (ref old_content, out loaded, out rows, out cols, out new_content);
+        assert_true (loaded == true && rows == 3 && cols == 2);
+        assert_true (new_content != old_content);
+    }
+
+    private static void test_load_grid (ref string old_content,
+                                        out bool loaded,
+                                        out int rows,
+                                        out int cols,
+                                        out string new_content)
+    {
+        Grid grid = new Grid (1, 1);   // TODO transform load into a constructor
+        loaded = grid.load (ref old_content);
+
+        rows        = loaded ? grid.rows    : -1;
+        cols        = loaded ? grid.cols    : -1;
+        new_content = loaded ? grid.save () : "";
     }
 }
