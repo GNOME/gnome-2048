@@ -1,3 +1,16 @@
+# Tests
+tw12ht_tests = executable(
+    'tw12ht_tests',
+    [
+        'test-tw12ht.vala'
+    ],
+    dependencies : [
+        gio_dependency
+    ]
+)
+test('tw12ht-tests', tw12ht_tests)
+
+# Application
 resources = gnome.compile_resources(
   'resources',
   'org.gnome.TwentyFortyEight.gresource.xml',
