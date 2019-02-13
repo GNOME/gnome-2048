@@ -19,13 +19,27 @@
 
 private class Game : Object
 {
-    enum GameState {
+    private enum GameState {
         STOPPED,
         IDLE,
         MOVING,
         SHOWING_FIRST_TILE,
         SHOWING_NEW_TILE,
-        RESTORING_TILES
+        RESTORING_TILES;
+
+        internal static string to_string (GameState state)
+        {
+            switch (state)
+            {
+                case GameState.STOPPED:             return "stopped";
+                case GameState.IDLE:                return "idle";
+                case GameState.MOVING:              return "moving";
+                case GameState.SHOWING_FIRST_TILE:  return "showing first tile";
+                case GameState.SHOWING_NEW_TILE:    return "showing new tile";
+                case GameState.RESTORING_TILES:     return "restoring tiles";
+                default: assert_not_reached ();
+            }
+        }
     }
 
     private int BLANK_ROW_HEIGHT = 10;
@@ -105,6 +119,9 @@ private class Game : Object
 
     internal void new_game (ref GLib.Settings settings)
     {
+        if (_state != GameState.IDLE)
+            return;
+
         _clean_finish_move_animation ();
         _grid.clear ();
         _clear_history ();
