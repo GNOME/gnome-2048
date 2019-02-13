@@ -37,7 +37,6 @@ private class GameWindow : ApplicationWindow
     [GtkChild] private GtkClutter.Embed _embed;
 
     private Game _game;
-    private bool _game_restored;
     private bool _game_should_init = true;
 
     construct
@@ -55,8 +54,7 @@ private class GameWindow : ApplicationWindow
         show_all ();
         _init_gesture ();
 
-        _game_restored = _game.restore_game (ref _settings);
-        if (!_game_restored)
+        if (!_game.restore_game (ref _settings))
             new_game_cb ();
         _game_should_init = false;
     }
@@ -114,10 +112,10 @@ private class GameWindow : ApplicationWindow
     {
         _game = new Game (ref _settings);
         _game.notify ["score"].connect (_header_bar.set_score);
-        _game.finished.connect ((s) => {
+        _game.finished.connect ((show_scores) => {
                 _header_bar.finished ();
 
-                if (!_game_restored)
+                if (show_scores)
                     _show_best_scores ();
 
                 debug ("finished");
@@ -186,7 +184,6 @@ private class GameWindow : ApplicationWindow
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
         _header_bar.clear_subtitle ();
-        _game_restored = false;
 
         _game.new_game (ref _settings);
 
@@ -463,7 +460,6 @@ private class GameWindow : ApplicationWindow
         if (_game_should_init)
             return;
 
-        _game_restored = false;
         _game.move (request);
     }
 }

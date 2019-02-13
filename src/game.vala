@@ -99,6 +99,8 @@ private class Game : Object
     * * others
     \*/
 
+    private bool _just_restored = true;
+
     [CCode (notify = true)] internal long score { internal get; private set; default = 0; }
 
     internal void new_game (ref GLib.Settings settings)
@@ -128,6 +130,8 @@ private class Game : Object
         _state = GameState.SHOWING_FIRST_TILE;
         _create_random_tile ();
         undo_disabled ();
+
+        _just_restored = false;
     }
 
     internal void save_game ()
@@ -176,6 +180,8 @@ private class Game : Object
             settings.set_int ("cols", cols);
             settings.apply ();
         }
+
+        _just_restored = true;
 
         debug ("game restored successfully");
         return true;
@@ -504,6 +510,8 @@ private class Game : Object
             _move_trans.start ();
             _store_movement (clone);
         }
+
+        _just_restored = false;
     }
 
     private void _on_move_trans_stopped (Clutter.Timeline trans, bool is_finished)
@@ -537,7 +545,7 @@ private class Game : Object
     * * new tile animation
     \*/
 
-    internal signal void finished ();
+    internal signal void finished (bool show_scores);
     internal signal void target_value_reached (uint val);
 
     private uint _finish_move_id = 0;
@@ -629,13 +637,16 @@ private class Game : Object
             _grid.target_value_reached = false;
         }
 
-        _finish_move_id = GLib.Timeout.add (100, _finish_move);
+        if (_just_restored)
+            finished (/* show scores */ false);
+        else
+            _finish_move_id = GLib.Timeout.add (100, _finish_move);
     }
 
     private bool _finish_move ()
     {
         if (_grid.is_finished ())
-            finished ();
+            finished (/* show scores */ true);
 
         _finish_move_id = 0;
         return false;
