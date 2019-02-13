@@ -407,7 +407,7 @@ private class Grid : Object
         return true;
     }
 
-    protected static bool _grid_is_full (ref uint8 [,] grid)
+    protected static bool _grid_is_full (ref uint8 [,] grid)    // is protected for tests
     {
         uint rows = grid.length [0];
         uint cols = grid.length [1];
@@ -621,19 +621,6 @@ private class Grid : Object
                 return true;
 
         return false;
-    }
-}
-
-private class TestGrid : Grid
-{
-    internal TestGrid (int rows, int cols)
-    {
-        Object (rows: rows, cols: cols);
-    }
-
-    internal bool grid_is_full ()
-    {
-        return _grid_is_full (ref _grid);
     }
 }
 

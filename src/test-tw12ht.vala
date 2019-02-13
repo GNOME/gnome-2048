@@ -135,3 +135,16 @@ private class TestTw12ht : Object
         new_content = loaded ? grid.save () : "";
     }
 }
+
+private class TestGrid : Grid
+{
+    internal TestGrid (int rows, int cols)
+    {
+        Object (rows: rows, cols: cols);
+    }
+
+    internal bool grid_is_full ()
+    {
+        return _grid_is_full (ref _grid);
+    }
+}
