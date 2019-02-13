@@ -51,17 +51,58 @@ private class TestTw12ht : Object
     private static void test_full_grid (int rows, int cols)
     {
         TestGrid grid = new TestGrid (rows, cols);
+        test_new_grid_size (ref grid, rows, cols);
+
         for (int i = 0; i < rows * cols; i++)
-        {
-            Tile unused;
-            grid.new_tile (out unused);
-        }
+            test_tile_creation (ref grid);
+
+        test_grid_fullness (ref grid);
+        test_grid_clearing (ref grid);
+    }
+
+    private static void test_new_grid_size (ref TestGrid grid, int rows, int cols)
+    {
+        assert_true (grid.rows == rows);
+        assert_true (grid.cols == cols);
+    }
+
+    private static void test_tile_creation (ref TestGrid grid)
+    {
+        int rows = grid.rows;
+        int cols = grid.cols;
+
+        Tile tile;
+        grid.new_tile (out tile);
+
+        assert_true (tile.val == 1);
+        assert_true (tile.pos.row >= 0);
+        assert_true (tile.pos.row < rows);
+        assert_true (tile.pos.col >= 0);
+        assert_true (tile.pos.col < cols);
+    }
+
+    private static void test_grid_fullness (ref TestGrid grid)
+    {
+        int rows = grid.rows;
+        int cols = grid.cols;
 
         assert_true (grid.grid_is_full ());
 
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < cols; j++)
                 assert_true (grid [i, j] == 1);
+    }
+
+    private static void test_grid_clearing (ref TestGrid grid)
+    {
+        int rows = grid.rows;
+        int cols = grid.cols;
+
+        grid.clear ();
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++)
+                assert_true (grid [i, j] == 0);
     }
 
     /*\
@@ -121,11 +162,11 @@ private class TestTw12ht : Object
         assert_true (new_content != old_content);
     }
 
-    private static void test_load_grid (ref string old_content,
-                                        out bool loaded,
-                                        out int rows,
-                                        out int cols,
-                                        out string new_content)
+    private static void test_load_grid (ref string  old_content,
+                                        out bool    loaded,
+                                        out int     rows,
+                                        out int     cols,
+                                        out string  new_content)
     {
         Grid grid = new Grid (1, 1);   // TODO transform load into a constructor
         loaded = grid.load (ref old_content);
