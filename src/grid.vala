@@ -579,7 +579,7 @@ private class Grid : Object
 
         for (uint i = 0; i < rows; i++)
         {
-            tokens = lines [i + 1].split (" ");
+            _parse_line (lines [i + 1], out tokens);
             // we do need to be strict here
             if (tokens.length != cols)
                 return false;
@@ -596,6 +596,16 @@ private class Grid : Object
         }
 
         return true;
+    }
+
+    private static inline void _parse_line (string line, out string [] tokens)
+    {
+        tokens = line.split (" ");
+        string [] _tokens = {};
+        foreach (string token in tokens)
+            if (token != "")
+                _tokens += token;
+        tokens = _tokens;
     }
 
     private static inline bool _convert_tile_number (ref uint64 number_64,
