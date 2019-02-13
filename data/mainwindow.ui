@@ -24,9 +24,7 @@
     <property name="default-height">600</property>
     <property name="icon-name">org.gnome.TwentyFortyEight</property>
     <property name="show-menubar">False</property>
-    <signal name="key-press-event"      handler="key_press_event_cb"/>
-    <signal name="size-allocate"        handler="size_allocate_cb"/>
-    <signal name="window-state-event"   handler="state_event_cb"/>
+    <signal name="destroy" handler="on_destroy"/>
     <child type="titlebar">
       <object class="GameHeaderBar" id="_header_bar">
         <property name="visible">True</property>

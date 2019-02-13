@@ -25,25 +25,16 @@ private class GameWindow : ApplicationWindow
 {
     private GLib.Settings _settings;
 
-    private const int WINDOW_MINIMUM_SIZE_HEIGHT = 600;
-    private const int WINDOW_MINIMUM_SIZE_WIDTH = 600;
-
-    private int _window_width;
-    private int _window_height;
-    private bool _window_maximized;
-    private bool _window_is_tiled;
-
     [GtkChild] private GameHeaderBar    _header_bar;
     [GtkChild] private GtkClutter.Embed _embed;
 
     private Game _game;
-    private bool _game_should_init = true;
 
     construct
     {
         _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
 
-        install_ui_action_entries ();
+        _install_ui_action_entries ();
 
         _init_game ();
 
@@ -52,60 +43,25 @@ private class GameWindow : ApplicationWindow
 
         notify ["has-toplevel-focus"].connect (() => _embed.grab_focus ());
         show_all ();
-        _init_gesture ();
 
         if (!_game.restore_game (ref _settings))
             new_game_cb ();
-        _game_should_init = false;
+
+        // should be done after game creation, so that you cannot move before
+        _init_keyboard ();
+        _init_gestures ();
+    }
+
+    [GtkCallback]
+    private void on_destroy ()
+    {
+        _game.save_game ();
+        _save_window_state (this, ref _settings);
+        base.destroy ();
     }
 
     /*\
-    * * actions
-    \*/
-
-    private SimpleAction undo_action;
-
-    private void install_ui_action_entries ()
-    {
-        SimpleActionGroup action_group = new SimpleActionGroup ();
-        action_group.add_action_entries (ui_action_entries, this);
-        insert_action_group ("ui", action_group);
-
-        undo_action = (SimpleAction) action_group.lookup_action ("undo");
-        undo_action.set_enabled (false);
-    }
-
-    private const GLib.ActionEntry [] ui_action_entries =
-    {
-        { "undo",               undo_cb                     },
-
-        { "new-game",           new_game_cb                 },
-        { "toggle-new-game",    toggle_new_game_cb          },
-        { "new-game-sized",     new_game_sized_cb, "(ii)"   },
-
-        // hamburger-menu
-        { "toggle-hamburger",   toggle_hamburger_menu       },
-
-        { "scores",             scores_cb                   },
-        { "about",              about_cb                    }
-    };
-
-    /*\
-    * * menus
-    \*/
-
-    private void toggle_new_game_cb (/* SimpleAction action, Variant? variant */)
-    {
-        _header_bar.toggle_new_game ();
-    }
-
-    private void toggle_hamburger_menu (/* SimpleAction action, Variant? variant */)
-    {
-        _header_bar.toggle_hamburger_menu ();
-    }
-
-    /*\
-    * * game
+    * * init
     \*/
 
     private void _init_game ()
@@ -125,15 +81,10 @@ private class GameWindow : ApplicationWindow
         _game.undo_disabled.connect (() => { undo_action.set_enabled (false); });
     }
 
-    /*\
-    * * window
-    \*/
-
     private void _init_window ()
     {
-        set_default_size (_settings.get_int ("window-width"), _settings.get_int ("window-height"));
-        if (_settings.get_boolean ("window-maximized"))
-            maximize ();
+        _init_window_state (this);
+        _load_window_state (this, ref _settings);
 
         _header_bar.popover_closed.connect (() => _embed.grab_focus ());
         _settings.changed.connect ((settings, key_name) => {
@@ -160,16 +111,104 @@ private class GameWindow : ApplicationWindow
         _game.view = _embed.get_stage ();
 
         set_events (get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
+    }
+
+    /*\
+    * * window state
+    \*/
+
+    private const int WINDOW_MINIMUM_SIZE_HEIGHT = 600;
+    private const int WINDOW_MINIMUM_SIZE_WIDTH = 600;
+
+    private int _window_width;
+    private int _window_height;
+    private bool _window_maximized;
+    private bool _window_is_tiled;
+
+    private static void _init_window_state (GameWindow _this)
+    {
+        _this.size_allocate.connect (size_allocate_cb);
+        _this.window_state_event.connect (state_event_cb);
 
         Gdk.Geometry geom = Gdk.Geometry ();
         geom.min_height = WINDOW_MINIMUM_SIZE_HEIGHT;
         geom.min_width = WINDOW_MINIMUM_SIZE_WIDTH;
-        set_geometry_hints (this, geom, Gdk.WindowHints.MIN_SIZE);
+        _this.set_geometry_hints (_this, geom, Gdk.WindowHints.MIN_SIZE);
+    }
+
+    private static void _load_window_state (GameWindow _this, ref GLib.Settings _settings)
+    {
+        _this.set_default_size (_settings.get_int ("window-width"),
+                                _settings.get_int ("window-height"));
+
+        if (_settings.get_boolean ("window-maximized"))
+            _this.maximize ();
+    }
+
+    private static void _save_window_state (GameWindow _this, ref GLib.Settings _settings)
+    {
+        _settings.delay ();
+        _settings.set_int       ("window-width",        _this._window_width);
+        _settings.set_int       ("window-height",       _this._window_height);
+        _settings.set_boolean   ("window-maximized",    _this._window_maximized);
+        _settings.apply ();
+    }
+
+    private static void size_allocate_cb (Widget widget, Allocation allocation)
+    {
+        GameWindow _this = (GameWindow) widget;
+        if (_this._window_maximized || _this._window_is_tiled)
+            return;
+        int? window_width = null;
+        int? window_height = null;
+        _this.get_size (out window_width, out window_height);
+        if (window_width == null || window_height == null)
+            return;
+        _this._window_width = (!) window_width;
+        _this._window_height = (!) window_height;
+    }
+
+    private static bool state_event_cb (Widget widget, Gdk.EventWindowState event)
+    {
+        GameWindow _this = (GameWindow) widget;
+        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
+            _this._window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+        /* We don’t save this state, but track it for saving size allocation */
+        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
+            _this._window_is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
+
+        return false;
     }
 
     /*\
-    * * undo action
+    * * actions
     \*/
+
+    private SimpleAction undo_action;
+
+    private void _install_ui_action_entries ()
+    {
+        SimpleActionGroup action_group = new SimpleActionGroup ();
+        action_group.add_action_entries (_ui_action_entries, this);
+        insert_action_group ("ui", action_group);
+
+        undo_action = (SimpleAction) action_group.lookup_action ("undo");
+        undo_action.set_enabled (false);
+    }
+
+    private const GLib.ActionEntry [] _ui_action_entries =
+    {
+        { "undo",               undo_cb                     },
+
+        { "new-game",           new_game_cb                 },
+        { "new-game-sized",     new_game_sized_cb, "(ii)"   },
+
+        { "toggle-new-game",    toggle_new_game_cb          },
+        { "toggle-hamburger",   toggle_hamburger_menu       },
+
+        { "scores",             scores_cb                   },
+        { "about",              about_cb                    }
+    };
 
     private void undo_cb (/* SimpleAction action, Variant? variant */)
     {
@@ -177,16 +216,14 @@ private class GameWindow : ApplicationWindow
             return;
 
         _header_bar.clear_subtitle ();
-
         _game.undo ();
+        _embed.grab_focus ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
         _header_bar.clear_subtitle ();
-
         _game.new_game (ref _settings);
-
         _embed.grab_focus ();
     }
 
@@ -203,33 +240,18 @@ private class GameWindow : ApplicationWindow
         new_game_cb ();
     }
 
-    private void about_cb (/* SimpleAction action, Variant? variant */)
+    private void toggle_new_game_cb (/* SimpleAction action, Variant? variant */)
     {
-        string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
-        show_about_dialog (this,
-                           /* Translators: about dialog text; the program name */
-                           "program-name", _("2048"),
-                           "version", VERSION,
+        _header_bar.toggle_new_game ();
+    }
 
-                           /* Translators: about dialog text; a introduction to the game */
-                           "comments", _("A clone of 2048 for GNOME"),
-                           "license-type", License.GPL_3_0,
-
-                           /* Translators: about dialog text; the main copyright holders */
-                           "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016-2019 – Arnaud Bonatti"),
-                           "wrap-license", true,
-                           "authors", authors,
-                           /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
-                           "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "org.gnome.TwentyFortyEight",
-                           "website", "https://wiki.gnome.org/Apps/2048",
-                           /* Translators: about dialog text; label of the website link */
-                           "website-label", _("Page on GNOME wiki"),
-                           null);
+    private void toggle_hamburger_menu (/* SimpleAction action, Variant? variant */)
+    {
+        _header_bar.toggle_hamburger_menu ();
     }
 
     /*\
-    * * window management callbacks
+    * * keyboard
     \*/
 
     private const uint16 KEYCODE_W = 25;
@@ -237,70 +259,81 @@ private class GameWindow : ApplicationWindow
     private const uint16 KEYCODE_S = 39;
     private const uint16 KEYCODE_D = 40;
 
-    [GtkCallback]
-    private bool key_press_event_cb (Widget widget, Gdk.EventKey event)
+    private inline void _init_keyboard ()
     {
-        if (_header_bar.has_popover () || (((Window) widget).focus_visible && !_embed.is_focus))
+        key_press_event.connect (key_press_event_cb);
+    }
+
+    private static bool key_press_event_cb (Widget widget, Gdk.EventKey event)
+    {
+        GameWindow _this = (GameWindow) widget;
+        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._embed.is_focus))
             return false;
-        if (_game.cannot_move ())
+        if (_this._game.cannot_move ())
             return false;
 
         switch (event.hardware_keycode)
         {
-            case KEYCODE_W:     _request_move (MoveRequest.UP);     return true;    // or KEYCODE_UP    = 111;
-            case KEYCODE_A:     _request_move (MoveRequest.LEFT);   return true;    // or KEYCODE_LEFT  = 113;
-            case KEYCODE_S:     _request_move (MoveRequest.DOWN);   return true;    // or KEYCODE_DOWN  = 116;
-            case KEYCODE_D:     _request_move (MoveRequest.RIGHT);  return true;    // or KEYCODE_RIGHT = 114;
+            case KEYCODE_W:     _this._game.move (MoveRequest.UP);      return true;    // or KEYCODE_UP    = 111;
+            case KEYCODE_A:     _this._game.move (MoveRequest.LEFT);    return true;    // or KEYCODE_LEFT  = 113;
+            case KEYCODE_S:     _this._game.move (MoveRequest.DOWN);    return true;    // or KEYCODE_DOWN  = 116;
+            case KEYCODE_D:     _this._game.move (MoveRequest.RIGHT);   return true;    // or KEYCODE_RIGHT = 114;
         }
         switch (_upper_key (event.keyval))
         {
-            case Gdk.Key.Up:    _request_move (MoveRequest.UP);     return true;
-            case Gdk.Key.Left:  _request_move (MoveRequest.LEFT);   return true;
-            case Gdk.Key.Down:  _request_move (MoveRequest.DOWN);   return true;
-            case Gdk.Key.Right: _request_move (MoveRequest.RIGHT);  return true;
+            case Gdk.Key.Up:    _this._game.move (MoveRequest.UP);      return true;
+            case Gdk.Key.Left:  _this._game.move (MoveRequest.LEFT);    return true;
+            case Gdk.Key.Down:  _this._game.move (MoveRequest.DOWN);    return true;
+            case Gdk.Key.Right: _this._game.move (MoveRequest.RIGHT);   return true;
         }
         return false;
     }
+
     private static inline uint _upper_key (uint keyval)
     {
         return (keyval > 255) ? keyval : ((char) keyval).toupper ();
     }
 
-    [GtkCallback]
-    private void size_allocate_cb ()
+    /*\
+    * * gestures
+    \*/
+
+    private GestureSwipe gesture;
+    private inline void _init_gestures ()
     {
-        if (_window_maximized || _window_is_tiled)
-            return;
-        int? window_width = null;
-        int? window_height = null;
-        get_size (out window_width, out window_height);
-        if (window_width == null || window_height == null)
-            return;
-        _window_width = (!) window_width;
-        _window_height = (!) window_height;
+        gesture = new GestureSwipe (_embed); // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
+        gesture.set_propagation_phase (PropagationPhase.CAPTURE);
+        gesture.set_button (/* all events */ 0);
+        gesture.swipe.connect (_on_swipe);
     }
 
-    [GtkCallback]
-    private bool state_event_cb (Gdk.EventWindowState event)
+    private inline void _on_swipe (GestureSwipe gesture, double velocity_x, double velocity_y)
     {
-        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            _window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
-        /* We don’t save this state, but track it for saving size allocation */
-        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
-            _window_is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
+        if (_game.cannot_move ())
+            return;
 
-        return false;
-    }
-
-    internal void before_shutdown ()
-    {
-        _game.save_game ();
-
-        _settings.delay ();
-        _settings.set_int ("window-width", _window_width);
-        _settings.set_int ("window-height", _window_height);
-        _settings.set_boolean ("window-maximized", _window_maximized);
-        _settings.apply ();
+        double abs_x = velocity_x.abs ();
+        double abs_y = velocity_y.abs ();
+        if (abs_x * abs_x + abs_y * abs_y < 400.0)
+            return;
+        bool left_or_right = abs_y * 4.0 < abs_x;
+        bool up_or_down = abs_x * 4.0 < abs_y;
+        if (left_or_right)
+        {
+            if (velocity_x < -10.0)
+                _game.move (MoveRequest.LEFT);
+            else if (velocity_x > 10.0)
+                _game.move (MoveRequest.RIGHT);
+        }
+        else if (up_or_down)
+        {
+            if (velocity_y < -10.0)
+                _game.move (MoveRequest.UP);
+            else if (velocity_y > 10.0)
+                _game.move (MoveRequest.DOWN);
+        }
+        else
+            return;
     }
 
     /*\
@@ -410,56 +443,31 @@ private class GameWindow : ApplicationWindow
     }
 
     /*\
-    * * gesture
+    * * about dialog
     \*/
 
-    private GestureSwipe gesture;
-    private inline void _init_gesture ()
+    private void about_cb (/* SimpleAction action, Variant? variant */)
     {
-        gesture = new GestureSwipe (_embed); // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
-        gesture.set_propagation_phase (PropagationPhase.CAPTURE);
-        gesture.set_button (/* all events */ 0);
-        gesture.swipe.connect (_on_swipe);
-    }
+        string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
+        show_about_dialog (this,
+                           /* Translators: about dialog text; the program name */
+                           "program-name", _("2048"),
+                           "version", VERSION,
 
-    private inline void _on_swipe (GestureSwipe gesture, double velocity_x, double velocity_y)
-    {
-        if (_game.cannot_move ())
-            return;
+                           /* Translators: about dialog text; a introduction to the game */
+                           "comments", _("A clone of 2048 for GNOME"),
+                           "license-type", License.GPL_3_0,
 
-        double abs_x = velocity_x.abs ();
-        double abs_y = velocity_y.abs ();
-        if (abs_x * abs_x + abs_y * abs_y < 400.0)
-            return;
-        bool left_or_right = abs_y * 4.0 < abs_x;
-        bool up_or_down = abs_x * 4.0 < abs_y;
-        if (left_or_right)
-        {
-            if (velocity_x < -10.0)
-                _request_move (MoveRequest.LEFT);
-            else if (velocity_x > 10.0)
-                _request_move (MoveRequest.RIGHT);
-        }
-        else if (up_or_down)
-        {
-            if (velocity_y < -10.0)
-                _request_move (MoveRequest.UP);
-            else if (velocity_y > 10.0)
-                _request_move (MoveRequest.DOWN);
-        }
-        else
-            return;
-    }
-
-    /*\
-    * * move requests
-    \*/
-
-    private void _request_move (MoveRequest request)
-    {
-        if (_game_should_init)
-            return;
-
-        _game.move (request);
+                           /* Translators: about dialog text; the main copyright holders */
+                           "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016-2019 – Arnaud Bonatti"),
+                           "wrap-license", true,
+                           "authors", authors,
+                           /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
+                           "translator-credits", _("translator-credits"),
+                           "logo-icon-name", "org.gnome.TwentyFortyEight",
+                           "website", "https://wiki.gnome.org/Apps/2048",
+                           /* Translators: about dialog text; label of the website link */
+                           "website-label", _("Page on GNOME wiki"),
+                           null);
     }
 }

@@ -103,12 +103,6 @@ private class Application : Gtk.Application
         _window.present ();
     }
 
-    protected override void shutdown ()
-    {
-        _window.before_shutdown ();
-        base.shutdown ();
-    }
-
     private void quit_cb (/* SimpleAction action, Variant? variant */)
     {
         _window.destroy ();
