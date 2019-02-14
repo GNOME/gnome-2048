@@ -243,7 +243,7 @@ private class Game : Object
                 float x = j * tile_width + (j+1) * BLANK_COL_WIDTH;
                 float y = i * tile_height + (i+1) * BLANK_ROW_HEIGHT;
 
-                RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height, "#ffffff");
+                RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
 
                 _view_background.add_child (rect.actor);
                 rect.canvas.invalidate ();
@@ -417,7 +417,7 @@ private class Game : Object
         TileView? tile_view = _foreground_cur [pos.row, pos.col];
         if (tile_view == null)
             assert_not_reached ();
-        debug (@"diming tile at $pos " + ((!) tile_view).@tile_value.to_string ());
+        debug (@"diming tile at $pos " + ((!) tile_view).color.to_string ());
 
         Clutter.Actor actor;
         Clutter.PropertyTransition trans;
@@ -607,7 +607,7 @@ private class Game : Object
             if (tile_view == null)
                 assert_not_reached ();
             ((!) tile_view).actor.hide ();
-            debug (@"remove child " + ((!) tile_view).@tile_value.to_string ());
+            debug (@"remove child " + ((!) tile_view).color.to_string ());
             _view_foreground.remove_child (((!) tile_view).actor);
 
             _foreground_cur [pos.row, pos.col] = null;

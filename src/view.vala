@@ -36,9 +36,9 @@ private class RoundedRectangle : Object
         idle_resize ();
     }
 
-    internal RoundedRectangle (float x, float y, float width, float height, string color)
+    internal RoundedRectangle (float x, float y, float width, float height)
     {
-        Object (x: x, y: y, width: width, height: height, color: color);
+        Object (x: x, y: y, width: width, height: height, color: 0);
     }
 
     internal void resize (float x, float y, float width, float height)
@@ -82,104 +82,81 @@ private class RoundedRectangle : Object
     * * color
     \*/
 
-    private static HashTable<string, Clutter.Color?> colors
-             = new HashTable<string, Clutter.Color?> (str_hash, str_equal);
+    private static HashTable<int, Clutter.Color?> colors
+             = new HashTable<int, Clutter.Color?> (direct_hash, direct_equal);
+    static construct
+    {
+        colors.insert (/* empty */ 0,  Clutter.Color.from_string ("#ffffff"));  // White
+        colors.insert (/*     2 */ 1,  Clutter.Color.from_string ("#fce94f"));  // Butter 1
+        colors.insert (/*     4 */ 2,  Clutter.Color.from_string ("#8ae234"));  // Chameleon 1
+        colors.insert (/*     8 */ 3,  Clutter.Color.from_string ("#fcaf3e"));  // Orange 1
+        colors.insert (/*    16 */ 4,  Clutter.Color.from_string ("#729fcf"));  // Sky blue 1
+        colors.insert (/*    32 */ 5,  Clutter.Color.from_string ("#ad7fa8"));  // Plum 1
+        colors.insert (/*    64 */ 6,  Clutter.Color.from_string ("#c17d11"));  // Chocolate 2
+        colors.insert (/*   128 */ 7,  Clutter.Color.from_string ("#ef2929"));  // Scarlet red 1
+        colors.insert (/*   256 */ 8,  Clutter.Color.from_string ("#c4a000"));  // Butter 3
+        colors.insert (/*   512 */ 9,  Clutter.Color.from_string ("#4e9a06"));  // Chameleon 3
+        colors.insert (/*  1024 */ 10, Clutter.Color.from_string ("#ce5c00"));  // Orange 3
+        colors.insert (/*  2048 */ 11, Clutter.Color.from_string ("#204a87"));  // Sky blue 3
+    }
 
     private Clutter.Color _color;
-    [CCode (notify = false)] public string color {
+    private uint8 _color_index;
+    [CCode (notify = false)] public uint8 color {
+        internal get { return _color_index; }   // protected for TileView, internal for debug
         internal construct {
-            Clutter.Color? color = colors.lookup (value);
+            _color_index = value;
+            Clutter.Color? color = colors.lookup ((int) value);
             if (color == null)
-            {
-                _color = Clutter.Color.from_string (value);
-
-                HashTable<string, Clutter.Color?> _colors = colors;
-                _colors.insert (value, _color);
-                colors = _colors;
-            }
+                _new_color (value, out _color);
             else
                 _color = (!) color;
         }
     }
-}
 
-private class TileView : RoundedRectangle
-{
-    [CCode (notify = false)] public uint8 tile_value { internal get; protected construct; }
-
-    internal TileView (float x, float y, float width, float height, uint8 val)
+    private static void _new_color (uint8 tile_value, out Clutter.Color color)
+        requires (tile_value >= 12)
+        requires (tile_value <= 81)
     {
-        Object (x: x, y: y, width: width, height: height, color: _pick_color (val), tile_value: val);
-    }
-
-    protected override bool _draw (Cairo.Context ctx, int width, int height)
-    {
-        Pango.Rectangle logical_rect;
-        Pango.Layout layout;
-        Pango.FontDescription font_desc;
-
-        base._draw (ctx, width, height);
-
-        ctx.set_source_rgb (255, 255, 255);
-
-        layout = Pango.cairo_create_layout (ctx);
-        font_desc = Pango.FontDescription.from_string ("Sans Bold %dpx".printf (height / 4));
-        layout.set_font_description (font_desc);
-
-        layout.set_text (Math.pow (2, tile_value).to_string (), -1);
-
-        layout.get_extents (null, out logical_rect);
-        ctx.move_to ((width / 2) - (logical_rect.width / 2 / Pango.SCALE),
-                     (height / 2) - (logical_rect.height / 2 / Pango.SCALE));
-        Pango.cairo_show_layout (ctx, layout);
-
-        return false;
-    }
-
-    /*\
-    * * color
-    \*/
-
-    private static string _pick_color (uint8 tile_value)
-        requires (tile_value != 0)
-    {
-        if (tile_value > 11)
-            return _calculate_color (tile_value);
-        else
-            return _pick_palette_color (tile_value);
-    }
-
-    private static string _calculate_color (uint8 tile_value)
-        requires (tile_value != 0)
-    {
-        Clutter.Color color = Clutter.Color.from_string (_pick_palette_color ((tile_value - 1) % 11 + 1));
+        Clutter.Color? nullable_color = colors.lookup ((int) ((tile_value - 1) % 11 + 1));
+        if (nullable_color == null)
+            assert_not_reached ();
+        color = (!) nullable_color;
 
         uint8 sbits = (uint8) (Math.pow (2, tile_value) % 7);
         color.red   <<= sbits;
         color.green <<= sbits;
         color.blue  <<= sbits;
 
-        return color.to_string ();
+        colors.insert ((int) tile_value, color);
+    }
+}
+
+private class TileView : RoundedRectangle
+{
+    internal TileView (float x, float y, float width, float height, uint8 val)
+    {
+        Object (x: x, y: y, width: width, height: height, color: val);
     }
 
-    private static string _pick_palette_color (uint8 tile_value)
-        requires (tile_value != 0)
-        requires (tile_value <= 11)
+    protected override bool _draw (Cairo.Context ctx, int width, int height)
     {
-        switch (tile_value)
-        {
-            case 1:  return "#fce94f";  // Butter 1
-            case 2:  return "#8ae234";  // Chameleon 1
-            case 3:  return "#fcaf3e";  // Orange 1
-            case 4:  return "#729fcf";  // Sky blue 1
-            case 5:  return "#ad7fa8";  // Plum 1
-            case 6:  return "#c17d11";  // Chocolate 2
-            case 7:  return "#ef2929";  // Scarlet red 1
-            case 8:  return "#c4a000";  // Butter 3
-            case 9:  return "#4e9a06";  // Chameleon 3
-            case 10: return "#ce5c00";  // Orange 3
-            case 11: return "#204a87";  // Sky blue 3
-            default: assert_not_reached ();
-        }
+        base._draw (ctx, width, height);
+
+        ctx.set_source_rgb (255, 255, 255);
+
+        Pango.Layout layout = Pango.cairo_create_layout (ctx);
+        Pango.FontDescription font_desc = Pango.FontDescription.from_string ("Sans Bold %dpx".printf (height / 4));
+        layout.set_font_description (font_desc);
+
+        layout.set_text (Math.pow (2, /* tile value */ color).to_string (), -1);
+
+        Pango.Rectangle logical_rect;
+        layout.get_extents (null, out logical_rect);
+        ctx.move_to ((width  / 2) - (logical_rect.width  / 2 / Pango.SCALE),
+                     (height / 2) - (logical_rect.height / 2 / Pango.SCALE));
+        Pango.cairo_show_layout (ctx, layout);
+
+        return false;
     }
 }
