@@ -236,8 +236,6 @@ private class Game : Object
         float tile_width = canvas_width / cols;
         float tile_height = canvas_height / rows;
 
-        Clutter.Color color = Clutter.Color.from_string ("#ffffff");
-
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
@@ -245,7 +243,7 @@ private class Game : Object
                 float x = j * tile_width + (j+1) * BLANK_COL_WIDTH;
                 float y = i * tile_height + (i+1) * BLANK_ROW_HEIGHT;
 
-                RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height, color);
+                RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height, "#ffffff");
 
                 _view_background.add_child (rect.actor);
                 rect.canvas.invalidate ();

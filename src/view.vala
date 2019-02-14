@@ -19,31 +19,26 @@
 
 private class RoundedRectangle : Object
 {
-    [CCode (notify = false)] internal Clutter.Actor  actor   { internal get; private set; default = new Clutter.Actor (); }
-    [CCode (notify = false)] internal Clutter.Canvas canvas  { internal get; private set; default = new Clutter.Canvas (); }
+    [CCode (notify = false)] internal Clutter.Actor  actor  { internal get; default = new Clutter.Actor (); }
+    [CCode (notify = false)] internal Clutter.Canvas canvas { internal get; default = new Clutter.Canvas (); }
 
-    private Clutter.Color _color;
-    [CCode (notify = false)] public Clutter.Color color {
-        get { return _color; }
-        construct {
-            _color = value;
-            canvas.invalidate ();
-        }
-    }
+    [CCode (notify = false)] public float x      { protected construct { actor.x      = value; }}
+    [CCode (notify = false)] public float y      { protected construct { actor.y      = value; }}
+    [CCode (notify = false)] public float width  { protected construct { actor.width  = value; }}
+    [CCode (notify = false)] public float height { protected construct { actor.height = value; }}
 
-    internal RoundedRectangle (float x, float y, float width, float height, Clutter.Color color)
+    construct
     {
-        Object (color: color);
-
-        canvas.set_size ((int)Math.ceilf (width), (int)Math.ceilf (height));
-
-        actor.set_size (width, height);
         actor.set_content (canvas);
-        actor.x = x;
-        actor.y = y;
         actor.set_pivot_point (0.5f, 0.5f);
 
         canvas.draw.connect (_draw);
+        idle_resize ();
+    }
+
+    internal RoundedRectangle (float x, float y, float width, float height, string color)
+    {
+        Object (x: x, y: y, width: width, height: height, color: color);
     }
 
     internal void resize (float x, float y, float width, float height)
@@ -60,7 +55,7 @@ private class RoundedRectangle : Object
             canvas.invalidate ();
     }
 
-    const double HALF_PI = Math.PI / 2.0;
+    private const double HALF_PI = Math.PI / 2.0;
     protected virtual bool _draw (Cairo.Context ctx, int width, int height)
     {
         double radius = (height > width) ? (height / 20.0) : (width / 20.0);
@@ -77,21 +72,44 @@ private class RoundedRectangle : Object
         ctx.arc (radius,         height - radius, radius,  HALF_PI,  Math.PI);
         ctx.close_path ();
 
-        Clutter.cairo_set_source_color (ctx, (!) _color);
+        Clutter.cairo_set_source_color (ctx, _color);
         ctx.fill ();
 
         return false;
+    }
+
+    /*\
+    * * color
+    \*/
+
+    private static HashTable<string, Clutter.Color?> colors
+             = new HashTable<string, Clutter.Color?> (str_hash, str_equal);
+
+    private Clutter.Color _color;
+    [CCode (notify = false)] public string color {
+        internal construct {
+            Clutter.Color? color = colors.lookup (value);
+            if (color == null)
+            {
+                _color = Clutter.Color.from_string (value);
+
+                HashTable<string, Clutter.Color?> _colors = colors;
+                _colors.insert (value, _color);
+                colors = _colors;
+            }
+            else
+                _color = (!) color;
+        }
     }
 }
 
 private class TileView : RoundedRectangle
 {
-    [CCode (notify = false)] internal uint8 tile_value { internal get; private set; default = 1; }
+    [CCode (notify = false)] public uint8 tile_value { internal get; protected construct; }
 
     internal TileView (float x, float y, float width, float height, uint8 val)
     {
-        base (x, y, width, height, _pick_color (val));
-        tile_value = val;
+        Object (x: x, y: y, width: width, height: height, color: _pick_color (val), tile_value: val);
     }
 
     protected override bool _draw (Cairo.Context ctx, int width, int height)
@@ -122,7 +140,7 @@ private class TileView : RoundedRectangle
     * * color
     \*/
 
-    private static Clutter.Color _pick_color (uint8 tile_value)
+    private static string _pick_color (uint8 tile_value)
         requires (tile_value != 0)
     {
         if (tile_value > 11)
@@ -131,36 +149,36 @@ private class TileView : RoundedRectangle
             return _pick_palette_color (tile_value);
     }
 
-    private static Clutter.Color _calculate_color (uint8 tile_value)
+    private static string _calculate_color (uint8 tile_value)
         requires (tile_value != 0)
     {
-        Clutter.Color color = _pick_palette_color ((tile_value - 1) % 11 + 1);
+        Clutter.Color color = Clutter.Color.from_string (_pick_palette_color ((tile_value - 1) % 11 + 1));
 
         uint8 sbits = (uint8) (Math.pow (2, tile_value) % 7);
         color.red   <<= sbits;
         color.green <<= sbits;
         color.blue  <<= sbits;
 
-        return color;
+        return color.to_string ();
     }
 
-    private static Clutter.Color _pick_palette_color (uint8 tile_value)
+    private static string _pick_palette_color (uint8 tile_value)
         requires (tile_value != 0)
         requires (tile_value <= 11)
     {
         switch (tile_value)
         {
-            case 1:  return Clutter.Color.from_string ("#fce94f"); // Butter 1
-            case 2:  return Clutter.Color.from_string ("#8ae234"); // Chameleon 1
-            case 3:  return Clutter.Color.from_string ("#fcaf3e"); // Orange 1
-            case 4:  return Clutter.Color.from_string ("#729fcf"); // Sky blue 1
-            case 5:  return Clutter.Color.from_string ("#ad7fa8"); // Plum 1
-            case 6:  return Clutter.Color.from_string ("#c17d11"); // Chocolate 2
-            case 7:  return Clutter.Color.from_string ("#ef2929"); // Scarlet red 1
-            case 8:  return Clutter.Color.from_string ("#c4a000"); // Butter 3
-            case 9:  return Clutter.Color.from_string ("#4e9a06"); // Chameleon 3
-            case 10: return Clutter.Color.from_string ("#ce5c00"); // Orange 3
-            case 11: return Clutter.Color.from_string ("#204a87"); // Sky blue 3
+            case 1:  return "#fce94f";  // Butter 1
+            case 2:  return "#8ae234";  // Chameleon 1
+            case 3:  return "#fcaf3e";  // Orange 1
+            case 4:  return "#729fcf";  // Sky blue 1
+            case 5:  return "#ad7fa8";  // Plum 1
+            case 6:  return "#c17d11";  // Chocolate 2
+            case 7:  return "#ef2929";  // Scarlet red 1
+            case 8:  return "#c4a000";  // Butter 3
+            case 9:  return "#4e9a06";  // Chameleon 3
+            case 10: return "#ce5c00";  // Orange 3
+            case 11: return "#204a87";  // Sky blue 3
             default: assert_not_reached ();
         }
     }
