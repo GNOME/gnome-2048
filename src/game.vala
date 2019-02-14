@@ -227,13 +227,13 @@ private class Game : Object
         _foreground_cur = new TileView? [rows, cols];
         _foreground_nxt = new TileView? [rows, cols];
 
-        float canvas_width = _view.width;
+        float canvas_width  = _view.width;
         float canvas_height = _view.height;
 
-        canvas_width -= (cols + 1) * BLANK_COL_WIDTH;
+        canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
 
-        float tile_width = canvas_width / cols;
+        float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
         for (int i = 0; i < rows; i++)
@@ -261,20 +261,20 @@ private class Game : Object
     {
         int rows = _grid.rows;
         int cols = _grid.cols;
-        float canvas_width = _view.width;
+        float canvas_width  = _view.width;
         float canvas_height = _view.height;
 
-        canvas_width -= (cols + 1) * BLANK_COL_WIDTH;
+        canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
 
-        float tile_width = canvas_width / cols;
+        float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
             {
-                float x = j * tile_width + (j + 1) * BLANK_COL_WIDTH;
+                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
                 float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
 
                 _background [i, j].resize (x, y, tile_width, tile_height);

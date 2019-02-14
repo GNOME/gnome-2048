@@ -127,8 +127,8 @@ private class GameWindow : ApplicationWindow
 
     private static void _init_window_state (GameWindow _this)
     {
-        _this.size_allocate.connect (size_allocate_cb);
         _this.window_state_event.connect (state_event_cb);
+        _this.size_allocate.connect (size_allocate_cb);
 
         Gdk.Geometry geom = Gdk.Geometry ();
         geom.min_height = WINDOW_MINIMUM_SIZE_HEIGHT;
@@ -173,9 +173,15 @@ private class GameWindow : ApplicationWindow
         GameWindow _this = (GameWindow) widget;
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
             _this._window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+
         /* We don’t save this state, but track it for saving size allocation */
-        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
-            _this._window_is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
+        Gdk.WindowState tiled_state = Gdk.WindowState.TILED
+                                    | Gdk.WindowState.TOP_TILED
+                                    | Gdk.WindowState.BOTTOM_TILED
+                                    | Gdk.WindowState.LEFT_TILED
+                                    | Gdk.WindowState.RIGHT_TILED;
+        if ((event.changed_mask & tiled_state) != 0)
+            _this._window_is_tiled = (event.new_window_state & tiled_state) != 0;
 
         return false;
     }
