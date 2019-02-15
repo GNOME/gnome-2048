@@ -42,8 +42,8 @@ private class Game : Object
         }
     }
 
+    private int BLANK_COL_WIDTH  = 10;
     private int BLANK_ROW_HEIGHT = 10;
-    private int BLANK_COL_WIDTH = 10;
 
     private Grid _grid;
 
@@ -240,8 +240,8 @@ private class Game : Object
         {
             for (int j = 0; j < cols; j++)
             {
-                float x = j * tile_width + (j+1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i+1) * BLANK_ROW_HEIGHT;
+                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
+                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
 
                 RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
 
