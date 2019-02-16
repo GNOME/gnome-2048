@@ -1,0 +1,242 @@
+# Danish translation for gnome-2048.
+# Copyright (C) 2019 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# scootergrisen, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 gnome-3-30\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2018-10-03 19:40+0000\n"
+"PO-Revision-Date: 2019-02-14 00:00+0200\n"
+"Last-Translator: scootergrisen\n"
+"Language-Team: Danish\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/congrats.ui.h:1
+msgid "Congratulations!"
+msgstr "Tillykke!"
+
+#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:246
+msgid "New Game"
+msgstr "Nyt spil"
+
+#: ../data/congrats.ui.h:3
+msgid "Keep Playing"
+msgstr "Fortsæt spillet"
+
+#: ../data/mainwindow.ui.h:1
+msgid "gnome-2048"
+msgstr "gnome-2048"
+
+#: ../data/menus.ui.h:2
+msgid "Scores"
+msgstr "Resultater"
+
+#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
+msgid "Preferences"
+msgstr "Indstillinger"
+
+#: ../data/menus.ui.h:4
+msgid "Help"
+msgstr "Hjælp"
+
+#: ../data/menus.ui.h:5
+msgid "About"
+msgstr "Om"
+
+#: ../data/menus.ui.h:6
+msgid "Quit"
+msgstr "Afslut"
+
+#: ../data/org.gnome.2048.gschema.xml.h:1
+msgid "Window width"
+msgstr "Vinduesbredde"
+
+#: ../data/org.gnome.2048.gschema.xml.h:2
+msgid "Window width."
+msgstr "Vinduesbredde."
+
+#: ../data/org.gnome.2048.gschema.xml.h:3
+msgid "Window height"
+msgstr "Vindueshøjde"
+
+#: ../data/org.gnome.2048.gschema.xml.h:4
+msgid "Window height."
+msgstr "Vindueshøjde."
+
+#: ../data/org.gnome.2048.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Vindue maksimeret"
+
+#: ../data/org.gnome.2048.gschema.xml.h:6
+msgid "Window maximization state."
+msgstr "Tilstand for maksimeret vindue."
+
+#: ../data/org.gnome.2048.gschema.xml.h:7
+msgid "Number of rows"
+msgstr "Antal rækker"
+
+#: ../data/org.gnome.2048.gschema.xml.h:8
+msgid "Game grid number of rows."
+msgstr "Antal rækker i spilgitteret."
+
+#: ../data/org.gnome.2048.gschema.xml.h:9
+msgid "Number of columns"
+msgstr "Antal kolonner"
+
+#: ../data/org.gnome.2048.gschema.xml.h:10
+msgid "Game grid number of columns."
+msgstr "Antal kolonner i spilgitteret."
+
+#: ../data/org.gnome.2048.gschema.xml.h:11
+msgid "Target value"
+msgstr "Målværdi"
+
+#: ../data/org.gnome.2048.gschema.xml.h:12
+msgid "Tile value at which user is congratulated."
+msgstr "Fliseværdi hvor brugeren ønskes tillykke."
+
+#: ../data/org.gnome.2048.gschema.xml.h:13
+msgid "Congrat on target tile"
+msgstr "Tillykke ved målflise"
+
+#: ../data/org.gnome.2048.gschema.xml.h:14
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Om brugeren skal ønskes tillykke når målflisen nås."
+
+#: ../data/org.gnome.2048.gschema.xml.h:15 ../data/preferences.ui.h:5
+msgid "Animations speed"
+msgstr "Hastighed for animationer"
+
+#: ../data/org.gnome.2048.gschema.xml.h:16
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Varighed for animationer: vis flise, flyt flise og nedton flise."
+
+#: ../data/org.gnome.2048.gschema.xml.h:17 ../data/preferences.ui.h:7
+msgid "Allow undo"
+msgstr "Tillad fortryd"
+
+#: ../data/org.gnome.2048.gschema.xml.h:18
+msgid "Whether tile movements can be undone."
+msgstr "Om fliseflytninger kan fortrydes."
+
+#: ../data/org.gnome.2048.gschema.xml.h:19
+msgid "Number of undo movements"
+msgstr "Antal fortryd-flytninger"
+
+#: ../data/org.gnome.2048.gschema.xml.h:20
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Maksimum antal fliseflytninger som kan fortrydes."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:1
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:2
+#: ../data/org.gnome.gnome-2048.desktop.in.h:2
+msgid "Obtain the 2048 tile"
+msgstr "Nå flisen med 2048"
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:3
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"Spil det stærkt vanedannende 2048. GNOME 2048 er en klon af det populære "
+"puzzle-spil til én spiller. Spillet går ud på at samle tal i et gitter for "
+"at nå flisen med 2048."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:4
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Brug dit tastaturs piletaster til at skubbe alle fliserne i den ønskede "
+"retning. Pas på: alle fliserne skubbes til deres fjerneste placering, du kan "
+"ikke nøjes med at skubbe én flise, én række eller én kolonne. Fliser med "
+"samme værdi samles når de skubbes ovenpå hinanden."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:5
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Hver gang du når en ny flise stiger dit resultat. Hvis du tror det er let "
+"at nå til flisen med 2048, så lad det ikke stoppe dig. Spillet slutter ikke "
+"der. Du kan fortsætte med at samle fliser og forbedre dit resultat."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:6
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"2048 blev oprindeligt skabt af Gabriele Cirulli, og har opnået stor "
+"popularitet pga. at det er stærkt vanedannende. Cirullis 2048 er i sig selv "
+"en klon af spillet 1024 og inkluderer ideer fra andre kloner."
+
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:7
+msgid "A running game having reached the 2048 tile"
+msgstr "Et kørende spil som har opnået flisen med 2048"
+
+#. this is a translatable version of project_group
+#: ../data/org.gnome.gnome-2048.appdata.xml.in.h:9
+msgid "The GNOME Project"
+msgstr "GNOME-projektet"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:1
+msgid "2048"
+msgstr "2048"
+
+#: ../data/org.gnome.gnome-2048.desktop.in.h:3
+msgid "puzzle;"
+msgstr "puzzle;"
+
+#: ../data/preferences.ui.h:2
+msgid "Grid size"
+msgstr "Gitterstørrelse"
+
+#: ../data/preferences.ui.h:3
+msgid "4 x 4"
+msgstr "4 x 4"
+
+#: ../data/preferences.ui.h:4
+msgid "5 x 5"
+msgstr "5 x 5"
+
+#: ../data/preferences.ui.h:6
+msgid "Display congrats"
+msgstr "Vis lykønskninger"
+
+#: ../src/application.vala:166
+msgid "Game Over"
+msgstr "Spillet er slut"
+
+#: ../src/application.vala:187
+#, c-format
+msgid "You have obtained the %u tile"
+msgstr "Du har nået flisen med %u"
+
+#: ../src/application.vala:387
+msgid "A clone of 2048 for GNOME"
+msgstr "En klon af 2048 til GNOME"
+
+#: ../src/application.vala:388
+msgid ""
+"Copyright © 2014-2015 – Juan R. García Blanco\n"
+"Copyright © 2016 – Arnaud Bonatti"
+msgstr ""
+"Ophavsret © 2014-2015 – Juan R. García Blanco\n"
+"Ophavsret © 2016 – Arnaud Bonatti"
+
+#: ../src/application.vala:392
+msgid "translator-credits"
+msgstr "scootergrisen"
