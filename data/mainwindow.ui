@@ -31,18 +31,44 @@
       </object>
     </child>
     <child>
-      <object class="GtkGrid">
+      <object class="GtkOverlay">
         <property name="visible">True</property>
-        <property name="can-focus">False</property>
         <child>
-          <object class="GtkAspectFrame">
+          <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label-xalign">0</property>
-            <property name="shadow-type">none</property>
             <child>
-              <object class="GtkClutterEmbed" id="_embed">
+              <object class="GtkAspectFrame">
                 <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label-xalign">0</property>
+                <property name="shadow-type">none</property>
+                <child>
+                  <object class="GtkClutterEmbed" id="_embed">
+                    <property name="visible">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkButton" id="_unfullscreen_button">
+            <property name="visible">False</property>
+            <property name="halign">end</property>
+            <property name="valign">start</property>
+            <property name="action-name">ui.unfullscreen</property>
+            <property name="margin">6</property>
+            <style>
+              <class name="image-button"/>
+              <!-- class name="unfullscreen-button"/ -->
+              <class name="flat"/>
+            </style>
+            <child>
+              <object class="GtkImage">
+                <property name="icon-name">view-restore-symbolic</property>
+                <property name="visible">True</property>
+                <property name="icon-size">1</property>
               </object>
             </child>
           </object>

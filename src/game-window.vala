@@ -28,6 +28,8 @@ private class GameWindow : ApplicationWindow
     [GtkChild] private GameHeaderBar    _header_bar;
     [GtkChild] private GtkClutter.Embed _embed;
 
+    [GtkChild] private Button           _unfullscreen_button;
+
     private Game _game;
 
     construct
@@ -42,7 +44,7 @@ private class GameWindow : ApplicationWindow
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
         notify ["has-toplevel-focus"].connect (() => _embed.grab_focus ());
-        show_all ();
+        show ();
 
         if (!_game.restore_game (ref _settings))
             new_game_cb ();
@@ -176,8 +178,13 @@ private class GameWindow : ApplicationWindow
             _this._window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
 
         /* fullscreen: saved as maximized */
+        bool window_fullscreen = _this._window_fullscreen;
         if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
             _this._window_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
+        if (window_fullscreen && !_this._window_fullscreen)
+            _this._unfullscreen_button.hide ();
+        else if (!window_fullscreen && _this._window_fullscreen)
+            _this._unfullscreen_button.show ();
 
         /* tiled: not saved, but should not change saved window size */
         Gdk.WindowState tiled_state = Gdk.WindowState.TILED
@@ -218,7 +225,9 @@ private class GameWindow : ApplicationWindow
         { "toggle-hamburger",   toggle_hamburger_menu       },
 
         { "scores",             scores_cb                   },
-        { "about",              about_cb                    }
+        { "about",              about_cb                    },
+
+        { "unfullscreen",       unfullscreen                }
     };
 
     private void undo_cb (/* SimpleAction action, Variant? variant */)
