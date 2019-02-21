@@ -123,6 +123,7 @@ private class GameWindow : ApplicationWindow
     private int _window_width;
     private int _window_height;
     private bool _window_maximized;
+    private bool _window_fullscreen;
     private bool _window_is_tiled;
 
     private static void _init_window_state (GameWindow _this)
@@ -150,14 +151,14 @@ private class GameWindow : ApplicationWindow
         _settings.delay ();
         _settings.set_int       ("window-width",        _this._window_width);
         _settings.set_int       ("window-height",       _this._window_height);
-        _settings.set_boolean   ("window-maximized",    _this._window_maximized);
+        _settings.set_boolean   ("window-maximized",    _this._window_maximized || _this._window_fullscreen);
         _settings.apply ();
     }
 
     private static void size_allocate_cb (Widget widget, Allocation allocation)
     {
         GameWindow _this = (GameWindow) widget;
-        if (_this._window_maximized || _this._window_is_tiled)
+        if (_this._window_maximized || _this._window_is_tiled || _this._window_fullscreen)
             return;
         int? window_width = null;
         int? window_height = null;
@@ -174,7 +175,11 @@ private class GameWindow : ApplicationWindow
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
             _this._window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
 
-        /* We don’t save this state, but track it for saving size allocation */
+        /* fullscreen: saved as maximized */
+        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
+            _this._window_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
+
+        /* tiled: not saved, but should not change saved window size */
         Gdk.WindowState tiled_state = Gdk.WindowState.TILED
                                     | Gdk.WindowState.TOP_TILED
                                     | Gdk.WindowState.BOTTOM_TILED
