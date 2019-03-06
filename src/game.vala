@@ -119,7 +119,7 @@ private class Game : Object
 
     internal void new_game (ref GLib.Settings settings)
     {
-        if (_state != GameState.IDLE)
+        if (_state != GameState.IDLE && _state != GameState.STOPPED)
             return;
 
         _clean_finish_move_animation ();
