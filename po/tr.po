@@ -239,10 +239,10 @@ msgstr "2048 oyununun GNOME için bir türevi"
 #: ../src/application.vala:388
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
+"Copyright © 2016-2019 – Arnaud Bonatti"
 msgstr ""
 "Telif Hakkı © 2014-2015 – Juan R. García Blanco\n"
-"Telif Hakkı © 2016 – Arnaud Bonatti"
+"Telif Hakkı © 2016-2019 – Arnaud Bonatti"
 
 #: ../src/application.vala:392
 msgid "translator-credits"
