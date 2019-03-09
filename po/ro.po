@@ -237,10 +237,10 @@ msgstr "O clonă a jocului 2048 pentru GNOME"
 #: ../src/application.vala:388
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
+"Copyright © 2016-2019 – Arnaud Bonatti"
 msgstr ""
 "Drepturi de autor © 2014-2015 – Juan R. García Blanco\n"
-"Drepturi de autor © 2016 – Arnaud Bonatti"
+"Drepturi de autor © 2016-2019 – Arnaud Bonatti"
 
 #: ../src/application.vala:392
 msgid "translator-credits"
