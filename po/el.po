@@ -227,10 +227,10 @@ msgstr "Ένας κλώνος του 2048 για το GNOME"
 #: ../src/application.vala:322
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
+"Copyright © 2016-2019 – Arnaud Bonatti"
 msgstr ""
 "Πνευματικά δικαιώματα © 2014-2015 – Juan R. García Blanco\n"
-"Πνευματικά δικαιώματα © 2016 – Arnaud Bonatti"
+"Πνευματικά δικαιώματα © 2016-2019 – Arnaud Bonatti"
 
 #: ../src/application.vala:326
 msgid "translator-credits"
