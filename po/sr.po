@@ -236,10 +236,10 @@ msgstr "Преслик игре 2048 за Гнома"
 #: ../src/application.vala:388
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
+"Copyright © 2016-2019 – Arnaud Bonatti"
 msgstr ""
 "Ауторска права © 2014-2015 – Хуан Р. Гарсија Бланко\n"
-"Ауторска права © 2016 – Арно Бонати"
+"Ауторска права © 2016-2019 – Арно Бонати"
 
 #: ../src/application.vala:392
 msgid "translator-credits"
