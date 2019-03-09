@@ -19,41 +19,95 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: ../data/congrats.ui.h:1
 msgid "Congratulations!"
 msgstr "Félicitations !"
 
-#: ../data/congrats.ui.h:2 ../data/menus.ui.h:1 ../src/application.vala:219
-msgid "New Game"
-msgstr "Nouvelle partie"
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:46 data/game-headerbar.ui:29
+msgid "_New Game"
+msgstr "_Nouvelle partie"
 
-#: ../data/congrats.ui.h:3
-msgid "Keep Playing"
-msgstr "Continuer à jouer"
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:54
+msgid "_Keep Playing"
+msgstr "_Continuer à jouer"
 
-#: ../data/mainwindow.ui.h:1
-msgid "gnome-2048"
-msgstr "gnome-2048"
-
-#: ../data/menus.ui.h:2
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/game-headerbar.vala:107
 msgid "Scores"
 msgstr "Scores"
 
-#: ../data/menus.ui.h:3 ../data/preferences.ui.h:1
-msgid "Preferences"
-msgstr "Préférences"
+#. Translators: header of the "Play with arrows" shortcut section
+#: data/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Jeu"
 
-#: ../data/menus.ui.h:4
-msgid "Help"
-msgstr "Aide"
+#. Translators: the application has no help, so the use of arrows for playing is documented here
+#: data/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "Play with arrows"
+msgstr "Jouer avec les flèches"
 
-#: ../data/menus.ui.h:5
+#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
+#: data/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "New game"
+msgstr "Nouvelle partie"
+
+#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
+#: data/help-overlay.ui:49
+msgctxt "shortcut window"
+msgid "Choose a new game"
+msgstr "Configurer une partie"
+
+#. Translators: shortcut that starts immediately a new game, with similar options
+#: data/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Commencer une partie"
+
+#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
+#: data/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "Générique"
+
+#. Translators: shortcut that toggles the hamburger menu
+#: data/help-overlay.ui:72
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Menu principal"
+
+#. Translators: shortcut that opens Keyboard Shortcuts window
+#: data/help-overlay.ui:80
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Raccourcis clavier"
+
+#. Translators: shortcut that opens About dialog
+#: data/help-overlay.ui:88
+msgctxt "shortcut window"
 msgid "About"
 msgstr "À propos"
 
-#: ../data/menus.ui.h:6
+#. Translators: shortcut that quits application
+#: data/help-overlay.ui:96
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Quitter"
+
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
+msgid "A running game having reached the 2048 tile"
+msgstr "Un casse-tête dont le but est d’atteindre la tuile 2048"
+
+#. this is a translatable version of project_group
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
+msgid "The GNOME Project"
+msgstr "Le projet GNOME"
 
 #: ../data/org.gnome.2048.gschema.xml.h:1
 msgid "Window width"
@@ -199,30 +253,74 @@ msgstr "2048"
 msgid "puzzle;"
 msgstr "puzzle;casse-tête;"
 
-#: ../data/preferences.ui.h:2
-msgid "Grid size"
-msgstr "Taille de la grille"
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/game-headerbar.vala:96
+msgid "Undo"
+msgstr "Annuler"
 
-#: ../data/preferences.ui.h:3
-msgid "4 x 4"
-msgstr "4 × 4"
+#. Translators: usual menu entry of the hamburger menu
+#: src/game-headerbar.vala:118
+msgid "Keyboard Shortcuts"
+msgstr "Raccourcis clavier"
 
-#: ../data/preferences.ui.h:4
-msgid "5 x 5"
-msgstr "5 × 5"
+#. Translators: entry in the hamburger menu
+#: src/game-headerbar.vala:121
+msgid "About 2048"
+msgstr "À propos de 2048"
 
-#: ../data/preferences.ui.h:6
-msgid "Display congrats"
-msgstr "Afficher les félicitations"
+#. Translators: command-line warning displayed if the user manually sets a invalid grid size
+#: src/game-headerbar.vala:162
+msgid "Grids of size 1 by 2 are disallowed."
+msgstr "Les grilles de taille 1 par 2 sont interdites."
 
-#: ../src/application.vala:142
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/game-headerbar.vala:166
+msgid "Custom"
+msgstr "Personnalisée"
+
+#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
+#: src/game-window.vala:380
+#, c-format
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Vous avez obtenu la tuile %u pour la première fois !"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
+#: src/game-window.vala:399
+msgid "Grid 3 × 3"
+msgstr "Grille 3 × 3"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
+#: src/game-window.vala:402
+msgid "Grid 4 × 4"
+msgstr "Grille 4 × 4"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
+#: src/game-window.vala:405
+msgid "Grid 5 × 5"
+msgstr "Grille 5 × 5"
+
+#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
+#: src/game-window.vala:408
+msgid "Grid Size:"
+msgstr "Taille de la grille :"
+
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game-headerbar.vala:66
 msgid "Game Over"
 msgstr "Fin de la partie"
 
-#: ../src/application.vala:158
-msgid "You have obtained the $v tile"
-msgstr "Vous avez obtenu la tuile $v"
-
+#. Translators: about dialog text; a introduction to the game
 #: ../src/application.vala:241
 msgid "A clone of 2048 for GNOME"
 msgstr "Un clone du jeu 2048 pour GNOME"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/game-window.vala:472
+msgid "translator-credits"
+msgstr "Alexandre Franke <alexandre.franke@gmail.com>\n"
+"Arnaud Bonatti <arnaud.bonatti@gmail.com>"
+
+#. Translators: about dialog text; label of the website link
+#: src/game-window.vala:476
+msgid "Page on GNOME wiki"
+msgstr "Page sur le wiki GNOME"
