@@ -236,10 +236,10 @@ msgstr "Preslik igre 2048 za Gnoma"
 #: ../src/application.vala:388
 msgid ""
 "Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
+"Copyright © 2016-2019 – Arnaud Bonatti"
 msgstr ""
 "Autorska prava © 2014-2015 – Huan R. Garsija Blanko\n"
-"Autorska prava © 2016 – Arno Bonati"
+"Autorska prava © 2016-2019 – Arno Bonati"
 
 #: ../src/application.vala:392
 msgid "translator-credits"
