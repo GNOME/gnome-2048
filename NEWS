@@ -1,3 +1,20 @@
+GNOME 2048   3.32.0                                        2019-03-11
+=====================================================================
+
+New stable release! Since the last one, the game has been made really
+more responsive, the Preferences dialog is removed, and a 3 by 3 game
+is proposed; you can also now play with gestures, and with WASD keys.
+
+Since last unstable release, an unfullscreen button was added (as the
+application was not prepared at all until now to fullscreen), and the
+first launch of the app immediatly starts on a new game for more fun.
+
+Translations updated:
+  Danish: Ask Hjorth Larsen
+  Dutch: Nathan Follens
+  German: Tim Sabsch
+  Spanish: Daniel Mustieles
+
 GNOME 2048   3.31.91                                       2019-02-19
 =====================================================================
 
