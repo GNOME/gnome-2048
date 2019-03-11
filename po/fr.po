@@ -102,7 +102,7 @@ msgstr "Quitter"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
-msgstr "Un casse-tête dont le but est d’atteindre la tuile 2048"
+msgstr "Un jeu en cours ayant atteint la tuile 2048"
 
 #. this is a translatable version of project_group
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
