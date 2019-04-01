@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
 "POT-Creation-Date: 2019-02-17 12:58+0000\n"
-"PO-Revision-Date: 2019-03-26 20:06+0100\n"
+"PO-Revision-Date: 2019-04-01 14:37+0200\n"
 "Last-Translator: \n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -331,7 +331,7 @@ msgstr "Složili ste %u ploču po prvi puta!"
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
 #: src/game-window.vala:399
 msgid "Grid 3 × 3"
-msgstr "Mreža 4 × 4"
+msgstr "Mreža 3 × 3"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
 #: src/game-window.vala:402
