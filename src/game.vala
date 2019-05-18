@@ -652,10 +652,10 @@ private class Game : Object
             _grid.target_value_reached = false;
         }
 
-        if (_just_restored)
-            finished (/* show scores */ false);
-        else
+        if (!_just_restored)
             _finish_move_id = GLib.Timeout.add (100, _finish_move);
+        else if (_grid.is_finished ())
+            finished (/* show scores */ false);
     }
 
     private bool _finish_move ()
