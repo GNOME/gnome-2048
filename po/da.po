@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2019-03-26 19:07+0000\n"
-"PO-Revision-Date: 2019-02-19 00:00+0200\n"
+"POT-Creation-Date: 2019-04-01 12:38+0000\n"
+"PO-Revision-Date: 2019-03-10 00:00+0100\n"
 "Last-Translator: scootergrisen\n"
-"Language-Team: Danish\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -306,7 +306,7 @@ msgstr "5 × 5"
 #. Translators: command-line warning displayed if the user manually sets a invalid grid size
 #: src/game-headerbar.vala:162
 msgid "Grids of size 1 by 2 are disallowed."
-msgstr "Gitre med dobbelt højde er deaktiveret."
+msgstr "Gitterstørrelse på 1 gange 2 er ikke tilladt."
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
 #: src/game-headerbar.vala:166
