@@ -421,7 +421,7 @@ private class GameWindow : ApplicationWindow
         /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5) */
         _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size:"), this, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
     }
-    private inline Games.Scores.Category category_request (string key)
+    private inline Scores.Category category_request (string key)
     {
         switch (key)
         {
