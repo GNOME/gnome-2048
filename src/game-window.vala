@@ -119,8 +119,8 @@ private class GameWindow : ApplicationWindow
     * * window state
     \*/
 
-    private const int WINDOW_MINIMUM_SIZE_HEIGHT = 600;
-    private const int WINDOW_MINIMUM_SIZE_WIDTH = 600;
+    private const int WINDOW_MINIMUM_SIZE_HEIGHT = 300;
+    private const int WINDOW_MINIMUM_SIZE_WIDTH = 300;
 
     private int _window_width;
     private int _window_height;
