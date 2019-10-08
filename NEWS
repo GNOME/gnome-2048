@@ -1,3 +1,13 @@
+GNOME 2048   3.34.1                                        2019-10-08
+=====================================================================
+
+Just a translations update. There is a known bug that makes icons not
+displayed in GNOME Shell 3.34; might be adressed in an extra release.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Czech: Marek Černocký
+
 GNOME 2048   3.34.0                                        2019-09-10
 =====================================================================
 
