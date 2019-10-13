@@ -19,7 +19,7 @@
 
 using Gtk;
 
-private class Application : Gtk.Application
+private class TwentyFortyEight : Gtk.Application
 {
     private GameWindow _window;
 
@@ -66,11 +66,11 @@ private class Application : Gtk.Application
             return Posix.EXIT_FAILURE;
         }
 
-        Application app = new Application ();
+        TwentyFortyEight app = new TwentyFortyEight ();
         return app.run (args);
     }
 
-    private Application ()
+    private TwentyFortyEight ()
     {
         Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.FLAGS_NONE);
     }
@@ -81,8 +81,7 @@ private class Application : Gtk.Application
 
         add_action_entries (action_entries, this);
 
-        _window = new GameWindow ();
-        add_window (_window);
+        _window = new GameWindow (this);
 
         set_accels_for_action ("ui.toggle-new-game",    {        "<Primary>n"       });
         set_accels_for_action ("ui.new-game",           { "<Shift><Primary>n"       });
