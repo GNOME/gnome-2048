@@ -240,7 +240,7 @@ private class GameWindow : ApplicationWindow
         { "undo",               undo_cb                     },
 
         { "new-game",           new_game_cb                 },
-        { "new-game-sized",     new_game_sized_cb, "(ii)"   },
+        { "new-game-sized",     new_game_sized_cb, "(yy)"   },
 
         { "toggle-new-game",    toggle_new_game_cb          },
         { "toggle-hamburger",   toggle_hamburger_menu       },
@@ -271,8 +271,8 @@ private class GameWindow : ApplicationWindow
     private void new_game_sized_cb (SimpleAction action, Variant? variant)
         requires (variant != null)
     {
-        int rows, cols;
-        ((!) variant).@get ("(ii)", out rows, out cols);
+        uint8 rows, cols;
+        ((!) variant).@get ("(yy)", out rows, out cols);
         _settings.delay ();
         _settings.set_int ("rows", rows);
         _settings.set_int ("cols", cols);
@@ -460,8 +460,8 @@ private class GameWindow : ApplicationWindow
 
     private inline void _show_best_scores ()
     {
-        int rows = _settings.get_int ("rows");
-        int cols = _settings.get_int ("cols");
+        uint8 rows = (uint8) _settings.get_int ("rows");  // schema ranges rows
+        uint8 cols = (uint8) _settings.get_int ("cols"); // and cols from 1 to 9
         if (rows != cols)
             return;                 // FIXME add categories for non-square grids
         Scores.Category cat;

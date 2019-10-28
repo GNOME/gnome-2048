@@ -169,9 +169,9 @@ private class GameHeaderBar : HeaderBar
         menu.freeze ();
         _new_game_button.set_menu_model ((MenuModel) menu);
     }
-    private static void _append_new_game_item (string label, int rows, int cols, ref GLib.Menu menu)
+    private static void _append_new_game_item (string label, uint8 rows, uint8 cols, ref GLib.Menu menu)
     {
-        Variant variant = new Variant ("(ii)", rows, cols);
+        Variant variant = new Variant ("(yy)", rows, cols);
         menu.append (label, "ui.new-game-sized(" + variant.print (/* annotate types */ true) + ")");
     }
 

@@ -49,19 +49,19 @@ private class TestTw12ht : Object
         test_full_grid (4, 3);
     }
 
-    private static void test_full_grid (int rows, int cols)
+    private static void test_full_grid (uint8 rows, uint8 cols)
     {
         TestGrid grid = new TestGrid (rows, cols);
         test_new_grid_size (ref grid, rows, cols);
 
-        for (int i = 0; i < rows * cols; i++)
+        for (uint8 i = 0; i < rows * cols; i++)
             test_tile_creation (ref grid);
 
         test_grid_fullness (ref grid);
         test_grid_clearing (ref grid);
     }
 
-    private static void test_new_grid_size (ref TestGrid grid, int rows, int cols)
+    private static void test_new_grid_size (ref TestGrid grid, uint8 rows, uint8 cols)
     {
         assert_true (grid.rows == rows);
         assert_true (grid.cols == cols);
@@ -69,8 +69,8 @@ private class TestTw12ht : Object
 
     private static void test_tile_creation (ref TestGrid grid)
     {
-        int rows = grid.rows;
-        int cols = grid.cols;
+        uint8 rows = grid.rows;
+        uint8 cols = grid.cols;
 
         Tile tile;
         grid.new_tile (out tile);
@@ -84,25 +84,25 @@ private class TestTw12ht : Object
 
     private static void test_grid_fullness (ref TestGrid grid)
     {
-        int rows = grid.rows;
-        int cols = grid.cols;
+        uint8 rows = grid.rows;
+        uint8 cols = grid.cols;
 
         assert_true (grid.grid_is_full ());
 
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
+        for (uint8 i = 0; i < rows; i++)
+            for (uint8 j = 0; j < cols; j++)
                 assert_true (grid [i, j] == 1);
     }
 
     private static void test_grid_clearing (ref TestGrid grid)
     {
-        int rows = grid.rows;
-        int cols = grid.cols;
+        uint8 rows = grid.rows;
+        uint8 cols = grid.cols;
 
         grid.clear ();
 
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
+        for (uint8 i = 0; i < rows; i++)
+            for (uint8 j = 0; j < cols; j++)
                 assert_true (grid [i, j] == 0);
     }
 
@@ -112,7 +112,7 @@ private class TestTw12ht : Object
 
     private static void test_load_game ()
     {
-        int rows, cols;
+        uint8 rows, cols;
         string old_content, new_content;
         bool loaded;
 
@@ -165,22 +165,22 @@ private class TestTw12ht : Object
 
     private static void test_load_grid (ref string  old_content,
                                         out bool    loaded,
-                                        out int     rows,
-                                        out int     cols,
+                                        out uint8   rows,
+                                        out uint8   cols,
                                         out string  new_content)
     {
         Grid grid = new Grid (1, 1);   // TODO transform load into a constructor
         loaded = grid.load (ref old_content);
 
-        rows        = loaded ? grid.rows    : -1;
-        cols        = loaded ? grid.cols    : -1;
+        rows        = loaded ? grid.rows    : uint8.MAX;
+        cols        = loaded ? grid.cols    : uint8.MAX;
         new_content = loaded ? grid.save () : "";
     }
 }
 
 private class TestGrid : Grid
 {
-    internal TestGrid (int rows, int cols)
+    internal TestGrid (uint8 rows, uint8 cols)
     {
         Object (rows: rows, cols: cols);
     }

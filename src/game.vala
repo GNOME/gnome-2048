@@ -68,12 +68,12 @@ private class Game : Object
 
     internal Game (ref GLib.Settings settings)
     {
-        int rows = settings.get_int ("rows");
-        int cols = settings.get_int ("cols");
+        uint8 rows = (uint8) settings.get_int ("rows");  // schema ranges rows
+        uint8 cols = (uint8) settings.get_int ("cols"); // and cols from 1 to 9
         _init_grid (rows, cols, out _grid, ref settings);
     }
 
-    private static void _init_grid (int rows, int cols, out Grid grid, ref GLib.Settings settings)
+    private static void _init_grid (uint8 rows, uint8 cols, out Grid grid, ref GLib.Settings settings)
     {
         grid = new Grid (rows, cols);
         settings.bind ("target-value", grid, "target-value", GLib.SettingsBindFlags.DEFAULT | GLib.SettingsBindFlags.NO_SENSITIVITY);
@@ -127,8 +127,8 @@ private class Game : Object
         _grid.clear ();
         _clear_history ();
 
-        int rows = settings.get_int ("rows");
-        int cols = settings.get_int ("cols");
+        uint8 rows = (uint8) settings.get_int ("rows");  // schema ranges rows
+        uint8 cols = (uint8) settings.get_int ("cols"); // and cols from 1 to 9
 
         if ((rows != _grid.rows) || (cols != _grid.cols))
         {
@@ -186,8 +186,8 @@ private class Game : Object
         _init_background ();
         _restore_foreground (true);
 
-        int rows = _grid.rows;
-        int cols = _grid.cols;
+        uint8 rows = _grid.rows;
+        uint8 cols = _grid.cols;
         if ((rows == 3 && cols != 3)
          || (rows == 4 && cols != 4)
          || (rows == 5 && cols != 5)
@@ -219,8 +219,8 @@ private class Game : Object
 
     private void _init_background ()
     {
-        int rows = _grid.rows;
-        int cols = _grid.cols;
+        uint8 rows = _grid.rows;
+        uint8 cols = _grid.cols;
         Clutter.Color background_color = Clutter.Color.from_string ("#babdb6");
         _view.set_background_color (background_color);
 
@@ -237,9 +237,9 @@ private class Game : Object
         float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
-        for (int i = 0; i < rows; i++)
+        for (uint8 i = 0; i < rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (uint8 j = 0; j < cols; j++)
             {
                 float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
                 float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
@@ -260,8 +260,8 @@ private class Game : Object
 
     private void _resize_view ()
     {
-        int rows = _grid.rows;
-        int cols = _grid.cols;
+        uint8 rows = _grid.rows;
+        uint8 cols = _grid.cols;
         float canvas_width  = _view.width;
         float canvas_height = _view.height;
 
@@ -271,9 +271,9 @@ private class Game : Object
         float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
-        for (int i = 0; i < rows; i++)
+        for (uint8 i = 0; i < rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (uint8 j = 0; j < cols; j++)
             {
                 float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
                 float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
@@ -294,11 +294,11 @@ private class Game : Object
 
     private bool _idle_resize_view ()
     {
-        int rows = _grid.rows;
-        int cols = _grid.cols;
-        for (int i = 0; i < rows; i++)
+        uint8 rows = _grid.rows;
+        uint8 cols = _grid.cols;
+        for (uint8 i = 0; i < rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (uint8 j = 0; j < cols; j++)
             {
                 _background [i, j].idle_resize ();
 
@@ -441,12 +441,12 @@ private class Game : Object
 
     private void _clear_foreground ()
     {
-        int rows = _grid.rows;
-        int cols = _grid.cols;
+        uint8 rows = _grid.rows;
+        uint8 cols = _grid.cols;
         _view_foreground.remove_all_children ();
-        for (int i = 0; i < rows; i++)
+        for (uint8 i = 0; i < rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (uint8 j = 0; j < cols; j++)
             {
                 if (_foreground_cur [i, j] != null)
                     _foreground_cur [i, j] = null;
@@ -458,14 +458,14 @@ private class Game : Object
 
     private void _restore_foreground (bool animate)
     {
-        int rows = _grid.rows;
-        int cols = _grid.cols;
+        uint8 rows = _grid.rows;
+        uint8 cols = _grid.cols;
 
         _create_show_hide_transition (animate);
 
-        for (int i = 0; i < rows; i++)
+        for (uint8 i = 0; i < rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (uint8 j = 0; j < cols; j++)
             {
                 uint8 val = _grid [i, j];
                 if (val != 0)

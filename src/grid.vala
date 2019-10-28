@@ -22,8 +22,8 @@ private class Grid : Object
 {
     protected uint8 [,] _grid;
 
-    [CCode (notify = false)] public int rows { internal get; protected construct; }
-    [CCode (notify = false)] public int cols { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 rows { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 cols { internal get; protected construct; }
 
     [CCode (notify = false)] internal uint target_value          { internal get; internal set; default = 0; }
     [CCode (notify = false)] internal bool target_value_reached  { internal get; internal set; default = false; }
@@ -37,7 +37,7 @@ private class Grid : Object
         _clear (ref _grid);
     }
 
-    internal Grid (int rows, int cols)
+    internal Grid (uint8 rows, uint8 cols)
     {
         Object (rows: rows, cols: cols);
     }
@@ -59,12 +59,10 @@ private class Grid : Object
         tile = { pos, /* tile value */ 1 };
     }
 
-    private static inline void _generate_random_position (int rows, int cols, out GridPosition pos)
-        requires (rows > 0)
-        requires (cols > 0)
+    private static inline void _generate_random_position (uint8 rows, uint8 cols, out GridPosition pos)
     {
-        pos = { Random.int_range (0, rows),
-                Random.int_range (0, cols) };
+        pos = { Random.int_range (0, (int32) rows),
+                Random.int_range (0, (int32) cols) };
     }
 
     /*\
@@ -391,16 +389,16 @@ private class Grid : Object
         if (!_grid_is_full (ref _grid))
             return false;
 
-        for (int i = 0; i < _rows; i++)
+        for (uint8 i = 0; i < _rows; i++)
         {
-            for (int j = 0; j < _cols; j++)
+            for (uint8 j = 0; j < _cols; j++)
             {
                 uint8 val = _grid [i, j];
 
-                if (i < (_rows - 1) && val == _grid [i+1, j])
+                if (i < (_rows - 1) && val == _grid [i + 1, j])
                     return false;
 
-                if (j < (_cols - 1) && val == _grid [i, j+1])
+                if (j < (_cols - 1) && val == _grid [i, j + 1])
                     return false;
             }
         }
@@ -471,7 +469,7 @@ private class Grid : Object
         return grid;
     }
 
-    internal new uint8 get (int row, int col)    // allows calling "uint val = _grid [i, j];" in game.vala
+    internal new uint8 get (uint8 row, uint8 col)    // allows calling "uint8 val = _grid [i, j];" in game.vala
     {
         if ((row >= _rows) || (col >= _cols))
             return 0;
@@ -537,8 +535,8 @@ private class Grid : Object
         if (!_load_from_string (ref content, ref grid))
             return false;
 
-        _rows = grid.length [0];
-        _cols = grid.length [1];
+        _rows = (uint8) grid.length [0];
+        _cols = (uint8) grid.length [1];
         _grid = grid;
         return true;
     }
@@ -578,14 +576,14 @@ private class Grid : Object
 
         grid = new uint8 [rows, cols];
 
-        for (uint i = 0; i < rows; i++)
+        for (uint8 i = 0; i < rows; i++)
         {
             _parse_line (lines [i + 1], out tokens);
             // we do need to be strict here
             if (tokens.length != cols)
                 return false;
 
-            for (uint j = 0; j < cols; j++)
+            for (uint8 j = 0; j < cols; j++)
             {
                 if (!uint64.try_parse (tokens [j], out number_64))
                     return false;
