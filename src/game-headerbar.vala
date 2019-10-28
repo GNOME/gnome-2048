@@ -134,7 +134,7 @@ private class GameHeaderBar : HeaderBar
     * * new-game menu
     \*/
 
-    internal void _update_new_game_menu (int rows, int cols)
+    internal void _update_new_game_menu (uint8 rows, uint8 cols)
     {
         GLib.Menu menu = new GLib.Menu ();
 

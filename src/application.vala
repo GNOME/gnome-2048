@@ -25,11 +25,20 @@ private class TwentyFortyEight : Gtk.Application
     private GameWindow _window;
 
     private static bool show_version;
+    private static string? size = null;
+    private uint8 cols = 0;
+    private uint8 rows = 0;
 
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-2048 --help' */
-        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, ref show_version, N_("Print release version and exit"), null },
+        { "size", 's',      OptionFlags.NONE, OptionArg.STRING, ref size,           N_("Start new game of given size"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify a size, see 'gnome-2048 --help' */
+                                                                                    N_("SIZE") },
+
+        /* Translators: command-line option description, see 'gnome-2048 --help' */
+        { "version", 'v',   OptionFlags.NONE, OptionArg.NONE,   ref show_version,   N_("Print release version and exit"), null },
         {}
     };
 
@@ -94,8 +103,55 @@ private class TwentyFortyEight : Gtk.Application
             return Posix.EXIT_SUCCESS;
         }
 
+        if (size != null && !parse_size ((!) size, out cols, out rows))
+        {
+            /* Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0' */
+            stderr.printf ("%s\n", _("Failed to parse size. Size must be between 2 and 9, or in the form 2x3."));
+            return Posix.EXIT_FAILURE;
+        }
+
         /* Activate */
         return -1;
+    }
+    private static bool parse_size (string size, out uint8 cols, out uint8 rows)
+    {
+        cols = 0;   // garbage
+        rows = 0;   // garbage
+
+        /* size is either a digit, either of the for MxN */
+        string [] tokens = size.split ("x");
+        if (tokens.length == 0 || tokens.length > 2)
+            return false;
+
+        /* parse the first token in any case */
+        uint64 test;
+        if (!uint64.try_parse (tokens [0], out test))
+            return false;
+        if (test <= 0 || test > 9)
+            return false;
+        cols = (uint8) test;
+
+        /* test for forbidden "1" size and return */
+        if (tokens.length == 1)
+        {
+            if (cols < 2)
+                return false;
+            rows = cols;
+            return true;
+        }
+
+        /* parse the second token, if any */
+        if (!uint64.try_parse (tokens [1], out test))
+            return false;
+        if (test <= 0 || test > 9)
+            return false;
+        rows = (uint8) test;
+
+        /* test for forbidden sizes, and return */
+        if (Grid.is_disallowed_grid_size (ref cols, ref rows))
+            return false;
+
+        return true;
     }
 
     protected override void startup ()
@@ -104,7 +160,7 @@ private class TwentyFortyEight : Gtk.Application
 
         add_action_entries (action_entries, this);
 
-        _window = new GameWindow (this);
+        _window = new GameWindow (this, cols, rows);
 
         set_accels_for_action ("ui.toggle-new-game",    {        "<Primary>n"       });
         set_accels_for_action ("ui.new-game",           { "<Shift><Primary>n"       });

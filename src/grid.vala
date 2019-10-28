@@ -479,7 +479,7 @@ private class Grid : Object
         return _grid [row, col];
     }
 
-    internal static bool is_disallowed_grid_size (ref int rows, ref int cols)
+    internal static bool is_disallowed_grid_size (ref uint8 rows, ref uint8 cols)
         requires (rows >= 1)
         requires (rows <= 9)
         requires (cols >= 1)
@@ -562,13 +562,13 @@ private class Grid : Object
             return false;
         if ((number_64 == 0) || (number_64 > 9))
             return false;
-        int rows = (int) number_64;
+        uint8 rows = (uint8) number_64;
         // cols
         if (!uint64.try_parse (tokens [1], out number_64))
             return false;
         if ((number_64 == 0) || (number_64 > 9))
             return false;
-        int cols = (int) number_64;
+        uint8 cols = (uint8) number_64;
 
         if (is_disallowed_grid_size (ref rows, ref cols))
             return false;

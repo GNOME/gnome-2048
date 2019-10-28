@@ -33,6 +33,9 @@ private class GameWindow : ApplicationWindow
 
     private Game _game;
 
+    public uint8 cli_cols { private get; protected construct; default = 0; }
+    public uint8 cli_rows { private get; protected construct; default = 0; }
+
     construct
     {
         _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
@@ -47,11 +50,13 @@ private class GameWindow : ApplicationWindow
         notify ["has-toplevel-focus"].connect (() => _embed.grab_focus ());
     }
 
-    internal GameWindow (TwentyFortyEight application)
+    internal GameWindow (TwentyFortyEight application, uint8 cols, uint8 rows)
     {
-        Object (application: application, visible: true);
+        Object (application: application, visible: true, cli_cols: cols, cli_rows: rows);
 
-        if (!_game.restore_game (ref _settings))
+        if (cols != 0 && rows != 0)
+            new_game_cb ();
+        else if (!_game.restore_game (ref _settings))
             new_game_cb ();
 
         // should be done after game creation, so that you cannot move before
@@ -73,6 +78,15 @@ private class GameWindow : ApplicationWindow
 
     private void _init_game ()
     {
+        if (cli_cols != 0 && cli_rows != 0)
+        {
+            _settings.delay ();
+            _settings.set_int ("cols", cli_cols);
+            _settings.set_int ("rows", cli_rows);
+            _settings.apply ();
+            GLib.Settings.sync ();
+        }
+
         _game = new Game (ref _settings);
         _game.notify ["score"].connect (_header_bar.set_score);
         _game.finished.connect ((show_scores) => {
@@ -99,7 +113,8 @@ private class GameWindow : ApplicationWindow
                 {
                     case "cols":
                     case "rows":
-                        _header_bar._update_new_game_menu (_settings.get_int ("rows"), _settings.get_int ("cols"));
+                        _header_bar._update_new_game_menu ((uint8) _settings.get_int ("rows"),   // schema ranges rows
+                                                           (uint8) _settings.get_int ("cols")); // and cols from 1 to 9
                         return;
                     case "allow-undo":
                         _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
@@ -111,7 +126,8 @@ private class GameWindow : ApplicationWindow
                         return;
                 }
             });
-        _header_bar._update_new_game_menu (_settings.get_int ("rows"), _settings.get_int ("cols"));
+        _header_bar._update_new_game_menu ((uint8) _settings.get_int ("rows"),   // schema ranges rows
+                                           (uint8) _settings.get_int ("cols")); // and cols from 1 to 9
         _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
         _game.load_settings (ref _settings);
 
