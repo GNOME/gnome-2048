@@ -1,3 +1,4 @@
+# Install icons
 install_data(
   join_paths('icons', 'org.gnome.TwentyFortyEight.svg'),
   install_dir: join_paths(icondir, 'scalable', 'apps'),
@@ -8,11 +9,13 @@ install_data(
   install_dir: join_paths(icondir, 'symbolic', 'apps'),
 )
 
+# Install gschema
 install_data(
   'org.gnome.TwentyFortyEight.gschema.xml',
   install_dir: schemadir,
 )
 
+# Desktop file
 desktop_file = i18n.merge_file(
   'desktop-file',
   input: 'org.gnome.TwentyFortyEight.desktop.in',
@@ -22,6 +25,8 @@ desktop_file = i18n.merge_file(
   po_dir: podir,
   type: 'desktop',
 )
+
+# Validate desktop file
 if desktop_file_validate.found()
   test(
     'Validating @0@'.format(desktop_file),
@@ -30,6 +35,7 @@ if desktop_file_validate.found()
   )
 endif
 
+# AppData file
 appdata_file = i18n.merge_file(
   'appdata-file',
   input: 'org.gnome.TwentyFortyEight.appdata.xml.in',
@@ -38,6 +44,8 @@ appdata_file = i18n.merge_file(
   install_dir: join_paths(datadir, 'metainfo'),
   po_dir: podir,
 )
+
+# Validate AppData file
 if appstream_util.found()
   test(
     'Validating @0@'.format(appdata_file),
@@ -45,3 +53,6 @@ if appstream_util.found()
     args: ['validate', '--nonet', appdata_file],
   )
 endif
+
+# Install man page
+install_man('@0@.6'.format(meson.project_name()))

@@ -24,7 +24,15 @@ private class TwentyFortyEight : Gtk.Application
 {
     private GameWindow _window;
 
-    /* actions */
+    private static bool show_version;
+
+    private const OptionEntry [] option_entries =
+    {
+        /* Translators: command-line option description, see 'gnome-2048 --help' */
+        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, ref show_version, N_("Print release version and exit"), null },
+        {}
+    };
+
     private const GLib.ActionEntry [] action_entries =
     {
         { "quit", quit_cb }
@@ -38,6 +46,7 @@ private class TwentyFortyEight : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         OptionContext context = new OptionContext ("");
+        context.add_main_entries (option_entries, GETTEXT_PACKAGE);
 
         context.add_group (get_option_group (true));
         context.add_group (Clutter.get_option_group_without_init ());
@@ -74,6 +83,19 @@ private class TwentyFortyEight : Gtk.Application
     private TwentyFortyEight ()
     {
         Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.FLAGS_NONE);
+    }
+
+    protected override int handle_local_options (GLib.VariantDict options)
+    {
+        if (show_version)
+        {
+            /* NOTE: Is not translated so can be easily parsed */
+            stdout.printf ("%1$s %2$s\n", "gnome-2048", VERSION);
+            return Posix.EXIT_SUCCESS;
+        }
+
+        /* Activate */
+        return -1;
     }
 
     protected override void startup ()
