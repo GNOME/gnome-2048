@@ -44,6 +44,11 @@ private class GameWindow : ApplicationWindow
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
         notify ["has-toplevel-focus"].connect (() => _embed.grab_focus ());
+    }
+
+    internal GameWindow (TwentyFortyEight application)
+    {
+        Object (application: application, visible: true);
 
         if (!_game.restore_game (ref _settings))
             new_game_cb ();
@@ -51,11 +56,6 @@ private class GameWindow : ApplicationWindow
         // should be done after game creation, so that you cannot move before
         _init_keyboard ();
         _init_gestures ();
-    }
-
-    internal GameWindow (TwentyFortyEight application)
-    {
-        Object (application: application, visible: true);
     }
 
     [GtkCallback]
