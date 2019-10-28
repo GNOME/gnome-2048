@@ -470,7 +470,7 @@ private class Game : Object
                 uint8 val = _grid [i, j];
                 if (val != 0)
                 {
-                    GridPosition pos = { i, j };
+                    GridPosition pos = { (int8) i, (int8) j };
                     Tile tile = { pos, val };
                     _create_tile (tile);
                     _to_show.add (tile);

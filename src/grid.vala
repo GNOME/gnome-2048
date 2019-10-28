@@ -61,8 +61,8 @@ private class Grid : Object
 
     private static inline void _generate_random_position (uint8 rows, uint8 cols, out GridPosition pos)
     {
-        pos = { Random.int_range (0, (int32) rows),
-                Random.int_range (0, (int32) cols) };
+        pos = { (int8) Random.int_range (0, (int32) rows),
+                (int8) Random.int_range (0, (int32) cols) };
     }
 
     /*\
@@ -82,33 +82,33 @@ private class Grid : Object
         switch (request)
         {
             case MoveRequest.DOWN:
-                _move_down  (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+                _move_down  ((int8) _cols, (int8) _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
             case MoveRequest.UP:
-                _move_up    (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+                _move_up    ((int8) _cols, (int8) _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
             case MoveRequest.LEFT:
-                _move_left  (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+                _move_left  ((int8) _cols, (int8) _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
             case MoveRequest.RIGHT:
-                _move_right (_cols, _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
+                _move_right ((int8) _cols, (int8) _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
         }
         if (Math.pow (2, max_changed) >= target_value)
             target_value_reached = true;
     }
 
-    private static void _move_down (int cols,
-                                    int rows,
+    private static void _move_down (int8 cols,
+                                    int8 rows,
                                 ref uint8 max_changed,
                                 ref uint8 [,] grid,
                                 ref Gee.LinkedList<TileMovement?> to_move,
                                 ref Gee.LinkedList<TileMovement?> to_hide,
                                 ref Gee.LinkedList<Tile?> to_show)
     {
-        for (int i = 0; i < cols; i++)
+        for (int8 i = 0; i < cols; i++)
         {
             GridPosition free = { rows, i };
 
-            for (int j = 0; j < rows; j++)
+            for (int8 j = 0; j < rows; j++)
             {
-                int row = rows - j - 1;
+                int8 row = rows - j - 1;
                 GridPosition cur = { row, i };
                 uint8 val = grid [cur.row, cur.col];
 
@@ -122,7 +122,7 @@ private class Grid : Object
                 // search for matches
                 GridPosition match = { 0, 0 };
                 bool has_match = false;
-                for (int k = row - 1; k >= 0; k--)
+                for (int8 k = row - 1; k >= 0; k--)
                 {
                     uint8 k_val = grid [k, cur.col];
 
@@ -154,21 +154,21 @@ private class Grid : Object
         }
     }
 
-    private static void _move_up (int cols,
-                                  int rows,
+    private static void _move_up (int8 cols,
+                                  int8 rows,
                               ref uint8 max_changed,
                               ref uint8 [,] grid,
                               ref Gee.LinkedList<TileMovement?> to_move,
                               ref Gee.LinkedList<TileMovement?> to_hide,
                               ref Gee.LinkedList<Tile?> to_show)
     {
-        for (int i = 0; i < cols; i++)
+        for (int8 i = 0; i < cols; i++)
         {
             GridPosition free = { -1, i };
 
-            for (int j = 0; j < rows; j++)
+            for (int8 j = 0; j < rows; j++)
             {
-                int row = j;
+                int8 row = j;
                 GridPosition cur = { row, i };
                 uint8 val = grid [cur.row, cur.col];
 
@@ -182,7 +182,7 @@ private class Grid : Object
                 // search for matches
                 GridPosition match = { 0, 0 };
                 bool has_match = false;
-                for (int k = row + 1; k < rows; k++)
+                for (int8 k = row + 1; k < rows; k++)
                 {
                     uint8 k_val = grid [k, cur.col];
 
@@ -214,21 +214,21 @@ private class Grid : Object
         }
     }
 
-    private static void _move_left (int cols,
-                                    int rows,
+    private static void _move_left (int8 cols,
+                                    int8 rows,
                                 ref uint8 max_changed,
                                 ref uint8 [,] grid,
                                 ref Gee.LinkedList<TileMovement?> to_move,
                                 ref Gee.LinkedList<TileMovement?> to_hide,
                                 ref Gee.LinkedList<Tile?> to_show)
     {
-        for (int i = 0; i < rows; i++)
+        for (int8 i = 0; i < rows; i++)
         {
             GridPosition free = { i, -1 };
 
-            for (int j = 0; j < cols; j++)
+            for (int8 j = 0; j < cols; j++)
             {
-                int col = j;
+                int8 col = j;
                 GridPosition cur = { i, col };
                 uint8 val = grid [cur.row, cur.col];
 
@@ -242,7 +242,7 @@ private class Grid : Object
                 // search for matches
                 GridPosition match = { 0, 0 };
                 bool has_match = false;
-                for (int k = col + 1; k < cols; k++)
+                for (int8 k = col + 1; k < cols; k++)
                 {
                     uint8 k_val = grid [cur.row, k];
 
@@ -274,21 +274,21 @@ private class Grid : Object
         }
     }
 
-    private static void _move_right (int cols,
-                                     int rows,
+    private static void _move_right (int8 cols,
+                                     int8 rows,
                                  ref uint8 max_changed,
                                  ref uint8 [,] grid,
                                  ref Gee.LinkedList<TileMovement?> to_move,
                                  ref Gee.LinkedList<TileMovement?> to_hide,
                                  ref Gee.LinkedList<Tile?> to_show)
     {
-        for (int i = 0; i < rows; i++)
+        for (int8 i = 0; i < rows; i++)
         {
             GridPosition free = { i, cols };
 
-            for (int j = 0; j < cols; j++)
+            for (int8 j = 0; j < cols; j++)
             {
-                int col = cols - j - 1;
+                int8 col = cols - j - 1;
                 GridPosition cur = { i, col };
                 uint8 val = grid [cur.row, cur.col];
 
@@ -302,7 +302,7 @@ private class Grid : Object
                 // search for matches
                 GridPosition match = { 0, 0 };
                 bool has_match = false;
-                for (int k = col - 1; k >= 0; k--)
+                for (int8 k = col - 1; k >= 0; k--)
                 {
                     uint8 k_val = grid [cur.row, k];
 
@@ -625,8 +625,8 @@ private class Grid : Object
 
 private struct GridPosition
 {
-    public int row;
-    public int col;
+    public int8 row;
+    public int8 col;
 
     internal string to_string ()
     {
