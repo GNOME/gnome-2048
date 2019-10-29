@@ -26,21 +26,34 @@ private class TwentyFortyEight : Gtk.Application
 
     private static bool show_version;
     private static string? size = null;
+    private static string? cli = null;
     private uint8 cols = 0;
     private uint8 rows = 0;
 
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-2048 --help' */
-        { "size", 's',      OptionFlags.NONE, OptionArg.STRING, ref size,           N_("Start new game of given size"),
+        { "cli", 0,         OptionFlags.OPTIONAL_ARG, OptionArg.CALLBACK, (void*) _cli, N_("Play in the terminal (see “--cli=help”)"),
 
-        /* Translators: in the command-line options description, text to indicate the user should specify a size, see 'gnome-2048 --help' */
-                                                                                    N_("SIZE") },
+        /* Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help' */
+                                                                                        N_("COMMAND") },
 
         /* Translators: command-line option description, see 'gnome-2048 --help' */
-        { "version", 'v',   OptionFlags.NONE, OptionArg.NONE,   ref show_version,   N_("Print release version and exit"), null },
+        { "size", 's',      OptionFlags.NONE, OptionArg.STRING, ref size,               N_("Start new game of given size"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help' */
+                                                                                        N_("SIZE") },
+
+        /* Translators: command-line option description, see 'gnome-2048 --help' */
+        { "version", 'v',   OptionFlags.NONE, OptionArg.NONE,   ref show_version,       N_("Print release version and exit"), null },
         {}
     };
+
+    private bool _cli (string? option_name, string? val)
+    {
+        cli = option_name == null ? "" : (!) option_name;  // TODO report bug: should probably be val...
+        return true;
+    }
 
     private const GLib.ActionEntry [] action_entries =
     {
@@ -94,7 +107,7 @@ private class TwentyFortyEight : Gtk.Application
         Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.FLAGS_NONE);
     }
 
-    protected override int handle_local_options (GLib.VariantDict options)
+    protected override int handle_local_options (GLib.VariantDict options)  // options will be empty, we used a custom OptionContext
     {
         if (show_version)
         {
@@ -108,6 +121,26 @@ private class TwentyFortyEight : Gtk.Application
             /* Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0' */
             stderr.printf ("%s\n", _("Failed to parse size. Size must be between 2 and 9, or in the form 2x3."));
             return Posix.EXIT_FAILURE;
+        }
+
+        if (cli != null)
+        {
+            if ((!) cli == "help" || (!) cli == "HELP")
+            {
+                string help_string = ""
+                    + "\n" + "To play GNOME 2048 in command-line:"
+                    + "\n" + "  --cli         " + "Display current game. Alias: “status” or “show”."
+                    + "\n" + "  --cli new     " + "Start a new game; for changing size, use --size."
+                    + "\n"
+                    + "\n" + "  --cli up      " + "Move tiles up.    Alias: “u”."
+                    + "\n" + "  --cli down    " + "Move tiles down.  Alias: “d”."
+                    + "\n" + "  --cli left    " + "Move tiles left.  Alias: “l”."
+                    + "\n" + "  --cli right   " + "Move tiles right. Alias: “r”."
+                    + "\n\n";
+                stdout.printf (help_string);
+                return Posix.EXIT_SUCCESS;
+            }
+            return CLI.play_cli ((!) cli, "org.gnome.TwentyFortyEight", ref cols, ref rows);
         }
 
         /* Activate */

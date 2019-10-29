@@ -26,6 +26,7 @@ private class Grid : Object
     [CCode (notify = false)] public uint8 cols { internal get; protected construct; }
 
     [CCode (notify = false)] internal uint target_value          { internal get; internal set; default = 0; }
+    [CCode (notify = false)] internal uint target_value_simple   { internal get; private  set; default = 0; }
     [CCode (notify = false)] internal bool target_value_reached  { internal get; internal set; default = false; }
 
     construct
@@ -91,7 +92,10 @@ private class Grid : Object
                 _move_right ((int8) _cols, (int8) _rows, ref max_changed, ref _grid, ref to_move, ref to_hide, ref to_show); break;
         }
         if (Math.pow (2, max_changed) >= target_value)
+        {
+            target_value_simple = max_changed;
             target_value_reached = true;
+        }
     }
 
     private static void _move_down (int8 cols,

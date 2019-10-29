@@ -23,6 +23,7 @@ resources = gnome.compile_resources(
 
 gnome_2048_sources = [
   'application.vala',
+  'cli.vala',
   'config.vapi',
   'game.vala',
   'game-headerbar.vala',

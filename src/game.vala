@@ -68,8 +68,8 @@ private class Game : Object
 
     internal Game (ref GLib.Settings settings)
     {
-        uint8 rows = (uint8) settings.get_int ("rows");  // schema ranges rows
-        uint8 cols = (uint8) settings.get_int ("cols"); // and cols from 1 to 9
+        uint8 cols = (uint8) settings.get_int ("cols");  // schema ranges cols
+        uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
         _init_grid (rows, cols, out _grid, ref settings);
     }
 
@@ -127,8 +127,8 @@ private class Game : Object
         _grid.clear ();
         _clear_history ();
 
-        uint8 rows = (uint8) settings.get_int ("rows");  // schema ranges rows
-        uint8 cols = (uint8) settings.get_int ("cols"); // and cols from 1 to 9
+        uint8 cols = (uint8) settings.get_int ("cols");  // schema ranges cols
+        uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
 
         if ((rows != _grid.rows) || (cols != _grid.cols))
         {
