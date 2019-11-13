@@ -490,7 +490,7 @@ private class Grid : Object
     * * saving
     \*/
 
-    internal string save ()
+    internal string save () // internal for tests
     {
         string ret_string = @"$_rows $_cols\n";
         _convert_to_string (ref _grid, ref ret_string);
@@ -529,7 +529,7 @@ private class Grid : Object
     * * restoring
     \*/
 
-    internal bool load (ref string content) // TODO transform into a constructor
+    internal bool load (ref string content) // TODO transform into a constructor    // internal for tests
     {
         uint8 [,] grid = {{}};   // garbage
         if (!_load_from_string (ref content, ref grid))
@@ -619,6 +619,38 @@ private class Grid : Object
             if (number_64 == (uint64) Math.pow (2, number))
                 return true;
 
+        return false;
+    }
+
+    /*\
+    * * saving and restoring from file
+    \*/
+
+    internal void save_game (string path)
+    {
+        string contents = save ();
+        try
+        {
+            DirUtils.create_with_parents (Path.get_dirname (path), 0775);
+            FileUtils.set_contents (path, contents);
+            debug ("game saved successfully");
+        }
+        catch (FileError e) {
+            warning ("Failed to save game: %s", e.message);
+        }
+    }
+
+    internal bool restore_game (string path)
+    {
+        string content;
+
+        try { FileUtils.get_contents (path, out content); }
+        catch (FileError e) { return false; }
+
+        if (load (ref content))
+            return true;
+
+        warning ("Failed to restore game from saved file");
         return false;
     }
 }

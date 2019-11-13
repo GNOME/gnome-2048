@@ -154,30 +154,13 @@ private class Game : Object
 
     internal void save_game ()
     {
-        string contents = _grid.save ();
-        try {
-            DirUtils.create_with_parents (Path.get_dirname (_saved_path), 0775);
-            FileUtils.set_contents (_saved_path, contents);
-            debug ("game saved successfully");
-        } catch (FileError e) {
-            warning ("Failed to save game: %s", e.message);
-        }
+        _grid.save_game (_saved_path);
     }
 
     internal bool restore_game (ref GLib.Settings settings)
     {
-        string contents;
-        try {
-            FileUtils.get_contents (_saved_path, out contents);
-        } catch (FileError e) {
+        if (!_grid.restore_game (_saved_path))
             return false;
-        }
-
-        if (!_grid.load (ref contents))
-        {
-            warning ("Failed to restore game from saved file");
-            return false;
-        }
 
         score = _grid.get_score ();
 
