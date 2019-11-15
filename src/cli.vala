@@ -254,4 +254,49 @@ namespace CLI
 
         stdout.printf (board);
     }
+
+    /*\
+    * * parse command-line input size
+    \*/
+
+    private static inline bool parse_size (string size, out uint8 cols, out uint8 rows)
+    {
+        cols = 0;   // garbage
+        rows = 0;   // garbage
+
+        /* size is either a digit, either of the for MxN */
+        string [] tokens = size.split ("x");
+        if (tokens.length == 0 || tokens.length > 2)
+            return false;
+
+        /* parse the first token in any case */
+        uint64 test;
+        if (!uint64.try_parse (tokens [0], out test))
+            return false;
+        if (test <= 0 || test > 9)
+            return false;
+        cols = (uint8) test;
+
+        /* test for forbidden "1" size and return */
+        if (tokens.length == 1)
+        {
+            if (cols < 2)
+                return false;
+            rows = cols;
+            return true;
+        }
+
+        /* parse the second token, if any */
+        if (!uint64.try_parse (tokens [1], out test))
+            return false;
+        if (test <= 0 || test > 9)
+            return false;
+        rows = (uint8) test;
+
+        /* test for forbidden sizes, and return */
+        if (Grid.is_disallowed_grid_size (ref cols, ref rows))
+            return false;
+
+        return true;
+    }
 }
