@@ -1,3 +1,15 @@
+GNOME 2048   3.35.2                                        2019-11-23
+=====================================================================
+
+Some command-line options were added: the usual “--version”, “--size”
+to start a new game of a given size (the exact behavior might change)
+and “--cli” for playing in a terminal. Also, the game window has been
+allowed to be resized to a phone screen, even if more work is needed.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Czech: Marek Černocký
+
 GNOME 2048   3.34.0                                        2019-09-10
 =====================================================================
 
