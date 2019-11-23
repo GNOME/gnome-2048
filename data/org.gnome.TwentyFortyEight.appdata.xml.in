@@ -87,7 +87,7 @@
   </content_rating>
 
   ​<releases>
-    <release version="3.34.3" date="2019-10-29" type="stable" urgency="medium"/>
-  ​  <release version="3.33.90" date="2019-08-05" type="development" urgency="low"/>
+  ​  <release version="3.35.2" date="2019-11-23" type="development" urgency="low"/>
+    <release version="3.34.4" date="2019-11-23" type="stable" urgency="medium"/>
   </releases>
 </component>
