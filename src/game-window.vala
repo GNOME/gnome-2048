@@ -505,7 +505,7 @@ private class GameWindow : ApplicationWindow
 
 
                            /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
-                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2019, 2020),
+                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2016, 2020),
 
                            "wrap-license", true,
                            "authors", authors,
