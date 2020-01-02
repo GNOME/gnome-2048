@@ -2,7 +2,7 @@
    This file is part of GNOME 2048.
 
    Copyright (C) 2014-2015 Juan R. García Blanco <juanrgar@gmail.com>
-   Copyright (C) 2016-2019 Arnaud Bonatti <arnaud.bonatti@gmail.com>
+   Copyright (C) 2016-2020 Arnaud Bonatti <arnaud.bonatti@gmail.com>
 
    GNOME 2048 is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -499,8 +499,14 @@ private class GameWindow : ApplicationWindow
                            "comments", _("A clone of 2048 for GNOME"),
                            "license-type", License.GPL_3_0,
 
-                           /* Translators: about dialog text; the main copyright holders */
-                           "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016-2019 – Arnaud Bonatti"),
+                           "copyright",
+                           /* Translators: text crediting a maintainer, seen in the About dialog */
+                           _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco") + "\n" +
+
+
+                           /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
+                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2019, 2020),
+
                            "wrap-license", true,
                            "authors", authors,
                            /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
