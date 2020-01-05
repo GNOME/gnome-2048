@@ -1,2 +1,3 @@
+src/application.c
 src/game-headerbar.c
 src/game-window.c
