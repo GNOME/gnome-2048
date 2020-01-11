@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-01-02 12:22+0000\n"
-"PO-Revision-Date: 2020-01-02 22:17+0100\n"
+"POT-Creation-Date: 2020-01-05 16:36+0000\n"
+"PO-Revision-Date: 2020-01-11 17:29+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -265,6 +265,38 @@ msgstr "Antal ångringsåtgärder"
 msgid "Maximum number of tile movements that can be undone."
 msgstr "Maximalt antal brickförflyttningar som kan ångras."
 
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:36
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "Spela i terminalen (se ”--cli=help”)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
+#: src/application.vala:39
+msgid "COMMAND"
+msgstr "KOMMANDO"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:42
+msgid "Start new game of given size"
+msgstr "Starta ett nytt spel av angiven storlek"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
+#: src/application.vala:45
+msgid "SIZE"
+msgstr "STORLEK"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:48
+msgid "Print release version and exit"
+msgstr "Skriv ut utgåvans version och avsluta"
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
+#: src/application.vala:122
+msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+msgstr ""
+"Misslyckades att tolka storlek. Storleken måste vara mellan 2 och 9, eller "
+"på formen 2x3."
+
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
 #: src/game-headerbar.vala:67
 msgid "Game Over"
@@ -348,9 +380,6 @@ msgstr "En 2048-klon för GNOME"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/game-window.vala:504
-#| msgid ""
-#| "Copyright © 2014-2015 – Juan R. García Blanco\n"
-#| "Copyright © 2016-2019 – Arnaud Bonatti"
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "Copyright © 2014-2015 – Juan R. García Blanco"
 
