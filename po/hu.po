@@ -1,22 +1,22 @@
 # Hungarian translation for gnome-2048.
-# Copyright (C) 2015, 2016, 2019 Free Software Foundation, Inc.
+# Copyright (C) 2015, 2016, 2019, 2020 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Balázs Úr <urbalazs at gmail dot com>, 2015, 2016, 2019.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2015, 2016, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2019-02-02 11:42+0000\n"
-"PO-Revision-Date: 2019-02-02 16:05+0100\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"POT-Creation-Date: 2020-01-05 16:36+0000\n"
+"PO-Revision-Date: 2020-02-13 20:14+0100\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 19.04.3\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -24,8 +24,8 @@ msgid "Congratulations!"
 msgstr "Gratulálunk!"
 
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#. Translators: button in the headerbar
-#: data/congrats.ui:46 data/mainwindow.ui:37
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:46 data/game-headerbar.ui:29
 msgid "_New Game"
 msgstr "Ú_j játék"
 
@@ -34,7 +34,12 @@ msgstr "Ú_j játék"
 msgid "_Keep Playing"
 msgstr "Játék _folytatása"
 
-#. Translators: header of the "Play" and "Undo (if enabled)" shortcuts section
+#. Translators: title of the window, displayed in the headerbar
+#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#. Translators: header of the "Play with arrows" shortcut section
 #: data/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "Game"
@@ -46,70 +51,53 @@ msgctxt "shortcut window"
 msgid "Play with arrows"
 msgstr "Játék a nyilakkal"
 
-#. Translators: undo is not allowed by default, it is an option available in the Preferences dialog
-#: data/help-overlay.ui:42
-msgctxt "shortcut window"
-msgid "Undo (if enabled)"
-msgstr "Visszavonás (ha engedélyezve van)"
-
 #. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
-#: data/help-overlay.ui:52
+#: data/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Új játék"
 
 #. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
-#: data/help-overlay.ui:57
+#: data/help-overlay.ui:49
 msgctxt "shortcut window"
 msgid "Choose a new game"
 msgstr "Új játék választása"
 
 #. Translators: shortcut that starts immediately a new game, with similar options
-#: data/help-overlay.ui:65
+#: data/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Start a new game"
 msgstr "Új játék indítása"
 
-#. Translators: header of the "Toggle main menu," "Preferences," "Quit," etc. shortcuts section
-#: data/help-overlay.ui:75
+#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
+#: data/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Általános"
 
 #. Translators: shortcut that toggles the hamburger menu
-#: data/help-overlay.ui:80
+#: data/help-overlay.ui:72
 msgctxt "shortcut window"
 msgid "Toggle main menu"
 msgstr "Főmenü ki- és bekapcsolása"
 
-#. Translators: shortcut that opens Prefences dialog
-#: data/help-overlay.ui:88
-msgctxt "shortcut window"
-msgid "Preferences"
-msgstr "Beállítások"
-
 #. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/help-overlay.ui:96
+#: data/help-overlay.ui:80
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Gyorsbillentyűk"
 
 #. Translators: shortcut that opens About dialog
-#: data/help-overlay.ui:104
+#: data/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Névjegy"
 
 #. Translators: shortcut that quits application
-#: data/help-overlay.ui:112
+#: data/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
-
-#. Translators: title of the window, displayed in the headerbar (with a mnemonic that appears pressing Alt)
-#: data/mainwindow.ui:32 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
@@ -171,14 +159,9 @@ msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
 #. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/application.vala:379
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
 msgid "2048"
 msgstr "2048"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.TwentyFortyEight.desktop.in:8
-msgid "org.gnome.TwentyFortyEight"
-msgstr "org.gnome.TwentyFortyEight"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -256,8 +239,7 @@ msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr "Fognak-e gratulálni a felhasználónak a célcsempe elérésekor."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#. Translators: in the preferences dialog; label introducing an option, to change the animations speed
-#: data/org.gnome.TwentyFortyEight.gschema.xml:60 data/preferences.ui:42
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
 msgid "Animations speed"
 msgstr "Animációk sebessége"
 
@@ -269,8 +251,7 @@ msgstr ""
 "elhomályosítása."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#. Translators: in the preferences dialog; label introducing an option, a switch to allow or not undoing a move
-#: data/org.gnome.TwentyFortyEight.gschema.xml:67 data/preferences.ui:85
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
 msgid "Allow undo"
 msgstr "Visszavonás engedélyezése"
 
@@ -289,145 +270,141 @@ msgstr "Visszavonási lépések száma"
 msgid "Maximum number of tile movements that can be undone."
 msgstr "A visszavonható csempemozgatások maximális száma."
 
-#. Translators: title of the dialog that appears when the users clicks the "Preferences" entry in the hamburger menu
-#. Translators: entry in the hamburger menu; opens a window for configuring application
-#: data/preferences.ui:23 src/application.vala:317
-msgid "Preferences"
-msgstr "Beállítások"
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:36
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "Játék a terminálban (lásd „--cli=help”)"
 
-#. Translators: in the preferences dialog; label introducing an option, a switch to display or no congratulations when reaching 2048
-#: data/preferences.ui:64
-msgid "Display congrats"
-msgstr "Gratuláció megjelenítése"
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
+#: src/application.vala:39
+msgid "COMMAND"
+msgstr "PARANCS"
 
-#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
-#: data/preferences.ui:109
-msgid "_Slow"
-msgstr "_Lassú"
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:42
+#| msgctxt "shortcut window"
+#| msgid "Start a new game"
+msgid "Start new game of given size"
+msgstr "Új játék indítása az adott méretben"
 
-#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
-#: data/preferences.ui:115
-msgid "_Normal"
-msgstr "_Normál"
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
+#: src/application.vala:45
+msgid "SIZE"
+msgstr "MÉRET"
 
-#. Translators: on preferences window, entry of the menu for changing animations speed (with a mnemonic that appears pressing Alt)
-#: data/preferences.ui:121
-msgid "_Fast"
-msgstr "_Gyors"
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:48
+msgid "Print release version and exit"
+msgstr "Kiadás verziójának kiírása és kilépés"
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
+#: src/application.vala:122
+msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+msgstr ""
+"Nem sikerült feldolgozni a méretet. A méretnek 2 és 9 között kell lennie vagy"
+" 2x3 alakban."
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/application.vala:179
+#: src/game-headerbar.vala:67
 msgid "Game Over"
 msgstr "Vége a játéknak"
 
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/application.vala:295
+#: src/game-headerbar.vala:97
 msgid "Undo"
 msgstr "Visszavonás"
 
 #. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/application.vala:306
+#: src/game-headerbar.vala:108
 msgid "Scores"
 msgstr "Pontszámok"
 
 #. Translators: usual menu entry of the hamburger menu
-#: src/application.vala:320
+#: src/game-headerbar.vala:119
 msgid "Keyboard Shortcuts"
 msgstr "Gyorsbillentyűk"
 
 #. Translators: entry in the hamburger menu
-#: src/application.vala:323
+#: src/game-headerbar.vala:122
 msgid "About 2048"
 msgstr "A 2048 névjegye"
 
-#. Translators: about dialog text; a introduction to the game
-#: src/application.vala:383
-msgid "A clone of 2048 for GNOME"
-msgstr "A 2048 klónja a GNOME-hoz"
-
-#. Translators: about dialog text; the main copyright holders
-#: src/application.vala:387
-msgid ""
-"Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016-2019 – Arnaud Bonatti"
-msgstr ""
-"Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016-2019 – Arnaud Bonatti"
-
-#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/application.vala:391
-msgid "translator-credits"
-msgstr "Úr Balázs <urbalazs@gmail.com>"
-
-#. Translators: about dialog text; label of the website link
-#: src/application.vala:395
-msgid "Page on GNOME wiki"
-msgstr "Szócikk a GNOME wikin"
-
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
-#: src/application.vala:413
+#: src/game-headerbar.vala:142
 msgid "3 × 3"
 msgstr "3 × 3"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
-#: src/application.vala:419
+#: src/game-headerbar.vala:148
 msgid "4 × 4"
 msgstr "4 × 4"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
-#: src/application.vala:425
+#: src/game-headerbar.vala:154
 msgid "5 × 5"
 msgstr "5 × 5"
 
 #. Translators: command-line warning displayed if the user manually sets a invalid grid size
-#: src/application.vala:435
+#: src/game-headerbar.vala:163
 msgid "Grids of size 1 by 2 are disallowed."
 msgstr "Az 1-től 2-ig terjedő rácsok nem engedélyezettek."
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:440 src/application.vala:561
+#: src/game-headerbar.vala:167
 msgid "Custom"
 msgstr "Egyéni"
 
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:549
-msgid "Normal"
-msgstr "Normál"
-
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:553
-msgid "Fast"
-msgstr "Gyors"
-
-#. Translators: in the preferences dialog; possible label of the MenuButton to choose animation speed
-#: src/application.vala:557
-msgid "Slow"
-msgstr "Lassú"
-
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/application.vala:617
+#: src/game-window.vala:415
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Először szerezte meg a(z) %u értékű csempét!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/application.vala:636
+#: src/game-window.vala:434
 msgid "Grid 3 × 3"
 msgstr "Rács, 3 × 3"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/application.vala:639
+#: src/game-window.vala:437
 msgid "Grid 4 × 4"
 msgstr "Rács, 4 × 4"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/application.vala:642
+#: src/game-window.vala:440
 msgid "Grid 5 × 5"
 msgstr "Rács, 5 × 5"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/application.vala:645
+#: src/game-window.vala:443
 msgid "Grid Size:"
 msgstr "Rácsméret:"
 
+#. Translators: about dialog text; a introduction to the game
+#: src/game-window.vala:499
+msgid "A clone of 2048 for GNOME"
+msgstr "A 2048 klónja a GNOME-hoz"
+
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/game-window.vala:504
+#| msgid ""
+#| "Copyright © 2014-2015 – Juan R. García Blanco\n"
+#| "Copyright © 2016-2019 – Arnaud Bonatti"
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "Copyright © 2014-2015 – Juan R. García Blanco"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/game-window.vala:508
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Copyright © %u-%u – Arnaud Bonatti"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/game-window.vala:513
+msgid "translator-credits"
+msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2015, 2016, 2019, 2020."
+
+#. Translators: about dialog text; label of the website link
+#: src/game-window.vala:517
+msgid "Page on GNOME wiki"
+msgstr "Szócikk a GNOME wikin"
