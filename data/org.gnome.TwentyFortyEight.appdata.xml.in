@@ -87,7 +87,6 @@
   </content_rating>
 
   ​<releases>
-    <!-- should be kept in versionning inverted order -->
-    <release version="3.34.4" date="2019-11-23" type="stable" urgency="medium"/>
+    <release version="3.34.5" date="2020-02-14" type="stable" urgency="medium"/>
   </releases>
 </component>
