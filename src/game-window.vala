@@ -483,7 +483,7 @@ private class GameWindow : ApplicationWindow
                            "license-type", License.GPL_3_0,
 
                            /* Translators: about dialog text; the main copyright holders */
-                           "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016-2019 – Arnaud Bonatti"),
+                           "copyright", _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco\nCopyright \xc2\xa9 2016-2019 – Arnaud Bonatti").replace ("2019", "2020"),
                            "wrap-license", true,
                            "authors", authors,
                            /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
