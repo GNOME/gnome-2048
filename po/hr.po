@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2019-02-17 12:58+0000\n"
-"PO-Revision-Date: 2019-04-01 14:37+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2020-01-05 16:36+0000\n"
+"PO-Revision-Date: 2020-03-01 19:29+0100\n"
+"Last-Translator: gogo <linux.hr@protonmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -157,14 +157,9 @@ msgid "The GNOME Project"
 msgstr "GNOME projekt"
 
 #. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:460
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
 msgid "2048"
 msgstr "2048"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.TwentyFortyEight.desktop.in:8
-msgid "org.gnome.TwentyFortyEight"
-msgstr "org.gnome.TwentyFortyEight"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -272,107 +267,143 @@ msgstr "Broj vraćanja pomaka"
 msgid "Maximum number of tile movements that can be undone."
 msgstr "Najveći broj pomaka pločica koji se mogu vratiti."
 
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:36
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "Igraj u terminalu (pogledajte “--cli=help”)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
+#: src/application.vala:39
+msgid "COMMAND"
+msgstr "NAREDBA"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:42
+msgid "Start new game of given size"
+msgstr "Pokreni novu igru zadane veličine"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
+#: src/application.vala:45
+msgid "SIZE"
+msgstr "VELIČINA"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:48
+msgid "Print release version and exit"
+msgstr "Prikaži inačicu izdanja i zatvori"
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
+#: src/application.vala:122
+msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+msgstr ""
+"Neuspjela obrada veličine. Veličina mora biti između 2 i 9, ili u obliku 2x3."
+
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/game-headerbar.vala:66
+#: src/game-headerbar.vala:67
 msgid "Game Over"
 msgstr "Kraj igre"
 
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/game-headerbar.vala:96
+#: src/game-headerbar.vala:97
 msgid "Undo"
 msgstr "Poništi"
 
 #. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/game-headerbar.vala:107
+#: src/game-headerbar.vala:108
 msgid "Scores"
 msgstr "Rezultati"
 
 #. Translators: usual menu entry of the hamburger menu
-#: src/game-headerbar.vala:118
+#: src/game-headerbar.vala:119
 msgid "Keyboard Shortcuts"
 msgstr "Prečaci tipkovnice"
 
 #. Translators: entry in the hamburger menu
-#: src/game-headerbar.vala:121
+#: src/game-headerbar.vala:122
 msgid "About 2048"
 msgstr "O 2048"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
-#: src/game-headerbar.vala:141
+#: src/game-headerbar.vala:142
 msgid "3 × 3"
 msgstr "3 × 3"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
-#: src/game-headerbar.vala:147
+#: src/game-headerbar.vala:148
 msgid "4 × 4"
 msgstr "4 × 4"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
-#: src/game-headerbar.vala:153
+#: src/game-headerbar.vala:154
 msgid "5 × 5"
 msgstr "5 × 5"
 
 #. Translators: command-line warning displayed if the user manually sets a invalid grid size
-#: src/game-headerbar.vala:162
+#: src/game-headerbar.vala:163
 msgid "Grids of size 1 by 2 are disallowed."
 msgstr "Mreže veličine 1 do 2 nisu dopuštene."
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#: src/game-headerbar.vala:166
+#: src/game-headerbar.vala:167
 msgid "Custom"
 msgstr "Prilagođeno"
 
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:380
+#: src/game-window.vala:415
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Složili ste %u ploču po prvi puta!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:399
+#: src/game-window.vala:434
 msgid "Grid 3 × 3"
 msgstr "Mreža 3 × 3"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:402
+#: src/game-window.vala:437
 msgid "Grid 4 × 4"
 msgstr "Mreža 4 × 4"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:405
+#: src/game-window.vala:440
 msgid "Grid 5 × 5"
 msgstr "Mreža 5 × 5"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:408
+#: src/game-window.vala:443
 msgid "Grid Size:"
 msgstr "Veličina mreže:"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:464
+#: src/game-window.vala:499
 msgid "A clone of 2048 for GNOME"
 msgstr "Klon 2048 za GNOME"
 
-#. Translators: about dialog text; the main copyright holders
-#: src/game-window.vala:468
-msgid ""
-"Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016-2019 – Arnaud Bonatti"
-msgstr ""
-"Autorsko pravo © 2014-2015 – Juan R. García Blanco\n"
-"Autorsko pravo © 2019 – Arnaud Bonatti"
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/game-window.vala:504
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "Autorsko pravo © 2014-2015 – Juan R. García Blanco"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/game-window.vala:508
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Autorsko pravo © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:472
+#: src/game-window.vala:513
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  gogo https://launchpad.net/~trebelnik-stefina"
 
 #. Translators: about dialog text; label of the website link
-#: src/game-window.vala:476
+#: src/game-window.vala:517
 msgid "Page on GNOME wiki"
 msgstr "Stranica na GNOME wiki"
+
+#~ msgid "org.gnome.TwentyFortyEight"
+#~ msgstr "org.gnome.TwentyFortyEight"
 
 #~ msgid "Preferences"
 #~ msgstr "Osobitosti"
