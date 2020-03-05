@@ -342,16 +342,17 @@ private class GameWindow : ApplicationWindow
     * * gestures
     \*/
 
-    private GestureSwipe gesture;
+    private GestureSwipe gesture_swipe;
+
     private inline void _init_gestures ()
     {
-        gesture = new GestureSwipe (_embed); // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
-        gesture.set_propagation_phase (PropagationPhase.CAPTURE);
-        gesture.set_button (/* all events */ 0);
-        gesture.swipe.connect (_on_swipe);
+        gesture_swipe = new GestureSwipe (_embed);  // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
+        gesture_swipe.set_propagation_phase (PropagationPhase.CAPTURE);
+        gesture_swipe.set_button (/* all events */ 0);
+        gesture_swipe.swipe.connect (_on_swipe);
     }
 
-    private inline void _on_swipe (GestureSwipe gesture, double velocity_x, double velocity_y)
+    private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _embed, not the window
     {
         if (_game.cannot_move ())
             return;
@@ -376,8 +377,6 @@ private class GameWindow : ApplicationWindow
             else if (velocity_y > 10.0)
                 _game.move (MoveRequest.DOWN);
         }
-        else
-            return;
     }
 
     /*\
