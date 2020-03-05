@@ -292,35 +292,38 @@ private class GameWindow : ApplicationWindow
     }
 
     /*\
-    * * keyboard
+    * * keyboard user actions
     \*/
+
+    private EventControllerKey key_controller;      // for keeping in memory
 
     private const uint16 KEYCODE_W = 25;
     private const uint16 KEYCODE_A = 38;
     private const uint16 KEYCODE_S = 39;
     private const uint16 KEYCODE_D = 40;
 
-    private inline void _init_keyboard ()
+    private inline void _init_keyboard ()   // called on construct
     {
-        key_press_event.connect (key_press_event_cb);
+        key_controller = new EventControllerKey (this);
+        key_controller.key_pressed.connect (on_key_pressed);
     }
 
-    private static bool key_press_event_cb (Widget widget, Gdk.EventKey event)
+    private static inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
-        GameWindow _this = (GameWindow) widget;
+        GameWindow _this = (GameWindow) _key_controller.get_widget ();
         if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._embed.is_focus))
             return false;
         if (_this._game.cannot_move ())
             return false;
 
-        switch (event.hardware_keycode)
+        switch (keycode)
         {
             case KEYCODE_W:     _this._game.move (MoveRequest.UP);      return true;    // or KEYCODE_UP    = 111;
             case KEYCODE_A:     _this._game.move (MoveRequest.LEFT);    return true;    // or KEYCODE_LEFT  = 113;
             case KEYCODE_S:     _this._game.move (MoveRequest.DOWN);    return true;    // or KEYCODE_DOWN  = 116;
             case KEYCODE_D:     _this._game.move (MoveRequest.RIGHT);   return true;    // or KEYCODE_RIGHT = 114;
         }
-        switch (_upper_key (event.keyval))
+        switch (_upper_key (keyval))
         {
             case Gdk.Key.Up:    _this._game.move (MoveRequest.UP);      return true;
             case Gdk.Key.Left:  _this._game.move (MoveRequest.LEFT);    return true;
