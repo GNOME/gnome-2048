@@ -29,8 +29,6 @@ libm_dependency = cc.find_library('m', required: false) # some platforms do not 
 gio_dependency = dependency('gio-2.0', version: '>= 2.42.0')
 glib_dependency = dependency('glib-2.0', version: '>= 2.42.0')
 gtk_dependency = dependency('gtk4', version: '>= 3.99.1')
-clutter_dependency = dependency('clutter-1.0', version: '>= 1.12.0')
-clutter_gtk_dependency = dependency('clutter-gtk-1.0', version: '>= 1.6.0')
 gee_dependency = dependency('gee-0.8', version: '>= 0.14.0')
 libgnome_games_support_dependency = dependency('libgnome-games-support-1', version: '>= 1.7.1')
 
