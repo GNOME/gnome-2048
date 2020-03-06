@@ -18,22 +18,16 @@
    along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class RoundedRectangle : Object
+private class RoundedRectangle : Gtk.DrawingArea
 {
-    [CCode (notify = false)] internal Clutter.Actor  actor  { internal get; default = new Clutter.Actor (); }
-    [CCode (notify = false)] internal Clutter.Canvas canvas { internal get; default = new Clutter.Canvas (); }
-
-    [CCode (notify = false)] public float x      { protected construct { actor.x      = value; }}
-    [CCode (notify = false)] public float y      { protected construct { actor.y      = value; }}
-    [CCode (notify = false)] public float width  { protected construct { actor.width  = value; }}
-    [CCode (notify = false)] public float height { protected construct { actor.height = value; }}
+    [CCode (notify = false)] public float x      { internal get; protected construct set; }
+    [CCode (notify = false)] public float y      { internal get; protected construct set; }
+    [CCode (notify = false)] public float width  { internal get; protected construct set; }
+    [CCode (notify = false)] public float height { internal get; protected construct set; }
 
     construct
     {
-        actor.set_content (canvas);
-        actor.set_pivot_point (0.5f, 0.5f);
-
-        canvas.draw.connect (_draw);
+        set_draw_func (_draw);
         idle_resize ();
     }
 
@@ -42,22 +36,22 @@ private class RoundedRectangle : Object
         Object (x: x, y: y, width: width, height: height, color: 0);
     }
 
-    internal void resize (float x, float y, float width, float height)
+    internal void resize (float _x, float _y, float _width, float _height)
     {
-        actor.x = x;
-        actor.y = y;
-        actor.width = width;
-        actor.height = height;
+        x = _x;
+        y = _y;
+        width = _width;
+        height = _height;
     }
 
     internal void idle_resize ()
     {
-        if (!canvas.set_size ((int) Math.ceilf (actor.width), (int) Math.ceilf (actor.height)))
-            canvas.invalidate ();
+//        if (!canvas.set_size ((int) Math.ceilf (actor.width), (int) Math.ceilf (actor.height)))
+//            canvas.invalidate ();
     }
 
     private const double HALF_PI = Math.PI / 2.0;
-    protected virtual bool _draw (Cairo.Context ctx, int width, int height)
+    protected virtual void _draw (Cairo.Context ctx, int width, int height)
     {
         double radius = (height > width) ? (height / 20.0) : (width / 20.0);
 
@@ -73,7 +67,7 @@ private class RoundedRectangle : Object
         ctx.arc (radius,         height - radius, radius,  HALF_PI,  Math.PI);
         ctx.close_path ();
 
-        Clutter.cairo_set_source_color (ctx, _color);
+        ctx.set_source_rgba (_color);
         ctx.fill ();
 
         return false;
@@ -83,31 +77,33 @@ private class RoundedRectangle : Object
     * * color
     \*/
 
-    private static HashTable<int, Clutter.Color?> colors
-             = new HashTable<int, Clutter.Color?> (direct_hash, direct_equal);
+    private static HashTable<int, Gdk.RGBA?> colors
+             = new HashTable<int, Gdk.RGBA?> (direct_hash, direct_equal);
     static construct
     {
-        colors.insert (/* empty */ 0,  Clutter.Color.from_string ("#ffffff"));  // White
-        colors.insert (/*     2 */ 1,  Clutter.Color.from_string ("#fce94f"));  // Butter 1
-        colors.insert (/*     4 */ 2,  Clutter.Color.from_string ("#8ae234"));  // Chameleon 1
-        colors.insert (/*     8 */ 3,  Clutter.Color.from_string ("#fcaf3e"));  // Orange 1
-        colors.insert (/*    16 */ 4,  Clutter.Color.from_string ("#729fcf"));  // Sky blue 1
-        colors.insert (/*    32 */ 5,  Clutter.Color.from_string ("#ad7fa8"));  // Plum 1
-        colors.insert (/*    64 */ 6,  Clutter.Color.from_string ("#c17d11"));  // Chocolate 2
-        colors.insert (/*   128 */ 7,  Clutter.Color.from_string ("#ef2929"));  // Scarlet red 1
-        colors.insert (/*   256 */ 8,  Clutter.Color.from_string ("#c4a000"));  // Butter 3
-        colors.insert (/*   512 */ 9,  Clutter.Color.from_string ("#4e9a06"));  // Chameleon 3
-        colors.insert (/*  1024 */ 10, Clutter.Color.from_string ("#ce5c00"));  // Orange 3
-        colors.insert (/*  2048 */ 11, Clutter.Color.from_string ("#204a87"));  // Sky blue 3
+        bool success;
+        Gdk.RGBA color;
+        if (color.parse ("#ffffff")) colors.insert (/* empty */  0, color); else assert_not_reached ();  // White
+        if (color.parse ("#fce94f")) colors.insert (/*     2 */  1, color); else assert_not_reached ();  // Butter 1
+        if (color.parse ("#8ae234")) colors.insert (/*     4 */  2, color); else assert_not_reached ();  // Chameleon 1
+        if (color.parse ("#fcaf3e")) colors.insert (/*     8 */  3, color); else assert_not_reached ();  // Orange 1
+        if (color.parse ("#729fcf")) colors.insert (/*    16 */  4, color); else assert_not_reached ();  // Sky blue 1
+        if (color.parse ("#ad7fa8")) colors.insert (/*    32 */  5, color); else assert_not_reached ();  // Plum 1
+        if (color.parse ("#c17d11")) colors.insert (/*    64 */  6, color); else assert_not_reached ();  // Chocolate 2
+        if (color.parse ("#ef2929")) colors.insert (/*   128 */  7, color); else assert_not_reached ();  // Scarlet red 1
+        if (color.parse ("#c4a000")) colors.insert (/*   256 */  8, color); else assert_not_reached ();  // Butter 3
+        if (color.parse ("#4e9a06")) colors.insert (/*   512 */  9, color); else assert_not_reached ();  // Chameleon 3
+        if (color.parse ("#ce5c00")) colors.insert (/*  1024 */ 10, color); else assert_not_reached ();  // Orange 3
+        if (color.parse ("#204a87")) colors.insert (/*  2048 */ 11, color); else assert_not_reached ();  // Sky blue 3
     }
 
-    private Clutter.Color _color;
+    private Gdk.RGBA _color;
     private uint8 _color_index;
     [CCode (notify = false)] public uint8 color {
         internal get { return _color_index; }   // protected for TileView, internal for debug
         internal construct {
             _color_index = value;
-            Clutter.Color? color = colors.lookup ((int) value);
+            Gdk.RGBA? color = colors.lookup ((int) value);
             if (color == null)
                 _new_color (value, out _color);
             else
@@ -115,11 +111,11 @@ private class RoundedRectangle : Object
         }
     }
 
-    private static void _new_color (uint8 tile_value, out Clutter.Color color)
+    private static void _new_color (uint8 tile_value, out Gdk.RGBA color)
         requires (tile_value >= 12)
         requires (tile_value <= 81)
     {
-        Clutter.Color? nullable_color = colors.lookup ((int) ((tile_value - 1) % 11 + 1));
+        Gdk.RGBA? nullable_color = colors.lookup ((int) ((tile_value - 1) % 11 + 1));
         if (nullable_color == null)
             assert_not_reached ();
         color = (!) nullable_color;
