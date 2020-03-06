@@ -39,8 +39,6 @@ gnome_2048 = executable(
     posix_dependency,
     libm_dependency,
     gtk_dependency,
-    clutter_dependency,
-    clutter_gtk_dependency,
     gee_dependency,
     libgnome_games_support_dependency,
   ],
