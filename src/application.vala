@@ -22,6 +22,9 @@ using Gtk;
 
 private class TwentyFortyEight : Gtk.Application
 {
+    /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
+    private const string PROGRAM_NAME = _("2048");
+
     private GameWindow _window;
 
     private static bool show_version;
@@ -67,37 +70,6 @@ private class TwentyFortyEight : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        OptionContext context = new OptionContext ("");
-        context.add_main_entries (option_entries, GETTEXT_PACKAGE);
-
-        context.add_group (get_option_group (true));
-        context.add_group (Clutter.get_option_group_without_init ());
-
-        try {
-            context.parse (ref args);
-        } catch (Error e) {
-            stderr.printf ("%s\n", e.message);
-            return Posix.EXIT_FAILURE;
-        }
-
-        const string application_name = "org.gnome.TwentyFortyEight";
-        Environment.set_application_name (application_name);
-        Window.set_default_icon_name ("org.gnome.TwentyFortyEight");
-
-        try {
-            GtkClutter.init_with_args (ref args, "", new OptionEntry[0], null);
-        } catch (Error e) {
-            MessageDialog dialog = new MessageDialog (null,
-                                                      DialogFlags.MODAL,
-                                                      MessageType.ERROR,
-                                                      ButtonsType.NONE,
-                                                      "Unable to initialize Clutter:\n%s", e.message);
-            dialog.set_title (application_name);
-            dialog.run ();
-            dialog.destroy ();
-            return Posix.EXIT_FAILURE;
-        }
-
         TwentyFortyEight app = new TwentyFortyEight ();
         return app.run (args);
     }
@@ -105,6 +77,8 @@ private class TwentyFortyEight : Gtk.Application
     private TwentyFortyEight ()
     {
         Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.FLAGS_NONE);
+
+        add_main_option_entries (option_entries);
     }
 
     protected override int handle_local_options (GLib.VariantDict options)  // options will be empty, we used a custom OptionContext
@@ -150,6 +124,9 @@ private class TwentyFortyEight : Gtk.Application
     protected override void startup ()
     {
         base.startup ();
+
+        Environment.set_application_name (PROGRAM_NAME);
+        Window.set_default_icon_name ("org.gnome.TwentyFortyEight");
 
         add_action_entries (action_entries, this);
 

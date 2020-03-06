@@ -58,8 +58,8 @@ private class Game : Object
     private Gee.LinkedList<Tile?>         _to_show = new Gee.LinkedList<Tile?> ();
 
     private GameState _state = GameState.STOPPED;
-    private Clutter.TransitionGroup _show_hide_trans;
-    private Clutter.TransitionGroup _move_trans;
+//    private Clutter.TransitionGroup _show_hide_trans;
+//    private Clutter.TransitionGroup _move_trans;
     private int _animations_duration;
 
     private string _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
@@ -83,32 +83,33 @@ private class Game : Object
     * * view
     \*/
 
-    private Clutter.Actor _view;
-    private Clutter.Actor _view_background;
-    private Clutter.Actor _view_foreground;
+    private Board _view;
+//    private Clutter.Actor _view;
+//    private Clutter.Actor _view_background;
+//    private Clutter.Actor _view_foreground;
 
-    [CCode (notify = false)] internal Clutter.Actor view {
-        internal get { return _view; }
-        internal set {
-            _view = value;
-            _view.allocation_changed.connect (_on_allocation_changed);
+//    [CCode (notify = false)] internal Clutter.Actor view {
+//        internal get { return _view; }
+//        internal set {
+//            _view = value;
+//            _view.allocation_changed.connect (_on_allocation_changed);
 
-            _view_background = new Clutter.Actor ();
-            _view_foreground = new Clutter.Actor ();
-            _view_background.show ();
-            _view_foreground.show ();
-            _view.add_child (_view_background);
-            _view.add_child (_view_foreground);
-        }
-    }
+//            _view_background = new Clutter.Actor ();
+//            _view_foreground = new Clutter.Actor ();
+//            _view_background.show ();
+//            _view_foreground.show ();
+//            _view.add_child (_view_background);
+//            _view.add_child (_view_foreground);
+//        }
+//    }
 
-    private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
-    {
-        if (_background_init_done)
-            _resize_view ();
-        else
-            _init_background ();
-    }
+//    private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
+//    {
+//        if (_background_init_done)
+//            _resize_view ();
+//        else
+//            _init_background ();
+//    }
 
     /*\
     * * others
@@ -204,15 +205,15 @@ private class Game : Object
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        Clutter.Color background_color = Clutter.Color.from_string ("#babdb6");
-        _view.set_background_color (background_color);
+//        Clutter.Color background_color = Clutter.Color.from_string ("#babdb6");
+//        _view.set_background_color (background_color);
 
         _background     = new RoundedRectangle [rows, cols];
         _foreground_cur = new TileView? [rows, cols];
         _foreground_nxt = new TileView? [rows, cols];
 
-        float canvas_width  = _view.width;
-        float canvas_height = _view.height;
+//        float canvas_width  = _view.width;
+//        float canvas_height = _view.height;
 
         canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
@@ -229,7 +230,7 @@ private class Game : Object
 
                 RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
 
-                _view_background.add_child (rect.actor);
+//                _view_background.add_child (rect.actor);
                 rect.canvas.invalidate ();
                 rect.actor.show ();
 
@@ -245,8 +246,8 @@ private class Game : Object
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        float canvas_width  = _view.width;
-        float canvas_height = _view.height;
+//        float canvas_width  = _view.width;
+//        float canvas_height = _view.height;
 
         canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
@@ -271,8 +272,8 @@ private class Game : Object
             }
         }
 
-        if (_resize_view_id == 0)
-            _resize_view_id = Clutter.Threads.Timeout.add (1000, _idle_resize_view);
+//        if (_resize_view_id == 0)
+//            _resize_view_id = Clutter.Threads.Timeout.add (1000, _idle_resize_view);
     }
 
     private bool _idle_resize_view ()
@@ -322,11 +323,11 @@ private class Game : Object
         GridPosition pos = tile.pos;
         assert (_foreground_nxt [pos.row, pos.col] == null);
 
-        Clutter.Actor actor = _background [pos.row, pos.col].actor;
-        _foreground_nxt [pos.row, pos.col] = new TileView (actor.x,
-                                                           actor.y,
-                                                           actor.width,
-                                                           actor.height,
+        RoundedRectangle rect = _background [pos.row, pos.col];
+        _foreground_nxt [pos.row, pos.col] = new TileView (rect.x,
+                                                           rect.y,
+                                                           rect.width,
+                                                           rect.height,
                                                            tile.val);
     }
 
@@ -334,38 +335,38 @@ private class Game : Object
     {
         debug (@"show tile pos $pos");
 
-        Clutter.PropertyTransition trans;
+//        Clutter.PropertyTransition trans;
 
         TileView? tile_view = _foreground_nxt [pos.row, pos.col];
         if (tile_view == null)
             assert_not_reached ();
-        Clutter.Actor actor = ((!) tile_view).actor;
+//        Clutter.Actor actor = ((!) tile_view).actor;
 
-        ((!) tile_view).canvas.invalidate ();
-        actor.set_opacity (0);
-        actor.show ();
-        _view_foreground.add_child (actor);
+//        ((!) tile_view).canvas.invalidate ();
+//        actor.set_opacity (0);
+//        actor.show ();
+//        _view_foreground.add_child (actor);
 
-        trans = new Clutter.PropertyTransition ("scale-x");
-        trans.set_from_value (1.0);
-        trans.set_to_value (1.1);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (actor);
-        _show_hide_trans.add_transition (trans);
+//        trans = new Clutter.PropertyTransition ("scale-x");
+//        trans.set_from_value (1.0);
+//        trans.set_to_value (1.1);
+//        trans.set_duration (_animations_duration);
+//        trans.set_animatable (actor);
+//        _show_hide_trans.add_transition (trans);
 
-        trans = new Clutter.PropertyTransition ("scale-y");
-        trans.set_from_value (1.0);
-        trans.set_to_value (1.1);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (actor);
-        _show_hide_trans.add_transition (trans);
+//        trans = new Clutter.PropertyTransition ("scale-y");
+//        trans.set_from_value (1.0);
+//        trans.set_to_value (1.1);
+//        trans.set_duration (_animations_duration);
+//        trans.set_animatable (actor);
+//        _show_hide_trans.add_transition (trans);
 
-        trans = new Clutter.PropertyTransition ("opacity");
-        trans.set_from_value (0);
-        trans.set_to_value (255);
-        trans.set_remove_on_complete (true);
-        trans.set_duration (_animations_duration / 2);
-        actor.add_transition ("show", trans);
+//        trans = new Clutter.PropertyTransition ("opacity");
+//        trans.set_from_value (0);
+//        trans.set_to_value (255);
+//        trans.set_remove_on_complete (true);
+//        trans.set_duration (_animations_duration / 2);
+//        actor.add_transition ("show", trans);
     }
 
     private void _move_tile (GridPosition from, GridPosition to)
@@ -391,12 +392,12 @@ private class Game : Object
         if (tile_view == null)
             assert_not_reached ();
 
-        Clutter.PropertyTransition trans = new Clutter.PropertyTransition (row_move ? "y" : "x");
-        trans.set_from_value (row_move ? rect_from.actor.y : rect_from.actor.x);
-        trans.set_to_value (row_move ? rect_to.actor.y : rect_to.actor.x);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (((!) tile_view).actor);
-        _move_trans.add_transition (trans);
+//        Clutter.PropertyTransition trans = new Clutter.PropertyTransition (row_move ? "y" : "x");
+//        trans.set_from_value (row_move ? rect_from.actor.y : rect_from.actor.x);
+//        trans.set_to_value (row_move ? rect_to.actor.y : rect_to.actor.x);
+//        trans.set_duration (_animations_duration);
+//        trans.set_animatable (((!) tile_view).actor);
+//        _move_trans.add_transition (trans);
     }
 
     private void _dim_tile (GridPosition pos)
@@ -406,30 +407,30 @@ private class Game : Object
             assert_not_reached ();
         debug (@"diming tile at $pos " + ((!) tile_view).color.to_string ());
 
-        Clutter.Actor actor;
-        Clutter.PropertyTransition trans;
+//        Clutter.Actor actor;
+//        Clutter.PropertyTransition trans;
 
-        actor = ((!) tile_view).actor;
+//        actor = ((!) tile_view).actor;
 
-        trans = new Clutter.PropertyTransition ("opacity");
-        trans.set_from_value (actor.opacity);
-        trans.set_to_value (0);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (actor);
+//        trans = new Clutter.PropertyTransition ("opacity");
+//        trans.set_from_value (actor.opacity);
+//        trans.set_to_value (0);
+//        trans.set_duration (_animations_duration);
+//        trans.set_animatable (actor);
 
-        _show_hide_trans.add_transition (trans);
+//        _show_hide_trans.add_transition (trans);
     }
 
     private void _clear_background ()
     {
-        _view_background.remove_all_children ();
+//        _view_background.remove_all_children ();
     }
 
     private void _clear_foreground ()
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        _view_foreground.remove_all_children ();
+//        _view_foreground.remove_all_children ();
         for (uint8 i = 0; i < rows; i++)
         {
             for (uint8 j = 0; j < cols; j++)
@@ -487,9 +488,9 @@ private class Game : Object
 
         Grid clone = _grid.clone ();
 
-        _move_trans = new Clutter.TransitionGroup ();
-        _move_trans.stopped.connect (_on_move_trans_stopped);
-        _move_trans.set_duration (_animations_duration);
+//        _move_trans = new Clutter.TransitionGroup ();
+//        _move_trans.stopped.connect (_on_move_trans_stopped);
+//        _move_trans.set_duration (_animations_duration);
 
         _grid.move (request, ref _to_move, ref _to_hide, ref _to_show);
 
@@ -509,39 +510,39 @@ private class Game : Object
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
             _state = GameState.MOVING;
-            _move_trans.start ();
+//            _move_trans.start ();
             _store_movement (clone);
         }
 
         _just_restored = false;
     }
 
-    private void _on_move_trans_stopped (Clutter.Timeline trans, bool is_finished)
-    {
-        debug (@"move animation stopped\n$_grid");
+//    private void _on_move_trans_stopped (Clutter.Timeline trans, bool is_finished)
+//    {
+//        debug (@"move animation stopped\n$_grid");
 
-        ((Clutter.TransitionGroup) trans).remove_all ();
+//        ((Clutter.TransitionGroup) trans).remove_all ();
 
-        foreach (TileMovement? e in _to_hide)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _dim_tile (((!) e).from);
-        }
+//        foreach (TileMovement? e in _to_hide)
+//        {
+//            if (e == null)
+//                assert_not_reached ();
+//            _dim_tile (((!) e).from);
+//        }
 
-        long delta_score = 0;   // do not notify["score"] multiple times
-        foreach (Tile? e in _to_show)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _create_tile ((!) e);
-            _show_tile (((!) e).pos);
-            delta_score += (long) Math.pow (2, ((!) e).val);
-        }
-        score += delta_score;
+//        long delta_score = 0;   // do not notify["score"] multiple times
+//        foreach (Tile? e in _to_show)
+//        {
+//            if (e == null)
+//                assert_not_reached ();
+//            _create_tile ((!) e);
+//            _show_tile (((!) e).pos);
+//            delta_score += (long) Math.pow (2, ((!) e).val);
+//        }
+//        score += delta_score;
 
-        _create_random_tile ();
-    }
+//        _create_random_tile ();
+//    }
 
     /*\
     * * new tile animation
@@ -555,27 +556,27 @@ private class Game : Object
 
     private void _create_show_hide_transition (bool animate)
     {
-        _show_hide_trans = new Clutter.TransitionGroup ();
-        _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
-        /* _show_hide_trans should be finished two times (forward and backward) before
-           one _move_trans is done, so at least animation time should be strictly half */
-        _show_hide_trans.set_duration (animate ? _animations_duration / 3 : 10);
+//        _show_hide_trans = new Clutter.TransitionGroup ();
+//        _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
+//        /* _show_hide_trans should be finished two times (forward and backward) before
+//           one _move_trans is done, so at least animation time should be strictly half */
+//        _show_hide_trans.set_duration (animate ? _animations_duration / 3 : 10);
     }
 
-    private void _on_show_hide_trans_stopped (Clutter.Timeline trans, bool is_finished)
-    {
-        debug ("show/hide animation stopped");
+//    private void _on_show_hide_trans_stopped (Clutter.Timeline trans, bool is_finished)
+//    {
+//        debug ("show/hide animation stopped");
 
-        if (trans.direction == Clutter.TimelineDirection.FORWARD)
-        {
-            trans.direction = Clutter.TimelineDirection.BACKWARD;
-            trans.start ();
-            return;
-        }
+//        if (trans.direction == Clutter.TimelineDirection.FORWARD)
+//        {
+//            trans.direction = Clutter.TimelineDirection.BACKWARD;
+//            trans.start ();
+//            return;
+//        }
 
-        ((Clutter.TransitionGroup) trans).remove_all ();
-        _apply_move ();
-    }
+//        ((Clutter.TransitionGroup) trans).remove_all ();
+//        _apply_move ();
+//    }
 
     private void _apply_move ()
     {
@@ -593,9 +594,9 @@ private class Game : Object
             TileView? tile_view = _foreground_cur [pos.row, pos.col];
             if (tile_view == null)
                 assert_not_reached ();
-            ((!) tile_view).actor.hide ();
+//            ((!) tile_view).actor.hide ();
             debug (@"remove child " + ((!) tile_view).color.to_string ());
-            _view_foreground.remove_child (((!) tile_view).actor);
+//            _view_foreground.remove_child (((!) tile_view).actor);
 
             _foreground_cur [pos.row, pos.col] = null;
         }

@@ -21,13 +21,17 @@
 using Games;
 using Gtk;
 
+private class Board : Widget
+{
+}
+
 [GtkTemplate (ui = "/org/gnome/TwentyFortyEight/ui/game-window.ui")]
 private class GameWindow : ApplicationWindow
 {
     private GLib.Settings _settings;
 
     [GtkChild] private GameHeaderBar    _header_bar;
-    [GtkChild] private GtkClutter.Embed _embed;
+    [GtkChild] private Board            _board;
 
     [GtkChild] private Button           _unfullscreen_button;
 
@@ -47,7 +51,7 @@ private class GameWindow : ApplicationWindow
         _init_window ();
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
-        notify ["has-toplevel-focus"].connect (() => _embed.grab_focus ());
+        notify ["has-toplevel-focus"].connect (() => _board.grab_focus ());
     }
 
     internal GameWindow (TwentyFortyEight application, uint8 cols, uint8 rows)
@@ -107,7 +111,7 @@ private class GameWindow : ApplicationWindow
         _init_window_state (this);
         _load_window_state (this, ref _settings);
 
-        _header_bar.popover_closed.connect (() => _embed.grab_focus ());
+        _header_bar.popover_closed.connect (() => _board.grab_focus ());
         _settings.changed.connect ((settings, key_name) => {
                 switch (key_name)
                 {
@@ -131,7 +135,7 @@ private class GameWindow : ApplicationWindow
         _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
         _game.load_settings (ref _settings);
 
-        _game.view = _embed.get_stage ();
+        _game.view = _board;
 
         set_events (get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
     }
@@ -258,14 +262,14 @@ private class GameWindow : ApplicationWindow
 
         _header_bar.clear_subtitle ();
         _game.undo ();
-        _embed.grab_focus ();
+        _board.grab_focus ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
         _header_bar.clear_subtitle ();
         _game.new_game (ref _settings);
-        _embed.grab_focus ();
+        _board.grab_focus ();
     }
 
     private void new_game_sized_cb (SimpleAction action, Variant? variant)
@@ -311,7 +315,7 @@ private class GameWindow : ApplicationWindow
     private static inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         GameWindow _this = (GameWindow) _key_controller.get_widget ();
-        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._embed.is_focus))
+        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._board.is_focus))
             return false;
         if (_this._game.cannot_move ())
             return false;
@@ -346,13 +350,13 @@ private class GameWindow : ApplicationWindow
 
     private inline void _init_gestures ()
     {
-        gesture_swipe = new GestureSwipe (_embed);  // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
+        gesture_swipe = new GestureSwipe (_board);  // _window works, but problems with headerbar; the main grid or the aspectframe do as _board
         gesture_swipe.set_propagation_phase (PropagationPhase.CAPTURE);
         gesture_swipe.set_button (/* all buttons */ 0);
         gesture_swipe.swipe.connect (_on_swipe);
     }
 
-    private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _embed, not the window
+    private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _board, not the window
     {
         uint button = _gesture_swipe.get_current_button ();
         if (button != Gdk.BUTTON_PRIMARY && button != Gdk.BUTTON_SECONDARY)
