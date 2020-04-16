@@ -348,12 +348,16 @@ private class GameWindow : ApplicationWindow
     {
         gesture_swipe = new GestureSwipe (_embed);  // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
         gesture_swipe.set_propagation_phase (PropagationPhase.CAPTURE);
-        gesture_swipe.set_button (/* all events */ 0);
+        gesture_swipe.set_button (/* all buttons */ 0);
         gesture_swipe.swipe.connect (_on_swipe);
     }
 
     private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _embed, not the window
     {
+        uint button = _gesture_swipe.get_current_button ();
+        if (button != Gdk.BUTTON_PRIMARY && button != Gdk.BUTTON_SECONDARY)
+            return;
+
         if (_game.cannot_move ())
             return;
 
