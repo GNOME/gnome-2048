@@ -67,7 +67,7 @@ private class RoundedRectangle : Gtk.DrawingArea
         ctx.arc (radius,         height - radius, radius,  HALF_PI,  Math.PI);
         ctx.close_path ();
 
-        ctx.set_source_rgba (_color);
+        Gdk.cairo_set_source_rgba (ctx, _color);
         ctx.fill ();
 
         return false;
@@ -140,7 +140,7 @@ private class TileView : RoundedRectangle
     {
         base._draw (ctx, width, height);
 
-        ctx.set_source_rgb (255, 255, 255);
+        ctx.set_source_rgb (255.0, 255.0, 255.0);
 
         Pango.Layout layout = Pango.cairo_create_layout (ctx);
         Pango.FontDescription font_desc = Pango.FontDescription.from_string ("Sans Bold %dpx".printf (height / 4));
