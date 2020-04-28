@@ -40,6 +40,7 @@ gnome_2048 = executable(
     libm_dependency,
     gtk_dependency,
     gee_dependency,
+    pango_cairo_dependency,
     libgnome_games_support_dependency,
   ],
   c_args: [
