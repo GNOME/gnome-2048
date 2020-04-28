@@ -119,9 +119,9 @@ private class RoundedRectangle : Gtk.DrawingArea
         color = (!) nullable_color;
 
         uint8 sbits = (uint8) (Math.pow (2, tile_value) % 7);
-        color.red   <<= sbits;
-        color.green <<= sbits;
-        color.blue  <<= sbits;
+//        color.red   <<= sbits;
+//        color.green <<= sbits;
+//        color.blue  <<= sbits;
 
         colors.insert ((int) tile_value, color);
     }
