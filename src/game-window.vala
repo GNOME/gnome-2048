@@ -310,8 +310,9 @@ private class GameWindow : ApplicationWindow
 
     private inline void _init_keyboard ()   // called on construct
     {
-        key_controller = new EventControllerKey (this);
+        key_controller = new EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        ((Widget) this).add_controller (key_controller);
     }
 
     private static inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
@@ -352,10 +353,11 @@ private class GameWindow : ApplicationWindow
 
     private inline void _init_gestures ()
     {
-        gesture_swipe = new GestureSwipe (_board);  // _window works, but problems with headerbar; the main grid or the aspectframe do as _board
+        gesture_swipe = new GestureSwipe ();  // _window works, but problems with headerbar; the main grid or the aspectframe do as _board
         gesture_swipe.set_propagation_phase (PropagationPhase.CAPTURE);
         gesture_swipe.set_button (/* all buttons */ 0);
         gesture_swipe.swipe.connect (_on_swipe);
+        _board.add_controller (gesture_swipe);
     }
 
     private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _board, not the window
