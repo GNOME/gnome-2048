@@ -88,6 +88,20 @@ private class Game : Object
 //    private Clutter.Actor _view_background;
 //    private Clutter.Actor _view_foreground;
 
+    [CCode (notify = false)] internal Board view {
+        internal get { return _view; }
+        internal set {
+            _view = value;
+            _view.size_allocate.connect (_on_size_allocate);
+
+//            _view_background = new Clutter.Actor ();
+//            _view_foreground = new Clutter.Actor ();
+//            _view_background.show ();
+//            _view_foreground.show ();
+//            _view.add_child (_view_background);
+//            _view.add_child (_view_foreground);
+        }
+    }
 //    [CCode (notify = false)] internal Clutter.Actor view {
 //        internal get { return _view; }
 //        internal set {
@@ -103,13 +117,13 @@ private class Game : Object
 //        }
 //    }
 
-//    private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
-//    {
-//        if (_background_init_done)
-//            _resize_view ();
-//        else
-//            _init_background ();
-//    }
+    private void _on_size_allocate (Gtk.Widget widget, int width, int height, int baseline)
+    {
+        if (_background_init_done)
+            _resize_view ();
+        else
+            _init_background ();
+    }
 
     /*\
     * * others
