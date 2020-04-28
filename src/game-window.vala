@@ -21,34 +21,15 @@
 using Games;
 using Gtk;
 
-private class Board : Widget
-{
-    internal int width  { internal get; private set; }
-    internal int height { internal get; private set; }
-
-    construct
-    {
-        size_allocate.connect (on_size_allocate);
-    }
-
-    private static inline void on_size_allocate (Widget widget, int _width, int _height, int _baseline)
-    {
-        ((Board) widget).width  = _width;
-        ((Board) widget).height = _height;
-    }
-}
-
 [GtkTemplate (ui = "/org/gnome/TwentyFortyEight/ui/game-window.ui")]
 private class GameWindow : ApplicationWindow
 {
     private GLib.Settings _settings;
 
     [GtkChild] private GameHeaderBar    _header_bar;
-    [GtkChild] private Board            _board;
+    [GtkChild] private Game             _game;
 
     [GtkChild] private Button           _unfullscreen_button;
-
-    private Game _game;
 
     public uint8 cli_cols { private get; protected construct; default = 0; }
     public uint8 cli_rows { private get; protected construct; default = 0; }
@@ -64,7 +45,7 @@ private class GameWindow : ApplicationWindow
         _init_window ();
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
-        notify ["has-toplevel-focus"].connect (() => _board.grab_focus ());
+        notify ["has-toplevel-focus"].connect (() => _game.grab_focus ());
     }
 
     internal GameWindow (TwentyFortyEight application, uint8 cols, uint8 rows)
@@ -124,7 +105,7 @@ private class GameWindow : ApplicationWindow
         _init_window_state ();
         _load_window_state (this, ref _settings);
 
-        _header_bar.popover_closed.connect (() => _board.grab_focus ());
+        _header_bar.popover_closed.connect (() => _game.grab_focus ());
         _settings.changed.connect ((settings, key_name) => {
                 switch (key_name)
                 {
@@ -147,8 +128,6 @@ private class GameWindow : ApplicationWindow
                                            (uint8) _settings.get_int ("cols")); // and cols from 1 to 9
         _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
         _game.load_settings (ref _settings);
-
-        _game.view = _board;
     }
 
     /*\
@@ -271,14 +250,14 @@ private class GameWindow : ApplicationWindow
 
         _header_bar.clear_subtitle ();
         _game.undo ();
-        _board.grab_focus ();
+        _game.grab_focus ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
         _header_bar.clear_subtitle ();
         _game.new_game (ref _settings);
-        _board.grab_focus ();
+        _game.grab_focus ();
     }
 
     private void new_game_sized_cb (SimpleAction action, Variant? variant)
@@ -325,7 +304,7 @@ private class GameWindow : ApplicationWindow
     private static inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         GameWindow _this = (GameWindow) _key_controller.get_widget ();
-        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._board.is_focus ()))
+        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._game.is_focus ()))
             return false;
         if (_this._game.cannot_move ())
             return false;
@@ -360,14 +339,14 @@ private class GameWindow : ApplicationWindow
 
     private inline void _init_gestures ()
     {
-        gesture_swipe = new GestureSwipe ();  // _window works, but problems with headerbar; the main grid or the aspectframe do as _board
+        gesture_swipe = new GestureSwipe ();  // _window works, but problems with headerbar; the main grid or the aspectframe do as _game
         gesture_swipe.set_propagation_phase (PropagationPhase.CAPTURE);
         gesture_swipe.set_button (/* all buttons */ 0);
         gesture_swipe.swipe.connect (_on_swipe);
-        _board.add_controller (gesture_swipe);
+        _game.add_controller (gesture_swipe);
     }
 
-    private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _board, not the window
+    private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _game, not the window
     {
         uint button = _gesture_swipe.get_current_button ();
         if (button != Gdk.BUTTON_PRIMARY && button != Gdk.BUTTON_SECONDARY)

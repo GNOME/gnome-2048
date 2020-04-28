@@ -35,7 +35,7 @@
             <child>
               <object class="GtkAspectFrame">
                 <child>
-                  <object class="Board" id="_board"/>
+                  <object class="Game" id="_game"/>
                 </child>
               </object>
             </child>
