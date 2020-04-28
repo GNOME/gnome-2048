@@ -108,7 +108,7 @@ private class GameWindow : ApplicationWindow
 
     private void _init_window ()
     {
-        _init_window_state (this);
+        _init_window_state ();
         _load_window_state (this, ref _settings);
 
         _header_bar.popover_closed.connect (() => _board.grab_focus ());
@@ -153,11 +153,11 @@ private class GameWindow : ApplicationWindow
     private bool _window_is_fullscreen;
     private bool _window_is_tiled;
 
-    private static void _init_window_state (GameWindow _this)
+    private void _init_window_state ()
     {
-        _this.window_state_event.connect (state_event_cb);
-        _this.size_allocate.connect (size_allocate_cb);
-        _this.set_size_request (WINDOW_MINIMUM_SIZE_HEIGHT, WINDOW_MINIMUM_SIZE_WIDTH);
+        size_allocate.connect (size_allocate_cb);
+        map.connect (init_state_watcher);
+        set_size_request (WINDOW_MINIMUM_SIZE_HEIGHT, WINDOW_MINIMUM_SIZE_WIDTH);
     }
 
     private static void _load_window_state (GameWindow _this, ref GLib.Settings _settings)
@@ -178,6 +178,15 @@ private class GameWindow : ApplicationWindow
         _settings.apply ();
     }
 
+    private inline void init_state_watcher ()
+    {
+        Gdk.Surface? nullable_surface = get_surface ();     // TODO report bug, get_surface() returns a nullable Surface
+        if (nullable_surface == null || !((!) nullable_surface is Gdk.Toplevel))
+            assert_not_reached ();
+        surface = (Gdk.Toplevel) (!) nullable_surface;
+        surface.notify ["state"].connect (on_window_state_event);
+    }
+
     private static void size_allocate_cb (Widget widget, Allocation allocation)
     {
         GameWindow _this = (GameWindow) widget;
@@ -192,31 +201,30 @@ private class GameWindow : ApplicationWindow
         _this._window_height = (!) window_height;
     }
 
-    private const Gdk.WindowState tiled_state = Gdk.WindowState.TILED
-                                              | Gdk.WindowState.TOP_TILED
-                                              | Gdk.WindowState.BOTTOM_TILED
-                                              | Gdk.WindowState.LEFT_TILED
-                                              | Gdk.WindowState.RIGHT_TILED;
-    private static bool state_event_cb (Widget widget, Gdk.EventWindowState event)
+    private Gdk.Toplevel surface;
+    private const Gdk.ToplevelState tiled_state = Gdk.ToplevelState.TILED
+                                                | Gdk.ToplevelState.TOP_TILED
+                                                | Gdk.ToplevelState.BOTTOM_TILED
+                                                | Gdk.ToplevelState.LEFT_TILED
+                                                | Gdk.ToplevelState.RIGHT_TILED;
+    private inline void on_window_state_event ()
     {
-        GameWindow _this = (GameWindow) widget;
-        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            _this._window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+        Gdk.ToplevelState state = surface.get_state ();
+
+        _window_is_maximized = (state & Gdk.ToplevelState.MAXIMIZED) != 0;
 
         /* fullscreen: saved as maximized */
-        bool window_fullscreen = _this._window_is_fullscreen;
-        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
-            _this._window_is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
-        if (window_fullscreen && !_this._window_is_fullscreen)
-            _this._unfullscreen_button.hide ();
-        else if (!window_fullscreen && _this._window_is_fullscreen)
-            _this._unfullscreen_button.show ();
+        bool window_was_fullscreen = _window_is_fullscreen;
+
+        _window_is_fullscreen = (state & Gdk.ToplevelState.FULLSCREEN) != 0;
+
+        if (window_was_fullscreen && !_window_is_fullscreen)
+            _unfullscreen_button.hide ();
+        else if (!window_was_fullscreen && _window_is_fullscreen)
+            _unfullscreen_button.show ();
 
         /* tiled: not saved, but should not change saved window size */
-        if ((event.changed_mask & tiled_state) != 0)
-            _this._window_is_tiled = (event.new_window_state & tiled_state) != 0;
-
-        return false;
+        _window_is_tiled = (state & tiled_state) != 0;
     }
 
     /*\
