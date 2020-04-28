@@ -226,8 +226,8 @@ private class Game : Object
         _foreground_cur = new TileView? [rows, cols];
         _foreground_nxt = new TileView? [rows, cols];
 
-//        float canvas_width  = _view.width;
-//        float canvas_height = _view.height;
+        float canvas_width  = (float) _view.width;
+        float canvas_height = (float) _view.height;
 
         canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
@@ -260,8 +260,8 @@ private class Game : Object
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-//        float canvas_width  = _view.width;
-//        float canvas_height = _view.height;
+        float canvas_width  = (float) _view.width;
+        float canvas_height = (float) _view.height;
 
         canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
