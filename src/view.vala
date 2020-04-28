@@ -51,7 +51,7 @@ private class RoundedRectangle : Gtk.DrawingArea
     }
 
     private const double HALF_PI = Math.PI / 2.0;
-    protected virtual void _draw (Cairo.Context ctx, int width, int height)
+    protected virtual void _draw (Gtk.DrawingArea _this, Cairo.Context ctx, int width, int height)
     {
         double radius = (height > width) ? (height / 20.0) : (width / 20.0);
 
@@ -69,8 +69,6 @@ private class RoundedRectangle : Gtk.DrawingArea
 
         Gdk.cairo_set_source_rgba (ctx, _color);
         ctx.fill ();
-
-        return false;
     }
 
     /*\
@@ -136,9 +134,9 @@ private class TileView : RoundedRectangle
         Object (x: x, y: y, width: width, height: height, color: val);
     }
 
-    protected override bool _draw (Cairo.Context ctx, int width, int height)
+    protected override void _draw (Gtk.DrawingArea _this, Cairo.Context ctx, int width, int height)
     {
-        base._draw (ctx, width, height);
+        base._draw (_this, ctx, width, height);
 
         ctx.set_source_rgb (255.0, 255.0, 255.0);
 
@@ -153,7 +151,5 @@ private class TileView : RoundedRectangle
         ctx.move_to ((width  / 2) - (logical_rect.width  / 2 / Pango.SCALE),
                      (height / 2) - (logical_rect.height / 2 / Pango.SCALE));
         Pango.cairo_show_layout (ctx, layout);
-
-        return false;
     }
 }
