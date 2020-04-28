@@ -16,7 +16,7 @@
   along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.99"/>
   <template class="GameWindow" parent="GtkApplicationWindow">
     <property name="can-focus">False</property>
     <property name="window-position">center</property>
@@ -26,23 +26,17 @@
     <property name="show-menubar">False</property>
     <signal name="destroy" handler="on_destroy"/>
     <child type="titlebar">
-      <object class="GameHeaderBar" id="_header_bar">
-        <property name="visible">True</property>
-      </object>
+      <object class="GameHeaderBar" id="_header_bar"/>
     </child>
     <child>
       <object class="GtkOverlay">
-        <property name="visible">True</property>
         <child>
           <object class="GtkAspectFrame">
-            <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label-xalign">0</property>
             <property name="shadow-type">none</property>
             <child>
-              <object class="GtkClutterEmbed" id="_embed">
-                <property name="visible">True</property>
-              </object>
+              <object class="Board" id="_board"/>
             </child>
           </object>
         </child>
@@ -52,19 +46,16 @@
             <property name="halign">end</property>
             <property name="valign">start</property>
             <property name="action-name">ui.unfullscreen</property>
-            <property name="margin">6</property>
+            <property name="icon-name">view-restore-symbolic</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
             <style>
               <class name="image-button"/>
               <!-- class name="unfullscreen-button"/ -->
               <class name="flat"/>
             </style>
-            <child>
-              <object class="GtkImage">
-                <property name="icon-name">view-restore-symbolic</property>
-                <property name="visible">True</property>
-                <property name="icon-size">1</property>
-              </object>
-            </child>
           </object>
         </child>
       </object>
