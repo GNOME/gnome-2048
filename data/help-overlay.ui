@@ -16,20 +16,17 @@
   along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface domain="gnome-2048">
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.98"/>
   <object class="GtkShortcutsWindow" id="help_overlay">
     <child>
       <object class="GtkShortcutsSection">
-        <property name="visible">True</property>
         <property name="max-height">11</property>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">True</property>
             <!-- Translators: header of the "Play with arrows" shortcut section -->
             <property name="title" translatable="yes" context="shortcut window">Game</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: the application has no help, so the use of arrows for playing is documented here -->
                 <property name="title" translatable="yes" context="shortcut window">Play with arrows</property>
                 <property name="accelerator">Left Up Right Down</property>
@@ -39,12 +36,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">True</property>
             <!-- Translators: header of the "Choose a new game" and "Start a new game" shortcuts section -->
             <property name="title" translatable="yes" context="shortcut window">New game</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game -->
                 <property name="title" translatable="yes" context="shortcut window">Choose a new game</property>
                 <property name="accelerator">&lt;Primary&gt;n</property>
@@ -52,7 +47,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: shortcut that starts immediately a new game, with similar options -->
                 <property name="title" translatable="yes" context="shortcut window">Start a new game</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Primary&gt;n</property>
@@ -62,12 +56,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">True</property>
             <!-- Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section -->
             <property name="title" translatable="yes" context="shortcut window">Generic</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: shortcut that toggles the hamburger menu -->
                 <property name="title" translatable="yes" context="shortcut window">Toggle main menu</property>
                 <property name="accelerator">F10 Menu</property>
@@ -75,7 +67,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: shortcut that opens Keyboard Shortcuts window -->
                 <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
                 <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
@@ -83,7 +74,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: shortcut that opens About dialog -->
                 <property name="title" translatable="yes" context="shortcut window">About</property>
                 <property name="accelerator">&lt;Shift&gt;F1</property>
@@ -91,7 +81,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: shortcut that quits application -->
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
                 <property name="accelerator">&lt;Primary&gt;q</property>

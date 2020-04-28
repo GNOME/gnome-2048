@@ -16,7 +16,7 @@
   along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.98"/>
   <object class="GtkMessageDialog" id="congratsdialog">
     <property name="can-focus">False</property>
     <!-- Translators: title of the dialog that appears (with default settings) when you reach 2048 -->
@@ -28,21 +28,16 @@
       <object class="GtkBox">
         <child>
           <object class="GtkImage">
-            <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="pixel-size">64</property>
             <property name="icon-name">face-wink</property>
             <property name="icon-size">6</property>
           </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>
     <child type="action">
       <object class="GtkButton" id="new-game-button">
-        <property name="visible">True</property>
         <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)-->
         <property name="label" translatable="yes">_New Game</property>
         <property name="use-underline">True</property>
@@ -50,7 +45,6 @@
     </child>
     <child type="action">
       <object class="GtkButton" id="continue-button">
-        <property name="visible">True</property>
         <!-- Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt) -->
         <property name="label" translatable="yes">_Keep Playing</property>
         <property name="use-underline">True</property>
