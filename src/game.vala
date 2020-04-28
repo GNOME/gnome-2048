@@ -18,8 +18,11 @@
    along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class Game : Object
+private class Game : Gtk.Widget
 {
+    internal int width  { internal get; private set; }
+    internal int height { internal get; private set; }
+
     private enum GameState {
         STOPPED,
         IDLE,
@@ -66,11 +69,19 @@ private class Game : Object
 
     private uint _resize_view_id;
 
+    construct
+    {
+        hexpand = true;
+        vexpand = true;
+    }
+
     internal Game (ref GLib.Settings settings)
     {
         uint8 cols = (uint8) settings.get_int ("cols");  // schema ranges cols
         uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
         _init_grid (rows, cols, out _grid, ref settings);
+
+        size_allocate.connect (_on_size_allocate);
     }
 
     private static void _init_grid (uint8 rows, uint8 cols, out Grid grid, ref GLib.Settings settings)
@@ -83,16 +94,15 @@ private class Game : Object
     * * view
     \*/
 
-    private Board _view;
+//    private Board _view;
 //    private Clutter.Actor _view;
 //    private Clutter.Actor _view_background;
 //    private Clutter.Actor _view_foreground;
 
-    [CCode (notify = false)] internal Board view {
-        internal get { return _view; }
-        internal set {
-            _view = value;
-            _view.size_allocate.connect (_on_size_allocate);
+//    [CCode (notify = false)] internal Board view {
+//        internal get { return _view; }
+//        internal set {
+//            _view = value;
 
 //            _view_background = new Clutter.Actor ();
 //            _view_foreground = new Clutter.Actor ();
@@ -100,8 +110,8 @@ private class Game : Object
 //            _view_foreground.show ();
 //            _view.add_child (_view_background);
 //            _view.add_child (_view_foreground);
-        }
-    }
+//        }
+//    }
 //    [CCode (notify = false)] internal Clutter.Actor view {
 //        internal get { return _view; }
 //        internal set {
@@ -119,6 +129,9 @@ private class Game : Object
 
     private void _on_size_allocate (Gtk.Widget widget, int width, int height, int baseline)
     {
+        width  = _width;
+        height = _height;
+
         if (_background_init_done)
             _resize_view ();
         else
@@ -226,8 +239,8 @@ private class Game : Object
         _foreground_cur = new TileView? [rows, cols];
         _foreground_nxt = new TileView? [rows, cols];
 
-        float canvas_width  = (float) _view.width;
-        float canvas_height = (float) _view.height;
+        float canvas_width  = (float) width;
+        float canvas_height = (float) height;
 
         canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
@@ -260,8 +273,8 @@ private class Game : Object
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        float canvas_width  = (float) _view.width;
-        float canvas_height = (float) _view.height;
+        float canvas_width  = (float) width;
+        float canvas_height = (float) height;
 
         canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
         canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
