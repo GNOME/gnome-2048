@@ -23,6 +23,19 @@ using Gtk;
 
 private class Board : Widget
 {
+    internal int width  { internal get; private set; }
+    internal int height { internal get; private set; }
+
+    construct
+    {
+        size_allocate.connect (on_size_allocate);
+    }
+
+    private static inline void on_size_allocate (Widget widget, int _width, int _height, int _baseline)
+    {
+        ((Board) widget).width  = _width;
+        ((Board) widget).height = _height;
+    }
 }
 
 [GtkTemplate (ui = "/org/gnome/TwentyFortyEight/ui/game-window.ui")]
