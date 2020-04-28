@@ -36,12 +36,6 @@
           </object>
         </child>
         <child type="end">
-          <object class="GtkLabel" id="_score">
-            <property name="can-focus">False</property>
-            <property name="label">0</property>
-          </object>
-        </child>
-        <child type="end">
           <object class="GtkMenuButton" id="_hamburger_button">
             <property name="halign">end</property>
             <property name="valign">center</property>
@@ -50,6 +44,12 @@
             <style>
               <class name="image-button"/>
             </style>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkLabel" id="_score">
+            <property name="can-focus">False</property>
+            <property name="label">0</property>
           </object>
         </child>
       </object>
