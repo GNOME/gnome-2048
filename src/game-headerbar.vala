@@ -47,7 +47,8 @@ private class GameHeaderBar : HeaderBar
 
     internal bool has_popover ()
     {
-        return _hamburger_button.active || _new_game_button.active;
+//        return _hamburger_button.active || _new_game_button.active;
+        return false;
     }
 
     /*\
@@ -127,7 +128,7 @@ private class GameHeaderBar : HeaderBar
 
     internal void toggle_hamburger_menu ()
     {
-        _hamburger_button.active = !_hamburger_button.active;
+//        _hamburger_button.active = !_hamburger_button.active;
     }
 
     /*\
@@ -177,6 +178,6 @@ private class GameHeaderBar : HeaderBar
 
     internal void toggle_new_game ()
     {
-        _new_game_button.active = !_new_game_button.active;
+//        _new_game_button.active = !_new_game_button.active;
     }
 }
