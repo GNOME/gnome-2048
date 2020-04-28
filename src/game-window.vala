@@ -176,7 +176,7 @@ private class GameWindow : ApplicationWindow
         _settings.apply ();
     }
 
-    private static void size_allocate_cb (Widget widget, Allocation allocation)
+    private static void size_allocate_cb (Widget widget, int width, int height, int baseline)
     {
         GameWindow _this = (GameWindow) widget;
         if (_this._window_is_maximized || _this._window_is_tiled || _this._window_is_fullscreen)
