@@ -157,11 +157,7 @@ private class GameWindow : ApplicationWindow
     {
         _this.window_state_event.connect (state_event_cb);
         _this.size_allocate.connect (size_allocate_cb);
-
-        Gdk.Geometry geom = Gdk.Geometry ();
-        geom.min_height = WINDOW_MINIMUM_SIZE_HEIGHT;
-        geom.min_width = WINDOW_MINIMUM_SIZE_WIDTH;
-        _this.set_geometry_hints (_this, geom, Gdk.WindowHints.MIN_SIZE);
+        _this.set_size_request (WINDOW_MINIMUM_SIZE_HEIGHT, WINDOW_MINIMUM_SIZE_WIDTH);
     }
 
     private static void _load_window_state (GameWindow _this, ref GLib.Settings _settings)
