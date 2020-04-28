@@ -21,8 +21,9 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/TwentyFortyEight/ui/game-headerbar.ui")]
-private class GameHeaderBar : HeaderBar
+private class GameHeaderBar : Widget
 {
+    [GtkChild] private HeaderBar    _headerbar;
     [GtkChild] private Label        _score;
     [GtkChild] private MenuButton   _new_game_button;
     [GtkChild] private MenuButton   _hamburger_button;
@@ -35,6 +36,9 @@ private class GameHeaderBar : HeaderBar
 
     construct
     {
+        BinLayout layout = new BinLayout ();
+        set_layout_manager (layout);
+
         _hamburger_button.notify ["active"].connect (test_popover_closed);
         _new_game_button.notify ["active"].connect (test_popover_closed);
     }
@@ -57,15 +61,15 @@ private class GameHeaderBar : HeaderBar
 
     internal void clear_subtitle ()
     {
-        set_subtitle (null);
-        set_has_subtitle (false);
+        _headerbar.set_subtitle (null);
+        _headerbar.set_has_subtitle (false);
     }
 
     internal void finished ()
     {
-        set_has_subtitle (true);
+        _headerbar.set_has_subtitle (true);
         /* Translators: subtitle of the headerbar, when the user cannot move anymore */
-        subtitle = _("Game Over");
+        _headerbar.subtitle = _("Game Over");
     }
 
     internal void set_score (Object game, ParamSpec unused)
