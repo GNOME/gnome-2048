@@ -318,7 +318,7 @@ private class GameWindow : ApplicationWindow
     private static inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         GameWindow _this = (GameWindow) _key_controller.get_widget ();
-        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._board.is_focus))
+        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._board.is_focus ()))
             return false;
         if (_this._game.cannot_move ())
             return false;
