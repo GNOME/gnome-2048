@@ -136,8 +136,6 @@ private class GameWindow : ApplicationWindow
         _game.load_settings (ref _settings);
 
         _game.view = _board;
-
-        set_events (get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
     }
 
     /*\
