@@ -30,6 +30,7 @@ gio_dependency = dependency('gio-2.0', version: '>= 2.42.0')
 glib_dependency = dependency('glib-2.0', version: '>= 2.42.0')
 gtk_dependency = dependency('gtk4', version: '>= 3.98.5')
 gee_dependency = dependency('gee-0.8', version: '>= 0.14.0')
+pango_cairo_dependency = dependency('pangocairo')
 libgnome_games_support_dependency = dependency('libgnome-games-support-1', version: '>= 1.7.1')
 
 appstream_util = find_program('appstream-util', required: false)
