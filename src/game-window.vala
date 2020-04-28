@@ -408,9 +408,6 @@ private class GameWindow : ApplicationWindow
                     new_game_cb ();
                 _congrats_dialog.hide ();
             });
-        _congrats_dialog.delete_event.connect ((response_id) => {
-                return _congrats_dialog.hide_on_delete ();
-            });
     }
 
     private inline void target_value_reached_cb (uint target_value)

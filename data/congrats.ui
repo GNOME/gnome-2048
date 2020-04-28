@@ -23,6 +23,7 @@
     <property name="text" translatable="yes">Congratulations!</property>
     <property name="resizable">False</property>
     <property name="buttons">none</property>
+    <property name="hide-on-close">True</property>
     <child internal-child="message_area">
       <object class="GtkBox">
         <child>
