@@ -326,7 +326,7 @@ private class Game : Object
         _create_tile (tile);
         _to_show.add (tile);
         _show_tile (tile.pos);
-        _show_hide_trans.start ();
+//        _show_hide_trans.start ();
     }
 
     private void _create_tile (Tile tile)
@@ -480,7 +480,7 @@ private class Game : Object
         if (_to_show.size > 0)
         {
             _state = GameState.RESTORING_TILES;
-            _show_hide_trans.start ();
+//            _show_hide_trans.start ();
         }
     }
 
