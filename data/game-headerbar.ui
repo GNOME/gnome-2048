@@ -17,37 +17,41 @@
 -->
 <interface>
   <requires lib="gtk+" version="3.98"/>
-  <template class="GameHeaderBar" parent="GtkHeaderBar">
-    <property name="can-focus">False</property>
-    <!-- Translators: title of the window, displayed in the headerbar -->
-    <property name="title" translatable="yes">GNOME 2048</property>
-    <property name="show-title-buttons">True</property>
+  <template class="GameHeaderBar" parent="GtkWidget">
     <child>
-      <object class="GtkMenuButton" id="_new_game_button">
-        <!-- Translators: button in the headerbar (with a mnemonic that appears pressing Alt) -->
-        <property name="label" translatable="yes">_New Game</property>
-        <property name="valign">center</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="use-underline">True</property>
-        <property name="focus-on-click">False</property>
-      </object>
-    </child>
-    <child type="end">
-      <object class="GtkLabel" id="_score">
+      <object class="GtkHeaderBar" id="_headerbar">
         <property name="can-focus">False</property>
-        <property name="label">0</property>
-      </object>
-    </child>
-    <child type="end">
-      <object class="GtkMenuButton" id="_hamburger_button">
-        <property name="halign">end</property>
-        <property name="valign">center</property>
-        <property name="focus-on-click">False</property>
-        <property name="icon-name">open-menu-symbolic</property>
-        <style>
-          <class name="image-button"/>
-        </style>
+        <!-- Translators: title of the window, displayed in the headerbar -->
+        <property name="title" translatable="yes">GNOME 2048</property>
+        <property name="show-title-buttons">True</property>
+        <child>
+          <object class="GtkMenuButton" id="_new_game_button">
+            <!-- Translators: button in the headerbar (with a mnemonic that appears pressing Alt) -->
+            <property name="label" translatable="yes">_New Game</property>
+            <property name="valign">center</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="use-underline">True</property>
+            <property name="focus-on-click">False</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkLabel" id="_score">
+            <property name="can-focus">False</property>
+            <property name="label">0</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="_hamburger_button">
+            <property name="halign">end</property>
+            <property name="valign">center</property>
+            <property name="focus-on-click">False</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+          </object>
+        </child>
       </object>
     </child>
   </template>
