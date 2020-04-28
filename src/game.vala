@@ -245,8 +245,8 @@ private class Game : Object
                 RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
 
 //                _view_background.add_child (rect.actor);
-                rect.canvas.invalidate ();
-                rect.actor.show ();
+//                rect.canvas.invalidate ();
+//                rect.actor.show ();
 
                 _background     [i, j] = rect;
                 _foreground_cur [i, j] = null;
