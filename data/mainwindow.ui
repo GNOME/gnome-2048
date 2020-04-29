@@ -33,11 +33,7 @@
           <object class="GtkGrid">
             <property name="can-focus">False</property>
             <child>
-              <object class="GtkAspectFrame">
-                <child>
-                  <object class="Game" id="_game"/>
-                </child>
-              </object>
+              <object class="GtkAspectFrame" id="_frame"/>
             </child>
           </object>
         </child>
