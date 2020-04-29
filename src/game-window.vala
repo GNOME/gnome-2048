@@ -27,7 +27,8 @@ private class GameWindow : ApplicationWindow
     private GLib.Settings _settings;
 
     [GtkChild] private GameHeaderBar    _header_bar;
-    [GtkChild] private Game             _game;
+    [GtkChild] private AspectFrame      _frame;
+               private Game             _game;
 
     [GtkChild] private Button           _unfullscreen_button;
 
@@ -36,6 +37,12 @@ private class GameWindow : ApplicationWindow
 
     construct
     {
+        CssProvider css_provider = new CssProvider ();
+        css_provider.load_from_resource ("/org/gnome/TwentyFortyEight/ui/gnome-2048.css");
+        Gdk.Display? gdk_display = Gdk.Display.get_default ();
+        if (gdk_display != null) // else..?
+            StyleContext.add_provider_for_display ((!) gdk_display, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
 
         _install_ui_action_entries ();
@@ -98,6 +105,8 @@ private class GameWindow : ApplicationWindow
         _game.target_value_reached.connect (target_value_reached_cb);
         _game.undo_enabled.connect (() => { undo_action.set_enabled (true); });
         _game.undo_disabled.connect (() => { undo_action.set_enabled (false); });
+
+        _frame.add (_game);
     }
 
     private void _init_window ()
