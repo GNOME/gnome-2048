@@ -69,8 +69,45 @@ private class Game : Gtk.Widget
 
     private uint _resize_view_id;
 
+    private Gtk.Grid _background_grid;
+    private Gtk.Grid _foreground_grid;
+
     construct
     {
+        Gtk.BinLayout layout = new Gtk.BinLayout ();
+        set_layout_manager (layout);
+
+        add_css_class ("background-grid");
+
+        _background_grid = new Gtk.Grid ();
+        _background_grid.hexpand = true;
+        _background_grid.vexpand = true;
+        _background_grid.column_homogeneous = true;
+        _background_grid.row_homogeneous = true;
+        _background_grid.column_spacing = 8;
+        _background_grid.row_spacing = 8;
+        _background_grid.margin_start = 8;
+        _background_grid.margin_end = 8;
+        _background_grid.margin_top = 8;
+        _background_grid.margin_bottom = 8;
+
+        _foreground_grid = new Gtk.Grid ();
+        _foreground_grid.hexpand = true;
+        _foreground_grid.vexpand = true;
+        _foreground_grid.column_homogeneous = true;
+        _foreground_grid.row_homogeneous = true;
+        _foreground_grid.column_spacing = 8;
+        _foreground_grid.row_spacing = 8;
+        _foreground_grid.margin_start = 8;
+        _foreground_grid.margin_end = 8;
+        _foreground_grid.margin_top = 8;
+        _foreground_grid.margin_bottom = 8;
+
+        Gtk.Overlay overlay = new Gtk.Overlay ();
+        overlay.add (_background_grid);
+        overlay.add_overlay (_foreground_grid);
+        overlay.insert_after (this, /* insert first */ null);
+
         hexpand = true;
         vexpand = true;
     }
@@ -93,39 +130,6 @@ private class Game : Gtk.Widget
     /*\
     * * view
     \*/
-
-//    private Board _view;
-//    private Clutter.Actor _view;
-//    private Clutter.Actor _view_background;
-//    private Clutter.Actor _view_foreground;
-
-//    [CCode (notify = false)] internal Board view {
-//        internal get { return _view; }
-//        internal set {
-//            _view = value;
-
-//            _view_background = new Clutter.Actor ();
-//            _view_foreground = new Clutter.Actor ();
-//            _view_background.show ();
-//            _view_foreground.show ();
-//            _view.add_child (_view_background);
-//            _view.add_child (_view_foreground);
-//        }
-//    }
-//    [CCode (notify = false)] internal Clutter.Actor view {
-//        internal get { return _view; }
-//        internal set {
-//            _view = value;
-//            _view.allocation_changed.connect (_on_allocation_changed);
-
-//            _view_background = new Clutter.Actor ();
-//            _view_foreground = new Clutter.Actor ();
-//            _view_background.show ();
-//            _view_foreground.show ();
-//            _view.add_child (_view_background);
-//            _view.add_child (_view_foreground);
-//        }
-//    }
 
     private void _on_size_allocate (Gtk.Widget widget, int width, int height, int baseline)
     {
@@ -232,8 +236,6 @@ private class Game : Gtk.Widget
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-//        Clutter.Color background_color = Clutter.Color.from_string ("#babdb6");
-//        _view.set_background_color (background_color);
 
         _background     = new RoundedRectangle [rows, cols];
         _foreground_cur = new TileView? [rows, cols];
@@ -257,9 +259,7 @@ private class Game : Gtk.Widget
 
                 RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
 
-//                _view_background.add_child (rect.actor);
-//                rect.canvas.invalidate ();
-//                rect.actor.show ();
+                _background_grid.attach (rect, /* x and y */ j, i, /* width and height */ 1, 1);
 
                 _background     [i, j] = rect;
                 _foreground_cur [i, j] = null;
@@ -299,8 +299,8 @@ private class Game : Gtk.Widget
             }
         }
 
-//        if (_resize_view_id == 0)
-//            _resize_view_id = Clutter.Threads.Timeout.add (1000, _idle_resize_view);
+        if (_resize_view_id == 0)
+            _resize_view_id = Timeout.add_seconds (1, _idle_resize_view);
     }
 
     private bool _idle_resize_view ()
@@ -373,6 +373,10 @@ private class Game : Gtk.Widget
 //        actor.set_opacity (0);
 //        actor.show ();
 //        _view_foreground.add_child (actor);
+        Gtk.Widget? widget = _foreground_grid.get_child_at (pos.row, pos.col);
+        if (widget != null)
+            ((!) widget).destroy ();
+        _foreground_grid.attach ((!) tile_view, /* x and y */ pos.row, pos.col, /* height and width */ 1, 1);
 
 //        trans = new Clutter.PropertyTransition ("scale-x");
 //        trans.set_from_value (1.0);
@@ -450,14 +454,24 @@ private class Game : Gtk.Widget
 
     private void _clear_background ()
     {
-//        _view_background.remove_all_children ();
+        _background_grid.@foreach ((widget) => widget.destroy ());
     }
 
     private void _clear_foreground ()
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-//        _view_foreground.remove_all_children ();
+        float canvas_width  = (float) width;
+        float canvas_height = (float) height;
+
+        canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
+        canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
+
+        float tile_width  = canvas_width  / cols;
+        float tile_height = canvas_height / rows;
+
+        _foreground_grid.@foreach ((widget) => widget.destroy ());
+
         for (uint8 i = 0; i < rows; i++)
         {
             for (uint8 j = 0; j < cols; j++)
@@ -466,6 +480,12 @@ private class Game : Gtk.Widget
                     _foreground_cur [i, j] = null;
                 if (_foreground_nxt [i, j] != null)
                     _foreground_nxt [i, j] = null;
+
+                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
+                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+
+                RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
+                _foreground_grid.attach (rect, /* x and y */ i, j, /* height and width */ 1, 1);
             }
         }
     }
@@ -474,6 +494,14 @@ private class Game : Gtk.Widget
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
+        float canvas_width  = (float) width;
+        float canvas_height = (float) height;
+
+        canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
+        canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
+
+        float tile_width  = canvas_width  / cols;
+        float tile_height = canvas_height / rows;
 
         _create_show_hide_transition (animate);
 
@@ -489,6 +517,14 @@ private class Game : Gtk.Widget
                     _create_tile (tile);
                     _to_show.add (tile);
                     _show_tile (pos);
+                }
+                else
+                {
+                    float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
+                    float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+
+                    RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
+                    _foreground_grid.attach (rect, /* x and y */ i, j, /* height and width */ 1, 1);
                 }
             }
         }

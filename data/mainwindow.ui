@@ -30,11 +30,7 @@
     <child>
       <object class="GtkOverlay">
         <child>
-          <object class="GtkAspectFrame">
-            <child>
-              <object class="Game" id="_game"/>
-            </child>
-          </object>
+          <object class="GtkAspectFrame" id="_frame"/>
         </child>
         <child type="overlay">
           <object class="GtkButton" id="_unfullscreen_button">
