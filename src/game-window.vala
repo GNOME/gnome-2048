@@ -506,12 +506,8 @@ private class GameWindow : ApplicationWindow
                            "license-type", License.GPL_3_0,
 
                            "copyright",
-                           /* Translators: text crediting a maintainer, seen in the About dialog */
-                           _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco") + "\n" +
-
-
-                           /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
-                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2016, 2020),
+                           "Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco" + "\n" +
+                           "Copyright \xc2\xa9 %u-%u – Arnaud Bonatti".printf (2016, 2020),
 
                            "wrap-license", true,
                            "authors", authors,
