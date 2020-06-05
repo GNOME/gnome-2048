@@ -1,0 +1,68 @@
+# Chinese (China) translation for gnome-2048.
+# Copyright (C) 2016 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Mandy Wang <wangmychn@gmail.com>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"POT-Creation-Date: 2016-09-23 19:52+0000\n"
+"PO-Revision-Date: 2016-10-27 17:54+0800\n"
+"Last-Translator: Mandy Wang <wangmychn@gmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Mandy Wang <wangmychn@gmail.com>, 2016"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: credit/name
+#: C/index.page:11
+msgid "Juan R. García Blanco"
+msgstr "Juan R. García Blanco"
+
+#. (itstool) path: credit/years
+#: C/index.page:13
+msgid "2014"
+msgstr "2014"
+
+#. (itstool) path: license/p
+#: C/index.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "知识共享协议 相同方式共享许可 3.0"
+
+#. (itstool) path: media/span
+#: C/index.page:19
+msgid "gnome-2048 logo"
+msgstr "gnome-2048 商标"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> GNOME 2048"
+msgstr "<_:media-1/> GNOME 2048"
+
+#. (itstool) path: page/p
+#: C/index.page:20
+msgid ""
+"<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game "
+"based on Veewo Studios' 1024."
+msgstr ""
+"<app>GNOME 2048</app> 是 Gabriele Cirulli 开发的 2048 的复刻版，是一款基于 "
+"Veewo Studios 的 1024 的益智游戏。"
