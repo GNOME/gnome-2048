@@ -1,0 +1,70 @@
+# Romanian translation for gnome-2048.
+# Copyright (C) 2020 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Daniel Șerbănescu <daniel@serbanescu.dk>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 gnome-3-36\n"
+"POT-Creation-Date: 2020-07-03 08:34+0000\n"
+"PO-Revision-Date: 2020-07-03 10:38+0200\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 "
+"< 20)) ? 1 : 2);;\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 2.3.1\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2020"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: credit/name
+#: C/index.page:11
+msgid "Juan R. García Blanco"
+msgstr "Juan R. García Blanco"
+
+#. (itstool) path: credit/years
+#: C/index.page:13
+msgid "2014"
+msgstr "2014"
+
+#. (itstool) path: license/p
+#: C/index.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: media/span
+#: C/index.page:19
+msgid "GNOME 2048 logo"
+msgstr "Logoul GNOME 2048"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> GNOME 2048"
+msgstr "<_:media-1/> GNOME 2048"
+
+#. (itstool) path: page/p
+#: C/index.page:20
+msgid ""
+"<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game "
+"based on Veewo Studios' 1024."
+msgstr ""
+"<app>GNOME 2048</app> este o clonă a jocului de puzzle după Gabriele "
+"Cirulli, ce a fost bazat pe Veewo Studios' 1024."
