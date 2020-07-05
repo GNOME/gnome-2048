@@ -32,7 +32,7 @@ gtk_dependency = dependency('gtk+-3.0', version: '>= 3.24.0')
 clutter_dependency = dependency('clutter-1.0', version: '>= 1.12.0')
 clutter_gtk_dependency = dependency('clutter-gtk-1.0', version: '>= 1.6.0')
 gee_dependency = dependency('gee-0.8', version: '>= 0.14.0')
-libgnome_games_support_dependency = dependency('libgnome-games-support-1')
+libgnome_games_support_dependency = dependency('libgnome-games-support-1', version: '>= 1.7.1')
 
 appstream_util = find_program('appstream-util', required: false)
 desktop_file_validate = find_program('desktop-file-validate', required: false)

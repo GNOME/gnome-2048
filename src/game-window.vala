@@ -446,7 +446,7 @@ private class GameWindow : ApplicationWindow
         _grid5_cat = new Scores.Category ("grid5", _("Grid 5 × 5"));
 
         /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5) */
-        _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size:"), this, category_request, Scores.Style.POINTS_GREATER_IS_BETTER);
+        _scores_ctx = new Scores.Context.with_icon_name ("gnome-2048", _("Grid Size:"), this, category_request, Scores.Style.POINTS_GREATER_IS_BETTER, "org.gnome.TwentyFortyEight");
     }
     private inline Scores.Category category_request (string key)
     {
