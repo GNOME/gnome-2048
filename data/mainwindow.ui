@@ -23,6 +23,8 @@
     <property name="default-height">600</property>
     <property name="icon-name">org.gnome.TwentyFortyEight</property>
     <property name="show-menubar">False</property>
+    <!-- Translators: title of the window, displayed in the headerbar -->
+    <property name="title" translatable="yes">GNOME 2048</property>
 <!--    <signal name="destroy" handler="on_destroy"/>-->
     <child type="titlebar">
       <object class="GameHeaderBar" id="_header_bar"/>
