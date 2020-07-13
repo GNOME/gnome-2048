@@ -118,7 +118,7 @@ private class Game : Gtk.Widget
         uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
         _init_grid (rows, cols, out _grid, ref settings);
 
-        size_allocate.connect (_on_size_allocate);
+//        size_allocate.connect (_on_size_allocate);
     }
 
     private static void _init_grid (uint8 rows, uint8 cols, out Grid grid, ref GLib.Settings settings)
@@ -131,16 +131,16 @@ private class Game : Gtk.Widget
     * * view
     \*/
 
-    private void _on_size_allocate (Gtk.Widget widget, int width, int height, int baseline)
-    {
-        width  = _width;
-        height = _height;
+//    private void _on_size_allocate (Gtk.Widget widget, int width, int height, int baseline)
+//    {
+//        width  = _width;
+//        height = _height;
 
-        if (_background_init_done)
-            _resize_view ();
-        else
-            _init_background ();
-    }
+//        if (_background_init_done)
+//            _resize_view ();
+//        else
+//            _init_background ();
+//    }
 
     /*\
     * * others
