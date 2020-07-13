@@ -33,6 +33,12 @@
           <object class="GtkAspectFrame" id="_frame"/>
         </child>
         <child type="overlay">
+          <object class="GtkLabel" id="_gameover_label">
+            <property name="visible">False</property>
+            <property name="label" translatable="yes">Game Over</property>
+          </object>
+        </child>
+        <child type="overlay">
           <object class="GtkButton" id="_unfullscreen_button">
             <property name="visible">False</property>
             <property name="halign">end</property>

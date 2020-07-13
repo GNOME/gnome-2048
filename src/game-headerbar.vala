@@ -59,19 +59,6 @@ private class GameHeaderBar : Widget
     * * texts
     \*/
 
-    internal void clear_subtitle ()
-    {
-        _headerbar.set_subtitle (null);
-        _headerbar.set_has_subtitle (false);
-    }
-
-    internal void finished ()
-    {
-        _headerbar.set_has_subtitle (true);
-        /* Translators: subtitle of the headerbar, when the user cannot move anymore */
-        _headerbar.subtitle = _("Game Over");
-    }
-
     internal void set_score (Object game, ParamSpec unused)
     {
         _score.label = ((Game) game).score.to_string ();

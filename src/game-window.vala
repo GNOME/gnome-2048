@@ -31,6 +31,7 @@ private class GameWindow : ApplicationWindow
                private Game             _game;
 
     [GtkChild] private Button           _unfullscreen_button;
+    [GtkChild] private Label            _gameover_label;
 
     public uint8 cli_cols { private get; protected construct; default = 0; }
     public uint8 cli_rows { private get; protected construct; default = 0; }
@@ -95,7 +96,7 @@ private class GameWindow : ApplicationWindow
         _game = new Game (ref _settings);
         _game.notify ["score"].connect (_header_bar.set_score);
         _game.finished.connect ((show_scores) => {
-                _header_bar.finished ();
+                _gameover_label.show ();
 
                 if (show_scores)
                     _show_best_scores ();
@@ -257,14 +258,14 @@ private class GameWindow : ApplicationWindow
         if (!_settings.get_boolean ("allow-undo"))   // for the keyboard shortcut
             return;
 
-        _header_bar.clear_subtitle ();
+        _gameover_label.hide ();
         _game.undo ();
         _game.grab_focus ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
-        _header_bar.clear_subtitle ();
+        _gameover_label.hide ();
         _game.new_game (ref _settings);
         _game.grab_focus ();
     }
