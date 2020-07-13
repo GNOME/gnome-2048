@@ -107,7 +107,7 @@ private class GameWindow : ApplicationWindow
         _game.undo_enabled.connect (() => { undo_action.set_enabled (true); });
         _game.undo_disabled.connect (() => { undo_action.set_enabled (false); });
 
-        _frame.add (_game);
+        _frame.set_child (_game);
     }
 
     private void _init_window ()
