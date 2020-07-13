@@ -104,7 +104,7 @@ private class Game : Gtk.Widget
         _foreground_grid.margin_bottom = 8;
 
         Gtk.Overlay overlay = new Gtk.Overlay ();
-        overlay.add (_background_grid);
+        overlay.set_child (_background_grid);
         overlay.add_overlay (_foreground_grid);
         overlay.insert_after (this, /* insert first */ null);
 
