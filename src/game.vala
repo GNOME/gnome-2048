@@ -451,7 +451,7 @@ private class Game : Gtk.Widget
 
     private void _clear_background ()
     {
-        _background_grid.@foreach ((widget) => widget.destroy ());
+//        _background_grid.@foreach ((widget) => widget.destroy ());
     }
 
     private void _clear_foreground ()
@@ -467,7 +467,7 @@ private class Game : Gtk.Widget
         float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
-        _foreground_grid.@foreach ((widget) => widget.destroy ());
+//        _foreground_grid.@foreach ((widget) => widget.destroy ());
 
         for (uint8 i = 0; i < rows; i++)
         {
