@@ -145,8 +145,8 @@ private class GameWindow : ApplicationWindow
 
     private int _window_width;
     private int _window_height;
-    private bool _window_maximized;
-    private bool _window_fullscreen;
+    private bool _window_is_maximized;
+    private bool _window_is_fullscreen;
     private bool _window_is_tiled;
 
     private static void _init_window_state (GameWindow _this)
@@ -174,14 +174,14 @@ private class GameWindow : ApplicationWindow
         _settings.delay ();
         _settings.set_int       ("window-width",        _this._window_width);
         _settings.set_int       ("window-height",       _this._window_height);
-        _settings.set_boolean   ("window-maximized",    _this._window_maximized || _this._window_fullscreen);
+        _settings.set_boolean   ("window-maximized",    _this._window_is_maximized || _this._window_is_fullscreen);
         _settings.apply ();
     }
 
     private static void size_allocate_cb (Widget widget, Allocation allocation)
     {
         GameWindow _this = (GameWindow) widget;
-        if (_this._window_maximized || _this._window_is_tiled || _this._window_fullscreen)
+        if (_this._window_is_maximized || _this._window_is_tiled || _this._window_is_fullscreen)
             return;
         int? window_width = null;
         int? window_height = null;
@@ -192,27 +192,27 @@ private class GameWindow : ApplicationWindow
         _this._window_height = (!) window_height;
     }
 
+    private const Gdk.WindowState tiled_state = Gdk.WindowState.TILED
+                                              | Gdk.WindowState.TOP_TILED
+                                              | Gdk.WindowState.BOTTOM_TILED
+                                              | Gdk.WindowState.LEFT_TILED
+                                              | Gdk.WindowState.RIGHT_TILED;
     private static bool state_event_cb (Widget widget, Gdk.EventWindowState event)
     {
         GameWindow _this = (GameWindow) widget;
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            _this._window_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+            _this._window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
 
         /* fullscreen: saved as maximized */
-        bool window_fullscreen = _this._window_fullscreen;
+        bool window_fullscreen = _this._window_is_fullscreen;
         if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
-            _this._window_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
-        if (window_fullscreen && !_this._window_fullscreen)
+            _this._window_is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
+        if (window_fullscreen && !_this._window_is_fullscreen)
             _this._unfullscreen_button.hide ();
-        else if (!window_fullscreen && _this._window_fullscreen)
+        else if (!window_fullscreen && _this._window_is_fullscreen)
             _this._unfullscreen_button.show ();
 
         /* tiled: not saved, but should not change saved window size */
-        Gdk.WindowState tiled_state = Gdk.WindowState.TILED
-                                    | Gdk.WindowState.TOP_TILED
-                                    | Gdk.WindowState.BOTTOM_TILED
-                                    | Gdk.WindowState.LEFT_TILED
-                                    | Gdk.WindowState.RIGHT_TILED;
         if ((event.changed_mask & tiled_state) != 0)
             _this._window_is_tiled = (event.new_window_state & tiled_state) != 0;
 
