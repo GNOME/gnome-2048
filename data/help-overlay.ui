@@ -20,7 +20,7 @@
   <object class="GtkShortcutsWindow" id="help_overlay">
     <child>
       <object class="GtkShortcutsSection">
-        <property name="max-height">11</property>
+        <property name="max-height">5</property>
         <child>
           <object class="GtkShortcutsGroup">
             <!-- Translators: header of the "Play with arrows" shortcut section -->
