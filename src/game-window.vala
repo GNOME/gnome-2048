@@ -70,13 +70,13 @@ private class GameWindow : ApplicationWindow
         _init_gestures ();
     }
 
-    [GtkCallback]
-    private void on_destroy ()
-    {
-        _game.save_game ();
-        _save_window_state (this, ref _settings);
-        base.destroy ();
-    }
+//    [GtkCallback]
+//    private void on_destroy ()
+//    {
+//        _game.save_game ();
+//        _save_window_state (this, ref _settings);
+//        base.destroy ();
+//    }
 
     /*\
     * * init
