@@ -155,7 +155,7 @@ private class GameWindow : ApplicationWindow
 
     private void _init_window_state ()
     {
-        size_allocate.connect (size_allocate_cb);
+//        size_allocate.connect (size_allocate_cb);
         map.connect (init_state_watcher);
         set_size_request (WINDOW_MINIMUM_SIZE_HEIGHT, WINDOW_MINIMUM_SIZE_WIDTH);
     }
@@ -178,19 +178,19 @@ private class GameWindow : ApplicationWindow
         _settings.apply ();
     }
 
-    private static void size_allocate_cb (Widget widget, int width, int height, int baseline)
-    {
-        GameWindow _this = (GameWindow) widget;
-        if (_this._window_is_maximized || _this._window_is_tiled || _this._window_is_fullscreen)
-            return;
-        int? window_width = null;
-        int? window_height = null;
-        _this.get_size (out window_width, out window_height);
-        if (window_width == null || window_height == null)
-            return;
-        _this._window_width = (!) window_width;
-        _this._window_height = (!) window_height;
-    }
+//    private static void size_allocate_cb (Widget widget, int width, int height, int baseline)
+//    {
+//        GameWindow _this = (GameWindow) widget;
+//        if (_this._window_is_maximized || _this._window_is_tiled || _this._window_is_fullscreen)
+//            return;
+//        int? window_width = null;
+//        int? window_height = null;
+//        _this.get_size (out window_width, out window_height);
+//        if (window_width == null || window_height == null)
+//            return;
+//        _this._window_width = (!) window_width;
+//        _this._window_height = (!) window_height;
+//    }
 
     private void init_state_watcher ()
     {
