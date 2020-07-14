@@ -155,7 +155,6 @@ private class GameWindow : ApplicationWindow
 
     private void _init_window_state ()
     {
-        size_allocate.connect (size_allocate_cb);
         map.connect (init_state_watcher);
         set_size_request (WINDOW_MINIMUM_SIZE_HEIGHT, WINDOW_MINIMUM_SIZE_WIDTH);
     }
@@ -185,20 +184,15 @@ private class GameWindow : ApplicationWindow
             assert_not_reached ();
         surface = (Gdk.Toplevel) (!) nullable_surface;
         surface.notify ["state"].connect (on_window_state_event);
+        surface.size_changed.connect (on_size_changed);
     }
 
-    private static void size_allocate_cb (Widget widget, Allocation allocation)
+    private inline void on_size_changed (Gdk.Surface _surface, int width, int height)
     {
-        GameWindow _this = (GameWindow) widget;
-        if (_this._window_is_maximized || _this._window_is_tiled || _this._window_is_fullscreen)
+        if (window_is_maximized || window_is_tiled || window_is_fullscreen)
             return;
-        int? window_width = null;
-        int? window_height = null;
-        _this.get_size (out window_width, out window_height);
-        if (window_width == null || window_height == null)
-            return;
-        _this._window_width = (!) window_width;
-        _this._window_height = (!) window_height;
+        window_width  = width;
+        window_height = height;
     }
 
     private Gdk.Toplevel surface;
