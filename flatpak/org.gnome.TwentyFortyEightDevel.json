@@ -36,7 +36,7 @@
             "sources":[
                 {
                     "type":"git",
-                    "branch":"master",
+                    "branch":"arnaudb/wip/gtk4",
                     "url":"https://gitlab.gnome.org/GNOME/libgnome-games-support.git"
                 }
             ]
@@ -47,6 +47,7 @@
             "sources":[
                 {
                     "type":"git",
+                    "branch":"arnaudb/wip/gtk4",
                     "url":"https://gitlab.gnome.org/GNOME/gnome-2048.git"
                 }
             ]
