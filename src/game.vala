@@ -77,6 +77,8 @@ private class Game : Gtk.Widget
         Gtk.BinLayout layout = new Gtk.BinLayout ();
         set_layout_manager (layout);
 
+        map.connect (_init_state_watcher);
+
         add_css_class ("background-grid");
 
         _background_grid = new Gtk.Grid ();
@@ -117,8 +119,6 @@ private class Game : Gtk.Widget
         uint8 cols = (uint8) settings.get_int ("cols");  // schema ranges cols
         uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
         _init_grid (rows, cols, out _grid, ref settings);
-
-//        size_allocate.connect (_on_size_allocate);
     }
 
     private static void _init_grid (uint8 rows, uint8 cols, out Grid grid, ref GLib.Settings settings)
@@ -131,16 +131,27 @@ private class Game : Gtk.Widget
     * * view
     \*/
 
-//    private void _on_size_allocate (Gtk.Widget widget, int width, int height, int baseline)
-//    {
-//        width  = _width;
-//        height = _height;
+    private inline void _init_state_watcher ()
+    {
+        Gtk.Native? native = get_native ();
+        if (native == null)
+            assert_not_reached ();
+        Gdk.Surface? nullable_surface = ((!) native).get_surface ();
+        if (nullable_surface == null)
+            assert_not_reached ();
+        ((!) nullable_surface).size_changed.connect (_on_size_changed);
+    }
 
-//        if (_background_init_done)
-//            _resize_view ();
-//        else
-//            _init_background ();
-//    }
+    private inline void _on_size_changed (Gdk.Surface _surface, int _width, int _height)
+    {
+        width  = _width;
+        height = _height;
+
+        if (_background_init_done)
+            _resize_view ();
+        else
+            _init_background ();
+    }
 
     /*\
     * * others
