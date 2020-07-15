@@ -45,6 +45,7 @@ private class GameWindow : ApplicationWindow
             StyleContext.add_provider_for_display ((!) gdk_display, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
+        close_request.connect (_on_close_request);
 
         _install_ui_action_entries ();
 
@@ -70,13 +71,13 @@ private class GameWindow : ApplicationWindow
         _init_gestures ();
     }
 
-//    [GtkCallback]
-//    private void on_destroy ()
-//    {
-//        _game.save_game ();
-//        _save_window_state (this, ref _settings);
-//        base.destroy ();
-//    }
+    private inline bool _on_close_request ()
+    {
+        _game.save_game ();
+        _save_window_state (this, ref _settings);
+
+        return /* do not stop other handlers */ false;
+    }
 
     /*\
     * * init
