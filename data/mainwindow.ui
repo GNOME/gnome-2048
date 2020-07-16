@@ -38,6 +38,9 @@
           <object class="GtkLabel" id="_gameover_label">
             <property name="visible">False</property>
             <property name="label" translatable="yes">Game Over</property>
+            <style>
+              <class name="gameover-label"/>
+            </style>
           </object>
         </child>
         <child type="overlay">
