@@ -77,7 +77,7 @@ private class Game : Gtk.Widget
         Gtk.BinLayout layout = new Gtk.BinLayout ();
         set_layout_manager (layout);
 
-        map.connect (_init_state_watcher);
+//        map.connect (_init_state_watcher);
 
         add_css_class ("background-grid");
 
