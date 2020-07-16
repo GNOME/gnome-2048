@@ -77,6 +77,8 @@ private class Game : Gtk.Widget
         Gtk.BinLayout layout = new Gtk.BinLayout ();
         set_layout_manager (layout);
 
+        focusable = true;
+
 //        map.connect (_init_state_watcher);
 
         add_css_class ("background-grid");
@@ -166,6 +168,8 @@ private class Game : Gtk.Widget
         if (_state != GameState.IDLE && _state != GameState.STOPPED)
             return;
 
+        warning ("new game");
+
         _clean_finish_move_animation ();
         _grid.clear ();
         _clear_history ();
@@ -185,7 +189,10 @@ private class Game : Gtk.Widget
         else if (_background_init_done)
             _clear_foreground ();
         else // new_game could be called without an existing game
+        {
+            warning ("glou");
             _init_background ();
+        }
 
         score = 0;
         _state = GameState.SHOWING_FIRST_TILE;
@@ -245,6 +252,8 @@ private class Game : Gtk.Widget
 
     private void _init_background ()
     {
+        warning ("init background");
+
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
 
@@ -261,10 +270,12 @@ private class Game : Gtk.Widget
         float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
+        warning (@"_init_background size: $cols, $rows");
         for (uint8 i = 0; i < rows; i++)
         {
             for (uint8 j = 0; j < cols; j++)
             {
+                warning (@"_init_background: ($i, $j)");
                 float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
                 float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
 
@@ -275,6 +286,23 @@ private class Game : Gtk.Widget
                 _background     [i, j] = rect;
                 _foreground_cur [i, j] = null;
                 _foreground_nxt [i, j] = null;
+            }
+        }
+        for (uint8 i = 0; i < rows; i++)
+        {
+            for (uint8 j = 0; j < cols; j++)
+            {
+                warning (@"_init_foreground: ($i, $j)");
+                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
+                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+
+                RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
+
+                _foreground_grid.attach (rect, /* x and y */ j, i, /* width and height */ 1, 1);
+
+//                _background     [i, j] = rect;
+//                _foreground_cur [i, j] = null;
+//                _foreground_nxt [i, j] = null;
             }
         }
         _background_init_done = true;
@@ -297,6 +325,7 @@ private class Game : Gtk.Widget
         {
             for (uint8 j = 0; j < cols; j++)
             {
+                warning (@"_resize_view: ($i, $j)");
                 float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
                 float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
 
@@ -322,6 +351,7 @@ private class Game : Gtk.Widget
         {
             for (uint8 j = 0; j < cols; j++)
             {
+                warning (@"_idle_resize_view: ($i, $j)");
                 _background [i, j].idle_resize ();
 
                 if (_foreground_cur [i, j] != null)
@@ -355,6 +385,8 @@ private class Game : Gtk.Widget
 
     private void _create_tile (Tile tile)
     {
+        warning ("create tile");
+
         GridPosition pos = tile.pos;
         assert (_foreground_nxt [pos.row, pos.col] == null);
 
@@ -462,7 +494,9 @@ private class Game : Gtk.Widget
 
     private void _clear_background ()
     {
-//        _background_grid.@foreach ((widget) => widget.destroy ());
+        Gtk.Widget? child;
+        while ((child = _background_grid.get_last_child ()) != null)
+            ((!) child).unparent ();
     }
 
     private void _clear_foreground ()
@@ -478,12 +512,15 @@ private class Game : Gtk.Widget
         float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
-//        _foreground_grid.@foreach ((widget) => widget.destroy ());
+        Gtk.Widget? child;
+        while ((child = _foreground_grid.get_last_child ()) != null)
+            ((!) child).unparent ();
 
         for (uint8 i = 0; i < rows; i++)
         {
             for (uint8 j = 0; j < cols; j++)
             {
+                warning (@"clearing foreground: ($i, $j)");
                 if (_foreground_cur [i, j] != null)
                     _foreground_cur [i, j] = null;
                 if (_foreground_nxt [i, j] != null)
@@ -517,6 +554,7 @@ private class Game : Gtk.Widget
         {
             for (uint8 j = 0; j < cols; j++)
             {
+                warning (@"restoring foreground: ($i, $j)");
                 uint8 val = _grid [i, j];
                 if (val != 0)
                 {
@@ -550,6 +588,8 @@ private class Game : Gtk.Widget
 
     internal void move (MoveRequest request)
     {
+        warning ("move");
+
         if (_state == GameState.SHOWING_NEW_TILE)
             _apply_move ();
         else if (_state != GameState.IDLE)
@@ -582,6 +622,7 @@ private class Game : Gtk.Widget
         {
             _state = GameState.MOVING;
 //            _move_trans.start ();
+            Timeout.add (_animations_duration, _on_move_trans_stopped);
             _store_movement (clone);
         }
 
@@ -589,31 +630,34 @@ private class Game : Gtk.Widget
     }
 
 //    private void _on_move_trans_stopped (Clutter.Timeline trans, bool is_finished)
-//    {
-//        debug (@"move animation stopped\n$_grid");
+    private bool _on_move_trans_stopped ()
+    {
+        debug (@"move animation stopped\n$_grid");
 
 //        ((Clutter.TransitionGroup) trans).remove_all ();
 
-//        foreach (TileMovement? e in _to_hide)
-//        {
-//            if (e == null)
-//                assert_not_reached ();
-//            _dim_tile (((!) e).from);
-//        }
+        foreach (TileMovement? e in _to_hide)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _dim_tile (((!) e).from);
+        }
 
-//        long delta_score = 0;   // do not notify["score"] multiple times
-//        foreach (Tile? e in _to_show)
-//        {
-//            if (e == null)
-//                assert_not_reached ();
-//            _create_tile ((!) e);
-//            _show_tile (((!) e).pos);
-//            delta_score += (long) Math.pow (2, ((!) e).val);
-//        }
-//        score += delta_score;
+        long delta_score = 0;   // do not notify["score"] multiple times
+        foreach (Tile? e in _to_show)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _create_tile ((!) e);
+            _show_tile (((!) e).pos);
+            delta_score += (long) Math.pow (2, ((!) e).val);
+        }
+        score += delta_score;
 
-//        _create_random_tile ();
-//    }
+        _create_random_tile ();
+
+        return Source.REMOVE;
+    }
 
     /*\
     * * new tile animation
@@ -632,11 +676,14 @@ private class Game : Gtk.Widget
 //        /* _show_hide_trans should be finished two times (forward and backward) before
 //           one _move_trans is done, so at least animation time should be strictly half */
 //        _show_hide_trans.set_duration (animate ? _animations_duration / 3 : 10);
+
+        Timeout.add (animate ? _animations_duration / 3 : 10, _on_show_hide_trans_stopped);
     }
 
 //    private void _on_show_hide_trans_stopped (Clutter.Timeline trans, bool is_finished)
-//    {
-//        debug ("show/hide animation stopped");
+    private bool _on_show_hide_trans_stopped ()
+    {
+        debug ("show/hide animation stopped");
 
 //        if (trans.direction == Clutter.TimelineDirection.FORWARD)
 //        {
@@ -646,8 +693,10 @@ private class Game : Gtk.Widget
 //        }
 
 //        ((Clutter.TransitionGroup) trans).remove_all ();
-//        _apply_move ();
-//    }
+        _apply_move ();
+
+        return Source.REMOVE;
+    }
 
     private void _apply_move ()
     {
