@@ -1,3 +1,14 @@
 .background-grid {
   background-color:#babdb6;
 }
+
+/*\
+* * gameover
+\*/
+
+.gameover-label {
+  font-family: "Bitstream Vera Sans"; /* same as Swell Foop */
+  font-weight: bold;
+  font-size: 28px;
+  color: black;
+}
