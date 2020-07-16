@@ -18,8 +18,12 @@
    along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+[GtkTemplate (ui = "/org/gnome/TwentyFortyEight/ui/game.ui")]
 private class Game : Gtk.Widget
 {
+    [GtkChild] private Gtk.Grid _background_grid;
+    [GtkChild] private Gtk.Grid _foreground_grid;
+
     internal int width  { internal get; private set; }
     internal int height { internal get; private set; }
 
@@ -69,51 +73,12 @@ private class Game : Gtk.Widget
 
     private uint _resize_view_id;
 
-    private Gtk.Grid _background_grid;
-    private Gtk.Grid _foreground_grid;
-
     construct
     {
         Gtk.BinLayout layout = new Gtk.BinLayout ();
         set_layout_manager (layout);
 
-        focusable = true;
-
 //        map.connect (_init_state_watcher);
-
-        add_css_class ("background-grid");
-
-        _background_grid = new Gtk.Grid ();
-        _background_grid.hexpand = true;
-        _background_grid.vexpand = true;
-        _background_grid.column_homogeneous = true;
-        _background_grid.row_homogeneous = true;
-        _background_grid.column_spacing = 8;
-        _background_grid.row_spacing = 8;
-        _background_grid.margin_start = 8;
-        _background_grid.margin_end = 8;
-        _background_grid.margin_top = 8;
-        _background_grid.margin_bottom = 8;
-
-        _foreground_grid = new Gtk.Grid ();
-        _foreground_grid.hexpand = true;
-        _foreground_grid.vexpand = true;
-        _foreground_grid.column_homogeneous = true;
-        _foreground_grid.row_homogeneous = true;
-        _foreground_grid.column_spacing = 8;
-        _foreground_grid.row_spacing = 8;
-        _foreground_grid.margin_start = 8;
-        _foreground_grid.margin_end = 8;
-        _foreground_grid.margin_top = 8;
-        _foreground_grid.margin_bottom = 8;
-
-        Gtk.Overlay overlay = new Gtk.Overlay ();
-        overlay.set_child (_background_grid);
-        overlay.add_overlay (_foreground_grid);
-        overlay.insert_after (this, /* insert first */ null);
-
-        hexpand = true;
-        vexpand = true;
     }
 
     internal Game (ref GLib.Settings settings)

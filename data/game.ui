@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is part of GNOME 2048
+
+  GNOME 2048 is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNOME 2048 is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk+" version="3.99"/>
+  <template class="Game" parent="GtkWidget">
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="focusable">True</property>
+    <child>
+      <object class="GtkOverlay">
+        <child>
+          <object class="GtkGrid" id="_background_grid">
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="column-homogeneous">True</property>
+            <property name="row-homogeneous">True</property>
+            <property name="column-spacing">8</property>
+            <property name="row-spacing">8</property>
+            <property name="margin-start">8</property>
+            <property name="margin-end">8</property>
+            <property name="margin-top">8</property>
+            <property name="margin-bottom">8</property>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkGrid" id="_foreground_grid">
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="column-homogeneous">True</property>
+            <property name="row-homogeneous">True</property>
+            <property name="column-spacing">8</property>
+            <property name="row-spacing">8</property>
+            <property name="margin-start">8</property>
+            <property name="margin-end">8</property>
+            <property name="margin-top">8</property>
+            <property name="margin-bottom">8</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <style>
+      <class name="background-grid"/>
+    </style>
+  </template>
+</interface>

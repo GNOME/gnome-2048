@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/TwentyFortyEight/ui">
-    <file preprocess="xml-stripblanks" alias="congrats.ui">../data/congrats.ui</file>
+    <file preprocess="xml-stripblanks" alias="congrats.ui"      >../data/congrats.ui</file>
+    <file preprocess="xml-stripblanks" alias="game.ui"          >../data/game.ui</file>
     <file preprocess="xml-stripblanks" alias="game-headerbar.ui">../data/game-headerbar.ui</file>
-    <file preprocess="xml-stripblanks" alias="game-window.ui">../data/mainwindow.ui</file>
+    <file preprocess="xml-stripblanks" alias="game-window.ui"   >../data/mainwindow.ui</file>
     <file alias="gnome-2048.css">../data/gnome-2048.css</file>
   </gresource>
   <gresource prefix="/org/gnome/TwentyFortyEight/gtk">
-    <file preprocess="xml-stripblanks" alias="help-overlay.ui">../data/help-overlay.ui</file>
+    <file preprocess="xml-stripblanks" alias="help-overlay.ui"  >../data/help-overlay.ui</file>
   </gresource>
 </gresources>
