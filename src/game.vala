@@ -276,12 +276,12 @@ private class Game : Gtk.Widget
             for (uint8 j = 0; j < cols; j++)
             {
                 warning (@"_init_background: ($i, $j)");
-                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+                float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
+                float y = j * tile_height + (j + 1) * BLANK_ROW_HEIGHT;
 
                 RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
 
-                _background_grid.attach (rect, /* x and y */ j, i, /* width and height */ 1, 1);
+                _background_grid.attach (rect, /* x and y */ i, j, /* width and height */ 1, 1);
 
                 _background     [i, j] = rect;
                 _foreground_cur [i, j] = null;
@@ -293,12 +293,12 @@ private class Game : Gtk.Widget
             for (uint8 j = 0; j < cols; j++)
             {
                 warning (@"_init_foreground: ($i, $j)");
-                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+                float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
+                float y = j * tile_height + (j + 1) * BLANK_ROW_HEIGHT;
 
                 RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
 
-                _foreground_grid.attach (rect, /* x and y */ j, i, /* width and height */ 1, 1);
+                _foreground_grid.attach (rect, /* x and y */ i, j, /* width and height */ 1, 1);
 
 //                _background     [i, j] = rect;
 //                _foreground_cur [i, j] = null;
@@ -326,8 +326,8 @@ private class Game : Gtk.Widget
             for (uint8 j = 0; j < cols; j++)
             {
                 warning (@"_resize_view: ($i, $j)");
-                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+                float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
+                float y = j * tile_height + (j + 1) * BLANK_ROW_HEIGHT;
 
                 _background [i, j].resize (x, y, tile_width, tile_height);
 
@@ -391,10 +391,10 @@ private class Game : Gtk.Widget
         warning ("create tile");
 
         GridPosition pos = tile.pos;
-        assert (_foreground_nxt [pos.row, pos.col] == null);
+        assert (_foreground_nxt [pos.col, pos.row] == null);
 
-        RoundedRectangle rect = _background [pos.row, pos.col];
-        _foreground_nxt [pos.row, pos.col] = new TileView (rect.x,
+        RoundedRectangle rect = _background [pos.col, pos.row];
+        _foreground_nxt [pos.col, pos.row] = new TileView (rect.x,
                                                            rect.y,
                                                            rect.width,
                                                            rect.height,
@@ -407,7 +407,7 @@ private class Game : Gtk.Widget
 
 //        Clutter.PropertyTransition trans;
 
-        TileView? tile_view = _foreground_nxt [pos.row, pos.col];
+        TileView? tile_view = _foreground_nxt [pos.col, pos.row];
         if (tile_view == null)
             assert_not_reached ();
 //        Clutter.Actor actor = ((!) tile_view).actor;
@@ -416,10 +416,10 @@ private class Game : Gtk.Widget
 //        actor.set_opacity (0);
 //        actor.show ();
 //        _view_foreground.add_child (actor);
-        Gtk.Widget? widget = _foreground_grid.get_child_at (pos.row, pos.col);
+        Gtk.Widget? widget = _foreground_grid.get_child_at (pos.col, pos.row);
         if (widget != null)
             ((!) widget).destroy ();
-        _foreground_grid.attach ((!) tile_view, /* x and y */ pos.row, pos.col, /* height and width */ 1, 1);
+        _foreground_grid.attach ((!) tile_view, /* x and y */ pos.col, pos.row, /* height and width */ 1, 1);
 
 //        trans = new Clutter.PropertyTransition ("scale-x");
 //        trans.set_from_value (1.0);
@@ -449,8 +449,8 @@ private class Game : Gtk.Widget
 
         _prepare_move_tile (from, to);
 
-        _foreground_nxt [  to.row,   to.col] = _foreground_cur [from.row, from.col];
-        _foreground_cur [from.row, from.col] = null;
+        _foreground_nxt [  to.col,   to.row] = _foreground_cur [from.col, from.row];
+        _foreground_cur [from.col, from.row] = null;
     }
 
     private void _prepare_move_tile (GridPosition from, GridPosition to)
@@ -459,10 +459,10 @@ private class Game : Gtk.Widget
 
         bool row_move = (from.col == to.col);
 
-        RoundedRectangle rect_from = _background [from.row, from.col];
-        RoundedRectangle rect_to   = _background [  to.row,   to.col];
+        RoundedRectangle rect_from = _background [from.col, from.row];
+        RoundedRectangle rect_to   = _background [  to.col,   to.row];
 
-        TileView? tile_view = _foreground_cur [from.row, from.col];
+        TileView? tile_view = _foreground_cur [from.col, from.row];
         if (tile_view == null)
             assert_not_reached ();
 
@@ -476,7 +476,7 @@ private class Game : Gtk.Widget
 
     private void _dim_tile (GridPosition pos)
     {
-        TileView? tile_view = _foreground_cur [pos.row, pos.col];
+        TileView? tile_view = _foreground_cur [pos.col, pos.row];
         if (tile_view == null)
             assert_not_reached ();
         debug (@"diming tile at $pos " + ((!) tile_view).color.to_string ());
@@ -529,8 +529,8 @@ private class Game : Gtk.Widget
                 if (_foreground_nxt [i, j] != null)
                     _foreground_nxt [i, j] = null;
 
-                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+                float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
+                float y = j * tile_height + (j + 1) * BLANK_ROW_HEIGHT;
 
                 RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
                 _foreground_grid.attach (rect, /* x and y */ i, j, /* height and width */ 1, 1);
@@ -569,8 +569,8 @@ private class Game : Gtk.Widget
                 }
                 else
                 {
-                    float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
-                    float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
+                    float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
+                    float y = j * tile_height + (j + 1) * BLANK_ROW_HEIGHT;
 
                     RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
                     _foreground_grid.attach (rect, /* x and y */ i, j, /* height and width */ 1, 1);
@@ -714,14 +714,14 @@ private class Game : Gtk.Widget
             if (e == null)
                 assert_not_reached ();
             GridPosition pos = ((!) e).from;
-            TileView? tile_view = _foreground_cur [pos.row, pos.col];
+            TileView? tile_view = _foreground_cur [pos.col, pos.row];
             if (tile_view == null)
                 assert_not_reached ();
 //            ((!) tile_view).actor.hide ();
             debug (@"remove child " + ((!) tile_view).color.to_string ());
 //            _view_foreground.remove_child (((!) tile_view).actor);
 
-            _foreground_cur [pos.row, pos.col] = null;
+            _foreground_cur [pos.col, pos.row] = null;
         }
 
         if (_state == GameState.SHOWING_FIRST_TILE)
@@ -741,16 +741,16 @@ private class Game : Gtk.Widget
             if (e == null)
                 assert_not_reached ();
             GridPosition to = ((!) e).to;
-            _foreground_cur [to.row, to.col] = _foreground_nxt [to.row, to.col];
-            _foreground_nxt [to.row, to.col] = null;
+            _foreground_cur [to.col, to.row] = _foreground_nxt [to.col, to.row];
+            _foreground_nxt [to.col, to.row] = null;
         }
         foreach (Tile? e in _to_show)
         {
             if (e == null)
                 assert_not_reached ();
             GridPosition pos = ((!) e).pos;
-            _foreground_cur [pos.row, pos.col] = _foreground_nxt [pos.row, pos.col];
-            _foreground_nxt [pos.row, pos.col] = null;
+            _foreground_cur [pos.col, pos.row] = _foreground_nxt [pos.col, pos.row];
+            _foreground_nxt [pos.col, pos.row] = null;
         }
 
         _to_hide.clear ();
