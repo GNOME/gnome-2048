@@ -309,11 +309,14 @@ private class GameWindow : ApplicationWindow
     {
         key_controller = new EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        key_controller.set_propagation_phase (PropagationPhase.CAPTURE);
         ((Widget) this).add_controller (key_controller);
     }
 
     private static inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
+        warning ("key pressed");
+
         GameWindow _this = (GameWindow) _key_controller.get_widget ();
         if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._game.is_focus ()))
             return false;
