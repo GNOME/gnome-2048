@@ -383,7 +383,10 @@ private class Game : Gtk.Widget
 //        _view_foreground.add_child (actor);
         Gtk.Widget? widget = _foreground_grid.get_child_at (pos.col, pos.row);
         if (widget != null)
+        {
+            ((!) widget).unparent ();
             ((!) widget).destroy ();
+        }
         _foreground_grid.attach ((!) tile_view, /* x and y */ pos.col, pos.row, /* height and width */ 1, 1);
 
 //        trans = new Clutter.PropertyTransition ("scale-x");
@@ -412,7 +415,23 @@ private class Game : Gtk.Widget
     {
         debug (@"move tile from $from to $to");
 
-        _prepare_move_tile (from, to);
+        Gtk.LayoutManager layout = (!) _foreground_grid.get_layout_manager ();
+
+//        _prepare_move_tile (from, to);
+        Gtk.Widget? nullable_tile = _foreground_grid.get_child_at (from.col, from.row);
+        if (nullable_tile == null || !((!) nullable_tile is TileView))
+            assert_not_reached ();
+        Gtk.GridLayoutChild tile_layout = (Gtk.GridLayoutChild) layout.get_layout_child ((!) nullable_tile);
+
+        nullable_tile = _foreground_grid.get_child_at (to.col, to.row);
+        if (nullable_tile == null || !((!) nullable_tile is RoundedRectangle))
+            assert_not_reached ();
+        Gtk.GridLayoutChild rect_layout = (Gtk.GridLayoutChild) layout.get_layout_child ((!) nullable_tile);
+
+        tile_layout.set_left_attach (  to.col);
+        tile_layout.set_top_attach  (  to.row);
+        rect_layout.set_left_attach (from.col);
+        rect_layout.set_top_attach  (from.row);
 
         _foreground_nxt [  to.col,   to.row] = _foreground_cur [from.col, from.row];
         _foreground_cur [from.col, from.row] = null;
@@ -427,9 +446,9 @@ private class Game : Gtk.Widget
         RoundedRectangle rect_from = _background [from.col, from.row];
         RoundedRectangle rect_to   = _background [  to.col,   to.row];
 
-        TileView? tile_view = _foreground_cur [from.col, from.row];
-        if (tile_view == null)
-            assert_not_reached ();
+//        TileView? tile_view = _foreground_cur [from.col, from.row];
+//        if (tile_view == null)
+//            assert_not_reached ();
 
 //        Clutter.PropertyTransition trans = new Clutter.PropertyTransition (row_move ? "y" : "x");
 //        trans.set_from_value (row_move ? rect_from.actor.y : rect_from.actor.x);
@@ -437,14 +456,24 @@ private class Game : Gtk.Widget
 //        trans.set_duration (_animations_duration);
 //        trans.set_animatable (((!) tile_view).actor);
 //        _move_trans.add_transition (trans);
+        Gtk.Widget? nullable_tile = _foreground_grid.get_child_at (from.col, from.row);
+        if (nullable_tile == null || !((!) nullable_tile is TileView))
+            return;
+        TileView tile_view = (TileView) (!) nullable_tile;
+        tile_view.unparent ();
+        RoundedRectangle rect = new RoundedRectangle (tile_view.x,
+                                                      tile_view.y,
+                                                      tile_view.width,
+                                                      tile_view.height);
+        _foreground_grid.attach (rect, /* x and y */ from.col, from.row, /* height and width */ 1, 1);
     }
 
     private void _dim_tile (GridPosition pos)
     {
-        TileView? tile_view = _foreground_cur [pos.col, pos.row];
-        if (tile_view == null)
-            assert_not_reached ();
-        debug (@"diming tile at $pos " + ((!) tile_view).color.to_string ());
+//        TileView? tile_view = _foreground_cur [pos.col, pos.row];
+//        if (tile_view == null)
+//            assert_not_reached ();
+//        debug (@"diming tile at $pos " + ((!) tile_view).color.to_string ());
 
 //        Clutter.Actor actor;
 //        Clutter.PropertyTransition trans;
@@ -464,7 +493,10 @@ private class Game : Gtk.Widget
     {
         Gtk.Widget? child;
         while ((child = _background_grid.get_last_child ()) != null)
+        {
             ((!) child).unparent ();
+            ((!) child).destroy ();
+        }
     }
 
     private void _clear_foreground ()
@@ -482,7 +514,10 @@ private class Game : Gtk.Widget
 
         Gtk.Widget? child;
         while ((child = _foreground_grid.get_last_child ()) != null)
+        {
             ((!) child).unparent ();
+            ((!) child).destroy ();
+        }
 
         for (uint8 i = 0; i < rows; i++)
         {
