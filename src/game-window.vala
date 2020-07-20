@@ -29,6 +29,7 @@ private class GameWindow : ApplicationWindow
     [GtkChild] private GameHeaderBar    _header_bar;
     [GtkChild] private AspectFrame      _frame;
                private Game             _game;
+               private bool             _game_init_done = false;
 
     [GtkChild] private Button           _unfullscreen_button;
     [GtkChild] private Label            _gameover_label;
@@ -50,6 +51,7 @@ private class GameWindow : ApplicationWindow
         _install_ui_action_entries ();
 
         _init_game ();
+        _game_init_done = true;
 
         _init_window ();
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
@@ -92,6 +94,12 @@ private class GameWindow : ApplicationWindow
             _settings.set_int ("rows", cli_rows);
             _settings.apply ();
             GLib.Settings.sync ();
+        }
+
+        if (_game_init_done)
+        {
+            ((!) _game).unparent ();
+            ((!) _game).destroy ();
         }
 
         _game = new Game (ref _settings);
