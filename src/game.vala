@@ -287,6 +287,9 @@ private class Game : Object
 
                 if (_foreground_cur [i, j] != null)
                     ((!) _foreground_cur [i, j]).idle_resize ();
+
+                if (_foreground_nxt [i, j] != null)
+                    ((!) _foreground_nxt [i, j]).idle_resize ();
             }
         }
 
