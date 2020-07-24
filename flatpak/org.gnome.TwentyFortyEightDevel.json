@@ -42,6 +42,25 @@
             ]
         },
         {
+            "name": "libevdev",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://anongit.freedesktop.org/git/libevdev.git"
+                }
+            ]
+        },
+        {
+            "name": "libmanette",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/aplazas/libmanette.git"
+                }
+            ]
+        },
+        {
             "name":"gnome-2048",
             "buildsystem":"meson",
             "sources":[
