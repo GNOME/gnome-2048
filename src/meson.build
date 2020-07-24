@@ -24,12 +24,13 @@ resources = gnome.compile_resources(
 gnome_2048_sources = [
   'application.vala',
   'cli.vala',
-  'config.vapi',
   'game.vala',
   'game-headerbar.vala',
   'game-window.vala',
   'grid.vala',
   'view.vala',
+  join_paths ('vapi', 'config.vapi'),
+  join_paths ('vapi', 'input-event-codes.vapi')
 ] + resources
 
 gnome_2048 = executable(
@@ -41,6 +42,7 @@ gnome_2048 = executable(
     gtk_dependency,
     clutter_dependency,
     clutter_gtk_dependency,
+    manette_dependency,
     gee_dependency,
     libgnome_games_support_dependency,
   ],

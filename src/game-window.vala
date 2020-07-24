@@ -61,6 +61,7 @@ private class GameWindow : ApplicationWindow
 
         // should be done after game creation, so that you cannot move before
         _init_keyboard ();
+        _init_manettes ();
         _init_gestures ();
     }
 
@@ -336,6 +337,58 @@ private class GameWindow : ApplicationWindow
     private static inline uint _upper_key (uint keyval)
     {
         return (keyval > 255) ? keyval : ((char) keyval).toupper ();
+    }
+
+    /*\
+    * * manettes
+    \*/
+
+    private Manette.Monitor manette_monitor;
+
+    private inline void _init_manettes ()
+    {
+        manette_monitor = new Manette.Monitor ();
+        manette_monitor.device_connected.connect (manette_device_connected);
+        Manette.MonitorIter manette_iterator = manette_monitor.iterate ();
+        Manette.Device? manette_device = null;
+        while (manette_iterator.next (out manette_device))
+            manette_device_connected (manette_device);
+    }
+
+    private void manette_device_connected (Manette.Device? manette_device)
+    {
+        if (manette_device != null)
+            ((!) manette_device).button_press_event.connect (manette_button_press_event_cb);
+    }
+
+    private void manette_button_press_event_cb (Manette.Event event)
+    {
+        uint16 button;
+        if (!event.get_button (out button))
+            return;
+
+        switch (button)
+        {
+            case InputEventCode.BTN_DPAD_UP:    _pad_click (MoveRequest.UP);    return;
+            case InputEventCode.BTN_DPAD_LEFT:  _pad_click (MoveRequest.LEFT);  return;
+            case InputEventCode.BTN_DPAD_RIGHT: _pad_click (MoveRequest.RIGHT); return;
+            case InputEventCode.BTN_DPAD_DOWN:  _pad_click (MoveRequest.DOWN);  return;
+
+         // case InputEventCode.BTN_A: _header_bar.toggle_new_game ();          return;
+         // case InputEventCode.BTN_B: _header_bar.toggle_hamburger_menu ();    return;
+
+         // case InputEventCode.BTN_START
+         // case InputEventCode.BTN_SELECT
+        }
+    }
+    private inline void _pad_click (MoveRequest request)
+    {
+        if (!_header_bar.has_popover ())
+            _game.move (request);
+//        else if (request == MoveRequest.UP   || request == MoveRequest.LEFT)
+//            _header_bar.prev_popover_entry ();
+//        else // (request == MoveRequest.DOWN || request == MoveRequest.RIGHT)
+//            _header_bar.next_popover_entry ();
     }
 
     /*\

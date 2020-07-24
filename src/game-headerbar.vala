@@ -50,6 +50,14 @@ private class GameHeaderBar : HeaderBar
         return _hamburger_button.active || _new_game_button.active;
     }
 
+//    internal void prev_popover_entry ()
+//    {
+//    }
+
+//    internal void next_popover_entry ()
+//    {
+//    }
+
     /*\
     * * texts
     \*/
