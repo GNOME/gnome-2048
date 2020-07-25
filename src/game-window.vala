@@ -366,6 +366,8 @@ private class GameWindow : ApplicationWindow
         uint16 button;
         if (!event.get_button (out button))
             return;
+        if (_game.cannot_move ())
+            return;
 
         switch (button)
         {
