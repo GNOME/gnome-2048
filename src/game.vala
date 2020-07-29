@@ -442,10 +442,10 @@ private class Game : Gtk.Widget
     {
         debug (@"prepare move tile from $from to $to");
 
-        bool row_move = (from.col == to.col);
+//        bool row_move = (from.col == to.col);
 
-        RoundedRectangle rect_from = _background [from.col, from.row];
-        RoundedRectangle rect_to   = _background [  to.col,   to.row];
+//        RoundedRectangle rect_from = _background [from.col, from.row];
+//        RoundedRectangle rect_to   = _background [  to.col,   to.row];
 
 //        TileView? tile_view = _foreground_cur [from.col, from.row];
 //        if (tile_view == null)
@@ -609,17 +609,17 @@ private class Game : Gtk.Widget
 
         _grid.move (request, ref _to_move, ref _to_hide, ref _to_show);
 
-        foreach (TileMovement? e in _to_move)
-        {
-            if (e == null)
-                assert_not_reached ();
-            _move_tile (((!) e).from, ((!) e).to);
-        }
         foreach (TileMovement? e in _to_hide)
         {
             if (e == null)
                 assert_not_reached ();
             _prepare_move_tile (((!) e).from, ((!) e).to);
+        }
+        foreach (TileMovement? e in _to_move)
+        {
+            if (e == null)
+                assert_not_reached ();
+            _move_tile (((!) e).from, ((!) e).to);
         }
 
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
