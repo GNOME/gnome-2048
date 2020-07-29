@@ -38,9 +38,9 @@ private class Grid : Object
         _clear (ref _grid);
     }
 
-    internal Grid (uint8 rows, uint8 cols)
+    internal Grid (uint8 cols, uint8 rows)
     {
-        Object (rows: rows, cols: cols);
+        Object (cols: cols, rows: rows);
     }
 
     /*\

@@ -85,12 +85,12 @@ private class Game : Gtk.Widget
     {
         uint8 cols = (uint8) settings.get_int ("cols");  // schema ranges cols
         uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
-        _init_grid (rows, cols, out _grid, ref settings);
+        _init_grid (cols, rows, out _grid, ref settings);
     }
 
-    private static void _init_grid (uint8 rows, uint8 cols, out Grid grid, ref GLib.Settings settings)
+    private static void _init_grid (uint8 cols, uint8 rows, out Grid grid, ref GLib.Settings settings)
     {
-        grid = new Grid (rows, cols);
+        grid = new Grid (cols, rows);
         settings.bind ("target-value", grid, "target-value", GLib.SettingsBindFlags.DEFAULT | GLib.SettingsBindFlags.NO_SENSITIVITY);
     }
 
@@ -142,12 +142,13 @@ private class Game : Gtk.Widget
         uint8 cols = (uint8) settings.get_int ("cols");  // schema ranges cols
         uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
 
-        if ((rows != _grid.rows) || (cols != _grid.cols))
+        if ((cols != _grid.cols)
+         || (rows != _grid.rows))
         {
             _clear_foreground ();
             _clear_background ();
 
-            _init_grid (rows, cols, out _grid, ref settings);
+            _init_grid (cols, rows, out _grid, ref settings);
 
             _init_background ();
         }
@@ -184,16 +185,16 @@ private class Game : Gtk.Widget
         _init_background ();
         _restore_foreground (true);
 
-        uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        if ((rows == 3 && cols != 3)
-         || (rows == 4 && cols != 4)
-         || (rows == 5 && cols != 5)
-         || (rows != 3 && rows != 4 && rows != 5))
+        uint8 rows = _grid.rows;
+        if ((cols == 3 && rows != 3)
+         || (cols == 4 && rows != 4)
+         || (cols == 5 && rows != 5)
+         || (cols != 3 && cols != 4 && cols != 5))
         {
             settings.delay ();
-            settings.set_int ("rows", rows);
             settings.set_int ("cols", cols);
+            settings.set_int ("rows", rows);
             settings.apply ();
         }
 
@@ -219,12 +220,12 @@ private class Game : Gtk.Widget
     {
         warning ("init background");
 
-        uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
+        uint8 rows = _grid.rows;
 
-        _background     = new RoundedRectangle [rows, cols];
-        _foreground_cur = new TileView? [rows, cols];
-        _foreground_nxt = new TileView? [rows, cols];
+        _background     = new RoundedRectangle [cols, rows];
+        _foreground_cur = new TileView? [cols, rows];
+        _foreground_nxt = new TileView? [cols, rows];
 
         float canvas_width  = (float) width;
         float canvas_height = (float) height;
@@ -236,9 +237,9 @@ private class Game : Gtk.Widget
         float tile_height = canvas_height / rows;
 
         warning (@"_init_background size: $cols, $rows");
-        for (uint8 i = 0; i < rows; i++)
+        for (uint8 i = 0; i < cols; i++)
         {
-            for (uint8 j = 0; j < cols; j++)
+            for (uint8 j = 0; j < rows; j++)
             {
                 warning (@"_init_background: ($i, $j)");
                 float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
@@ -253,9 +254,9 @@ private class Game : Gtk.Widget
                 _foreground_nxt [i, j] = null;
             }
         }
-        for (uint8 i = 0; i < rows; i++)
+        for (uint8 i = 0; i < cols; i++)
         {
-            for (uint8 j = 0; j < cols; j++)
+            for (uint8 j = 0; j < rows; j++)
             {
                 warning (@"_init_foreground: ($i, $j)");
                 float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
@@ -275,8 +276,8 @@ private class Game : Gtk.Widget
 
     private void _resize_view ()
     {
-        uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
+        uint8 rows = _grid.rows;
         float canvas_width  = (float) width;
         float canvas_height = (float) height;
 
@@ -286,9 +287,9 @@ private class Game : Gtk.Widget
         float tile_width  = canvas_width  / cols;
         float tile_height = canvas_height / rows;
 
-        for (uint8 i = 0; i < rows; i++)
+        for (uint8 i = 0; i < cols; i++)
         {
-            for (uint8 j = 0; j < cols; j++)
+            for (uint8 j = 0; j < rows; j++)
             {
                 warning (@"_resize_view: ($i, $j)");
                 float x = i * tile_width  + (i + 1) * BLANK_COL_WIDTH;
@@ -310,11 +311,11 @@ private class Game : Gtk.Widget
 
     private bool _idle_resize_view ()
     {
-        uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        for (uint8 i = 0; i < rows; i++)
+        uint8 rows = _grid.rows;
+        for (uint8 i = 0; i < cols; i++)
         {
-            for (uint8 j = 0; j < cols; j++)
+            for (uint8 j = 0; j < rows; j++)
             {
                 warning (@"_idle_resize_view: ($i, $j)");
                 _background [i, j].idle_resize ();
@@ -501,8 +502,8 @@ private class Game : Gtk.Widget
 
     private void _clear_foreground ()
     {
-        uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
+        uint8 rows = _grid.rows;
         float canvas_width  = (float) width;
         float canvas_height = (float) height;
 
@@ -519,9 +520,9 @@ private class Game : Gtk.Widget
             ((!) child).destroy ();
         }
 
-        for (uint8 i = 0; i < rows; i++)
+        for (uint8 i = 0; i < cols; i++)
         {
-            for (uint8 j = 0; j < cols; j++)
+            for (uint8 j = 0; j < rows; j++)
             {
                 warning (@"clearing foreground: ($i, $j)");
                 if (_foreground_cur [i, j] != null)
@@ -540,8 +541,8 @@ private class Game : Gtk.Widget
 
     private void _restore_foreground (bool animate)
     {
-        uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
+        uint8 rows = _grid.rows;
         float canvas_width  = (float) width;
         float canvas_height = (float) height;
 
@@ -553,9 +554,9 @@ private class Game : Gtk.Widget
 
         _create_show_hide_transition (animate);
 
-        for (uint8 i = 0; i < rows; i++)
+        for (uint8 i = 0; i < cols; i++)
         {
-            for (uint8 j = 0; j < cols; j++)
+            for (uint8 j = 0; j < rows; j++)
             {
                 warning (@"restoring foreground: ($i, $j)");
                 uint8 val = _grid [i, j];
