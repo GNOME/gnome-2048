@@ -1,3 +1,22 @@
+GNOME 2048   3.37.91                                       2020-08-28
+=====================================================================
+
+Probably the only beta on the road of the future 3.38 stable release.
+Some rare bugs fixed (ghost tiles may have appeared when the grid was
+resized during a move, and the icon was missing in the Scores dialog)
+and some needed continuous integration works done by Jordan Petridis.
+
+New translation:
+  Kurdish Sorani: Jwtiyar Nariman
+
+Translations updated:
+  Catalan: Jordi Mas
+  Chinese (China): Mandy Wang and Boyuan Yang
+  French: Alexandre Franke
+  Kazakh: Baurzhan Muftakhidinov
+  Romanian: Daniel Șerbănescu
+  Ukrainian: Yuri Chornoivan
+
 GNOME 2048   3.37.1                                        2020-04-25
 =====================================================================
 
