@@ -429,10 +429,10 @@ private class Game : Gtk.Widget
             assert_not_reached ();
         Gtk.GridLayoutChild rect_layout = (Gtk.GridLayoutChild) layout.get_layout_child ((!) nullable_tile);
 
-        tile_layout.set_left_attach (  to.col);
-        tile_layout.set_top_attach  (  to.row);
-        rect_layout.set_left_attach (from.col);
-        rect_layout.set_top_attach  (from.row);
+        tile_layout.set_column (  to.col);
+        tile_layout.set_row    (  to.row);
+        rect_layout.set_column (from.col);
+        rect_layout.set_row    (from.row);
 
         _foreground_nxt [  to.col,   to.row] = _foreground_cur [from.col, from.row];
         _foreground_cur [from.col, from.row] = null;
