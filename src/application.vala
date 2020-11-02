@@ -82,6 +82,7 @@ private class TwentyFortyEight : Gtk.Application
 
         const string application_name = "org.gnome.TwentyFortyEight";
         Environment.set_application_name (application_name);
+        Environment.set_prgname ("org.gnome.TwentyFortyEight");
         Window.set_default_icon_name ("org.gnome.TwentyFortyEight");
 
         try {
