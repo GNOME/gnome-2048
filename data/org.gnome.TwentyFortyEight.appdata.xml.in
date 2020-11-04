@@ -91,4 +91,9 @@
     <release version="3.38.0" date="2020-09-12" type="stable" urgency="medium"/>
   ​  <release version="3.37.91" date="2020-08-28" type="development" urgency="low"/>
   </releases>
+
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
 </component>
