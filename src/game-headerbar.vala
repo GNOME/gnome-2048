@@ -23,9 +23,9 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/TwentyFortyEight/ui/game-headerbar.ui")]
 private class GameHeaderBar : HeaderBar
 {
-    [GtkChild] private Label        _score;
-    [GtkChild] private MenuButton   _new_game_button;
-    [GtkChild] private MenuButton   _hamburger_button;
+    [GtkChild] private unowned Label        _score;
+    [GtkChild] private unowned MenuButton   _new_game_button;
+    [GtkChild] private unowned MenuButton   _hamburger_button;
 
     /*\
     * * popovers

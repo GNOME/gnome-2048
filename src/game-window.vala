@@ -26,10 +26,10 @@ private class GameWindow : ApplicationWindow
 {
     private GLib.Settings _settings;
 
-    [GtkChild] private GameHeaderBar    _header_bar;
-    [GtkChild] private GtkClutter.Embed _embed;
+    [GtkChild] private unowned GameHeaderBar    _header_bar;
+    [GtkChild] private unowned GtkClutter.Embed _embed;
 
-    [GtkChild] private Button           _unfullscreen_button;
+    [GtkChild] private unowned Button           _unfullscreen_button;
 
     private Game _game;
 
