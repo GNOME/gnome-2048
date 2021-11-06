@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-06-05 09:07+0000\n"
+"POT-Creation-Date: 2021-06-12 19:06+0000\n"
 "PO-Revision-Date: 2020-08-23 20:48+0200\n"
 "Last-Translator: Jordi Mas i Hernàndez <jmas@softcatala.org>\n"
 "Language-Team: ca_ES <tradgnome@softcatala.net>\n"
@@ -130,8 +130,8 @@ msgstr ""
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
-"Be careful: all tiles slide to their farthest possible positions, you cannot "
-"slide just one tile or one row or column. Tiles with the same value are "
+"Be careful: all tiles slide to their farthest possible positions, you cannot"
+" slide just one tile or one row or column. Tiles with the same value are "
 "joined when slided one over the other."
 msgstr ""
 "Utilitzeu les tecles del cursor per a desplaçar les caselles en la direcció "
@@ -331,8 +331,9 @@ msgstr "Imprimeix la versió del llançament i surt"
 
 #. Translators: command-line error message, displayed for an incorrect game
 #. size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
-msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+#: src/application.vala:123
+msgid ""
+"Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "No s'ha pogut analitzar la mida. La mida ha d'estar entre 2 i 9, o en la "
 "forma 2x3."
@@ -400,7 +401,7 @@ msgstr "Personalitzat"
 #: src/game-window.vala:421
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
-msgstr ""
+msgstr "Per primera vegada heu obtingut la fitxa del %u!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks
 #. the "Scores" entry in the hamburger menu, if the user has already finished
