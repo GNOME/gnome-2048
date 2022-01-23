@@ -17,7 +17,6 @@ install_data(
 
 # Desktop file
 desktop_file = i18n.merge_file(
-  'desktop-file',
   input: 'org.gnome.TwentyFortyEight.desktop.in',
   output: 'org.gnome.TwentyFortyEight.desktop',
   install: true,
@@ -37,7 +36,6 @@ endif
 
 # AppData file
 appdata_file = i18n.merge_file(
-  'appdata-file',
   input: 'org.gnome.TwentyFortyEight.appdata.xml.in',
   output: 'org.gnome.TwentyFortyEight.appdata.xml',
   install: true,
