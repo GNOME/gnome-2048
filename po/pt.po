@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
 # Tiago Santos <tiagofsantos81@sapo.pt>, 2014 - 2016.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2020, 2021, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Gnome 2048\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-06-05 09:07+0000\n"
-"PO-Revision-Date: 2021-02-01 15:47+0000\n"
+"POT-Creation-Date: 2022-06-05 04:48+0000\n"
+"PO-Revision-Date: 2022-07-11 15:55+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Project-Style: gnome\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
@@ -294,7 +295,7 @@ msgid "Print release version and exit"
 msgstr "Capturar versão de lançamento e sair"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "Falha ao analisar o tamanho. O tamanho deve ser entre 2 e 9, ou no formato "
