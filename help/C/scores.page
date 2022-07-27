@@ -1,0 +1,23 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task" version="1.1"
+      id="scores">
+  <info>
+
+    <revision version="3.38.2" date="2022-07-26" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Anthony Saldana Valle</name>
+      <email>ansavanix@gmail.com</email>
+      <years>2022</years>
+    </credit>
+
+    <link type="guide" xref="index#play"/>
+
+    <desc>View high scores in <app>2048</app></desc>
+  </info>
+
+  <title>Viewing high scores</title>
+
+  <p>Select the menu button on the top right corner or press <key>F10</key> and then select <gui style="button">Scores</gui> to view high scores. Open the menu labelled "Grid Size" to select the grid size to view high scores for.</p>
+
+</page>

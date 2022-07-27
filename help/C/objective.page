@@ -1,0 +1,27 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task" version="1.1"
+      id="objective">
+  <info>
+
+    <revision version="3.38.2" date="2022-07-26" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Anthony Saldana Valle</name>
+      <email>ansavanix@gmail.com</email>
+      <years>2022</years>
+    </credit>
+
+    <link type="guide" xref="index#play"/>
+
+    
+    <link type="seealso" xref="controls"/>
+
+    <desc>Objective of <app>2048</app></desc>
+  </info>
+
+  <title>Objective</title>
+  
+  <p>To earn points in 2048, you need to combine squares with the same numerical label. This is done by shifting the board in a direction in which two equivalent squares meet. If the board is full and you cannot combine any squares, the game ends.</p>
+  
+  
+</page>

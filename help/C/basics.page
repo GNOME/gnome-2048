@@ -1,0 +1,36 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task" version="1.1"
+      id="basics">
+  <info>
+
+    <revision version="3.38.2" date="2022-07-26" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Anthony Saldana Valle</name>
+      <email>ansavanix@gmail.com</email>
+      <years>2022</years>
+    </credit>
+
+    <link type="guide" xref="index#play"/>
+
+    <desc>Start and quit a game of <app>2048</app></desc>
+  </info>
+
+  <title>Basic Instructions</title>
+
+  <section id="start">
+    <title>Start a new game</title>
+
+    <p>Press <gui style="button">New Game</gui> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to open the grid size selection menu and press <gui style="button">3x3</gui>, <gui style="button">4x4</gui>, or <gui style="button">5x5</gui> to start a new game with the selected grid size.</p>
+
+    <p>Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start a new game with the same grid size as the current game.</p>
+
+  </section>
+
+  <section id="quit">
+    <title>Quit <app>2048</app></title>
+
+    <p>Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> at any time.</p>
+  </section>
+
+</page>

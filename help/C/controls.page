@@ -1,0 +1,38 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task" version="1.1"
+      id="controls">
+  <info>
+
+    <revision version="3.38.2" date="2022-07-26" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Anthony Saldana Valle</name>
+      <email>ansavanix@gmail.com</email>
+      <years>2022</years>
+    </credit>
+
+    <link type="guide" xref="index#play"/>
+
+    <desc>Default controls for <app>2048</app></desc>
+  </info>
+
+  <title>Controls</title>
+
+  <p>You can click and drag your mouse on the board to shift squares in the same direction. If you want to use the keyboard instead, the default keys to shift the squares in <app>2048</app> are:</p>
+
+  <list>
+    <item>
+      <p><key>&#8592;</key> to shift squares left.</p>
+    </item>
+    <item>
+      <p><key>&#8593;</key> to shift squares up.</p>
+    </item>
+    <item>
+      <p><key>&#8594;</key> to shift squares right.</p>
+    </item>
+    <item>
+      <p><key>&#8595;</key> to shift squares down.</p>
+    </item>
+  </list>
+
+</page>
