@@ -4,7 +4,6 @@ variables:
     BUNDLE: "gnome-2048-dev.flatpak"
 
 flatpak:
-    image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
     variables:
         MANIFEST_PATH: "flatpak/org.gnome.TwentyFortyEightDevel.json"
         FLATPAK_MODULE: "gnome-2048"
