@@ -35,6 +35,22 @@
                 <property name="accelerator">Left Up Right Down</property>
               </object>
             </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: the application has no help, so the use of arrows for playing is documented here -->
+                <property name="title" translatable="yes" context="shortcut window">Play with WASD</property>
+                <property name="accelerator">W A S D</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: the application has no help, so the use of arrows for playing is documented here -->
+                <property name="title" translatable="yes" context="shortcut window">Play with VIM-style bindings</property>
+                <property name="accelerator">H J K L</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
