@@ -114,6 +114,11 @@ private class Game : Gtk.Widget
     private const uint16 KEYCODE_S = 39;
     private const uint16 KEYCODE_D = 40;
 
+    private const uint16 KEYCODE_H = 43;
+    private const uint16 KEYCODE_J = 44;
+    private const uint16 KEYCODE_K = 45;
+    private const uint16 KEYCODE_L = 46;
+
     private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         if (cannot_move ())
@@ -121,10 +126,17 @@ private class Game : Gtk.Widget
 
         switch (keycode)
         {
+            // WASD
             case KEYCODE_W:     move (MoveRequest.UP);      return true;
             case KEYCODE_A:     move (MoveRequest.LEFT);    return true;
             case KEYCODE_S:     move (MoveRequest.DOWN);    return true;
             case KEYCODE_D:     move (MoveRequest.RIGHT);   return true;
+
+            // VIM-style HJKL
+            case KEYCODE_H:     move (MoveRequest.LEFT);    return true;
+            case KEYCODE_J:     move (MoveRequest.DOWN);    return true;
+            case KEYCODE_K:     move (MoveRequest.UP);      return true;
+            case KEYCODE_L:     move (MoveRequest.RIGHT);   return true;
         }
         switch (_upper_key (keyval))
         {
