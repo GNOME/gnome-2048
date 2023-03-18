@@ -1,19 +1,20 @@
 # gnome-2048 Korean translation.
 # This file is distributed under the same license as the gnome-2048 package.
 # adenosie <adenosiez@gmail.com>, 2020.
-#
+# DaeHyun Sung <sungdh86+git@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-02-01 04:38+0000\n"
-"PO-Revision-Date: 2020-02-02 16:32+0900\n"
-"Last-Translator: adenosie <adenosiez@gmail.com>\n"
+"POT-Creation-Date: 2023-01-25 18:03+0000\n"
+"PO-Revision-Date: 2023-03-16 23:37+0900\n"
+"Last-Translator: DaeHyun Sung <sungdh86+git@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -29,18 +30,18 @@ msgstr "새 게임(_N)"
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:54
 msgid "_Keep Playing"
-msgstr "계속 하기(_K)"
+msgstr "계속하기(_K)"
 
 #. Translators: title of the window, displayed in the headerbar
 #: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
 msgid "GNOME 2048"
-msgstr "계속 하기(_K)"
+msgstr "그놈 2048"
 
 #. Translators: header of the "Play with arrows" shortcut section
 #: data/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "Game"
-msgstr "조작"
+msgstr "게임"
 
 #. Translators: the application has no help, so the use of arrows for playing is documented here
 #: data/help-overlay.ui:34
@@ -82,7 +83,7 @@ msgstr "메인 메뉴 열기"
 #: data/help-overlay.ui:80
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
-msgstr "바로 가기 키 보기"
+msgstr "키보드 바로 가기"
 
 #. Translators: shortcut that opens About dialog
 #: data/help-overlay.ui:88
@@ -107,9 +108,9 @@ msgid ""
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
 "and obtain the 2048 tile."
 msgstr ""
-"중독적인 2048 게임을 해 보세요. 그놈 2048은 인기 있는 "
-"1인용 퍼즐 게임의 복제판입니다. 격자 안에 있는 숫자를 합쳐 "
-"2048 타일을 만드는 것이 게임의 목표입니다."
+"중독적인 2048 게임을 해 보세요. 그놈 2048은 인기 있는 1인용 퍼즐 게임의 복사"
+"판입니다. 격자 안에 있는 숫자를 합쳐 2048 타일을 만드는 것이 게임의 목표입니"
+"다."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -118,11 +119,9 @@ msgid ""
 "slide just one tile or one row or column. Tiles with the same value are "
 "joined when slided one over the other."
 msgstr ""
-"키보드 방향 키를 사용해 타일을 원하는 방향으로 옮기세요. "
-"타일들은 갈 수 있는 한 가장 끝까지 움직이고, 타일 한 개 혹은 "
-"한 줄만 옮길 수는 없다는 것에 주의하세요. 같은 숫자가 "
-"적혀 있는 타일 두 개를 서로 만나는 방향으로 움직이면 합쳐져서 "
-"더 큰 숫자가 적힌 타일이 됩니다."
+"키보드 방향 키를 사용해 모든 타일을 원하는 방향으로 옮기세요. 주의: 모든 타일"
+"은 가능한 가장 먼 위치로 밀어야 하며, 타일 하나 또는 하나의 행이나 하나의 열"
+"만 밀 수 없습니다. 같은 값을 가진 타일을 서로 밀면 결합이 됩니다."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
 msgid ""
@@ -130,18 +129,17 @@ msgid ""
 "easily get the 2048 tile, do not let it stop you, the game does not end "
 "there, you can continue joining tiles and improving your score."
 msgstr ""
-"새 타일을 만들 때마다 점수가 오릅니다. 2048 타일을 만드는 것이 "
-"너무 쉬웠다면, 게임을 끝내지 않고 계속해서 점수를 올릴 수도 있습니다."
+"새로운 타일을 만들 때마다 점수가 오릅니다. 2048 타일을 만드는 것이 너무 쉬웠"
+"다면, 게임을 끝내지 않고 계속해서 점수를 올릴 수도 있습니다."
 
-#, fuzzy
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
 "game and includes ideas from other clones."
 msgstr ""
-"Gabriele Cirulli가 처음 만든 2048 게임은 너무 중독성이 있어서 유명해졌습니다. "
-"Cirulli의 2048 게임은 1024 게임과 다른 복제판들에게서 아이디어를 가져왔습니다."
+"Gabriele Cirulli가 처음 만든 2048 게임은 매우 중독성이 있어서 유명해졌습니"
+"다. Cirulli의 2048 게임은 1024 게임과 다른 복사판 아이디어를 가져왔습니다."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
@@ -153,14 +151,14 @@ msgid "The GNOME Project"
 msgstr "그놈 프로젝트"
 
 #. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
 msgid "2048"
-msgstr ""
+msgstr "2048"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
 msgid "puzzle;"
-msgstr "퍼즐;"
+msgstr "puzzle;퍼즐;"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:6
@@ -215,17 +213,17 @@ msgstr "게임 격자의 열 개수."
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:44
 msgid "Target value"
-msgstr "목표 숫자"
+msgstr "목표 값"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:46
 msgid "Tile value at which user is congratulated."
-msgstr "축하 메시지를 보기 위해 만들어야 하는 타일 숫자."
+msgstr "축하 메시지를 보려면 만들어야 하는 타일 값."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:51
 msgid "Congrat on target tile"
-msgstr "목표 숫자에서 끝내기"
+msgstr "목표 타일에서 끝내기"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:53
@@ -285,17 +283,19 @@ msgstr "크기"
 #. Translators: command-line option description, see 'gnome-2048 --help'
 #: src/application.vala:48
 msgid "Print release version and exit"
-msgstr "릴리즈 버전을 출력하고 종료"
+msgstr "릴리스 버전을 출력 후 나가기"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
-msgstr "크기를 파싱하는 데 실패했습니다. 크기는 2에서 9 사이의 숫자거나, 2x3과 같은 형식이어야 합니다."
+msgstr ""
+"크기를 파싱하는 데 실패했습니다. 크기는 2에서 9 사이의 숫자거나, 2x3과 같은 "
+"형식이어야 합니다."
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
 #: src/game-headerbar.vala:67
 msgid "Game Over"
-msgstr "게임 오버"
+msgstr "게임 끝"
 
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
 #: src/game-headerbar.vala:97
@@ -320,17 +320,17 @@ msgstr "2048 정보"
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
 #: src/game-headerbar.vala:142
 msgid "3 × 3"
-msgstr ""
+msgstr "3 × 3"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
 #: src/game-headerbar.vala:148
 msgid "4 × 4"
-msgstr ""
+msgstr "4 × 4"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
 #: src/game-headerbar.vala:154
 msgid "5 × 5"
-msgstr ""
+msgstr "5 × 5"
 
 #. Translators: command-line warning displayed if the user manually sets a invalid grid size
 #: src/game-headerbar.vala:163
@@ -343,53 +343,55 @@ msgid "Custom"
 msgstr "사용자 지정"
 
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:415
+#: src/game-window.vala:421
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "처음으로 %u 타일을 만들었습니다!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:434
+#: src/game-window.vala:440
 msgid "Grid 3 × 3"
 msgstr "3 × 3 격자"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:437
+#: src/game-window.vala:443
 msgid "Grid 4 × 4"
 msgstr "4 × 4 격자"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:440
+#: src/game-window.vala:446
 msgid "Grid 5 × 5"
 msgstr "5 × 5 격자"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:443
+#: src/game-window.vala:449
 msgid "Grid Size:"
 msgstr "격자 크기:"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:499
+#: src/game-window.vala:505
 msgid "A clone of 2048 for GNOME"
-msgstr "그놈을 위한 2048 복제판"
+msgstr "그놈용 2048 복사판"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:504
+#: src/game-window.vala:510
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
-msgstr ""
+msgstr "Copyright © 2014-2015 – Juan R. García Blanco"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:508
+#: src/game-window.vala:514
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr ""
+msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:513
+#: src/game-window.vala:519
 msgid "translator-credits"
-msgstr "adenosie <adenosiez@gmail.com>"
+msgstr ""
+"성대현 <sungdh86+git@gmail.com>\n"
+"adenosie <adenosiez@gmail.com>"
 
 #. Translators: about dialog text; label of the website link
-#: src/game-window.vala:517
+#: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "그놈 위키 페이지"
