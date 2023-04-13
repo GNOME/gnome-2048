@@ -678,7 +678,7 @@ private class Game : Object
             return;
 
         _clear_foreground ();
-        _grid = _undo_stack.poll_head ();
+        _grid = (!) _undo_stack.poll_head ();
         _restore_foreground (false);
         score = _grid.get_score ();
 
