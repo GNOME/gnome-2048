@@ -8,18 +8,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2022-07-11 14:55+0000\n"
-"PO-Revision-Date: 2023-02-18 20:11+0100\n"
+"POT-Creation-Date: 2023-02-18 19:12+0000\n"
+"PO-Revision-Date: 2024-03-25 00:29+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
-"n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -50,7 +50,6 @@ msgstr "Igra"
 
 #. Translators: the application has no help, so the use of arrows for playing is documented here
 #: data/help-overlay.ui:34
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Play with arrows"
 msgstr "Igrajte s smernimi tipkami"
@@ -283,9 +282,8 @@ msgstr "UKAZ"
 
 #. Translators: command-line option description, see 'gnome-2048 --help'
 #: src/application.vala:42
-#, fuzzy
 msgid "Start new game of given size"
-msgstr "Začnite novo igro z dano velikostjo"
+msgstr "Začni novo igro z dano velikostjo"
 
 #. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
 #: src/application.vala:45
@@ -294,13 +292,11 @@ msgstr "VELIKOST"
 
 #. Translators: command-line option description, see 'gnome-2048 --help'
 #: src/application.vala:48
-#, fuzzy
 msgid "Print release version and exit"
 msgstr "Izpiši različico izdaje in zapri"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
 #: src/application.vala:123
-#, fuzzy
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "Razčlenjevanje velikosti je spodletelo. Velikost mora biti med 2 in 9 ali v "
@@ -348,7 +344,6 @@ msgstr "5 × 5"
 
 #. Translators: command-line warning displayed if the user manually sets a invalid grid size
 #: src/game-headerbar.vala:163
-#, fuzzy
 msgid "Grids of size 1 by 2 are disallowed."
 msgstr "Mreže velikosti 1-krat-2 so onemogočene."
 
