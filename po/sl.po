@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2018-10-14 09:28+0000\n"
-"PO-Revision-Date: 2018-10-19 17:54+0200\n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"POT-Creation-Date: 2023-01-24 20:41+0000\n"
+"PO-Revision-Date: 2024-03-31 18:46+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -19,128 +19,95 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: data/congrats.ui:8
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
+#: data/congrats.ui:23
 msgid "Congratulations!"
 msgstr "Čestitke!"
 
-#: data/congrats.ui:22 data/menus.ui:6 src/application.vala:246
-msgid "New Game"
-msgstr "Nova igra"
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:46 data/game-headerbar.ui:29
+msgid "_New Game"
+msgstr "_Nova Igra"
 
-#: data/congrats.ui:38
-msgid "Keep Playing"
-msgstr "Nadaljuj z igranjem"
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:54
+msgid "_Keep Playing"
+msgstr "Nadaljuj z i_granjem"
 
-#: data/mainwindow.ui:7 data/org.gnome.gnome-2048.appdata.xml.in:8
+#. Translators: title of the window, displayed in the headerbar
+#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: data/menus.ui:11
-msgid "Scores"
-msgstr "Rezultati"
+#. Translators: header of the "Play with arrows" shortcut section
+#: data/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Igra"
 
-#: data/menus.ui:17 data/preferences.ui:15
-msgid "Preferences"
-msgstr "Možnosti"
+#. Translators: the application has no help, so the use of arrows for playing is documented here
+#: data/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "Play with arrows"
+msgstr "Igrajte s smernimi tipkami"
 
-#: data/menus.ui:28
+#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
+#: data/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "New game"
+msgstr "Nova igra"
+
+#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
+#: data/help-overlay.ui:49
+msgctxt "shortcut window"
+msgid "Choose a new game"
+msgstr "Izberite novo igro"
+
+#. Translators: shortcut that starts immediately a new game, with similar options
+#: data/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Začne novo igro"
+
+#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
+#: data/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "Splošno"
+
+#. Translators: shortcut that toggles the hamburger menu
+#: data/help-overlay.ui:72
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Preklopi glavni meni"
+
+#. Translators: shortcut that opens Keyboard Shortcuts window
+#: data/help-overlay.ui:80
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Tipkovne bližnjice‫"
+
+#. Translators: shortcut that opens About dialog
+#: data/help-overlay.ui:88
+msgctxt "shortcut window"
 msgid "About"
 msgstr "O programu"
 
-#: data/menus.ui:33
+#. Translators: shortcut that quits application
+#: data/help-overlay.ui:96
+msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Končaj"
+msgstr "Izhod"
 
-#: data/org.gnome.2048.gschema.xml:5
-msgid "Window width"
-msgstr "Širina okna"
-
-#: data/org.gnome.2048.gschema.xml:6
-msgid "Window width."
-msgstr "Širina okna igralnega polja."
-
-#: data/org.gnome.2048.gschema.xml:10
-msgid "Window height"
-msgstr "Višina okna"
-
-#: data/org.gnome.2048.gschema.xml:11
-msgid "Window height."
-msgstr "Višina okna igralnega polja."
-
-#: data/org.gnome.2048.gschema.xml:15
-msgid "Window maximized"
-msgstr "Razpeto okno"
-
-#: data/org.gnome.2048.gschema.xml:16
-msgid "Window maximization state."
-msgstr "Okno naj bo prikazanoo v razpetem stanju."
-
-#: data/org.gnome.2048.gschema.xml:20
-msgid "Number of rows"
-msgstr "Število vrstic"
-
-#: data/org.gnome.2048.gschema.xml:21
-msgid "Game grid number of rows."
-msgstr "Število vrstic v mreži igralnega polja."
-
-#: data/org.gnome.2048.gschema.xml:25
-msgid "Number of columns"
-msgstr "Število stolpcev"
-
-#: data/org.gnome.2048.gschema.xml:26
-msgid "Game grid number of columns."
-msgstr "Število stolpcev v mreži igralnega polja."
-
-#: data/org.gnome.2048.gschema.xml:30
-msgid "Target value"
-msgstr "Vrednost cilja"
-
-#: data/org.gnome.2048.gschema.xml:31
-msgid "Tile value at which user is congratulated."
-msgstr "Vrednost polja, pri katerem se uporabniku pokaže čestitka."
-
-#: data/org.gnome.2048.gschema.xml:35
-msgid "Congrat on target tile"
-msgstr "Pokaži čestitko pri odkritju ciljnega polja"
-
-#: data/org.gnome.2048.gschema.xml:36
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr ""
-"Možnost določa, ali naj se uporabniku prikaže čestitka ob odkritju ciljnega "
-"polja."
-
-#: data/org.gnome.2048.gschema.xml:40 data/preferences.ui:80
-msgid "Animations speed"
-msgstr "Hitrost animiranja"
-
-#: data/org.gnome.2048.gschema.xml:41
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr "Trajanje animacije: pokaži polje, premakni polje in zamegli polje."
-
-#: data/org.gnome.2048.gschema.xml:45 data/preferences.ui:129
-msgid "Allow undo"
-msgstr "Dovoli razveljavitve"
-
-#: data/org.gnome.2048.gschema.xml:46
-msgid "Whether tile movements can be undone."
-msgstr "Možnost določa, ali je poteze mogoče razveljaviti."
-
-#: data/org.gnome.2048.gschema.xml:50
-msgid "Number of undo movements"
-msgstr "Število razveljavitev"
-
-#: data/org.gnome.2048.gschema.xml:51
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Največje število potez polj, ki jih je še mogoče razveljaviti."
-
-#: data/org.gnome.gnome-2048.appdata.xml.in:9
-#: data/org.gnome.gnome-2048.desktop.in:4
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
+#: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Cilj je polje 2048"
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:11
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
 "single-player puzzle game. Gameplay consists of joining numbers in a grid "
@@ -149,7 +116,7 @@ msgstr ""
 "Igra Gnome 2048 je klon popularne številske igre. Cilj igre je doseči "
 "število 2048 z združevanjem enakih števil v mreži."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:16
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -162,7 +129,7 @@ msgstr ""
 "vrstico ali stolpec. Polja z isto vrednostjo števila se seštejejo in "
 "natoprekrijejo."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:22
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -172,7 +139,7 @@ msgstr ""
 "da je doseči število 2048 enostavno, se lahko preizkusite. Igra se tam sicer "
 "še ne konča. Za najvstrajnejše je še veliko prostora."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:27
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -182,88 +149,257 @@ msgstr ""
 "velike zasvojljivosti. Igra vključuje različne ideje tudi drugih podobnih "
 "iger."
 
-#: data/org.gnome.gnome-2048.appdata.xml.in:36
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Igra, pri kateri je treba s seštevanjem doseči število 2048"
 
 #. this is a translatable version of project_group
-#: data/org.gnome.gnome-2048.appdata.xml.in:45
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
-#. get_active_window ()
-#: data/org.gnome.gnome-2048.desktop.in:3 src/application.vala:383
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
 msgid "2048"
 msgstr "2048"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.gnome-2048.desktop.in:8
-msgid "gnome-2048"
-msgstr "gnome-2048"
-
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.gnome-2048.desktop.in:14
+#: data/org.gnome.TwentyFortyEight.desktop.in:14
 msgid "puzzle;"
 msgstr "igra;uganka;sudoku;seštevanje;"
 
-#: data/preferences.ui:54
-msgid "Grid size"
-msgstr "Velikost mreže"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:6
+msgid "Window width"
+msgstr "Širina okna"
 
-#: data/preferences.ui:67
-msgid "4 × 4"
-msgstr "4 × 4"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:8
+msgid "Window width."
+msgstr "Širina okna igralnega polja."
 
-#: data/preferences.ui:68
-msgid "5 × 5"
-msgstr "5 × 5"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:13
+msgid "Window height"
+msgstr "Višina okna"
 
-#: data/preferences.ui:106
-msgid "Display congrats"
-msgstr "Pokaži čestitke"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
+msgid "Window height."
+msgstr "Višina okna igralnega polja."
 
-#: src/application.vala:166
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:20
+msgid "Window maximized"
+msgstr "Razpeto okno"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
+msgid "Window maximization state."
+msgstr "Okno naj bo prikazanoo v razpetem stanju."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:28
+msgid "Number of rows"
+msgstr "Število vrstic"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:30
+msgid "Game grid number of rows."
+msgstr "Število vrstic v mreži igralnega polja."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:36
+msgid "Number of columns"
+msgstr "Število stolpcev"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:38
+msgid "Game grid number of columns."
+msgstr "Število stolpcev v mreži igralnega polja."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:44
+msgid "Target value"
+msgstr "Vrednost cilja"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:46
+msgid "Tile value at which user is congratulated."
+msgstr "Vrednost polja, pri katerem se uporabniku pokaže čestitka."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:51
+msgid "Congrat on target tile"
+msgstr "Pokaži čestitko pri odkritju ciljnega polja"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr ""
+"Možnost določa, ali naj se uporabniku prikaže čestitka ob odkritju ciljnega "
+"polja."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Animations speed"
+msgstr "Hitrost animiranja"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Trajanje animacije: pokaži polje, premakni polje in zamegli polje."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
+msgid "Allow undo"
+msgstr "Dovoli razveljavitve"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
+msgid "Whether tile movements can be undone."
+msgstr "Možnost določa, ali je poteze mogoče razveljaviti."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:75
+msgid "Number of undo movements"
+msgstr "Število razveljavitev"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:77
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Največje število potez polj, ki jih je še mogoče razveljaviti."
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:36
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "Igraj v terminalu (glejte »--cli=help«)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
+#: src/application.vala:39
+msgid "COMMAND"
+msgstr "UKAZ"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:42
+msgid "Start new game of given size"
+msgstr "Začni novo igro z dano velikostjo"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
+#: src/application.vala:45
+msgid "SIZE"
+msgstr "VELIKOST"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:48
+msgid "Print release version and exit"
+msgstr "Izpiši različico programa in končaj"
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
+#: src/application.vala:122
+msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+msgstr ""
+"Razčlenjevanje velikosti je spodletelo. Velikost mora biti med 2 in 9 ali v "
+"obliki 2x3."
+
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game-headerbar.vala:67
 msgid "Game Over"
 msgstr "Konec igra"
 
-#: src/application.vala:187
-#, c-format
-msgid "You have obtained the %u tile"
-msgstr "Odkrito je polje %u"
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/game-headerbar.vala:97
+msgid "Undo"
+msgstr "Razveljavi"
 
-#: src/application.vala:332
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/game-headerbar.vala:108
+msgid "Scores"
+msgstr "Rezultati"
+
+#. Translators: usual menu entry of the hamburger menu
+#: src/game-headerbar.vala:119
+msgid "Keyboard Shortcuts"
+msgstr "Tipkovne bližnjice"
+
+#. Translators: entry in the hamburger menu
+#: src/game-headerbar.vala:122
+msgid "About 2048"
+msgstr "O programu 2048"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
+#: src/game-headerbar.vala:142
+msgid "3 × 3"
+msgstr "3 × 3"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
+#: src/game-headerbar.vala:148
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
+#: src/game-headerbar.vala:154
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#. Translators: command-line warning displayed if the user manually sets a invalid grid size
+#: src/game-headerbar.vala:163
+msgid "Grids of size 1 by 2 are disallowed."
+msgstr "Mreže velikosti 1-krat-2 so onemogočene."
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/game-headerbar.vala:167
+msgid "Custom"
+msgstr "Po meri"
+
+#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
+#: src/game-window.vala:415
+#, c-format
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Prvič ste pridobili ploščico %u!"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
+#: src/game-window.vala:434
+msgid "Grid 3 × 3"
+msgstr "Mreža 3 × 3"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
+#: src/game-window.vala:437
 msgid "Grid 4 × 4"
 msgstr "Mreža 4 × 4"
 
-#: src/application.vala:333
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
+#: src/game-window.vala:440
 msgid "Grid 5 × 5"
 msgstr "Mreža 5 × 5"
 
-#: src/application.vala:335
+#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
+#: src/game-window.vala:443
 msgid "Grid Size:"
 msgstr "Velikost mreže:"
 
-#: src/application.vala:385
+#. Translators: about dialog text; a introduction to the game
+#: src/game-window.vala:499
 msgid "A clone of 2048 for GNOME"
 msgstr "Klon igre 2048 za GNOME"
 
-#: src/application.vala:386
-msgid ""
-"Copyright © 2014-2015 – Juan R. García Blanco\n"
-"Copyright © 2016 – Arnaud Bonatti"
-msgstr ""
-"Avtorske pravice © 2014-2015 – Juan R. García Blanco\n"
-"Avtorske pravice © 2016 – Arnaud Bonatti"
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/game-window.vala:504
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "Avtorske pravice © 2014–2015 – Juan R. García Blanco"
 
-#: src/application.vala:390
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/game-window.vala:508
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Avtorske pravice © %u–%u – Arnaud Bonatti"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/game-window.vala:513
 msgid "translator-credits"
 msgstr "Matej Urbančič <matej.u@svn.gnome.org>"
 
-#~ msgid "Help"
-#~ msgstr "Pomoč"
-
-#~ msgid "4 x 4"
-#~ msgstr "4 x 4"
-
-#~ msgid "5 x 5"
-#~ msgstr "5 x 5"
+#. Translators: about dialog text; label of the website link
+#: src/game-window.vala:517
+msgid "Page on GNOME wiki"
+msgstr "Stran na wikiju GNOME"
