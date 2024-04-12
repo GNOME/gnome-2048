@@ -1,0 +1,397 @@
+# Hindi translation for gnome-2048.
+# Copyright (C) 2024 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2024-03-24 23:30+0000\n"
+"PO-Revision-Date: 2024-03-29 17:48+0530\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 46.0\n"
+
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
+#: data/congrats.ui:23
+msgid "Congratulations!"
+msgstr "बधाइयाँ!"
+
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:46 data/game-headerbar.ui:29
+msgid "_New Game"
+msgstr "नया खेल (_N)"
+
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: data/congrats.ui:54
+msgid "_Keep Playing"
+msgstr "खेलते रहें (_K)"
+
+#. Translators: title of the window, displayed in the headerbar
+#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#. Translators: header of the "Play with arrows" shortcut section
+#: data/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "खेल"
+
+#. Translators: the application has no help, so the use of arrows for playing is documented here
+#: data/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "Play with arrows"
+msgstr "तीरों से खेलें"
+
+#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
+#: data/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "New game"
+msgstr "नया खेल"
+
+#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
+#: data/help-overlay.ui:49
+msgctxt "shortcut window"
+msgid "Choose a new game"
+msgstr "नया खेल चुनें"
+
+#. Translators: shortcut that starts immediately a new game, with similar options
+#: data/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "नया खेल शुरू करें"
+
+#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
+#: data/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "सामान्य"
+
+#. Translators: shortcut that toggles the hamburger menu
+#: data/help-overlay.ui:72
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "मुख्य मेनू टॉगल करें"
+
+#. Translators: shortcut that opens Keyboard Shortcuts window
+#: data/help-overlay.ui:80
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "कीबोर्ड शॉर्टकट"
+
+#. Translators: shortcut that opens About dialog
+#: data/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "About"
+msgstr "बारे में"
+
+#. Translators: shortcut that quits application
+#: data/help-overlay.ui:96
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "छोड़ें"
+
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
+#: data/org.gnome.TwentyFortyEight.desktop.in:4
+msgid "Obtain the 2048 tile"
+msgstr "2048 टाइल प्राप्त करें"
+
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
+msgid ""
+"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+"single-player puzzle game. Gameplay consists of joining numbers in a grid "
+"and obtain the 2048 tile."
+msgstr ""
+"अत्यधिक व्यसनकारी 2048 गेम खेलें। GNOME 2048 लोकप्रिय एकल-खिलाड़ी पहेली गेम का क्लोन है। "
+"गेमप्ले में संख्याओं को एक ग्रिड में जोड़ना और 2048 टाइल प्राप्त करना शामिल है।"
+
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"सभी टाइलों को वांछित दिशा में स्लाइड करने के लिए अपने कीबोर्ड की तीर कुंजियों का उपयोग "
+"करें। सावधान रहें: सभी टाइलें अपनी यथासंभव दूरतम स्थिति तक स्लाइड करती हैं, आप केवल एक "
+"टाइल या एक पंक्ति या स्तंभ को स्लाइड नहीं कर सकते। समान मान वाली टाइलें एक दूसरे के ऊपर "
+"स्लाइड करने पर जुड़ जाती हैं।"
+
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"प्राप्त प्रत्येक नई टाइल के साथ आप अपना स्कोर बढ़ाते हैं। यदि आपको लगता है कि आप 2048 "
+"टाइल आसानी से प्राप्त कर सकते हैं, तो इसे आपको रोकने न दें, खेल यहीं समाप्त नहीं होता है, "
+"आप टाइल्स में शामिल होना और अपने स्कोर में सुधार करना जारी रख सकते हैं।"
+
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"मूल रूप से गैब्रिएल सिरुली द्वारा निर्मित, 2048 ने अत्यधिक नशे की लत होने के कारण बहुत "
+"लोकप्रियता हासिल की है। सिरुली का 2048 बदले में 1024 गेम का क्लोन है और इसमें अन्य क्लोनों "
+"के विचार शामिल हैं।"
+
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
+msgid "A running game having reached the 2048 tile"
+msgstr "एक चालू खेल 2048 टाइल तक पहुंच गया है"
+
+#. this is a translatable version of project_group
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
+msgid "The GNOME Project"
+msgstr "GNOME परियोजना"
+
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.TwentyFortyEight.desktop.in:14
+msgid "puzzle;"
+msgstr "पहेली;"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:6
+msgid "Window width"
+msgstr "विंडो चौड़ाई"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:8
+msgid "Window width."
+msgstr "विंडो चौड़ाई।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:13
+msgid "Window height"
+msgstr "विंडो ऊंचाई"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
+msgid "Window height."
+msgstr "विंडो ऊंचाई।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:20
+msgid "Window maximized"
+msgstr "विंडो अधिकतमीकृत"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
+msgid "Window maximization state."
+msgstr "विंडो अधिकतमीकरण अवस्था।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:28
+msgid "Number of rows"
+msgstr "पंक्तियों की संख्या"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:30
+msgid "Game grid number of rows."
+msgstr "गेम ग्रिड पंक्तियों की संख्या।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:36
+msgid "Number of columns"
+msgstr "स्तंभों की संख्या"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:38
+msgid "Game grid number of columns."
+msgstr "खेल ग्रिड स्तंभों की संख्या।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:44
+msgid "Target value"
+msgstr "लक्ष्य मूल्य"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:46
+msgid "Tile value at which user is congratulated."
+msgstr "टाइल मूल्य जिस पर उपयोगकर्ता को बधाई दी जाती है।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:51
+msgid "Congrat on target tile"
+msgstr "लक्ष्य टाइल्स के लिए बधाई"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "क्या उपयोगकर्ता को लक्ष्य टाइल प्राप्त करने पर बधाई दी जाएगी।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Animations speed"
+msgstr "एनिमेशन गति"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "एनिमेशन की अवधि: टाइल दिखाएं, टाइल हटाएं और मंद टाइल दिखाएं।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
+msgid "Allow undo"
+msgstr "पूर्ववत करने की अनुमति दें"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
+msgid "Whether tile movements can be undone."
+msgstr "क्या टाइल की गतिविधियों को पूर्ववत किया जा सकता है।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:75
+msgid "Number of undo movements"
+msgstr "पूर्ववत गतिविधियों की संख्या"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:77
+msgid "Maximum number of tile movements that can be undone."
+msgstr "टाइल मूवमेंट की अधिकतम संख्या जिसे पूर्ववत किया जा सकता है।"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:36
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "टर्मिनल में खेलें (देखें “--cli=help”)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
+#: src/application.vala:39
+msgid "COMMAND"
+msgstr "आदेश"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:42
+msgid "Start new game of given size"
+msgstr "दिए गए आकार का नया खेल प्रारंभ करें"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
+#: src/application.vala:45
+msgid "SIZE"
+msgstr "आकार"
+
+#. Translators: command-line option description, see 'gnome-2048 --help'
+#: src/application.vala:48
+msgid "Print release version and exit"
+msgstr "रिलीज़ संस्करण प्रिंट करें और बाहर निकलें"
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
+#: src/application.vala:123
+msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+msgstr "आकार पार्स करने में विफल. आकार 2 और 9 के बीच या 2x3 के रूप में होना चाहिए।"
+
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game-headerbar.vala:67
+msgid "Game Over"
+msgstr "खेल खत्म"
+
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/game-headerbar.vala:97
+msgid "Undo"
+msgstr "पूर्ववत"
+
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/game-headerbar.vala:108
+msgid "Scores"
+msgstr "स्कोर"
+
+#. Translators: usual menu entry of the hamburger menu
+#: src/game-headerbar.vala:119
+msgid "Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट"
+
+#. Translators: entry in the hamburger menu
+#: src/game-headerbar.vala:122
+msgid "About 2048"
+msgstr "2048 के बारे में"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
+#: src/game-headerbar.vala:142
+msgid "3 × 3"
+msgstr "3 × 3"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
+#: src/game-headerbar.vala:148
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
+#: src/game-headerbar.vala:154
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#. Translators: command-line warning displayed if the user manually sets a invalid grid size
+#: src/game-headerbar.vala:163
+msgid "Grids of size 1 by 2 are disallowed."
+msgstr "1 बटा 2 आकार के ग्रिड की अनुमति नहीं है।"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/game-headerbar.vala:167
+msgid "Custom"
+msgstr "कस्टम"
+
+#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
+#: src/game-window.vala:421
+#, c-format
+msgid "You have obtained the %u tile for the first time!"
+msgstr "आपने पहली बार %u टाइल प्राप्त की है!"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
+#: src/game-window.vala:440
+msgid "Grid 3 × 3"
+msgstr "ग्रिड 3×3"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
+#: src/game-window.vala:443
+msgid "Grid 4 × 4"
+msgstr "ग्रिड 4×4"
+
+#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
+#: src/game-window.vala:446
+msgid "Grid 5 × 5"
+msgstr "ग्रिड 5×5"
+
+#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
+#: src/game-window.vala:449
+msgid "Grid Size:"
+msgstr "ग्रिड आकार:"
+
+#. Translators: about dialog text; a introduction to the game
+#: src/game-window.vala:505
+msgid "A clone of 2048 for GNOME"
+msgstr "GNOME के लिए 2048 का क्लोन"
+
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/game-window.vala:510
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "कॉपीराइट © 2014-2015 - जुआन आर. गार्सिया ब्लैंको"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/game-window.vala:514
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "कॉपीराइट © %u-%u - अरनॉड बोनाटी"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/game-window.vala:519
+msgid "translator-credits"
+msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
+
+#. Translators: about dialog text; label of the website link
+#: src/game-window.vala:523
+msgid "Page on GNOME wiki"
+msgstr "GNOME विकी पर पेज"
