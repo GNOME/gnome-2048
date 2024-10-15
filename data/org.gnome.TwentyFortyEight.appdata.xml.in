@@ -40,10 +40,14 @@
     <id>org.gnome.gnome-2048.desktop</id>
   </provides>
   <launchable type="desktop-id">org.gnome.TwentyFortyEight.desktop</launchable>
+  <categories>
+    <category>Game</category>
+  </categories>
   <url type="homepage">https://wiki.gnome.org/Apps/2048</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-2048/issues</url>
   <url type="donation">https://www.gnome.org/friends/</url>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
+  <url type="vcs-browser">https://gitlab.gnome.org/GNOME/gnome-2048</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
   <!-- this is a translatable version of project_group-->
