@@ -42,9 +42,8 @@ subdir('data')
 subdir('help')
 subdir('src')
 
-meson.add_install_script(
-  python3.find_python().path(),
-  join_paths(meson.source_root(), 'meson_post_install.py'),
-  icondir,
-  schemadir,
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true
 )
