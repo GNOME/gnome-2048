@@ -1,4 +1,4 @@
-# GNOME 2048
+# 2048
 
 A 2048-like game for GNOME.
 

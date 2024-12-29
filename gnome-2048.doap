@@ -14,7 +14,6 @@
   <support-forum rdf:resource="https://discourse.gnome.org/tag/games" />
   <download-page rdf:resource="https://download.gnome.org/sources/gnome-2048/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-2048/issues" />
-  <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
 
   <programming-language>Vala</programming-language>
 

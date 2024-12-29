@@ -5,11 +5,11 @@
   <id>org.gnome.TwentyFortyEight</id>
   <metadata_license>CC-BY-SA-3.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <name>GNOME 2048</name>
+  <name>2048</name>
   <summary>Obtain the 2048 tile</summary>
   <description>
     <p>
-     Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular
+     Play the highly addictive 2048 game. 2048 is a clone of the popular
      single-player puzzle game. Gameplay consists of joining numbers in a grid
      and obtain the 2048 tile.
     </p>
@@ -50,8 +50,7 @@
   <url type="translate">https://l10n.gnome.org/module/gnome-2048/</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
-  <!-- this is a translatable version of project_group-->
-  <developer_name>The GNOME Project</developer_name>
+  <developer_name>Arnaud Bonatti</developer_name>
 
   <kudos>
     <kudo>HiDpiIcon</kudo>
