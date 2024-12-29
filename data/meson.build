@@ -28,7 +28,7 @@ desktop_file = i18n.merge_file(
 # Validate desktop file
 if desktop_file_validate.found()
   test(
-    'Validating @0@'.format(desktop_file),
+    'Validate desktop file',
     desktop_file_validate,
     args: [desktop_file],
   )
@@ -46,8 +46,9 @@ appdata_file = i18n.merge_file(
 # Validate AppData file
 if appstream_util.found()
   test(
-    'Validating @0@'.format(appdata_file),
+    'Validating AppData',
     appstream_util,
+    depends: appdata_file,
     args: ['validate', '--nonet', appdata_file],
   )
 endif

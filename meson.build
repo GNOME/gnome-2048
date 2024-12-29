@@ -2,14 +2,14 @@ project(
   'gnome-2048', ['vala', 'c'],
   version: '3.38.2',
   license: 'GPLv3+',
-  meson_version: '>= 0.37.1',
+  meson_version: '>= >=1.1',
 )
+add_project_arguments(['-DGDK_DISABLE_DEPRECATED, -GTK_DISABLE_DEPRECATED'], language : 'c')
 
 gnome = import('gnome')
 i18n = import('i18n')
 # the new python module would be better but it does not have path method in meson 0.49
-# https://github.com/mesonbuild/meson/issues/4070
-python3 = import('python3')
+python = import('python')
 
 cc = meson.get_compiler('c')
 valac = meson.get_compiler('vala')
@@ -42,9 +42,8 @@ subdir('data')
 subdir('help')
 subdir('src')
 
-meson.add_install_script(
-  python3.find_python().path(),
-  join_paths(meson.source_root(), 'meson_post_install.py'),
-  icondir,
-  schemadir,
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true
 )

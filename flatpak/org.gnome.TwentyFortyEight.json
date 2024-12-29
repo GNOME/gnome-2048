@@ -1,38 +1,36 @@
 {
-    "app-id":"org.gnome.TwentyFortyEight",
-    "runtime":"org.gnome.Platform",
-    "runtime-version":"3.34",
-    "sdk":"org.gnome.Sdk",
-    "command":"gnome-2048",
-    "finish-args":[
+    "app-id": "org.gnome.TwentyFortyEight",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "47",
+    "sdk": "org.gnome.Sdk",
+    "command": "gnome-2048",
+    "finish-args": [
         "--socket=wayland",
-        "--socket=x11",
-        "--filesystem=xdg-run/dconf",
-        "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf",
-        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--device=dri"
     ],
-    "modules":[
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/pkgconfig",
+        "/share/aclocal",
+        "/man",
+        "/share/man",
+        "/share/gtk-doc",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        "modules/clutter.json",
         {
-            "name":"libgee",
-            "config-opts":[
-                "--enable-introspection=no"
-            ],
-            "sources":[
+            "name": "libgnome-games-support",
+            "buildsystem": "meson",
+            "sources": [
                 {
-                    "type":"archive",
-                    "url":"https://gitlab.gnome.org/GNOME/libgee/-/archive/5e66324654b7d70d7c28793491a4edfe6d8a0d85/libgee-5e66324654b7d70d7c28793491a4edfe6d8a0d85.zip",
-                    "sha256":"f2a4d00ce8df4b6ff34b0c466d3699a4d47a05af01bed9ea50f421fd7b8cb4db"
-                }
-            ]
-        },
-        {
-            "name":"libgnome-games-support",
-            "sources":[
-                {
-                    "type":"archive",
-                    "url":"https://gitlab.gnome.org/GNOME/libgnome-games-support/-/archive/2db73333f2094fcae071028432b29cd82574c610/libgnome-games-support-2db73333f2094fcae071028432b29cd82574c610.zip",
-                    "sha256":"38e16ce14f118655d04262acd73950ba45866c232db140f5d849716a768eba27"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libgnome-games-support/1.8/libgnome-games-support-1.8.2.tar.xz",
+                    "sha256": "28434604a7b038731ac0231731388ff104f565bb2330cc24e78cda04cfd3ef7d"
                 }
             ]
         },
@@ -41,9 +39,8 @@
             "buildsystem":"meson",
             "sources":[
                 {
-                    "type":"git",
-                    "branch":"gnome-3-34",
-                    "url":"https://gitlab.gnome.org/GNOME/gnome-2048.git"
+                    "type":"dir",
+                    "path":".."
                 }
             ]
         }
