@@ -2,13 +2,13 @@
 # Copyright (C) 2020 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-03-09 23:20+0000\n"
-"PO-Revision-Date: 2020-03-26 09:10+0200\n"
+"POT-Creation-Date: 2025-01-11 12:33+0000\n"
+"PO-Revision-Date: 2025-01-11 23:43+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.03.70\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -36,7 +36,7 @@ msgid "_Keep Playing"
 msgstr "Грати _далі"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -100,20 +100,30 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Вийти"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Отримайте плитку 2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
+#| msgid ""
+#| "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+#| "single-player puzzle game. Gameplay consists of joining numbers in a grid "
+#| "and obtain the 2048 tile."
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Зіграйте у вкрай захопливу гру 2048. GNOME 2048 є клоном популярної гри для"
-" одного гравця. Гра полягає у поєднанні чисел на плитках у ґратці з метою"
-" отримання плитки із числом 2048."
+"Зіграйте у вкрай захопливу гру 2048. 2048 є клоном популярної гри для "
+"одного гравця. Гра полягає у поєднанні чисел на плитках у ґратці з метою "
+"отримання плитки із числом 2048."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -122,11 +132,11 @@ msgid ""
 "slide just one tile or one row or column. Tiles with the same value are "
 "joined when slided one over the other."
 msgstr ""
-"Скористайтеся клавішами зі стрілками на вашій клавіатурі для пересування усіх"
-" плиток у бажаному напрямку. Будьте обережні: усі плитки пересуваються до"
-" найвіддаленішої можливої позиції — не можна пересунути лише одну плитку або"
-" один рядок чи стовпчик плиток. Плитки із однаковими числами під час"
-" пересування об'єднуються одна з одною."
+"Скористайтеся клавішами зі стрілками на вашій клавіатурі для пересування "
+"усіх плиток у бажаному напрямку. Будьте обережні: усі плитки пересуваються "
+"до найвіддаленішої можливої позиції — не можна пересунути лише одну плитку "
+"або один рядок чи стовпчик плиток. Плитки із однаковими числами під час "
+"пересування об'єднуються одна з одною."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
 msgid ""
@@ -134,10 +144,10 @@ msgid ""
 "easily get the 2048 tile, do not let it stop you, the game does not end "
 "there, you can continue joining tiles and improving your score."
 msgstr ""
-"Із отриманням нових плиток зростатиме ваш результат. Якщо вам здається, що"
-" отримати плитку 2048 надто просто, ви можете не зупинятися — гра не"
-" закінчується на цій плитці — ви можете продовжувати поєднувати плитки і"
-" поліпшувати ваш результат."
+"Із отриманням нових плиток зростатиме ваш результат. Якщо вам здається, що "
+"отримати плитку 2048 надто просто, ви можете не зупинятися — гра не "
+"закінчується на цій плитці — ви можете продовжувати поєднувати плитки і "
+"поліпшувати ваш результат."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
 msgid ""
@@ -145,23 +155,17 @@ msgid ""
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
 "game and includes ideas from other clones."
 msgstr ""
-"Першу версію гри було створено Габіелем Чіруллі. 2048 набула популярності"
-" через простоту і захопливість ігрового процесу. 2048 Чіруллі є клоном гри"
-" 1024, до якого включено ідеї, запозичені у інших клонів цієї гри."
+"Першу версію гри було створено Габіелем Чіруллі. 2048 набула популярності "
+"через простоту і захопливість ігрового процесу. 2048 Чіруллі є клоном гри "
+"1024, до якого включено ідеї, запозичені у інших клонів цієї гри."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "У поточній грі досягнуто плитки 2048"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "Проєкт GNOME"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:497
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -295,11 +299,12 @@ msgid "Print release version and exit"
 msgstr "Показати версію випуску та вийти"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
-msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+#: src/application.vala:123
+msgid ""
+"Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
-"Не вдалося обробити вказаний розмір. Розмір слід вказувати числом від 2 до 9"
-" або у форматі 2x3."
+"Не вдалося обробити вказаний розмір. Розмір слід вказувати числом від 2 до 9 "
+"або у форматі 2x3."
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
 #: src/game-headerbar.vala:67
@@ -352,53 +357,56 @@ msgid "Custom"
 msgstr "Нетиповий"
 
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:417
+#: src/game-window.vala:421
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Вам вдалося вперше отримати плитку %u!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:436
+#: src/game-window.vala:440
 msgid "Grid 3 × 3"
 msgstr "Ґратка 3 × 3"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:439
+#: src/game-window.vala:443
 msgid "Grid 4 × 4"
 msgstr "Ґратка 4 × 4"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:442
+#: src/game-window.vala:446
 msgid "Grid 5 × 5"
 msgstr "Ґратка 5 × 5"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:445
+#: src/game-window.vala:449
 msgid "Grid Size:"
 msgstr "Розмір ґратки:"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:501
+#: src/game-window.vala:505
 msgid "A clone of 2048 for GNOME"
 msgstr "Клон 2048 для GNOME"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:506
+#: src/game-window.vala:510
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "© Juan R. García Blanco, 2014–2015"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:510
+#: src/game-window.vala:514
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "© Arnaud Bonatti, %u–%u"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:515
+#: src/game-window.vala:519
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
 #. Translators: about dialog text; label of the website link
-#: src/game-window.vala:519
+#: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "Сторінка у вікі GNOME"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Проєкт GNOME"
