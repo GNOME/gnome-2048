@@ -2,20 +2,22 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 # Mingpei Zheng <1824139500@qq.com>, 2015.
+# lumingzh <lumingzh@qq.com>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-07-05 21:34+0000\n"
-"PO-Revision-Date: 2020-09-01 17:49-0400\n"
-"Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
+"POT-Creation-Date: 2025-01-12 16:34+0000\n"
+"PO-Revision-Date: 2025-01-14 13:32+0800\n"
+"Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Gtranslator 47.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -34,7 +36,7 @@ msgid "_Keep Playing"
 msgstr "继续游戏(_K)"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -72,7 +74,7 @@ msgstr "开始一局新游戏"
 #: data/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Generic"
-msgstr "通用"
+msgstr "常规"
 
 #. Translators: shortcut that toggles the hamburger menu
 #: data/help-overlay.ui:72
@@ -98,6 +100,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "退出"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
@@ -105,12 +113,12 @@ msgstr "获得值为 2048 的方块"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"玩很容易上瘾的游戏 2048。 GNOME 2048 是一款热门单机益智游戏的克隆版本。游戏玩"
-"法是将数字合并到一个网格中而获得2048。"
+"玩很容易上瘾的 2048 游戏。2048 是一款热门单机益智游戏的克隆版本。游戏玩法是将"
+"数字合并到一个网格中而获得 2048。"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -145,15 +153,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "一个正在运行的游戏已得到值为 2048 的方块"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "GNOME 项目"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -286,7 +288,7 @@ msgid "Print release version and exit"
 msgstr "输出发行版本号并退出"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "无法解析尺寸。所指定的尺寸必须在 2 到 9 之间，或者使用类似 2x3 的格式。"
@@ -299,7 +301,7 @@ msgstr "游戏结束"
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
 #: src/game-headerbar.vala:97
 msgid "Undo"
-msgstr "撤销"
+msgstr "撤消"
 
 #. Translators: entry in the hamburger menu; opens a window showing best scores
 #: src/game-headerbar.vala:108
@@ -388,12 +390,16 @@ msgstr "Copyright © %u-%u – Arnaud Bonatti"
 msgid "translator-credits"
 msgstr ""
 "Mingpei Zheng <1824139500@qq.com>, 2015\n"
-"Yating Kuang <yatingkuang@ubuntukylin.com>, 2016"
+"Yating Kuang <yatingkuang@ubuntukylin.com>, 2016\n"
+"lumingzh <lumingzh@qq.com>, 2025"
 
 #. Translators: about dialog text; label of the website link
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "GNOME 维基上的页面"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "GNOME 项目"
 
 #~ msgid "gnome-2048"
 #~ msgstr "gnome-2048"
