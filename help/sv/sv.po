@@ -1,13 +1,13 @@
 # Swedish translation for gnome-2048.
-# Copyright © 2015, 2018 gnome-2048's COPYRIGHT HOLDER
+# Copyright © 2015-2025 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2018.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2018, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2018-10-03 19:37+0000\n"
-"PO-Revision-Date: 2018-10-05 22:32+0200\n"
+"POT-Creation-Date: 2025-01-11 12:33+0000\n"
+"PO-Revision-Date: 2025-01-11 13:57+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 3.5\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -51,19 +51,19 @@ msgstr "Creative Commons Share Alike 3.0"
 
 #. (itstool) path: media/span
 #: C/index.page:19
-msgid "GNOME 2048 logo"
-msgstr "Logo för GNOME 2048"
+msgid "2048 logo"
+msgstr "Logo för 2048"
 
 #. (itstool) path: page/title
 #: C/index.page:19
-msgid "<_:media-1/> GNOME 2048"
-msgstr "<_:media-1/> GNOME 2048"
+msgid "<_:media-1/> 2048"
+msgstr "<_:media-1/> 2048"
 
 #. (itstool) path: page/p
 #: C/index.page:20
 msgid ""
-"<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game "
-"based on Veewo Studios' 1024."
+"<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
+"on Veewo Studios' 1024."
 msgstr ""
-"<app>GNOME 2048</app> är en klon av Gabriele Cirullis 2048, ett pusselspel "
+"<app>2048</app> är en klon av Gabriele Cirullis 2048, ett pusselspel "
 "baserat på 1024 från Veewo Studios."
