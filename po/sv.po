@@ -1,14 +1,14 @@
 # Swedish translation for gnome-2048.
-# Copyright © 2015-2020 gnome-2048's COPYRIGHT HOLDER
+# Copyright © 2015-2025 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016, 2018, 2019, 2020.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016, 2018, 2019, 2020, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-01-05 16:36+0000\n"
-"PO-Revision-Date: 2020-01-11 17:29+0100\n"
+"POT-Creation-Date: 2025-01-11 12:33+0000\n"
+"PO-Revision-Date: 2025-01-11 13:54+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -35,7 +35,7 @@ msgid "_Keep Playing"
 msgstr "_Fortsätt spela"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -99,6 +99,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
@@ -106,13 +112,13 @@ msgstr "Erhåll 2048-brickan"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Spela det mycket beroendeframkallande spelet 2048. GNOME 2048 är en klon av "
-"det populära pusselspelet för en person. Spelet går ut på att slå ihop "
-"nummer i ett rutnät och erhålla 2048-brickan."
+"Spela det mycket beroendeframkallande spelet 2048. 2048 är en klon av det "
+"populära pusselspelet för en person. Spelet går ut på att slå ihop nummer i "
+"ett rutnät och erhålla 2048-brickan."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -150,15 +156,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "Ett körande spel som nått 2048-brickan"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "GNOME-projektet"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -291,7 +291,7 @@ msgid "Print release version and exit"
 msgstr "Skriv ut utgåvans version och avsluta"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "Misslyckades att tolka storlek. Storleken måste vara mellan 2 och 9, eller "
@@ -348,49 +348,49 @@ msgid "Custom"
 msgstr "Anpassat"
 
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:415
+#: src/game-window.vala:421
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Du har erhållit %u-brickan för första gången!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:434
+#: src/game-window.vala:440
 msgid "Grid 3 × 3"
 msgstr "3×3-rutnät"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:437
+#: src/game-window.vala:443
 msgid "Grid 4 × 4"
 msgstr "4×4-rutnät"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:440
+#: src/game-window.vala:446
 msgid "Grid 5 × 5"
 msgstr "5×5-rutnät"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:443
+#: src/game-window.vala:449
 msgid "Grid Size:"
 msgstr "Rutnätsstorlek:"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:499
+#: src/game-window.vala:505
 msgid "A clone of 2048 for GNOME"
 msgstr "En 2048-klon för GNOME"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:504
+#: src/game-window.vala:510
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "Copyright © 2014-2015 – Juan R. García Blanco"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:508
+#: src/game-window.vala:514
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:513
+#: src/game-window.vala:519
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -399,36 +399,6 @@ msgstr ""
 "<tp-sv@listor.tp-sv.se>."
 
 #. Translators: about dialog text; label of the website link
-#: src/game-window.vala:517
+#: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "Sida på GNOME-wikin"
-
-#~ msgid "org.gnome.TwentyFortyEight"
-#~ msgstr "org.gnome.TwentyFortyEight"
-
-#~ msgid "Preferences"
-#~ msgstr "Inställningar"
-
-#~ msgid "gnome-2048"
-#~ msgstr "gnome-2048"
-
-#~ msgid "Grid size"
-#~ msgstr "Rutnätsstorlek"
-
-#~ msgid "Display congrats"
-#~ msgstr "Visa gratulationer"
-
-#~ msgid "Help"
-#~ msgstr "Hjälp"
-
-#~ msgid "4 x 4"
-#~ msgstr "4 x 4"
-
-#~ msgid "5 x 5"
-#~ msgstr "5 x 5"
-
-#~ msgid "Columns"
-#~ msgstr "Kolumner"
-
-#~ msgid "Rows"
-#~ msgstr "Rader"
