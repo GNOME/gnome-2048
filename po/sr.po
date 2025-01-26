@@ -1,13 +1,13 @@
 # Serbian translation for gnome-2048.
 # Copyright © 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2015—2021.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2015—2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-06-05 09:07+0000\n"
-"PO-Revision-Date: 2021-01-12 22:56+0200\n"
+"POT-Creation-Date: 2025-01-12 16:34+0000\n"
+"PO-Revision-Date: 2025-01-21 23:09+0100\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
+"X-Generator: Poedit 3.5\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -26,24 +27,21 @@ msgstr "Браво, брависимо!"
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:46 data/game-headerbar.ui:29
-#| msgid "New Game"
 msgid "_New Game"
 msgstr "_Нова игра"
 
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:54
-#| msgid "Keep Playing"
 msgid "_Keep Playing"
 msgstr "_Настави игру"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "Гном 2048"
 
 #. Translators: header of the "Play with arrows" shortcut section
 #: data/help-overlay.ui:29
-#| msgid "New Game"
 msgctxt "shortcut window"
 msgid "Game"
 msgstr "Играј"
@@ -56,7 +54,6 @@ msgstr "Играјте стрелицама"
 
 #. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
 #: data/help-overlay.ui:44
-#| msgid "New Game"
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Нова игра"
@@ -93,17 +90,21 @@ msgstr "Пречице тастатуре"
 
 #. Translators: shortcut that opens About dialog
 #: data/help-overlay.ui:88
-#| msgid "About"
 msgctxt "shortcut window"
 msgid "About"
 msgstr "О програму"
 
 #. Translators: shortcut that quits application
 #: data/help-overlay.ui:96
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Изађи"
+
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
@@ -112,13 +113,13 @@ msgstr "Додођите до плочице 2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Играјте врло заразну игру 2048. Гном 2048 је преслик популарне игре "
-"слагалица за једног играча. Играње се састоји од спајања бројева у мрежи да "
-"би се добила плочица 2048."
+"Играјте врло заразну игру 2048. 2048 је преслик популарне игре слагалица за "
+"једног играча. Играње се састоји од спајања бројева у мрежи да би се добила "
+"плочица 2048."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -157,15 +158,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "Покренута игра је достигла плочицу 2048"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "Гномов пројекат"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Арно Бонати"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -299,7 +294,7 @@ msgid "Print release version and exit"
 msgstr "Приказује издање и излази"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "Нисам успео да обрадим величину. Мора бити између 2 и 9, или у облику 2x3."
@@ -326,7 +321,6 @@ msgstr "Пречице тастатуре"
 
 #. Translators: entry in the hamburger menu
 #: src/game-headerbar.vala:122
-#| msgid "About"
 msgid "About 2048"
 msgstr "О програму 2048"
 
@@ -358,7 +352,6 @@ msgstr "Произвољно"
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
 #: src/game-window.vala:421
 #, c-format
-#| msgid "You have obtained the %u tile"
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Освојили сте плочицу %u по први пут!"
 
@@ -379,7 +372,6 @@ msgstr "Мрежа 5 × 5"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
 #: src/game-window.vala:449
-#| msgid "Grid size"
 msgid "Grid Size:"
 msgstr "Величина мреже:"
 
@@ -390,9 +382,6 @@ msgstr "Преслик игре 2048 за Гнома"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/game-window.vala:510
-#| msgid ""
-#| "Copyright © 2014-2015 – Juan R. García Blanco\n"
-#| "Copyright © 2016 – Arnaud Bonatti"
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "Ауторска права © 2014-2015 – Хуан Р. Гарсија Бланко"
 
@@ -411,6 +400,9 @@ msgstr "Мирослав Николић <miroslavnikolic@rocketmail.com>"
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "Страница на Гном викију"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Гномов пројекат"
 
 #~ msgid "gnome-2048"
 #~ msgstr "Гном-2048"
