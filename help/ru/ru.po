@@ -6,22 +6,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2022-01-07 10:31+0000\n"
-"PO-Revision-Date: 2022-01-18 23:35+1000\n"
+"POT-Creation-Date: 2025-01-12 16:35+0000\n"
+"PO-Revision-Date: 2025-01-17 21:05+1000\n"
+"Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Last-Translator: Ser82-png\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Ser82-png <sw@atrus.ru>, 2022"
+msgstr "Ser82-png <asvmail.as@gmail.com>, 2022-2025"
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -52,20 +52,20 @@ msgstr "Creative Commons Share Alike 3.0"
 
 #. (itstool) path: media/span
 #: C/index.page:19
-msgid "GNOME 2048 logo"
-msgstr "Логотип GNOME 2048"
+msgid "2048 logo"
+msgstr "Логотип GNOME"
 
 #. (itstool) path: page/title
 #: C/index.page:19
-msgid "<_:media-1/> GNOME 2048"
-msgstr "<_:media-1/> GNOME 2048"
+#| msgid "<_:media-1/> GNOME 2048"
+msgid "<_:media-1/> 2048"
+msgstr "<_:media-1/> 2048"
 
 #. (itstool) path: page/p
 #: C/index.page:20
 msgid ""
-"<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game "
-"based on Veewo Studios' 1024."
+"<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
+"on Veewo Studios' 1024."
 msgstr ""
-"<app>GNOME 2048</app> - это клон игры \"2048\" от Габриэле Чирулли "
-"(Gabriele Cirulli), головоломки, основанной на игре \"1024\" от Veewo "
-"Studio."
+"<app>2048</app> - это клон игры «2048» от Габриэле Чирулли (Gabriele "
+"Cirulli), головоломки, основанной на игре «1024» от Veewo Studio."
