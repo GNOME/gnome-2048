@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-06-05 09:07+0000\n"
-"PO-Revision-Date: 2022-01-18 23:28+1000\n"
-"Last-Translator: Ser82-png\n"
+"POT-Creation-Date: 2025-01-12 16:34+0000\n"
+"PO-Revision-Date: 2025-01-16 22:18+1000\n"
+"Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -36,7 +36,7 @@ msgid "_Keep Playing"
 msgstr "_Продолжить игру"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -100,6 +100,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Выйти"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
@@ -107,13 +113,13 @@ msgstr "Получите плитку 2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Играйте в очень захватывающую игру «2048». GNOME 2048 — это клон популярной "
-"однопользовательской головоломки. Геймплей состоит из объединения чисел на "
-"игровом поле и получения плитки 2048."
+"Играйте в очень захватывающую игру «2048». «2048» — это клон популярной "
+"однопользовательской головоломки. Игровой процесс состоит в том, чтобы путём "
+"объединения чисел на игровом поле получить плитку со значением 2048."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -143,23 +149,17 @@ msgid ""
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
 "game and includes ideas from other clones."
 msgstr ""
-"Первоначально созданная Габриэле Чирулли, игра \"2048\" стала очень "
-"популярной, так как сильно затягивает. \"2048\" от Чирулли в свою очередь "
-"является клоном игры \"1024\" и включает идеи других клонов."
+"Первоначально созданная Габриэле Чирулли, игра «2048» стала очень "
+"популярной, так как сильно затягивает. «2048» от Чирулли в свою очередь "
+"является клоном игры «1024» и включает идеи других клонов."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "В текущей игре достигнута плитка 2048"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "Проект GNOME"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -293,7 +293,7 @@ msgid "Print release version and exit"
 msgstr "Показать номер версии и выйти"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "Не удалось проанализировать размер. Размер должен быть в указан пределах от "
@@ -398,12 +398,15 @@ msgstr ""
 "Stas Solovey <whats_up@tut.by>, 2018\n"
 "Alexandr Kostrikin <aleksandrkostrikin086@gmail.com>, 2019\n"
 "Артемий Судаков <finziyr@yandex.ru>, 2020\n"
-"Ser82-png <sw@atrus.ru>, 2022"
+"Ser82-png <sw@atrus.ru>, 2022-2025"
 
 #. Translators: about dialog text; label of the website link
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "Страница на GNOME вики"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Проект GNOME"
 
 #~ msgid "gnome-2048"
 #~ msgstr "gnome-2048"
