@@ -2,31 +2,32 @@
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Necdet <necdetyucel@gmail.com>, 2015.
+# Necdet Yücel <necdetyucel@gmail.com>, 2015.
 # Gökhan Gurbetoğlu <ggurbet@gmail.com>, 2016.
 # Muhammet Kara <muhammetk@gmail.com>, 2016.
-# Sabri Ünal <libreajans@gmail.com>, 2019-2020.
+# Sabri Ünal <yakushabb@gmail.com>, 2019-2020, 2025.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2025
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2024-04-12 07:35+0000\n"
-"PO-Revision-Date: 2024-05-10 22:34+0300\n"
-"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
-"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
+"POT-Creation-Date: 2025-02-01 23:15+0000\n"
+"PO-Revision-Date: 2025-02-14 08:00+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.3\n"
+"X-Generator: Poedit 3.5\n"
 "X-POOTLE-MTIME: 1424631764.000000\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
 msgid "Congratulations!"
-msgstr "Tebrikler!"
+msgstr "Kutlarız!"
 
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
@@ -37,10 +38,10 @@ msgstr "Yeni _Oyun"
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:54
 msgid "_Keep Playing"
-msgstr "_Oynamaya Devam Et"
+msgstr "_Oynamayı Sürdür"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -54,7 +55,7 @@ msgstr "Oyun"
 #: data/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "Play with arrows"
-msgstr "Oklar ile oyna"
+msgstr "Oklarla oyna"
 
 #. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
 #: data/help-overlay.ui:44
@@ -66,13 +67,13 @@ msgstr "Yeni Oyun"
 #: data/help-overlay.ui:49
 msgctxt "shortcut window"
 msgid "Choose a new game"
-msgstr "Yeni bir oyun seç"
+msgstr "Yeni oyun seç"
 
 #. Translators: shortcut that starts immediately a new game, with similar options
 #: data/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Start a new game"
-msgstr "Yeni bir oyun başlat"
+msgstr "Yeni oyun başlat"
 
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
 #: data/help-overlay.ui:67
@@ -84,7 +85,7 @@ msgstr "Genel"
 #: data/help-overlay.ui:72
 msgctxt "shortcut window"
 msgid "Toggle main menu"
-msgstr "Ana menüyü tetikle"
+msgstr "Ana menüyü göster/gizle"
 
 #. Translators: shortcut that opens Keyboard Shortcuts window
 #: data/help-overlay.ui:80
@@ -104,19 +105,25 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Çık"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
-msgstr "2048'i elde edin"
+msgstr "2048’i elde edin"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Son derece bağımlılık yapan 2048 oyununu oynayın. GNOME 2048, sevilen "
-"bulmaca oyununun bir türevidir. Oynanışı sayıları bir ızgarada birleştirmeye "
+"Son derece bağımlılık yapan 2048 oyununu oynayın. 2048, sevilen "
+"bulmaca oyununun türevidir. Oynanışı sayıları bir ızgarada birleştirmeye "
 "ve 2048 elde etmeye dayanmaktadır."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
@@ -126,10 +133,10 @@ msgid ""
 "slide just one tile or one row or column. Tiles with the same value are "
 "joined when slided one over the other."
 msgstr ""
-"Kareleri istediğiniz yönde hareket ettirmek için klavyenizin yön tuşlarını "
-"kullanın. Dikkatli olun: kareler mümkün olan en uzak noktaya "
-"taşınacaklardır, bir kare aşağı veya yukarı taşımak mümkün değildir. Aynı "
-"değere sahip kareler kaydırılıp yan yana getirildiğinde birleştirilirler."
+"Kareleri istediğiniz yönde oynatmak için klavyenizin yön tuşlarını "
+"kullanın. Dikkatli olun: tüm kareler olabildiğince uzak noktaya "
+"kayacaktır; yalnızca bir kare, bir satır ya da sütun kaydıramazsınız. Aynı "
+"değerdeki kareler üst üste kaydırıldığında birleştirilirler."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
 msgid ""
@@ -137,8 +144,8 @@ msgid ""
 "easily get the 2048 tile, do not let it stop you, the game does not end "
 "there, you can continue joining tiles and improving your score."
 msgstr ""
-"Elde ettiğiniz her döşeme puanınızı arttıracaktır. Eğer kolayca 2048'i elde "
-"ettiğinizi düşünüyorsanız, onun sizi durdurmasına izin vermeyin, oyun burada "
+"Elde ettiğiniz her döşeme puanınızı arttıracaktır. Eğer 2048’i kolayca elde "
+"ettiğinizi düşünüyorsanız bunun sizi durdurmasına göz yummayın, oyun burada "
 "bitmiyor, puanınızı daha yükseğe taşıyabilirsiniz."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
@@ -147,28 +154,22 @@ msgid ""
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
 "game and includes ideas from other clones."
 msgstr ""
-"Özgün oyun 2048 Gabriele Cirulli tarafından geliştirilmiş ve çokça "
-"bağımlılık yaptığından çok sevilmiştir. Cirulli'nin 2048'i 1024 oyununun bir "
-"türevidir ve diğer türev oyunlardan da fikirler içermektedir."
+"Özgün 2048 oyunu Gabriele Cirulli tarafından geliştirilmiştir ve epey "
+"bağımlılık yaptığından çokça sevilmiştir. Cirulli’nin 2048’i, 1024 oyununun "
+"türevidir ve diğer türev oyunlardan da düşünceler içermektedir."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
-msgstr "Çalışan bir oyun 2048 döşemesine ulaştı"
+msgstr "Çalışan oyun 2048 döşemesine ulaştı"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "GNOME Projesi"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
 msgid "puzzle;"
-msgstr "puzzle;bulmaca;"
+msgstr "puzzle;bulmaca;yapboz;"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:6
@@ -208,12 +209,12 @@ msgstr "Satır sayısı"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:30
 msgid "Game grid number of rows."
-msgstr "Satırdaki uyun ızgarası sayısı."
+msgstr "Satırdaki oyun ızgarası sayısı."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:36
 msgid "Number of columns"
-msgstr "Sutun sayısı"
+msgstr "Sütun sayısı"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:38
@@ -228,32 +229,32 @@ msgstr "Hedef değer"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:46
 msgid "Tile value at which user is congratulated."
-msgstr "Kullanıcının tebrik edileceği döşeme değeri."
+msgstr "Kullanıcının kutlanacağı döşeme değeri."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:51
 msgid "Congrat on target tile"
-msgstr "Hedef döşemede tebrik et"
+msgstr "Hedef döşemede kutla"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:53
 msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Hedef döşeme elde edildiğinde kullanıcının tebrik edilip edilmeyeceği."
+msgstr "Hedef döşeme elde edildiğinde kullanıcının kutlanıp kutlanmayacağı."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:60
 msgid "Animations speed"
-msgstr "Animasyon hızı"
+msgstr "Canlandırma hızı"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:62
 msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr "Animasyon süresi: döşeme göster, döşeme taşı, loş döşeme."
+msgstr "Canlandırma süresi: döşeme göster, döşeme taşı, döşeme loşlaştır."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:67
 msgid "Allow undo"
-msgstr "Geri almaya izin ver"
+msgstr "Geri almayı sağla"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:69
@@ -268,7 +269,7 @@ msgstr "Geri alınabilecek hareket sayısı"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:77
 msgid "Maximum number of tile movements that can be undone."
-msgstr "Geri alınabilecek en fazla döşeme hareketini sayısı."
+msgstr "Geri alınabilecek azami döşeme hareketi sayısı."
 
 #. Translators: command-line option description, see 'gnome-2048 --help'
 #: src/application.vala:36
@@ -355,7 +356,7 @@ msgstr "Özel"
 #: src/game-window.vala:421
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
-msgstr "%u döşemesini ilk defa elde ettiniz!"
+msgstr "%u döşemesini ilk kez elde ettiniz!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
 #: src/game-window.vala:440
@@ -375,12 +376,12 @@ msgstr "5 × 5 Izgara"
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
 #: src/game-window.vala:449
 msgid "Grid Size:"
-msgstr "Izgara Boyuzu:"
+msgstr "Izgara Boyutu:"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/game-window.vala:505
 msgid "A clone of 2048 for GNOME"
-msgstr "2048 oyununun GNOME için bir türevi"
+msgstr "2048 oyununun GNOME türevi"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/game-window.vala:510
@@ -400,39 +401,10 @@ msgstr ""
 "Necdet Yücel <necdetyucel@gmail.com>\n"
 "Gökhan Gurbetoğlu <ggurbet@gmail.com>\n"
 "Muhammet Kara <muhammetk@gmail.com>\n"
-"Sabri Ünal <libreajans@gmail.com>"
+"Sabri Ünal <yakushabb@gmail.com>\n"
+"Emin Tufan Çetin <etcetin@gmail.com>"
 
 #. Translators: about dialog text; label of the website link
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
-msgstr "GNOME wiki üstündeki sayfası"
-
-#~ msgid "org.gnome.TwentyFortyEight"
-#~ msgstr "org.gnome.TwentyFortyEight"
-
-#~ msgid "Preferences"
-#~ msgstr "Tercihler"
-
-#~ msgid "gnome-2048"
-#~ msgstr "gnome-2048"
-
-#~ msgid "Grid size"
-#~ msgstr "Izgara boyutu"
-
-#~ msgid "Display congrats"
-#~ msgstr "Tebrik göster"
-
-#~ msgid "Help"
-#~ msgstr "Yardım"
-
-#~ msgid "4 x 4"
-#~ msgstr "4 x 4"
-
-#~ msgid "5 x 5"
-#~ msgstr "5 x 5"
-
-#~ msgid "Columns"
-#~ msgstr "Sütunlar"
-
-#~ msgid "Rows"
-#~ msgstr "Satırlar"
+msgstr "GNOME wiki’deki sayfası"
