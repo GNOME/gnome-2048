@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-06-05 09:07+0000\n"
-"PO-Revision-Date: 2020-09-28 15:16+0200\n"
-"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"POT-Creation-Date: 2025-02-12 19:34+0000\n"
+"PO-Revision-Date: 2025-02-22 00:16+0100\n"
+"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 3.5\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -35,7 +35,7 @@ msgid "_Keep Playing"
 msgstr "Pok_račovat v hraní"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -99,6 +99,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ukončit"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
@@ -106,12 +112,12 @@ msgstr "Získejte kámen 2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Zahrajte si vysoce návykovou hru 2048. GNOME 2048 je klon populární logické "
-"hry pro jednoho hráče. Hraní spočívá ve spojování čísel v mřížce a získání "
+"Zahrajte si vysoce návykovou hru 2048. 2048 je klon populární logické hry "
+"pro jednoho hráče. Hraní spočívá ve spojování čísel v mřížce a získání "
 "kamene 2048."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
@@ -150,15 +156,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "Rozehraná hra, ve které bylo dosaženo 2048 kamenů"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "Projekt GNOME"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -293,7 +293,7 @@ msgid "Print release version and exit"
 msgstr "Vypsat verzi vydání a skončit"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
 "Selhalo vyhodnocení velikosti. Velikost musí být 2 až 9, nebo v podobě 2x3."
@@ -399,3 +399,6 @@ msgstr "Marek Černocký <marek@manet.cz>"
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "Stránka na Wiki GNOME"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Projekt GNOME"
