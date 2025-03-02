@@ -1,22 +1,22 @@
 # Hungarian translation for gnome-2048.
-# Copyright (C) 2015, 2016, 2019, 2020 Free Software Foundation, Inc.
+# Copyright (C) 2015, 2016, 2019, 2020, 2025 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2015, 2016, 2019, 2020.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2015, 2016, 2019, 2020, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-01-05 16:36+0000\n"
-"PO-Revision-Date: 2020-02-13 20:14+0100\n"
+"POT-Creation-Date: 2025-02-12 19:34+0000\n"
+"PO-Revision-Date: 2025-03-02 19:50+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 19.04.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -35,7 +35,7 @@ msgid "_Keep Playing"
 msgstr "Játék _folytatása"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -99,20 +99,30 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
 msgstr "Szerezze meg a 2048-as csempét"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
+#| msgid ""
+#| "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
+#| "single-player puzzle game. Gameplay consists of joining numbers in a grid "
+#| "and obtain the 2048 tile."
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Játsszon az erősen függőséget okozó 2048 játékkal. A GNOME 2048 a népszerű "
-"egyszemélyes kirakós játék klónja. A játékmenet a rácson elhelyezett számok "
-"egyesítéséből és a 2048-as csempe megszerzéséből áll."
+"Játsszon az erősen függőséget okozó 2048 játékkal. A 2048 a népszerű"
+" egyszemélyes kirakós játék klónja. A játékmenet a rácson elhelyezett számok"
+" egyesítéséből és a 2048-as csempe megszerzéséből áll."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -153,15 +163,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "Egy futó játék elérte a 2048-as csempét"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "A GNOME projekt"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -282,8 +286,6 @@ msgstr "PARANCS"
 
 #. Translators: command-line option description, see 'gnome-2048 --help'
 #: src/application.vala:42
-#| msgctxt "shortcut window"
-#| msgid "Start a new game"
 msgid "Start new game of given size"
 msgstr "Új játék indítása az adott méretben"
 
@@ -298,11 +300,11 @@ msgid "Print release version and exit"
 msgstr "Kiadás verziójának kiírása és kilépés"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 msgstr ""
-"Nem sikerült feldolgozni a méretet. A méretnek 2 és 9 között kell lennie vagy"
-" 2x3 alakban."
+"Nem sikerült feldolgozni a méretet. A méretnek 2 és 9 között kell lennie "
+"vagy 2x3 alakban."
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
 #: src/game-headerbar.vala:67
@@ -355,56 +357,53 @@ msgid "Custom"
 msgstr "Egyéni"
 
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:415
+#: src/game-window.vala:421
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Először szerezte meg a(z) %u értékű csempét!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:434
+#: src/game-window.vala:440
 msgid "Grid 3 × 3"
 msgstr "Rács, 3 × 3"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:437
+#: src/game-window.vala:443
 msgid "Grid 4 × 4"
 msgstr "Rács, 4 × 4"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:440
+#: src/game-window.vala:446
 msgid "Grid 5 × 5"
 msgstr "Rács, 5 × 5"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:443
+#: src/game-window.vala:449
 msgid "Grid Size:"
 msgstr "Rácsméret:"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:499
+#: src/game-window.vala:505
 msgid "A clone of 2048 for GNOME"
 msgstr "A 2048 klónja a GNOME-hoz"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:504
-#| msgid ""
-#| "Copyright © 2014-2015 – Juan R. García Blanco\n"
-#| "Copyright © 2016-2019 – Arnaud Bonatti"
+#: src/game-window.vala:510
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "Copyright © 2014-2015 – Juan R. García Blanco"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:508
+#: src/game-window.vala:514
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:513
+#: src/game-window.vala:519
 msgid "translator-credits"
 msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2015, 2016, 2019, 2020."
 
 #. Translators: about dialog text; label of the website link
-#: src/game-window.vala:517
+#: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "Szócikk a GNOME wikin"
