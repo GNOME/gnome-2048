@@ -1,20 +1,20 @@
 # gnome-2048 Korean translation.
 # This file is distributed under the same license as the gnome-2048 package.
 # adenosie <adenosiez@gmail.com>, 2020.
-# DaeHyun Sung <sungdh86+git@gmail.com>, 2023.
+# DaeHyun Sung <sungdh86+git@gmail.com>, 2023-2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2023-01-25 18:03+0000\n"
-"PO-Revision-Date: 2023-03-16 23:37+0900\n"
+"POT-Creation-Date: 2025-02-12 19:34+0000\n"
+"PO-Revision-Date: 2025-03-02 04:40+0900\n"
 "Last-Translator: DaeHyun Sung <sungdh86+git@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -33,7 +33,7 @@ msgid "_Keep Playing"
 msgstr "계속하기(_K)"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "그놈 2048"
 
@@ -97,6 +97,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "끝내기"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
@@ -104,11 +110,11 @@ msgstr "2048 타일을 만드세요"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"중독적인 2048 게임을 해 보세요. 그놈 2048은 인기 있는 1인용 퍼즐 게임의 복사"
+"중독성이 강한 2048 게임을 해 보세요. 2048은 인기 있는 1인용 퍼즐 게임의 복사"
 "판입니다. 격자 안에 있는 숫자를 합쳐 2048 타일을 만드는 것이 게임의 목표입니"
 "다."
 
@@ -145,15 +151,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "하고 있는 게임이 2048 타일에 도달했습니다"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "그놈 프로젝트"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -395,3 +395,6 @@ msgstr ""
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "그놈 위키 페이지"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "그놈 프로젝트"
