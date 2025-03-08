@@ -1,22 +1,22 @@
 # Bulgarian translation of gnome-2048 po-file.
-# Copyright (C) 2024 gnome-2048's COPYRIGHT HOLDER
+# Copyright (C) 2024, 2025 twlvnn kraftwerk <kraft_werk@tutanota.com>.
 # This file is distributed under the same license as the gnome-2048 package.
-# twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024.
+# twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2024-07-29 20:42+0000\n"
-"PO-Revision-Date: 2024-10-22 19:34+0200\n"
+"POT-Creation-Date: 2025-03-05 20:11+0000\n"
+"PO-Revision-Date: 2025-03-08 08:50+0100\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 46.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -35,7 +35,7 @@ msgid "_Keep Playing"
 msgstr "_Продължаване"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -99,6 +99,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Спиране на програмата"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
@@ -106,13 +112,13 @@ msgstr "Стигнете до плочка 2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Играйте силно пристрастяващата игра 2048. „GNOME 2048“ е клонинг на "
-"популярния пъзел за един играч. Играта се състои от съединяване на числа в "
-"мрежа до получаване на плочката 2048."
+"Играйте силно пристрастяващата игра 2048. 2048 е копие на популярния пъзел "
+"за един играч. Играта се състои от съединяване на числа в мрежа до "
+"получаване на плочката 2048."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -152,15 +158,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "Игра, която е достигнала плочката 2048"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "Проектът GNOME"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -397,8 +397,8 @@ msgstr "Авторски права © %u-%u — Arnaud Bonatti"
 #: src/game-window.vala:519
 msgid "translator-credits"
 msgstr ""
-"Twlvnn Kraftwerk &lt;<a href='mailto:kraft_werk@tutanota."
-"com'>kraft_werk@tutanota.com</a>&gt;\n"
+"Twlvnn Kraftwerk &lt;<a "
+"href='mailto:kraft_werk@tutanota.com'>kraft_werk@tutanota.com</a>&gt;\n"
 "\n"
 "\n"
 "Проектът за превод на GNOME има нужда от подкрепа.\n"
