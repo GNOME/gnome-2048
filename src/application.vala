@@ -137,8 +137,6 @@ private class TwentyFortyEight : Adw.Application
 
         add_action_entries (action_entries, this);
 
-        _window = new GameWindow (this, cols, rows);
-
         set_accels_for_action ("ui.toggle-new-game",    {        "<Primary>n"       });
         set_accels_for_action ("ui.new-game",           { "<Shift><Primary>n"       });
         set_accels_for_action ("app.quit",              {        "<Primary>q"       });
@@ -155,11 +153,15 @@ private class TwentyFortyEight : Adw.Application
 
     protected override void activate ()
     {
+        if (get_active_window () == null)
+            _window = new GameWindow (this, cols, rows);
+
         _window.present ();
     }
 
     private void quit_cb (/* SimpleAction action, Variant? variant */)
     {
-        _window.destroy ();
+        if (get_active_window () != null)
+            _window.destroy ();
     }
 }
