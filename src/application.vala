@@ -67,16 +67,6 @@ private class TwentyFortyEight : Adw.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        OptionContext context = new OptionContext ("");
-        context.add_main_entries (option_entries, GETTEXT_PACKAGE);
-
-        try {
-            context.parse (ref args);
-        } catch (Error e) {
-            stderr.printf ("%s\n", e.message);
-            return Posix.EXIT_FAILURE;
-        }
-
         const string application_name = "org.gnome.TwentyFortyEight";
         Environment.set_application_name (application_name);
         Environment.set_prgname ("org.gnome.TwentyFortyEight");
@@ -89,6 +79,7 @@ private class TwentyFortyEight : Adw.Application
     private TwentyFortyEight ()
     {
         Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.DEFAULT_FLAGS);
+        add_main_option_entries (option_entries);
     }
 
     protected override int handle_local_options (GLib.VariantDict options)  // options will be empty, we used a custom OptionContext
