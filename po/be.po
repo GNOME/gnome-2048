@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2024-10-22 17:36+0000\n"
-"PO-Revision-Date: 2024-11-02 20:12+0300\n"
+"POT-Creation-Date: 2025-05-10 14:05+0000\n"
+"PO-Revision-Date: 2025-05-28 12:59+0300\n"
 "Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <Belarusian>\n"
 "Language: be\n"
@@ -36,7 +36,7 @@ msgid "_Keep Playing"
 msgstr "_Працягнуць гульню"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
@@ -100,6 +100,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Выйсці"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+msgid "2048"
+msgstr "2048"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
 msgid "Obtain the 2048 tile"
@@ -107,13 +113,12 @@ msgstr "Атрымайце плітку 2048"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
-"Вельмі захапляльная гульня «2048». GNOME 2048 — гэта клон папулярнай "
-"галаваломкі для аднаго гульца. Трэба аб'ядноўваць лікі ў клетках, каб "
-"атрымаць плітку 2048."
+"Вельмі захапляльная гульня «2048». Гэта клон папулярнай галаваломкі для "
+"аднаго гульца. Трэба аб'ядноўваць лікі ў клетках, каб атрымаць плітку 2048."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
@@ -151,15 +156,9 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "У бягучай гульні атрымана плітка 2048"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "Праект GNOME"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "2048"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.TwentyFortyEight.desktop.in:14
@@ -399,3 +398,6 @@ msgstr "Юрась Шумовіч <shumovichy@gmail.com>"
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "Старонка на GNOME wiki"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Праект GNOME"
