@@ -34,22 +34,22 @@ if desktop_file_validate.found()
   )
 endif
 
-# AppData file
-appdata_file = i18n.merge_file(
-  input: 'org.gnome.TwentyFortyEight.appdata.xml.in',
-  output: 'org.gnome.TwentyFortyEight.appdata.xml',
+# Metainfo file
+metainfo_file = i18n.merge_file(
+  input: 'org.gnome.TwentyFortyEight.metainfo.xml.in',
+  output: 'org.gnome.TwentyFortyEight.metainfo.xml',
   install: true,
   install_dir: join_paths(datadir, 'metainfo'),
   po_dir: podir,
 )
 
-# Validate AppData file
+# Validate Metainfo file
 if appstream_util.found()
   test(
-    'Validating AppData',
+    'Validating Metainfo',
     appstream_util,
-    depends: appdata_file,
-    args: ['validate', '--nonet', appdata_file],
+    depends: metainfo_file,
+    args: ['validate', '--nonet', metainfo_file],
   )
 endif
 

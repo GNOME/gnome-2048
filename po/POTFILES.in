@@ -4,9 +4,9 @@ data/congrats.ui
 data/game-headerbar.ui
 data/help-overlay.ui
 data/mainwindow.ui
-data/org.gnome.TwentyFortyEight.appdata.xml.in
 data/org.gnome.TwentyFortyEight.desktop.in
 data/org.gnome.TwentyFortyEight.gschema.xml
+data/org.gnome.TwentyFortyEight.metainfo.xml.in
 src/application.vala
 src/game-headerbar.vala
 src/game-window.vala
