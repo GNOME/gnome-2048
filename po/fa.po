@@ -2,20 +2,21 @@
 # Copyright (C) 2021 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 # MohammadSaleh Kamyab <mskf1383@protonmail.com>, 2021.
+# Danial Behzadi <dani.behzi@ubuntu.com>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2021-11-06 19:23+0000\n"
-"PO-Revision-Date: 2021-12-13 12:22+0330\n"
+"POT-Creation-Date: 2025-07-22 18:07+0000\n"
+"PO-Revision-Date: 2025-07-29 16:15+0330\n"
+"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: MohammadSaleh Kamyab <mskf1383@protonmail.com>\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
 #: data/congrats.ui:23
@@ -34,7 +35,7 @@ msgid "_Keep Playing"
 msgstr "_ادامهٔ بازی"
 
 #. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/game-headerbar.ui:24
 msgid "GNOME 2048"
 msgstr "گنوم ۲۰۴۸"
 
@@ -98,32 +99,37 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "خروج"
 
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
+#: data/org.gnome.TwentyFortyEight.desktop.in:2 src/game-window.vala:501
+msgid "2048"
+msgstr "۲۰۴۸"
+
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
-#: data/org.gnome.TwentyFortyEight.desktop.in:4
+#: data/org.gnome.TwentyFortyEight.desktop.in:3
 msgid "Obtain the 2048 tile"
 msgstr "کاشی ۲۰۴۸ را به دست آورید"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular single-"
-"player puzzle game. Gameplay consists of joining numbers in a grid and obtain the "
-"2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-player "
+"puzzle game. Gameplay consists of joining numbers in a grid and obtain the 2048 "
+"tile."
 msgstr ""
-"بازی به‌شدّت اعتیادآور ۲۰۴۸ را بازی کنید. گنوم ۲۰۴۸ بازسازی‌ای از بازی محبوب پازلی "
-"تک‌نفره است. گیم‌پلی از به هم پیوستن اعداد در یک شبکه و به دست آوردن کاشی ۲۰۴۸ تشکیل "
-"می‌شود."
+"بازی به‌شدّت اعتیادآور ۲۰۴۸ را بازی کنید. ۲۰۴۸ بازسازی‌ای از بازی محبوب پازلی تک‌نفره "
+"است. گیم‌پلی از به هم پیوستن اعداد در یک شبکه و به دست آوردن کاشی ۲۰۴۸ تشکیل می‌شود."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. Be "
-"careful: all tiles slide to their farthest possible positions, you cannot slide just "
-"one tile or one row or column. Tiles with the same value are joined when slided one "
-"over the other."
+"careful: all tiles slide to their farthest possible positions, you cannot slide "
+"just one tile or one row or column. Tiles with the same value are joined when "
+"slided one over the other."
 msgstr ""
-"از دکمه‌های پیکان صفحه‌کلیدتان برای لغزاندن کاشی‌ها در جهت دلخواه استفاده کنید. مواظب "
-"باشید: همهٔ کاشی‌ها به نزدیک‌ترین موقعیت ممکن می‌لغزند،‌ شما نمی‌توانید فقط یک کاشی، یک "
-"ردیف یا یک ستون را بلغزانید. کاشی‌ها با مقدار مشابه، هنگام لغزیدن یکی به سمت دیگری، "
-"به هم می‌پیوندند."
+"از دکمه‌های پیکان صفحه‌کلیدتان برای لغزاندن کاشی‌ها در جهت دلخواه استفاده کنید. "
+"مواظب باشید: همهٔ کاشی‌ها به نزدیک‌ترین موقعیت ممکن می‌لغزند،‌ شما نمی‌توانید فقط یک "
+"کاشی، یک ردیف یا یک ستون را بلغزانید. کاشی‌ها با مقدار مشابه، هنگام لغزیدن یکی به "
+"سمت دیگری، به هم می‌پیوندند."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
 msgid ""
@@ -141,26 +147,20 @@ msgid ""
 "being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 game and "
 "includes ideas from other clones."
 msgstr ""
-"۲۰۴۸، در اصل ساخته شده توسط گابریل سیریولی،‌ محبویت بسیاری را به‌خاطر اعتیادآوری شدیدش "
-"به دست آورد. ۲۰۴۸ سیریولی به نوبهٔ خود بازسازی‌ای از بازی ۱۰۲۴ و حاوی ایده‌هایی از "
-"بازسازی‌های دیگر است."
+"۲۰۴۸، در اصل ساخته شده توسط گابریل سیریولی،‌ محبویت بسیاری را به‌خاطر اعتیادآوری "
+"شدیدش به دست آورد. ۲۰۴۸ سیریولی به نوبهٔ خود بازسازی‌ای از بازی ۱۰۲۴ و حاوی "
+"ایده‌هایی از بازسازی‌های دیگر است."
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "یک بازی در حال اجرا به کاشی ۲۰۴۸ رسیده است"
 
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "پروژهٔ گنوم"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
-msgid "2048"
-msgstr "۲۰۴۸"
+#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+msgid "Arnaud Bonatti"
+msgstr "آرناد بوناتی"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.TwentyFortyEight.desktop.in:14
+#: data/org.gnome.TwentyFortyEight.desktop.in:13
 msgid "puzzle;"
 msgstr "puzzle;پازل;"
 
@@ -398,3 +398,6 @@ msgstr "محمدصالح کامیاب <mskf1383@protonmail.com>"
 #: src/game-window.vala:523
 msgid "Page on GNOME wiki"
 msgstr "صفحه روی ویکی گنوم"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "پروژهٔ گنوم"
