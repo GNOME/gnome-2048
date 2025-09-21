@@ -18,7 +18,7 @@
    along with GNOME 2048.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class Game : Object
+private class Game : Gtk.Widget
 {
     private enum GameState {
         STOPPED,
@@ -48,8 +48,6 @@ private class Game : Object
 
     private Grid _grid;
 
-    private RoundedRectangle [,] _background;
-    private bool _background_init_done = false;
     private TileView? [,] _foreground_cur;
     private TileView? [,] _foreground_nxt;
 
@@ -58,56 +56,308 @@ private class Game : Object
     private Gee.LinkedList<Tile?>         _to_show = new Gee.LinkedList<Tile?> ();
 
     private GameState _state = GameState.STOPPED;
-    private Clutter.TransitionGroup _show_hide_trans;
-    private Clutter.TransitionGroup _move_trans;
+    private Adw.Animation _show_hide_trans;
+    private Gee.ArrayList<GridPosition?> _show_trans_tiles = new Gee.ArrayList<GridPosition?> ();
+    private Gee.ArrayList<GridPosition?> _hide_trans_tiles = new Gee.ArrayList<GridPosition?> ();
+    private double _show_hide_trans_value = -1;
+    private Adw.Animation _move_trans;
+    private double _move_trans_value = -1;
+    private Gee.ArrayList<TileMovement?> _move_trans_tiles = new Gee.ArrayList<TileMovement?> ();
     private int _animations_duration;
 
     private string _saved_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-2048", "saved");
 
-    private uint _resize_view_id;
+    public GLib.Settings settings;
 
-    internal Game (ref GLib.Settings settings)
+    private void _init_grid (uint8 rows, uint8 cols)
     {
-        uint8 cols = (uint8) settings.get_int ("cols");  // schema ranges cols
-        uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
-        _init_grid (rows, cols, out _grid, ref settings);
+        _grid = new Grid (rows, cols);
+        settings.bind ("target-value", _grid, "target-value", GLib.SettingsBindFlags.DEFAULT | GLib.SettingsBindFlags.NO_SENSITIVITY);
     }
 
-    private static void _init_grid (uint8 rows, uint8 cols, out Grid grid, ref GLib.Settings settings)
-    {
-        grid = new Grid (rows, cols);
-        settings.bind ("target-value", grid, "target-value", GLib.SettingsBindFlags.DEFAULT | GLib.SettingsBindFlags.NO_SENSITIVITY);
+    private Gdk.RGBA _background_color;
+    private Gdk.RGBA _empty_tile_color;
+    private Gdk.RGBA _text_color;
+
+    construct {
+        settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
+
+        _background_color.parse ("#babdb6");
+        _empty_tile_color.parse ("#ffffff");
+        _text_color.parse ("#ffffff");
+
+        width_request = 350;
+        height_request = 350;
+        focusable = true;
+
+        uint8 cols = (uint8) settings.get_int ("cols"); // schema ranges cols
+        uint8 rows = (uint8) settings.get_int ("rows"); // and rows from 1 to 9
+        _init_grid (rows, cols);
+
+        var key_controller = new Gtk.EventControllerKey ();
+        key_controller.key_pressed.connect (on_key_pressed);
+        add_controller (key_controller);
+
+        var gesture_swipe = new Gtk.GestureSwipe ();
+        gesture_swipe.set_propagation_phase (Gtk.PropagationPhase.CAPTURE);
+        gesture_swipe.set_button (/* all buttons */ 0);
+        gesture_swipe.swipe.connect (_on_swipe);
+        add_controller (gesture_swipe);
     }
 
     /*\
-    * * view
+    * * keyboard user actions
     \*/
 
-    private Clutter.Actor _view;
-    private Clutter.Actor _view_background;
-    private Clutter.Actor _view_foreground;
+    private const uint16 KEYCODE_W = 25;
+    private const uint16 KEYCODE_A = 38;
+    private const uint16 KEYCODE_S = 39;
+    private const uint16 KEYCODE_D = 40;
 
-    [CCode (notify = false)] internal Clutter.Actor view {
-        internal get { return _view; }
-        internal set {
-            _view = value;
-            _view.allocation_changed.connect (_on_allocation_changed);
+    private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
+    {
+        if (cannot_move ())
+            return false;
 
-            _view_background = new Clutter.Actor ();
-            _view_foreground = new Clutter.Actor ();
-            _view_background.show ();
-            _view_foreground.show ();
-            _view.add_child (_view_background);
-            _view.add_child (_view_foreground);
+        switch (keycode)
+        {
+            case KEYCODE_W:     move (MoveRequest.UP);      return true;
+            case KEYCODE_A:     move (MoveRequest.LEFT);    return true;
+            case KEYCODE_S:     move (MoveRequest.DOWN);    return true;
+            case KEYCODE_D:     move (MoveRequest.RIGHT);   return true;
+        }
+        switch (_upper_key (keyval))
+        {
+            case Gdk.Key.Up:    move (MoveRequest.UP);      return true;
+            case Gdk.Key.Left:  move (MoveRequest.LEFT);    return true;
+            case Gdk.Key.Down:  move (MoveRequest.DOWN);    return true;
+            case Gdk.Key.Right: move (MoveRequest.RIGHT);   return true;
+        }
+        return false;
+    }
+
+    private static inline uint _upper_key (uint keyval)
+    {
+        return (keyval > 255) ? keyval : ((char) keyval).toupper ();
+    }
+
+    /*\
+    * * gestures
+    \*/
+
+    private inline void _on_swipe (Gtk.GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)
+    {
+        uint button = _gesture_swipe.get_current_button ();
+        if (button != Gdk.BUTTON_PRIMARY && button != Gdk.BUTTON_SECONDARY)
+            return;
+
+        if (cannot_move ())
+            return;
+
+        double abs_x = velocity_x.abs ();
+        double abs_y = velocity_y.abs ();
+        if (abs_x * abs_x + abs_y * abs_y < 400.0)
+            return;
+        bool left_or_right = abs_y * 4.0 < abs_x;
+        bool up_or_down = abs_x * 4.0 < abs_y;
+        if (left_or_right)
+        {
+            if (velocity_x < -10.0)
+                move (MoveRequest.LEFT);
+            else if (velocity_x > 10.0)
+                move (MoveRequest.RIGHT);
+        }
+        else if (up_or_down)
+        {
+            if (velocity_y < -10.0)
+                move (MoveRequest.UP);
+            else if (velocity_y > 10.0)
+                move (MoveRequest.DOWN);
         }
     }
 
-    private void _on_allocation_changed (Clutter.ActorBox box, Clutter.AllocationFlags flags)
+    protected override void snapshot (Gtk.Snapshot snapshot)
     {
-        if (_background_init_done)
-            _resize_view ();
+        var width = get_width ();
+        var height = get_height ();
+
+        Graphene.Rect rect = Graphene.Rect () {
+            origin = { x: 0, y: 0 },
+            size = { width: width, height: height }
+        };
+
+        snapshot.append_color (_background_color, rect);
+
+        uint8 rows = _grid.rows;
+        uint8 cols = _grid.cols;
+
+        float tile_width  = (width  - (cols + 1) * BLANK_COL_WIDTH)  / cols;
+        float tile_height = (height - (rows + 1) * BLANK_ROW_HEIGHT) / rows;
+
+        Graphene.Rect tile_rect = Graphene.Rect () {
+            origin = { x: 0, y: 0 },
+            size = { width: tile_width, height: tile_height }
+        };
+
+        float radius = (tile_height > tile_width) ? (tile_height / 20.0f) : (tile_width / 20.0f);
+        Graphene.Size rounded_corner = Graphene.Size () {
+            height = radius,
+            width = radius
+        };
+
+        Pango.Layout layout = new Pango.Layout (get_pango_context());
+        Pango.FontDescription font_desc = Pango.FontDescription.from_string ("Sans Bold %dpx".printf ((int) tile_height / 4));
+        layout.set_font_description (font_desc);
+
+        for (uint8 i = 0; i < rows; i++)
+        {
+            for (uint8 j = 0; j < cols; j++)
+            {
+                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH  + tile_width / 2;
+                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT + tile_height / 2;
+
+                snapshot.save ();
+                snapshot.translate (Graphene.Point () { x = x, y = y });
+                draw_tile(snapshot, tile_width, tile_height, null, 1.0f, layout);
+                snapshot.restore ();
+            }
+        }
+
+        for (uint8 i = 0; i < rows; i++)
+        {
+            for (uint8 j = 0; j < cols; j++)
+            {
+                TileView?[] tiles = { _foreground_cur [i, j], _foreground_nxt [i, j] };
+
+                foreach (var tile in tiles) if (tile != null)
+                {
+                    GridPosition pos = { (int8) i, (int8) j };
+
+                    float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH  + tile_width / 2;
+                    float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT + tile_height / 2;
+
+                    snapshot.save ();
+                    snapshot.translate (Graphene.Point () { x = x, y = y });
+
+                    TileMovement? move_anim = null;
+
+                    if (_is_tile_animating_hide (pos))
+                    {
+                        var opacity = 1.0f - (float) _show_hide_trans_value;
+
+                        draw_tile(snapshot, tile_width, tile_height, tile, opacity, layout);
+                    }
+                    else if (_is_tile_animating_show (pos))
+                    {
+                        var factor = 1.0f - 2.0f * ((float) _show_hide_trans_value - 0.5f).abs ();
+                        factor = 1.0f + 0.1f * factor;
+
+                        var opacity = (float) _show_hide_trans_value;
+
+                        draw_tile(snapshot, factor * tile_width, factor * tile_height, tile, opacity, layout);
+                    }
+                    else if ((move_anim = _is_tile_animating_move (pos)) != null)
+                    {
+                        float from_j = ((!) move_anim).from.col;
+                        float from_i = ((!) move_anim).from.row;
+
+                        float from_x = from_j * tile_width  + (from_j + 1) * BLANK_COL_WIDTH  + tile_width / 2;
+                        float from_y = from_i * tile_height + (from_i + 1) * BLANK_ROW_HEIGHT + tile_height / 2;
+
+                        float offset_x = (1.0f - (float) _move_trans_value) * (from_x - x);
+                        float offset_y = (1.0f - (float) _move_trans_value) * (from_y - y);
+
+                        snapshot.save ();
+                        snapshot.translate (Graphene.Point () { x = offset_x, y = offset_y });
+                        draw_tile(snapshot, tile_width, tile_height, tile, 1.0f, layout);
+                        snapshot.restore ();
+                    }
+                    else
+                    {
+                        draw_tile(snapshot, tile_width, tile_height, tile, 1.0f, layout);
+                    }
+
+                    snapshot.restore ();
+                }
+            }
+        }
+    }
+
+    private inline bool _is_tile_animating_show (GridPosition pos)
+    {
+        if (_show_hide_trans_value < 0.0)
+            return false;
+        return _show_trans_tiles.any_match ((p) =>
+            ((!) p).row == pos.row &&
+            ((!) p).col == pos.col
+        );
+    }
+
+    private inline bool _is_tile_animating_hide (GridPosition pos)
+    {
+        if (_show_hide_trans_value < 0.0)
+            return false;
+        return _hide_trans_tiles.any_match ((p) =>
+            ((!) p).row == pos.row &&
+            ((!) p).col == pos.col
+        );
+    }
+
+    private inline TileMovement? _is_tile_animating_move (GridPosition pos)
+    {
+        if (_move_trans_value < 0.0)
+            return null;
+        return _move_trans_tiles.first_match ((p) =>
+            ((!) p).to.row == pos.row &&
+            ((!) p).to.col == pos.col
+        );
+    }
+
+    private void draw_tile(Gtk.Snapshot snapshot, float tile_width, float tile_height, TileView? tile, float opacity, Pango.Layout layout)
+    {
+        Graphene.Rect tile_rect = Graphene.Rect () {
+            origin = { x: 0, y: 0 },
+            size = { width: tile_width, height: tile_height }
+        };
+
+        float radius = (tile_height > tile_width) ? (tile_height / 20.0f) : (tile_width / 20.0f);
+        Graphene.Size rounded_corner = Graphene.Size () {
+            height = radius,
+            width = radius
+        };
+
+        snapshot.save ();
+        snapshot.translate (Graphene.Point () { x = - tile_width / 2, y = - tile_height / 2 });
+
+        snapshot.push_rounded_clip ((!) Gsk.RoundedRect ().init (tile_rect, rounded_corner, rounded_corner, rounded_corner, rounded_corner));
+
+        if (tile != null)
+        {
+            var color = ((!) tile).color_rgba ();
+            color.alpha = opacity;
+            snapshot.append_color (color, tile_rect);
+
+            layout.set_text (Math.pow (2, ((!) tile).color).to_string (), -1);
+
+            Pango.Rectangle logical_rect;
+            layout.get_extents (null, out logical_rect);
+
+            snapshot.save ();
+            snapshot.translate (Graphene.Point () {
+                x = (tile_width  / 2) - (logical_rect.width  / 2 / Pango.SCALE),
+                y = (tile_height / 2) - (logical_rect.height / 2 / Pango.SCALE)
+            });
+            snapshot.append_layout (layout, _text_color);
+            snapshot.restore ();
+        }
         else
-            _init_background ();
+        {
+            snapshot.append_color (_empty_tile_color, tile_rect);
+        }
+
+        snapshot.pop ();
+
+        snapshot.restore ();
     }
 
     /*\
@@ -132,17 +382,9 @@ private class Game : Object
 
         if ((rows != _grid.rows) || (cols != _grid.cols))
         {
-            _clear_foreground ();
-            _clear_background ();
-
-            _init_grid (rows, cols, out _grid, ref settings);
-
-            _init_background ();
+            _init_grid (rows, cols);
         }
-        else if (_background_init_done)
-            _clear_foreground ();
-        else // new_game could be called without an existing game
-            _init_background ();
+        _init_foreground ();
 
         score = 0;
         _state = GameState.SHOWING_FIRST_TILE;
@@ -164,9 +406,7 @@ private class Game : Object
 
         score = _grid.get_score ();
 
-        if (_background_init_done)
-            _clear_background ();
-        _init_background ();
+        _init_foreground ();
         _restore_foreground (true);
 
         uint8 rows = _grid.rows;
@@ -200,101 +440,22 @@ private class Game : Object
         _load_undo_settings (ref settings);
     }
 
-    private void _init_background ()
+    private void _init_foreground ()
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        Clutter.Color background_color = Clutter.Color.from_string ("#babdb6");
-        _view.set_background_color (background_color);
 
-        _background     = new RoundedRectangle [rows, cols];
         _foreground_cur = new TileView? [rows, cols];
         _foreground_nxt = new TileView? [rows, cols];
-
-        float canvas_width  = _view.width;
-        float canvas_height = _view.height;
-
-        canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
-        canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
-
-        float tile_width  = canvas_width  / cols;
-        float tile_height = canvas_height / rows;
 
         for (uint8 i = 0; i < rows; i++)
         {
             for (uint8 j = 0; j < cols; j++)
             {
-                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
-
-                RoundedRectangle rect = new RoundedRectangle (x, y, tile_width, tile_height);
-
-                _view_background.add_child (rect.actor);
-                rect.canvas.invalidate ();
-                rect.actor.show ();
-
-                _background     [i, j] = rect;
                 _foreground_cur [i, j] = null;
                 _foreground_nxt [i, j] = null;
             }
         }
-        _background_init_done = true;
-    }
-
-    private void _resize_view ()
-    {
-        uint8 rows = _grid.rows;
-        uint8 cols = _grid.cols;
-        float canvas_width  = _view.width;
-        float canvas_height = _view.height;
-
-        canvas_width  -= (cols + 1) * BLANK_COL_WIDTH;
-        canvas_height -= (rows + 1) * BLANK_ROW_HEIGHT;
-
-        float tile_width  = canvas_width  / cols;
-        float tile_height = canvas_height / rows;
-
-        for (uint8 i = 0; i < rows; i++)
-        {
-            for (uint8 j = 0; j < cols; j++)
-            {
-                float x = j * tile_width  + (j + 1) * BLANK_COL_WIDTH;
-                float y = i * tile_height + (i + 1) * BLANK_ROW_HEIGHT;
-
-                _background [i, j].resize (x, y, tile_width, tile_height);
-
-                if (_foreground_cur [i, j] != null)
-                    ((!) _foreground_cur [i, j]).resize (x, y, tile_width, tile_height);
-
-                if (_foreground_nxt [i, j] != null)
-                    ((!) _foreground_nxt [i, j]).resize (x, y, tile_width, tile_height);
-            }
-        }
-
-        if (_resize_view_id == 0)
-            _resize_view_id = Clutter.Threads.Timeout.add (1000, _idle_resize_view);
-    }
-
-    private bool _idle_resize_view ()
-    {
-        uint8 rows = _grid.rows;
-        uint8 cols = _grid.cols;
-        for (uint8 i = 0; i < rows; i++)
-        {
-            for (uint8 j = 0; j < cols; j++)
-            {
-                _background [i, j].idle_resize ();
-
-                if (_foreground_cur [i, j] != null)
-                    ((!) _foreground_cur [i, j]).idle_resize ();
-
-                if (_foreground_nxt [i, j] != null)
-                    ((!) _foreground_nxt [i, j]).idle_resize ();
-            }
-        }
-
-        _resize_view_id = 0;
-        return false;
     }
 
     private void _create_random_tile ()
@@ -314,7 +475,7 @@ private class Game : Object
         _create_tile (tile);
         _to_show.add (tile);
         _show_tile (tile.pos);
-        _show_hide_trans.start ();
+        _show_hide_trans.play ();
     }
 
     private void _create_tile (Tile tile)
@@ -322,50 +483,18 @@ private class Game : Object
         GridPosition pos = tile.pos;
         assert (_foreground_nxt [pos.row, pos.col] == null);
 
-        Clutter.Actor actor = _background [pos.row, pos.col].actor;
-        _foreground_nxt [pos.row, pos.col] = new TileView (actor.x,
-                                                           actor.y,
-                                                           actor.width,
-                                                           actor.height,
-                                                           tile.val);
+        _foreground_nxt [pos.row, pos.col] = new TileView (tile.val);
     }
 
     private void _show_tile (GridPosition pos)
     {
         debug (@"show tile pos $pos");
 
-        Clutter.PropertyTransition trans;
-
         TileView? tile_view = _foreground_nxt [pos.row, pos.col];
         if (tile_view == null)
             assert_not_reached ();
-        Clutter.Actor actor = ((!) tile_view).actor;
 
-        ((!) tile_view).canvas.invalidate ();
-        actor.set_opacity (0);
-        actor.show ();
-        _view_foreground.add_child (actor);
-
-        trans = new Clutter.PropertyTransition ("scale-x");
-        trans.set_from_value (1.0);
-        trans.set_to_value (1.1);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (actor);
-        _show_hide_trans.add_transition (trans);
-
-        trans = new Clutter.PropertyTransition ("scale-y");
-        trans.set_from_value (1.0);
-        trans.set_to_value (1.1);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (actor);
-        _show_hide_trans.add_transition (trans);
-
-        trans = new Clutter.PropertyTransition ("opacity");
-        trans.set_from_value (0);
-        trans.set_to_value (255);
-        trans.set_remove_on_complete (true);
-        trans.set_duration (_animations_duration / 2);
-        actor.add_transition ("show", trans);
+        _show_trans_tiles.add (pos);
     }
 
     private void _move_tile (GridPosition from, GridPosition to)
@@ -382,21 +511,11 @@ private class Game : Object
     {
         debug (@"prepare move tile from $from to $to");
 
-        bool row_move = (from.col == to.col);
-
-        RoundedRectangle rect_from = _background [from.row, from.col];
-        RoundedRectangle rect_to   = _background [  to.row,   to.col];
-
         TileView? tile_view = _foreground_cur [from.row, from.col];
         if (tile_view == null)
             assert_not_reached ();
 
-        Clutter.PropertyTransition trans = new Clutter.PropertyTransition (row_move ? "y" : "x");
-        trans.set_from_value (row_move ? rect_from.actor.y : rect_from.actor.x);
-        trans.set_to_value (row_move ? rect_to.actor.y : rect_to.actor.x);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (((!) tile_view).actor);
-        _move_trans.add_transition (trans);
+        _move_trans_tiles.add (TileMovement () { to = to, from = from });
     }
 
     private void _dim_tile (GridPosition pos)
@@ -406,38 +525,19 @@ private class Game : Object
             assert_not_reached ();
         debug (@"diming tile at $pos " + ((!) tile_view).color.to_string ());
 
-        Clutter.Actor actor;
-        Clutter.PropertyTransition trans;
-
-        actor = ((!) tile_view).actor;
-
-        trans = new Clutter.PropertyTransition ("opacity");
-        trans.set_from_value (actor.opacity);
-        trans.set_to_value (0);
-        trans.set_duration (_animations_duration);
-        trans.set_animatable (actor);
-
-        _show_hide_trans.add_transition (trans);
-    }
-
-    private void _clear_background ()
-    {
-        _view_background.remove_all_children ();
+        _hide_trans_tiles.add (pos);
     }
 
     private void _clear_foreground ()
     {
         uint8 rows = _grid.rows;
         uint8 cols = _grid.cols;
-        _view_foreground.remove_all_children ();
         for (uint8 i = 0; i < rows; i++)
         {
             for (uint8 j = 0; j < cols; j++)
             {
-                if (_foreground_cur [i, j] != null)
-                    _foreground_cur [i, j] = null;
-                if (_foreground_nxt [i, j] != null)
-                    _foreground_nxt [i, j] = null;
+                _foreground_cur [i, j] = null;
+                _foreground_nxt [i, j] = null;
             }
         }
     }
@@ -468,7 +568,7 @@ private class Game : Object
         if (_to_show.size > 0)
         {
             _state = GameState.RESTORING_TILES;
-            _show_hide_trans.start ();
+            _show_hide_trans.play ();
         }
     }
 
@@ -487,9 +587,13 @@ private class Game : Object
 
         Grid clone = _grid.clone ();
 
-        _move_trans = new Clutter.TransitionGroup ();
-        _move_trans.stopped.connect (_on_move_trans_stopped);
-        _move_trans.set_duration (_animations_duration);
+        _move_trans = new Adw.TimedAnimation (this, 0.0d, 1.0d, _animations_duration,
+            new Adw.CallbackAnimationTarget ((value) => {
+                _move_trans_value = value;
+                queue_draw ();
+            })
+        );
+        _move_trans.done.connect (_on_move_trans_stopped);
 
         _grid.move (request, ref _to_move, ref _to_hide, ref _to_show);
 
@@ -509,18 +613,19 @@ private class Game : Object
         if ((_to_move.size > 0) || (_to_hide.size > 0) || (_to_show.size > 0))
         {
             _state = GameState.MOVING;
-            _move_trans.start ();
+            _move_trans.play ();
             _store_movement (clone);
         }
 
         _just_restored = false;
     }
 
-    private void _on_move_trans_stopped (Clutter.Timeline trans, bool is_finished)
+    private void _on_move_trans_stopped ()
     {
         debug (@"move animation stopped\n$_grid");
 
-        ((Clutter.TransitionGroup) trans).remove_all ();
+        _move_trans_value = -1;
+        _move_trans_tiles.clear ();
 
         foreach (TileMovement? e in _to_hide)
         {
@@ -555,25 +660,26 @@ private class Game : Object
 
     private void _create_show_hide_transition (bool animate)
     {
-        _show_hide_trans = new Clutter.TransitionGroup ();
-        _show_hide_trans.stopped.connect (_on_show_hide_trans_stopped);
         /* _show_hide_trans should be finished two times (forward and backward) before
            one _move_trans is done, so at least animation time should be strictly half */
-        _show_hide_trans.set_duration (animate ? _animations_duration / 3 : 10);
+        _show_hide_trans = new Adw.TimedAnimation (this,
+            0.0d,
+            1.0d,
+            animate ? _animations_duration : 10,
+            new Adw.CallbackAnimationTarget ((value) => {
+                _show_hide_trans_value = value;
+                queue_draw ();
+            })
+        );
+        _show_hide_trans.done.connect (_on_show_hide_trans_stopped);
     }
 
-    private void _on_show_hide_trans_stopped (Clutter.Timeline trans, bool is_finished)
+    private void _on_show_hide_trans_stopped ()
     {
         debug ("show/hide animation stopped");
-
-        if (trans.direction == Clutter.TimelineDirection.FORWARD)
-        {
-            trans.direction = Clutter.TimelineDirection.BACKWARD;
-            trans.start ();
-            return;
-        }
-
-        ((Clutter.TransitionGroup) trans).remove_all ();
+        _show_hide_trans_value = -1;
+        _show_trans_tiles.clear ();
+        _hide_trans_tiles.clear ();
         _apply_move ();
     }
 
@@ -593,9 +699,9 @@ private class Game : Object
             TileView? tile_view = _foreground_cur [pos.row, pos.col];
             if (tile_view == null)
                 assert_not_reached ();
-            ((!) tile_view).actor.hide ();
+            //  ((!) tile_view).hide ();
             debug (@"remove child " + ((!) tile_view).color.to_string ());
-            _view_foreground.remove_child (((!) tile_view).actor);
+            //  _view_foreground.remove_child (((!) tile_view).actor);
 
             _foreground_cur [pos.row, pos.col] = null;
         }

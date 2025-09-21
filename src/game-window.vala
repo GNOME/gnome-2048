@@ -22,16 +22,19 @@ using Games;
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/TwentyFortyEight/ui/game-window.ui")]
-private class GameWindow : ApplicationWindow
+private class GameWindow : Adw.ApplicationWindow
 {
     private GLib.Settings _settings;
 
-    [GtkChild] private unowned GameHeaderBar    _header_bar;
-    [GtkChild] private unowned GtkClutter.Embed _embed;
+    [GtkChild] private unowned Adw.HeaderBar    _header_bar;
+    [GtkChild] private unowned Label            _score;
+    [GtkChild] private unowned MenuButton       _new_game_button;
+    [GtkChild] private unowned MenuButton       _hamburger_button;
+    private Adw.WindowTitle _window_title;
+
+    [GtkChild] private unowned Game             _game;
 
     [GtkChild] private unowned Button           _unfullscreen_button;
-
-    private Game _game;
 
     public uint8 cli_cols { private get; protected construct; default = 0; }
     public uint8 cli_rows { private get; protected construct; default = 0; }
@@ -40,6 +43,12 @@ private class GameWindow : ApplicationWindow
     {
         _settings = new GLib.Settings ("org.gnome.TwentyFortyEight");
 
+        _window_title = new Adw.WindowTitle (_("GNOME 2048"), "");
+        _header_bar.title_widget = _window_title;
+
+        _hamburger_button.notify ["active"].connect (test_popover_closed);
+        _new_game_button.notify ["active"].connect (test_popover_closed);
+
         _install_ui_action_entries ();
 
         _init_game ();
@@ -47,7 +56,16 @@ private class GameWindow : ApplicationWindow
         _init_window ();
         _create_scores_dialog ();   // the library forbids to delay the dialog creation
 
-        notify ["has-toplevel-focus"].connect (() => _embed.grab_focus ());
+        notify ["has-toplevel-focus"].connect (() => _game.grab_focus ());
+
+        _settings.bind ("window-width", this, "default-width", SettingsBindFlags.DEFAULT);
+        _settings.bind ("window-height", this, "default-height", SettingsBindFlags.DEFAULT);
+        _settings.bind ("window-maximized", this, "maximized", SettingsBindFlags.DEFAULT);
+
+        close_request.connect(() => {
+            _game.save_game ();
+            return false;
+        });
     }
 
     internal GameWindow (TwentyFortyEight application, uint8 cols, uint8 rows)
@@ -58,18 +76,6 @@ private class GameWindow : ApplicationWindow
             new_game_cb ();
         else if (!_game.restore_game (ref _settings))
             new_game_cb ();
-
-        // should be done after game creation, so that you cannot move before
-        _init_keyboard ();
-        _init_gestures ();
-    }
-
-    [GtkCallback]
-    private void on_destroy ()
-    {
-        _game.save_game ();
-        _save_window_state (this, ref _settings);
-        base.destroy ();
     }
 
     /*\
@@ -87,10 +93,9 @@ private class GameWindow : ApplicationWindow
             GLib.Settings.sync ();
         }
 
-        _game = new Game (ref _settings);
-        _game.notify ["score"].connect (_header_bar.set_score);
+        _game.notify ["score"].connect (set_score);
         _game.finished.connect ((show_scores) => {
-                _header_bar.finished ();
+                finished ();
 
                 if (show_scores)
                     _show_best_scores ();
@@ -104,20 +109,17 @@ private class GameWindow : ApplicationWindow
 
     private void _init_window ()
     {
-        _init_window_state (this);
-        _load_window_state (this, ref _settings);
-
-        _header_bar.popover_closed.connect (() => _embed.grab_focus ());
+        popover_closed.connect (() => _game.grab_focus ());
         _settings.changed.connect ((settings, key_name) => {
                 switch (key_name)
                 {
                     case "cols":
                     case "rows":
-                        _header_bar._update_new_game_menu ((uint8) _settings.get_int ("rows"),   // schema ranges rows
-                                                           (uint8) _settings.get_int ("cols")); // and cols from 1 to 9
+                        _update_new_game_menu ((uint8) _settings.get_int ("rows"),   // schema ranges rows
+                                               (uint8) _settings.get_int ("cols")); // and cols from 1 to 9
                         return;
                     case "allow-undo":
-                        _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
+                        _update_hamburger_menu (_settings.get_boolean ("allow-undo"));
                         _game.load_settings (ref _settings);
                         return;
                     case "allow-undo-max":
@@ -126,97 +128,145 @@ private class GameWindow : ApplicationWindow
                         return;
                 }
             });
-        _header_bar._update_new_game_menu ((uint8) _settings.get_int ("rows"),   // schema ranges rows
-                                           (uint8) _settings.get_int ("cols")); // and cols from 1 to 9
-        _header_bar._update_hamburger_menu (_settings.get_boolean ("allow-undo"));
+        _update_new_game_menu ((uint8) _settings.get_int ("rows"),   // schema ranges rows
+                               (uint8) _settings.get_int ("cols")); // and cols from 1 to 9
+        _update_hamburger_menu (_settings.get_boolean ("allow-undo"));
         _game.load_settings (ref _settings);
-
-        _game.view = _embed.get_stage ();
-
-        set_events (get_events () | Gdk.EventMask.STRUCTURE_MASK | Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK);
     }
 
     /*\
-    * * window state
+    * * popovers
     \*/
 
-    private const int WINDOW_MINIMUM_SIZE_HEIGHT = 350;
-    private const int WINDOW_MINIMUM_SIZE_WIDTH = 350;
+    internal signal void popover_closed ();
 
-    private int _window_width;
-    private int _window_height;
-    private bool _window_is_maximized;
-    private bool _window_is_fullscreen;
-    private bool _window_is_tiled;
-
-    private static void _init_window_state (GameWindow _this)
+    private void test_popover_closed ()
     {
-        _this.window_state_event.connect (state_event_cb);
-        _this.size_allocate.connect (size_allocate_cb);
-
-        Gdk.Geometry geom = Gdk.Geometry ();
-        geom.min_height = WINDOW_MINIMUM_SIZE_HEIGHT;
-        geom.min_width = WINDOW_MINIMUM_SIZE_WIDTH;
-        _this.set_geometry_hints (_this, geom, Gdk.WindowHints.MIN_SIZE);
+        if (!has_popover ())
+            popover_closed ();
     }
 
-    private static void _load_window_state (GameWindow _this, ref GLib.Settings _settings)
+    internal bool has_popover ()
     {
-        _this.set_default_size (_settings.get_int ("window-width"),
-                                _settings.get_int ("window-height"));
-
-        if (_settings.get_boolean ("window-maximized"))
-            _this.maximize ();
+        return _hamburger_button.active || _new_game_button.active;
     }
 
-    private static void _save_window_state (GameWindow _this, ref GLib.Settings _settings)
+    /*\
+    * * texts
+    \*/
+
+    internal void clear_subtitle ()
     {
-        _settings.delay ();
-        _settings.set_int       ("window-width",        _this._window_width);
-        _settings.set_int       ("window-height",       _this._window_height);
-        _settings.set_boolean   ("window-maximized",    _this._window_is_maximized || _this._window_is_fullscreen);
-        _settings.apply ();
+        _window_title.subtitle = "";
     }
 
-    private static void size_allocate_cb (Widget widget, Allocation allocation)
+    internal void finished ()
     {
-        GameWindow _this = (GameWindow) widget;
-        if (_this._window_is_maximized || _this._window_is_tiled || _this._window_is_fullscreen)
-            return;
-        int? window_width = null;
-        int? window_height = null;
-        _this.get_size (out window_width, out window_height);
-        if (window_width == null || window_height == null)
-            return;
-        _this._window_width = (!) window_width;
-        _this._window_height = (!) window_height;
+        /* Translators: subtitle of the headerbar, when the user cannot move anymore */
+        _window_title.subtitle = _("Game Over");
     }
 
-    private const Gdk.WindowState tiled_state = Gdk.WindowState.TILED
-                                              | Gdk.WindowState.TOP_TILED
-                                              | Gdk.WindowState.BOTTOM_TILED
-                                              | Gdk.WindowState.LEFT_TILED
-                                              | Gdk.WindowState.RIGHT_TILED;
-    private static bool state_event_cb (Widget widget, Gdk.EventWindowState event)
+    internal void set_score (Object game, ParamSpec unused)
     {
-        GameWindow _this = (GameWindow) widget;
-        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            _this._window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+        _score.label = ((Game) game).score.to_string ();
+    }
 
-        /* fullscreen: saved as maximized */
-        bool window_fullscreen = _this._window_is_fullscreen;
-        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
-            _this._window_is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
-        if (window_fullscreen && !_this._window_is_fullscreen)
-            _this._unfullscreen_button.hide ();
-        else if (!window_fullscreen && _this._window_is_fullscreen)
-            _this._unfullscreen_button.show ();
+    /*\
+    * * hamburger menu
+    \*/
 
-        /* tiled: not saved, but should not change saved window size */
-        if ((event.changed_mask & tiled_state) != 0)
-            _this._window_is_tiled = (event.new_window_state & tiled_state) != 0;
+    internal void _update_hamburger_menu (bool allow_undo)
+    {
+        GLib.Menu menu = new GLib.Menu ();
 
-        return false;
+        if (allow_undo)
+            _append_undo_section (ref menu);
+        _append_scores_section (ref menu);
+        _append_app_actions_section (ref menu);
+
+        menu.freeze ();
+        _hamburger_button.set_menu_model ((MenuModel) menu);
+    }
+
+    private static inline void _append_undo_section (ref GLib.Menu menu)
+    {
+        GLib.Menu section = new GLib.Menu ();
+
+        /* Translators: entry in the hamburger menu, if the "Allow undo" option is set to true */
+        section.append (_("Undo"), "ui.undo");
+
+        section.freeze ();
+        menu.append_section (null, section);
+    }
+
+    private static inline void _append_scores_section (ref GLib.Menu menu)
+    {
+        GLib.Menu section = new GLib.Menu ();
+
+        /* Translators: entry in the hamburger menu; opens a window showing best scores */
+        section.append (_("Scores"), "ui.scores");
+
+        section.freeze ();
+        menu.append_section (null, section);
+    }
+
+    private static inline void _append_app_actions_section (ref GLib.Menu menu)
+    {
+        GLib.Menu section = new GLib.Menu ();
+
+        /* Translators: usual menu entry of the hamburger menu */
+        section.append (_("Keyboard Shortcuts"), "win.show-help-overlay");
+
+        /* Translators: entry in the hamburger menu */
+        section.append (_("About 2048"), "ui.about");
+
+        section.freeze ();
+        menu.append_section (null, section);
+    }
+
+    /*\
+    * * new-game menu
+    \*/
+
+    internal void _update_new_game_menu (uint8 rows, uint8 cols)
+    {
+        GLib.Menu menu = new GLib.Menu ();
+
+        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3 */
+        _append_new_game_item (_("3 × 3"),
+                    /* rows */ 3,
+                    /* cols */ 3,
+                           ref menu);
+
+        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4 */
+        _append_new_game_item (_("4 × 4"),
+                    /* rows */ 4,
+                    /* cols */ 4,
+                           ref menu);
+
+        /* Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5 */
+        _append_new_game_item (_("5 × 5"),
+                    /* rows */ 5,
+                    /* cols */ 5,
+                           ref menu);
+
+        bool is_square = rows == cols;
+        bool disallowed_grid = Grid.is_disallowed_grid_size (ref rows, ref cols);
+        if (disallowed_grid && !is_square)
+            /* Translators: command-line warning displayed if the user manually sets a invalid grid size */
+            warning (_("Grids of size 1 by 2 are disallowed."));
+
+        if (!disallowed_grid && (!is_square || (is_square && rows != 4 && rows != 3 && rows != 5)))
+            /* Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually */
+            _append_new_game_item (_("Custom"), /* rows */ rows, /* cols */ cols, ref menu);
+
+        menu.freeze ();
+        _new_game_button.set_menu_model ((MenuModel) menu);
+    }
+    private static void _append_new_game_item (string label, uint8 rows, uint8 cols, ref GLib.Menu menu)
+    {
+        Variant variant = new Variant ("(yy)", rows, cols);
+        menu.append (label, "ui.new-game-sized(" + variant.print (/* annotate types */ true) + ")");
     }
 
     /*\
@@ -256,16 +306,16 @@ private class GameWindow : ApplicationWindow
         if (!_settings.get_boolean ("allow-undo"))   // for the keyboard shortcut
             return;
 
-        _header_bar.clear_subtitle ();
+        clear_subtitle ();
         _game.undo ();
-        _embed.grab_focus ();
+        _game.grab_focus ();
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
-        _header_bar.clear_subtitle ();
+        clear_subtitle ();
         _game.new_game (ref _settings);
-        _embed.grab_focus ();
+        _game.grab_focus ();
     }
 
     private void new_game_sized_cb (SimpleAction action, Variant? variant)
@@ -283,144 +333,47 @@ private class GameWindow : ApplicationWindow
 
     private void toggle_new_game_cb (/* SimpleAction action, Variant? variant */)
     {
-        _header_bar.toggle_new_game ();
+        _new_game_button.active = !_new_game_button.active;
     }
 
     private void toggle_hamburger_menu (/* SimpleAction action, Variant? variant */)
     {
-        _header_bar.toggle_hamburger_menu ();
-    }
-
-    /*\
-    * * keyboard user actions
-    \*/
-
-    private EventControllerKey key_controller;      // for keeping in memory
-
-    private const uint16 KEYCODE_W = 25;
-    private const uint16 KEYCODE_A = 38;
-    private const uint16 KEYCODE_S = 39;
-    private const uint16 KEYCODE_D = 40;
-
-    private inline void _init_keyboard ()   // called on construct
-    {
-        key_controller = new EventControllerKey (this);
-        key_controller.key_pressed.connect (on_key_pressed);
-    }
-
-    private static inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
-    {
-        GameWindow _this = (GameWindow) _key_controller.get_widget ();
-        if (_this._header_bar.has_popover () || (_this.focus_visible && !_this._embed.is_focus))
-            return false;
-        if (_this._game.cannot_move ())
-            return false;
-
-        switch (keycode)
-        {
-            case KEYCODE_W:     _this._game.move (MoveRequest.UP);      return true;    // or KEYCODE_UP    = 111;
-            case KEYCODE_A:     _this._game.move (MoveRequest.LEFT);    return true;    // or KEYCODE_LEFT  = 113;
-            case KEYCODE_S:     _this._game.move (MoveRequest.DOWN);    return true;    // or KEYCODE_DOWN  = 116;
-            case KEYCODE_D:     _this._game.move (MoveRequest.RIGHT);   return true;    // or KEYCODE_RIGHT = 114;
-        }
-        switch (_upper_key (keyval))
-        {
-            case Gdk.Key.Up:    _this._game.move (MoveRequest.UP);      return true;
-            case Gdk.Key.Left:  _this._game.move (MoveRequest.LEFT);    return true;
-            case Gdk.Key.Down:  _this._game.move (MoveRequest.DOWN);    return true;
-            case Gdk.Key.Right: _this._game.move (MoveRequest.RIGHT);   return true;
-        }
-        return false;
-    }
-
-    private static inline uint _upper_key (uint keyval)
-    {
-        return (keyval > 255) ? keyval : ((char) keyval).toupper ();
-    }
-
-    /*\
-    * * gestures
-    \*/
-
-    private GestureSwipe gesture_swipe;
-
-    private inline void _init_gestures ()
-    {
-        gesture_swipe = new GestureSwipe (_embed);  // _window works, but problems with headerbar; the main grid or the aspectframe do as _embed
-        gesture_swipe.set_propagation_phase (PropagationPhase.CAPTURE);
-        gesture_swipe.set_button (/* all buttons */ 0);
-        gesture_swipe.swipe.connect (_on_swipe);
-    }
-
-    private inline void _on_swipe (GestureSwipe _gesture_swipe, double velocity_x, double velocity_y)   // do not make static, _gesture_swipe.get_wigdet () is _embed, not the window
-    {
-        uint button = _gesture_swipe.get_current_button ();
-        if (button != Gdk.BUTTON_PRIMARY && button != Gdk.BUTTON_SECONDARY)
-            return;
-
-        if (_game.cannot_move ())
-            return;
-
-        double abs_x = velocity_x.abs ();
-        double abs_y = velocity_y.abs ();
-        if (abs_x * abs_x + abs_y * abs_y < 400.0)
-            return;
-        bool left_or_right = abs_y * 4.0 < abs_x;
-        bool up_or_down = abs_x * 4.0 < abs_y;
-        if (left_or_right)
-        {
-            if (velocity_x < -10.0)
-                _game.move (MoveRequest.LEFT);
-            else if (velocity_x > 10.0)
-                _game.move (MoveRequest.RIGHT);
-        }
-        else if (up_or_down)
-        {
-            if (velocity_y < -10.0)
-                _game.move (MoveRequest.UP);
-            else if (velocity_y > 10.0)
-                _game.move (MoveRequest.DOWN);
-        }
+        _hamburger_button.active = !_hamburger_button.active;
     }
 
     /*\
     * * congratulations dialog
     \*/
 
-    private MessageDialog _congrats_dialog;
-
-    private bool _should_create_congrats_dialog = true;
-    private inline void _create_congrats_dialog ()
-    {
-        Builder builder = new Builder.from_resource ("/org/gnome/TwentyFortyEight/ui/congrats.ui");
-
-        _congrats_dialog = (MessageDialog) builder.get_object ("congratsdialog");
-        _congrats_dialog.set_transient_for (this);
-
-        _congrats_dialog.response.connect ((response_id) => {
-                if (response_id == 0)
-                    new_game_cb ();
-                _congrats_dialog.hide ();
-            });
-        _congrats_dialog.delete_event.connect ((response_id) => {
-                return _congrats_dialog.hide_on_delete ();
-            });
-    }
-
     private inline void target_value_reached_cb (uint target_value)
     {
         if (_settings.get_boolean ("do-congrat"))
         {
-            if (_should_create_congrats_dialog)
-            {
-                _create_congrats_dialog ();
-                _should_create_congrats_dialog = false;
-            }
-
-            /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048) */
-            _congrats_dialog.format_secondary_text (_("You have obtained the %u tile for the first time!"), target_value);
-            _congrats_dialog.present ();
             _settings.set_boolean ("do-congrat", false);
+
+            var dialog = new Adw.AlertDialog (
+                /* Translators: title of the dialog that appears (with default settings) when you reach 2048 */
+                _("Congratulations!"),
+                /* Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048) */
+                _("You have obtained the %u tile for the first time!").replace ("%u", target_value.to_string ())
+            );
+
+            dialog.add_responses (
+                /* Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt) */
+                "new-game", _("_New Game"),
+                /* Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt) */
+                "continue", _("_Keep Playing"),
+                null);
+
+            dialog.set_default_response ("new-game");
+            dialog.set_close_response ("continue");
+
+            dialog.response.connect ((response) => {
+                if (response == "new-game")
+                    new_game_cb ();
+            });
+
+            dialog.present (this);
         }
         debug ("target value reached");
     }
