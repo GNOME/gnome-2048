@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-06-05 09:07+0000\n"
+"POT-Creation-Date: 2024-07-29 20:42+0000\n"
 "PO-Revision-Date: 2016-02-20 16:03+0200\n"
-"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
+"Last-Translator: Giannis Antypas <gianni.antypas@gmail.com>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -26,17 +26,15 @@ msgstr "Συγχαρητήρια!"
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:46 data/game-headerbar.ui:29
-#, fuzzy
 #| msgid "New Game"
 msgid "_New Game"
-msgstr "Νέο παιχνίδι"
+msgstr "_Νέο παιχνίδι"
 
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
 #: data/congrats.ui:54
-#, fuzzy
 #| msgid "Keep Playing"
 msgid "_Keep Playing"
-msgstr "Συνέχεια παιχνιδιού"
+msgstr "_Συνέχεια παιχνιδιού"
 
 #. Translators: title of the window, displayed in the headerbar
 #: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
@@ -45,11 +43,10 @@ msgstr "GNOME 2048"
 
 #. Translators: header of the "Play with arrows" shortcut section
 #: data/help-overlay.ui:29
-#, fuzzy
 #| msgid "New Game"
 msgctxt "shortcut window"
 msgid "Game"
-msgstr "Νέο παιχνίδι"
+msgstr "Παιχνίδι"
 
 #. Translators: the application has no help, so the use of arrows for playing is documented here
 #: data/help-overlay.ui:34
@@ -59,7 +56,6 @@ msgstr "Παιχνίδι με τα πλήκτρα βελών"
 
 #. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
 #: data/help-overlay.ui:44
-#, fuzzy
 #| msgid "New Game"
 msgctxt "shortcut window"
 msgid "New game"
@@ -93,23 +89,21 @@ msgstr "Εναλλαγή κυρίως μενού"
 #: data/help-overlay.ui:80
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Συντομεύσεις πληκτρολογίου"
 
 #. Translators: shortcut that opens About dialog
 #: data/help-overlay.ui:88
-#, fuzzy
 #| msgid "About"
 msgctxt "shortcut window"
 msgid "About"
-msgstr "Περί"
+msgstr "Σχετικά"
 
 #. Translators: shortcut that quits application
 #: data/help-overlay.ui:96
-#, fuzzy
 #| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Έξοδος"
+msgstr "Τερματισμός"
 
 #: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:4
@@ -304,9 +298,11 @@ msgid "Print release version and exit"
 msgstr "Εκτύπωση έκδοσης και έξοδος"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
+#: src/application.vala:123
 msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
-msgstr "Αποτυχία ανάλυσης μεγέθους. Το μέγεθος θα πρέπει να είναι μεταξύ 2 και 9, ή της μορφής 2x3."
+msgstr ""
+"Αποτυχία ανάλυσης μεγέθους. Το μέγεθος θα πρέπει να είναι μεταξύ 2 και 9, ή "
+"της μορφής 2x3."
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
 #: src/game-headerbar.vala:67
@@ -330,25 +326,24 @@ msgstr "Συντομεύσεις"
 
 #. Translators: entry in the hamburger menu
 #: src/game-headerbar.vala:122
-#, fuzzy
 #| msgid "About"
 msgid "About 2048"
-msgstr "Περί του 2048"
+msgstr "Σχετικά με το 2048"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
 #: src/game-headerbar.vala:142
 msgid "3 × 3"
-msgstr ""
+msgstr "3 × 3"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
 #: src/game-headerbar.vala:148
 msgid "4 × 4"
-msgstr ""
+msgstr "4 × 4"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
 #: src/game-headerbar.vala:154
 msgid "5 × 5"
-msgstr ""
+msgstr "5 × 5"
 
 #. Translators: command-line warning displayed if the user manually sets a invalid grid size
 #: src/game-headerbar.vala:163
@@ -362,10 +357,10 @@ msgstr "Επιλογή"
 
 #. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
 #: src/game-window.vala:421
-#, fuzzy, c-format
+#, c-format
 #| msgid "You have obtained the %u tile"
 msgid "You have obtained the %u tile for the first time!"
-msgstr "Δημιουργήσατε το πλακίδιο %u"
+msgstr "Δημιουργήσατε το πλακίδιο %u για πρώτη φορά!"
 
 #. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
 #: src/game-window.vala:440
@@ -384,10 +379,9 @@ msgstr "Πλέγμα 5 × 5"
 
 #. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
 #: src/game-window.vala:449
-#, fuzzy
 #| msgid "Grid size"
 msgid "Grid Size:"
-msgstr "Μέγεθος πλέγματος"
+msgstr "Μέγεθος πλέγματος:"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/game-window.vala:505
@@ -396,14 +390,11 @@ msgstr "Ένας κλώνος του 2048 για το GNOME"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/game-window.vala:510
-#, fuzzy
 #| msgid ""
 #| "Copyright © 2014-2015 – Juan R. García Blanco\n"
 #| "Copyright © 2016 – Arnaud Bonatti"
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
-msgstr ""
-"Πνευματικά δικαιώματα © 2014-2015 – Juan R. García Blanco\n"
-"Πνευματικά δικαιώματα © 2016 – Arnaud Bonatti"
+msgstr "Πνευματικά δικαιώματα © 2014-2015 – Juan R. García Blanco"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
 #: src/game-window.vala:514
