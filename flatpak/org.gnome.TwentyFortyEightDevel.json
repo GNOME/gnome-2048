@@ -17,15 +17,14 @@
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "modules": [
-        "modules/clutter.json",
         {
             "name": "libgnome-games-support",
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libgnome-games-support/1.8/libgnome-games-support-1.8.2.tar.xz",
-                    "sha256": "28434604a7b038731ac0231731388ff104f565bb2330cc24e78cda04cfd3ef7d"
+                    "url" : "https://download.gnome.org/sources/libgnome-games-support/2.0/libgnome-games-support-2.0.1.tar.xz",
+                    "sha256" : "0186f25c4892c86c7eac43a307fc19db696df4f19aca7f54e83c221df9d9790a"
                 }
             ]
         },

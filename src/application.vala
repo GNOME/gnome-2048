@@ -20,7 +20,7 @@
 
 using Gtk;
 
-private class TwentyFortyEight : Gtk.Application
+private class TwentyFortyEight : Adw.Application
 {
     private GameWindow _window;
 
@@ -70,9 +70,6 @@ private class TwentyFortyEight : Gtk.Application
         OptionContext context = new OptionContext ("");
         context.add_main_entries (option_entries, GETTEXT_PACKAGE);
 
-        context.add_group (get_option_group (true));
-        context.add_group (Clutter.get_option_group_without_init ());
-
         try {
             context.parse (ref args);
         } catch (Error e) {
@@ -84,20 +81,6 @@ private class TwentyFortyEight : Gtk.Application
         Environment.set_application_name (application_name);
         Environment.set_prgname ("org.gnome.TwentyFortyEight");
         Window.set_default_icon_name ("org.gnome.TwentyFortyEight");
-
-        try {
-            GtkClutter.init_with_args (ref args, "", new OptionEntry[0], null);
-        } catch (Error e) {
-            MessageDialog dialog = new MessageDialog (null,
-                                                      DialogFlags.MODAL,
-                                                      MessageType.ERROR,
-                                                      ButtonsType.NONE,
-                                                      "Unable to initialize Clutter:\n%s", e.message);
-            dialog.set_title (application_name);
-            dialog.run ();
-            dialog.destroy ();
-            return Posix.EXIT_FAILURE;
-        }
 
         TwentyFortyEight app = new TwentyFortyEight ();
         return app.run (args);

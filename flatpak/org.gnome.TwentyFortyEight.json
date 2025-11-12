@@ -1,16 +1,16 @@
 {
-    "app-id": "org.gnome.TwentyFortyEight",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "47",
-    "sdk": "org.gnome.Sdk",
-    "command": "gnome-2048",
-    "finish-args": [
+    "app-id" : "org.gnome.TwentyFortyEight",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "48",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "gnome-2048",
+    "finish-args" : [
         "--socket=wayland",
         "--share=ipc",
         "--socket=fallback-x11",
         "--device=dri"
     ],
-    "cleanup": [
+    "cleanup" : [
         "/include",
         "/lib/pkgconfig",
         "/share/pkgconfig",
@@ -21,28 +21,33 @@
         "*.la",
         "*.a"
     ],
-    "modules": [
-        "modules/clutter.json",
+    "modules" : [
         {
-            "name": "libgnome-games-support",
-            "buildsystem": "meson",
-            "sources": [
+            "name" : "libgnome-games-support",
+            "buildsystem" : "meson",
+            "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libgnome-games-support/1.8/libgnome-games-support-1.8.2.tar.xz",
-                    "sha256": "28434604a7b038731ac0231731388ff104f565bb2330cc24e78cda04cfd3ef7d"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/libgnome-games-support/2.0/libgnome-games-support-2.0.1.tar.xz",
+                    "sha256" : "0186f25c4892c86c7eac43a307fc19db696df4f19aca7f54e83c221df9d9790a"
                 }
             ]
         },
         {
-            "name":"gnome-2048",
-            "buildsystem":"meson",
-            "sources":[
+            "name" : "gnome-2048",
+            "buildsystem" : "meson",
+            "sources" : [
                 {
-                    "type":"dir",
-                    "path":".."
+                    "type" : "dir",
+                    "path" : ".."
                 }
+            ],
+            "config-opts" : [
+                "--libdir=lib"
             ]
         }
-    ]
+    ],
+    "build-options" : {
+        "env" : {        }
+    }
 }
