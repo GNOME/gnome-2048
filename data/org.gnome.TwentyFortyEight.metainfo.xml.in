@@ -57,11 +57,11 @@
     <kudo>HighContrast</kudo>
     <kudo>ModernToolkit</kudo>
   </kudos>
-  <recommends>
+  <supports>
     <control>keyboard</control>
     <control>pointing</control>
     <control>touch</control>
-  </recommends>
+  </supports>
   <requires>
     <display_length compare="ge">360</display_length>
   </requires>
@@ -74,10 +74,4 @@
     <release version="3.38.2" date="2020-11-22" type="stable" urgency="medium"/>
     <release version="3.37.91" date="2020-08-28" type="development" urgency="low"/>
   </releases>
-
-  <recommends>
-    <control>touch</control>
-    <control>keyboard</control>
-    <control>pointing</control>
-  </recommends>
 </component>
