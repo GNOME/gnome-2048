@@ -88,7 +88,7 @@ private class TwentyFortyEight : Adw.Application
 
     private TwentyFortyEight ()
     {
-        Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: "org.gnome.TwentyFortyEight", flags: ApplicationFlags.DEFAULT_FLAGS);
     }
 
     protected override int handle_local_options (GLib.VariantDict options)  // options will be empty, we used a custom OptionContext
