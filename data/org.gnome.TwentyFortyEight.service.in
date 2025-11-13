@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.gnome.TwentyFortyEight
+Exec=@bindir@/gnome-2048 --gapplication-service

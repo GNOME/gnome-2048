@@ -15,6 +15,17 @@ install_data(
   install_dir: schemadir,
 )
 
+# D-Bus service file
+service_conf = configuration_data()
+service_conf.set('bindir', bindir)
+configure_file(
+  input: 'org.gnome.TwentyFortyEight.service.in',
+  output: 'org.gnome.TwentyFortyEight.service',
+  install: true,
+  install_dir: join_paths(datadir, 'dbus-1', 'services'),
+  configuration: service_conf
+)
+
 # Desktop file
 desktop_file = i18n.merge_file(
   input: 'org.gnome.TwentyFortyEight.desktop.in',
