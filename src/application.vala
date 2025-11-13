@@ -22,8 +22,6 @@ using Gtk;
 
 private class TwentyFortyEight : Adw.Application
 {
-    private GameWindow _window;
-
     private static bool show_version;
     private static string? size = null;
     private static string? cli = null;
@@ -144,15 +142,17 @@ private class TwentyFortyEight : Adw.Application
 
     protected override void activate ()
     {
-        if (get_active_window () == null)
-            _window = new GameWindow (this, cols, rows);
+        var window = get_active_window ();
+        if (window == null)
+            window = new GameWindow (this, cols, rows);
 
-        _window.present ();
+        ((!) window).present ();
     }
 
     private void quit_cb (/* SimpleAction action, Variant? variant */)
     {
-        if (get_active_window () != null)
-            _window.destroy ();
+        var window = get_active_window ();
+        if (window != null)
+            ((!) window).destroy ();
     }
 }
