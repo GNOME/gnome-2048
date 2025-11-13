@@ -23,17 +23,6 @@
     ],
     "modules" : [
         {
-            "name" : "libgnome-games-support",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/libgnome-games-support/2.0/libgnome-games-support-2.0.1.tar.xz",
-                    "sha256" : "0186f25c4892c86c7eac43a307fc19db696df4f19aca7f54e83c221df9d9790a"
-                }
-            ]
-        },
-        {
             "name" : "gnome-2048",
             "buildsystem" : "meson",
             "sources" : [

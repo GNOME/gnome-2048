@@ -399,7 +399,7 @@ private class GameWindow : Adw.ApplicationWindow
         _grid5_cat = new Scores.Category ("grid5", _("Grid 5 × 5"));
 
         /* Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5) */
-        _scores_ctx = new Scores.Context.with_icon_name ("gnome-2048", _("Grid Size:"), this, category_request, Scores.Style.POINTS_GREATER_IS_BETTER, "org.gnome.TwentyFortyEight");
+        _scores_ctx = new Scores.Context ("gnome-2048", _("Grid Size"), category_request, Scores.Style.POINTS_GREATER_IS_BETTER, "org.gnome.TwentyFortyEight");
     }
     private inline Scores.Category category_request (string key)
     {
@@ -414,7 +414,7 @@ private class GameWindow : Adw.ApplicationWindow
 
     private inline void scores_cb (/* SimpleAction action, Variant? variant */)
     {
-        _scores_ctx.run_dialog ();  // TODO open it for current Scores.Category
+        _scores_ctx.present_dialog (this);  // TODO open it for current Scores.Category
     }
 
     private inline void _show_best_scores ()
@@ -431,13 +431,13 @@ private class GameWindow : Adw.ApplicationWindow
             case 5: cat = _grid5_cat; break;
             default: return; // FIXME add categories for non-usual square grids
         }
-        _scores_ctx.add_score.begin (_game.score, cat, null, (object, result) => {
+        _scores_ctx.add_score.begin (_game.score, cat, null, null, (object, result) => {
                 try {
                     _scores_ctx.add_score.end (result);
                 } catch (GLib.Error e) {
                     stderr.printf ("%s\n", e.message);
                 }
-                _scores_ctx.run_dialog ();
+                _scores_ctx.present_dialog (this);
                 debug ("score added");
             });
     }

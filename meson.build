@@ -30,7 +30,9 @@ glib_dependency = dependency('glib-2.0', version: '>= 2.80.0')
 gtk_dependency = dependency('gtk4', version: '>= 4.16.0')
 adw_dependency = dependency('libadwaita-1', version: '>= 1.7')
 gee_dependency = dependency('gee-0.8', version: '>= 0.14.0')
-libgnome_games_support_dependency = dependency('libgnome-games-support-2', version: '>= 2.0')
+libgnome_games_support = subproject ('libgnome-games-support',
+                                     default_options: 'superproject_name=gnome-2048')
+libgnome_games_support_dependency = libgnome_games_support.get_variable ('lggs_dependency')
 
 appstreamcli = find_program('appstreamcli', required: false)
 desktop_file_validate = find_program('desktop-file-validate', required: false)
