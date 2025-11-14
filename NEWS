@@ -1,3 +1,41 @@
+2048   50.alpha                                            2025-11-14
+=====================================================================
+
+Notable changes since the last release:
+  - GNOME branding was removed.
+  - The game was ported to Gtk4 and libadwaita.
+  - libgnome-games-support-3 is vendored now.
+  - The game is D-Bus activatable.
+  - In addition to arrow and WASD keys, vim-style bindings (HJKL) are
+    available now.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Belarusian: Vasil Pupkin
+  Brazilian Portuguese: Álvaro Burns, Rafael Fontenelle
+  Bulgarian translation twlvnn kraftwerk
+  Catalan: Jordi Mas i Hernandez
+  Chinese (China): Luming Zh
+  Czech: Daniel Rusek
+  Finnish: Jiri Grönroos
+  Friulian: Fabio Tomat
+  Georgian: Ekaterine Papava
+  German: Jürgen Benvenuti
+  Greek: Giannis Antypas, Vasilis Kosmidis
+  Hebrew: Yaron Shahrabani
+  Hindi: Guntupalli Karunakar
+  Hungarian: Balázs Úr
+  Korean: DaeHyun Sung
+  Lithuanian: Aurimas Černius
+  Persian: Danial Behzadi, MohammadSaleh Kamyab
+  Portuguese: Hugo Carvalho
+  Russian: Sergej A.
+  Serbian: Мирослав Николић
+  Slovenian: Martin
+  Swedish: Anders Jonsson
+  Turkish: Emin Tufan Çetin, Sabri Ünal
+  Ukrainian: Yuri Chornoivan
+
 GNOME 2048   3.38.2                                        2020-11-22
 =====================================================================
 

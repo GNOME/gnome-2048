@@ -71,6 +71,7 @@
 
   <releases>
     <!-- should be kept in versioning inverted order -->
+    <release version="50.alpha" date="2025-11-14" type="development" urgency="low"/>
     <release version="3.38.2" date="2020-11-22" type="stable" urgency="medium"/>
     <release version="3.37.91" date="2020-08-28" type="development" urgency="low"/>
   </releases>
