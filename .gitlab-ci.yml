@@ -27,7 +27,7 @@ build-release-tarball:
     stage: deploy
     before_script:
         - dnf update -y
-        - dnf -y install @development-tools meson glib2-devel gtk4-devel libadwaita-devel itstool desktop-file-utils
+        - dnf -y install @development-tools meson glib2-devel gtk4-devel libadwaita-devel libgee-devel itstool desktop-file-utils
     script:
         - meson setup _build
         - meson dist -C _build
