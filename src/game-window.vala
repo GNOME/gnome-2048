@@ -448,10 +448,11 @@ private class GameWindow : Adw.ApplicationWindow
 
     private void about_cb (/* SimpleAction action, Variant? variant */)
     {
-        string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti" };
-        show_about_dialog (this,
+        string [] authors = { "Juan R. García Blanco", "Arnaud Bonatti", "Andrey Kutejko" };
+        Adw.show_about_dialog (this,
                            /* Translators: about dialog text; the program name */
-                           "program-name", _("2048"),
+                           "application-name", _("2048"),
+                           "application-icon", "org.gnome.TwentyFortyEight",
                            "version", VERSION,
 
                            /* Translators: about dialog text; a introduction to the game */
@@ -462,18 +463,16 @@ private class GameWindow : Adw.ApplicationWindow
                            /* Translators: text crediting a maintainer, seen in the About dialog */
                            _("Copyright \xc2\xa9 2014-2015 – Juan R. García Blanco") + "\n" +
 
+                           /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
+                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2016, 2020) + "\n" +
 
                            /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
-                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2016, 2020),
+                           _("Copyright \xc2\xa9 %u – Andrey Kutejko").printf (2025),
 
-                           "wrap-license", true,
-                           "authors", authors,
+                           "developers", authors,
                            /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
                            "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "org.gnome.TwentyFortyEight",
-                           "website", "https://wiki.gnome.org/Apps/2048",
-                           /* Translators: about dialog text; label of the website link */
-                           "website-label", _("Page on GNOME wiki"),
+                           "website", "https://gitlab.gnome.org/GNOME/gnome-2048/",
                            null);
     }
 }
