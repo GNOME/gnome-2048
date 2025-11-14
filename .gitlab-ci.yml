@@ -1,4 +1,10 @@
-include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
+include:
+    - remote: "https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml"
+    - component: gitlab.gnome.org/GNOME/citemplates/release-service@master
+      inputs:
+        job-stage: deploy
+        dist-job-name: build-release-tarball
+        tarball-artifact-path: "_build/meson-dist/$CI_PROJECT_NAME-$CI_COMMIT_TAG.tar.xz"
 
 variables:
     BUNDLE: "gnome-2048-dev.flatpak"
@@ -15,3 +21,18 @@ nightly:
     extends: '.publish_nightly'
     dependencies: ['flatpak']
     needs: ['flatpak']
+
+build-release-tarball:
+    image: fedora:latest
+    stage: deploy
+    before_script:
+        - dnf update -y
+        - dnf -y install @development-tools meson glib2-devel gtk4-devel libadwaita-devel itstool desktop-file-utils
+    script:
+        - meson setup _build
+        - meson dist -C _build
+    artifacts:
+        name: "${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
+        when: always
+        paths:
+            - _build/meson-dist/*.tar.xz
