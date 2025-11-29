@@ -1,0 +1,17 @@
+[package]
+name = "twenty-forty-eight"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "gnome-2048"
+path = "src/main.rs"
+
+[dependencies]
+gtk = { package = "gtk4", version = "0.10", features = ["gnome_48"] }
+adw = { package = "libadwaita", version = "0.8.0", features = ["v1_8"] }
+gettext-rs = { version = "0.7.0", features = ["gettext-system"] }
+async-channel = "2.5.0"
+
+[dev-dependencies]
+proptest = { version = "1.9.0", features = ["attr-macro"] }

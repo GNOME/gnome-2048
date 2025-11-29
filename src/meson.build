@@ -1,55 +1,62 @@
-# Tests
-tw12ht_tests = executable(
-    'tw12ht_tests',
-    [
-        'grid.vala',
-        'test-tw12ht.vala'
-    ],
-    dependencies : [
-        gee_dependency,
-        gio_dependency,
-        glib_dependency,
-        libm_dependency
-    ]
-)
-test('tw12ht-tests', tw12ht_tests)
+conf_data = configuration_data()
+conf_data.set_quoted('VERSION',         '@0@'.format(meson.project_version()))
+conf_data.set_quoted('LOCALEDIR',       '@0@'.format(localedir))
+conf_data.set_quoted('GETTEXT_PACKAGE',	'@0@'.format(meson.project_name()))
 
-# Application
-resources = gnome.compile_resources(
-  'resources',
-  'org.gnome.TwentyFortyEight.gresource.xml',
-  c_name: 'resources',
+config_rs = configure_file(
+  input: 'config.rs.in',
+  output: 'config.rs',
+  configuration: conf_data
+)
+run_command(
+  'cp',
+  meson.project_build_root() / 'src' / 'config.rs',
+  meson.project_source_root() / 'src' / 'config.rs',
+  check: true
 )
 
-gnome_2048_sources = [
-  'application.vala',
-  'cli.vala',
-  'config.vapi',
-  'game.vala',
-  'game-window.vala',
-  'grid.vala',
-  'view.vala',
-] + resources
+cargo_options = [
+  '--manifest-path', meson.project_source_root() / 'Cargo.toml',
+  '--target-dir', meson.project_build_root() / 'src',
+]
 
-gnome_2048 = executable(
+if profile == 'debug'
+  rust_target = 'debug'
+  message('Building in debug mode')
+else
+  cargo_options += [ '--release' ]
+  rust_target = 'release'
+  message('Building in release mode')
+endif
+
+cargo_env = [
+  'CARGO_HOME=' + meson.project_build_root() / 'cargo-home',
+  'RUSTFLAGS=-L ' + (meson.project_build_root() / 'subprojects' / 'libgnome-games-support' / 'games')
+        + ' -lgnome-games-support-3'
+]
+
+custom_target(
   'gnome-2048',
-  gnome_2048_sources,
-  dependencies: [
-    posix_dependency,
-    libm_dependency,
-    gtk_dependency,
-    adw_dependency,
-    gee_dependency,
-    libgnome_games_support_dependency,
-  ],
-  c_args: [
-    '-DVERSION="@0@"'.format(meson.project_version()),
-    '-DGETTEXT_PACKAGE="gnome-2048"',
-    '-DDATA_DIRECTORY="@0@"'.format(pkgdatadir),
-    '-DLOCALEDIR="@0@"'.format(localedir),
-  ],
-  vala_args: [
-    '--enable-experimental-non-null'
-  ],
+  build_by_default: true,
+  build_always_stale: true,
+  input: [config_rs],
+  output: meson.project_name(),
+  console: true,
   install: true,
+  install_dir: bindir,
+  command: [
+    'env',
+    cargo_env,
+    cargo, 'build', cargo_options,
+    '&&',
+    'cp', 'src' / rust_target / meson.project_name(), '@OUTPUT@',
+  ]
+)
+
+test(
+  'cargo-test', cargo,
+  env: cargo_env,
+  args: ['test', '--no-fail-fast'] + cargo_options,
+  # depends: [libgnome_games_support_dependency],
+  timeout: 180
 )

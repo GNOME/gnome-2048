@@ -1,38 +1,42 @@
 project(
-  'gnome-2048', ['vala', 'c'],
+  'gnome-2048', ['rust'],
   version: '50.alpha',
   license: 'GPLv3+',
   meson_version: '>= >=1.1',
 )
-add_project_arguments(['-DGDK_DISABLE_DEPRECATED, -GTK_DISABLE_DEPRECATED'], language : 'c')
 
 gnome = import('gnome')
 i18n = import('i18n')
-
-cc = meson.get_compiler('c')
-valac = meson.get_compiler('vala')
 
 # Paths
 localedir = join_paths(get_option('prefix'), get_option('localedir'))
 datadir = join_paths(get_option('prefix'), get_option('datadir'))
 bindir = join_paths (get_option ('prefix'), get_option ('bindir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
-pkgdatadir = join_paths(datadir, 'gnome-2048')
 schemadir = join_paths(datadir, 'glib-2.0', 'schemas')
 
 podir = join_paths(meson.current_source_dir(), 'po')
 
 # Dependencies
-posix_dependency = valac.find_library('posix')
-libm_dependency = cc.find_library('m', required: false) # some platforms do not have libm separated from libc
 gio_dependency = dependency('gio-2.0', version: '>= 2.80.0')
 glib_dependency = dependency('glib-2.0', version: '>= 2.80.0')
 gtk_dependency = dependency('gtk4', version: '>= 4.16.0')
-adw_dependency = dependency('libadwaita-1', version: '>= 1.7')
-gee_dependency = dependency('gee-0.8', version: '>= 0.14.0')
+adw_dependency = dependency('libadwaita-1', version: '>= 1.8')
 libgnome_games_support = subproject ('libgnome-games-support',
                                      default_options: 'superproject_name=gnome-2048')
 libgnome_games_support_dependency = libgnome_games_support.get_variable ('lggs_dependency')
+
+cargo = find_program('cargo', required: true)
+cargo_version = run_command(cargo, '--version', check: true).stdout().strip()
+message(cargo_version)
+rustc_version = run_command('rustc', '--version', check: true).stdout().strip()
+message(rustc_version)
+
+if get_option('debug')
+    profile = 'debug'
+else
+    profile = 'release'
+endif
 
 appstreamcli = find_program('appstreamcli', required: false)
 desktop_file_validate = find_program('desktop-file-validate', required: false)

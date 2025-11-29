@@ -1,16 +1,23 @@
 {
-    "app-id" : "org.gnome.TwentyFortyEight",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "48",
-    "sdk" : "org.gnome.Sdk",
-    "command" : "gnome-2048",
-    "finish-args" : [
-        "--socket=wayland",
-        "--share=ipc",
-        "--socket=fallback-x11",
-        "--device=dri"
+    "app-id": "org.gnome.TwentyFortyEight",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "50",
+    "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable"
     ],
-    "cleanup" : [
+    "command": "gnome-2048",
+    "finish-args": [
+        "--socket=wayland",
+        "--socket=x11",
+        "--share=ipc",
+        "--device=dri",
+        "--filesystem=xdg-run/dconf",
+        "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "cleanup": [
         "/include",
         "/lib/pkgconfig",
         "/share/pkgconfig",
@@ -21,22 +28,28 @@
         "*.la",
         "*.a"
     ],
-    "modules" : [
+    "modules": [
         {
-            "name" : "gnome-2048",
-            "buildsystem" : "meson",
-            "sources" : [
+            "name": "gnome-2048",
+            "buildsystem": "meson",
+            "sources": [
                 {
-                    "type" : "dir",
-                    "path" : ".."
+                    "type": "dir",
+                    "path": ".."
                 }
-            ],
-            "config-opts" : [
-                "--libdir=lib"
             ]
         }
     ],
-    "build-options" : {
-        "env" : {        }
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": {
+            "CARGO_HOME": "/run/build/rust-flatpak/cargo"
+        },
+        "build-args" : [
+            "--share=network"
+        ],
+        "test-args" : [
+            "--share=network"
+        ]
     }
 }
