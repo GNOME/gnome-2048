@@ -1,4 +1,8 @@
 <schemalist gettext-domain="gnome-2048">
+  <enum id="org.gnome.TwentyFortyEight.Theme">
+    <value nick="tango" value="0"/>
+    <value nick="classic" value="1"/>
+  </enum>
   <schema id="org.gnome.TwentyFortyEight" path="/org/gnome/2048/">
     <key name="window-width" type="i">
       <default>600</default>
@@ -75,6 +79,13 @@
       <summary>Number of undo movements</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max' -->
       <description>Maximum number of tile movements that can be undone.</description>
+    </key>
+    <key name="theme" enum="org.gnome.TwentyFortyEight.Theme">
+      <default>'tango'</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme' -->
+      <summary>Color theme</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme' -->
+      <description>Color theme.</description>
     </key>
   </schema>
 </schemalist>

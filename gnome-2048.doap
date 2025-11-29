@@ -15,7 +15,7 @@
   <download-page rdf:resource="https://download.gnome.org/sources/gnome-2048/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-2048/issues" />
 
-  <programming-language>Vala</programming-language>
+  <programming-language>Rust</programming-language>
 
   <maintainer>
     <foaf:Person>

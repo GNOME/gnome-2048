@@ -1,16 +1,21 @@
 {
-    "app-id":"org.gnome.TwentyFortyEight",
-    "runtime":"org.gnome.Platform",
-    "runtime-version":"master",
-    "sdk":"org.gnome.Sdk",
-    "command":"gnome-2048",
-    "tags":[
+    "app-id": "org.gnome.TwentyFortyEight",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
+    "command": "gnome-2048",
+    "tags": [
         "nightly"
     ],
-    "desktop-file-name-prefix":"(Nightly) ",
-    "finish-args":[
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
         "--socket=wayland",
         "--socket=x11",
+        "--share=ipc",
+        "--device=dri",
         "--filesystem=xdg-run/dconf",
         "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf",
@@ -18,14 +23,26 @@
     ],
     "modules": [
         {
-            "name":"gnome-2048",
-            "buildsystem":"meson",
-            "sources":[
+            "name": "gnome-2048",
+            "buildsystem": "meson",
+            "sources": [
                 {
-                    "type":"dir",
-                    "path":".."
+                    "type": "dir",
+                    "path": ".."
                 }
             ]
         }
-    ]
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": {
+            "CARGO_HOME": "/run/build/rust-flatpak/cargo"
+        },
+        "build-args" : [
+            "--share=network"
+        ],
+        "test-args" : [
+            "--share=network"
+        ]
+    }
 }

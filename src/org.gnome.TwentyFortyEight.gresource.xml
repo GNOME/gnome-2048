@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/TwentyFortyEight/ui">
-    <file preprocess="xml-stripblanks" alias="game-window.ui">../data/mainwindow.ui</file>
-    <!-- file>data/style.css</file -->
-  </gresource>
   <gresource prefix="/org/gnome/TwentyFortyEight/gtk">
     <file preprocess="xml-stripblanks" alias="help-overlay.ui">../data/help-overlay.ui</file>
   </gresource>
