@@ -437,6 +437,13 @@ fn theme_menu() -> gio::Menu {
     section.append(
         Some(&pgettext(
             "entry in the hamburger menu; a color theme",
+            "Adwaita",
+        )),
+        Some(&GameWindow::theme_action(Theme::Adwaita)),
+    );
+    section.append(
+        Some(&pgettext(
+            "entry in the hamburger menu; a color theme",
             "Tango",
         )),
         Some(&GameWindow::theme_action(Theme::Tango)),

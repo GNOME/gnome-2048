@@ -1,7 +1,8 @@
 <schemalist gettext-domain="gnome-2048">
   <enum id="org.gnome.TwentyFortyEight.Theme">
-    <value nick="tango" value="0"/>
-    <value nick="classic" value="1"/>
+    <value nick="adwaita" value="0"/>
+    <value nick="tango" value="1"/>
+    <value nick="classic" value="2"/>
   </enum>
   <enum id="org.gnome.TwentyFortyEight.SpawnStrategy">
     <value nick="twos-only" value="0"/>
@@ -92,7 +93,7 @@
       <description>Maximum number of tile movements that can be undone.</description>
     </key>
     <key name="theme" enum="org.gnome.TwentyFortyEight.Theme">
-      <default>'tango'</default>
+      <default>'adwaita'</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme' -->
       <summary>Color theme</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme' -->

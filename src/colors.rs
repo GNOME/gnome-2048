@@ -24,7 +24,8 @@ use std::{num::NonZeroU8, sync::LazyLock};
 #[enum_type(name = "Theme")]
 pub enum Theme {
     #[default]
-    Tango = 0,
+    Adwaita = 0,
+    Tango,
     Classic,
 }
 
@@ -39,6 +40,80 @@ pub trait ColorTheme {
     fn empty_tile_color(&self) -> gdk::RGBA;
     fn tile_color(&self, tile: NonZeroU8) -> TileColors;
 }
+
+pub struct AdwaitaColorTheme {}
+
+impl ColorTheme for AdwaitaColorTheme {
+    fn background_color(&self) -> gdk::RGBA {
+        static COLOR: LazyLock<gdk::RGBA> = LazyLock::new(|| gdk::RGBA::parse("#deddda").unwrap()); /* Light 3 */
+        *COLOR
+    }
+
+    fn empty_tile_color(&self) -> gdk::RGBA {
+        static COLOR: LazyLock<gdk::RGBA> = LazyLock::new(|| gdk::RGBA::parse("#f6f5f4").unwrap()); /* Light 2 */
+        *COLOR
+    }
+
+    fn tile_color(&self, tile: NonZeroU8) -> TileColors {
+        static TILE_COLORS: LazyLock<Vec<TileColors>> = LazyLock::new(|| {
+            vec![
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#ff7800").unwrap(), /* Orange 3 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#33d17a").unwrap(), /* Green 3 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#3584e4").unwrap(), /* Blue 3 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#f6d32d").unwrap(), /* Yellow 3 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#9141ac").unwrap(), /* Purple 3 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#b5835a").unwrap(), /* Brown 2 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#e01b24").unwrap(), /* Red 3 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#c64600").unwrap(), /* Orange 5 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#26a269").unwrap(), /* Green 5 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#1a5fb4").unwrap(), /* Blue 5 */
+                },
+                TileColors {
+                    fg: gdk::RGBA::WHITE,
+                    bg: gdk::RGBA::parse("#e5a50a").unwrap(), /* Yellow 5 */
+                },
+            ]
+        });
+
+        let index = tile.get() as usize - 1;
+
+        TILE_COLORS
+            .get(index)
+            .cloned()
+            .unwrap_or_else(|| *TILE_COLORS.last().unwrap())
+    }
+}
+
+pub const ADWAITA_THEME: AdwaitaColorTheme = AdwaitaColorTheme {};
 
 pub struct TangoColorTheme {}
 

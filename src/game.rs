@@ -53,7 +53,7 @@ const BLANK_ROW_HEIGHT: f32 = 10.0;
 mod imp {
     use super::*;
     use crate::{
-        colors::{CLASSIC_THEME, ColorTheme, TANGO_THEME, Theme, TileColors},
+        colors::{ADWAITA_THEME, CLASSIC_THEME, ColorTheme, TANGO_THEME, Theme, TileColors},
         grid::{
             Grid, GridPosition, GridSize, MoveRequest, SpawnStrategy, Tile, TileMovement, max_merge,
         },
@@ -287,8 +287,9 @@ mod imp {
         fn set_theme(&self, theme: Theme) {
             self.theme.replace(theme);
             match theme {
-                Theme::Classic => self.color_theme.set(&CLASSIC_THEME),
+                Theme::Adwaita => self.color_theme.set(&ADWAITA_THEME),
                 Theme::Tango => self.color_theme.set(&TANGO_THEME),
+                Theme::Classic => self.color_theme.set(&CLASSIC_THEME),
             }
             self.obj().queue_draw();
         }
