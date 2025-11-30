@@ -411,6 +411,10 @@ pub fn create_window(
 
 fn hamburger_menu(allow_undo: bool) -> gio::Menu {
     let menu = gio::Menu::new();
+    menu.append(
+        Some(&pgettext("entry in the hamburger menu", "Undo")),
+        Some("win.undo"),
+    );
     menu.append_submenu(
         Some(&pgettext("entry in the hamburger menu", "Appearance")),
         &theme_menu(),

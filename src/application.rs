@@ -191,6 +191,7 @@ mod imp {
                 ],
             );
             app.set_accels_for_action("win.toggle-hamburger", &["F10", "Menu"]);
+            app.set_accels_for_action("win.undo", &["<Control>z"]);
         }
 
         fn activate(&self) {

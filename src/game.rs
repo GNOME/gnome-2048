@@ -740,7 +740,8 @@ impl Game {
             return;
         }
 
-        if let Some(grid) = self.imp().undo_stack.borrow_mut().pop_front() {
+        let prev_grid = self.imp().undo_stack.borrow_mut().pop_front();
+        if let Some(grid) = prev_grid {
             self.set_score(grid.score());
             self.imp().grid.replace(grid);
             self.imp().restore_foreground(false);
