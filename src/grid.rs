@@ -81,6 +81,14 @@ pub fn restore_size(settings: &gio::Settings) -> Result<GridSize, Box<dyn Error>
     GridSize::try_new(cols, rows)
 }
 
+#[derive(Clone, Copy, Default, glib::Enum, glib::Variant)]
+#[enum_type(name = "SpawnStrategy")]
+pub enum SpawnStrategy {
+    #[default]
+    TwosOnly = 0,
+    TwosAndFours,
+}
+
 #[derive(Clone)]
 pub struct Grid {
     grid: Vec<u8>,
@@ -99,7 +107,7 @@ impl Grid {
         self.size
     }
 
-    pub fn new_tile(&mut self) -> Option<Tile> {
+    pub fn new_tile(&mut self, spawn_strategy: SpawnStrategy) -> Option<Tile> {
         if self.is_full() {
             return None;
         }
@@ -112,8 +120,18 @@ impl Grid {
                 break pos;
             }
         };
-        self.set_at(pos, 1);
-        Some(Tile { pos, val: 1 })
+        let val = match spawn_strategy {
+            SpawnStrategy::TwosOnly => 1,
+            SpawnStrategy::TwosAndFours => {
+                if glib::random_double() < 0.1 {
+                    2
+                } else {
+                    1
+                }
+            }
+        };
+        self.set_at(pos, val);
+        Some(Tile { pos, val })
     }
 
     pub fn at(&self, pos: GridPosition) -> u8 {
@@ -403,7 +421,7 @@ mod tests {
         assert_eq!(grid.size, size);
 
         for _ in grid.size.positions() {
-            let tile = grid.new_tile();
+            let tile = grid.new_tile(SpawnStrategy::TwosOnly);
 
             assert!(tile.unwrap().val == 1);
             assert!(tile.unwrap().pos.row < grid.size.rows);

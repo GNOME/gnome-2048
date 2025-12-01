@@ -20,7 +20,7 @@
 use crate::{
     colors::Theme,
     game::Game,
-    grid::{Grid, GridSize, restore_size, save_size},
+    grid::{Grid, GridSize, SpawnStrategy, restore_size, save_size},
     scores::Scores,
 };
 use adw::{self, ShortcutsItem, prelude::*, subclass::prelude::*};
@@ -48,6 +48,9 @@ mod imp {
 
         #[property(get, set, builder(Theme::default()))]
         theme: Cell<Theme>,
+
+        #[property(get, set, builder(SpawnStrategy::default()))]
+        spawn_strategy: Cell<SpawnStrategy>,
 
         header_bar: adw::HeaderBar,
         title: adw::WindowTitle,
@@ -93,6 +96,7 @@ mod imp {
                 window.unfullscreen()
             });
             klass.install_property_action("win.theme", "theme");
+            klass.install_property_action("win.spawn-strategy", "spawn-strategy");
         }
 
         fn new() -> Self {
@@ -100,6 +104,7 @@ mod imp {
                 do_congrat: Cell::new(true),
                 allow_undo: Cell::new(false),
                 theme: Default::default(),
+                spawn_strategy: Default::default(),
 
                 header_bar: Default::default(),
                 title: adw::WindowTitle::builder()
@@ -197,6 +202,11 @@ mod imp {
 
             window
                 .bind_property("theme", &self.game, "theme")
+                .sync_create()
+                .build();
+
+            window
+                .bind_property("spawn-strategy", &self.game, "spawn-strategy")
                 .sync_create()
                 .build();
 
@@ -366,6 +376,13 @@ impl GameWindow {
     pub fn theme_action(theme: Theme) -> String {
         format!("win.theme({})", theme.to_variant().print(true))
     }
+
+    pub fn spawn_strategy_action(spawn_strategy: SpawnStrategy) -> String {
+        format!(
+            "win.spawn-strategy({})",
+            spawn_strategy.to_variant().print(true)
+        )
+    }
 }
 
 pub fn create_window(
@@ -398,6 +415,10 @@ fn hamburger_menu(allow_undo: bool) -> gio::Menu {
         Some(&pgettext("entry in the hamburger menu", "Appearance")),
         &theme_menu(),
     );
+    menu.append_submenu(
+        Some(&pgettext("entry in the hamburger menu", "Spawn tiles")),
+        &spawn_strategy_menu(),
+    );
     if allow_undo {
         menu.append_section(None, &undo_section());
     }
@@ -422,6 +443,28 @@ fn theme_menu() -> gio::Menu {
             "Classic",
         )),
         Some(&GameWindow::theme_action(Theme::Classic)),
+    );
+    section.freeze();
+    section
+}
+
+fn spawn_strategy_menu() -> gio::Menu {
+    let section = gio::Menu::new();
+    section.append(
+        Some(&pgettext(
+            "entry in the hamburger menu; a spawn strategy",
+            "Twos only",
+        )),
+        Some(&GameWindow::spawn_strategy_action(SpawnStrategy::TwosOnly)),
+    );
+    section.append(
+        Some(&pgettext(
+            "entry in the hamburger menu; a spawn strategy",
+            "Classic (twos and fours)",
+        )),
+        Some(&GameWindow::spawn_strategy_action(
+            SpawnStrategy::TwosAndFours,
+        )),
     );
     section.freeze();
     section
