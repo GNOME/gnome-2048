@@ -3,6 +3,10 @@
     <value nick="tango" value="0"/>
     <value nick="classic" value="1"/>
   </enum>
+  <enum id="org.gnome.TwentyFortyEight.SpawnStrategy">
+    <value nick="twos-only" value="0"/>
+    <value nick="twos-and-fours" value="1"/>
+  </enum>
   <schema id="org.gnome.TwentyFortyEight" path="/org/gnome/2048/">
     <key name="window-width" type="i">
       <default>600</default>
@@ -48,6 +52,13 @@
       <summary>Target value</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value' -->
       <description>Tile value at which user is congratulated.</description>
+    </key>
+    <key name="spawn-strategy" enum="org.gnome.TwentyFortyEight.SpawnStrategy">
+      <default>'twos-only'</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy' -->
+      <summary>Spawn strategy</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy' -->
+      <description>Strategy of spawning new tiles.</description>
     </key>
     <key name="do-congrat" type="b">
       <default>true</default>

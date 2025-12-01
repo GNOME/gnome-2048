@@ -54,7 +54,9 @@ mod imp {
     use super::*;
     use crate::{
         colors::{CLASSIC_THEME, ColorTheme, TANGO_THEME, Theme, TileColors},
-        grid::{Grid, GridPosition, GridSize, MoveRequest, Tile, TileMovement, max_merge},
+        grid::{
+            Grid, GridPosition, GridSize, MoveRequest, SpawnStrategy, Tile, TileMovement, max_merge,
+        },
         shift::Movement,
     };
     use std::{
@@ -94,6 +96,9 @@ mod imp {
 
         #[property(get, set)]
         target_value: Cell<i32>,
+        #[property(get, set, builder(SpawnStrategy::default()))]
+        spawn_strategy: Cell<SpawnStrategy>,
+
         #[property(get, set)]
         animations_speed: Cell<f64>,
         #[property(get, set=Self::set_allow_undo)]
@@ -123,6 +128,7 @@ mod imp {
                 score: Default::default(),
                 undo_stack: Default::default(),
                 target_value: Cell::new(2048),
+                spawn_strategy: Default::default(),
                 animations_speed: Cell::new(130.0),
                 allow_undo: Default::default(),
                 allow_undo_max: Cell::new(10),
@@ -469,7 +475,7 @@ mod imp {
             self.state.set(GameState::ShowingNewTile);
 
             for _ in 0..count {
-                if let Some(tile) = self.grid.borrow_mut().new_tile() {
+                if let Some(tile) = self.grid.borrow_mut().new_tile(self.spawn_strategy.get()) {
                     self.movements.borrow_mut().push(Movement::Appear {
                         to: tile.pos,
                         new_value: tile.val,
@@ -746,7 +752,6 @@ impl Game {
     }
 
     pub fn bind_settings(&self, settings: &gio::Settings) {
-        settings.bind("theme", self, "theme").build();
         settings.bind("target-value", self, "target-value").build();
         settings
             .bind("animations-speed", self, "animations-speed")

@@ -18,12 +18,13 @@
  */
 
 use crate::grid::{
-    Grid, GridPosition, GridSize, MoveRequest, Tile, max_merge, restore_size, save_size,
+    Grid, GridPosition, GridSize, MoveRequest, SpawnStrategy, Tile, max_merge, restore_size,
+    save_size,
 };
 use gettextrs::gettext;
 use gtk::{
     gio::{self, prelude::*},
-    glib::{self},
+    glib,
 };
 use std::error::Error;
 
@@ -51,9 +52,11 @@ pub fn play_cli(
             }
         }
     };
+    let spawn_strategy =
+        SpawnStrategy::from_variant(&settings.value("spawn-strategy")).unwrap_or_default();
 
     if new_game {
-        let _ = grid.new_tile(); // TODO clean that
+        let _ = grid.new_tile(spawn_strategy); // TODO clean that
     }
 
     let max_shown = match cli {
@@ -75,7 +78,7 @@ pub fn play_cli(
 
     let mut new_tile = None;
     if !grid.is_finished() {
-        new_tile = grid.new_tile();
+        new_tile = grid.new_tile(spawn_strategy);
         if cli == "new" {
             new_tile = None;
         }
