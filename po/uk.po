@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-01-11 12:33+0000\n"
-"PO-Revision-Date: 2025-01-11 23:43+0200\n"
+"POT-Creation-Date: 2025-11-30 11:52+0000\n"
+"PO-Revision-Date: 2025-12-01 20:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -19,113 +19,143 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#. Translators: title of the dialog that appears (with default settings) when you reach 2048
-#: data/congrats.ui:23
-msgid "Congratulations!"
-msgstr "Вітаємо!"
-
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:46 data/game-headerbar.ui:29
-msgid "_New Game"
-msgstr "_Нова гра"
-
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:54
-msgid "_Keep Playing"
-msgstr "Грати _далі"
-
-#. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
-
-#. Translators: header of the "Play with arrows" shortcut section
-#: data/help-overlay.ui:29
-msgctxt "shortcut window"
-msgid "Game"
-msgstr "Гра"
-
-#. Translators: the application has no help, so the use of arrows for playing is documented here
-#: data/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Play with arrows"
-msgstr "Гра стрілочками"
-
-#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
-#: data/help-overlay.ui:44
-msgctxt "shortcut window"
-msgid "New game"
-msgstr "Нова гра"
-
-#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
-#: data/help-overlay.ui:49
-msgctxt "shortcut window"
-msgid "Choose a new game"
-msgstr "Вибрати нову гру"
-
-#. Translators: shortcut that starts immediately a new game, with similar options
-#: data/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Start a new game"
-msgstr "Розпочати нову гру"
-
-#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
-#: data/help-overlay.ui:67
-msgctxt "shortcut window"
-msgid "Generic"
-msgstr "Загальні"
-
-#. Translators: shortcut that toggles the hamburger menu
-#: data/help-overlay.ui:72
-msgctxt "shortcut window"
-msgid "Toggle main menu"
-msgstr "Перемкнути головне меню"
-
-#. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/help-overlay.ui:80
-msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
-msgstr "Клавіатурні скорочення"
-
-#. Translators: shortcut that opens About dialog
-#: data/help-overlay.ui:88
-msgctxt "shortcut window"
-msgid "About"
-msgstr "Про програму"
-
-#. Translators: shortcut that quits application
-#: data/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Вийти"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+#: data/org.gnome.TwentyFortyEight.desktop.in:2
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8
 msgid "2048"
 msgstr "2048"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
-#: data/org.gnome.TwentyFortyEight.desktop.in:4
+#: data/org.gnome.TwentyFortyEight.desktop.in:3
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:9
 msgid "Obtain the 2048 tile"
 msgstr "Отримайте плитку 2048"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
-#| msgid ""
-#| "Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-#| "single-player puzzle game. Gameplay consists of joining numbers in a grid "
-#| "and obtain the 2048 tile."
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.TwentyFortyEight.desktop.in:13
+msgid "puzzle;"
+msgstr "головоломка;"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:10
+msgid "Window width"
+msgstr "Ширина вікна"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:12
+msgid "Window width."
+msgstr "Ширина вікна."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:17
+msgid "Window height"
+msgstr "Висота вікна"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:19
+msgid "Window height."
+msgstr "Висота вікна."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:24
+msgid "Window maximized"
+msgstr "Вікно розгорнуто"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:26
+msgid "Window maximization state."
+msgstr "Стан розгорнутості вікна."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:32
+msgid "Number of rows"
+msgstr "Кількість рядків"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:34
+msgid "Game grid number of rows."
+msgstr "Кількість рядків у ґратці гри."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:40
+msgid "Number of columns"
+msgstr "Кількість стовпчиків"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:42
+msgid "Game grid number of columns."
+msgstr "Кількість стовпчиків у ґратці гри."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:48
+msgid "Target value"
+msgstr "Цільове значення"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:50
+msgid "Tile value at which user is congratulated."
+msgstr "Число на плитці, за якого програма поздоровлятиме гравця."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:55
+msgid "Congrat on target tile"
+msgstr "Поздоровлення на плитці-меті"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:57
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Чи слід поздоровляти користувача при досягненні плитки-мети."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:64
+msgid "Animations speed"
+msgstr "Швидкість анімації"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:66
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Тривалість анімації: показ плитки, пересування плитки і притлумлення плитки."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:71
+msgid "Allow undo"
+msgstr "Дозволити скасування"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:73
+msgid "Whether tile movements can be undone."
+msgstr "Чи слід дозволяти скасовування ходів."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:79
+msgid "Number of undo movements"
+msgstr "Кількість ходів для скасовування"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:81
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Максимальна кількість ходів, які можна скасувати."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:86
+msgid "Color theme"
+msgstr "Тема кольорів"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:88
+msgid "Color theme."
+msgstr "Тема кольорів"
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
 "player puzzle game. Gameplay consists of joining numbers in a grid and "
 "obtain the 2048 tile."
 msgstr ""
-"Зіграйте у вкрай захопливу гру 2048. 2048 є клоном популярної гри для "
-"одного гравця. Гра полягає у поєднанні чисел на плитках у ґратці з метою "
-"отримання плитки із числом 2048."
+"Зіграйте у вкрай захопливу гру 2048. 2048 є клоном популярної гри для одного "
+"гравця. Гра полягає у поєднанні чисел на плитках у ґратці з метою отримання "
+"плитки із числом 2048."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -138,7 +168,7 @@ msgstr ""
 "або один рядок чи стовпчик плиток. Плитки із однаковими числами під час "
 "пересування об'єднуються одна з одною."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -149,7 +179,7 @@ msgstr ""
 "закінчується на цій плитці — ви можете продовжувати поєднувати плитки і "
 "поліпшувати ваш результат."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -159,254 +189,376 @@ msgstr ""
 "через простоту і захопливість ігрового процесу. 2048 Чіруллі є клоном гри "
 "1024, до якого включено ідеї, запозичені у інших клонів цієї гри."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "У поточній грі досягнуто плитки 2048"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:53
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.TwentyFortyEight.desktop.in:14
-msgid "puzzle;"
-msgstr "головоломка;"
+#: src/about.rs:26
+#| msgid "2048"
+msgctxt "about dialog text; the program name"
+msgid "2048"
+msgstr "2048"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:6
-msgid "Window width"
-msgstr "Ширина вікна"
+#: src/about.rs:31
+#| msgid "A clone of 2048 for GNOME"
+msgctxt "about dialog text; a introduction to the game"
+msgid "A clone of 2048 for GNOME"
+msgstr "Клон 2048 для GNOME"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:8
-msgid "Window width."
-msgstr "Ширина вікна."
+#: src/about.rs:38
+#| msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgctxt "text crediting a maintainer, seen in the About dialog"
+msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
+msgstr "\\u{a9} Juan R. García Blanco, 2014-2015"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:13
-msgid "Window height"
-msgstr "Висота вікна"
+#: src/about.rs:43
+#| msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgctxt "text crediting a maintainer, seen in the About dialog"
+msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
+msgstr "\\u{a9} Arnaud Bonatti, 2016-2020"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:15
-msgid "Window height."
-msgstr "Висота вікна."
+#: src/about.rs:48
+msgctxt "text crediting a maintainer, seen in the About dialog"
+msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
+msgstr "\\u{a9} Andrey Kutejko, 2025"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:20
-msgid "Window maximized"
-msgstr "Вікно розгорнуто"
+#: src/about.rs:55
+#| msgid "translator-credits"
+msgctxt ""
+"about dialog text; this string should be replaced by a text crediting "
+"yourselves and              your translation team, or should be left empty. "
+"Do not translate literally!"
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2025"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:22
-msgid "Window maximization state."
-msgstr "Стан розгорнутості вікна."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:28
-msgid "Number of rows"
-msgstr "Кількість рядків"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:30
-msgid "Game grid number of rows."
-msgstr "Кількість рядків у ґратці гри."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:36
-msgid "Number of columns"
-msgstr "Кількість стовпчиків"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:38
-msgid "Game grid number of columns."
-msgstr "Кількість стовпчиків у ґратці гри."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:44
-msgid "Target value"
-msgstr "Цільове значення"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:46
-msgid "Tile value at which user is congratulated."
-msgstr "Число на плитці, за якого програма поздоровлятиме гравця."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:51
-msgid "Congrat on target tile"
-msgstr "Поздоровлення на плитці-меті"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:53
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Чи слід поздоровляти користувача при досягненні плитки-мети."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:60
-msgid "Animations speed"
-msgstr "Швидкість анімації"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:62
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr ""
-"Тривалість анімації: показ плитки, пересування плитки і притлумлення плитки."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:67
-msgid "Allow undo"
-msgstr "Дозволити скасування"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:69
-msgid "Whether tile movements can be undone."
-msgstr "Чи слід дозволяти скасовування ходів."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:75
-msgid "Number of undo movements"
-msgstr "Кількість ходів для скасовування"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:77
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Максимальна кількість ходів, які можна скасувати."
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:36
-msgid "Play in the terminal (see “--cli=help”)"
+#: src/application.rs:74
+#| msgid "Play in the terminal (see “--cli=help”)"
+msgctxt "command-line option description"
+msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "Грати у терміналі (див. «--cli=help»)"
 
-#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
-#: src/application.vala:39
+#: src/application.rs:79
+#| msgid "COMMAND"
+msgctxt ""
+"in the command-line options description, text to indicate the user "
+"should                      give a command after '--cli' for playing in the "
+"terminal"
 msgid "COMMAND"
 msgstr "КОМАНДА"
 
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:42
+#: src/application.rs:89
+#| msgid "Start new game of given size"
+msgctxt "command-line option description"
 msgid "Start new game of given size"
 msgstr "Почати нову гру із вказаним розміром ігрового поля"
 
-#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
-#: src/application.vala:45
+#: src/application.rs:94
+#| msgid "SIZE"
+msgctxt ""
+"in the command-line options description, text to indicate the user "
+"should                      specify a size after '--size'"
 msgid "SIZE"
 msgstr "РОЗМІР"
 
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:48
+#: src/application.rs:104
+#| msgid "Print release version and exit"
+msgctxt "command-line option description"
 msgid "Print release version and exit"
 msgstr "Показати версію випуску та вийти"
 
-#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:123
+#: src/application.rs:145
+#| msgid ""
+#| "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+msgctxt ""
+"command-line error message, displayed for an incorrect game "
+"size                              request; try 'gnome-2048 -s 0'"
 msgid ""
-"Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+"Failed to parse size. Size must be between 2 and 9, or in the "
+"form                              2x3."
 msgstr ""
-"Не вдалося обробити вказаний розмір. Розмір слід вказувати числом від 2 до 9 "
-"або у форматі 2x3."
+"Не вдалося обробити вказаний розмір. Розмір слід вказувати числом від 2 до 9"
+" або у форматі 2x3."
 
-#. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/game-headerbar.vala:67
-msgid "Game Over"
-msgstr "Гру закінчено"
+#: src/application.rs:246
+msgid "Size must be in the form COLSxROWS."
+msgstr "Розмір має бути вказано у форматі СТОВПЧИКИxРЯДКИ."
 
-#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/game-headerbar.vala:97
-msgid "Undo"
-msgstr "Скасувати"
+#: src/cli.rs:44
+msgid "Size can only be given for new games."
+msgstr "Розмір можна вказувати лише для нових ігор."
 
-#. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/game-headerbar.vala:108
-msgid "Scores"
-msgstr "Результати"
+#: src/cli.rs:72
+msgid "Cannot parse \"--cli\" command, aborting."
+msgstr "Не вдалося обробити команду «--cli», перериваємо обробку."
 
-#. Translators: usual menu entry of the hamburger menu
-#: src/game-headerbar.vala:119
-msgid "Keyboard Shortcuts"
-msgstr "Клавіатурні скорочення"
+#: src/cli.rs:103
+msgid "Grid is finished, impossible to move."
+msgstr "Ґратку завершено, подальші ходи неможливі."
 
-#. Translators: entry in the hamburger menu
-#: src/game-headerbar.vala:122
-msgid "About 2048"
-msgstr "Про 2048"
+#: src/cli.rs:107
+msgid "Impossible to move in that direction."
+msgstr "Не можна рухатися у цьому напрямку."
 
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
-#: src/game-headerbar.vala:142
-msgid "3 × 3"
-msgstr "3 × 3"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
-#: src/game-headerbar.vala:148
-msgid "4 × 4"
-msgstr "4 × 4"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
-#: src/game-headerbar.vala:154
-msgid "5 × 5"
-msgstr "5 × 5"
-
-#. Translators: command-line warning displayed if the user manually sets a invalid grid size
-#: src/game-headerbar.vala:163
-msgid "Grids of size 1 by 2 are disallowed."
-msgstr "Ґратки розміру 1 на 2 не можна використовувати."
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#: src/game-headerbar.vala:167
-msgid "Custom"
-msgstr "Нетиповий"
-
-#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:421
+#: src/cli.rs:170
 #, c-format
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Вам вдалося вперше отримати плитку %u!"
 
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:440
+#: src/cli.rs:181
+msgid "Game is finished! Your score is {score}."
+msgstr "Гру завершено! Ваш результат — {score}."
+
+#: src/cli.rs:188
+msgid ""
+"Game is finished! Your score is {score}. (If you want to save it, use "
+"GNOME                      2048 graphical interface.)"
+msgstr ""
+"Гру завершено! Ваш результат — {score}. (Якщо хочете зберегти гру,"
+" скористайтеся графічним інтерфейсом GNOME 2048.)"
+
+#: src/cli.rs:198
+msgid "Your score is {score}."
+msgstr "Ваш результат — {score}."
+
+#: src/game_window.rs:106
+#| msgid "GNOME 2048"
+msgctxt "window title"
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: src/game_window.rs:111
+#| msgid "_New Game"
+msgctxt "button in the headerbar (with a mnemonic that appears pressing Alt)"
+msgid "_New Game"
+msgstr "_Нова гра"
+
+#: src/game_window.rs:298
+#| msgid "Game Over"
+msgctxt "subtitle of the headerbar, when the user cannot move anymore"
+msgid "Game Over"
+msgstr "Гру завершено"
+
+#: src/game_window.rs:398
+msgctxt "entry in the hamburger menu"
+msgid "Appearance"
+msgstr "Вигляд"
+
+#: src/game_window.rs:415
+msgctxt "entry in the hamburger menu; a color theme"
+msgid "Tango"
+msgstr "Танго"
+
+#: src/game_window.rs:422
+msgctxt "entry in the hamburger menu; a color theme"
+msgid "Classic"
+msgstr "Класична"
+
+#: src/game_window.rs:435
+#| msgid "Undo"
+msgctxt ""
+"entry in the hamburger menu, if the \"Allow undo\" option is set to true"
+msgid "Undo"
+msgstr "Скасувати"
+
+#: src/game_window.rs:448
+#| msgid "Scores"
+msgctxt "entry in the hamburger menu; opens a window showing best scores"
+msgid "Scores"
+msgstr "Результати"
+
+#: src/game_window.rs:459
+#| msgid "Keyboard Shortcuts"
+msgctxt "menu entry"
+msgid "Keyboard Shortcuts"
+msgstr "Клавіатурні скорочення"
+
+#: src/game_window.rs:463
+#| msgid "About 2048"
+msgctxt "menu entry"
+msgid "About 2048"
+msgstr "Про «2048»"
+
+#: src/game_window.rs:476
+#| msgid "3 × 3"
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button"
+msgid "3 × 3"
+msgstr "3 × 3"
+
+#: src/game_window.rs:484
+#| msgid "4 × 4"
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button"
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#: src/game_window.rs:492
+#| msgid "5 × 5"
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button"
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#: src/game_window.rs:504
+#| msgid "Custom"
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" "
+"button;                  appears only if the user has set rows and cols "
+"manually"
+msgid "Custom"
+msgstr "Нетипова"
+
+#: src/game_window.rs:518
+#| msgid "Congratulations!"
+msgctxt ""
+"title of the dialog that appears (with default settings) when you reach 2048"
+msgid "Congratulations!"
+msgstr "Вітаємо!"
+
+#: src/game_window.rs:524
+#, c-format
+#| msgid "You have obtained the %u tile for the first time!"
+msgctxt ""
+"text of the dialog that appears when the user obtains the first 2048 tile in "
+"the                  game; the %u is replaced by the number the user wanted "
+"to reach (usually, 2048)"
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Вам вдалося вперше отримати плитку %u!"
+
+#: src/game_window.rs:535
+#| msgid "_New Game"
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings)                  when you reach 2048 (with a mnemonic that appears "
+"pressing Alt)"
+msgid "_New Game"
+msgstr "_Нова гра"
+
+#: src/game_window.rs:544
+#| msgid "_Keep Playing"
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings)                  when you reach 2048; the player can continue "
+"playing after reaching 2048 (with a                  mnemonic that appears "
+"pressing Alt)"
+msgid "_Keep Playing"
+msgstr "_Грати далі"
+
+#: src/game_window.rs:557
+#| msgctxt "shortcut window"
+#| msgid "Game"
+msgctxt "header of the shortcut section"
+msgid "Game"
+msgstr "Гра"
+
+#: src/game_window.rs:559
+#| msgctxt "shortcut window"
+#| msgid "Play with arrows"
+msgid "Play with arrows"
+msgstr "Гра стрілочками"
+
+#: src/game_window.rs:562
+#| msgctxt "shortcut window"
+#| msgid "Play with arrows"
+msgid "Play with WASD"
+msgstr "Грати з використанням WASD"
+
+#: src/game_window.rs:564
+msgid "Play with VIM-style bindings"
+msgstr "Грати з використанням команд у стилі VIM"
+
+#: src/game_window.rs:571
+#| msgid "_New Game"
+msgctxt "header of the shortcut section"
+msgid "New Game"
+msgstr "Нова гра"
+
+#: src/game_window.rs:574
+#| msgctxt "shortcut window"
+#| msgid "Choose a new game"
+msgid "Choose a new game"
+msgstr "Вибрати нову гру"
+
+#: src/game_window.rs:578
+#| msgctxt "shortcut window"
+#| msgid "Start a new game"
+msgid "Start a new game"
+msgstr "Розпочати нову гру"
+
+#: src/game_window.rs:584
+#| msgctxt "shortcut window"
+#| msgid "Generic"
+msgctxt "header of the shortcut section"
+msgid "Generic"
+msgstr "Загальні"
+
+#: src/game_window.rs:585
+#| msgctxt "shortcut window"
+#| msgid "Toggle main menu"
+msgid "Toggle main menu"
+msgstr "Перемкнути головне меню"
+
+#: src/game_window.rs:587
+#| msgctxt "shortcut window"
+#| msgid "Keyboard shortcuts"
+msgid "Keyboard shortcuts"
+msgstr "Клавіатурні скорочення"
+
+#: src/game_window.rs:591
+#| msgctxt "shortcut window"
+#| msgid "About"
+msgid "About"
+msgstr "Про програму"
+
+#: src/game_window.rs:594
+#| msgctxt "shortcut window"
+#| msgid "Quit"
+msgid "Quit"
+msgstr "Вийти"
+
+#: src/grid.rs:46
+msgid ""
+"Grid must have no more than 9 rows and columns and have at least 3 tiles"
+msgstr ""
+"У ґратці повинно бути понад 9 рядків і стовпчиків і містити принаймні 3"
+" плиток"
+
+#: src/scores.rs:84
+#| msgid "Grid 3 × 3"
+msgctxt "Scores category"
 msgid "Grid 3 × 3"
 msgstr "Ґратка 3 × 3"
 
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:443
+#: src/scores.rs:85
+#| msgid "Grid 4 × 4"
+msgctxt "Scores category"
 msgid "Grid 4 × 4"
 msgstr "Ґратка 4 × 4"
 
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:446
+#: src/scores.rs:86
+#| msgid "Grid 5 × 5"
+msgctxt "Scores category"
 msgid "Grid 5 × 5"
 msgstr "Ґратка 5 × 5"
 
-#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:449
-msgid "Grid Size:"
-msgstr "Розмір ґратки:"
+#: src/scores.rs:142
+#| msgid "Grid Size:"
+msgid "Grid Size"
+msgstr "Розмір ґратки"
 
-#. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:505
-msgid "A clone of 2048 for GNOME"
-msgstr "Клон 2048 для GNOME"
+#~ msgctxt "shortcut window"
+#~ msgid "New game"
+#~ msgstr "Нова гра"
 
-#. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:510
-msgid "Copyright © 2014-2015 – Juan R. García Blanco"
-msgstr "© Juan R. García Blanco, 2014–2015"
+#~ msgid "Grids of size 1 by 2 are disallowed."
+#~ msgstr "Ґратки розміру 1 на 2 не можна використовувати."
 
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:514
-#, c-format
-msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr "© Arnaud Bonatti, %u–%u"
-
-#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:519
-msgid "translator-credits"
-msgstr "Юрій Чорноіван <yurchor@ukr.net>"
-
-#. Translators: about dialog text; label of the website link
-#: src/game-window.vala:523
-msgid "Page on GNOME wiki"
-msgstr "Сторінка у вікі GNOME"
+#~ msgid "Page on GNOME wiki"
+#~ msgstr "Сторінка у вікі GNOME"
 
 #~ msgid "The GNOME Project"
 #~ msgstr "Проєкт GNOME"
