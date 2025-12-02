@@ -136,16 +136,8 @@ mod imp {
 
             let size = match lookup_size(options) {
                 Ok(size) => size,
-                Err(_) => {
-                    eprintln!(
-                        "{}",
-                        pgettext(
-                            "command-line error message, displayed for an incorrect game size \
-                             request; try 'gnome-2048 -s 0'",
-                            "Failed to parse size. Size must be between 2 and 9, or in the form \
-                             2x3."
-                        )
-                    );
+                Err(error) => {
+                    eprintln!("{error}");
                     return ControlFlow::Break(glib::ExitCode::FAILURE);
                 }
             };
@@ -153,25 +145,7 @@ mod imp {
             self.cli_size.set(size);
 
             if let Some(cli_command) = self.cli_command.borrow().as_ref() {
-                if cli_command.eq_ignore_ascii_case("help") {
-                    // TODO: gettext
-                    println!(
-                        r#"
-To play GNOME 2048 in command-line:
-  --cli         Display current game. Alias: "status" or "show".
-  --cli new     Start a new game; for changing size, use --size.
-
-  --cli up      Move tiles up.    Alias: "u".
-  --cli down    Move tiles down.  Alias: "d".
-  --cli left    Move tiles left.  Alias: "l".
-  --cli right   Move tiles right. Alias: "r".
-
-"#
-                    );
-                    return ControlFlow::Break(glib::ExitCode::SUCCESS);
-                }
-
-                return match play_cli(&cli_command.to_lowercase(), &self.settings, size) {
+                return match play_cli(&cli_command, size, &self.settings) {
                     Ok(()) => ControlFlow::Break(glib::ExitCode::SUCCESS),
                     Err(error) => {
                         eprintln!("{error}");

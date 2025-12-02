@@ -18,54 +18,71 @@
  */
 
 use crate::grid::{
-    Grid, GridPosition, GridSize, MoveRequest, SpawnStrategy, Tile, max_merge, restore_size,
-    save_size,
+    Grid, GridPosition, GridSize, MoveRequest, SpawnStrategy, max_merge, restore_size, save_size,
 };
 use gettextrs::gettext;
 use gtk::{
     gio::{self, prelude::*},
     glib,
 };
-use std::error::Error;
+use std::{error::Error, fmt};
 
 pub fn play_cli(
-    cli: &str,
-    settings: &gio::Settings,
+    command: &str,
     size: Option<GridSize>,
+    settings: &gio::Settings,
 ) -> Result<(), Box<dyn Error>> {
+    let command = command.to_lowercase();
     let save_path = glib::user_data_dir().join("gnome-2048").join("saved");
 
-    let (mut grid, new_game) = match (cli, size) {
+    let spawn_strategy =
+        SpawnStrategy::from_variant(&settings.value("spawn-strategy")).unwrap_or_default();
+
+    let mut grid = match (command.as_str(), size) {
+        ("help", None) => {
+            // TODO: translate
+            println!(
+                r#"
+To play GNOME 2048 in command-line:
+  --cli         Display current game. Alias: "status" or "show".
+  --cli new     Start a new game; for changing size, use --size.
+
+  --cli up      Move tiles up.    Alias: "u".
+  --cli down    Move tiles down.  Alias: "d".
+  --cli left    Move tiles left.  Alias: "l".
+  --cli right   Move tiles right. Alias: "r".
+
+"#
+            );
+            return Ok(());
+        }
         ("new", Some(size)) => {
             save_size(&settings, size)?;
-            (Grid::new(size), true)
+            let mut grid = Grid::new(size);
+            let _ = grid.new_tile(spawn_strategy); // first tile
+            grid
         }
-        ("new", None) => (Grid::new(restore_size(settings)?), true),
+        ("new", None) => {
+            let mut grid = Grid::new(restore_size(settings)?);
+            let _ = grid.new_tile(spawn_strategy); // first tile
+            grid
+        }
         (_, Some(_size)) => {
             return Err(gettext("Size can only be given for new games.").into());
         }
         (_, None) => {
             if let Ok(grid) = Grid::restore_game(&save_path) {
-                (grid, false)
+                grid
             } else {
-                (Grid::new(restore_size(settings)?), false)
+                Grid::new(restore_size(settings)?)
             }
         }
     };
-    let spawn_strategy =
-        SpawnStrategy::from_variant(&settings.value("spawn-strategy")).unwrap_or_default();
 
-    if new_game {
-        let _ = grid.new_tile(spawn_strategy); // TODO clean that
-    }
-
-    let max_shown = match cli {
+    let max_shown = match command.as_str() {
         "" | "show" | "status" => {
-            if !new_game {
-                print_board(&grid, None, true, None);
-                return Ok(());
-            }
-            None
+            print_board(&grid, None, None)?;
+            return Ok(());
         }
         "l" | "left" => request_move(&mut grid, MoveRequest::Left)?,
         "r" | "right" => request_move(&mut grid, MoveRequest::Right)?,
@@ -79,7 +96,7 @@ pub fn play_cli(
     let mut new_tile = None;
     if !grid.is_finished() {
         new_tile = grid.new_tile(spawn_strategy);
-        if cli == "new" {
+        if command == "new" {
             new_tile = None;
         }
     }
@@ -91,10 +108,12 @@ pub fn play_cli(
         settings.set_boolean("do-congrat", false)?;
     }
 
-    print_board(&grid, congrats, false, new_tile);
+    print_board(&grid, congrats, new_tile.map(|t| t.pos))?;
 
-    // one more tile since previously
-    if !grid.is_finished() || !grid.size().is_predefined() {
+    if grid.is_finished() && grid.size().is_predefined() {
+        // TODO save score
+    } else {
+        // one more tile since previously
         grid.save_game(&save_path)?;
     }
 
@@ -112,95 +131,84 @@ fn request_move(grid: &mut Grid, request: MoveRequest) -> Result<Option<u64>, Bo
     Ok(max_merge(&moves))
 }
 
-fn print_board(grid: &Grid, congrats: Option<u64>, print_score: bool, new_tile: Option<Tile>) {
-    let size = grid.size();
-    let cols = size.cols();
-    let rows = size.rows();
+struct GridDisplay<'g> {
+    grid: &'g Grid,
+    new_tile: Option<GridPosition>,
+}
 
-    let mut board = String::new();
+impl<'g> fmt::Display for GridDisplay<'g> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let size = self.grid.size();
+        let cols = size.cols();
+        let rows = size.rows();
 
-    board.push_str("\n ┏");
-    for _ in 0..=(7 * cols) {
-        board.push('━');
-    }
-    board.push_str("┓\n");
-
-    for y in 0..rows {
-        board.push_str(" ┃");
-        for x in 0..cols {
-            if grid.at(GridPosition { row: y, col: x }) == 0 {
-                board.push_str("       ");
-            } else {
-                board.push_str(" ╭────╮");
-            }
+        write!(f, "┏")?;
+        for _ in 0..=(7 * cols) {
+            write!(f, "━")?;
         }
-        board.push_str(" ┃\n ┃");
-        for x in 0..cols {
-            let pos = GridPosition { row: y, col: x };
-            let tile_value = grid.at(pos);
-            if tile_value == 0 {
-                board.push_str("       ");
-            } else if tile_value == 1
-                && let Some(tile) = new_tile
-                && tile.pos == pos
-            {
-                board.push_str(" │ +1 │");
-            } else {
-                board.push_str(&format!(" │ {:2} │", tile_value));
-            }
-        }
-        board.push_str(" ┃\n ┃");
-        for x in 0..cols {
-            if grid.at(GridPosition { row: y, col: x }) == 0 {
-                board.push_str("       ");
-            } else {
-                board.push_str(" ╰────╯");
-            }
-        }
-        board.push_str(" ┃\n");
-    }
+        writeln!(f, "┓")?;
 
-    board.push_str(" ┗");
-    for _ in 0..=(7 * cols) {
-        board.push('━');
-    }
-    board.push_str("┛\n\n");
+        for row in 0..rows {
+            write!(f, "┃")?;
+            for col in 0..cols {
+                if self.grid.at(GridPosition { row, col }) == 0 {
+                    write!(f, "       ")?;
+                } else {
+                    write!(f, " ╭────╮")?;
+                }
+            }
+            writeln!(f, " ┃")?;
 
-    if let Some(target_value) = congrats {
-        // try to keep string as in game-window.rs
-        board.push(' ');
-        board.push_str(
-            &gettext("You have obtained the %u tile for the first time!")
-                .replace("%u", &target_value.to_string()),
+            write!(f, "┃")?;
+            for col in 0..cols {
+                let pos = GridPosition { row, col };
+                let tile_value = self.grid.at(pos);
+                if tile_value == 0 {
+                    write!(f, "       ")?;
+                } else if self.new_tile == Some(pos) {
+                    write!(f, " │{:^+4}│", tile_value)?;
+                } else {
+                    write!(f, " │{:^4}│", tile_value)?;
+                }
+            }
+            writeln!(f, " ┃")?;
+
+            write!(f, "┃")?;
+            for col in 0..cols {
+                if self.grid.at(GridPosition { row, col }) == 0 {
+                    write!(f, "       ")?;
+                } else {
+                    write!(f, " ╰────╯")?;
+                }
+            }
+            writeln!(f, " ┃")?;
+        }
+
+        write!(f, "┗")?;
+        for _ in 0..=(7 * cols) {
+            write!(f, "━")?;
+        }
+        writeln!(f, "┛")?;
+
+        Ok(())
+    }
+}
+
+fn print_board(grid: &Grid, congrats: Option<u64>, new_tile: Option<GridPosition>) -> fmt::Result {
+    println!("\n{}\n", GridDisplay { grid, new_tile });
+    if let Some(score) = congrats {
+        println!(
+            "{}",
+            gettext("You have obtained the {score} tile for the first time!")
+                .replace("{score}", &score.to_string()),
         );
-        board.push('\n');
-        board.push('\n');
     }
-
     if grid.is_finished() {
-        board.push(' ');
-        if print_score || !size.is_predefined() {
-            board.push_str(
-                &gettext("Game is finished! Your score is {score}.")
-                    .replace("{score}", &grid.score().to_string()),
-            );
-        } else {
-            // game was just finished and score can be saved
-            board.push_str(
-                &gettext(
-                    "Game is finished! Your score is {score}. (If you want to save it, use GNOME \
-                     2048 graphical interface.)",
-                )
-                .replace("{score}", &grid.score().to_string()),
-            );
-            // TODO save score
-        }
-    } else if print_score {
-        board.push(' ');
-        board.push_str(
-            &gettext("Your score is {score}.").replace("{score}", &grid.score().to_string()),
-        );
+        println!("{}", gettext("Game is finished!"));
     }
-
-    println!("{}\n", board);
+    println!(
+        "{}",
+        gettext("Your score is {score}.").replace("{score}", &grid.score().to_string()),
+    );
+    Ok(())
 }
