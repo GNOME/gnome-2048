@@ -18,7 +18,17 @@
  */
 
 use gtk::{gdk, glib};
-use std::{num::NonZeroU8, sync::LazyLock};
+use std::num::NonZeroU8;
+
+#[inline]
+const fn rgb(rgb: u32) -> gdk::RGBA {
+    gdk::RGBA::new(
+        ((rgb >> 16) & 255) as f32 / 255_f32,
+        ((rgb >> 8) & 255) as f32 / 255_f32,
+        (rgb & 255) as f32 / 255_f32,
+        1_f32,
+    )
+}
 
 #[derive(Clone, Copy, Default, PartialEq, Eq, glib::Enum, glib::Variant)]
 #[enum_type(name = "Theme")]
@@ -45,64 +55,60 @@ pub struct AdwaitaColorTheme {}
 
 impl ColorTheme for AdwaitaColorTheme {
     fn background_color(&self) -> gdk::RGBA {
-        static COLOR: LazyLock<gdk::RGBA> = LazyLock::new(|| gdk::RGBA::parse("#deddda").unwrap()); /* Light 3 */
-        *COLOR
+        const { rgb(0x_deddda) } /* Light 3 */
     }
 
     fn empty_tile_color(&self) -> gdk::RGBA {
-        static COLOR: LazyLock<gdk::RGBA> = LazyLock::new(|| gdk::RGBA::parse("#f6f5f4").unwrap()); /* Light 2 */
-        *COLOR
+        const { rgb(0x_f6f5f4) } /* Light 2 */
     }
 
     fn tile_color(&self, tile: NonZeroU8) -> TileColors {
-        static TILE_COLORS: LazyLock<Vec<TileColors>> = LazyLock::new(|| {
-            vec![
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#ff7800").unwrap(), /* Orange 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#33d17a").unwrap(), /* Green 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#3584e4").unwrap(), /* Blue 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#f6d32d").unwrap(), /* Yellow 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#9141ac").unwrap(), /* Purple 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#b5835a").unwrap(), /* Brown 2 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#e01b24").unwrap(), /* Red 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#c64600").unwrap(), /* Orange 5 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#26a269").unwrap(), /* Green 5 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#1a5fb4").unwrap(), /* Blue 5 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#e5a50a").unwrap(), /* Yellow 5 */
-                },
-            ]
-        });
+        const TILE_COLORS: &[TileColors] = &[
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_ff7800), /* Orange 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_33d17a), /* Green 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_3584e4), /* Blue 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_f6d32d), /* Yellow 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_9141ac), /* Purple 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_b5835a), /* Brown 2 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_e01b24), /* Red 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_c64600), /* Orange 5 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_26a269), /* Green 5 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_1a5fb4), /* Blue 5 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_e5a50a), /* Yellow 5 */
+            },
+        ];
 
         let index = tile.get() as usize - 1;
 
@@ -119,8 +125,7 @@ pub struct TangoColorTheme {}
 
 impl ColorTheme for TangoColorTheme {
     fn background_color(&self) -> gdk::RGBA {
-        static COLOR: LazyLock<gdk::RGBA> = LazyLock::new(|| gdk::RGBA::parse("#babdb6").unwrap());
-        *COLOR
+        const { rgb(0x_babdb6) }
     }
 
     fn empty_tile_color(&self) -> gdk::RGBA {
@@ -128,54 +133,52 @@ impl ColorTheme for TangoColorTheme {
     }
 
     fn tile_color(&self, tile: NonZeroU8) -> TileColors {
-        static TILE_COLORS: LazyLock<Vec<TileColors>> = LazyLock::new(|| {
-            vec![
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#fce94f").unwrap(), /* Butter 1 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#8ae234").unwrap(), /* Chameleon 1 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#fcaf3e").unwrap(), /* Orange 1 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#729fcf").unwrap(), /* Sky blue 1 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#ad7fa8").unwrap(), /* Plum 1 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#c17d11").unwrap(), /* Chocolate 2 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#ef2929").unwrap(), /* Scarlet red 1 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#c4a000").unwrap(), /* Butter 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#4e9a06").unwrap(), /* Chameleon 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#ce5c00").unwrap(), /* Orange 3 */
-                },
-                TileColors {
-                    fg: gdk::RGBA::WHITE,
-                    bg: gdk::RGBA::parse("#204a87").unwrap(), /* Sky blue 3 */
-                },
-            ]
-        });
+        const TILE_COLORS: &[TileColors] = &[
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_fce94f), /* Butter 1 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_8ae234), /* Chameleon 1 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_fcaf3e), /* Orange 1 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_729fcf), /* Sky blue 1 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_ad7fa8), /* Plum 1 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_c17d11), /* Chocolate 2 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_ef2929), /* Scarlet red 1 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_c4a000), /* Butter 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_4e9a06), /* Chameleon 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_ce5c00), /* Orange 3 */
+            },
+            TileColors {
+                fg: gdk::RGBA::WHITE,
+                bg: rgb(0x_204a87), /* Sky blue 3 */
+            },
+        ];
 
         fn shift(c: f32, bits: u64) -> f32 {
             ((((c * 255_f32) as u8) << bits) as f32) / 255_f32
@@ -204,70 +207,66 @@ pub struct ClassicColorTheme {}
 
 impl ColorTheme for ClassicColorTheme {
     fn background_color(&self) -> gdk::RGBA {
-        static COLOR: LazyLock<gdk::RGBA> = LazyLock::new(|| gdk::RGBA::parse("#756452").unwrap());
-        *COLOR
+        const { rgb(0x_756452) }
     }
 
     fn empty_tile_color(&self) -> gdk::RGBA {
-        static COLOR: LazyLock<gdk::RGBA> = LazyLock::new(|| gdk::RGBA::parse("#baac9a").unwrap());
-        *COLOR
+        const { rgb(0x_baac9a) }
     }
 
     fn tile_color(&self, tile: NonZeroU8) -> TileColors {
-        static TILE_COLORS: LazyLock<Vec<TileColors>> = LazyLock::new(|| {
-            let dark_fg = gdk::RGBA::parse("#776e65").unwrap();
-            let light_fg = gdk::RGBA::parse("#f9f6f2").unwrap();
-            vec![
-                TileColors {
-                    fg: dark_fg,
-                    bg: gdk::RGBA::parse("#eee4da").unwrap(),
-                },
-                TileColors {
-                    fg: dark_fg,
-                    bg: gdk::RGBA::parse("#ede0c8").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#f2b179").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#f59563").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#f67c5f").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#f65e3b").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#edcf72").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#edcc61").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#edc850").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#edc53f").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#edc22e").unwrap(),
-                },
-                TileColors {
-                    fg: light_fg,
-                    bg: gdk::RGBA::parse("#3c3a32").unwrap(),
-                },
-            ]
-        });
+        const DARK_FG: gdk::RGBA = rgb(0x_776e65);
+        const LIGHT_FG: gdk::RGBA = rgb(0x_f9f6f2);
+        const TILE_COLORS: &[TileColors] = &[
+            TileColors {
+                fg: DARK_FG,
+                bg: rgb(0x_eee4da),
+            },
+            TileColors {
+                fg: DARK_FG,
+                bg: rgb(0x_ede0c8),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_f2b179),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_f59563),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_f67c5f),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_f65e3b),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_edcf72),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_edcc61),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_edc850),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_edc53f),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_edc22e),
+            },
+            TileColors {
+                fg: LIGHT_FG,
+                bg: rgb(0x_3c3a32),
+            },
+        ];
 
         let index = tile.get() as usize - 1;
 
