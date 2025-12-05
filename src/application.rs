@@ -74,11 +74,8 @@ mod imp {
                     "Play in the terminal (see \"--cli=help\")",
                 ),
                 Some(&pgettext(
-                    concat!(
-                        "in the command-line options description, ",
-                        "text to indicate the user should give a command ",
-                        "after '--cli' for playing in the terminal"
-                    ),
+                    "in the command-line options description, text to indicate the user should \
+                     give a command after '--cli' for playing in the terminal",
                     "COMMAND",
                 )),
             );
@@ -92,10 +89,8 @@ mod imp {
                     "Start new game of given size",
                 ),
                 Some(&pgettext(
-                    concat!(
-                        "in the command-line options description, ",
-                        "text to indicate the user should specify a size after '--size'"
-                    ),
+                    "in the command-line options description, text to indicate the user should \
+                     specify a size after '--size'",
                     "SIZE",
                 )),
             );

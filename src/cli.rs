@@ -122,7 +122,7 @@ To play GNOME 2048 in command-line:
 
 fn request_move(grid: &mut Grid, request: MoveRequest) -> Result<Option<u64>, Box<dyn Error>> {
     if grid.is_finished() {
-        return Err(gettext("Game is finished, impossible to move.").into());
+        return Err(gettext("Grid is finished, impossible to move.").into());
     }
     let moves = grid.move_(request);
     if moves.is_empty() {
