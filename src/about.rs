@@ -50,8 +50,7 @@ pub fn about(parent: Option<&gtk::Widget>) {
         )
         .developers(["Juan R. García Blanco", "Arnaud Bonatti", "Andrey Kutejko"])
         .translator_credits(pgettext(
-            "about dialog text; this string should be replaced by a text crediting yourselves and \
-             your translation team, or should be left empty. Do not translate literally!",
+            "about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!",
             "translator-credits",
         ))
         .website("https://gitlab.gnome.org/GNOME/gnome-2048/")

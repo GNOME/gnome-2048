@@ -553,8 +553,7 @@ fn new_game_menu(extra_size: Option<GridSize>) -> gio::Menu {
     {
         menu.append(
             Some(&pgettext(
-                "on main window, entry of the menu when clicking on the \"New Game\" button; \
-                 appears only if the user has set rows and cols manually",
+                "on main window, entry of the menu when clicking on the \"New Game\" button; appears only if the user has set rows and cols manually",
                 "Custom",
             )),
             Some(&GameWindow::new_game_action(Some(size))),
@@ -573,8 +572,7 @@ async fn congratulate(parent: &gtk::Widget, target_value: u64) -> bool {
         )),
         Some(
             &pgettext(
-                "text of the dialog that appears when the user obtains the first 2048 tile in the \
-                 game; the %u is replaced by the number the user wanted to reach (usually, 2048)",
+                "text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)",
                 "You have obtained the %u tile for the first time!",
             )
             .replace("%u", &target_value.to_string()),
@@ -584,17 +582,14 @@ async fn congratulate(parent: &gtk::Widget, target_value: u64) -> bool {
         (
             "new-game",
             &pgettext(
-                "button in the \"Congratulations\" dialog that appears (with default settings) \
-                 when you reach 2048 (with a mnemonic that appears pressing Alt)",
+                "button in the \"Congratulations\" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)",
                 "_New Game",
             ),
         ),
         (
             "continue",
             &pgettext(
-                "button in the \"Congratulations\" dialog that appears (with default settings) \
-                 when you reach 2048; the player can continue playing after reaching 2048 (with a \
-                 mnemonic that appears pressing Alt)",
+                "button in the \"Congratulations\" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)",
                 "_Keep Playing",
             ),
         ),
