@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
 "POT-Creation-Date: 2025-12-05 08:44+0000\n"
-"PO-Revision-Date: 2025-12-05 11:47+0100\n"
+"PO-Revision-Date: 2025-12-05 12:03+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -99,12 +99,12 @@ msgstr "Vrednost polja, pri katerem se uporabniku pokaže čestitka."
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:60
 msgid "Spawn strategy"
-msgstr ""
+msgstr "Strategija pojavljanja"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:62
 msgid "Strategy of spawning new tiles."
-msgstr ""
+msgstr "Strategija pojavljanja novih polj."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:67
@@ -232,15 +232,9 @@ msgstr "Avtorske pravice \\u{a9} %u–%u – Arnaud Bonatti"
 #: src/about.rs:48
 msgctxt "text crediting a maintainer, seen in the About dialog"
 msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
-msgstr "Avtorske pravice © %u – Andrey Kutejko"
+msgstr "Avtorske pravice \\u{a9} 2025 – Andrey Kutejko"
 
 #: src/about.rs:54
-#, fuzzy
-#| msgctxt ""
-#| "about dialog text; this string should be replaced by a text crediting "
-#| "yourselves and              your translation team, or should be left "
-#| "empty. Do not translate literally!"
-#| msgid "translator-credits"
 msgctxt ""
 "about dialog text; this string should be replaced by a text crediting "
 "yourselves and your translation team, or should be left empty. Do not "
@@ -339,12 +333,12 @@ msgstr "Videz"
 #: src/game_window.rs:423
 msgctxt "entry in the hamburger menu"
 msgid "Spawn tiles"
-msgstr ""
+msgstr "Pojavljanje polj"
 
 #: src/game_window.rs:440
 msgctxt "entry in the hamburger menu; a color theme"
 msgid "Adwaita"
-msgstr ""
+msgstr "Adwaita"
 
 #: src/game_window.rs:447
 msgctxt "entry in the hamburger menu; a color theme"
@@ -359,12 +353,12 @@ msgstr "Klasično"
 #: src/game_window.rs:467
 msgctxt "entry in the hamburger menu; a spawn strategy"
 msgid "Twos only"
-msgstr ""
+msgstr "Samo pari"
 
 #: src/game_window.rs:474
 msgctxt "entry in the hamburger menu; a spawn strategy"
 msgid "Classic (twos and fours)"
-msgstr ""
+msgstr "Klasika (pari in četvorke)"
 
 #: src/game_window.rs:489
 msgctxt ""
@@ -425,7 +419,7 @@ msgctxt ""
 "the game; the %u is replaced by the number the user wanted to reach "
 "(usually, 2048)"
 msgid "You have obtained the %u tile for the first time!"
-msgstr "Prvič ste pridobili ploščico %u!"
+msgstr "Prvič ste pridobili polje %u!"
 
 #: src/game_window.rs:586
 msgctxt ""
