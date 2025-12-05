@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-05 01:04+0000\n"
-"PO-Revision-Date: 2025-12-05 10:39+0200\n"
+"POT-Creation-Date: 2025-12-05 08:41+0000\n"
+"PO-Revision-Date: 2025-12-05 10:44+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -232,22 +232,58 @@ msgctxt "text crediting a maintainer, seen in the About dialog"
 msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
 msgstr "\\u{a9} Andrey Kutejko, 2025"
 
+#: src/about.rs:54
+#| msgctxt ""
+#| "about dialog text; this string should be replaced by a text crediting "
+#| "yourselves and              your translation team, or should be left "
+#| "empty. Do not translate literally!"
+#| msgid "translator-credits"
+msgctxt ""
+"about dialog text; this string should be replaced by a text crediting "
+"yourselves and your translation team, or should be left empty. Do not "
+"translate literally!"
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2025"
+
 #: src/application.rs:74
 msgctxt "command-line option description"
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "Грати у терміналі (див. «--cli=help»)"
 
-#: src/application.rs:92
+#: src/application.rs:78
+#| msgctxt ""
+#| "in the command-line options description, text to indicate the user "
+#| "should                      give a command after '--cli' for playing in "
+#| "the terminal"
+#| msgid "COMMAND"
+msgctxt ""
+"in the command-line options description, text to indicate the user should "
+"give a command after '--cli' for playing in the terminal"
+msgid "COMMAND"
+msgstr "КОМАНДА"
+
+#: src/application.rs:88
 msgctxt "command-line option description"
 msgid "Start new game of given size"
 msgstr "Почати нову гру із вказаним розміром ігрового поля"
 
-#: src/application.rs:109
+#: src/application.rs:92
+#| msgctxt ""
+#| "in the command-line options description, text to indicate the user "
+#| "should                      specify a size after '--size'"
+#| msgid "SIZE"
+msgctxt ""
+"in the command-line options description, text to indicate the user should "
+"specify a size after '--size'"
+msgid "SIZE"
+msgstr "РОЗМІР"
+
+#: src/application.rs:102
 msgctxt "command-line option description"
 msgid "Print release version and exit"
 msgstr "Показати версію випуску та вийти"
 
-#: src/application.rs:226
+#: src/application.rs:219
 msgid "Size must be in the form COLSxROWS."
 msgstr "Розмір має бути вказано у форматі СТОВПЧИКИxРЯДКИ."
 
@@ -260,7 +296,6 @@ msgid "Cannot parse \"--cli\" command, aborting."
 msgstr "Не вдалося обробити команду «--cli», перериваємо обробку."
 
 #: src/cli.rs:125
-#| msgid "Grid is finished, impossible to move."
 msgid "Game is finished, impossible to move."
 msgstr "Гру завершено, подальші ходи неможливі."
 
@@ -269,7 +304,6 @@ msgid "Impossible to move in that direction."
 msgstr "Не можна рухатися у цьому напрямку."
 
 #: src/cli.rs:202
-#| msgid "You have obtained the %u tile for the first time!"
 msgid "You have obtained the {score} tile for the first time!"
 msgstr "Вам вдалося вперше отримати плитку {score}!"
 
@@ -297,9 +331,6 @@ msgid "Game Over"
 msgstr "Гру завершено"
 
 #: src/game_window.rs:415
-#| msgctxt ""
-#| "entry in the hamburger menu, if the \"Allow undo\" option is set to true"
-#| msgid "Undo"
 msgctxt "entry in the hamburger menu"
 msgid "Undo"
 msgstr "Скасувати"
@@ -378,60 +409,110 @@ msgctxt ""
 msgid "5 × 5"
 msgstr "5 × 5"
 
-#: src/game_window.rs:575
+#: src/game_window.rs:557
+#| msgctxt ""
+#| "on main window, entry of the menu when clicking on the \"New Game\" "
+#| "button;                  appears only if the user has set rows and cols "
+#| "manually"
+#| msgid "Custom"
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button; "
+"appears only if the user has set rows and cols manually"
+msgid "Custom"
+msgstr "Нетипова"
+
+#: src/game_window.rs:571
 msgctxt ""
 "title of the dialog that appears (with default settings) when you reach 2048"
 msgid "Congratulations!"
 msgstr "Вітаємо!"
 
-#: src/game_window.rs:624
+#: src/game_window.rs:576
+#, c-format
+#| msgctxt ""
+#| "text of the dialog that appears when the user obtains the first 2048 tile "
+#| "in the                  game; the %u is replaced by the number the user "
+#| "wanted to reach (usually, 2048)"
+#| msgid "You have obtained the %u tile for the first time!"
+msgctxt ""
+"text of the dialog that appears when the user obtains the first 2048 tile in "
+"the game; the %u is replaced by the number the user wanted to reach "
+"(usually, 2048)"
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Вам вдалося вперше отримати плитку %u!"
+
+#: src/game_window.rs:586
+#| msgctxt ""
+#| "button in the headerbar (with a mnemonic that appears pressing Alt)"
+#| msgid "_New Game"
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
+msgid "_New Game"
+msgstr "_Нова гра"
+
+#: src/game_window.rs:593
+#| msgctxt ""
+#| "button in the \"Congratulations\" dialog that appears (with default "
+#| "settings)                  when you reach 2048; the player can continue "
+#| "playing after reaching 2048 (with a                  mnemonic that "
+#| "appears pressing Alt)"
+#| msgid "_Keep Playing"
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings) when you reach 2048; the player can continue playing after "
+"reaching 2048 (with a mnemonic that appears pressing Alt)"
+msgid "_Keep Playing"
+msgstr "_Грати далі"
+
+#: src/game_window.rs:606
 msgctxt "header of the shortcut section"
 msgid "Game"
 msgstr "Гра"
 
-#: src/game_window.rs:626
+#: src/game_window.rs:608
 msgid "Play with arrows"
 msgstr "Гра стрілочками"
 
-#: src/game_window.rs:629
+#: src/game_window.rs:611
 msgid "Play with WASD"
 msgstr "Грати з використанням WASD"
 
-#: src/game_window.rs:631
+#: src/game_window.rs:613
 msgid "Play with VIM-style bindings"
 msgstr "Грати з використанням команд у стилі VIM"
 
-#: src/game_window.rs:638
+#: src/game_window.rs:620
 msgctxt "header of the shortcut section"
 msgid "New Game"
 msgstr "Нова гра"
 
-#: src/game_window.rs:641
+#: src/game_window.rs:623
 msgid "Choose a new game"
 msgstr "Вибрати нову гру"
 
-#: src/game_window.rs:645
+#: src/game_window.rs:627
 msgid "Start a new game"
 msgstr "Розпочати нову гру"
 
-#: src/game_window.rs:651
+#: src/game_window.rs:633
 msgctxt "header of the shortcut section"
 msgid "Generic"
 msgstr "Загальні"
 
-#: src/game_window.rs:652
+#: src/game_window.rs:634
 msgid "Toggle main menu"
 msgstr "Перемкнути головне меню"
 
-#: src/game_window.rs:654
+#: src/game_window.rs:636
 msgid "Keyboard shortcuts"
 msgstr "Клавіатурні скорочення"
 
-#: src/game_window.rs:658
+#: src/game_window.rs:640
 msgid "About"
 msgstr "Про програму"
 
-#: src/game_window.rs:661
+#: src/game_window.rs:643
 msgid "Quit"
 msgstr "Вийти"
 
@@ -461,29 +542,6 @@ msgstr "Ґратка 5 × 5"
 msgid "Grid Size"
 msgstr "Розмір ґратки"
 
-#~| msgid "translator-credits"
-#~ msgctxt ""
-#~ "about dialog text; this string should be replaced by a text crediting "
-#~ "yourselves and              your translation team, or should be left "
-#~ "empty. Do not translate literally!"
-#~ msgid "translator-credits"
-#~ msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2025"
-
-#~| msgid "COMMAND"
-#~ msgctxt ""
-#~ "in the command-line options description, text to indicate the user "
-#~ "should                      give a command after '--cli' for playing in "
-#~ "the terminal"
-#~ msgid "COMMAND"
-#~ msgstr "КОМАНДА"
-
-#~| msgid "SIZE"
-#~ msgctxt ""
-#~ "in the command-line options description, text to indicate the user "
-#~ "should                      specify a size after '--size'"
-#~ msgid "SIZE"
-#~ msgstr "РОЗМІР"
-
 #~| msgid ""
 #~| "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
 #~ msgctxt ""
@@ -506,23 +564,6 @@ msgstr "Розмір ґратки"
 #~ "Гру завершено! Ваш результат — {score}. (Якщо хочете зберегти гру, "
 #~ "скористайтеся графічним інтерфейсом GNOME 2048.)"
 
-#~| msgid "Custom"
-#~ msgctxt ""
-#~ "on main window, entry of the menu when clicking on the \"New Game\" "
-#~ "button;                  appears only if the user has set rows and cols "
-#~ "manually"
-#~ msgid "Custom"
-#~ msgstr "Нетипова"
-
-#, c-format
-#~| msgid "You have obtained the %u tile for the first time!"
-#~ msgctxt ""
-#~ "text of the dialog that appears when the user obtains the first 2048 tile "
-#~ "in the                  game; the %u is replaced by the number the user "
-#~ "wanted to reach (usually, 2048)"
-#~ msgid "You have obtained the %u tile for the first time!"
-#~ msgstr "Вам вдалося вперше отримати плитку %u!"
-
 #~| msgid "_New Game"
 #~ msgctxt ""
 #~ "button in the \"Congratulations\" dialog that appears (with default "
@@ -530,15 +571,6 @@ msgstr "Розмір ґратки"
 #~ "appears pressing Alt)"
 #~ msgid "_New Game"
 #~ msgstr "_Нова гра"
-
-#~| msgid "_Keep Playing"
-#~ msgctxt ""
-#~ "button in the \"Congratulations\" dialog that appears (with default "
-#~ "settings)                  when you reach 2048; the player can continue "
-#~ "playing after reaching 2048 (with a                  mnemonic that "
-#~ "appears pressing Alt)"
-#~ msgid "_Keep Playing"
-#~ msgstr "_Грати далі"
 
 #~ msgctxt "shortcut window"
 #~ msgid "New game"
