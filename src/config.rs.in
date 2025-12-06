@@ -17,6 +17,7 @@
  * For more details see the file COPYING.
  */
 
+pub const PACKAGE: &str = @PACKAGE@;
 pub const VERSION: &str = @VERSION@;
 pub const GETTEXT_PACKAGE: &str = @GETTEXT_PACKAGE@;
 pub const LOCALEDIR: &str = @LOCALEDIR@;
