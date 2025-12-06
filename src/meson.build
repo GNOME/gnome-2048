@@ -1,4 +1,5 @@
 conf_data = configuration_data()
+conf_data.set_quoted('PACKAGE',         '@0@'.format(meson.project_name()))
 conf_data.set_quoted('VERSION',         '@0@'.format(meson.project_version()))
 conf_data.set_quoted('LOCALEDIR',       '@0@'.format(localedir))
 conf_data.set_quoted('GETTEXT_PACKAGE',	'@0@'.format(meson.project_name()))

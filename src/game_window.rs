@@ -513,6 +513,7 @@ fn app_actions_section() -> gio::Menu {
         Some(&pgettext("menu entry", "Keyboard Shortcuts")),
         Some("win.show-keyboard-shortcuts"),
     );
+    section.append(Some(&pgettext("menu entry", "Help")), Some("app.help"));
     section.append(
         Some(&pgettext("menu entry", "About 2048")),
         Some("app.about"),
@@ -632,9 +633,10 @@ fn show_keyboard_shortcuts(parent: &gtk::Widget) {
     let generic_section =
         adw::ShortcutsSection::new(Some(&pgettext("header of the shortcut section", "Generic")));
     generic_section.add(ShortcutsItem::new(&gettext("Toggle main menu"), "F10 Menu"));
+    generic_section.add(ShortcutsItem::new(&gettext("Help"), "F1 <Primary>F1"));
     generic_section.add(ShortcutsItem::new(
         &gettext("Keyboard shortcuts"),
-        "F1 <Primary>F1 <Primary>question <Shift><Primary>question",
+        "<Primary>question <Shift><Primary>question",
     ));
     generic_section.add(ShortcutsItem::new(
         &gettext("About"),

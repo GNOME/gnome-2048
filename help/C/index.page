@@ -3,7 +3,7 @@
   type="guide" style="task"
   id="index">
   <info>
-    <title type='link' role="trail"> <media type="image" src="media/gnome-204822.png" its:translate="no" /></title>
+    <title type='link' role="trail">2048</title>
     <title type='link'>2048</title>
     <title type='text'>2048</title>
     <revision pkgversion="3.5.5" version="0.1" date="2012-08-11" status="review"/>
@@ -16,12 +16,18 @@
       <p>Creative Commons Share Alike 3.0</p>
     </license>
   </info>
-  <title><media type="image" src="media/gnome-2048.png" its:translate="no"><span its:translate="yes">2048 logo</span></media> 2048</title>
+  <title><media type="image" src="media/org.gnome.TwentyFortyEight.svg" its:translate="no"/> 2048</title>
   <p>
     <app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based on Veewo Studios' 1024.
   </p>
 
   <section id="play" style="2column">
-    <title>Game play</title>
+    <links>
+      <title>Game play</title>
+      <link xref="basics"/>
+      <link xref="objective"/>
+      <link xref="controls"/>
+      <link xref="scores"/>
+    </links>
   </section>
 </page>

@@ -29,6 +29,7 @@ mod imp {
     use crate::{
         about::about,
         cli::play_cli,
+        config::PACKAGE,
         game_window::{GameWindow, create_window},
         grid::GridSize,
     };
@@ -165,6 +166,11 @@ mod imp {
                         about(obj.active_window().and_upcast_ref())
                     })
                     .build(),
+                gio::ActionEntry::builder("help")
+                    .activate(|obj: &super::TwentyFortyEight, _, _| {
+                        display_help(obj.active_window().and_upcast_ref())
+                    })
+                    .build(),
                 gio::ActionEntry::builder("quit")
                     .activate(|obj: &super::TwentyFortyEight, _, _| {
                         if let Some(window) = obj.active_window() {
@@ -181,13 +187,9 @@ mod imp {
             app.set_accels_for_action("win.undo", &["<Primary>z"]);
             app.set_accels_for_action(
                 "win.show-keyboard-shortcuts",
-                &[
-                    "F1",
-                    "<Primary>F1",
-                    "<Primary>question",
-                    "<Shift><Primary>question",
-                ],
+                &["<Primary>question", "<Shift><Primary>question"],
             );
+            app.set_accels_for_action("app.help", &["F1", "<Primary>F1"]);
             app.set_accels_for_action("win.toggle-hamburger", &["F10", "Menu"]);
             app.set_accels_for_action("win.undo", &["<Control>z"]);
         }
@@ -221,6 +223,18 @@ mod imp {
         let cols = parts[0].parse::<u8>()?;
         let rows = parts[1].parse::<u8>()?;
         GridSize::try_new(cols, rows)
+    }
+
+    fn display_help(parent_window: Option<&gtk::Window>) {
+        gtk::UriLauncher::new(&format!("help:{}", PACKAGE)).launch(
+            parent_window,
+            gio::Cancellable::NONE,
+            |result| {
+                if let Err(error) = result {
+                    eprintln!("Cannot show a help page: {error}");
+                }
+            },
+        );
     }
 }
 
