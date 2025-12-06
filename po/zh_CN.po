@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-04 23:44+0000\n"
-"PO-Revision-Date: 2025-12-05 08:04+0800\n"
+"POT-Creation-Date: 2025-12-05 11:04+0000\n"
+"PO-Revision-Date: 2025-12-06 11:39+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -35,122 +35,122 @@ msgid "puzzle;"
 msgstr "puzzle;谜;"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:14
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
 msgid "Window width"
 msgstr "窗口宽度"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:16
+#: data/org.gnome.TwentyFortyEight.gschema.xml:17
 msgid "Window width."
 msgstr "窗口宽度。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:21
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
 msgid "Window height"
 msgstr "窗口高度"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:23
+#: data/org.gnome.TwentyFortyEight.gschema.xml:24
 msgid "Window height."
 msgstr "窗口高度。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:28
+#: data/org.gnome.TwentyFortyEight.gschema.xml:29
 msgid "Window maximized"
 msgstr "窗口最大化"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:30
+#: data/org.gnome.TwentyFortyEight.gschema.xml:31
 msgid "Window maximization state."
 msgstr "窗口最大化状态。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:36
+#: data/org.gnome.TwentyFortyEight.gschema.xml:37
 msgid "Number of rows"
 msgstr "行数"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:38
+#: data/org.gnome.TwentyFortyEight.gschema.xml:39
 msgid "Game grid number of rows."
 msgstr "游戏网格行数。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:44
+#: data/org.gnome.TwentyFortyEight.gschema.xml:45
 msgid "Number of columns"
 msgstr "列数"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:46
+#: data/org.gnome.TwentyFortyEight.gschema.xml:47
 msgid "Game grid number of columns."
 msgstr "游戏网格列数。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:52
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
 msgid "Target value"
 msgstr "目标值"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:54
+#: data/org.gnome.TwentyFortyEight.gschema.xml:55
 msgid "Tile value at which user is congratulated."
 msgstr "用户被祝贺时需得到的方块。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:59
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
 msgid "Spawn strategy"
 msgstr "生成策略"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:61
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
 msgid "Strategy of spawning new tiles."
 msgstr "生成新方块的策略。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:66
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
 msgid "Congrat on target tile"
 msgstr "达到目标方块时祝贺用户"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:68
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr "用户得到的方块时是否需祝贺。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:75
+#: data/org.gnome.TwentyFortyEight.gschema.xml:76
 msgid "Animations speed"
 msgstr "动画速度"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:77
+#: data/org.gnome.TwentyFortyEight.gschema.xml:78
 msgid "Duration of animations: show tile, move tile, and dim tile."
 msgstr "动画时长：显示、移动和变暗方块。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:82
+#: data/org.gnome.TwentyFortyEight.gschema.xml:83
 msgid "Allow undo"
 msgstr "允许后退"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:84
+#: data/org.gnome.TwentyFortyEight.gschema.xml:85
 msgid "Whether tile movements can be undone."
 msgstr "移动是否可以取消。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:90
+#: data/org.gnome.TwentyFortyEight.gschema.xml:91
 msgid "Number of undo movements"
 msgstr "可后退的步数"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:92
+#: data/org.gnome.TwentyFortyEight.gschema.xml:93
 msgid "Maximum number of tile movements that can be undone."
 msgstr "可后退的最大步数。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:97
+#: data/org.gnome.TwentyFortyEight.gschema.xml:98
 msgid "Color theme"
 msgstr "颜色主题"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:99
+#: data/org.gnome.TwentyFortyEight.gschema.xml:100
 msgid "Color theme."
 msgstr "颜色主题。"
 
@@ -225,22 +225,47 @@ msgctxt "text crediting a maintainer, seen in the About dialog"
 msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
 msgstr "版权所有 \\u{a9} 2025 – Andrey Kutejko"
 
+#: src/about.rs:54
+msgctxt ""
+"about dialog text; this string should be replaced by a text crediting "
+"yourselves and your translation team, or should be left empty. Do not "
+"translate literally!"
+msgid "translator-credits"
+msgstr ""
+"Mingpei Zheng <1824139500@qq.com>, 2015\n"
+"Yating Kuang <yatingkuang@ubuntukylin.com>, 2016\n"
+"lumingzh <lumingzh@qq.com>, 2025"
+
 #: src/application.rs:74
 msgctxt "command-line option description"
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "在终端中游玩（参见“--cli=help”）"
 
-#: src/application.rs:92
+#: src/application.rs:78
+msgctxt ""
+"in the command-line options description, text to indicate the user should "
+"give a command after '--cli' for playing in the terminal"
+msgid "COMMAND"
+msgstr "命令"
+
+#: src/application.rs:88
 msgctxt "command-line option description"
 msgid "Start new game of given size"
 msgstr "以指定尺寸开始新游戏"
 
-#: src/application.rs:109
+#: src/application.rs:92
+msgctxt ""
+"in the command-line options description, text to indicate the user should "
+"specify a size after '--size'"
+msgid "SIZE"
+msgstr "尺寸"
+
+#: src/application.rs:102
 msgctxt "command-line option description"
 msgid "Print release version and exit"
 msgstr "打印发布版本并退出"
 
-#: src/application.rs:226
+#: src/application.rs:219
 msgid "Size must be in the form COLSxROWS."
 msgstr "尺寸必须为列数x行数的格式。"
 
@@ -304,117 +329,153 @@ msgstr "生成方块"
 
 #: src/game_window.rs:440
 msgctxt "entry in the hamburger menu; a color theme"
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: src/game_window.rs:447
+msgctxt "entry in the hamburger menu; a color theme"
 msgid "Tango"
 msgstr "Tango"
 
-#: src/game_window.rs:447
+#: src/game_window.rs:454
 msgctxt "entry in the hamburger menu; a color theme"
 msgid "Classic"
 msgstr "经典"
 
-#: src/game_window.rs:460
+#: src/game_window.rs:467
 msgctxt "entry in the hamburger menu; a spawn strategy"
 msgid "Twos only"
 msgstr "只有 2"
 
-#: src/game_window.rs:467
+#: src/game_window.rs:474
 msgctxt "entry in the hamburger menu; a spawn strategy"
 msgid "Classic (twos and fours)"
 msgstr "经典（2 和 4）"
 
-#: src/game_window.rs:482
+#: src/game_window.rs:489
 msgctxt ""
 "entry in the hamburger menu, if the \"Allow undo\" option is set to true"
 msgid "Undo"
 msgstr "撤消"
 
-#: src/game_window.rs:495
+#: src/game_window.rs:502
 msgctxt "entry in the hamburger menu; opens a window showing best scores"
 msgid "Scores"
 msgstr "得分"
 
-#: src/game_window.rs:506
+#: src/game_window.rs:513
 msgctxt "menu entry"
 msgid "Keyboard Shortcuts"
 msgstr "键盘快捷键"
 
-#: src/game_window.rs:510
+#: src/game_window.rs:517
 msgctxt "menu entry"
 msgid "About 2048"
 msgstr "关于 2048"
 
-#: src/game_window.rs:523
+#: src/game_window.rs:530
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "3 × 3"
 msgstr "3 × 3"
 
-#: src/game_window.rs:531
+#: src/game_window.rs:538
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "4 × 4"
 msgstr "4 × 4"
 
-#: src/game_window.rs:539
+#: src/game_window.rs:546
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "5 × 5"
 msgstr "5 × 5"
 
-#: src/game_window.rs:568
+#: src/game_window.rs:557
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button; "
+"appears only if the user has set rows and cols manually"
+msgid "Custom"
+msgstr "自定义"
+
+#: src/game_window.rs:571
 msgctxt ""
 "title of the dialog that appears (with default settings) when you reach 2048"
 msgid "Congratulations!"
 msgstr "恭喜！"
 
-#: src/game_window.rs:617
+#: src/game_window.rs:576
+#, c-format
+msgctxt ""
+"text of the dialog that appears when the user obtains the first 2048 tile in "
+"the game; the %u is replaced by the number the user wanted to reach "
+"(usually, 2048)"
+msgid "You have obtained the %u tile for the first time!"
+msgstr "您第一次获得了值为 %u 的方块！"
+
+#: src/game_window.rs:586
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
+msgid "_New Game"
+msgstr "新游戏(_N)"
+
+#: src/game_window.rs:593
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings) when you reach 2048; the player can continue playing after "
+"reaching 2048 (with a mnemonic that appears pressing Alt)"
+msgid "_Keep Playing"
+msgstr "继续游戏(_K)"
+
+#: src/game_window.rs:606
 msgctxt "header of the shortcut section"
 msgid "Game"
 msgstr "游戏"
 
-#: src/game_window.rs:619
+#: src/game_window.rs:608
 msgid "Play with arrows"
 msgstr "使用方向键游玩"
 
-#: src/game_window.rs:622
+#: src/game_window.rs:611
 msgid "Play with WASD"
 msgstr "使用 WASD 键游玩"
 
-#: src/game_window.rs:624
+#: src/game_window.rs:613
 msgid "Play with VIM-style bindings"
 msgstr "使用 VIM 风格按键游玩"
 
-#: src/game_window.rs:631
+#: src/game_window.rs:620
 msgctxt "header of the shortcut section"
 msgid "New Game"
 msgstr "新游戏"
 
-#: src/game_window.rs:634
+#: src/game_window.rs:623
 msgid "Choose a new game"
 msgstr "选择一个新游戏"
 
-#: src/game_window.rs:638
+#: src/game_window.rs:627
 msgid "Start a new game"
 msgstr "开始一局新游戏"
 
-#: src/game_window.rs:644
+#: src/game_window.rs:633
 msgctxt "header of the shortcut section"
 msgid "Generic"
 msgstr "常规"
 
-#: src/game_window.rs:645
+#: src/game_window.rs:634
 msgid "Toggle main menu"
 msgstr "开关主菜单"
 
-#: src/game_window.rs:647
+#: src/game_window.rs:636
 msgid "Keyboard shortcuts"
 msgstr "键盘快捷键"
 
-#: src/game_window.rs:651
+#: src/game_window.rs:640
 msgid "About"
 msgstr "关于"
 
-#: src/game_window.rs:654
+#: src/game_window.rs:643
 msgid "Quit"
 msgstr "退出"
 
@@ -443,29 +504,6 @@ msgid "Grid Size"
 msgstr "网格尺寸"
 
 #~ msgctxt ""
-#~ "about dialog text; this string should be replaced by a text crediting "
-#~ "yourselves and              your translation team, or should be left "
-#~ "empty. Do not translate literally!"
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "Mingpei Zheng <1824139500@qq.com>, 2015\n"
-#~ "Yating Kuang <yatingkuang@ubuntukylin.com>, 2016\n"
-#~ "lumingzh <lumingzh@qq.com>, 2025"
-
-#~ msgctxt ""
-#~ "in the command-line options description, text to indicate the user "
-#~ "should                      give a command after '--cli' for playing in "
-#~ "the terminal"
-#~ msgid "COMMAND"
-#~ msgstr "命令"
-
-#~ msgctxt ""
-#~ "in the command-line options description, text to indicate the user "
-#~ "should                      specify a size after '--size'"
-#~ msgid "SIZE"
-#~ msgstr "尺寸"
-
-#~ msgctxt ""
 #~ "command-line error message, displayed for an incorrect game "
 #~ "size                              request; try 'gnome-2048 -s 0'"
 #~ msgid ""
@@ -485,34 +523,11 @@ msgstr "网格尺寸"
 #~ "面。）"
 
 #~ msgctxt ""
-#~ "on main window, entry of the menu when clicking on the \"New Game\" "
-#~ "button;                  appears only if the user has set rows and cols "
-#~ "manually"
-#~ msgid "Custom"
-#~ msgstr "自定义"
-
-#, c-format
-#~ msgctxt ""
-#~ "text of the dialog that appears when the user obtains the first 2048 tile "
-#~ "in the                  game; the %u is replaced by the number the user "
-#~ "wanted to reach (usually, 2048)"
-#~ msgid "You have obtained the %u tile for the first time!"
-#~ msgstr "您第一次获得了值为 %u 的方格！"
-
-#~ msgctxt ""
 #~ "button in the \"Congratulations\" dialog that appears (with default "
 #~ "settings)                  when you reach 2048 (with a mnemonic that "
 #~ "appears pressing Alt)"
 #~ msgid "_New Game"
 #~ msgstr "新游戏(_N)"
-
-#~ msgctxt ""
-#~ "button in the \"Congratulations\" dialog that appears (with default "
-#~ "settings)                  when you reach 2048; the player can continue "
-#~ "playing after reaching 2048 (with a                  mnemonic that "
-#~ "appears pressing Alt)"
-#~ msgid "_Keep Playing"
-#~ msgstr "继续游戏(_K)"
 
 #~ msgctxt "shortcut window"
 #~ msgid "New game"
