@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-05 08:44+0000\n"
-"PO-Revision-Date: 2025-12-05 12:03+0100\n"
+"POT-Creation-Date: 2025-12-07 12:00+0000\n"
+"PO-Revision-Date: 2025-12-07 13:13+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -244,36 +244,36 @@ msgstr ""
 "Matej Urbančič <matej.u@svn.gnome.org>\n"
 "Martin Srebotnjak <miles@filmsi.net>"
 
-#: src/application.rs:74
+#: src/application.rs:75
 msgctxt "command-line option description"
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "Igraj v terminalu (glejte »--cli=help«)"
 
-#: src/application.rs:78
+#: src/application.rs:79
 msgctxt ""
 "in the command-line options description, text to indicate the user should "
 "give a command after '--cli' for playing in the terminal"
 msgid "COMMAND"
 msgstr "UKAZ"
 
-#: src/application.rs:88
+#: src/application.rs:89
 msgctxt "command-line option description"
 msgid "Start new game of given size"
 msgstr "Začni novo igro s podano velikostjo"
 
-#: src/application.rs:92
+#: src/application.rs:93
 msgctxt ""
 "in the command-line options description, text to indicate the user should "
 "specify a size after '--size'"
 msgid "SIZE"
 msgstr "VELIKOST"
 
-#: src/application.rs:102
+#: src/application.rs:103
 msgctxt "command-line option description"
 msgid "Print release version and exit"
 msgstr "Izpiši različico izdaje in zapri"
 
-#: src/application.rs:219
+#: src/application.rs:221
 msgid "Size must be in the form COLSxROWS."
 msgstr "Velikost mora biti v obliki STOLPCIxVRSTICE."
 
@@ -376,43 +376,48 @@ msgctxt "menu entry"
 msgid "Keyboard Shortcuts"
 msgstr "Tipkovne bližnjice"
 
-#: src/game_window.rs:517
+#: src/game_window.rs:516
+msgctxt "menu entry"
+msgid "Help"
+msgstr "Pomoč"
+
+#: src/game_window.rs:518
 msgctxt "menu entry"
 msgid "About 2048"
 msgstr "O programu 2048"
 
-#: src/game_window.rs:530
+#: src/game_window.rs:531
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "3 × 3"
 msgstr "3 × 3"
 
-#: src/game_window.rs:538
+#: src/game_window.rs:539
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "4 × 4"
 msgstr "4 × 4"
 
-#: src/game_window.rs:546
+#: src/game_window.rs:547
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "5 × 5"
 msgstr "5 × 5"
 
-#: src/game_window.rs:557
+#: src/game_window.rs:558
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button; "
 "appears only if the user has set rows and cols manually"
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/game_window.rs:571
+#: src/game_window.rs:572
 msgctxt ""
 "title of the dialog that appears (with default settings) when you reach 2048"
 msgid "Congratulations!"
 msgstr "Čestitke!"
 
-#: src/game_window.rs:576
+#: src/game_window.rs:577
 #, c-format
 msgctxt ""
 "text of the dialog that appears when the user obtains the first 2048 tile in "
@@ -421,14 +426,14 @@ msgctxt ""
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Prvič ste pridobili polje %u!"
 
-#: src/game_window.rs:586
+#: src/game_window.rs:587
 msgctxt ""
 "button in the \"Congratulations\" dialog that appears (with default "
 "settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
 msgid "_New Game"
 msgstr "_Nova igra"
 
-#: src/game_window.rs:593
+#: src/game_window.rs:594
 msgctxt ""
 "button in the \"Congratulations\" dialog that appears (with default "
 "settings) when you reach 2048; the player can continue playing after "
@@ -436,54 +441,58 @@ msgctxt ""
 msgid "_Keep Playing"
 msgstr "Nadaljuj z i_granjem"
 
-#: src/game_window.rs:606
+#: src/game_window.rs:607
 msgctxt "header of the shortcut section"
 msgid "Game"
 msgstr "Igra"
 
-#: src/game_window.rs:608
+#: src/game_window.rs:609
 msgid "Play with arrows"
 msgstr "Igrajte s smernimi tipkami"
 
-#: src/game_window.rs:611
+#: src/game_window.rs:612
 msgid "Play with WASD"
 msgstr "Igrajte s tipkami WASD"
 
-#: src/game_window.rs:613
+#: src/game_window.rs:614
 msgid "Play with VIM-style bindings"
 msgstr "Igrajte s tipkami v slogu VIM-a"
 
-#: src/game_window.rs:620
+#: src/game_window.rs:621
 msgctxt "header of the shortcut section"
 msgid "New Game"
 msgstr "Nova igra"
 
-#: src/game_window.rs:623
+#: src/game_window.rs:624
 msgid "Choose a new game"
 msgstr "Izberite novo igro"
 
-#: src/game_window.rs:627
+#: src/game_window.rs:628
 msgid "Start a new game"
 msgstr "Začne novo igro"
 
-#: src/game_window.rs:633
+#: src/game_window.rs:634
 msgctxt "header of the shortcut section"
 msgid "Generic"
 msgstr "Splošno"
 
-#: src/game_window.rs:634
+#: src/game_window.rs:635
 msgid "Toggle main menu"
 msgstr "Preklopi glavni meni"
 
 #: src/game_window.rs:636
+msgid "Help"
+msgstr "Pomoč"
+
+#: src/game_window.rs:638
 msgid "Keyboard shortcuts"
 msgstr "Tipkovne bližnjice‫"
 
-#: src/game_window.rs:640
+#: src/game_window.rs:642
 msgid "About"
 msgstr "O programu"
 
-#: src/game_window.rs:643
+#: src/game_window.rs:645
 msgid "Quit"
 msgstr "Izhod"
 
