@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-09-10 15:11+0000\n"
-"PO-Revision-Date: 2025-09-14 19:27+0300\n"
+"POT-Creation-Date: 2025-12-08 11:10+0000\n"
+"PO-Revision-Date: 2025-12-08 21:09+0200\n"
 "Last-Translator: Aurimas Černius <aurimas.cernius@mailo.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -18,101 +18,145 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
-#. Translators: title of the dialog that appears (with default settings) when you reach 2048
-#: data/congrats.ui:23
-msgid "Congratulations!"
-msgstr "Sveikiname!"
-
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:46 data/game-headerbar.ui:29
-msgid "_New Game"
-msgstr "_Naujas žaidimas"
-
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:54
-msgid "_Keep Playing"
-msgstr "_Tęsti žaidimą"
-
-#. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
-
-#. Translators: header of the "Play with arrows" shortcut section
-#: data/help-overlay.ui:29
-msgctxt "shortcut window"
-msgid "Game"
-msgstr "Žaidimas"
-
-#. Translators: the application has no help, so the use of arrows for playing is documented here
-#: data/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Play with arrows"
-msgstr "Žaisti naudojant rodyklių klavišus"
-
-#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
-#: data/help-overlay.ui:44
-msgctxt "shortcut window"
-msgid "New game"
-msgstr "Naujas žaidimas"
-
-#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
-#: data/help-overlay.ui:49
-msgctxt "shortcut window"
-msgid "Choose a new game"
-msgstr "Pasirinkite naują žaidimą"
-
-#. Translators: shortcut that starts immediately a new game, with similar options
-#: data/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Start a new game"
-msgstr "Pradėti naują žaidimą"
-
-#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
-#: data/help-overlay.ui:67
-msgctxt "shortcut window"
-msgid "Generic"
-msgstr "Bendra"
-
-#. Translators: shortcut that toggles the hamburger menu
-#: data/help-overlay.ui:72
-msgctxt "shortcut window"
-msgid "Toggle main menu"
-msgstr "Perjungti pagrindinį meniu"
-
-#. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/help-overlay.ui:80
-msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
-msgstr "Klaviatūros trumpiniai"
-
-#. Translators: shortcut that opens About dialog
-#: data/help-overlay.ui:88
-msgctxt "shortcut window"
-msgid "About"
-msgstr "Apie"
-
-#. Translators: shortcut that quits application
-#: data/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Išeiti"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
-#: data/org.gnome.TwentyFortyEight.desktop.in:2 src/game-window.vala:501
+#: data/org.gnome.TwentyFortyEight.desktop.in:2
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8
 msgid "2048"
 msgstr "2048"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
 #: data/org.gnome.TwentyFortyEight.desktop.in:3
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:9
 msgid "Obtain the 2048 tile"
 msgstr "Pasiekti 2048 plytelę"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.TwentyFortyEight.desktop.in:13
+msgid "puzzle;"
+msgstr "dėlionė;galvosūkis;"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
+msgid "Window width"
+msgstr "Lango plotis"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:17
+msgid "Window width."
+msgstr "Lango plotis."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
+msgid "Window height"
+msgstr "Lango aukštis"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:24
+msgid "Window height."
+msgstr "Lango aukštis."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:29
+msgid "Window maximized"
+msgstr "Langas išdidintas"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:31
+msgid "Window maximization state."
+msgstr "Lango išdidinimo būsena."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:37
+msgid "Number of rows"
+msgstr "Eilučių skaičius"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:39
+msgid "Game grid number of rows."
+msgstr "Žaidimo tinklelio eilučių skaičius."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:45
+msgid "Number of columns"
+msgstr "Stulpelių skaičius"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:47
+msgid "Game grid number of columns."
+msgstr "Žaidimo tinklelio stulpelių skaičius."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
+msgid "Target value"
+msgstr "Galutinė reikšmė"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:55
+msgid "Tile value at which user is congratulated."
+msgstr "Plytelės reikšmė, kurią pasiekęs, naudotojas bus pasveikintas."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Spawn strategy"
+msgstr "Papildymo strategija"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Strategy of spawning new tiles."
+msgstr "Naujų plytelių pridėjimo strategija."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
+msgid "Congrat on target tile"
+msgstr "Pasveikinti, pasiekus galutinę plytelę"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Ar naudotojas, pasiekęs galutinę plytelę, turėtų būti pasveikintas."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:76
+msgid "Animations speed"
+msgstr "Animacijų greitis"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:78
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Animacijų trukmė: plytelės rodymas, plytelės perkėlimas, plytelės išblukimas."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:83
+msgid "Allow undo"
+msgstr "Leisti atšaukimą"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:85
+msgid "Whether tile movements can be undone."
+msgstr "Ar plytelių perkėlimai gali būti atšaukiami."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:91
+msgid "Number of undo movements"
+msgstr "Atšaukimo žingsnių skaičius"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:93
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Didžiausias skaičius plytelių judesių, kurie gali būti atšaukti."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:98
+msgid "Color theme"
+msgstr "Spalvų tema"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:100
+msgid "Color theme."
+msgstr "Spalvų tema."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
 "player puzzle game. Gameplay consists of joining numbers in a grid and "
@@ -122,7 +166,7 @@ msgstr ""
 "dėlionės, žaidimo klonas. Žaidimo eiga susideda iš tinklelyje esančių "
 "skaičių sujungimo ir 2048 plytelės pasiekimo."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -135,7 +179,7 @@ msgstr ""
 "ar vienos eilutės, ar vieno stulpelio. Plytelės su tokia pačia reikšme, kai "
 "užslenkamos viena ant kitos, yra sujungiamos."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -146,7 +190,7 @@ msgstr ""
 "nesibaigia, taigi, galite toliau sujunginėti plyteles ir gerinti savo "
 "rezultatą."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -156,252 +200,339 @@ msgstr ""
 "labai įtraukiantis žaidimas. Cirulli žaidimas 2048, savo ruožtu yra žaidimo "
 "1024 klonas, ir įtraukia idėjas iš kitų klonų."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Veikiantis žaidimas pasiekęs 2048 plytelę"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:53
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.TwentyFortyEight.desktop.in:13
-msgid "puzzle;"
-msgstr "dėlionė;galvosūkis;"
+#: src/about.rs:26
+msgctxt "about dialog text; the program name"
+msgid "2048"
+msgstr "2048"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:6
-msgid "Window width"
-msgstr "Lango plotis"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:8
-msgid "Window width."
-msgstr "Lango plotis."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:13
-msgid "Window height"
-msgstr "Lango aukštis"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:15
-msgid "Window height."
-msgstr "Lango aukštis."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:20
-msgid "Window maximized"
-msgstr "Langas išdidintas"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:22
-msgid "Window maximization state."
-msgstr "Lango išdidinimo būsena."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:28
-msgid "Number of rows"
-msgstr "Eilučių skaičius"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:30
-msgid "Game grid number of rows."
-msgstr "Žaidimo tinklelio eilučių skaičius."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:36
-msgid "Number of columns"
-msgstr "Stulpelių skaičius"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:38
-msgid "Game grid number of columns."
-msgstr "Žaidimo tinklelio stulpelių skaičius."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:44
-msgid "Target value"
-msgstr "Galutinė reikšmė"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:46
-msgid "Tile value at which user is congratulated."
-msgstr "Plytelės reikšmė, kurią pasiekęs, naudotojas bus pasveikintas."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:51
-msgid "Congrat on target tile"
-msgstr "Pasveikinti, pasiekus galutinę plytelę"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:53
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Ar naudotojas, pasiekęs galutinę plytelę, turėtų būti pasveikintas."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:60
-msgid "Animations speed"
-msgstr "Animacijų greitis"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:62
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr ""
-"Animacijų trukmė: plytelės rodymas, plytelės perkėlimas, plytelės išblukimas."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:67
-msgid "Allow undo"
-msgstr "Leisti atšaukimą"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:69
-msgid "Whether tile movements can be undone."
-msgstr "Ar plytelių perkėlimai gali būti atšaukiami."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:75
-msgid "Number of undo movements"
-msgstr "Atšaukimo žingsnių skaičius"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:77
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Didžiausias skaičius plytelių judesių, kurie gali būti atšaukti."
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:36
-msgid "Play in the terminal (see “--cli=help”)"
-msgstr "Žaisti terminale (žiūrėkite „--cli=help“)"
-
-#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
-#: src/application.vala:39
-msgid "COMMAND"
-msgstr "KOMANDA"
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:42
-msgid "Start new game of given size"
-msgstr "Pradėti naują nurodyto dydžio žaidimą"
-
-#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
-#: src/application.vala:45
-msgid "SIZE"
-msgstr "DYDIS"
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:48
-msgid "Print release version and exit"
-msgstr "Atspausdinti leidimo versiją ir išeiti"
-
-#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:123
-msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
-msgstr ""
-"Nepavyko perskaityti dydžio. Dydis turi būti nuo 2 iki 3 arba 2x3 formos."
-
-#. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/game-headerbar.vala:67
-msgid "Game Over"
-msgstr "Žaidimas baigtas"
-
-#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/game-headerbar.vala:97
-msgid "Undo"
-msgstr "Atšaukti"
-
-#. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/game-headerbar.vala:108
-msgid "Scores"
-msgstr "Rezultatai"
-
-#. Translators: usual menu entry of the hamburger menu
-#: src/game-headerbar.vala:119
-msgid "Keyboard Shortcuts"
-msgstr "Klaviatūros trumpiniai"
-
-#. Translators: entry in the hamburger menu
-#: src/game-headerbar.vala:122
-msgid "About 2048"
-msgstr "Apie 2048"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
-#: src/game-headerbar.vala:142
-msgid "3 × 3"
-msgstr "3 × 3"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
-#: src/game-headerbar.vala:148
-msgid "4 × 4"
-msgstr "4 × 4"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
-#: src/game-headerbar.vala:154
-msgid "5 × 5"
-msgstr "5 × 5"
-
-#. Translators: command-line warning displayed if the user manually sets a invalid grid size
-#: src/game-headerbar.vala:163
-msgid "Grids of size 1 by 2 are disallowed."
-msgstr "1 ir 2 dydžio tinkleliai neleidžiami."
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#: src/game-headerbar.vala:167
-msgid "Custom"
-msgstr "Pasirinktinis"
-
-#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:421
-#, c-format
-msgid "You have obtained the %u tile for the first time!"
-msgstr "Jūs pasiekėte %u plytelę pirmą kartą!"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:440
-msgid "Grid 3 × 3"
-msgstr "Tinklelis 3 × 3"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:443
-msgid "Grid 4 × 4"
-msgstr "Tinklelis 4 × 4"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:446
-msgid "Grid 5 × 5"
-msgstr "Tinklelis 5 × 5"
-
-#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:449
-msgid "Grid Size:"
-msgstr "Tinklelio dydis:"
-
-#. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:505
+#: src/about.rs:31
+msgctxt "about dialog text; a introduction to the game"
 msgid "A clone of 2048 for GNOME"
 msgstr "2048 klonas GNOME aplinkai"
 
-#. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:510
-msgid "Copyright © 2014-2015 – Juan R. García Blanco"
-msgstr "Autorinės teisės © 2014-2015 – Juan R. García Blanco"
+#: src/about.rs:38
+msgctxt "text crediting a maintainer, seen in the About dialog"
+msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
+msgstr "Autorinės teisės \\u{a9} 2014-2015 – Juan R. García Blanco"
 
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:514
-#, c-format
-msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr "Autorinės teisės © %u-%u – Arnaud Bonatti"
+#: src/about.rs:43
+msgctxt "text crediting a maintainer, seen in the About dialog"
+msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
+msgstr "Autorinės teisės \\u{a9} 2016-2020 – Arnaud Bonatti"
 
-#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:519
+#: src/about.rs:48
+msgctxt "text crediting a maintainer, seen in the About dialog"
+msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
+msgstr "Autorinės teisės \\u{a9} 2025 – Andrey Kutejko"
+
+#: src/about.rs:54
+msgctxt ""
+"about dialog text; this string should be replaced by a text crediting "
+"yourselves and your translation team, or should be left empty. Do not "
+"translate literally!"
 msgid "translator-credits"
 msgstr "Aurimas Černius <aurimas.cernius@mailo.com>"
 
-#. Translators: about dialog text; label of the website link
-#: src/game-window.vala:523
-msgid "Page on GNOME wiki"
-msgstr "GNOME wiki puslapis"
+#: src/application.rs:75
+msgctxt "command-line option description"
+msgid "Play in the terminal (see \"--cli=help\")"
+msgstr "Žaisti terminale (žiūrėkite „--cli=help“)"
+
+#: src/application.rs:79
+msgctxt ""
+"in the command-line options description, text to indicate the user should "
+"give a command after '--cli' for playing in the terminal"
+msgid "COMMAND"
+msgstr "KOMANDA"
+
+#: src/application.rs:89
+msgctxt "command-line option description"
+msgid "Start new game of given size"
+msgstr "Pradėti naują nurodyto dydžio žaidimą"
+
+#: src/application.rs:93
+msgctxt ""
+"in the command-line options description, text to indicate the user should "
+"specify a size after '--size'"
+msgid "SIZE"
+msgstr "DYDIS"
+
+#: src/application.rs:103
+msgctxt "command-line option description"
+msgid "Print release version and exit"
+msgstr "Atspausdinti leidimo versiją ir išeiti"
+
+#: src/application.rs:221
+msgid "Size must be in the form COLSxROWS."
+msgstr "Dydis turi būti formos STULPxEIL."
+
+#: src/cli.rs:71
+msgid "Size can only be given for new games."
+msgstr "Dydį galima nurodyti tik naujiems žaidimams."
+
+#: src/cli.rs:92
+msgid "Cannot parse \"--cli\" command, aborting."
+msgstr "Nepavyko išanalizuoti komandos „--cli“, nutraukiama."
+
+#: src/cli.rs:125
+msgid "Game is finished, impossible to move."
+msgstr "Žaidimas baigtas, nebėra ėjimų."
+
+#: src/cli.rs:129
+msgid "Impossible to move in that direction."
+msgstr "Negalima eiti į tą pusę."
+
+#: src/cli.rs:202
+msgid "You have obtained the {score} tile for the first time!"
+msgstr "Jūs pirmą kartą pasiekėte {score} plytelę!"
+
+#: src/cli.rs:207
+msgid "Game is finished!"
+msgstr "Žaidimas baigtas!"
+
+#: src/cli.rs:211
+msgid "Your score is {score}."
+msgstr "Jūsų rezultatas yra {score}."
+
+#: src/game_window.rs:111
+msgctxt "window title"
+msgid "GNOME 2048"
+msgstr "GNOME 2048"
+
+#: src/game_window.rs:116
+msgctxt "button in the headerbar (with a mnemonic that appears pressing Alt)"
+msgid "_New Game"
+msgstr "_Naujas žaidimas"
+
+#: src/game_window.rs:308
+msgctxt "subtitle of the headerbar, when the user cannot move anymore"
+msgid "Game Over"
+msgstr "Žaidimas baigtas"
+
+#: src/game_window.rs:415
+msgctxt "entry in the hamburger menu"
+msgid "Undo"
+msgstr "Atšaukti"
+
+#: src/game_window.rs:419
+msgctxt "entry in the hamburger menu"
+msgid "Appearance"
+msgstr "Išvaizda"
+
+#: src/game_window.rs:423
+msgctxt "entry in the hamburger menu"
+msgid "Spawn tiles"
+msgstr "Plytelių pridėjimas"
+
+#: src/game_window.rs:440
+msgctxt "entry in the hamburger menu; a color theme"
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: src/game_window.rs:447
+msgctxt "entry in the hamburger menu; a color theme"
+msgid "Tango"
+msgstr "Tango"
+
+#: src/game_window.rs:454
+msgctxt "entry in the hamburger menu; a color theme"
+msgid "Classic"
+msgstr "Klasikinė"
+
+#: src/game_window.rs:467
+msgctxt "entry in the hamburger menu; a spawn strategy"
+msgid "Twos only"
+msgstr "Tik dvejetai"
+
+#: src/game_window.rs:474
+msgctxt "entry in the hamburger menu; a spawn strategy"
+msgid "Classic (twos and fours)"
+msgstr "Klasikinis (dvejetai ir ketvertai)"
+
+#: src/game_window.rs:489
+msgctxt ""
+"entry in the hamburger menu, if the \"Allow undo\" option is set to true"
+msgid "Undo"
+msgstr "Atšaukti"
+
+#: src/game_window.rs:502
+msgctxt "entry in the hamburger menu; opens a window showing best scores"
+msgid "Scores"
+msgstr "Rezultatai"
+
+#: src/game_window.rs:513
+msgctxt "menu entry"
+msgid "Keyboard Shortcuts"
+msgstr "Klaviatūros trumpiniai"
+
+#: src/game_window.rs:516
+msgctxt "menu entry"
+msgid "Help"
+msgstr "Žinynas"
+
+#: src/game_window.rs:518
+msgctxt "menu entry"
+msgid "About 2048"
+msgstr "Apie 2048"
+
+#: src/game_window.rs:531
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button"
+msgid "3 × 3"
+msgstr "3 × 3"
+
+#: src/game_window.rs:539
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button"
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#: src/game_window.rs:547
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button"
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#: src/game_window.rs:558
+msgctxt ""
+"on main window, entry of the menu when clicking on the \"New Game\" button; "
+"appears only if the user has set rows and cols manually"
+msgid "Custom"
+msgstr "Pasirinktinis"
+
+#: src/game_window.rs:572
+msgctxt ""
+"title of the dialog that appears (with default settings) when you reach 2048"
+msgid "Congratulations!"
+msgstr "Sveikiname!"
+
+#: src/game_window.rs:577
+#, c-format
+msgctxt ""
+"text of the dialog that appears when the user obtains the first 2048 tile in "
+"the game; the %u is replaced by the number the user wanted to reach "
+"(usually, 2048)"
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Jūs pirmą kartą pasiekėte %u plytelę!"
+
+#: src/game_window.rs:587
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
+msgid "_New Game"
+msgstr "_Naujas žaidimas"
+
+#: src/game_window.rs:594
+msgctxt ""
+"button in the \"Congratulations\" dialog that appears (with default "
+"settings) when you reach 2048; the player can continue playing after "
+"reaching 2048 (with a mnemonic that appears pressing Alt)"
+msgid "_Keep Playing"
+msgstr "_Tęsti žaidimą"
+
+#: src/game_window.rs:607
+msgctxt "header of the shortcut section"
+msgid "Game"
+msgstr "Žaidimas"
+
+#: src/game_window.rs:609
+msgid "Play with arrows"
+msgstr "Žaisti naudojant rodyklių klavišus"
+
+#: src/game_window.rs:612
+msgid "Play with WASD"
+msgstr "Žaisti naudojant rodyklių klavišus"
+
+#: src/game_window.rs:614
+msgid "Play with VIM-style bindings"
+msgstr "Žaisti naudojant VIM stiliaus susiejimus"
+
+#: src/game_window.rs:621
+msgctxt "header of the shortcut section"
+msgid "New Game"
+msgstr "_Naujas žaidimas"
+
+#: src/game_window.rs:624
+msgid "Choose a new game"
+msgstr "Pasirinkite naują žaidimą"
+
+#: src/game_window.rs:628
+msgid "Start a new game"
+msgstr "Pradėti naują žaidimą"
+
+#: src/game_window.rs:634
+msgctxt "header of the shortcut section"
+msgid "Generic"
+msgstr "Esmė"
+
+#: src/game_window.rs:635
+msgid "Toggle main menu"
+msgstr "Perjungti pagrindinį meniu"
+
+#: src/game_window.rs:636
+msgid "Help"
+msgstr "Žinynas"
+
+#: src/game_window.rs:638
+msgid "Keyboard shortcuts"
+msgstr "Klaviatūros trumpiniai"
+
+#: src/game_window.rs:642
+msgid "About"
+msgstr "Apie"
+
+#: src/game_window.rs:645
+msgid "Quit"
+msgstr "Išeiti"
+
+#: src/grid.rs:46
+msgid ""
+"Grid must have no more than 9 rows and columns and have at least 3 tiles"
+msgstr ""
+"Tinklelis turi būti ne daugiau kaip 9 eilutės ir stulpeliai ir turėti bent 3 "
+"plyteles"
+
+#: src/scores.rs:84
+msgctxt "Scores category"
+msgid "Grid 3 × 3"
+msgstr "Tinklelis 3 × 3"
+
+#: src/scores.rs:85
+msgctxt "Scores category"
+msgid "Grid 4 × 4"
+msgstr "Tinklelis 4 × 4"
+
+#: src/scores.rs:86
+msgctxt "Scores category"
+msgid "Grid 5 × 5"
+msgstr "Tinklelis 5 × 5"
+
+#: src/scores.rs:142
+msgid "Grid Size"
+msgstr "Tinklelio dydis"
+
+#~ msgctxt "shortcut window"
+#~ msgid "New game"
+#~ msgstr "Naujas žaidimas"
+
+#~ msgid ""
+#~ "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+#~ msgstr ""
+#~ "Nepavyko perskaityti dydžio. Dydis turi būti nuo 2 iki 3 arba 2x3 formos."
+
+#~ msgid "Grids of size 1 by 2 are disallowed."
+#~ msgstr "1 ir 2 dydžio tinkleliai neleidžiami."
+
+#~ msgid "Page on GNOME wiki"
+#~ msgstr "GNOME wiki puslapis"
 
 #~ msgid "The GNOME Project"
 #~ msgstr "GNOME projektas"
@@ -420,9 +551,6 @@ msgstr "GNOME wiki puslapis"
 
 #~ msgid "Display congrats"
 #~ msgstr "Rodyti pasveikinimus"
-
-#~ msgid "Help"
-#~ msgstr "Žinynas"
 
 #~ msgid "4 x 4"
 #~ msgstr "4 x 4"
