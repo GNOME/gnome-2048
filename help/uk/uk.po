@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2025-01-11 12:33+0000\n"
-"PO-Revision-Date: 2025-01-11 23:21+0200\n"
+"POT-Creation-Date: 2025-12-08 10:47+0000\n"
+"PO-Revision-Date: 2025-12-08 13:09+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -22,6 +22,14 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
+
+#. (itstool) path: info/title
+#: C/index.page:6
+#| msgctxt "link"
+#| msgid "2048"
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -50,26 +58,176 @@ msgstr "2014"
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
-#. (itstool) path: media/span
-#: C/index.page:19
-#| msgid "GNOME 2048 logo"
-msgid "2048 logo"
-msgstr "Логотип 2048"
-
 #. (itstool) path: page/title
 #: C/index.page:19
-#| msgid "<_:media-1/> GNOME 2048"
 msgid "<_:media-1/> 2048"
 msgstr "<_:media-1/> 2048"
 
 #. (itstool) path: page/p
 #: C/index.page:20
-#| msgid ""
-#| "<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle "
-#| "game based on Veewo Studios' 1024."
 msgid ""
 "<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
 "on Veewo Studios' 1024."
 msgstr ""
-"<app>2048</app> — клон гри Габріеля Чируллі (Gabriele Cirulli) 2048 — "
-"гри-головоломки, заснованої на грі 1024 від Veewo Studios."
+"<app>2048</app> — клон гри Габріеля Чируллі (Gabriele Cirulli) 2048 — гри-"
+"головоломки, заснованої на грі 1024 від Veewo Studios."
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Ігровий процес"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Anthony Saldana Valle"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "Запуск та завершення гри у <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "Базові настанови"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "Початок нової гри"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Нова гра</gui> або комбінацію клавіш"
+" <keyseq><key>Ctrl</key><key>N</key></keyseq>, щоб відкрити меню вибору"
+" розміру поля, і натисніть <gui style=\"button\">3x3</gui>, <gui"
+" style=\"button\">4x4</gui> або <gui style=\"button\">5x5</gui>, щоб"
+" розпочати гру з вибраним розміром поля."
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+"Натисніть комбінацію клавіш <keyseq><key>Shift</key><key>Ctrl</key><key>N<"
+"/key></keyseq>, щоб розпочати нову гру із тим самим розміром  поля, що і у"
+" поточній грі."
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "Вийти з <app>2048</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+"Натисніть комбінацію клавіш <keyseq><key>Ctrl</key><key>Q</key></keyseq>, "
+"щоб негайно завершити роботу програми <app>2048</app>."
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "Мета <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "Мета"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+"Щоб заробити очки у грі 2048, потрібно поєднувати квадрати з однаковою"
+" числовою позначкою. Це можна зробити шляхом зміщення дошки в напрямку, в"
+" якому межують два рівнозначних квадрати. Якщо дошка заповнена і ви не"
+" можете поєднати жодних квадратів, гра вважається завершеною."
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "Типові засоби керування у <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "Керування"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+"Ви можете навести вказівник миші на квадратик на дошці, натиснути ліву"
+" кнопку миші і перетягнути його, щоб змістити квадратики у тому ж напрямку."
+" Якщо ви хочете скористатися клавіатурою, то типовий набір клавіш для зсуву"
+" клітинок у <app>2048</app> є таким:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "<key>←</key> для пересування квадратиків ліворуч."
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "<key>↑</key> для пересування квадратиків вгору."
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "<key>→</key> для пересування квадратиків праворуч."
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "<key>↓</key> для пересування квадратиків вниз."
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "Перегляд найкращих результатів у <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "Перегляд найкращих результатів"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr ""
+"Натисніть кнопку меню у верхньому правому куті вікна програми або натисніть"
+" <key>F10</key>, а потім виберіть <gui style=\"button\">Результати</gui>,"
+" щоб переглянути найкращі результати. Відкрийте меню з назвою «Розмір"
+" ґратки», щоб вибрати розмір ігрового поля, для якого слід показати найкращі"
+" результати."
+
+#~| msgid "GNOME 2048 logo"
+#~ msgid "2048 logo"
+#~ msgstr "Логотип 2048"
