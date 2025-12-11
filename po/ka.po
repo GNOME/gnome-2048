@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-02 16:45+0000\n"
-"PO-Revision-Date: 2025-12-03 00:39+0100\n"
+"POT-Creation-Date: 2025-12-10 14:44+0000\n"
+"PO-Revision-Date: 2025-12-11 19:57+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -33,112 +33,122 @@ msgid "puzzle;"
 msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:10
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
 msgid "Window width"
 msgstr "ფანჯრის სიგანე"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:12
+#: data/org.gnome.TwentyFortyEight.gschema.xml:17
 msgid "Window width."
 msgstr "ფანჯრის სიგანე."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:17
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
 msgid "Window height"
 msgstr "ფანჯრის სიმაღლე"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:19
+#: data/org.gnome.TwentyFortyEight.gschema.xml:24
 msgid "Window height."
 msgstr "ფანჯრის სიმაღლე."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:24
+#: data/org.gnome.TwentyFortyEight.gschema.xml:29
 msgid "Window maximized"
 msgstr "გადიდებული ფანჯარა"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:26
+#: data/org.gnome.TwentyFortyEight.gschema.xml:31
 msgid "Window maximization state."
 msgstr "ფანჯრის გადიდების მდგომარეობა."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:32
+#: data/org.gnome.TwentyFortyEight.gschema.xml:37
 msgid "Number of rows"
 msgstr "მწკრივების რიცხვი"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:34
+#: data/org.gnome.TwentyFortyEight.gschema.xml:39
 msgid "Game grid number of rows."
 msgstr "თამაშის ბადეში მწკრივების რაოდენობა."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:40
+#: data/org.gnome.TwentyFortyEight.gschema.xml:45
 msgid "Number of columns"
 msgstr "სვეტების რაოდენობა"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:42
+#: data/org.gnome.TwentyFortyEight.gschema.xml:47
 msgid "Game grid number of columns."
 msgstr "თამაშის ბადეში სვეტების რაოდენობა."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:48
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
 msgid "Target value"
 msgstr "სამიზნე მნიშვნელობა"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:50
+#: data/org.gnome.TwentyFortyEight.gschema.xml:55
 msgid "Tile value at which user is congratulated."
 msgstr ""
 
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Spawn strategy"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Strategy of spawning new tiles."
+msgstr ""
+
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:55
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
 msgid "Congrat on target tile"
 msgstr ""
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:57
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
 msgid "Whether the user shall be congratulated on obtaining target tile."
 msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:64
+#: data/org.gnome.TwentyFortyEight.gschema.xml:76
 msgid "Animations speed"
 msgstr "ანიმაციების სიჩქარე"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:66
+#: data/org.gnome.TwentyFortyEight.gschema.xml:78
 msgid "Duration of animations: show tile, move tile, and dim tile."
 msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:71
+#: data/org.gnome.TwentyFortyEight.gschema.xml:83
 msgid "Allow undo"
 msgstr "დაბრუნების დაშვება"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:73
+#: data/org.gnome.TwentyFortyEight.gschema.xml:85
 msgid "Whether tile movements can be undone."
 msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:79
+#: data/org.gnome.TwentyFortyEight.gschema.xml:91
 msgid "Number of undo movements"
 msgstr ""
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:81
+#: data/org.gnome.TwentyFortyEight.gschema.xml:93
 msgid "Maximum number of tile movements that can be undone."
 msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:86
+#: data/org.gnome.TwentyFortyEight.gschema.xml:98
 msgid "Color theme"
 msgstr "ფერის თემა"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:88
+#: data/org.gnome.TwentyFortyEight.gschema.xml:100
 msgid "Color theme."
 msgstr ""
 
@@ -180,7 +190,6 @@ msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #: src/about.rs:26
-#| msgid "2048"
 msgctxt "about dialog text; the program name"
 msgid "2048"
 msgstr "2048"
@@ -205,24 +214,23 @@ msgctxt "text crediting a maintainer, seen in the About dialog"
 msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
 msgstr ""
 
-#: src/about.rs:55
+#: src/about.rs:54
 msgctxt ""
 "about dialog text; this string should be replaced by a text crediting "
-"yourselves and              your translation team, or should be left empty. "
-"Do not translate literally!"
+"yourselves and your translation team, or should be left empty. Do not "
+"translate literally!"
 msgid "translator-credits"
 msgstr "ეკატერინე პაპავა"
 
-#: src/application.rs:74
+#: src/application.rs:75
 msgctxt "command-line option description"
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr ""
 
 #: src/application.rs:79
 msgctxt ""
-"in the command-line options description, text to indicate the user "
-"should                      give a command after '--cli' for playing in the "
-"terminal"
+"in the command-line options description, text to indicate the user should "
+"give a command after '--cli' for playing in the terminal"
 msgid "COMMAND"
 msgstr "ბრძანება"
 
@@ -231,226 +239,238 @@ msgctxt "command-line option description"
 msgid "Start new game of given size"
 msgstr "მითითებული ზომის ახალი თამაშის დაწყება"
 
-#: src/application.rs:94
+#: src/application.rs:93
 msgctxt ""
-"in the command-line options description, text to indicate the user "
-"should                      specify a size after '--size'"
+"in the command-line options description, text to indicate the user should "
+"specify a size after '--size'"
 msgid "SIZE"
 msgstr "ზომა"
 
-#: src/application.rs:104
+#: src/application.rs:103
 msgctxt "command-line option description"
 msgid "Print release version and exit"
 msgstr "რელიზის ვერსიის გამოტანა და გასვლა"
 
-#: src/application.rs:145
-msgctxt ""
-"command-line error message, displayed for an incorrect game "
-"size                              request; try 'gnome-2048 -s 0'"
-msgid ""
-"Failed to parse size. Size must be between 2 and 9, or in the "
-"form                              2x3."
-msgstr ""
-
-#: src/application.rs:246
+#: src/application.rs:221
 msgid "Size must be in the form COLSxROWS."
 msgstr ""
 
-#: src/cli.rs:44
+#: src/cli.rs:71
 msgid "Size can only be given for new games."
 msgstr ""
 
-#: src/cli.rs:72
+#: src/cli.rs:92
 msgid "Cannot parse \"--cli\" command, aborting."
 msgstr ""
 
-#: src/cli.rs:103
-msgid "Grid is finished, impossible to move."
+#: src/cli.rs:125
+msgid "Game is finished, impossible to move."
 msgstr ""
 
-#: src/cli.rs:107
+#: src/cli.rs:129
 msgid "Impossible to move in that direction."
 msgstr ""
 
-#: src/cli.rs:170
-#, c-format
-msgid "You have obtained the %u tile for the first time!"
+#: src/cli.rs:202
+msgid "You have obtained the {score} tile for the first time!"
 msgstr ""
 
-#: src/cli.rs:181
-msgid "Game is finished! Your score is {score}."
+#: src/cli.rs:207
+msgid "Game is finished!"
 msgstr ""
 
-#: src/cli.rs:188
-msgid ""
-"Game is finished! Your score is {score}. (If you want to save it, use "
-"GNOME                      2048 graphical interface.)"
-msgstr ""
-
-#: src/cli.rs:198
+#: src/cli.rs:211
 msgid "Your score is {score}."
 msgstr "თქვენი ქულა არის {score}."
 
-#: src/game_window.rs:106
+#: src/game_window.rs:111
 msgctxt "window title"
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: src/game_window.rs:111
+#: src/game_window.rs:116
 msgctxt "button in the headerbar (with a mnemonic that appears pressing Alt)"
 msgid "_New Game"
 msgstr "ახალი თა_მაში"
 
-#: src/game_window.rs:298
+#: src/game_window.rs:308
 msgctxt "subtitle of the headerbar, when the user cannot move anymore"
 msgid "Game Over"
 msgstr "თამაში დასრულდა"
 
-#: src/game_window.rs:398
+#: src/game_window.rs:415
+msgctxt "entry in the hamburger menu"
+msgid "Undo"
+msgstr "გაუქმება"
+
+#: src/game_window.rs:419
 msgctxt "entry in the hamburger menu"
 msgid "Appearance"
 msgstr "გარეგნობა"
 
-#: src/game_window.rs:415
+#: src/game_window.rs:423
+msgctxt "entry in the hamburger menu"
+msgid "Spawn tiles"
+msgstr ""
+
+#: src/game_window.rs:440
+msgctxt "entry in the hamburger menu; a color theme"
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: src/game_window.rs:447
 msgctxt "entry in the hamburger menu; a color theme"
 msgid "Tango"
 msgstr "ტანგო"
 
-#: src/game_window.rs:422
+#: src/game_window.rs:454
 msgctxt "entry in the hamburger menu; a color theme"
 msgid "Classic"
 msgstr "კლასიკური"
 
-#: src/game_window.rs:435
+#: src/game_window.rs:467
+msgctxt "entry in the hamburger menu; a spawn strategy"
+msgid "Twos only"
+msgstr ""
+
+#: src/game_window.rs:474
+msgctxt "entry in the hamburger menu; a spawn strategy"
+msgid "Classic (twos and fours)"
+msgstr ""
+
+#: src/game_window.rs:489
 msgctxt ""
 "entry in the hamburger menu, if the \"Allow undo\" option is set to true"
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: src/game_window.rs:448
+#: src/game_window.rs:502
 msgctxt "entry in the hamburger menu; opens a window showing best scores"
 msgid "Scores"
 msgstr "ქულები"
 
-#: src/game_window.rs:459
+#: src/game_window.rs:513
 msgctxt "menu entry"
 msgid "Keyboard Shortcuts"
 msgstr "კლავიატურის მალსახმობები"
 
-#: src/game_window.rs:463
+#: src/game_window.rs:516
+msgctxt "menu entry"
+msgid "Help"
+msgstr "დახმარება"
+
+#: src/game_window.rs:518
 msgctxt "menu entry"
 msgid "About 2048"
 msgstr "2048-ის შესახებ"
 
-#: src/game_window.rs:476
-#| msgid "3 × 3"
+#: src/game_window.rs:531
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "3 × 3"
 msgstr "3 × 3"
 
-#: src/game_window.rs:484
-#| msgid "4 × 4"
+#: src/game_window.rs:539
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "4 × 4"
 msgstr "4 × 4"
 
-#: src/game_window.rs:492
-#| msgid "5 × 5"
+#: src/game_window.rs:547
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "5 × 5"
 msgstr "5 × 5"
 
-#: src/game_window.rs:504
+#: src/game_window.rs:558
 msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" "
-"button;                  appears only if the user has set rows and cols "
-"manually"
+"on main window, entry of the menu when clicking on the \"New Game\" button; "
+"appears only if the user has set rows and cols manually"
 msgid "Custom"
 msgstr "ხელით"
 
-#: src/game_window.rs:518
+#: src/game_window.rs:572
 msgctxt ""
 "title of the dialog that appears (with default settings) when you reach 2048"
 msgid "Congratulations!"
 msgstr "გილოცავთ!"
 
-#: src/game_window.rs:524
+#: src/game_window.rs:577
 #, c-format
 msgctxt ""
 "text of the dialog that appears when the user obtains the first 2048 tile in "
-"the                  game; the %u is replaced by the number the user wanted "
-"to reach (usually, 2048)"
+"the game; the %u is replaced by the number the user wanted to reach "
+"(usually, 2048)"
 msgid "You have obtained the %u tile for the first time!"
 msgstr ""
 
-#: src/game_window.rs:535
+#: src/game_window.rs:587
 msgctxt ""
 "button in the \"Congratulations\" dialog that appears (with default "
-"settings)                  when you reach 2048 (with a mnemonic that appears "
-"pressing Alt)"
+"settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
 msgid "_New Game"
 msgstr "ახალი თა_მაში"
 
-#: src/game_window.rs:544
+#: src/game_window.rs:594
 msgctxt ""
 "button in the \"Congratulations\" dialog that appears (with default "
-"settings)                  when you reach 2048; the player can continue "
-"playing after reaching 2048 (with a                  mnemonic that appears "
-"pressing Alt)"
+"settings) when you reach 2048; the player can continue playing after "
+"reaching 2048 (with a mnemonic that appears pressing Alt)"
 msgid "_Keep Playing"
 msgstr "_თამაშის გაგრძელება"
 
-#: src/game_window.rs:557
+#: src/game_window.rs:607
 msgctxt "header of the shortcut section"
 msgid "Game"
 msgstr "თამაში"
 
-#: src/game_window.rs:559
+#: src/game_window.rs:609
 msgid "Play with arrows"
 msgstr "ისრებით თამაში"
 
-#: src/game_window.rs:562
+#: src/game_window.rs:612
 msgid "Play with WASD"
 msgstr "WASD-ით თამაში"
 
-#: src/game_window.rs:564
+#: src/game_window.rs:614
 msgid "Play with VIM-style bindings"
 msgstr ""
 
-#: src/game_window.rs:571
+#: src/game_window.rs:621
 msgctxt "header of the shortcut section"
 msgid "New Game"
 msgstr "ახალი თამაში"
 
-#: src/game_window.rs:574
+#: src/game_window.rs:624
 msgid "Choose a new game"
 msgstr "აირჩიეთ ახალი თამაში"
 
-#: src/game_window.rs:578
+#: src/game_window.rs:628
 msgid "Start a new game"
 msgstr "ახალი თამაშის დაწყება"
 
-#: src/game_window.rs:584
+#: src/game_window.rs:634
 msgctxt "header of the shortcut section"
 msgid "Generic"
 msgstr "ზოგადი"
 
-#: src/game_window.rs:585
+#: src/game_window.rs:635
 msgid "Toggle main menu"
 msgstr "მთავარი მენიუს გადართვა"
 
-#: src/game_window.rs:587
+#: src/game_window.rs:636
+msgid "Help"
+msgstr "დახმარება"
+
+#: src/game_window.rs:638
 msgid "Keyboard shortcuts"
 msgstr "კლავიატურის მალსახმობები"
 
-#: src/game_window.rs:591
+#: src/game_window.rs:642
 msgid "About"
 msgstr "შესახებ"
 
-#: src/game_window.rs:594
+#: src/game_window.rs:645
 msgid "Quit"
 msgstr "გასვლა"
 
@@ -477,6 +497,13 @@ msgstr "ბადე 5 × 5"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "ბადის ზომა"
+
+#~ msgctxt ""
+#~ "button in the \"Congratulations\" dialog that appears (with default "
+#~ "settings)                  when you reach 2048 (with a mnemonic that "
+#~ "appears pressing Alt)"
+#~ msgid "_New Game"
+#~ msgstr "ახალი თა_მაში"
 
 #~ msgctxt "shortcut window"
 #~ msgid "New game"
