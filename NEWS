@@ -1,3 +1,21 @@
+2048   50.alpha.2                                          2025-12-13
+=====================================================================
+
+The game was reimplemented in Rust and rendering was heavily updated.
+Color theming support was added with three available themes: Adwaita,
+Tango, and Classic. Undo action was made available. Also a playey may
+select if just "2" tiles appear or "2" and "4" like in the original
+game. The game also got some help pages.
+
+Translations updated:
+  Brazilian Portuguese: Juliano de Souza Camargo
+  Chinese (China): luming zh
+  Georgian: Ekaterine Papava
+  Lithuanian: Aurimas Aurimas Černius
+  Russian: Sergej A.
+  Slovenian: Martin
+  Ukrainian: Yuri Chornoivan
+
 2048   50.alpha                                            2025-11-14
 =====================================================================
 
