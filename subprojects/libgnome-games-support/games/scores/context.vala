@@ -279,46 +279,22 @@ public class Context : Object
      */
     public async bool add_score (long score, Category category, Gtk.Window? game_window, Cancellable? cancellable) throws Error
     {
-        var the_score = new Score (score);
-
-        /* Check if category exists in the HashTable. Insert one if not. */
-        if (!scores_per_category.contains (category))
-            scores_per_category[category] = new GenericArray<Score> ();
-
-        scores_per_category[category].add (the_score);
-        current_category = category;
-
-        var high_score_added = is_high_score (the_score.score, category);
-        if (high_score_added && game_window != null)
-        {
-            var dialog = new Dialog (this, category_type, style, the_score, current_category, icon_name);
-            dialog.closed.connect (() => add_score.callback ());
-            dialog.present (game_window);
-            yield;
-        }
-
-        yield save_score_to_file (the_score, category, cancellable);
-        return high_score_added;
+        var result = yield add_score_full (score, category, null, game_window, false, cancellable);
+        return result.high_score_added;
     }
-
-    public delegate void NewGameFunc ();
-    public delegate void QuitAppFunc ();
 
     /**
      * Adds extra info to the score, and optionally, some buttons to the bottom of the dialog that aid the flow of a game.
      *
-     * ``new_game_func`` is called when the user presses the 'New Game' button on the dialog
-     *
-     * ``quit_app_func`` is called when the user presses the 'Quit' button on the dialog
+     * ``show_action_buttons`` specifies if 'New Game' and 'Quit' buttons should be shown on the dialog
      *
      */
-    public async bool add_score_full (long score_value,
-                                      Category category,
-                                      string? extra_info,
-                                      Gtk.Window? game_window,
-                                      NewGameFunc? new_game_func,
-                                      QuitAppFunc? quit_app_func,
-                                      Cancellable? cancellable) throws Error
+    public async AddScoreResult add_score_full (long score_value,
+                                                Category category,
+                                                string? extra_info,
+                                                Gtk.Window? game_window,
+                                                bool show_action_buttons,
+                                                Cancellable? cancellable) throws Error
     {
         Score score = new Score (score_value);
         score.extra_info = extra_info;
@@ -330,19 +306,22 @@ public class Context : Object
         current_category = category;
 
         var high_score_added = is_high_score (score.score, category);
+        var action = AddScoreAction.NONE;
         if (high_score_added && game_window != null)
         {
             var dialog = new Dialog (this, category_type, style, score, current_category, icon_name);
             dialog.closed.connect (() => add_score_full.callback ());
             dialog.present (game_window);
-            if (new_game_func != null && quit_app_func != null)
-                dialog.add_bottom_buttons (new_game_func, quit_app_func);
+            if (show_action_buttons)
+                dialog.add_bottom_buttons ();
 
             yield;
+
+            action = dialog.action;
         }
 
         yield save_score_to_file (score, category, cancellable);
-        return high_score_added;
+        return AddScoreResult (high_score_added, action);
     }
 
     private void load_scores_from_file (FileInfo file_info) throws Error
@@ -456,6 +435,51 @@ public class Context : Object
                 return true;
         }
         return false;
+    }
+}
+
+/**
+ * The action button that the user chose on the score dialog.
+ *
+ */
+[SimpleType]
+public enum AddScoreAction {
+    NONE = 0,
+    NEW_GAME,
+    QUIT
+}
+
+/**
+ * The result of adding a score.
+ *
+ */
+[SimpleType]
+public struct AddScoreResult
+{
+    /**
+     * The {@link Games.Scores.AddScoreAction} from the score dialog.
+     *
+     */
+    public AddScoreAction action;
+
+    /**
+     * If the score added was a high score (visible in the score dialog).
+     *
+     */
+    public bool high_score_added;
+
+    /**
+     * Creates a new AddScoreResult.
+     *
+     * ``high_score_added`` is true if the score is a high score
+     *
+     * ``action`` is the {@link Games.Scores.AddScoreAction} from the score dialog
+     *
+     */
+    public AddScoreResult (bool high_score_added, AddScoreAction action)
+    {
+        this.high_score_added = high_score_added;
+        this.action = action;
     }
 }
 

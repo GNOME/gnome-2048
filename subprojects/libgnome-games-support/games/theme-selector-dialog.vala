@@ -22,11 +22,7 @@ namespace Games {
 
 public class ThemeSelectorDialog : Adw.Dialog
 {
-    /**
-     * The index of the theme the user has selected.
-     *
-     */
-    public uint active_index = -1;
+    private uint active_index = -1;
     private string[] theme_names;
     private Adw.Bin theme_bin;
     private Gtk.Button prev_button;

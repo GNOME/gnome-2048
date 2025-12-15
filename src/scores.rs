@@ -39,6 +39,19 @@ mod ffi {
     type CategoryRequestFunc =
         unsafe extern "C" fn(category_name: *const c_char, user_data: gpointer) -> *mut GObject;
 
+    #[repr(C)]
+    pub enum GamesScoresAddScoreAction {
+        None = 0,
+        NewGame,
+        Quit,
+    }
+
+    #[repr(C)]
+    pub struct GamesScoresAddScoreResult {
+        pub action: GamesScoresAddScoreAction,
+        pub high_score_added: gboolean,
+    }
+
     unsafe extern "C" {
         pub unsafe fn games_scores_context_get_type() -> GType;
         pub unsafe fn games_scores_context_load_scores(
@@ -52,20 +65,37 @@ mod ffi {
             window: *mut GtkWindow,
             category: *mut GObject,
         );
-        pub unsafe fn games_scores_context_add_score(
+        // pub unsafe fn games_scores_context_add_score(
+        //     context: *mut GObject,
+        //     score: i64,
+        //     category: *mut GObject,
+        //     game_window: *mut GtkWindow,
+        //     cancellable: *mut GCancellable,
+        //     callback: GAsyncReadyCallback,
+        //     user_data: gpointer,
+        // );
+        // pub unsafe fn games_scores_context_add_score_finish(
+        //     context: *mut GObject,
+        //     res: *mut GAsyncResult,
+        //     error: *mut *mut GError,
+        // ) -> gboolean;
+
+        pub unsafe fn games_scores_context_add_score_full(
             context: *mut GObject,
             score: i64,
             category: *mut GObject,
+            extra: *const c_char,
             game_window: *mut GtkWindow,
+            show_action_buttons: gboolean,
             cancellable: *mut GCancellable,
             callback: GAsyncReadyCallback,
             user_data: gpointer,
         );
-        pub unsafe fn games_scores_context_add_score_finish(
+        pub unsafe fn games_scores_context_add_score_full_finish(
             context: *mut GObject,
             res: *mut GAsyncResult,
             error: *mut *mut GError,
-        ) -> gboolean;
+        ) -> GamesScoresAddScoreResult;
 
         pub unsafe fn games_scores_style_get_type() -> GType;
         pub unsafe fn games_scores_category_get_type() -> GType;
@@ -186,8 +216,10 @@ async fn context_add_score(
         let sender: Box<Sender<Result<bool, glib::Error>>> =
             unsafe { Box::from_raw(user_data as *mut _) };
         let mut error: *mut GError = std::ptr::null_mut();
-        let added =
-            unsafe { ffi::games_scores_context_add_score_finish(context, result, &mut error) };
+        let ffi::GamesScoresAddScoreResult {
+            high_score_added: added,
+            ..
+        } = unsafe { ffi::games_scores_context_add_score_full_finish(context, result, &mut error) };
         let channel_result = if error.is_null() {
             sender.send_blocking(Ok(added != 0))
         } else {
@@ -202,11 +234,13 @@ async fn context_add_score(
     let (sender, receiver) = async_channel::bounded(1);
     let user_data: Box<Sender<Result<bool, glib::Error>>> = Box::new(sender);
     unsafe {
-        ffi::games_scores_context_add_score(
+        ffi::games_scores_context_add_score_full(
             context.to_glib_none().0,
             score,
             category.to_glib_none().0,
+            std::ptr::null(),
             parent_window.as_ref().to_glib_none().0,
+            0,
             std::ptr::null_mut(),
             Some(callback),
             Box::into_raw(user_data) as *mut _,
