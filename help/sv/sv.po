@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2025-01-11 12:33+0000\n"
-"PO-Revision-Date: 2025-01-11 13:57+0100\n"
+"POT-Creation-Date: 2025-12-08 00:10+0000\n"
+"PO-Revision-Date: 2025-12-17 15:12+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -15,12 +15,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015"
+
+#. (itstool) path: info/title
+#: C/index.page:6
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -49,11 +55,6 @@ msgstr "2014"
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
-#. (itstool) path: media/span
-#: C/index.page:19
-msgid "2048 logo"
-msgstr "Logo för 2048"
-
 #. (itstool) path: page/title
 #: C/index.page:19
 msgid "<_:media-1/> 2048"
@@ -65,5 +66,160 @@ msgid ""
 "<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
 "on Veewo Studios' 1024."
 msgstr ""
-"<app>2048</app> är en klon av Gabriele Cirullis 2048, ett pusselspel "
-"baserat på 1024 från Veewo Studios."
+"<app>2048</app> är en klon av Gabriele Cirullis 2048, ett pusselspel baserat "
+"på 1024 från Veewo Studios."
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Spelets gång"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Anthony Saldana Valle"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "Starta och avsluta en omgång <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "Grundläggande instruktioner"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "Starta ett nytt spel"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+"Klicka <gui style=\"button\">Nytt spel</gui> eller tryck <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> för att öppna valmenyn för rutnätsstorlek och "
+"klicka <gui style=\"button\">3 × 3</gui>, <gui style=\"button\">4 × 4</gui> "
+"eller <gui style=\"button\">5 × 5</gui> för att starta ett nytt spel med den "
+"valda rutnätsstorleken."
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+"Tryck <keyseq><key>Skift</key><key>Ctrl</key><key>N</key></keyseq> för att "
+"starta ett nytt spel med samma rutnätsstorlek som det aktuella spelet."
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "Avsluta <app>2048</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+"Tryck <keyseq><key>Ctrl</key><key>Q</key></keyseq> för att avsluta "
+"<app>2048</app> när som helst."
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "Målet i <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "Mål"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+"För att få poäng i 2048 behöver du kombinera rutor med samma tal. Detta görs "
+"genom att skifta brädet i en riktning i vilken två lika rutor möts. Om "
+"brädet är fullt och du inte kan kombinera några rutor så tar spelet slut."
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "Standardkontroller för <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "Kontroller"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+"Du kan klicka och dra musen på brädet för att skifta rutor i samma riktning. "
+"Om du vill använda tangentbordet i stället är standardtangenterna för att "
+"skifta rutorna i <app>2048</app> följande:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "<key>←</key> för att skifta rutor åt vänster."
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "<key>↑</key> för att skifta rutor uppåt."
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "<key>→</key> för att skifta rutor åt höger."
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "<key>↓</key> för att skifta rutor nedåt."
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "Visa topplistan i <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "Visa topplistan"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr ""
+"Välj menyknappen i det övre högra hörnet eller tryck <key>F10</key> och välj "
+"sedan <gui style=\"button\">Poäng</gui> för att visa topplistan. Öppna menyn "
+"med etiketten ”Rutnätsstorlek” för att välja rutnätsstorleken att visa "
+"topplistan för."
+
+#~ msgid "2048 logo"
+#~ msgstr "Logo för 2048"
