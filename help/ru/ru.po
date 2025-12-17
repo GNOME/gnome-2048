@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2025-01-12 16:35+0000\n"
-"PO-Revision-Date: 2025-01-17 21:05+1000\n"
+"POT-Creation-Date: 2025-12-17 12:57+0000\n"
+"PO-Revision-Date: 2025-12-18 00:28+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -22,6 +22,14 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr "Ser82-png <asvmail.as@gmail.com>, 2022-2025"
+
+#. (itstool) path: info/title
+#: C/index.page:6
+#| msgctxt "link"
+#| msgid "2048"
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -50,14 +58,8 @@ msgstr "2014"
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
-#. (itstool) path: media/span
-#: C/index.page:19
-msgid "2048 logo"
-msgstr "Логотип GNOME"
-
 #. (itstool) path: page/title
 #: C/index.page:19
-#| msgid "<_:media-1/> GNOME 2048"
 msgid "<_:media-1/> 2048"
 msgstr "<_:media-1/> 2048"
 
@@ -69,3 +71,162 @@ msgid ""
 msgstr ""
 "<app>2048</app> - это клон игры «2048» от Габриэле Чирулли (Gabriele "
 "Cirulli), головоломки, основанной на игре «1024» от Veewo Studio."
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Игровой процесс"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Anthony Saldana Valle"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "Запуск и завершение игры <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "Основные инструкции"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "Начать новую игру"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+"Нажмите кнопку <gui style=\"button\">Новая игра</gui> или комбинацию клавиш "
+"<keyseq><key>Ctrl</key><key>N</key></keyseq>, чтобы открыть меню выбора "
+"размера игрового поля и нажмите <gui style=\"button\">3x3</gui>, <gui "
+"style=\"button\">4x4</gui> или <gui style=\"button\">5x5</gui> для начала "
+"новой игры с выбранным размером игрового поля."
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+"Нажмите комбинацию клавиш <keyseq><key>Shift</key><key>Ctrl</key><key>N</"
+"key></keyseq>, чтобы начать новую игру с тем же размером игрового поля."
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "Выход из игры <app>2048</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+"Нажмите комбинацию клавиш <keyseq><key>Ctrl</key><key>Q</key></keyseq>, "
+"чтобы покинуть игру <app>2048</app>."
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "Цель игры <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "Цель"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+"Чтобы заработать очки в игре «2048», вам нужно объединять плитки с "
+"одинаковым числовым значением. Для этого нужно сдвинуть игровое поле в "
+"направлении, при котором совмещаются две плитки с одинаковым значением. Если "
+"поле заполнено и вы не можете объединить ни одной пары плиток, игра "
+"заканчивается."
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "Средства управления, установленные по умолчанию в игре <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "Управление"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+"Вы можете навести указатель мыши на доску, нажать левую кнопку мыши и "
+"перетащить указатель по доске, чтобы переместить плитки в том же "
+"направлении. Если вы хотите использовать клавиатуру, то по умолчанию для "
+"перемещения плиток в игре <app>2048</app> используются следующие клавиши:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "<key>←</key> для перемещения плиток влево."
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "<key>↑</key> для перемещения плиток вверх."
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "<key>→</key> для перемещения плиток вправо."
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "<key>↓</key> для перемещения плиток вниз."
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "Просмотр результатов в игре <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "Просмотр лучших результатов"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr ""
+"Для просмотра лучших результатов, нажмите кнопку меню в правом верхнем углу "
+"или клавишу <key>F10</key>, а затем выберите <gui "
+"style=\"button\">Результаты</gui>. Откройте пункт меню «Размер игрового "
+"поля» и выберите размер игрового поля для которого следует вывести таблицу "
+"лучших результатов."
+
+#~ msgid "2048 logo"
+#~ msgstr "Логотип GNOME"
