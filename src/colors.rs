@@ -110,12 +110,8 @@ impl ColorTheme for AdwaitaColorTheme {
             },
         ];
 
-        let index = tile.get() as usize - 1;
-
-        TILE_COLORS
-            .get(index)
-            .cloned()
-            .unwrap_or_else(|| *TILE_COLORS.last().unwrap())
+        let index = (tile.get() as usize - 1).min(TILE_COLORS.len() - 1);
+        TILE_COLORS[index]
     }
 }
 
@@ -268,12 +264,8 @@ impl ColorTheme for ClassicColorTheme {
             },
         ];
 
-        let index = tile.get() as usize - 1;
-
-        TILE_COLORS
-            .get(index)
-            .cloned()
-            .unwrap_or_else(|| *TILE_COLORS.last().unwrap())
+        let index = (tile.get() as usize - 1).min(TILE_COLORS.len() - 1);
+        TILE_COLORS[index]
     }
 }
 
