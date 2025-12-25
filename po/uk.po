@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-08 00:10+0000\n"
-"PO-Revision-Date: 2025-12-08 12:46+0200\n"
+"POT-Creation-Date: 2025-12-13 14:44+0000\n"
+"PO-Revision-Date: 2025-12-25 21:45+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -218,19 +218,25 @@ msgid "A clone of 2048 for GNOME"
 msgstr "Клон 2048 для GNOME"
 
 #: src/about.rs:38
+#| msgctxt "text crediting a maintainer, seen in the About dialog"
+#| msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
-msgstr "\\u{a9} Juan R. García Blanco, 2014-2015"
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "© Juan R. García Blanco, 2014–2015"
 
 #: src/about.rs:43
+#| msgctxt "text crediting a maintainer, seen in the About dialog"
+#| msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
-msgstr "\\u{a9} Arnaud Bonatti, 2016-2020"
+msgid "Copyright © 2016-2020 – Arnaud Bonatti"
+msgstr "© Arnaud Bonatti, 2016-2020"
 
 #: src/about.rs:48
+#| msgctxt "text crediting a maintainer, seen in the About dialog"
+#| msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
-msgstr "\\u{a9} Andrey Kutejko, 2025"
+msgid "Copyright © 2025 – Andrey Kutejko"
+msgstr "© Andrey Kutejko, 2025"
 
 #: src/about.rs:54
 msgctxt ""
@@ -290,6 +296,7 @@ msgid "Impossible to move in that direction."
 msgstr "Не можна рухатися у цьому напрямку."
 
 #: src/cli.rs:202
+#, rust-format
 msgid "You have obtained the {score} tile for the first time!"
 msgstr "Вам вдалося вперше отримати плитку {score}!"
 
@@ -298,6 +305,7 @@ msgid "Game is finished!"
 msgstr "Гру завершено!"
 
 #: src/cli.rs:211
+#, rust-format
 msgid "Your score is {score}."
 msgstr "Ваш результат — {score}."
 
@@ -414,7 +422,6 @@ msgid "Congratulations!"
 msgstr "Вітаємо!"
 
 #: src/game_window.rs:577
-#, c-format
 msgctxt ""
 "text of the dialog that appears when the user obtains the first 2048 tile in "
 "the game; the %u is replaced by the number the user wanted to reach "
