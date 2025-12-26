@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-07 12:14+0000\n"
-"PO-Revision-Date: 2025-12-08 08:09+0800\n"
+"POT-Creation-Date: 2025-12-13 14:44+0000\n"
+"PO-Revision-Date: 2025-12-26 08:03+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -212,18 +212,18 @@ msgstr "2048 游戏的 GNOME 克隆版本"
 
 #: src/about.rs:38
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
-msgstr "版权所有 \\u{a9} 2014-2015 – Juan R. García Blanco"
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "版权所有 © 2014-2015 – Juan R. García Blanco"
 
 #: src/about.rs:43
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
-msgstr "版权所有 \\u{a9} 2016-2020 – Arnaud Bonatti"
+msgid "Copyright © 2016-2020 – Arnaud Bonatti"
+msgstr "版权所有 © 2016-2020 – Arnaud Bonatti"
 
 #: src/about.rs:48
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
-msgstr "版权所有 \\u{a9} 2025 – Andrey Kutejko"
+msgid "Copyright © 2025 – Andrey Kutejko"
+msgstr "版权所有 © 2025 – Andrey Kutejko"
 
 #: src/about.rs:54
 msgctxt ""
@@ -286,6 +286,7 @@ msgid "Impossible to move in that direction."
 msgstr "无法向那个方向移动。"
 
 #: src/cli.rs:202
+#, rust-format
 msgid "You have obtained the {score} tile for the first time!"
 msgstr "您第一次获得了值为 {score} 的方块！"
 
@@ -294,6 +295,7 @@ msgid "Game is finished!"
 msgstr "游戏已完成！"
 
 #: src/cli.rs:211
+#, rust-format
 msgid "Your score is {score}."
 msgstr "您的得分为 {score}。"
 
@@ -410,7 +412,6 @@ msgid "Congratulations!"
 msgstr "恭喜！"
 
 #: src/game_window.rs:577
-#, c-format
 msgctxt ""
 "text of the dialog that appears when the user obtains the first 2048 tile in "
 "the game; the %u is replaced by the number the user wanted to reach "
