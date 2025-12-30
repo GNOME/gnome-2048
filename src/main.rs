@@ -32,6 +32,7 @@ use crate::{
     application::TwentyFortyEight,
     config::{GETTEXT_PACKAGE, LOCALEDIR},
 };
+use gettextrs::pgettext;
 use gtk::{glib, prelude::*};
 use std::{error::Error, process::Termination};
 
@@ -52,10 +53,7 @@ fn main() -> Result<impl Termination, Box<dyn Error>> {
 
     gtk::init()?;
 
-    let application_name = "org.gnome.TwentyFortyEight";
-    glib::set_application_name(application_name);
-    glib::set_prgname(Some("org.gnome.TwentyFortyEight"));
-    gtk::Window::set_default_icon_name("org.gnome.TwentyFortyEight");
+    glib::set_application_name(&pgettext("application name", "2048"));
 
     let app = TwentyFortyEight::default();
     let exis_code = app.run();

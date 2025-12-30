@@ -108,7 +108,7 @@ mod imp {
 
                 header_bar: Default::default(),
                 title: adw::WindowTitle::builder()
-                    .title(pgettext("window title", "GNOME 2048"))
+                    .title(pgettext("window title", "2048"))
                     .build(),
                 new_game_button: gtk::MenuButton::builder()
                     .label(&pgettext(
