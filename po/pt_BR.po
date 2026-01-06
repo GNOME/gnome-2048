@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the gnome-2048 package.
 # Enrico Nicoletto <liverig@gmail.com>, 2015.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2015-2025.
-# Juliano de Souza Camargo <julianosc@pm.me>, 2025.
+# Juliano de Souza Camargo <julianosc@pm.me>, 2025-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-08 19:10+0000\n"
-"PO-Revision-Date: 2025-12-10 11:04-0300\n"
+"POT-Creation-Date: 2025-12-13 14:44+0000\n"
+"PO-Revision-Date: 2026-01-06 11:17-0300\n"
 "Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
@@ -220,18 +220,18 @@ msgstr "Um clone do 2048 para o GNOME"
 
 #: src/about.rs:38
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
-msgstr "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "Copyright © 2014-2015 – Juan R. García Blanco"
 
 #: src/about.rs:43
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
-msgstr "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
+msgid "Copyright © 2016-2020 – Arnaud Bonatti"
+msgstr "Copyright © 2016-2020 – Arnaud Bonatti"
 
 #: src/about.rs:48
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
-msgstr "Copyright \\u{a9} 2025 – Andrey Kutejko"
+msgid "Copyright © 2025 – Andrey Kutejko"
+msgstr "Copyright © 2025 – Andrey Kutejko"
 
 #: src/about.rs:54
 msgctxt ""
@@ -294,6 +294,7 @@ msgid "Impossible to move in that direction."
 msgstr "Impossível mover-se nesta direção"
 
 #: src/cli.rs:202
+#, rust-format
 msgid "You have obtained the {score} tile for the first time!"
 msgstr "Você obteve o bloco {score} pela primeira vez!"
 
@@ -302,6 +303,7 @@ msgid "Game is finished!"
 msgstr "O jogo terminou!"
 
 #: src/cli.rs:211
+#, rust-format
 msgid "Your score is {score}."
 msgstr "Sua pontuação é {score}."
 
@@ -418,7 +420,6 @@ msgid "Congratulations!"
 msgstr "﻿Parabéns!"
 
 #: src/game_window.rs:577
-#, c-format
 msgctxt ""
 "text of the dialog that appears when the user obtains the first 2048 tile in "
 "the game; the %u is replaced by the number the user wanted to reach "
