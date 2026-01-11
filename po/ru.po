@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-07 12:00+0000\n"
-"PO-Revision-Date: 2025-12-07 22:21+1000\n"
+"POT-Creation-Date: 2025-12-13 14:44+0000\n"
+"PO-Revision-Date: 2025-12-26 16:31+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -218,18 +218,18 @@ msgstr "Клон игры «2048» для GNOME"
 
 #: src/about.rs:38
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
-msgstr "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "Copyright © 2014-2015 – Juan R. García Blanco"
 
 #: src/about.rs:43
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
-msgstr "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
+msgid "Copyright © 2016-2020 – Arnaud Bonatti"
+msgstr "Copyright © 2016-2020 – Arnaud Bonatti"
 
 #: src/about.rs:48
 msgctxt "text crediting a maintainer, seen in the About dialog"
-msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
-msgstr "Copyright \\u{a9} 2025 – Andrey Kutejko"
+msgid "Copyright © 2025 – Andrey Kutejko"
+msgstr "Copyright © 2025 – Andrey Kutejko"
 
 #: src/about.rs:54
 msgctxt ""
@@ -417,7 +417,6 @@ msgid "Congratulations!"
 msgstr "Поздравляем!"
 
 #: src/game_window.rs:577
-#, c-format
 msgctxt ""
 "text of the dialog that appears when the user obtains the first 2048 tile in "
 "the game; the %u is replaced by the number the user wanted to reach "
