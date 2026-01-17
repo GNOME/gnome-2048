@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
 "POT-Creation-Date: 2025-12-13 14:44+0000\n"
-"PO-Revision-Date: 2026-01-17 09:55+0100\n"
+"PO-Revision-Date: 2026-01-17 09:59+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
 "Language: kab\n"
@@ -28,7 +28,7 @@ msgstr ""
 #: data/org.gnome.TwentyFortyEight.desktop.in:2
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8
 msgid "2048"
-msgstr ""
+msgstr "2048"
 
 #: data/org.gnome.TwentyFortyEight.desktop.in:3
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:9
@@ -83,7 +83,7 @@ msgstr ""
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:45
 msgid "Number of columns"
-msgstr ""
+msgstr "Amḍan n ijga"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:47
@@ -153,12 +153,12 @@ msgstr ""
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:98
 msgid "Color theme"
-msgstr ""
+msgstr "Ini n usentel"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
 #: data/org.gnome.TwentyFortyEight.gschema.xml:100
 msgid "Color theme."
-msgstr ""
+msgstr "Ini n usentel."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:11
 msgid ""
@@ -200,7 +200,7 @@ msgstr ""
 #: src/about.rs:26
 msgctxt "about dialog text; the program name"
 msgid "2048"
-msgstr ""
+msgstr "2048"
 
 #: src/about.rs:31
 msgctxt "about dialog text; a introduction to the game"
@@ -228,7 +228,7 @@ msgctxt ""
 "yourselves and your translation team, or should be left empty. Do not "
 "translate literally!"
 msgid "translator-credits"
-msgstr ""
+msgstr "Athmane MOKRAOUI"
 
 #: src/application.rs:75
 msgctxt "command-line option description"
@@ -252,7 +252,7 @@ msgctxt ""
 "in the command-line options description, text to indicate the user should "
 "specify a size after '--size'"
 msgid "SIZE"
-msgstr ""
+msgstr "TIDDI"
 
 #: src/application.rs:103
 msgctxt "command-line option description"
@@ -286,7 +286,7 @@ msgstr ""
 
 #: src/cli.rs:207
 msgid "Game is finished!"
-msgstr ""
+msgstr "Ifukk wurar!"
 
 #: src/cli.rs:211
 #, rust-format
@@ -296,12 +296,12 @@ msgstr ""
 #: src/game_window.rs:111
 msgctxt "window title"
 msgid "GNOME 2048"
-msgstr ""
+msgstr "GNOME 2048"
 
 #: src/game_window.rs:116
 msgctxt "button in the headerbar (with a mnemonic that appears pressing Alt)"
 msgid "_New Game"
-msgstr ""
+msgstr "Urar amay_nut"
 
 #: src/game_window.rs:308
 msgctxt "subtitle of the headerbar, when the user cannot move anymore"
@@ -316,7 +316,7 @@ msgstr ""
 #: src/game_window.rs:419
 msgctxt "entry in the hamburger menu"
 msgid "Appearance"
-msgstr ""
+msgstr "Timeẓriwt"
 
 #: src/game_window.rs:423
 msgctxt "entry in the hamburger menu"
@@ -326,7 +326,7 @@ msgstr ""
 #: src/game_window.rs:440
 msgctxt "entry in the hamburger menu; a color theme"
 msgid "Adwaita"
-msgstr ""
+msgstr "Adwaita"
 
 #: src/game_window.rs:447
 msgctxt "entry in the hamburger menu; a color theme"
@@ -336,7 +336,7 @@ msgstr ""
 #: src/game_window.rs:454
 msgctxt "entry in the hamburger menu; a color theme"
 msgid "Classic"
-msgstr ""
+msgstr "Aklasiki"
 
 #: src/game_window.rs:467
 msgctxt "entry in the hamburger menu; a spawn strategy"
@@ -362,48 +362,48 @@ msgstr ""
 #: src/game_window.rs:513
 msgctxt "menu entry"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Inegzumen n unasiw"
 
 #: src/game_window.rs:516
 msgctxt "menu entry"
 msgid "Help"
-msgstr ""
+msgstr "Tallalt"
 
 #: src/game_window.rs:518
 msgctxt "menu entry"
 msgid "About 2048"
-msgstr ""
+msgstr "Ɣef 2048"
 
 #: src/game_window.rs:531
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "3 × 3"
-msgstr ""
+msgstr "3 × 3"
 
 #: src/game_window.rs:539
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "4 × 4"
-msgstr ""
+msgstr "4 × 4"
 
 #: src/game_window.rs:547
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button"
 msgid "5 × 5"
-msgstr ""
+msgstr "5 × 5"
 
 #: src/game_window.rs:558
 msgctxt ""
 "on main window, entry of the menu when clicking on the \"New Game\" button; "
 "appears only if the user has set rows and cols manually"
 msgid "Custom"
-msgstr ""
+msgstr "Udmawan"
 
 #: src/game_window.rs:572
 msgctxt ""
 "title of the dialog that appears (with default settings) when you reach 2048"
 msgid "Congratulations!"
-msgstr ""
+msgstr "Ayyuz!"
 
 #: src/game_window.rs:577
 msgctxt ""
@@ -418,7 +418,7 @@ msgctxt ""
 "button in the \"Congratulations\" dialog that appears (with default "
 "settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
 msgid "_New Game"
-msgstr ""
+msgstr "Urar amay_nut"
 
 #: src/game_window.rs:594
 msgctxt ""
@@ -431,7 +431,7 @@ msgstr ""
 #: src/game_window.rs:607
 msgctxt "header of the shortcut section"
 msgid "Game"
-msgstr ""
+msgstr "Urar"
 
 #: src/game_window.rs:609
 msgid "Play with arrows"
@@ -448,7 +448,7 @@ msgstr ""
 #: src/game_window.rs:621
 msgctxt "header of the shortcut section"
 msgid "New Game"
-msgstr ""
+msgstr "Urar amaynut"
 
 #: src/game_window.rs:624
 msgid "Choose a new game"
@@ -456,7 +456,7 @@ msgstr ""
 
 #: src/game_window.rs:628
 msgid "Start a new game"
-msgstr ""
+msgstr "Bdu urar amaynut"
 
 #: src/game_window.rs:634
 msgctxt "header of the shortcut section"
@@ -469,19 +469,19 @@ msgstr ""
 
 #: src/game_window.rs:636
 msgid "Help"
-msgstr ""
+msgstr "Tallalt"
 
 #: src/game_window.rs:638
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Inegzumen n unasiw"
 
 #: src/game_window.rs:642
 msgid "About"
-msgstr ""
+msgstr "Ɣef"
 
 #: src/game_window.rs:645
 msgid "Quit"
-msgstr ""
+msgstr "Ffeɣ"
 
 #: src/grid.rs:46
 msgid ""
