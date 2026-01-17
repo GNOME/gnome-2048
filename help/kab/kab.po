@@ -1,0 +1,208 @@
+# Kabyle translation for gnome-2048.
+# Copyright (C) 2026 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# ButterflyOfFire <butterflyoffire@protonmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"POT-Creation-Date: 2026-01-16 16:08+0000\n"
+"PO-Revision-Date: 2026-01-17 09:42+0100\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"Language-Team: Kabyle\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: kab\n"
+"X-DL-VCS-Web: https://gitlab.gnome.org/GNOME/gnome-2048/\n"
+"X-DL-Lang: kab\n"
+"X-DL-Module: gnome-2048\n"
+"X-DL-Branch: master\n"
+"X-DL-Domain: help\n"
+"X-DL-State: Translating\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Gtranslator 49.0\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr ""
+
+#. (itstool) path: info/title
+#: C/index.page:6
+msgctxt "link:trail"
+msgid "2048"
+msgstr ""
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "2048"
+msgstr ""
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "2048"
+msgstr ""
+
+#. (itstool) path: credit/name
+#: C/index.page:11
+msgid "Juan R. García Blanco"
+msgstr ""
+
+#. (itstool) path: credit/years
+#: C/index.page:13
+msgid "2014"
+msgstr ""
+
+#. (itstool) path: license/p
+#: C/index.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> 2048"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/index.page:20
+msgid ""
+"<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
+"on Veewo Studios' 1024."
+msgstr ""
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr ""
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr ""
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr ""
