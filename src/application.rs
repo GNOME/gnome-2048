@@ -19,7 +19,7 @@
 
 use crate::config::VERSION;
 use adw::{self, prelude::*, subclass::prelude::*};
-use gettextrs::{gettext, pgettext};
+use gettextrs::gettext;
 use gtk::{gio, glib};
 
 const SETTINGS_SCHEMA: &str = "org.gnome.TwentyFortyEight";
@@ -70,38 +70,28 @@ mod imp {
                 glib::Char::from(b'c'),
                 glib::OptionFlags::NONE,
                 glib::OptionArg::String,
-                &pgettext(
-                    "command-line option description",
-                    "Play in the terminal (see \"--cli=help\")",
-                ),
-                Some(&pgettext(
-                    "in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal",
-                    "COMMAND",
-                )),
+                // Translators: command-line option description
+                &gettext("Play in the terminal (see \"--cli=help\")"),
+                // Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal
+                Some(&gettext("COMMAND")),
             );
             app.add_main_option(
                 "size",
                 glib::Char::from(b's'),
                 glib::OptionFlags::NONE,
                 glib::OptionArg::String,
-                &pgettext(
-                    "command-line option description",
-                    "Start new game of given size",
-                ),
-                Some(&pgettext(
-                    "in the command-line options description, text to indicate the user should specify a size after '--size'",
-                    "SIZE",
-                )),
+                // Translators: command-line option description
+                &gettext("Start new game of given size"),
+                // Translators: in the command-line options description, text to indicate the user should specify a size after '--size'
+                Some(&gettext("SIZE")),
             );
             app.add_main_option(
                 "version",
                 glib::Char::from(b'v'),
                 glib::OptionFlags::NONE,
                 glib::OptionArg::None,
-                &pgettext(
-                    "command-line option description",
-                    "Print release version and exit",
-                ),
+                // Translators: command-line option description
+                &gettext("Print release version and exit"),
                 None,
             );
         }

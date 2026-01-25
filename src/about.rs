@@ -19,40 +19,31 @@
 
 use crate::config::VERSION;
 use adw::prelude::*;
-use gettextrs::pgettext;
+use gettextrs::gettext;
 
 pub fn about(parent: Option<&gtk::Widget>) {
     adw::AboutDialog::builder()
-        .application_name(pgettext("about dialog text; the program name", "2048"))
+        // Translators: about dialog text; the program name
+        .application_name(gettext("2048"))
         .application_icon("org.gnome.TwentyFortyEight")
         .version(VERSION)
-        .comments(pgettext(
-            "about dialog text; a introduction to the game",
-            "A clone of 2048 for GNOME",
-        ))
+        // Translators: about dialog text; a introduction to the game
+        .comments(gettext("A clone of 2048 for GNOME"))
         .license_type(gtk::License::Gpl30)
         .copyright(
             String::new()
-                + &pgettext(
-                    "text crediting a maintainer, seen in the About dialog",
-                    "Copyright \u{a9} 2014-2015 – Juan R. García Blanco",
-                )
+                // Translators: text crediting a maintainer, seen in the About dialog
+                + &gettext("Copyright \u{a9} 2014-2015 – Juan R. García Blanco")
                 + "\n"
-                + &pgettext(
-                    "text crediting a maintainer, seen in the About dialog",
-                    "Copyright \u{a9} 2016-2020 – Arnaud Bonatti",
-                )
+                // Translators: text crediting a maintainer, seen in the About dialog
+                + &gettext("Copyright \u{a9} 2016-2020 – Arnaud Bonatti")
                 + "\n"
-                + &pgettext(
-                    "text crediting a maintainer, seen in the About dialog",
-                    "Copyright \u{a9} 2025 – Andrey Kutejko",
-                ),
+                // Translators: text crediting a maintainer, seen in the About dialog
+                + &gettext("Copyright \u{a9} 2025 – Andrey Kutejko"),
         )
         .developers(["Juan R. García Blanco", "Arnaud Bonatti", "Andrey Kutejko"])
-        .translator_credits(pgettext(
-            "about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!",
-            "translator-credits",
-        ))
+        // Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+        .translator_credits(gettext("translator-credits"))
         .website("https://gitlab.gnome.org/GNOME/gnome-2048/")
         .build()
         .present(parent);

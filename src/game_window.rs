@@ -111,10 +111,8 @@ mod imp {
                     .title(pgettext("window title", "GNOME 2048"))
                     .build(),
                 new_game_button: gtk::MenuButton::builder()
-                    .label(&pgettext(
-                        "button in the headerbar (with a mnemonic that appears pressing Alt)",
-                        "_New Game",
-                    ))
+                    // Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+                    .label(&gettext("_New Game"))
                     .use_underline(true)
                     .valign(gtk::Align::Center)
                     .can_focus(true)
@@ -303,10 +301,8 @@ mod imp {
         }
 
         async fn finished(&self, show_scores: bool) {
-            self.title.set_subtitle(&pgettext(
-                "subtitle of the headerbar, when the user cannot move anymore",
-                "Game Over",
-            ));
+            // Translators: subtitle of the headerbar, when the user cannot move anymore
+            self.title.set_subtitle(&gettext("Game Over"));
             if show_scores {
                 self.scores
                     .show_best_scores(
@@ -412,15 +408,18 @@ pub fn create_window(
 fn hamburger_menu(allow_undo: bool) -> gio::Menu {
     let menu = gio::Menu::new();
     menu.append(
-        Some(&pgettext("entry in the hamburger menu", "Undo")),
+        // Translators: entry in the hamburger menu
+        Some(&gettext("Undo")),
         Some("win.undo"),
     );
     menu.append_submenu(
-        Some(&pgettext("entry in the hamburger menu", "Appearance")),
+        // Translators: entry in the hamburger menu
+        Some(&gettext("Appearance")),
         &theme_menu(),
     );
     menu.append_submenu(
-        Some(&pgettext("entry in the hamburger menu", "Spawn tiles")),
+        // Translators: entry in the hamburger menu
+        Some(&gettext("Spawn tiles")),
         &spawn_strategy_menu(),
     );
     if allow_undo {
@@ -435,24 +434,18 @@ fn hamburger_menu(allow_undo: bool) -> gio::Menu {
 fn theme_menu() -> gio::Menu {
     let section = gio::Menu::new();
     section.append(
-        Some(&pgettext(
-            "entry in the hamburger menu; a color theme",
-            "Adwaita",
-        )),
+        // Translators: entry in the hamburger menu; a color theme
+        Some(&gettext("Adwaita")),
         Some(&GameWindow::theme_action(Theme::Adwaita)),
     );
     section.append(
-        Some(&pgettext(
-            "entry in the hamburger menu; a color theme",
-            "Tango",
-        )),
+        // Translators: entry in the hamburger menu; a color theme
+        Some(&gettext("Tango")),
         Some(&GameWindow::theme_action(Theme::Tango)),
     );
     section.append(
-        Some(&pgettext(
-            "entry in the hamburger menu; a color theme",
-            "Classic",
-        )),
+        // Translators: entry in the hamburger menu; a color theme
+        Some(&gettext("Classic")),
         Some(&GameWindow::theme_action(Theme::Classic)),
     );
     section.freeze();
@@ -462,17 +455,13 @@ fn theme_menu() -> gio::Menu {
 fn spawn_strategy_menu() -> gio::Menu {
     let section = gio::Menu::new();
     section.append(
-        Some(&pgettext(
-            "entry in the hamburger menu; a spawn strategy",
-            "Twos only",
-        )),
+        // Translators: entry in the hamburger menu; a spawn strategy
+        Some(&gettext("Twos only")),
         Some(&GameWindow::spawn_strategy_action(SpawnStrategy::TwosOnly)),
     );
     section.append(
-        Some(&pgettext(
-            "entry in the hamburger menu; a spawn strategy",
-            "Classic (twos and fours)",
-        )),
+        // Translators: entry in the hamburger menu; a spawn strategy
+        Some(&gettext("Classic (twos and fours)")),
         Some(&GameWindow::spawn_strategy_action(
             SpawnStrategy::TwosAndFours,
         )),
@@ -484,10 +473,8 @@ fn spawn_strategy_menu() -> gio::Menu {
 fn undo_section() -> gio::Menu {
     let section = gio::Menu::new();
     section.append(
-        Some(&pgettext(
-            "entry in the hamburger menu, if the \"Allow undo\" option is set to true",
-            "Undo",
-        )),
+        // Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+        Some(&gettext("Undo")),
         Some("win.undo"),
     );
     section.freeze();
@@ -497,10 +484,8 @@ fn undo_section() -> gio::Menu {
 fn scores_section() -> gio::Menu {
     let section = gio::Menu::new();
     section.append(
-        Some(&pgettext(
-            "entry in the hamburger menu; opens a window showing best scores",
-            "Scores",
-        )),
+        // Translators: entry in the hamburger menu; opens a window showing best scores
+        Some(&gettext("Scores")),
         Some("win.scores"),
     );
     section.freeze();
@@ -510,12 +495,18 @@ fn scores_section() -> gio::Menu {
 fn app_actions_section() -> gio::Menu {
     let section = gio::Menu::new();
     section.append(
-        Some(&pgettext("menu entry", "Keyboard Shortcuts")),
+        // Translators: menu entry
+        Some(&gettext("Keyboard Shortcuts")),
         Some("win.show-keyboard-shortcuts"),
     );
-    section.append(Some(&pgettext("menu entry", "Help")), Some("app.help"));
     section.append(
-        Some(&pgettext("menu entry", "About 2048")),
+        // Translators: menu entry
+        Some(&gettext("Help")),
+        Some("app.help"),
+    );
+    section.append(
+        // Translators: menu entry
+        Some(&gettext("About 2048")),
         Some("app.about"),
     );
     section.freeze();
@@ -526,26 +517,20 @@ fn new_game_menu(extra_size: Option<GridSize>) -> gio::Menu {
     let menu = gio::Menu::new();
 
     menu.append(
-        Some(&pgettext(
-            "on main window, entry of the menu when clicking on the \"New Game\" button",
-            "3 × 3",
-        )),
+        // Translators: on main window, entry of the menu when clicking on the "New Game" button
+        Some(&gettext("3 × 3")),
         Some(&GameWindow::new_game_action(Some(GridSize::GRID_3_BY_3))),
     );
 
     menu.append(
-        Some(&pgettext(
-            "on main window, entry of the menu when clicking on the \"New Game\" button",
-            "4 × 4",
-        )),
+        // Translators: on main window, entry of the menu when clicking on the "New Game" button
+        Some(&gettext("4 × 4")),
         Some(&GameWindow::new_game_action(Some(GridSize::GRID_4_BY_4))),
     );
 
     menu.append(
-        Some(&pgettext(
-            "on main window, entry of the menu when clicking on the \"New Game\" button",
-            "5 × 5",
-        )),
+        // Translators: on main window, entry of the menu when clicking on the "New Game" button
+        Some(&gettext("5 × 5")),
         Some(&GameWindow::new_game_action(Some(GridSize::GRID_5_BY_5))),
     );
 
@@ -553,10 +538,8 @@ fn new_game_menu(extra_size: Option<GridSize>) -> gio::Menu {
         && !size.is_predefined()
     {
         menu.append(
-            Some(&pgettext(
-                "on main window, entry of the menu when clicking on the \"New Game\" button; appears only if the user has set rows and cols manually",
-                "Custom",
-            )),
+            // Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+            Some(&gettext("Custom")),
             Some(&GameWindow::new_game_action(Some(size))),
         );
     }
@@ -567,32 +550,24 @@ fn new_game_menu(extra_size: Option<GridSize>) -> gio::Menu {
 
 async fn congratulate(parent: &gtk::Widget, target_value: u64) -> bool {
     let dialog = adw::AlertDialog::new(
-        Some(&pgettext(
-            "title of the dialog that appears (with default settings) when you reach 2048",
-            "Congratulations!",
-        )),
+        // Translators: title of the dialog that appears (with default settings) when you reach 2048
+        Some(&gettext("Congratulations!")),
+        // Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
         Some(
-            &pgettext(
-                "text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)",
-                "You have obtained the %u tile for the first time!",
-            )
-            .replace("%u", &target_value.to_string()),
+            &gettext("You have obtained the %u tile for the first time!")
+                .replace("%u", &target_value.to_string()),
         ),
     );
     dialog.add_responses(&[
         (
             "new-game",
-            &pgettext(
-                "button in the \"Congratulations\" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)",
-                "_New Game",
-            ),
+            // Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+            &gettext("_New Game"),
         ),
         (
             "continue",
-            &pgettext(
-                "button in the \"Congratulations\" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)",
-                "_Keep Playing",
-            ),
+            // Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+            &gettext("_Keep Playing"),
         ),
     ]);
     dialog.set_default_response(Some("new-game"));
@@ -603,8 +578,8 @@ async fn congratulate(parent: &gtk::Widget, target_value: u64) -> bool {
 fn show_keyboard_shortcuts(parent: &gtk::Widget) {
     let dialog = adw::ShortcutsDialog::new();
 
-    let game_section =
-        adw::ShortcutsSection::new(Some(&pgettext("header of the shortcut section", "Game")));
+    // Translators: header of the shortcut section
+    let game_section = adw::ShortcutsSection::new(Some(&gettext("Game")));
     game_section.add(ShortcutsItem::new(
         &gettext("Play with arrows"),
         "Left Up Right Down",
@@ -616,10 +591,8 @@ fn show_keyboard_shortcuts(parent: &gtk::Widget) {
     ));
     dialog.add(game_section);
 
-    let new_game_section = adw::ShortcutsSection::new(Some(&pgettext(
-        "header of the shortcut section",
-        "New Game",
-    )));
+    // Translators: header of the shortcut section
+    let new_game_section = adw::ShortcutsSection::new(Some(&gettext("New Game")));
     new_game_section.add(ShortcutsItem::new(
         &gettext("Choose a new game"),
         "<Primary>n",
@@ -630,8 +603,8 @@ fn show_keyboard_shortcuts(parent: &gtk::Widget) {
     ));
     dialog.add(new_game_section);
 
-    let generic_section =
-        adw::ShortcutsSection::new(Some(&pgettext("header of the shortcut section", "Generic")));
+    // Translators: header of the shortcut section
+    let generic_section = adw::ShortcutsSection::new(Some(&gettext("Generic")));
     generic_section.add(ShortcutsItem::new(&gettext("Toggle main menu"), "F10 Menu"));
     generic_section.add(ShortcutsItem::new(&gettext("Help"), "F1 <Primary>F1"));
     generic_section.add(ShortcutsItem::new(
