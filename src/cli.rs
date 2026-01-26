@@ -57,7 +57,7 @@ To play GNOME 2048 in command-line:
             return Ok(());
         }
         ("new", Some(size)) => {
-            save_size(&settings, size)?;
+            save_size(settings, size)?;
             let mut grid = Grid::new(size);
             let _ = grid.new_tile(spawn_strategy); // first tile
             grid

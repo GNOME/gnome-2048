@@ -652,9 +652,11 @@ mod imp {
                 &*self.obj(),
                 0.0,
                 1.0,
-                animate
-                    .then(|| self.animations_speed.get() as u32)
-                    .unwrap_or(10),
+                if animate {
+                    self.animations_speed.get() as u32
+                } else {
+                    10
+                },
                 adw::CallbackAnimationTarget::new(glib::clone!(
                     #[weak(rename_to=imp)]
                     self,

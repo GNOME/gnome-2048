@@ -103,16 +103,13 @@ pub fn shift_tiles(tiles: &mut [u8]) -> Vec<Movement<usize>> {
 
 fn find_match(tiles: &[u8], i: usize) -> Option<usize> {
     let i_value = tiles[i];
-    for k in (i + 1)..tiles.len() {
-        let k_value = tiles[k];
-        if k_value != 0 {
-            if k_value == i_value {
-                return Some(k);
-            }
-            break;
-        }
-    }
-    None
+    tiles
+        .iter()
+        .enumerate()
+        .skip(i + 1)
+        .find(|(_, value)| **value != 0)
+        .filter(|(_, value)| **value == i_value)
+        .map(|(position, _)| position)
 }
 
 pub fn shift_tiles_rev(tiles: &mut [u8]) -> Vec<Movement<usize>> {

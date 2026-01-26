@@ -87,7 +87,7 @@ mod imp {
                 button.set_active(!button.is_active());
             });
             klass.install_action("win.scores", None, |window, _, _| {
-                window.imp().scores.present_dialog(&*window)
+                window.imp().scores.present_dialog(window)
             });
             klass.install_action("win.show-keyboard-shortcuts", None, |window, _, _| {
                 show_keyboard_shortcuts(window.upcast_ref())
@@ -112,7 +112,7 @@ mod imp {
                     .build(),
                 new_game_button: gtk::MenuButton::builder()
                     // Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
-                    .label(&gettext("_New Game"))
+                    .label(gettext("_New Game"))
                     .use_underline(true)
                     .valign(gtk::Align::Center)
                     .can_focus(true)

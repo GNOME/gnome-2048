@@ -134,7 +134,7 @@ mod imp {
             self.cli_size.set(size);
 
             if let Some(cli_command) = self.cli_command.borrow().as_ref() {
-                return match play_cli(&cli_command, size, &self.settings) {
+                return match play_cli(cli_command, size, &self.settings) {
                     Ok(()) => ControlFlow::Break(glib::ExitCode::SUCCESS),
                     Err(error) => {
                         eprintln!("{error}");

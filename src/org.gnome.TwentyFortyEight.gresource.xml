@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gresources>
-  <gresource prefix="/org/gnome/TwentyFortyEight/gtk">
-    <file preprocess="xml-stripblanks" alias="help-overlay.ui">../data/help-overlay.ui</file>
-  </gresource>
-</gresources>
