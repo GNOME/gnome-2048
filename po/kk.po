@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-13 14:44+0000\n"
-"PO-Revision-Date: 2026-01-16 21:07+0500\n"
+"POT-Creation-Date: 2026-01-26 00:35+0000\n"
+"PO-Revision-Date: 2026-01-26 20:02+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,8 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.8\n"
 
+#. Translators: about dialog text; the program name
 #: data/org.gnome.TwentyFortyEight.desktop.in:2
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8 src/about.rs:27
 msgid "2048"
 msgstr "2048"
 
@@ -140,8 +141,7 @@ msgstr "Анимация жылдамдығы"
 #: data/org.gnome.TwentyFortyEight.gschema.xml:78
 msgid "Duration of animations: show tile, move tile, and dim tile."
 msgstr ""
-"Анимациялар ұзақтығы: плитканы көрсету, плитканы жылжыту және плитканы "
-"күңгірттеу."
+"Анимациялар ұзақтығы: плитканы көрсету, плитканы жылжыту және плитканы күңгірттеу."
 
 #. Translators: summary of a settings key, see 'dconf-editor
 #. /org/gnome/2048/allow-undo'
@@ -181,9 +181,9 @@ msgstr "Түстер тақырыбы."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
-"player puzzle game. Gameplay consists of joining numbers in a grid and obtain "
-"the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-player "
+"puzzle game. Gameplay consists of joining numbers in a grid and obtain the 2048 "
+"tile."
 msgstr ""
 "Өте қызықты 2048 ойынын ойнаңыз. 2048 — танымал бір ойыншыға арналған пазл "
 "ойынының клоны. Ойын барысы тордағы сандарды біріктіріп, 2048 плиткасына қол "
@@ -204,20 +204,19 @@ msgstr ""
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:22
 msgid ""
-"With every new tile obtained you increase your score. If you think you can "
-"easily get the 2048 tile, do not let it stop you, the game does not end there, "
-"you can continue joining tiles and improving your score."
+"With every new tile obtained you increase your score. If you think you can easily "
+"get the 2048 tile, do not let it stop you, the game does not end there, you can "
+"continue joining tiles and improving your score."
 msgstr ""
 "Әрбір жаңа плиткаға қол жеткізген сайын ұпайыңызды арттырасыз. Егер сіз 2048 "
 "плиткасын оңай аламын деп ойласаңыз, бұл сізді тоқтатпасын, ойын мұнымен "
-"аяқталмайды, сіз плиткаларды біріктіруді жалғастырып, ұпайыңызды жақсарта "
-"аласыз."
+"аяқталмайды, сіз плиткаларды біріктіруді жалғастырып, ұпайыңызды жақсарта аласыз."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:27
 msgid ""
-"Originally created by Gabriele Cirulli, 2048 has gained much popularity due to "
-"it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 game "
-"and includes ideas from other clones."
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due to it "
+"being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 game and "
+"includes ideas from other clones."
 msgstr ""
 "Бастапқыда Габриэле Чирулли жасаған 2048 ойыны өзіне өте қатты баурап "
 "алатындығының арқасында үлкен танымалдыққа ие болды. Чируллидің 2048 ойыны, өз "
@@ -232,69 +231,61 @@ msgstr "2048 плиткасына жеткен ойналып жатқан ой�
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
-#: src/about.rs:26
-msgctxt "about dialog text; the program name"
-msgid "2048"
-msgstr "2048"
-
+#. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
-msgctxt "about dialog text; a introduction to the game"
 msgid "A clone of 2048 for GNOME"
-msgstr "GNOME үшін 2048 клоны"
+msgstr "GNOME үшін 2048 ойынының клоны"
 
-#: src/about.rs:38
-msgctxt "text crediting a maintainer, seen in the About dialog"
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:36
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "Авторлық құқық © 2014-2015 – Juan R. García Blanco"
 
-#: src/about.rs:43
-msgctxt "text crediting a maintainer, seen in the About dialog"
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:39
 msgid "Copyright © 2016-2020 – Arnaud Bonatti"
 msgstr "Авторлық құқық © 2016-2020 – Arnaud Bonatti"
 
-#: src/about.rs:48
-msgctxt "text crediting a maintainer, seen in the About dialog"
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:42
 msgid "Copyright © 2025 – Andrey Kutejko"
 msgstr "Авторлық құқық © 2025 – Andrey Kutejko"
 
-#: src/about.rs:54
-msgctxt ""
-"about dialog text; this string should be replaced by a text crediting "
-"yourselves and your translation team, or should be left empty. Do not translate "
-"literally!"
+#. Translators: about dialog text; this string should be replaced by a text
+#. crediting yourselves and your translation team, or should be left empty. Do
+#. not translate literally!
+#: src/about.rs:46
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
-#: src/application.rs:75
-msgctxt "command-line option description"
+#. Translators: command-line option description
+#: src/application.rs:74
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "Терминалда ойнау (\"--cli=help\" қараңыз)"
 
-#: src/application.rs:79
-msgctxt ""
-"in the command-line options description, text to indicate the user should give "
-"a command after '--cli' for playing in the terminal"
+#. Translators: in the command-line options description, text to indicate the
+#. user should give a command after '--cli' for playing in the terminal
+#: src/application.rs:76
 msgid "COMMAND"
-msgstr "Команда"
+msgstr "КОМАНДА"
 
-#: src/application.rs:89
-msgctxt "command-line option description"
+#. Translators: command-line option description
+#: src/application.rs:84
 msgid "Start new game of given size"
 msgstr "Берілген өлшемдегі жаңа ойынды бастау"
 
-#: src/application.rs:93
-msgctxt ""
-"in the command-line options description, text to indicate the user should "
-"specify a size after '--size'"
+#. Translators: in the command-line options description, text to indicate the
+#. user should specify a size after '--size'
+#: src/application.rs:86
 msgid "SIZE"
-msgstr "Өлшем"
+msgstr "ӨЛШЕМІ"
 
-#: src/application.rs:103
-msgctxt "command-line option description"
+#. Translators: command-line option description
+#: src/application.rs:94
 msgid "Print release version and exit"
-msgstr "Релиз нұсқасын шығару және шығу"
+msgstr "Шығарылым нұсқасын басып шығару және шығу"
 
-#: src/application.rs:221
+#: src/application.rs:211
 msgid "Size must be in the form COLSxROWS."
 msgstr "Өлшем пішімі бағандарxжолдар түрінде болуы тиіс."
 
@@ -333,187 +324,172 @@ msgctxt "window title"
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: src/game_window.rs:116
-msgctxt "button in the headerbar (with a mnemonic that appears pressing Alt)"
+#. Translators: button in the headerbar (with a mnemonic that appears pressing
+#. Alt)
+#. Translators: button in the "Congratulations" dialog that appears (with
+#. default settings) when you reach 2048 (with a mnemonic that appears
+#. pressing Alt)
+#: src/game_window.rs:115 src/game_window.rs:565
 msgid "_New Game"
 msgstr "_Жаңа ойын"
 
-#: src/game_window.rs:308
-msgctxt "subtitle of the headerbar, when the user cannot move anymore"
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game_window.rs:305
 msgid "Game Over"
 msgstr "Ойын аяқталды"
 
-#: src/game_window.rs:415
-msgctxt "entry in the hamburger menu"
+#. Translators: entry in the hamburger menu
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set
+#. to true
+#: src/game_window.rs:412 src/game_window.rs:477
 msgid "Undo"
 msgstr "Болдырмау"
 
-#: src/game_window.rs:419
-msgctxt "entry in the hamburger menu"
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:417
 msgid "Appearance"
 msgstr "Сыртқы түрі"
 
-#: src/game_window.rs:423
-msgctxt "entry in the hamburger menu"
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:422
 msgid "Spawn tiles"
-msgstr "Плиткалардың пайда болуы"
+msgstr "Плиткаларды шығару"
 
-#: src/game_window.rs:440
-msgctxt "entry in the hamburger menu; a color theme"
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:438
 msgid "Adwaita"
 msgstr "Adwaita"
 
-#: src/game_window.rs:447
-msgctxt "entry in the hamburger menu; a color theme"
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:443
 msgid "Tango"
 msgstr "Tango"
 
-#: src/game_window.rs:454
-msgctxt "entry in the hamburger menu; a color theme"
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:448
 msgid "Classic"
 msgstr "Классикалық"
 
-#: src/game_window.rs:467
-msgctxt "entry in the hamburger menu; a spawn strategy"
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:459
 msgid "Twos only"
 msgstr "Тек екіліктер"
 
-#: src/game_window.rs:474
-msgctxt "entry in the hamburger menu; a spawn strategy"
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:464
 msgid "Classic (twos and fours)"
 msgstr "Классикалық (екіліктер мен төрттіктер)"
 
-#: src/game_window.rs:489
-msgctxt "entry in the hamburger menu, if the \"Allow undo\" option is set to true"
-msgid "Undo"
-msgstr "Болдырмау"
-
-#: src/game_window.rs:502
-msgctxt "entry in the hamburger menu; opens a window showing best scores"
+#. Translators: entry in the hamburger menu; opens a window showing best
+#. scores
+#: src/game_window.rs:488
 msgid "Scores"
-msgstr "Есептер"
+msgstr "Ұпайлар"
 
-#: src/game_window.rs:513
-msgctxt "menu entry"
+#. Translators: menu entry
+#: src/game_window.rs:499
 msgid "Keyboard Shortcuts"
 msgstr "Пернетақта жарлықтары"
 
-#: src/game_window.rs:516
-msgctxt "menu entry"
+#. Translators: menu entry
+#: src/game_window.rs:504 src/game_window.rs:609
 msgid "Help"
 msgstr "Көмек"
 
-#: src/game_window.rs:518
-msgctxt "menu entry"
+#. Translators: menu entry
+#: src/game_window.rs:509
 msgid "About 2048"
-msgstr "2048 ойыны туралы"
+msgstr "2048 туралы"
 
-#: src/game_window.rs:531
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button"
+#. Translators: on main window, entry of the menu when clicking on the "New
+#. Game" button
+#: src/game_window.rs:521
 msgid "3 × 3"
 msgstr "3 × 3"
 
-#: src/game_window.rs:539
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button"
+#. Translators: on main window, entry of the menu when clicking on the "New
+#. Game" button
+#: src/game_window.rs:527
 msgid "4 × 4"
 msgstr "4 × 4"
 
-#: src/game_window.rs:547
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button"
+#. Translators: on main window, entry of the menu when clicking on the "New
+#. Game" button
+#: src/game_window.rs:533
 msgid "5 × 5"
 msgstr "5 × 5"
 
-#: src/game_window.rs:558
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button; "
-"appears only if the user has set rows and cols manually"
+#. Translators: on main window, entry of the menu when clicking on the "New
+#. Game" button; appears only if the user has set rows and cols manually
+#: src/game_window.rs:542
 msgid "Custom"
 msgstr "Таңдауыңызша"
 
-#: src/game_window.rs:572
-msgctxt ""
-"title of the dialog that appears (with default settings) when you reach 2048"
+#. Translators: title of the dialog that appears (with default settings) when
+#. you reach 2048
+#: src/game_window.rs:554
 msgid "Congratulations!"
 msgstr "Құттықтаймыз!"
 
-#: src/game_window.rs:577
-msgctxt ""
-"text of the dialog that appears when the user obtains the first 2048 tile in "
-"the game; the %u is replaced by the number the user wanted to reach (usually, "
-"2048)"
+#: src/game_window.rs:557
 msgid "You have obtained the %u tile for the first time!"
-msgstr "Сіз %u плиткасын алғаш рет алдыңыз!"
+msgstr "Сіз алғаш рет %u плиткасына қол жеткіздіңіз!"
 
-#: src/game_window.rs:587
-msgctxt ""
-"button in the \"Congratulations\" dialog that appears (with default settings) "
-"when you reach 2048 (with a mnemonic that appears pressing Alt)"
-msgid "_New Game"
-msgstr "Ж_аңа ойын"
-
-#: src/game_window.rs:594
-msgctxt ""
-"button in the \"Congratulations\" dialog that appears (with default settings) "
-"when you reach 2048; the player can continue playing after reaching 2048 (with "
-"a mnemonic that appears pressing Alt)"
+#. Translators: button in the "Congratulations" dialog that appears (with
+#. default settings) when you reach 2048; the player can continue playing
+#. after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:570
 msgid "_Keep Playing"
-msgstr "О_йнауды жалғастыру"
+msgstr "Ойынды _жалғастыру"
 
-#: src/game_window.rs:607
-msgctxt "header of the shortcut section"
+#. Translators: header of the shortcut section
+#: src/game_window.rs:582
 msgid "Game"
 msgstr "Ойын"
 
-#: src/game_window.rs:609
+#: src/game_window.rs:584
 msgid "Play with arrows"
 msgstr "Бағдарша пернелерімен ойнау"
 
-#: src/game_window.rs:612
+#: src/game_window.rs:587
 msgid "Play with WASD"
 msgstr "Бағдарша пернелерімен ойнау"
 
-#: src/game_window.rs:614
+#: src/game_window.rs:589
 msgid "Play with VIM-style bindings"
 msgstr "VIM стиліндегі байлаулармен ойнаңыз"
 
-#: src/game_window.rs:621
-msgctxt "header of the shortcut section"
+#. Translators: header of the shortcut section
+#: src/game_window.rs:595
 msgid "New Game"
-msgstr "Ж_аңа ойын"
+msgstr "Жаңа ойын"
 
-#: src/game_window.rs:624
+#: src/game_window.rs:597
 msgid "Choose a new game"
 msgstr "Жаңа ойынды таңдау"
 
-#: src/game_window.rs:628
+#: src/game_window.rs:601
 msgid "Start a new game"
 msgstr "Жаңа ойынды бастау"
 
-#: src/game_window.rs:634
-msgctxt "header of the shortcut section"
+#. Translators: header of the shortcut section
+#: src/game_window.rs:607
 msgid "Generic"
 msgstr "Жалпы"
 
-#: src/game_window.rs:635
+#: src/game_window.rs:608
 msgid "Toggle main menu"
 msgstr "Басты мәзірді көрсету/жасыру"
 
-#: src/game_window.rs:636
-msgid "Help"
-msgstr "Көмек"
-
-#: src/game_window.rs:638
+#: src/game_window.rs:611
 msgid "Keyboard shortcuts"
 msgstr "Пернетақта жарлықтары"
 
-#: src/game_window.rs:642
+#: src/game_window.rs:615
 msgid "About"
 msgstr "Осы туралы"
 
-#: src/game_window.rs:645
+#: src/game_window.rs:618
 msgid "Quit"
 msgstr "Шығу"
 
@@ -539,6 +515,24 @@ msgstr "5 × 5 торы"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Тор өлшемі"
+
+#~ msgctxt "about dialog text; the program name"
+#~ msgid "2048"
+#~ msgstr "2048"
+
+#~ msgctxt "entry in the hamburger menu, if the \"Allow undo\" option is set to true"
+#~ msgid "Undo"
+#~ msgstr "Болдырмау"
+
+#~ msgctxt "menu entry"
+#~ msgid "Help"
+#~ msgstr "Көмек"
+
+#~ msgctxt ""
+#~ "button in the \"Congratulations\" dialog that appears (with default settings) "
+#~ "when you reach 2048 (with a mnemonic that appears pressing Alt)"
+#~ msgid "_New Game"
+#~ msgstr "Ж_аңа ойын"
 
 #~ msgctxt "shortcut window"
 #~ msgid "New game"
