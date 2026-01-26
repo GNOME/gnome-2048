@@ -2,13 +2,13 @@
 # Copyright (C) 2020 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-12-13 14:44+0000\n"
-"PO-Revision-Date: 2025-12-25 21:45+0200\n"
+"POT-Creation-Date: 2026-01-25 22:36+0000\n"
+"PO-Revision-Date: 2026-01-26 02:20+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -19,8 +19,9 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
+#. Translators: about dialog text; the program name
 #: data/org.gnome.TwentyFortyEight.desktop.in:2
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8 src/about.rs:27
 msgid "2048"
 msgstr "2048"
 
@@ -207,75 +208,84 @@ msgstr "У поточній грі досягнуто плитки 2048"
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
-#: src/about.rs:26
-msgctxt "about dialog text; the program name"
-msgid "2048"
-msgstr "2048"
-
+#. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
-msgctxt "about dialog text; a introduction to the game"
+#| msgctxt "about dialog text; a introduction to the game"
+#| msgid "A clone of 2048 for GNOME"
 msgid "A clone of 2048 for GNOME"
 msgstr "Клон 2048 для GNOME"
 
-#: src/about.rs:38
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:36
 #| msgctxt "text crediting a maintainer, seen in the About dialog"
-#| msgid "Copyright \\u{a9} 2014-2015 – Juan R. García Blanco"
-msgctxt "text crediting a maintainer, seen in the About dialog"
+#| msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "© Juan R. García Blanco, 2014–2015"
 
-#: src/about.rs:43
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:39
 #| msgctxt "text crediting a maintainer, seen in the About dialog"
-#| msgid "Copyright \\u{a9} 2016-2020 – Arnaud Bonatti"
-msgctxt "text crediting a maintainer, seen in the About dialog"
+#| msgid "Copyright © 2016-2020 – Arnaud Bonatti"
 msgid "Copyright © 2016-2020 – Arnaud Bonatti"
 msgstr "© Arnaud Bonatti, 2016-2020"
 
-#: src/about.rs:48
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:42
 #| msgctxt "text crediting a maintainer, seen in the About dialog"
-#| msgid "Copyright \\u{a9} 2025 – Andrey Kutejko"
-msgctxt "text crediting a maintainer, seen in the About dialog"
+#| msgid "Copyright © 2025 – Andrey Kutejko"
 msgid "Copyright © 2025 – Andrey Kutejko"
 msgstr "© Andrey Kutejko, 2025"
 
-#: src/about.rs:54
-msgctxt ""
-"about dialog text; this string should be replaced by a text crediting "
-"yourselves and your translation team, or should be left empty. Do not "
-"translate literally!"
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/about.rs:46
+#| msgctxt ""
+#| "about dialog text; this string should be replaced by a text crediting "
+#| "yourselves and your translation team, or should be left empty. Do not "
+#| "translate literally!"
+#| msgid "translator-credits"
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2025"
 
-#: src/application.rs:75
-msgctxt "command-line option description"
+#. Translators: command-line option description
+#: src/application.rs:74
+#| msgctxt "command-line option description"
+#| msgid "Play in the terminal (see \"--cli=help\")"
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "Грати у терміналі (див. «--cli=help»)"
 
-#: src/application.rs:79
-msgctxt ""
-"in the command-line options description, text to indicate the user should "
-"give a command after '--cli' for playing in the terminal"
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal
+#: src/application.rs:76
+#| msgctxt ""
+#| "in the command-line options description, text to indicate the user should "
+#| "give a command after '--cli' for playing in the terminal"
+#| msgid "COMMAND"
 msgid "COMMAND"
 msgstr "КОМАНДА"
 
-#: src/application.rs:89
-msgctxt "command-line option description"
+#. Translators: command-line option description
+#: src/application.rs:84
+#| msgctxt "command-line option description"
+#| msgid "Start new game of given size"
 msgid "Start new game of given size"
 msgstr "Почати нову гру із вказаним розміром ігрового поля"
 
-#: src/application.rs:93
-msgctxt ""
-"in the command-line options description, text to indicate the user should "
-"specify a size after '--size'"
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size'
+#: src/application.rs:86
+#| msgctxt ""
+#| "in the command-line options description, text to indicate the user should "
+#| "specify a size after '--size'"
+#| msgid "SIZE"
 msgid "SIZE"
 msgstr "РОЗМІР"
 
-#: src/application.rs:103
-msgctxt "command-line option description"
+#. Translators: command-line option description
+#: src/application.rs:94
+#| msgctxt "command-line option description"
+#| msgid "Print release version and exit"
 msgid "Print release version and exit"
 msgstr "Показати версію випуску та вийти"
 
-#: src/application.rs:221
+#: src/application.rs:211
 msgid "Size must be in the form COLSxROWS."
 msgstr "Розмір має бути вказано у форматі СТОВПЧИКИxРЯДКИ."
 
@@ -314,188 +324,220 @@ msgctxt "window title"
 msgid "GNOME 2048"
 msgstr "GNOME 2048"
 
-#: src/game_window.rs:116
-msgctxt "button in the headerbar (with a mnemonic that appears pressing Alt)"
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:115 src/game_window.rs:565
+#| msgctxt ""
+#| "button in the headerbar (with a mnemonic that appears pressing Alt)"
+#| msgid "_New Game"
 msgid "_New Game"
 msgstr "_Нова гра"
 
-#: src/game_window.rs:308
-msgctxt "subtitle of the headerbar, when the user cannot move anymore"
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game_window.rs:305
+#| msgctxt "subtitle of the headerbar, when the user cannot move anymore"
+#| msgid "Game Over"
 msgid "Game Over"
 msgstr "Гру завершено"
 
-#: src/game_window.rs:415
-msgctxt "entry in the hamburger menu"
+#. Translators: entry in the hamburger menu
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/game_window.rs:412 src/game_window.rs:477
+#| msgctxt "entry in the hamburger menu"
+#| msgid "Undo"
 msgid "Undo"
 msgstr "Скасувати"
 
-#: src/game_window.rs:419
-msgctxt "entry in the hamburger menu"
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:417
+#| msgctxt "entry in the hamburger menu"
+#| msgid "Appearance"
 msgid "Appearance"
 msgstr "Вигляд"
 
-#: src/game_window.rs:423
-msgctxt "entry in the hamburger menu"
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:422
+#| msgctxt "entry in the hamburger menu"
+#| msgid "Spawn tiles"
 msgid "Spawn tiles"
 msgstr "Розсіяти плитки"
 
-#: src/game_window.rs:440
-msgctxt "entry in the hamburger menu; a color theme"
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:438
+#| msgctxt "entry in the hamburger menu; a color theme"
+#| msgid "Adwaita"
 msgid "Adwaita"
 msgstr "Адвайта"
 
-#: src/game_window.rs:447
-msgctxt "entry in the hamburger menu; a color theme"
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:443
+#| msgctxt "entry in the hamburger menu; a color theme"
+#| msgid "Tango"
 msgid "Tango"
 msgstr "Танго"
 
-#: src/game_window.rs:454
-msgctxt "entry in the hamburger menu; a color theme"
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:448
+#| msgctxt "entry in the hamburger menu; a color theme"
+#| msgid "Classic"
 msgid "Classic"
 msgstr "Класична"
 
-#: src/game_window.rs:467
-msgctxt "entry in the hamburger menu; a spawn strategy"
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:459
+#| msgctxt "entry in the hamburger menu; a spawn strategy"
+#| msgid "Twos only"
 msgid "Twos only"
 msgstr "Лише двійки"
 
-#: src/game_window.rs:474
-msgctxt "entry in the hamburger menu; a spawn strategy"
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:464
+#| msgctxt "entry in the hamburger menu; a spawn strategy"
+#| msgid "Classic (twos and fours)"
 msgid "Classic (twos and fours)"
 msgstr "Класична (двійки і четвірки)"
 
-#: src/game_window.rs:489
-msgctxt ""
-"entry in the hamburger menu, if the \"Allow undo\" option is set to true"
-msgid "Undo"
-msgstr "Скасувати"
-
-#: src/game_window.rs:502
-msgctxt "entry in the hamburger menu; opens a window showing best scores"
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/game_window.rs:488
+#| msgctxt "entry in the hamburger menu; opens a window showing best scores"
+#| msgid "Scores"
 msgid "Scores"
 msgstr "Результати"
 
-#: src/game_window.rs:513
-msgctxt "menu entry"
+#. Translators: menu entry
+#: src/game_window.rs:499
+#| msgctxt "menu entry"
+#| msgid "Keyboard Shortcuts"
 msgid "Keyboard Shortcuts"
 msgstr "Клавіатурні скорочення"
 
-#: src/game_window.rs:516
-msgctxt "menu entry"
+#. Translators: menu entry
+#: src/game_window.rs:504 src/game_window.rs:609
 msgid "Help"
 msgstr "Довідка"
 
-#: src/game_window.rs:518
-msgctxt "menu entry"
+#. Translators: menu entry
+#: src/game_window.rs:509
+#| msgctxt "menu entry"
+#| msgid "About 2048"
 msgid "About 2048"
 msgstr "Про «2048»"
 
-#: src/game_window.rs:531
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button"
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:521
+#| msgctxt ""
+#| "on main window, entry of the menu when clicking on the \"New Game\" button"
+#| msgid "3 × 3"
 msgid "3 × 3"
 msgstr "3 × 3"
 
-#: src/game_window.rs:539
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button"
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:527
+#| msgctxt ""
+#| "on main window, entry of the menu when clicking on the \"New Game\" button"
+#| msgid "4 × 4"
 msgid "4 × 4"
 msgstr "4 × 4"
 
-#: src/game_window.rs:547
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button"
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:533
+#| msgctxt ""
+#| "on main window, entry of the menu when clicking on the \"New Game\" button"
+#| msgid "5 × 5"
 msgid "5 × 5"
 msgstr "5 × 5"
 
-#: src/game_window.rs:558
-msgctxt ""
-"on main window, entry of the menu when clicking on the \"New Game\" button; "
-"appears only if the user has set rows and cols manually"
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/game_window.rs:542
+#| msgctxt ""
+#| "on main window, entry of the menu when clicking on the \"New Game\" "
+#| "button; appears only if the user has set rows and cols manually"
+#| msgid "Custom"
 msgid "Custom"
 msgstr "Нетипова"
 
-#: src/game_window.rs:572
-msgctxt ""
-"title of the dialog that appears (with default settings) when you reach 2048"
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
+#: src/game_window.rs:554
+#| msgctxt ""
+#| "title of the dialog that appears (with default settings) when you reach "
+#| "2048"
+#| msgid "Congratulations!"
 msgid "Congratulations!"
 msgstr "Вітаємо!"
 
-#: src/game_window.rs:577
-msgctxt ""
-"text of the dialog that appears when the user obtains the first 2048 tile in "
-"the game; the %u is replaced by the number the user wanted to reach "
-"(usually, 2048)"
+#: src/game_window.rs:557
+#| msgctxt ""
+#| "text of the dialog that appears when the user obtains the first 2048 tile "
+#| "in the game; the %u is replaced by the number the user wanted to reach "
+#| "(usually, 2048)"
+#| msgid "You have obtained the %u tile for the first time!"
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Вам вдалося вперше отримати плитку %u!"
 
-#: src/game_window.rs:587
-msgctxt ""
-"button in the \"Congratulations\" dialog that appears (with default "
-"settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
-msgid "_New Game"
-msgstr "_Нова гра"
-
-#: src/game_window.rs:594
-msgctxt ""
-"button in the \"Congratulations\" dialog that appears (with default "
-"settings) when you reach 2048; the player can continue playing after "
-"reaching 2048 (with a mnemonic that appears pressing Alt)"
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:570
+#| msgctxt ""
+#| "button in the \"Congratulations\" dialog that appears (with default "
+#| "settings) when you reach 2048; the player can continue playing after "
+#| "reaching 2048 (with a mnemonic that appears pressing Alt)"
+#| msgid "_Keep Playing"
 msgid "_Keep Playing"
 msgstr "_Грати далі"
 
-#: src/game_window.rs:607
-msgctxt "header of the shortcut section"
+#. Translators: header of the shortcut section
+#: src/game_window.rs:582
+#| msgctxt "header of the shortcut section"
+#| msgid "Game"
 msgid "Game"
 msgstr "Гра"
 
-#: src/game_window.rs:609
+#: src/game_window.rs:584
 msgid "Play with arrows"
 msgstr "Гра стрілочками"
 
-#: src/game_window.rs:612
+#: src/game_window.rs:587
 msgid "Play with WASD"
 msgstr "Грати з використанням WASD"
 
-#: src/game_window.rs:614
+#: src/game_window.rs:589
 msgid "Play with VIM-style bindings"
 msgstr "Грати з використанням команд у стилі VIM"
 
-#: src/game_window.rs:621
-msgctxt "header of the shortcut section"
+#. Translators: header of the shortcut section
+#: src/game_window.rs:595
+#| msgctxt "header of the shortcut section"
+#| msgid "New Game"
 msgid "New Game"
 msgstr "Нова гра"
 
-#: src/game_window.rs:624
+#: src/game_window.rs:597
 msgid "Choose a new game"
 msgstr "Вибрати нову гру"
 
-#: src/game_window.rs:628
+#: src/game_window.rs:601
 msgid "Start a new game"
 msgstr "Розпочати нову гру"
 
-#: src/game_window.rs:634
-msgctxt "header of the shortcut section"
+#. Translators: header of the shortcut section
+#: src/game_window.rs:607
+#| msgctxt "header of the shortcut section"
+#| msgid "Generic"
 msgid "Generic"
 msgstr "Загальні"
 
-#: src/game_window.rs:635
+#: src/game_window.rs:608
 msgid "Toggle main menu"
 msgstr "Перемкнути головне меню"
 
-#: src/game_window.rs:636
-msgid "Help"
-msgstr "Довідка"
-
-#: src/game_window.rs:638
+#: src/game_window.rs:611
 msgid "Keyboard shortcuts"
 msgstr "Клавіатурні скорочення"
 
-#: src/game_window.rs:642
+#: src/game_window.rs:615
 msgid "About"
 msgstr "Про програму"
 
-#: src/game_window.rs:645
+#: src/game_window.rs:618
 msgid "Quit"
 msgstr "Вийти"
 
@@ -524,6 +566,25 @@ msgstr "Ґратка 5 × 5"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Розмір ґратки"
+
+#~ msgctxt "about dialog text; the program name"
+#~ msgid "2048"
+#~ msgstr "2048"
+
+#~ msgctxt ""
+#~ "entry in the hamburger menu, if the \"Allow undo\" option is set to true"
+#~ msgid "Undo"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "menu entry"
+#~ msgid "Help"
+#~ msgstr "Довідка"
+
+#~ msgctxt ""
+#~ "button in the \"Congratulations\" dialog that appears (with default "
+#~ "settings) when you reach 2048 (with a mnemonic that appears pressing Alt)"
+#~ msgid "_New Game"
+#~ msgstr "_Нова гра"
 
 #~| msgid ""
 #~| "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
