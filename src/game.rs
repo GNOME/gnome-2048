@@ -81,6 +81,8 @@ mod imp {
 
         pub state: Cell<GameState>,
 
+        pub animation: RefCell<Option<adw::TimedAnimation>>,
+
         pub show_transition_value: Rc<Cell<Option<f64>>>,
         pub show_transition_tiles: RefCell<Vec<GridPosition>>,
 
@@ -120,6 +122,7 @@ mod imp {
                 grid: RefCell::new(Grid::new(GridSize::GRID_4_BY_4)),
                 movements: Default::default(),
                 state: Cell::new(GameState::Stopped),
+                animation: Default::default(),
                 show_transition_value: Default::default(),
                 show_transition_tiles: Default::default(),
                 move_transition_value: Default::default(),
@@ -457,11 +460,8 @@ mod imp {
 
         fn can_move(&self) -> bool {
             match self.state.get() {
-                GameState::Stopped
-                | GameState::Moving
-                | GameState::ShowingNewTile
-                | GameState::RestoringTiles => false,
-                GameState::Idle => true,
+                GameState::Stopped | GameState::RestoringTiles => false,
+                GameState::ShowingNewTile | GameState::Moving | GameState::Idle => true,
             }
         }
 
@@ -536,6 +536,10 @@ mod imp {
         }
 
         async fn move_async(&self, request: MoveRequest) {
+            if let Some(animation) = self.animation.borrow().as_ref() {
+                animation.skip();
+            }
+
             self.just_restored.set(false);
 
             let previous_grid = self.grid.borrow().clone();
@@ -648,7 +652,7 @@ mod imp {
         async fn play_animation(&self, animate: bool, animation_value: &Rc<Cell<Option<f64>>>) {
             let (sender, receiver) = async_channel::bounded(1);
 
-            let show_hide_trans = adw::TimedAnimation::new(
+            let animation = adw::TimedAnimation::new(
                 &*self.obj(),
                 0.0,
                 1.0,
@@ -668,16 +672,18 @@ mod imp {
                     }
                 )),
             );
-            show_hide_trans.connect_done(glib::clone!(move |_| {
+            animation.connect_done(glib::clone!(move |_| {
                 if let Err(error) = sender.send_blocking(()) {
                     eprintln!("Animation channel error {error}.");
                 }
             }));
-            show_hide_trans.play();
+            self.animation.replace(Some(animation.clone()));
+            animation.play();
             if let Err(error) = receiver.recv().await {
                 eprintln!("Animation channel error {error}.");
             }
             animation_value.set(None);
+            self.animation.replace(None);
         }
     }
 }
