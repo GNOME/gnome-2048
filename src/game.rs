@@ -202,8 +202,18 @@ mod imp {
             let rows = grid.size().rows();
             let cols = grid.size().cols();
 
-            let tile_width = (width - (cols as f32 + 1.0) * BLANK_COL_WIDTH) / (cols as f32);
-            let tile_height = (height - (rows as f32 + 1.0) * BLANK_ROW_HEIGHT) / (rows as f32);
+            let horizontal_gaps = (cols as f32 + 1.0) * BLANK_COL_WIDTH;
+            let vertical_gaps = (rows as f32 + 1.0) * BLANK_ROW_HEIGHT;
+            let tile_size = f32::min(
+                (width - horizontal_gaps) / (cols as f32),
+                (height - vertical_gaps) / (rows as f32),
+            );
+            let tile_width = tile_size;
+            let tile_height = tile_size;
+            snapshot.translate(&graphene::Point::new(
+                (width - (cols as f32) * tile_width - horizontal_gaps) / 2.0,
+                (height - (cols as f32) * tile_height - vertical_gaps) / 2.0,
+            ));
 
             let layout = pango::Layout::new(&self.obj().pango_context());
             let font_desc = pango::FontDescription::from_string(&format!(

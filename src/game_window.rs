@@ -161,10 +161,6 @@ mod imp {
 
             content.append(&self.header_bar);
 
-            let overlay = gtk::Overlay::builder().vexpand(true).build();
-            let frame = gtk::AspectFrame::builder().child(&self.game).build();
-            overlay.set_child(Some(&frame));
-
             let unfullscreen_button = gtk::Button::builder()
                 .visible(false)
                 .halign(gtk::Align::End)
@@ -183,6 +179,11 @@ mod imp {
                     .icon_size(gtk::IconSize::Normal)
                     .build(),
             ));
+
+            let overlay = gtk::Overlay::builder()
+                .vexpand(true)
+                .child(&self.game)
+                .build();
             overlay.add_overlay(&unfullscreen_button);
 
             content.append(&overlay);
