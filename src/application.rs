@@ -174,7 +174,6 @@ mod imp {
             app.set_accels_for_action("app.quit", &["<Primary>q"]);
             app.set_accels_for_action("win.toggle-new-game", &["<Primary>n"]);
             app.set_accels_for_action(&GameWindow::new_game_action(None), &["<Shift><Primary>n"]);
-            app.set_accels_for_action("win.undo", &["<Primary>z"]);
             app.set_accels_for_action(
                 "win.show-keyboard-shortcuts",
                 &["<Primary>question", "<Shift><Primary>question"],
@@ -182,6 +181,7 @@ mod imp {
             app.set_accels_for_action("app.help", &["F1", "<Primary>F1"]);
             app.set_accels_for_action("win.toggle-hamburger", &["F10", "Menu"]);
             app.set_accels_for_action("win.undo", &["<Control>z"]);
+            app.set_accels_for_action("win.toggle-fullscreen", &["F11"]);
         }
 
         fn activate(&self) {

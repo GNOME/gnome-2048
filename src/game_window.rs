@@ -92,6 +92,7 @@ mod imp {
             klass.install_action("win.show-keyboard-shortcuts", None, |window, _, _| {
                 show_keyboard_shortcuts(window.upcast_ref())
             });
+            klass.install_property_action("win.toggle-fullscreen", "fullscreened");
             klass.install_action("win.unfullscreen", None, |window, _, _| {
                 window.unfullscreen()
             });
@@ -263,6 +264,17 @@ mod imp {
                     move |_: &gtk::Widget| { window.action_set_enabled("win.undo", false) }
                 ),
             );
+
+            window
+                .bind_property("fullscreened", &self.header_bar, "visible")
+                .sync_create()
+                .invert_boolean()
+                .build();
+
+            window
+                .bind_property("fullscreened", &unfullscreen_button, "visible")
+                .sync_create()
+                .build();
 
             window.connect_close_request(glib::clone!(
                 #[weak(rename_to=imp)]
@@ -607,6 +619,7 @@ fn show_keyboard_shortcuts(parent: &gtk::Widget) {
     // Translators: header of the shortcut section
     let generic_section = adw::ShortcutsSection::new(Some(&gettext("Generic")));
     generic_section.add(ShortcutsItem::new(&gettext("Toggle main menu"), "F10 Menu"));
+    generic_section.add(ShortcutsItem::new(&gettext("Toggle fullscreen mode"), "F11"));
     generic_section.add(ShortcutsItem::new(&gettext("Help"), "F1 <Primary>F1"));
     generic_section.add(ShortcutsItem::new(
         &gettext("Keyboard shortcuts"),
