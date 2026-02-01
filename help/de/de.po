@@ -1,26 +1,36 @@
 # German translation for gnome-2048.
 # Copyright (C) 2015 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2015, 2018.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2015, 2018, 2026.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2018-10-03 19:34+0000\n"
-"PO-Revision-Date: 2018-10-03 21:36+0200\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
-"Language-Team: German <gnome-de@gnome.org>\n"
+"POT-Creation-Date: 2026-01-26 15:03+0000\n"
+"PO-Revision-Date: 2026-02-01 16:35+0100\n"
+"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
+"Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 3.8\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Mario Blättermann <mario.blaettermann@gmail.com>, 2015, 2018"
+msgstr ""
+"Mario Blättermann <mario.blaettermann@gmail.com>, 2015, 2018, 2026\n"
+"Jürgen Benvenuti <gastornis@posteo.org>, 2026\n"
+"Christian Kirbach <christian.kirbach@gmail.com>, 2026"
+
+#. (itstool) path: info/title
+#: C/index.page:6
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -49,21 +59,171 @@ msgstr "2014"
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
-#. (itstool) path: media/span
-#: C/index.page:19
-msgid "GNOME 2048 logo"
-msgstr "Logo von GNOME-2048"
-
 #. (itstool) path: page/title
 #: C/index.page:19
-msgid "<_:media-1/> GNOME 2048"
-msgstr "<_:media-1/> GNOME 2048"
+msgid "<_:media-1/> 2048"
+msgstr "<_:media-1/> 2048"
 
 #. (itstool) path: page/p
 #: C/index.page:20
 msgid ""
-"<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game "
-"based on Veewo Studios' 1024."
+"<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
+"on Veewo Studios' 1024."
 msgstr ""
-"<app>GNOME 2048</app> ist ein Klon von Gabriele Cirullis 2048, einem "
-"Puzzlespiel, dass auf dem Spiel »1024« von Veewo basiert."
+"<app>2048</app> ist ein Klon von Gabriele Cirullis 2048, einem Puzzlespiel, "
+"das auf dem Spiel »1024« von Veewo basiert."
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Spielverlauf"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Anthony Saldana Valle"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "Ein <app>2048</app>-Spiel starten und beenden"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "Grundlegende Anweisungen"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "Ein neues Spiel starten"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+"Klicken Sie auf <gui style=\"button\">Neues Spiel</gui> oder drücken Sie "
+"<keyseq><key>Strg</key><key>N</key></keyseq>,um das Rastergröße-Menü zu "
+"öffnen. Klicken Sie anschließend auf <gui style=\"button\">3x3</gui>, <gui "
+"style=\"button\">4x4</gui> oder <gui style=\"button\">5x5</gui>, um ein "
+"neues Spiel mit der gewünschten Rastergröße zu starten."
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+"Drücken Sie <keyseq><key>Umschalt</key><key>Strg</key><key>N</key></keyseq>, "
+"um ein neues Spiel mit der gleichen Rastergröße wie das aktuelle Spiel zu "
+"starten."
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "<app>2048</app> beenden"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+"Drücken Sie <keyseq><key>Strg</key><key>Q</key></keyseq>, um <app>2048</app> "
+"jederzeit zu beenden."
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "Ziel von <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "Ziel des Spiels"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+"Um in 2048 Punkte zu erzielen, müssen Sie Felder mit der gleichen "
+"Zahlenbezeichnung kombinieren. Dies geschieht, indem Sie das Spielbrett so "
+"verschieben, dass zwei gleichwertige Felder aufeinandertreffen. Ist das "
+"Spielbrett voll und Sie können keine Felder mehr kombinieren, endet das "
+"Spiel."
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "Standardsteuerung für <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "Steuerung"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+"Sie können die Felder durch Klicken und Ziehen mit der Maus in dieselbe "
+"Richtung verschieben. Alternativ können Sie die Tastatur verwenden. Die "
+"Standardtasten zum Verschieben der Felder in <app>2048</app> sind:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "<key>←</key> zum Verschieben der Felder nach links."
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "<key>↑</key> zum Verschieben der Felder nach oben."
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "<key>→</key> zum Verschieben der Felder nach rechts."
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "<key>↓</key> zum Verschieben der Felder nach unten."
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "Highscores in <app>2048</app> anzeigen"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "Highscores anzeigen"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr ""
+"Über den Menüknopf oben rechts oder durch Drücken von <key>F10</key> und "
+"anschließendem Klicken auf <gui style=\"button\">Ergebnisse</gui> können Sie "
+"die Highscores anzeigen. Öffnen Sie das Menü »Rastergröße«, um die "
+"Rastergröße auszuwählen, für die Highscores angezeigt werden sollen."
