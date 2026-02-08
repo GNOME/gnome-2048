@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2025-01-12 16:34+0000\n"
-"PO-Revision-Date: 2025-02-07 16:42+0200\n"
+"POT-Creation-Date: 2026-01-29 23:58+0000\n"
+"PO-Revision-Date: 2026-02-08 13:50+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -17,101 +17,145 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
-
-#. Translators: title of the dialog that appears (with default settings) when you reach 2048
-#: data/congrats.ui:23
-msgid "Congratulations!"
-msgstr "Onnittelut!"
-
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:46 data/game-headerbar.ui:29
-msgid "_New Game"
-msgstr "_Uusi peli"
-
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:54
-msgid "_Keep Playing"
-msgstr "_Jatka pelaamista"
-
-#. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24
-msgid "GNOME 2048"
-msgstr "Gnomen 2048"
-
-#. Translators: header of the "Play with arrows" shortcut section
-#: data/help-overlay.ui:29
-msgctxt "shortcut window"
-msgid "Game"
-msgstr "Peli"
-
-#. Translators: the application has no help, so the use of arrows for playing is documented here
-#: data/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Play with arrows"
-msgstr "Pelaa nuolilla"
-
-#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
-#: data/help-overlay.ui:44
-msgctxt "shortcut window"
-msgid "New game"
-msgstr "Uusi peli"
-
-#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
-#: data/help-overlay.ui:49
-msgctxt "shortcut window"
-msgid "Choose a new game"
-msgstr "Valitse uusi peli"
-
-#. Translators: shortcut that starts immediately a new game, with similar options
-#: data/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Start a new game"
-msgstr "Aloita uusi peli"
-
-#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
-#: data/help-overlay.ui:67
-msgctxt "shortcut window"
-msgid "Generic"
-msgstr "Yleiset"
-
-#. Translators: shortcut that toggles the hamburger menu
-#: data/help-overlay.ui:72
-msgctxt "shortcut window"
-msgid "Toggle main menu"
-msgstr "Avaa tai sulje päävalikko"
-
-#. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/help-overlay.ui:80
-msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
-msgstr "Pikanäppäimet"
-
-#. Translators: shortcut that opens About dialog
-#: data/help-overlay.ui:88
-msgctxt "shortcut window"
-msgid "About"
-msgstr "Tietoja"
-
-#. Translators: shortcut that quits application
-#: data/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Lopeta"
+"X-Generator: Poedit 3.8\n"
 
 #. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:8
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:501
+#: data/org.gnome.TwentyFortyEight.desktop.in:2
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8 src/about.rs:27
 msgid "2048"
 msgstr "2048"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
-#: data/org.gnome.TwentyFortyEight.desktop.in:4
+#: data/org.gnome.TwentyFortyEight.desktop.in:3
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:9
 msgid "Obtain the 2048 tile"
 msgstr "Saavuta 2048-laatta"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.TwentyFortyEight.desktop.in:13
+msgid "puzzle;"
+msgstr "puzzle;pulmapeli;"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
+msgid "Window width"
+msgstr "Ikkunan leveys"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:17
+msgid "Window width."
+msgstr "Ikkunan leveys."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
+msgid "Window height"
+msgstr "Ikkunan korkeus"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:24
+msgid "Window height."
+msgstr "Ikkunan korkeus."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:29
+msgid "Window maximized"
+msgstr "Suurennettu ikkuna"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:31
+msgid "Window maximization state."
+msgstr "Ikkunan suurennoksen tila."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:37
+msgid "Number of rows"
+msgstr "Rivien määrä"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:39
+msgid "Game grid number of rows."
+msgstr "Peliruudukon rivien määrä."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:45
+msgid "Number of columns"
+msgstr "Sarakkeiden määrä"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:47
+msgid "Game grid number of columns."
+msgstr "Peliruudukon sarakkeiden määrä."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
+msgid "Target value"
+msgstr "Kohdearvo"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:55
+msgid "Tile value at which user is congratulated."
+msgstr "Laatta-arvo, jolloin pelaajaa onnitellaan."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Spawn strategy"
+msgstr "Ilmestymisstrategia"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Strategy of spawning new tiles."
+msgstr "Uusien laattojen ilmestymisstrategia."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
+msgid "Congrat on target tile"
+msgstr "Onnittele kohdelaatan kohdalla"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Onnitellaanko pelaajaa kohdelaatan saavuttamisen johdosta."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:76
+msgid "Animations speed"
+msgstr "Animaation nopeus"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:78
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Animaatioiden kesto: show tile, move tile ja dim tile."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:83
+msgid "Allow undo"
+msgstr "Salli kumoaminen"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:85
+msgid "Whether tile movements can be undone."
+msgstr "Onko laattojen liikkeitä mahdollista kumota."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:91
+msgid "Number of undo movements"
+msgstr "Kumoamisliikkeiden määrä"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:93
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Laattasiirrosten enimmäismäärä, jotka voidaan kumota."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:98
+msgid "Color theme"
+msgstr "Väriteema"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:100
+msgid "Color theme."
+msgstr "Väriteema."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:11
 msgid ""
 "Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
 "player puzzle game. Gameplay consists of joining numbers in a grid and "
@@ -121,7 +165,7 @@ msgstr ""
 "pulmapelistä, . Pelaaminen koostuu numeroiden liittämisestä toisiinsa "
 "ruudukossa, tavoitteena on saavuttaa 2048-laatta."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -134,7 +178,7 @@ msgstr ""
 "tai saraketta. Samat arvot omaavat laatat liitetään toisiinsa, kun ne "
 "kohtaavat."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -145,7 +189,7 @@ msgstr ""
 "peli ei lopu siihen. Voit jatkaa laattojen liittämistä ja parantaa "
 "pisteitäsi."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -155,252 +199,307 @@ msgstr ""
 "peli on erittäin koukuttava. Cirullin 2048 on klooni 1024-pelistä, ja 2048 "
 "sisältää ideoita muista klooneista."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
 msgid "A running game having reached the 2048 tile"
 msgstr "Peli, jossa on saavutettu 2048-laatta"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:53
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:53
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.TwentyFortyEight.desktop.in:14
-msgid "puzzle;"
-msgstr "puzzle;pulmapeli;"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:6
-msgid "Window width"
-msgstr "Ikkunan leveys"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:8
-msgid "Window width."
-msgstr "Ikkunan leveys."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:13
-msgid "Window height"
-msgstr "Ikkunan korkeus"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:15
-msgid "Window height."
-msgstr "Ikkunan korkeus."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:20
-msgid "Window maximized"
-msgstr "Suurennettu ikkuna"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:22
-msgid "Window maximization state."
-msgstr "Ikkunan suurennoksen tila."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:28
-msgid "Number of rows"
-msgstr "Rivien määrä"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:30
-msgid "Game grid number of rows."
-msgstr "Peliruudukon rivien määrä."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:36
-msgid "Number of columns"
-msgstr "Sarakkeiden määrä"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:38
-msgid "Game grid number of columns."
-msgstr "Peliruudukon sarakkeiden määrä."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:44
-msgid "Target value"
-msgstr "Kohdearvo"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:46
-msgid "Tile value at which user is congratulated."
-msgstr "Laatta-arvo, jolloin pelaajaa onnitellaan."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:51
-msgid "Congrat on target tile"
-msgstr "Onnittele kohdelaatan kohdalla"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:53
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Onnitellaanko pelaajaa kohdelaatan saavuttamisen johdosta."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:60
-msgid "Animations speed"
-msgstr "Animaation nopeus"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:62
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr "Animaatioiden kesto: show tile, move tile ja dim tile."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:67
-msgid "Allow undo"
-msgstr "Salli kumoaminen"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:69
-msgid "Whether tile movements can be undone."
-msgstr "Onko laattojen liikkeitä mahdollista kumota."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:75
-msgid "Number of undo movements"
-msgstr "Kumoamisliikkeiden määrä"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:77
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Laattasiirrosten enimmäismäärä, jotka voidaan kumota."
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:36
-msgid "Play in the terminal (see “--cli=help”)"
-msgstr "Pelaa päätteessä (lue “--cli=help”)"
-
-#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
-#: src/application.vala:39
-msgid "COMMAND"
-msgstr "KOMENTO"
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:42
-msgid "Start new game of given size"
-msgstr "Aloita uusi peli annetulla koolla"
-
-#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
-#: src/application.vala:45
-msgid "SIZE"
-msgstr "KOKO"
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:48
-msgid "Print release version and exit"
-msgstr "Näytä julkaisuversio ja sulkeudu"
-
-#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:123
-msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
-msgstr ""
-"Koon jäsentäminen epäonnistui. Koon tulee olla välillä 2 ja 9, tai muodossa "
-"2x3."
-
-#. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/game-headerbar.vala:67
-msgid "Game Over"
-msgstr "Peli loppui"
-
-#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/game-headerbar.vala:97
-msgid "Undo"
-msgstr "Kumoa"
-
-#. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/game-headerbar.vala:108
-msgid "Scores"
-msgstr "Pisteet"
-
-#. Translators: usual menu entry of the hamburger menu
-#: src/game-headerbar.vala:119
-msgid "Keyboard Shortcuts"
-msgstr "Pikanäppäimet"
-
-#. Translators: entry in the hamburger menu
-#: src/game-headerbar.vala:122
-msgid "About 2048"
-msgstr "Tietoja - 2048"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
-#: src/game-headerbar.vala:142
-msgid "3 × 3"
-msgstr "3 × 3"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
-#: src/game-headerbar.vala:148
-msgid "4 × 4"
-msgstr "4 × 4"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
-#: src/game-headerbar.vala:154
-msgid "5 × 5"
-msgstr "5 × 5"
-
-#. Translators: command-line warning displayed if the user manually sets a invalid grid size
-#: src/game-headerbar.vala:163
-msgid "Grids of size 1 by 2 are disallowed."
-msgstr "Ruudukot alle 1 × 2 ovat kielletty."
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#: src/game-headerbar.vala:167
-msgid "Custom"
-msgstr "Mukautettu"
-
-#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:421
-#, c-format
-msgid "You have obtained the %u tile for the first time!"
-msgstr "Saavutit %u-laatan ensimmäisen kerran!"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:440
-msgid "Grid 3 × 3"
-msgstr "Ruudukko 3 × 3"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:443
-msgid "Grid 4 × 4"
-msgstr "Ruudukko 4 × 4"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:446
-msgid "Grid 5 × 5"
-msgstr "Ruudukko 5 × 5"
-
-#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:449
-msgid "Grid Size:"
-msgstr "Ruudukon koko:"
-
 #. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:505
+#: src/about.rs:31
 msgid "A clone of 2048 for GNOME"
 msgstr "2048-pelin klooni Gnomelle"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:510
+#: src/about.rs:36
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "Tekijänoikeus © 2014-2015 – Juan R. García Blanco"
 
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:514
-#, c-format
-msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr "Tekijänoikeus © %u-%u – Arnaud Bonatti"
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:39
+#| msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgid "Copyright © 2016-2020 – Arnaud Bonatti"
+msgstr "Tekijänoikeus © 2016-2020 – Arnaud Bonatti"
+
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:42
+#| msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgid "Copyright © 2025 – Andrey Kutejko"
+msgstr "Tekijänoikeus © 2025 – Andrey Kutejko"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:519
+#: src/about.rs:46
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#. Translators: about dialog text; label of the website link
-#: src/game-window.vala:523
-msgid "Page on GNOME wiki"
-msgstr "Sivu Gnomen wikissä"
+#. Translators: command-line option description
+#: src/application.rs:74
+msgid "Play in the terminal (see \"--cli=help\")"
+msgstr "Pelaa päätteessä (lue “--cli=help”)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal
+#: src/application.rs:76
+msgid "COMMAND"
+msgstr "KOMENTO"
+
+#. Translators: command-line option description
+#: src/application.rs:84
+msgid "Start new game of given size"
+msgstr "Aloita uusi peli annetulla koolla"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size'
+#: src/application.rs:86
+msgid "SIZE"
+msgstr "KOKO"
+
+#. Translators: command-line option description
+#: src/application.rs:94
+msgid "Print release version and exit"
+msgstr "Näytä julkaisuversio ja sulkeudu"
+
+#: src/application.rs:211
+msgid "Size must be in the form COLSxROWS."
+msgstr "Koon tulee olla muotoa COLSxROWS."
+
+#: src/cli.rs:71
+msgid "Size can only be given for new games."
+msgstr "Koko voidaan määrittää vain uusiin peleihin."
+
+#: src/cli.rs:92
+msgid "Cannot parse \"--cli\" command, aborting."
+msgstr "Ei voi jäsentää \"--cli\"-komentoa, perutaan."
+
+#: src/cli.rs:125
+msgid "Game is finished, impossible to move."
+msgstr "Peli on ohi, siirrot eivät ole mahdollisia."
+
+#: src/cli.rs:129
+msgid "Impossible to move in that direction."
+msgstr "Siirto kyseiseen suuntaan ei ole mahdollinen."
+
+#: src/cli.rs:202
+#, rust-format
+msgid "You have obtained the {score} tile for the first time!"
+msgstr "Saavutit {score}-laatan ensimmäisen kerran!"
+
+#: src/cli.rs:207
+msgid "Game is finished!"
+msgstr "Peli on ohi!"
+
+#: src/cli.rs:211
+#, rust-format
+msgid "Your score is {score}."
+msgstr "Sait {score} pistettä."
+
+#: src/game_window.rs:112
+msgctxt "window title"
+msgid "GNOME 2048"
+msgstr "Gnomen 2048"
+
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:116 src/game_window.rs:578
+msgid "_New Game"
+msgstr "_Uusi peli"
+
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game_window.rs:318
+msgid "Game Over"
+msgstr "Peli loppui"
+
+#. Translators: entry in the hamburger menu
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/game_window.rs:425 src/game_window.rs:490
+msgid "Undo"
+msgstr "Kumoa"
+
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:430
+msgid "Appearance"
+msgstr "Ulkoasu"
+
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:435
+msgid "Spawn tiles"
+msgstr "Laatojen ilmestyminen"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:451
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:456
+msgid "Tango"
+msgstr "Tango"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:461
+msgid "Classic"
+msgstr "Klassinen"
+
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:472
+msgid "Twos only"
+msgstr "Vain kakkosia"
+
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:477
+msgid "Classic (twos and fours)"
+msgstr "Klassinen (kakkosia ja nelosia)"
+
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/game_window.rs:501
+msgid "Scores"
+msgstr "Pisteet"
+
+#. Translators: menu entry
+#: src/game_window.rs:512
+msgid "Keyboard Shortcuts"
+msgstr "Pikanäppäimet"
+
+#. Translators: menu entry
+#: src/game_window.rs:517 src/game_window.rs:623
+msgid "Help"
+msgstr "Ohje"
+
+#. Translators: menu entry
+#: src/game_window.rs:522
+msgid "About 2048"
+msgstr "Tietoja - 2048"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:534
+msgid "3 × 3"
+msgstr "3 × 3"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:540
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:546
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/game_window.rs:555
+msgid "Custom"
+msgstr "Mukautettu"
+
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
+#: src/game_window.rs:567
+msgid "Congratulations!"
+msgstr "Onnittelut!"
+
+#: src/game_window.rs:570
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Saavutit %u-laatan ensimmäisen kerran!"
+
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:583
+msgid "_Keep Playing"
+msgstr "_Jatka pelaamista"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:595
+msgid "Game"
+msgstr "Peli"
+
+#: src/game_window.rs:597
+msgid "Play with arrows"
+msgstr "Pelaa nuolinäppäimillä"
+
+#: src/game_window.rs:600
+msgid "Play with WASD"
+msgstr "Pelaa WASD-näppäimillä"
+
+#: src/game_window.rs:602
+msgid "Play with VIM-style bindings"
+msgstr "Pelaa VIM-tyylisillä näppäimillä"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:608
+msgid "New Game"
+msgstr "Uusi peli"
+
+#: src/game_window.rs:610
+msgid "Choose a new game"
+msgstr "Valitse uusi peli"
+
+#: src/game_window.rs:614
+msgid "Start a new game"
+msgstr "Aloita uusi peli"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:620
+msgid "Generic"
+msgstr "Yleiset"
+
+#: src/game_window.rs:621
+msgid "Toggle main menu"
+msgstr "Avaa tai sulje päävalikko"
+
+#: src/game_window.rs:622
+msgid "Toggle fullscreen mode"
+msgstr "Koko näytön tila pois/päälle"
+
+#: src/game_window.rs:625
+msgid "Keyboard shortcuts"
+msgstr "Pikanäppäimet"
+
+#: src/game_window.rs:629
+msgid "About"
+msgstr "Tietoja"
+
+#: src/game_window.rs:632
+msgid "Quit"
+msgstr "Lopeta"
+
+#: src/grid.rs:46
+msgid ""
+"Grid must have no more than 9 rows and columns and have at least 3 tiles"
+msgstr ""
+"Ruudukoissa voi olla korkeintaan 9 riviä ja saraketta, ja vähintään kolme "
+"laattaa"
+
+#: src/scores.rs:84
+msgctxt "Scores category"
+msgid "Grid 3 × 3"
+msgstr "Ruudukko 3 × 3"
+
+#: src/scores.rs:85
+msgctxt "Scores category"
+msgid "Grid 4 × 4"
+msgstr "Ruudukko 4 × 4"
+
+#: src/scores.rs:86
+msgctxt "Scores category"
+msgid "Grid 5 × 5"
+msgstr "Ruudukko 5 × 5"
+
+#: src/scores.rs:142
+msgid "Grid Size"
+msgstr "Ruudukon koko"
+
+#~ msgctxt "shortcut window"
+#~ msgid "New game"
+#~ msgstr "Uusi peli"
+
+#~ msgid ""
+#~ "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+#~ msgstr ""
+#~ "Koon jäsentäminen epäonnistui. Koon tulee olla välillä 2 ja 9, tai "
+#~ "muodossa 2x3."
+
+#~ msgid "Grids of size 1 by 2 are disallowed."
+#~ msgstr "Ruudukot alle 1 × 2 ovat kielletty."
+
+#~ msgid "Page on GNOME wiki"
+#~ msgstr "Sivu Gnomen wikissä"
 
 #~ msgid "The GNOME Project"
 #~ msgstr "Gnome-projekti"
@@ -419,9 +518,6 @@ msgstr "Sivu Gnomen wikissä"
 
 #~ msgid "Display congrats"
 #~ msgstr "Näytä onnittelut"
-
-#~ msgid "Help"
-#~ msgstr "Ohje"
 
 #~ msgid "4 x 4"
 #~ msgstr "4 x 4"
