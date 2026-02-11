@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-01-29 23:58+0000\n"
-"PO-Revision-Date: 2026-02-03 14:27+0200\n"
+"POT-Creation-Date: 2026-02-11 19:40+0000\n"
+"PO-Revision-Date: 2026-02-11 21:41+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -204,7 +204,7 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "У поточній грі досягнуто плитки 2048"
 
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:53
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
@@ -293,9 +293,10 @@ msgid "Your score is {score}."
 msgstr "Ваш результат — {score}."
 
 #: src/game_window.rs:112
+#| msgid "2048"
 msgctxt "window title"
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
+msgid "2048"
+msgstr "2048"
 
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
@@ -483,6 +484,10 @@ msgstr "Ґратка 5 × 5"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Розмір ґратки"
+
+#~ msgctxt "window title"
+#~ msgid "GNOME 2048"
+#~ msgstr "GNOME 2048"
 
 #~ msgctxt "about dialog text; the program name"
 #~ msgid "2048"
