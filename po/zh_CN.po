@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-01-29 23:58+0000\n"
-"PO-Revision-Date: 2026-02-01 09:28+0800\n"
+"POT-Creation-Date: 2026-02-11 19:40+0000\n"
+"PO-Revision-Date: 2026-02-13 08:40+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -197,7 +197,7 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "一个正在运行的游戏已得到值为 2048 的方块"
 
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:53
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
@@ -290,8 +290,8 @@ msgstr "您的得分为 {score}。"
 
 #: src/game_window.rs:112
 msgctxt "window title"
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
+msgid "2048"
+msgstr "2048"
 
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
@@ -477,6 +477,10 @@ msgstr "5 × 5 网格"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "网格尺寸"
+
+#~ msgctxt "window title"
+#~ msgid "GNOME 2048"
+#~ msgstr "GNOME 2048"
 
 #~ msgctxt "about dialog text; the program name"
 #~ msgid "2048"
