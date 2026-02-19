@@ -51,7 +51,7 @@ fn main() -> Result<impl Termination, Box<dyn Error>> {
     gettextrs::bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8")?;
     gettextrs::textdomain(GETTEXT_PACKAGE)?;
 
-    gtk::init()?;
+    adw::init()?;
 
     glib::set_application_name(&pgettext("application name", "2048"));
 
