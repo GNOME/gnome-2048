@@ -40,6 +40,7 @@ custom_target(
   'gnome-2048',
   build_by_default: true,
   build_always_stale: true,
+  depends: [libgnome_games_support_dependency],
   input: [config_rs],
   output: meson.project_name(),
   console: true,
@@ -58,5 +59,6 @@ test(
   'cargo-test', cargo,
   env: cargo_env,
   args: ['test', '--no-fail-fast'] + cargo_options,
+  depends: [libgnome_games_support_dependency],
   timeout: 180
 )

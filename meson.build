@@ -22,7 +22,9 @@ dependency('gio-2.0', version: '>= 2.80.0')
 dependency('glib-2.0', version: '>= 2.80.0')
 dependency('gtk4', version: '>= 4.16.0')
 dependency('libadwaita-1', version: '>= 1.8')
-subproject('libgnome-games-support', default_options: 'superproject_name=gnome-2048')
+libgnome_games_support = subproject ('libgnome-games-support',
+                                     default_options: 'superproject_name=gnome-2048')
+libgnome_games_support_dependency = libgnome_games_support.get_variable ('lggs')
 
 cargo = find_program('cargo', required: true)
 cargo_version = run_command(cargo, '--version', check: true).stdout().strip()
