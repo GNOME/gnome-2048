@@ -137,7 +137,7 @@ impl Scores {
 fn create_context() -> glib::Object {
     let context_type: glib::Type = unsafe { from_glib(ffi::games_scores_context_get_type()) };
     glib::Object::builder_with_type(context_type)
-        .property("app-name", "gnome-2048")
+        .property("score-directory", "gnome-2048")
         .property("icon-name", "org.gnome.TwentyFortyEight")
         .property("category-type", gettext("Grid Size"))
         .property("style", create_style("points-greater-is-better"))
