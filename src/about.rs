@@ -39,7 +39,7 @@ pub fn about(parent: Option<&gtk::Widget>) {
                 + &gettext("Copyright \u{a9} 2016-2020 – Arnaud Bonatti")
                 + "\n"
                 // Translators: text crediting a maintainer, seen in the About dialog
-                + &gettext("Copyright \u{a9} 2025 – Andrey Kutejko"),
+                + &gettext("Copyright \u{a9} 2025-2026 – Andrey Kutejko"),
         )
         .developers(["Juan R. García Blanco", "Arnaud Bonatti", "Andrey Kutejko"])
         // Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
