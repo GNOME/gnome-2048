@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-11 19:40+0000\n"
-"PO-Revision-Date: 2026-02-11 21:41+0200\n"
+"POT-Creation-Date: 2026-02-21 12:34+0000\n"
+"PO-Revision-Date: 2026-02-21 20:10+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -225,8 +225,9 @@ msgstr "© Arnaud Bonatti, 2016-2020"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-msgid "Copyright © 2025 – Andrey Kutejko"
-msgstr "© Andrey Kutejko, 2025"
+#| msgid "Copyright © 2025 – Andrey Kutejko"
+msgid "Copyright © 2025-2026 – Andrey Kutejko"
+msgstr "© Andrey Kutejko, 2025–2026"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
 #: src/about.rs:46
@@ -293,7 +294,6 @@ msgid "Your score is {score}."
 msgstr "Ваш результат — {score}."
 
 #: src/game_window.rs:112
-#| msgid "2048"
 msgctxt "window title"
 msgid "2048"
 msgstr "2048"
