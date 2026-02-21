@@ -8,18 +8,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-11 19:40+0000\n"
-"PO-Revision-Date: 2026-02-11 23:20+0100\n"
+"POT-Creation-Date: 2026-02-21 12:34+0000\n"
+"PO-Revision-Date: 2026-02-21 18:25+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
-"n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #. Translators: about dialog text; the program name
 #: data/org.gnome.TwentyFortyEight.desktop.in:2
@@ -227,8 +227,8 @@ msgstr "Avtorske pravice © 2016–2020 – Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-msgid "Copyright © 2025 – Andrey Kutejko"
-msgstr "Avtorske pravice © 2025 – Andrey Kutejko"
+msgid "Copyright © 2025-2026 – Andrey Kutejko"
+msgstr "Avtorske pravice © 2025-2026 – Andrey Kutejko"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
 #: src/about.rs:46
@@ -283,7 +283,6 @@ msgid "Impossible to move in that direction."
 msgstr "V to smer se ni možno premakniti."
 
 #: src/cli.rs:202
-#, rust-format
 msgid "You have obtained the {score} tile for the first time!"
 msgstr "Prvič ste dobili ploščico {score}!"
 
@@ -292,7 +291,6 @@ msgid "Game is finished!"
 msgstr "Igra je končana!"
 
 #: src/cli.rs:211
-#, rust-format
 msgid "Your score is {score}."
 msgstr "Vaš rezultat je {score}."
 
