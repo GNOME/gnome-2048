@@ -1,6 +1,6 @@
 project(
   'gnome-2048', ['rust'],
-  version: '50.alpha.2',
+  version: '50.beta',
   license: 'GPLv3+',
   meson_version: '>= >=1.1',
 )

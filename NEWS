@@ -1,3 +1,24 @@
+2048   50.beta                                             2026-02-21
+=====================================================================
+
+This release fixes the issue with keystrokes being blocked by a
+running animation. Another change is enabling a fullscreen mode.
+
+Translations updated:
+  Brazilian Portuguese: Juliano de Souza Camargo
+  Chinese (China): luming zh
+  Finnish: Jiri Grönroos
+  Georgian: Ekaterine Papava
+  German: Mario Blättermann
+  Kabyle: BoF ButterflyOfFire
+  Kazakh: Baurzhan Muftakhidinov
+  Lithuanian: Aurimas Aurimas Černius
+  Russian: Sergej A.
+  Slovenian: Martin
+  Swedish: Anders Jonsson
+  Turkish: Sabri Ünal
+  Ukrainian: Yuri Chornoivan
+
 2048   50.alpha.2                                          2025-12-13
 =====================================================================
 
