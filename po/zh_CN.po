@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-11 19:40+0000\n"
-"PO-Revision-Date: 2026-02-13 08:40+0800\n"
+"POT-Creation-Date: 2026-02-21 12:34+0000\n"
+"PO-Revision-Date: 2026-02-22 10:06+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -218,8 +218,8 @@ msgstr "版权所有 © 2016-2020 – Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-msgid "Copyright © 2025 – Andrey Kutejko"
-msgstr "版权所有 © 2025 – Andrey Kutejko"
+msgid "Copyright © 2025-2026 – Andrey Kutejko"
+msgstr "版权所有 © 2025-2026 – Andrey Kutejko"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
 #: src/about.rs:46
