@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-01-29 23:58+0000\n"
-"PO-Revision-Date: 2026-02-08 22:16+0100\n"
+"POT-Creation-Date: 2026-02-21 10:49+0000\n"
+"PO-Revision-Date: 2026-02-25 13:31+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -200,7 +200,7 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "Ett körande spel som nått 2048-brickan"
 
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:53
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
@@ -221,8 +221,8 @@ msgstr "Copyright © 2016-2020 – Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-msgid "Copyright © 2025 – Andrey Kutejko"
-msgstr "Copyright © 2025 – Andrey Kutejko"
+msgid "Copyright © 2025-2026 – Andrey Kutejko"
+msgstr "Copyright © 2025-2026 – Andrey Kutejko"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
 #: src/about.rs:46
@@ -292,8 +292,8 @@ msgstr "Din poäng är {score}."
 
 #: src/game_window.rs:112
 msgctxt "window title"
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
+msgid "2048"
+msgstr "2048"
 
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
@@ -479,3 +479,7 @@ msgstr "5×5-rutnät"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Rutnätsstorlek"
+
+#~ msgctxt "window title"
+#~ msgid "GNOME 2048"
+#~ msgstr "GNOME 2048"
