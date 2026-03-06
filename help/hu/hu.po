@@ -1,13 +1,13 @@
 # Hungarian translation for gnome-2048 help.
-# Copyright (C) 2016, 2019, 2025 Free Software Foundation, Inc.
+# Copyright (C) 2016, 2019, 2025, 2026 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2016, 2019, 2025.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2016, 2019, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2025-01-11 12:33+0000\n"
-"PO-Revision-Date: 2025-03-05 21:09+0100\n"
+"POT-Creation-Date: 2026-03-05 01:07+0000\n"
+"PO-Revision-Date: 2026-03-07 00:16+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -15,12 +15,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2016, 2019, 2025."
+msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2016, 2019, 2025, 2026."
+
+#. (itstool) path: info/title
+#: C/index.page:6
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -49,27 +55,173 @@ msgstr "2014"
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Így-add-tovább! 3.0"
 
-#. (itstool) path: media/span
-#: C/index.page:19
-#| msgid "GNOME 2048 logo"
-msgid "2048 logo"
-msgstr "2048 logó"
-
 #. (itstool) path: page/title
 #: C/index.page:19
-#| msgid "<_:media-1/> GNOME 2048"
 msgid "<_:media-1/> 2048"
 msgstr "<_:media-1/> 2048"
 
 #. (itstool) path: page/p
 #: C/index.page:20
-#| msgid ""
-#| "<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle "
-#| "game based on Veewo Studios' 1024."
 msgid ""
 "<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
 "on Veewo Studios' 1024."
 msgstr ""
-"A <app>2048</app> Gabriele Cirulli 2048 játékának klónja, amely a Veewo"
-" Studios 1024 játékán alapul."
+"A <app>2048</app> Gabriele Cirulli 2048 játékának klónja, amely a Veewo "
+"Studios 1024 játékán alapul."
 
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Játékmenet"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Anthony Saldana Valle"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "A <app>2048</app> játék indítása és kilépés"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "Alapszintű utasítások"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "Új játék indítása"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+"Nyomja meg az <gui style=\"button\">Új játék</gui> gombot vagy a "
+"<keyseq><key>Ctrl</key><key>N</key></keyseq> billentyűkombinációt a "
+"rácsméretválasztás menü megnyitásához, majd nyomja meg a <gui "
+"style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui> vagy <gui "
+"style=\"button\">5x5</gui> gombot a kiválasztott rácsmérettel történő új "
+"játék indításához."
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+"Nyomja meg a <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> "
+"billentyűkombinációt a jelenlegi játék rácsméretével megegyező rácsméretű új "
+"játék indításához."
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "Kilépés a <app>2048</app> játékból"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+"Nyomja meg bármikor a <keyseq><key>Ctrl</key><key>Q</key></keyseq> "
+"billentyűkombinációt a <app>2048</app> játékból való kilépéshez."
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "A <app>2048</app> játék célja"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "Cél"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+"Ahhoz, hogy pontokat szerezzen a 2048 játékban, egyesítenie kell az azonos "
+"számmal jelölt négyzeteket. Ezt a tábla egyik irányba történő eltolásával "
+"teheti meg, amelyben két azonos négyzet találkozik. Ha a tábla megtelt, és "
+"nem tud négyzeteket egyesíteni, akkor a játék véget ér."
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "A <app>2048</app> játék alapértelmezett vezérlői"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "Vezérlők"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+"Kattinthat és húzhatja az egeret a táblán, hogy a négyzeteket ugyanabba az "
+"irányba tolja. Ha inkább a billentyűzetet szeretné használni, a <app>2048</"
+"app> játékban a négyzetek eltolásához az alapértelmezett billentyűk a "
+"következők:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "<key>←</key> a négyzetek balra tolásához."
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "<key>↑</key> a négyzetek felfelé tolásához."
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "<key>→</key> a négyzetek jobbra tolásához."
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "<key>↓</key> a négyzetek lefelé tolásához."
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "Legmagasabb pontszámok megtekintése a <app>2048</app> játékban"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "Legmagasabb pontszámok megtekintése"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr ""
+"Nyomja meg a jobb felső sarokban lévő menü gombot, vagy nyomja meg az "
+"<key>F10</key> billentyűt, majd válassza a <gui style=\"button\">Pontszámok</"
+"gui> menüpontot a legmagasabb pontszámok megtekintéséhez. Nyissa meg a "
+"„Rácsméret” feliratú menüt, és válassza ki a rácsméretet a hozzá tartozó "
+"legmagasabb pontszámok megtekintéséhez."
