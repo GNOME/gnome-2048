@@ -1,0 +1,224 @@
+# Kazakh translation for gnome-2048.
+# Copyright (C) 2026 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>,  2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"POT-Creation-Date: 2026-03-14 08:59+0000\n"
+"PO-Revision-Date: 2026-03-17 23:48+0500\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <Kazakh>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
+
+#. (itstool) path: info/title
+#: C/index.page:6
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: credit/name
+#: C/index.page:11
+msgid "Juan R. García Blanco"
+msgstr "Juan R. García Blanco"
+
+#. (itstool) path: credit/years
+#: C/index.page:13
+msgid "2014"
+msgstr "2014"
+
+#. (itstool) path: license/p
+#: C/index.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> 2048"
+msgstr "<_:media-1/> 2048"
+
+#. (itstool) path: page/p
+#: C/index.page:20
+msgid ""
+"<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
+"on Veewo Studios' 1024."
+msgstr ""
+"<app>2048</app> — Gabriele Cirulli-дің 2048 ойынының клоны, ол Veewo "
+"Studios-тың 1024 ойынына негізделген."
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Ойын барысы"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Anthony Saldana Valle"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "<app>2048</app> ойынын бастау және одан шығу"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "Негізгі нұсқаулар"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "Жаңа ойынды бастау"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+"Тор өлшемін таңдау мәзірін ашу үшін <gui style=\"button\">Жаңа ойын</gui> "
+"батырмасын немесе <keyseq><key>Ctrl</key><key>N</key></keyseq> пернелерін "
+"басыңыз, содан кейін таңдалған тор өлшемімен жаңа ойынды бастау үшін <gui "
+"style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui> немесе <gui "
+"style=\"button\">5x5</gui> батырмасын басыңыз."
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+"Ағымдағы ойынмен бірдей тор өлшемімен жаңа ойынды бастау үшін "
+"<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> пернелерін "
+"басыңыз."
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "<app>2048</app> ойынынан шығу"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+"<app>2048</app> ойынынан кез келген уақытта шығу үшін <keyseq><key>Ctrl</"
+"key><key>Q</key></keyseq> пернелерін басыңыз."
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "<app>2048</app> ойынының мақсаты"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "Мақсаты"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+"2048 ойынында ұпай жинау үшін сан таңбасы бірдей шаршыларды біріктіру "
+"керек. Бұл екі бірдей шаршы кездесетін бағытта тақтаны жылжыту арқылы "
+"жүзеге асырылады. Егер тақта толып, ешқандай шаршыларды біріктіру мүмкін "
+"болмаса, ойын аяқталады."
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "<app>2048</app> үшін бастапқы басқару элементтері"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "Басқару"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+"Шаршыларды белгілі бір бағытқа жылжыту үшін тақтада тышқанды шертіп, "
+"тартуға болады. Оның орнына пернетақтаны пайдаланғыңыз келсе, <app>2048</"
+"app> ойынында шаршыларды жылжытуға арналған бастапқы пернелер:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "Шаршыларды солға жылжыту үшін <key>←</key>."
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "Шаршыларды жоғары жылжыту үшін <key>↑</key>."
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "Шаршыларды оңға жылжыту үшін <key>→</key>."
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "Шаршыларды төмен жылжыту үшін <key>↓</key>."
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "<app>2048</app> ойынындағы жоғары ұпайларды көру"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "Жоғары ұпайларды көру"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open "
+"the menu labelled \"Grid Size\" to select the grid size to view high scores "
+"for."
+msgstr ""
+"Жоғары ұпайларды көру үшін жоғарғы оң жақ бұрыштағы мәзір батырмасын "
+"таңдаңыз немесе <key>F10</key> пернесін басып, <gui "
+"style=\"button\">Ұпайлар</gui> таңдаңыз. Жоғары ұпайларын көргіңіз келетін "
+"тор өлшемін таңдау үшін «Тор өлшемі» деп аталған мәзірді ашыңыз."
