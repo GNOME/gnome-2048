@@ -47,7 +47,9 @@
   <url type="translate">https://l10n.gnome.org/module/gnome-2048/</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
-  <developer_name>Arnaud Bonatti</developer_name>
+  <developer>
+    <name>Andrey Kutejko</name>
+  </developer>
 
   <kudos>
     <kudo>HiDpiIcon</kudo>
@@ -68,10 +70,11 @@
 
   <releases>
     <!-- should be kept in versioning inverted order -->
-    <release version="50" date="2026-03-18" type="stable" urgency="low"/>
-    <release version="50.beta" date="2026-02-21" type="development" urgency="low"/>
-    <release version="50.alpha.2" date="2025-12-13" type="development" urgency="low"/>
-    <release version="50.alpha" date="2025-11-14" type="development" urgency="low"/>
+    <release version="50.1" date="2026-03-18" type="stable" urgency="low"/>
+    <release version="50.0" date="2026-03-18" type="stable" urgency="low"/>
+    <release version="50~beta" date="2026-02-21" type="development" urgency="low"/>
+    <release version="50~alpha.2" date="2025-12-13" type="development" urgency="low"/>
+    <release version="50~alpha" date="2025-11-14" type="development" urgency="low"/>
     <release version="3.38.2" date="2020-11-22" type="stable" urgency="medium"/>
     <release version="3.37.91" date="2020-08-28" type="development" urgency="low"/>
   </releases>
