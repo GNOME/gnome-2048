@@ -395,9 +395,6 @@ mod imp {
         }
 
         fn on_key_pressed(&self, key: gdk::Key) -> glib::Propagation {
-            if !self.can_move() {
-                return glib::Propagation::Proceed;
-            }
             let request = match key {
                 gdk::Key::Up
                 | gdk::Key::KP_Up
@@ -425,6 +422,9 @@ mod imp {
                 | gdk::Key::l => MoveRequest::Right,
                 _ => return glib::Propagation::Proceed,
             };
+            if !self.can_move() {
+                return glib::Propagation::Stop;
+            }
 
             self.move_(request);
             glib::Propagation::Stop
