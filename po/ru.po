@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-01-29 23:58+0000\n"
-"PO-Revision-Date: 2026-01-31 09:53+1000\n"
+"POT-Creation-Date: 2026-02-21 12:34+0000\n"
+"PO-Revision-Date: 2026-02-22 20:51+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -203,7 +203,7 @@ msgstr ""
 msgid "A running game having reached the 2048 tile"
 msgstr "В текущей игре достигнута плитка 2048"
 
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:53
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
@@ -224,8 +224,9 @@ msgstr "Copyright © 2016-2020 – Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-msgid "Copyright © 2025 – Andrey Kutejko"
-msgstr "Copyright © 2025 – Andrey Kutejko"
+#| msgid "Copyright © 2025 – Andrey Kutejko"
+msgid "Copyright © 2025-2026 – Andrey Kutejko"
+msgstr "Copyright © 2025-2026 – Andrey Kutejko"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
 #: src/about.rs:46
@@ -294,9 +295,10 @@ msgid "Your score is {score}."
 msgstr "Ваш результат равен {score}."
 
 #: src/game_window.rs:112
+#| msgid "2048"
 msgctxt "window title"
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
+msgid "2048"
+msgstr "2048"
 
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
@@ -483,6 +485,10 @@ msgstr "Игровое поле 5 × 5"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Размер игрового поля"
+
+#~ msgctxt "window title"
+#~ msgid "GNOME 2048"
+#~ msgstr "GNOME 2048"
 
 #~ msgctxt "about dialog text; the program name"
 #~ msgid "2048"
