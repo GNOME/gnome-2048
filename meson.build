@@ -32,12 +32,6 @@ message(cargo_version)
 rustc_version = run_command('rustc', '--version', check: true).stdout().strip()
 message(rustc_version)
 
-if get_option('debug')
-  profile = 'debug'
-else
-  profile = 'release'
-endif
-
 appstreamcli = find_program('appstreamcli', required: false)
 desktop_file_validate = find_program('desktop-file-validate', required: false)
 

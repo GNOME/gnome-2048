@@ -15,3 +15,7 @@ async-channel = "2.5.0"
 
 [dev-dependencies]
 proptest = { version = "1.9.0", features = ["attr-macro"] }
+
+[profile.debugoptimized]
+inherits = "dev"
+opt-level = 2

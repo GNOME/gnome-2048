@@ -21,9 +21,14 @@ cargo_options = [
   '--target-dir', meson.project_build_root() / 'src',
 ]
 
+profile = get_option('buildtype')
 if profile == 'debug'
   rust_target = 'debug'
   message('Building in debug mode')
+elif profile == 'debugoptimized'
+  cargo_options += [ '--profile', 'debugoptimized' ]
+  rust_target = 'debugoptimized'
+  message('Building in debugoptimized mode')
 else
   cargo_options += [ '--release' ]
   rust_target = 'release'
