@@ -30,27 +30,33 @@ else
   message('Building in release mode')
 endif
 
-cargo_env = [
-  'CARGO_HOME=' + meson.project_build_root() / 'cargo-home',
-  'RUSTFLAGS=-L ' + (meson.project_build_root() / 'subprojects' / 'libgnome-games-support' / 'games')
-        + ' -lgnome-games-support-3'
-]
+cargo_env = environment()
+cargo_env.set('CARGO_HOME', meson.project_build_root() / 'cargo-home')
+cargo_env.prepend('RUSTFLAGS', '-L', (meson.project_build_root() / 'subprojects' / 'libgnome-games-support' / 'games'), '-lgnome-games-support-3', separator : ' ')
 
-custom_target(
+cargo_target_dep = custom_target(
   'gnome-2048',
   build_by_default: true,
   build_always_stale: true,
   depends: [libgnome_games_support_dependency],
   input: [config_rs],
-  output: meson.project_name(),
+  output: 'gnome-2048-cargo-target',
   console: true,
+  env: cargo_env,
+  command: [
+    cargo, 'build', cargo_options,
+  ]
+)
+
+custom_target(
+  'gnome-2048-copy-cargo',
+  depends: cargo_target_dep,
+  build_by_default: true,
+  build_always_stale: true,
   install: true,
   install_dir: bindir,
+  output: meson.project_name(),
   command: [
-    'env',
-    cargo_env,
-    cargo, 'build', cargo_options,
-    '&&',
     'cp', 'src' / rust_target / meson.project_name(), '@OUTPUT@',
   ]
 )
