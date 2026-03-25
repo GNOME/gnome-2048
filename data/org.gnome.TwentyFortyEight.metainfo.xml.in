@@ -31,9 +31,9 @@
     </p>
   </description>
   <screenshots>
-    <screenshot type="default" height="702" width="1248">
+    <screenshot type="default" height="1206" width="1304">
       <image>https://gitlab.gnome.org/GNOME/gnome-2048/raw/master/data/screenshot.png</image>
-      <caption>A running game having reached the 2048 tile</caption>
+      <caption>A running game</caption>
     </screenshot>
   </screenshots>
   <provides>
