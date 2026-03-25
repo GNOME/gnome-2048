@@ -47,7 +47,7 @@
   <url type="translate">https://l10n.gnome.org/module/gnome-2048/</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
-  <developer>
+  <developer id="org.gnome">
     <name>Andrey Kutejko</name>
   </developer>
 
