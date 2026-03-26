@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-21 12:34+0000\n"
-"PO-Revision-Date: 2026-03-14 13:58+0500\n"
+"POT-Creation-Date: 2026-03-25 09:15+0000\n"
+"PO-Revision-Date: 2026-03-26 22:39+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -201,12 +201,8 @@ msgstr ""
 "идеяларын қамтиды."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
-msgid "A running game having reached the 2048 tile"
-msgstr "2048 плиткасына жеткен ойналып жатқан ойын"
-
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
-msgid "Arnaud Bonatti"
-msgstr "Arnaud Bonatti"
+msgid "A running game"
+msgstr "Орындалып тұрған ойын"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
@@ -225,7 +221,6 @@ msgstr "Авторлық құқық © 2016-2020 – Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-#| msgid "Copyright © 2025 – Andrey Kutejko"
 msgid "Copyright © 2025-2026 – Andrey Kutejko"
 msgstr "Авторлық құқық © 2025-2026 – Andrey Kutejko"
 
@@ -294,7 +289,6 @@ msgid "Your score is {score}."
 msgstr "Сіздің ұпайыңыз: {score}."
 
 #: src/game_window.rs:112
-#| msgid "2048"
 msgctxt "window title"
 msgid "2048"
 msgstr "2048"
@@ -483,6 +477,12 @@ msgstr "5 × 5 торы"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Тор өлшемі"
+
+#~ msgid "A running game having reached the 2048 tile"
+#~ msgstr "2048 плиткасына жеткен ойналып жатқан ойын"
+
+#~ msgid "Arnaud Bonatti"
+#~ msgstr "Arnaud Bonatti"
 
 #~ msgctxt "window title"
 #~ msgid "GNOME 2048"
