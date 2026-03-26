@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-21 12:34+0000\n"
-"PO-Revision-Date: 2026-02-21 20:10+0200\n"
+"POT-Creation-Date: 2026-03-25 09:15+0000\n"
+"PO-Revision-Date: 2026-03-26 21:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -201,12 +201,8 @@ msgstr ""
 "1024, до якого включено ідеї, запозичені у інших клонів цієї гри."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
-msgid "A running game having reached the 2048 tile"
-msgstr "У поточній грі досягнуто плитки 2048"
-
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
-msgid "Arnaud Bonatti"
-msgstr "Arnaud Bonatti"
+msgid "A running game"
+msgstr "Поточна гра"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
@@ -225,7 +221,6 @@ msgstr "© Arnaud Bonatti, 2016-2020"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-#| msgid "Copyright © 2025 – Andrey Kutejko"
 msgid "Copyright © 2025-2026 – Andrey Kutejko"
 msgstr "© Andrey Kutejko, 2025–2026"
 
@@ -484,6 +479,12 @@ msgstr "Ґратка 5 × 5"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Розмір ґратки"
+
+#~ msgid "A running game having reached the 2048 tile"
+#~ msgstr "У поточній грі досягнуто плитки 2048"
+
+#~ msgid "Arnaud Bonatti"
+#~ msgstr "Arnaud Bonatti"
 
 #~ msgctxt "window title"
 #~ msgid "GNOME 2048"
