@@ -1,0 +1,475 @@
+# Esperanto translation for gnome-2048.
+# Copyright (C) 2026 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
+"POT-Creation-Date: 2026-03-25 09:15+0000\n"
+"PO-Revision-Date: 2026-03-29 17:29+0200\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 49.0\n"
+
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.desktop.in:2
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8 src/about.rs:27
+msgid "2048"
+msgstr "2048"
+
+#: data/org.gnome.TwentyFortyEight.desktop.in:3
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:9
+msgid "Obtain the 2048 tile"
+msgstr "Atingu la kahelon 2048"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.TwentyFortyEight.desktop.in:13
+msgid "puzzle;"
+msgstr "puzlo;"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
+msgid "Window width"
+msgstr "Larĝo de fenestro"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:17
+msgid "Window width."
+msgstr "Larĝo de la fenestro."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
+msgid "Window height"
+msgstr "Alto de fenestro"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:24
+msgid "Window height."
+msgstr "Alto de la fenestro."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:29
+msgid "Window maximized"
+msgstr "Fenestro maksimumigita"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:31
+msgid "Window maximization state."
+msgstr "Maksimumigita stato de la fenestro."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:37
+msgid "Number of rows"
+msgstr "Nombro de vicoj"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:39
+msgid "Game grid number of rows."
+msgstr "Nombro de vicoj en la ludkrado."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:45
+msgid "Number of columns"
+msgstr "Nombro de kolumnoj"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:47
+msgid "Game grid number of columns."
+msgstr "Nombro de kolumnoj en la ludkrado."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
+msgid "Target value"
+msgstr "Cela valoro"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:55
+msgid "Tile value at which user is congratulated."
+msgstr "Kahela valoro ĉe kiu la uzanto estas gratulata."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Spawn strategy"
+msgstr "Strategio de aperigo"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Strategy of spawning new tiles."
+msgstr "Strategio por aperigo de novaj kaheloj."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
+msgid "Congrat on target tile"
+msgstr "Gratuli ĉe cela kahelo"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Ĉu gratuli la uzanton kiam li atingas la celan kahelon."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:76
+msgid "Animations speed"
+msgstr "Rapideco de animacioj"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:78
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr ""
+"Daŭro de animacioj: montri kahelon, movi kahelon kaj malheligi kahelon."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:83
+msgid "Allow undo"
+msgstr "Permesi malfaron"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:85
+msgid "Whether tile movements can be undone."
+msgstr "Ĉu kahelmovoj povas esti malfarataj."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:91
+msgid "Number of undo movements"
+msgstr "Nombro de malfareblaj movoj"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:93
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Maksimuma nombro de kahelmovoj, kiujn eblas malfari."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:98
+msgid "Color theme"
+msgstr "Kolora etoso"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:100
+msgid "Color theme."
+msgstr "Kolora etoso."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:11
+msgid ""
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
+msgstr ""
+"Ludu la tre allogan ludon 2048. 2048 estas klono de la populara unu-ludanta "
+"puzloludo. La ludado konsistas el kunigo de nombroj en krado por atingi la "
+"kahelon 2048."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:16
+msgid ""
+"Use your keyboard's arrow keys to slide all tiles in the desired direction. "
+"Be careful: all tiles slide to their farthest possible positions, you cannot "
+"slide just one tile or one row or column. Tiles with the same value are "
+"joined when slided one over the other."
+msgstr ""
+"Uzu la sagoklavojn de via klavaro por ŝovi ĉiujn kahelojn en la dezirata "
+"direkto. Atentu: ĉiuj kaheloj ŝoviĝas ĝis la plej fora ebla pozicio; ne "
+"eblas ŝovi nur unu kahelon aŭ unu vicon aŭ kolumnon. Kaheloj kun la sama "
+"valoro kuniĝas kiam ili estas ŝovitaj unu sur la alian."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:22
+msgid ""
+"With every new tile obtained you increase your score. If you think you can "
+"easily get the 2048 tile, do not let it stop you, the game does not end "
+"there, you can continue joining tiles and improving your score."
+msgstr ""
+"Kun ĉiu nova kahelo vi pliigas vian poentaron. Se vi pensas, ke vi facile "
+"povas atingi la kahelon 2048, ne haltu tie: la ludo ne finiĝas tiam, vi "
+"povas daŭre kunigi kahelojn kaj plibonigi vian poentaron."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:27
+msgid ""
+"Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
+"to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
+"game and includes ideas from other clones."
+msgstr ""
+"Origine kreita de Gabriele Cirulli, 2048 akiris grandan popularecon pro sia "
+"allogeco. La 2048 de Cirulli siavice estas klono de la ludo 1024 kaj enhavas "
+"ideojn el aliaj klonoj."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
+msgid "A running game"
+msgstr "Ludata partio"
+
+#. Translators: about dialog text; a introduction to the game
+#: src/about.rs:31
+msgid "A clone of 2048 for GNOME"
+msgstr "Klono de 2048 por GNOME"
+
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:36
+msgid "Copyright © 2014-2015 – Juan R. García Blanco"
+msgstr "Aŭtorrajto © 2014-2015 – Juan R. García Blanco"
+
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:39
+msgid "Copyright © 2016-2020 – Arnaud Bonatti"
+msgstr "Aŭtorrajto © 2016-2020 – Arnaud Bonatti"
+
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:42
+msgid "Copyright © 2025-2026 – Andrey Kutejko"
+msgstr "Aŭtorrajto © 2025-2026 – Andrey Kutejko"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/about.rs:46
+msgid "translator-credits"
+msgstr "Kristjan SCHMIDT"
+
+#. Translators: command-line option description
+#: src/application.rs:74
+msgid "Play in the terminal (see \"--cli=help\")"
+msgstr "Ludi en la terminalo (vidu \"--cli=help\")"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal
+#: src/application.rs:76
+msgid "COMMAND"
+msgstr "KOMANDO"
+
+#. Translators: command-line option description
+#: src/application.rs:84
+msgid "Start new game of given size"
+msgstr "Komenci novan ludon de donita grando"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size'
+#: src/application.rs:86
+msgid "SIZE"
+msgstr "GRANDO"
+
+#. Translators: command-line option description
+#: src/application.rs:94
+msgid "Print release version and exit"
+msgstr "Montri eldonversion kaj eliri"
+
+#: src/application.rs:211
+msgid "Size must be in the form COLSxROWS."
+msgstr "Grando devas esti en la formo KOLUMNOJxVICOJ."
+
+#: src/cli.rs:71
+msgid "Size can only be given for new games."
+msgstr "Grando povas esti donita nur por novaj ludoj."
+
+#: src/cli.rs:92
+msgid "Cannot parse \"--cli\" command, aborting."
+msgstr "Ne eblas analizi la komandon \"--cli\"; ĉesigante."
+
+#: src/cli.rs:125
+msgid "Game is finished, impossible to move."
+msgstr "La ludo finiĝis, ne eblas movi."
+
+#: src/cli.rs:129
+msgid "Impossible to move in that direction."
+msgstr "Ne eblas movi en tiu direkto."
+
+#: src/cli.rs:202
+msgid "You have obtained the {score} tile for the first time!"
+msgstr "Vi unuafoje atingis la kahelon {score}!"
+
+#: src/cli.rs:207
+msgid "Game is finished!"
+msgstr "La ludo finiĝis!"
+
+#: src/cli.rs:211
+msgid "Your score is {score}."
+msgstr "Via poentaro estas {score}."
+
+#: src/game_window.rs:112
+msgctxt "window title"
+msgid "2048"
+msgstr "2048"
+
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:116 src/game_window.rs:578
+msgid "_New Game"
+msgstr "_Nova ludo"
+
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game_window.rs:318
+msgid "Game Over"
+msgstr "Ludo finita"
+
+#. Translators: entry in the hamburger menu
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/game_window.rs:425 src/game_window.rs:490
+msgid "Undo"
+msgstr "Malfari"
+
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:430
+msgid "Appearance"
+msgstr "Aspekto"
+
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:435
+msgid "Spawn tiles"
+msgstr "Aperigi kahelojn"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:451
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:456
+msgid "Tango"
+msgstr "Tango"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:461
+msgid "Classic"
+msgstr "Klasika"
+
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:472
+msgid "Twos only"
+msgstr "Nur duoj"
+
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:477
+msgid "Classic (twos and fours)"
+msgstr "Klasika (duoj kaj kvaroj)"
+
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/game_window.rs:501
+msgid "Scores"
+msgstr "Poentaroj"
+
+#. Translators: menu entry
+#: src/game_window.rs:512
+msgid "Keyboard Shortcuts"
+msgstr "Klavkombinoj"
+
+#. Translators: menu entry
+#: src/game_window.rs:517 src/game_window.rs:623
+msgid "Help"
+msgstr "Helpo"
+
+#. Translators: menu entry
+#: src/game_window.rs:522
+msgid "About 2048"
+msgstr "Pri 2048"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:534
+msgid "3 × 3"
+msgstr "3 × 3"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:540
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:546
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/game_window.rs:555
+msgid "Custom"
+msgstr "Propra"
+
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
+#: src/game_window.rs:567
+msgid "Congratulations!"
+msgstr "Gratulojn!"
+
+#: src/game_window.rs:570
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Vi unuafoje atingis la kahelon %u!"
+
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:583
+msgid "_Keep Playing"
+msgstr "_Daŭrigi ludadon"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:595
+msgid "Game"
+msgstr "Ludo"
+
+#: src/game_window.rs:597
+msgid "Play with arrows"
+msgstr "Ludi per sagoklavoj"
+
+#: src/game_window.rs:600
+msgid "Play with WASD"
+msgstr "Ludi per WASD"
+
+#: src/game_window.rs:602
+msgid "Play with VIM-style bindings"
+msgstr "Ludi per VIM-stilaj klavoj"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:608
+msgid "New Game"
+msgstr "Nova ludo"
+
+#: src/game_window.rs:610
+msgid "Choose a new game"
+msgstr "Elekti novan ludon"
+
+#: src/game_window.rs:614
+msgid "Start a new game"
+msgstr "Komenci novan ludon"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:620
+msgid "Generic"
+msgstr "Ĝenerala"
+
+#: src/game_window.rs:621
+msgid "Toggle main menu"
+msgstr "Montri/kaŝi ĉefan menuon"
+
+#: src/game_window.rs:622
+msgid "Toggle fullscreen mode"
+msgstr "Ŝalti/malŝalti plenekranan reĝimon"
+
+#: src/game_window.rs:625
+msgid "Keyboard shortcuts"
+msgstr "Klavkombinoj"
+
+#: src/game_window.rs:629
+msgid "About"
+msgstr "Pri"
+
+#: src/game_window.rs:632
+msgid "Quit"
+msgstr "Eliri"
+
+#: src/grid.rs:46
+msgid ""
+"Grid must have no more than 9 rows and columns and have at least 3 tiles"
+msgstr ""
+"Krado devas havi ne pli ol 9 vicojn kaj kolumnojn, kaj almenaŭ 3 kahelojn"
+
+#: src/scores.rs:84
+msgctxt "Scores category"
+msgid "Grid 3 × 3"
+msgstr "Krado 3 × 3"
+
+#: src/scores.rs:85
+msgctxt "Scores category"
+msgid "Grid 4 × 4"
+msgstr "Krado 4 × 4"
+
+#: src/scores.rs:86
+msgctxt "Scores category"
+msgid "Grid 5 × 5"
+msgstr "Krado 5 × 5"
+
+#: src/scores.rs:142
+msgid "Grid Size"
+msgstr "Krada grando"
