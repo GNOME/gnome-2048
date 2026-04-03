@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-21 12:34+0000\n"
-"PO-Revision-Date: 2026-02-22 10:06+0800\n"
+"POT-Creation-Date: 2026-03-25 09:15+0000\n"
+"PO-Revision-Date: 2026-04-03 09:30+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 49.0\n"
+"X-Generator: Gtranslator 50.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Translators: about dialog text; the program name
@@ -194,12 +194,8 @@ msgstr ""
 "的人气。Cirulli 的2048又是游戏1024的模仿品，也借鉴了其他模仿品的思路。"
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
-msgid "A running game having reached the 2048 tile"
-msgstr "一个正在运行的游戏已得到值为 2048 的方块"
-
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
-msgid "Arnaud Bonatti"
-msgstr "Arnaud Bonatti"
+msgid "A running game"
+msgstr "正在运行的游戏"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
@@ -477,6 +473,12 @@ msgstr "5 × 5 网格"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "网格尺寸"
+
+#~ msgid "A running game having reached the 2048 tile"
+#~ msgstr "一个正在运行的游戏已得到值为 2048 的方块"
+
+#~ msgid "Arnaud Bonatti"
+#~ msgstr "Arnaud Bonatti"
 
 #~ msgctxt "window title"
 #~ msgid "GNOME 2048"
