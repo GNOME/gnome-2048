@@ -1,0 +1,204 @@
+# Serbian translation for gnome-2048.
+# Copyright (C) 2026 gnome-2048's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-2048 package.
+# Марко Костић <marko.m.kostic@gmail.com>,  2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-2048 master\n"
+"POT-Creation-Date: 2026-04-03 01:31+0000\n"
+"PO-Revision-Date: 2026-04-05 06:52+0200\n"
+"Last-Translator: Марко Костић <marko.m.kostic@gmail.com>\n"
+"Language-Team: Serbian <Serbian>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Poedit 3.9\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr ""
+"Марко Костић <marko.m.kostic@gmail.com>\n"
+"Превод на српски језик https://гном.срб"
+
+#. (itstool) path: info/title
+#: C/index.page:6
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "2048"
+msgstr "2048"
+
+#. (itstool) path: credit/name
+#: C/index.page:11
+msgid "Juan R. García Blanco"
+msgstr "Хуан Р. Гарсија Бланко"
+
+#. (itstool) path: credit/years
+#: C/index.page:13
+msgid "2014"
+msgstr "2014"
+
+#. (itstool) path: license/p
+#: C/index.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> 2048"
+msgstr "<_:media-1/> 2048"
+
+#. (itstool) path: page/p
+#: C/index.page:20
+msgid ""
+"<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
+"on Veewo Studios' 1024."
+msgstr "<app>2048</app> је клон игре 2048 Габриелеа Чирулија, слагалице засноване на игри 1024 студија Veewo Studios."
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Играње"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Ентони Салдана Ваље"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "Покрените и затворите игру <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "Основна упутства"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "Почетак нове игре"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr "Притисните <gui style=\"button\">Нова игра</gui> или притисните <keyseq><key>Ctrl</key><key>N</key></keyseq> да отворите изборник величине мреже и притисните <gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui> или <gui style=\"button\">5x5</gui> да започнете нову игру са изабраном величином мреже."
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr "Притисните <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> да започнете нову игру са истом величином мреже као у тренутној игри."
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "Затворите <app>2048</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr "Притисните <keyseq><key>Ctrl</key><key>Q</key></keyseq> да затворите <app>2048</app> у било ком тренутку."
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "Циљ игре <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "Циљ"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr "Да бисте освојили поене у 2048, треба да спојите квадрате са истим бројем. То се ради померањем табле у смеру у коме се два иста квадрата сусрећу. Ако је табла пуна и не можете више да спајате квадрате, игра се завршава."
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "Подразумеване контроле за <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "Контроле"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr "Можете да кликнете и превучете мишем по табли да бисте померали квадрате у истом смеру. Ако уместо тога желите да користите тастатуру, подразумевани тастери за померање квадрата у игри <app>2048</app> су:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "<key>←</key> за померање квадрата улево."
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "<key>↑</key> за померање квадрата нагоре."
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "<key>→</key> за померање квадрата удесно."
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "<key>↓</key> за померање квадрата надоле."
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "Прегледајте најбоље резултате у <app>2048</app>"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "Преглед најбољих резултата"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr "Изаберите дугме менија у горњем десном углу или притисните тастер <key>F10</key>, а затим изаберите <gui style=\"button\">Резултати</gui> да бисте прегледали најбоље резултате. Отворите мени под називом „Величина мреже“ да бисте изабрали величину мреже за коју желите да прегледате најбоље резултате."
