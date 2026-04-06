@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-21 12:34+0000\n"
-"PO-Revision-Date: 2026-02-22 20:51+1000\n"
+"POT-Creation-Date: 2026-03-25 09:15+0000\n"
+"PO-Revision-Date: 2026-04-06 22:03+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -200,12 +200,8 @@ msgstr ""
 "является клоном игры «1024» и включает идеи других клонов."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
-msgid "A running game having reached the 2048 tile"
-msgstr "В текущей игре достигнута плитка 2048"
-
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
-msgid "Arnaud Bonatti"
-msgstr "Arnaud Bonatti"
+msgid "A running game"
+msgstr "Текущая игра"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
@@ -224,7 +220,6 @@ msgstr "Copyright © 2016-2020 – Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/about.rs:42
-#| msgid "Copyright © 2025 – Andrey Kutejko"
 msgid "Copyright © 2025-2026 – Andrey Kutejko"
 msgstr "Copyright © 2025-2026 – Andrey Kutejko"
 
@@ -295,7 +290,6 @@ msgid "Your score is {score}."
 msgstr "Ваш результат равен {score}."
 
 #: src/game_window.rs:112
-#| msgid "2048"
 msgctxt "window title"
 msgid "2048"
 msgstr "2048"
@@ -485,6 +479,12 @@ msgstr "Игровое поле 5 × 5"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Размер игрового поля"
+
+#~ msgid "A running game having reached the 2048 tile"
+#~ msgstr "В текущей игре достигнута плитка 2048"
+
+#~ msgid "Arnaud Bonatti"
+#~ msgstr "Arnaud Bonatti"
 
 #~ msgctxt "window title"
 #~ msgid "GNOME 2048"
