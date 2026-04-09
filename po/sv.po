@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-21 10:49+0000\n"
-"PO-Revision-Date: 2026-02-25 13:31+0100\n"
+"POT-Creation-Date: 2026-03-25 09:15+0000\n"
+"PO-Revision-Date: 2026-03-25 11:04+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -197,12 +197,8 @@ msgstr ""
 "tur en klon av spelet 1024 och inkluderar idéer från andra kloner."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
-msgid "A running game having reached the 2048 tile"
-msgstr "Ett körande spel som nått 2048-brickan"
-
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
-msgid "Arnaud Bonatti"
-msgstr "Arnaud Bonatti"
+msgid "A running game"
+msgstr "Ett körande spel"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
@@ -479,6 +475,12 @@ msgstr "5×5-rutnät"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Rutnätsstorlek"
+
+#~ msgid "A running game having reached the 2048 tile"
+#~ msgstr "Ett körande spel som nått 2048-brickan"
+
+#~ msgid "Arnaud Bonatti"
+#~ msgstr "Arnaud Bonatti"
 
 #~ msgctxt "window title"
 #~ msgid "GNOME 2048"
