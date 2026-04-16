@@ -9,17 +9,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-02-21 12:34+0000\n"
-"PO-Revision-Date: 2026-03-08 09:40-0300\n"
+"POT-Creation-Date: 2026-03-25 09:15+0000\n"
+"PO-Revision-Date: 2026-04-16 20:15-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
-"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
+"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 49.0\n"
+"X-Generator: Gtranslator 50.0\n"
 "X-Project-Style: gnome\n"
+"X-DL-VCS-Web: https://gitlab.gnome.org/GNOME/gnome-2048/\n"
+"X-DL-Lang: pt_BR\n"
+"X-DL-Module: gnome-2048\n"
+"X-DL-Branch: master\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
 
 #. Translators: about dialog text; the program name
 #: data/org.gnome.TwentyFortyEight.desktop.in:2
@@ -202,12 +208,8 @@ msgstr ""
 "clone do jogo 1024 e inclui ideias de outros clones."
 
 #: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
-msgid "A running game having reached the 2048 tile"
-msgstr "Um jogo atingiu o bloco 2048"
-
-#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:50
-msgid "Arnaud Bonatti"
-msgstr "Arnaud Bonatti"
+msgid "A running game"
+msgstr "Um jogo em progresso"
 
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
@@ -485,6 +487,12 @@ msgstr "Grade 5 × 5"
 #: src/scores.rs:142
 msgid "Grid Size"
 msgstr "Tamanho da grade"
+
+#~ msgid "A running game having reached the 2048 tile"
+#~ msgstr "Um jogo atingiu o bloco 2048"
+
+#~ msgid "Arnaud Bonatti"
+#~ msgstr "Arnaud Bonatti"
 
 #~ msgctxt "about dialog text; the program name"
 #~ msgid "2048"
