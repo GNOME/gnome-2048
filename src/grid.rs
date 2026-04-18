@@ -248,14 +248,22 @@ impl Grid {
             return false;
         }
 
-        for row in 0..(self.size.rows - 1) {
-            for col in 0..(self.size.cols - 1) {
+        for row in 0..(self.size.rows) {
+            for col in 0..(self.size.cols) {
                 let value = self.at(GridPosition { row, col });
-                let col_neighbour = self.at(GridPosition { row: row + 1, col });
-                let row_neighbour = self.at(GridPosition { row, col: col + 1 });
+                
+                if row + 1 < self.size.rows {
+                    let col_neighbour = self.at(GridPosition { row: row + 1, col });
+                    if value == col_neighbour {
+                        return false;
+                    }
+                }
 
-                if value == col_neighbour || value == row_neighbour {
-                    return false;
+                if col + 1 < self.size.cols {
+                    let row_neighbour = self.at(GridPosition { row, col: col + 1 });
+                    if value == row_neighbour {
+                        return false;
+                    }
                 }
             }
         }
