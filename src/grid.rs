@@ -484,4 +484,19 @@ mod tests {
         assert_eq!(grid.size.cols, 2);
         assert_eq!(grid.save(), "3 2\n0 2\n0 4\n8 2\n20\n");
     }
+
+    #[test]
+    fn test_is_finished() {
+        let mut grid = Grid::new(GridSize { cols: 3, rows: 3 });
+        grid.set_row(0, &[2, 4, 8]);
+        grid.set_row(1, &[4, 8, 16]);
+        grid.set_row(2, &[8, 16, 32]);
+        assert!(grid.is_finished());
+
+        let mut grid = Grid::new(GridSize { cols: 3, rows: 3 });
+        grid.set_row(0, &[2, 4, 8]);
+        grid.set_row(1, &[4, 8, 16]);
+        grid.set_row(2, &[8, 16, 16]);
+        assert!(!grid.is_finished());
+    }
 }
