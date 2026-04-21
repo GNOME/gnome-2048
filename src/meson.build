@@ -1,21 +1,3 @@
-conf_data = configuration_data()
-conf_data.set_quoted('PACKAGE',         '@0@'.format(meson.project_name()))
-conf_data.set_quoted('VERSION',         '@0@'.format(meson.project_version()))
-conf_data.set_quoted('LOCALEDIR',       '@0@'.format(localedir))
-conf_data.set_quoted('GETTEXT_PACKAGE',	'@0@'.format(meson.project_name()))
-
-config_rs = configure_file(
-  input: 'config.rs.in',
-  output: 'config.rs',
-  configuration: conf_data
-)
-run_command(
-  'cp',
-  meson.project_build_root() / 'src' / 'config.rs',
-  meson.project_source_root() / 'src' / 'config.rs',
-  check: true
-)
-
 cargo_options = [
   '--manifest-path', meson.project_source_root() / 'Cargo.toml',
   '--target-dir', meson.project_build_root() / 'src',
@@ -33,13 +15,16 @@ endif
 cargo_env = environment()
 cargo_env.set('CARGO_HOME', meson.project_build_root() / 'cargo-home')
 cargo_env.prepend('RUSTFLAGS', '-L', (meson.project_build_root() / 'subprojects' / 'libgnome-games-support' / 'games'), '-lgnome-games-support-3', separator : ' ')
+cargo_env.set('PACKAGE', meson.project_name())
+cargo_env.set('VERSION', meson.project_version())
+cargo_env.set('LOCALEDIR', localedir)
+cargo_env.set('GETTEXT_PACKAGE', meson.project_name())
 
 cargo_target_dep = custom_target(
   'gnome-2048',
   build_by_default: true,
   build_always_stale: true,
   depends: [libgnome_games_support_dependency],
-  input: [config_rs],
   output: 'gnome-2048-cargo-target',
   console: true,
   env: cargo_env,

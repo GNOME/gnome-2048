@@ -4,5 +4,4 @@ build
 _build
 repo
 
-/src/config.rs
 /target

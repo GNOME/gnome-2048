@@ -17,7 +17,7 @@
  * For more details see the file COPYING.
  */
 
-use crate::config::VERSION;
+use crate::config::{package, version};
 use adw::{self, prelude::*, subclass::prelude::*};
 use gettextrs::gettext;
 use gtk::{gio, glib};
@@ -29,7 +29,6 @@ mod imp {
     use crate::{
         about::about,
         cli::play_cli,
-        config::PACKAGE,
         game_window::{GameWindow, create_window},
         grid::GridSize,
     };
@@ -119,7 +118,7 @@ mod imp {
         fn handle_local_options(&self, options: &glib::VariantDict) -> ControlFlow<glib::ExitCode> {
             if matches!(options.lookup::<bool>("version"), Ok(Some(true))) {
                 /* NOTE: Is not translated so can be easily parsed */
-                println!("gnome-2048 {VERSION}");
+                println!("gnome-2048 {}", version());
                 return ControlFlow::Break(glib::ExitCode::SUCCESS);
             }
 
@@ -216,7 +215,7 @@ mod imp {
     }
 
     fn display_help(parent_window: Option<&gtk::Window>) {
-        gtk::UriLauncher::new(&format!("help:{}", PACKAGE)).launch(
+        gtk::UriLauncher::new(&format!("help:{}", package())).launch(
             parent_window,
             gio::Cancellable::NONE,
             |result| {

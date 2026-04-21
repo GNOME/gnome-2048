@@ -17,7 +17,7 @@
  * For more details see the file COPYING.
  */
 
-use crate::config::VERSION;
+use crate::config::version;
 use adw::prelude::*;
 use gettextrs::gettext;
 
@@ -26,7 +26,7 @@ pub fn about(parent: Option<&gtk::Widget>) {
         // Translators: about dialog text; the program name
         .application_name(gettext("2048"))
         .application_icon("org.gnome.TwentyFortyEight")
-        .version(VERSION)
+        .version(version())
         // Translators: about dialog text; a introduction to the game
         .comments(gettext("A clone of 2048 for GNOME"))
         .license_type(gtk::License::Gpl30)

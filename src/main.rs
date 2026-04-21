@@ -30,7 +30,7 @@ mod shift;
 
 use crate::{
     application::TwentyFortyEight,
-    config::{GETTEXT_PACKAGE, LOCALEDIR},
+    config::{gettext_package, localedir},
 };
 use gettextrs::pgettext;
 use gtk::{glib, prelude::*};
@@ -47,9 +47,9 @@ fn main() -> Result<impl Termination, Box<dyn Error>> {
     }
 
     gettextrs::setlocale(gettextrs::LocaleCategory::LcAll, "");
-    gettextrs::bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR)?;
-    gettextrs::bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8")?;
-    gettextrs::textdomain(GETTEXT_PACKAGE)?;
+    gettextrs::bindtextdomain(gettext_package(), localedir())?;
+    gettextrs::bind_textdomain_codeset(gettext_package(), "UTF-8")?;
+    gettextrs::textdomain(gettext_package())?;
 
     adw::init()?;
 
