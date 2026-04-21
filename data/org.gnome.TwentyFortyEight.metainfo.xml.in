@@ -70,6 +70,7 @@
 
   <releases>
     <!-- should be kept in versioning inverted order -->
+    <release version="50.2" date="2026-04-22" type="stable" urgency="medium"/>
     <release version="50.1" date="2026-03-18" type="stable" urgency="low"/>
     <release version="50.0" date="2026-03-18" type="stable" urgency="low"/>
     <release version="50~beta" date="2026-02-21" type="development" urgency="low"/>

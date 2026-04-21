@@ -1,3 +1,23 @@
+2048   50.2                                                2026-04-22
+=====================================================================
+
+This is a bugfix release. It fixes a bug when a game could finish
+while there are still moves available. Now, when the application
+starts, it gives a keyboard focus to a proper widget and inhibits
+events which could cause losing of it.
+
+Translations updated:
+  Brazilian Portuguese: Rafael Fontenelle
+  Chinese (China): luming zh
+  Esperanto: Kristjan ESPERANTO
+  Kazakh: Baurzhan Muftakhidinov
+  Russian: Sergej A.
+  Serbian: Марко Костић
+  Slovenian: Martin
+  Swedish: Anders Jonsson
+  Turkish: Sabri Ünal
+  Ukrainian: Yuri Chornoivan
+
 2048   50.1                                                2026-03-18
 =====================================================================
 
