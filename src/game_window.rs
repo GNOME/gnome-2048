@@ -149,9 +149,7 @@ mod imp {
             window.set_icon_name(Some("org.gnome.TwentyFortyEight"));
             window.set_show_menubar(false);
 
-            let content = gtk::Box::builder()
-                .orientation(gtk::Orientation::Vertical)
-                .build();
+            let content = adw::ToolbarView::new();
             window.set_content(Some(&content));
 
             self.header_bar.set_title_widget(Some(&self.title));
@@ -160,7 +158,7 @@ mod imp {
             self.header_bar.pack_end(&self.hamburger_button);
             self.header_bar.pack_end(&self.score);
 
-            content.append(&self.header_bar);
+            content.add_top_bar(&self.header_bar);
 
             let unfullscreen_button = gtk::Button::builder()
                 .visible(false)
@@ -187,7 +185,7 @@ mod imp {
                 .build();
             overlay.add_overlay(&unfullscreen_button);
 
-            content.append(&overlay);
+            content.set_content(Some(&overlay));
 
             self.hamburger_button.connect_active_notify(glib::clone!(
                 #[weak(rename_to=imp)]
