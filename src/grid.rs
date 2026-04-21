@@ -251,7 +251,7 @@ impl Grid {
         for row in 0..(self.size.rows) {
             for col in 0..(self.size.cols) {
                 let value = self.at(GridPosition { row, col });
-                
+
                 if row + 1 < self.size.rows {
                     let col_neighbour = self.at(GridPosition { row: row + 1, col });
                     if value == col_neighbour {

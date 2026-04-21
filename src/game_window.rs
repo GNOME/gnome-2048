@@ -619,7 +619,10 @@ fn show_keyboard_shortcuts(parent: &gtk::Widget) {
     // Translators: header of the shortcut section
     let generic_section = adw::ShortcutsSection::new(Some(&gettext("Generic")));
     generic_section.add(ShortcutsItem::new(&gettext("Toggle main menu"), "F10 Menu"));
-    generic_section.add(ShortcutsItem::new(&gettext("Toggle fullscreen mode"), "F11"));
+    generic_section.add(ShortcutsItem::new(
+        &gettext("Toggle fullscreen mode"),
+        "F11",
+    ));
     generic_section.add(ShortcutsItem::new(&gettext("Help"), "F1 <Primary>F1"));
     generic_section.add(ShortcutsItem::new(
         &gettext("Keyboard shortcuts"),
