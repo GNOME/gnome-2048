@@ -291,7 +291,13 @@ mod imp {
         }
     }
 
-    impl WidgetImpl for GameWindow {}
+    impl WidgetImpl for GameWindow {
+        fn map(&self) {
+            self.parent_map();
+            self.game.grab_focus();
+        }
+    }
+
     impl WindowImpl for GameWindow {}
     impl ApplicationWindowImpl for GameWindow {}
     impl AdwApplicationWindowImpl for GameWindow {}
