@@ -20,7 +20,11 @@
 use crate::grid::{Grid, GridSize};
 use adw::{self, prelude::*};
 use gtk::{gdk, gio, glib, graphene, gsk, pango, subclass::prelude::*};
-use std::fmt;
+use std::{
+    fmt,
+    sync::atomic::{AtomicBool, Ordering},
+    time::Duration,
+};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum GameState {
@@ -80,6 +84,7 @@ mod imp {
         pub movements: RefCell<Vec<Movement<GridPosition>>>,
 
         pub state: Cell<GameState>,
+        pub move_locked: AtomicBool,
 
         pub animation: RefCell<Option<adw::TimedAnimation>>,
 
@@ -122,6 +127,7 @@ mod imp {
                 grid: RefCell::new(Grid::new(GridSize::GRID_4_BY_4)),
                 movements: Default::default(),
                 state: Cell::new(GameState::Stopped),
+                move_locked: Default::default(),
                 animation: Default::default(),
                 show_transition_value: Default::default(),
                 show_transition_tiles: Default::default(),
@@ -550,6 +556,8 @@ mod imp {
                 animation.skip();
             }
 
+            let lock = acquire_move_lock(&self.move_locked).await;
+
             self.just_restored.set(false);
 
             let previous_grid = self.grid.borrow().clone();
@@ -609,6 +617,8 @@ mod imp {
             self.move_transition_tiles.borrow_mut().clear();
 
             self.create_random_tiles_async(1).await;
+
+            std::mem::drop(lock);
         }
 
         fn apply_move(&self) {
@@ -780,5 +790,25 @@ impl Game {
         settings
             .bind("allow-undo-max", self, "allow-undo-max")
             .build();
+    }
+}
+
+async fn acquire_move_lock<'l>(lock: &'l AtomicBool) -> MoveLockGuard<'l> {
+    loop {
+        match lock.compare_exchange(false, true, Ordering::SeqCst, Ordering::SeqCst) {
+            Ok(_) => break,
+            Err(_) => glib::timeout_future(Duration::from_millis(1)).await,
+        }
+    }
+    MoveLockGuard { lock }
+}
+
+struct MoveLockGuard<'l> {
+    lock: &'l AtomicBool,
+}
+
+impl<'l> Drop for MoveLockGuard<'l> {
+    fn drop(&mut self) {
+        self.lock.store(false, Ordering::SeqCst);
     }
 }
