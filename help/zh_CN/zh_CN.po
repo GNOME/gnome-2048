@@ -2,24 +2,32 @@
 # Copyright (C) 2016 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 # Mandy Wang <wangmychn@gmail.com>, 2016.
+# lumingzh <lumingzh@qq.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
-"POT-Creation-Date: 2016-09-23 19:52+0000\n"
-"PO-Revision-Date: 2016-10-27 17:54+0800\n"
-"Last-Translator: Mandy Wang <wangmychn@gmail.com>\n"
+"POT-Creation-Date: 2026-06-10 22:46+0000\n"
+"PO-Revision-Date: 2026-06-25 07:54+0800\n"
+"Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Gtranslator 50.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr "Mandy Wang <wangmychn@gmail.com>, 2016"
+
+#. (itstool) path: info/title
+#: C/index.page:6
+msgctxt "link:trail"
+msgid "2048"
+msgstr "2048"
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -48,21 +56,167 @@ msgstr "2014"
 msgid "Creative Commons Share Alike 3.0"
 msgstr "知识共享协议 相同方式共享许可 3.0"
 
-#. (itstool) path: media/span
-#: C/index.page:19
-msgid "gnome-2048 logo"
-msgstr "gnome-2048 商标"
-
 #. (itstool) path: page/title
 #: C/index.page:19
-msgid "<_:media-1/> GNOME 2048"
-msgstr "<_:media-1/> GNOME 2048"
+msgid "<_:media-1/> 2048"
+msgstr "<_:media-1/> 2048"
 
 #. (itstool) path: page/p
 #: C/index.page:20
 msgid ""
-"<app>GNOME 2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game "
-"based on Veewo Studios' 1024."
+"<app>2048</app> is a clone of Gabriele Cirulli's 2048, a puzzle game based "
+"on Veewo Studios' 1024."
 msgstr ""
-"<app>GNOME 2048</app> 是 Gabriele Cirulli 开发的 2048 的复刻版，是一款基于 "
-"Veewo Studios 的 1024 的益智游戏。"
+"<app>2048</app> 是 Gabriele Cirulli 开发的 2048 的复刻版，是一款基于 Veewo "
+"Studios 的 1024 的益智游戏。"
+
+#. (itstool) path: links/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "玩法"
+
+#. (itstool) path: credit/name
+#: C/basics.page:9 C/objective.page:9 C/controls.page:9 C/scores.page:9
+msgid "Anthony Saldana Valle"
+msgstr "Anthony Saldana Valle"
+
+#. (itstool) path: credit/years
+#: C/basics.page:11 C/objective.page:11 C/controls.page:11 C/scores.page:11
+msgid "2022"
+msgstr "2022"
+
+#. (itstool) path: info/desc
+#: C/basics.page:16
+msgid "Start and quit a game of <app>2048</app>"
+msgstr "开始和退出 <app>2048</app> 游戏"
+
+#. (itstool) path: page/title
+#: C/basics.page:19
+msgid "Basic Instructions"
+msgstr "基础知识"
+
+#. (itstool) path: section/title
+#: C/basics.page:22
+msgid "Start a new game"
+msgstr "开始一局新游戏"
+
+#. (itstool) path: section/p
+#: C/basics.page:24
+msgid ""
+"Press <gui style=\"button\">New Game</gui> or press <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to open the grid size selection menu and press "
+"<gui style=\"button\">3x3</gui>, <gui style=\"button\">4x4</gui>, or <gui "
+"style=\"button\">5x5</gui> to start a new game with the selected grid size."
+msgstr ""
+"点击 <gui style=\"button\">新游戏</gui> 按钮，或按下 <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> 组合键，打开网格尺寸选择菜单，再点击 <gui "
+"style=\"button\">3x3</gui>、<gui style=\"button\">4x4</gui> 或 <gui "
+"style=\"button\">5x5</gui> 按钮，即可按所选网格尺寸开始新游戏。"
+
+#. (itstool) path: section/p
+#: C/basics.page:26
+msgid ""
+"Press <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game with the same grid size as the current game."
+msgstr ""
+"按下 <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> 组合键，即"
+"可使用与当前游戏相同的网格尺寸开始新游戏。"
+
+#. (itstool) path: section/title
+#: C/basics.page:31
+msgid "Quit <app>2048</app>"
+msgstr "退出 <app>2048</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>2048</app> "
+"at any time."
+msgstr ""
+"按 <keyseq><key>Ctrl</key><key>Q</key></keyseq> 可随时退出 <app>2048</app>。"
+
+#. (itstool) path: info/desc
+#: C/objective.page:19
+msgid "Objective of <app>2048</app>"
+msgstr "<app>2048</app> 的目标"
+
+#. (itstool) path: page/title
+#: C/objective.page:22
+msgid "Objective"
+msgstr "目标"
+
+#. (itstool) path: page/p
+#: C/objective.page:24
+msgid ""
+"To earn points in 2048, you need to combine squares with the same numerical "
+"label. This is done by shifting the board in a direction in which two "
+"equivalent squares meet. If the board is full and you cannot combine any "
+"squares, the game ends."
+msgstr ""
+"在 2048 中，要获得分数，您需要合并带有相同数字的方块。操作方法是向某个方向滑"
+"动棋盘，使两个相同数字的方块相遇。如果棋盘已满且无法再合并任何方块，那么游戏"
+"结束"
+
+#. (itstool) path: info/desc
+#: C/controls.page:16
+msgid "Default controls for <app>2048</app>"
+msgstr "<app>2048</app> 默认控制方式"
+
+#. (itstool) path: page/title
+#: C/controls.page:19
+msgid "Controls"
+msgstr "控制方式"
+
+#. (itstool) path: page/p
+#: C/controls.page:21
+msgid ""
+"You can click and drag your mouse on the board to shift squares in the same "
+"direction. If you want to use the keyboard instead, the default keys to "
+"shift the squares in <app>2048</app> are:"
+msgstr ""
+"您可以在棋盘上单击并拖动鼠标，向同一方向移动方块。如果您想改用键盘，在 "
+"<app>2048</app> 中移动方块的默认按键如下:"
+
+#. (itstool) path: item/p
+#: C/controls.page:25
+msgid "<key>←</key> to shift squares left."
+msgstr "<key>←</key> 向左移动方块。"
+
+#. (itstool) path: item/p
+#: C/controls.page:28
+msgid "<key>↑</key> to shift squares up."
+msgstr "<key>↑</key> 向上移动方块。"
+
+#. (itstool) path: item/p
+#: C/controls.page:31
+msgid "<key>→</key> to shift squares right."
+msgstr "<key>→</key> 向右移动方块。"
+
+#. (itstool) path: item/p
+#: C/controls.page:34
+msgid "<key>↓</key> to shift squares down."
+msgstr "<key>↓</key> 向下移动方块。"
+
+#. (itstool) path: info/desc
+#: C/scores.page:16
+msgid "View high scores in <app>2048</app>"
+msgstr "查看 <app>2048</app> 的最高分"
+
+#. (itstool) path: page/title
+#: C/scores.page:19
+msgid "Viewing high scores"
+msgstr "查看高分"
+
+#. (itstool) path: page/p
+#: C/scores.page:21
+msgid ""
+"Select the menu button on the top right corner or press <key>F10</key> and "
+"then select <gui style=\"button\">Scores</gui> to view high scores. Open the "
+"menu labelled \"Grid Size\" to select the grid size to view high scores for."
+msgstr ""
+"点击右上角的菜单按钮，或按 <key>F10</key>，然后选择 <gui style=\"button\">高"
+"分</gui> 即可查看最高分。打开标有“网格尺寸”的菜单，选择要查看最高分的网格尺"
+"寸。"
+
+#~ msgid "gnome-2048 logo"
+#~ msgstr "gnome-2048 商标"
