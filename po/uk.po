@@ -2,22 +2,22 @@
 # Copyright (C) 2020 gnome-2048's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-2048 package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2025, 2026.
+# SPDX-FileCopyrightText: 2020, 2025, 2026 Yuri Chornoivan <yurchor@ukr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-03-25 09:15+0000\n"
-"PO-Revision-Date: 2026-03-26 21:38+0200\n"
+"POT-Creation-Date: 2026-04-21 23:13+0000\n"
+"PO-Revision-Date: 2026-08-03 09:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
-"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n%10>="
+"2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #. Translators: about dialog text; the program name
 #: data/org.gnome.TwentyFortyEight.desktop.in:2
@@ -204,6 +204,10 @@ msgstr ""
 msgid "A running game"
 msgstr "Поточна гра"
 
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:51
+msgid "Andrey Kutejko"
+msgstr "Андрєй Кутєйко"
+
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
 msgid "A clone of 2048 for GNOME"
@@ -230,31 +234,31 @@ msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2025"
 
 #. Translators: command-line option description
-#: src/application.rs:74
+#: src/application.rs:73
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "Грати у терміналі (див. «--cli=help»)"
 
 #. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal
-#: src/application.rs:76
+#: src/application.rs:75
 msgid "COMMAND"
 msgstr "КОМАНДА"
 
 #. Translators: command-line option description
-#: src/application.rs:84
+#: src/application.rs:83
 msgid "Start new game of given size"
 msgstr "Почати нову гру із вказаним розміром ігрового поля"
 
 #. Translators: in the command-line options description, text to indicate the user should specify a size after '--size'
-#: src/application.rs:86
+#: src/application.rs:85
 msgid "SIZE"
 msgstr "РОЗМІР"
 
 #. Translators: command-line option description
-#: src/application.rs:94
+#: src/application.rs:93
 msgid "Print release version and exit"
 msgstr "Показати версію випуску та вийти"
 
-#: src/application.rs:211
+#: src/application.rs:210
 msgid "Size must be in the form COLSxROWS."
 msgstr "Розмір має бути вказано у форматі СТОВПЧИКИxРЯДКИ."
 
@@ -295,162 +299,162 @@ msgstr "2048"
 
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#: src/game_window.rs:116 src/game_window.rs:578
+#: src/game_window.rs:116 src/game_window.rs:582
 msgid "_New Game"
 msgstr "_Нова гра"
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/game_window.rs:318
+#: src/game_window.rs:322
 msgid "Game Over"
 msgstr "Гру завершено"
 
 #. Translators: entry in the hamburger menu
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/game_window.rs:425 src/game_window.rs:490
+#: src/game_window.rs:429 src/game_window.rs:494
 msgid "Undo"
 msgstr "Скасувати"
 
 #. Translators: entry in the hamburger menu
-#: src/game_window.rs:430
+#: src/game_window.rs:434
 msgid "Appearance"
 msgstr "Вигляд"
 
 #. Translators: entry in the hamburger menu
-#: src/game_window.rs:435
+#: src/game_window.rs:439
 msgid "Spawn tiles"
 msgstr "Розсіяти плитки"
 
 #. Translators: entry in the hamburger menu; a color theme
-#: src/game_window.rs:451
+#: src/game_window.rs:455
 msgid "Adwaita"
 msgstr "Адвайта"
 
 #. Translators: entry in the hamburger menu; a color theme
-#: src/game_window.rs:456
+#: src/game_window.rs:460
 msgid "Tango"
 msgstr "Танго"
 
 #. Translators: entry in the hamburger menu; a color theme
-#: src/game_window.rs:461
+#: src/game_window.rs:465
 msgid "Classic"
 msgstr "Класична"
 
 #. Translators: entry in the hamburger menu; a spawn strategy
-#: src/game_window.rs:472
+#: src/game_window.rs:476
 msgid "Twos only"
 msgstr "Лише двійки"
 
 #. Translators: entry in the hamburger menu; a spawn strategy
-#: src/game_window.rs:477
+#: src/game_window.rs:481
 msgid "Classic (twos and fours)"
 msgstr "Класична (двійки і четвірки)"
 
 #. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/game_window.rs:501
+#: src/game_window.rs:505
 msgid "Scores"
 msgstr "Результати"
 
 #. Translators: menu entry
-#: src/game_window.rs:512
+#: src/game_window.rs:516
 msgid "Keyboard Shortcuts"
 msgstr "Клавіатурні скорочення"
 
 #. Translators: menu entry
-#: src/game_window.rs:517 src/game_window.rs:623
+#: src/game_window.rs:521 src/game_window.rs:630
 msgid "Help"
 msgstr "Довідка"
 
 #. Translators: menu entry
-#: src/game_window.rs:522
+#: src/game_window.rs:526
 msgid "About 2048"
 msgstr "Про «2048»"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button
-#: src/game_window.rs:534
+#: src/game_window.rs:538
 msgid "3 × 3"
 msgstr "3 × 3"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button
-#: src/game_window.rs:540
+#: src/game_window.rs:544
 msgid "4 × 4"
 msgstr "4 × 4"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button
-#: src/game_window.rs:546
+#: src/game_window.rs:550
 msgid "5 × 5"
 msgstr "5 × 5"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#: src/game_window.rs:555
+#: src/game_window.rs:559
 msgid "Custom"
 msgstr "Нетипова"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
-#: src/game_window.rs:567
+#: src/game_window.rs:571
 msgid "Congratulations!"
 msgstr "Вітаємо!"
 
-#: src/game_window.rs:570
+#: src/game_window.rs:574
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Вам вдалося вперше отримати плитку %u!"
 
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
-#: src/game_window.rs:583
+#: src/game_window.rs:587
 msgid "_Keep Playing"
 msgstr "_Грати далі"
 
 #. Translators: header of the shortcut section
-#: src/game_window.rs:595
+#: src/game_window.rs:599
 msgid "Game"
 msgstr "Гра"
 
-#: src/game_window.rs:597
+#: src/game_window.rs:601
 msgid "Play with arrows"
 msgstr "Гра стрілочками"
 
-#: src/game_window.rs:600
+#: src/game_window.rs:604
 msgid "Play with WASD"
 msgstr "Грати з використанням WASD"
 
-#: src/game_window.rs:602
+#: src/game_window.rs:606
 msgid "Play with VIM-style bindings"
 msgstr "Грати з використанням команд у стилі VIM"
 
 #. Translators: header of the shortcut section
-#: src/game_window.rs:608
+#: src/game_window.rs:612
 msgid "New Game"
 msgstr "Нова гра"
 
-#: src/game_window.rs:610
+#: src/game_window.rs:614
 msgid "Choose a new game"
 msgstr "Вибрати нову гру"
 
-#: src/game_window.rs:614
+#: src/game_window.rs:618
 msgid "Start a new game"
 msgstr "Розпочати нову гру"
 
 #. Translators: header of the shortcut section
-#: src/game_window.rs:620
+#: src/game_window.rs:624
 msgid "Generic"
 msgstr "Загальні"
 
-#: src/game_window.rs:621
+#: src/game_window.rs:625
 msgid "Toggle main menu"
 msgstr "Перемкнути головне меню"
 
-#: src/game_window.rs:622
+#: src/game_window.rs:627
 msgid "Toggle fullscreen mode"
 msgstr "Увімкнути або вимкнути повноекранний режим"
 
-#: src/game_window.rs:625
+#: src/game_window.rs:632
 msgid "Keyboard shortcuts"
 msgstr "Клавіатурні скорочення"
 
-#: src/game_window.rs:629
+#: src/game_window.rs:636
 msgid "About"
 msgstr "Про програму"
 
-#: src/game_window.rs:632
+#: src/game_window.rs:639
 msgid "Quit"
 msgstr "Вийти"
 
