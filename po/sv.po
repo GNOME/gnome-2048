@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2026-03-25 09:15+0000\n"
-"PO-Revision-Date: 2026-03-25 11:04+0100\n"
+"POT-Creation-Date: 2026-04-21 23:13+0000\n"
+"PO-Revision-Date: 2026-08-02 20:08+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Translators: about dialog text; the program name
 #: data/org.gnome.TwentyFortyEight.desktop.in:2
@@ -200,6 +200,10 @@ msgstr ""
 msgid "A running game"
 msgstr "Ett körande spel"
 
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:51
+msgid "Andrey Kutejko"
+msgstr "Andrey Kutejko"
+
 #. Translators: about dialog text; a introduction to the game
 #: src/about.rs:31
 msgid "A clone of 2048 for GNOME"
@@ -230,31 +234,31 @@ msgstr ""
 "<tp-sv@listor.tp-sv.se>."
 
 #. Translators: command-line option description
-#: src/application.rs:74
+#: src/application.rs:73
 msgid "Play in the terminal (see \"--cli=help\")"
 msgstr "Spela i terminalen (se ”--cli=help”)"
 
 #. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal
-#: src/application.rs:76
+#: src/application.rs:75
 msgid "COMMAND"
 msgstr "KOMMANDO"
 
 #. Translators: command-line option description
-#: src/application.rs:84
+#: src/application.rs:83
 msgid "Start new game of given size"
 msgstr "Starta ett nytt spel av angiven storlek"
 
 #. Translators: in the command-line options description, text to indicate the user should specify a size after '--size'
-#: src/application.rs:86
+#: src/application.rs:85
 msgid "SIZE"
 msgstr "STORLEK"
 
 #. Translators: command-line option description
-#: src/application.rs:94
+#: src/application.rs:93
 msgid "Print release version and exit"
 msgstr "Skriv ut utgåvans version och avsluta"
 
-#: src/application.rs:211
+#: src/application.rs:210
 msgid "Size must be in the form COLSxROWS."
 msgstr "Storleken måste vara på formen KOLUMNERxRADER."
 
@@ -275,6 +279,7 @@ msgid "Impossible to move in that direction."
 msgstr "Omöjligt att flytta i den riktningen."
 
 #: src/cli.rs:202
+#, rust-format
 msgid "You have obtained the {score} tile for the first time!"
 msgstr "Du har erhållit {score}-brickan för första gången!"
 
@@ -283,6 +288,7 @@ msgid "Game is finished!"
 msgstr "Spelet är slut!"
 
 #: src/cli.rs:211
+#, rust-format
 msgid "Your score is {score}."
 msgstr "Din poäng är {score}."
 
@@ -293,162 +299,162 @@ msgstr "2048"
 
 #. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#: src/game_window.rs:116 src/game_window.rs:578
+#: src/game_window.rs:116 src/game_window.rs:582
 msgid "_New Game"
 msgstr "_Nytt spel"
 
 #. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/game_window.rs:318
+#: src/game_window.rs:322
 msgid "Game Over"
 msgstr "Spelet är slut"
 
 #. Translators: entry in the hamburger menu
 #. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/game_window.rs:425 src/game_window.rs:490
+#: src/game_window.rs:429 src/game_window.rs:494
 msgid "Undo"
 msgstr "Ångra"
 
 #. Translators: entry in the hamburger menu
-#: src/game_window.rs:430
+#: src/game_window.rs:434
 msgid "Appearance"
 msgstr "Utseende"
 
 #. Translators: entry in the hamburger menu
-#: src/game_window.rs:435
+#: src/game_window.rs:439
 msgid "Spawn tiles"
 msgstr "Skapa brickor"
 
 #. Translators: entry in the hamburger menu; a color theme
-#: src/game_window.rs:451
+#: src/game_window.rs:455
 msgid "Adwaita"
 msgstr "Adwaita"
 
 #. Translators: entry in the hamburger menu; a color theme
-#: src/game_window.rs:456
+#: src/game_window.rs:460
 msgid "Tango"
 msgstr "Tango"
 
 #. Translators: entry in the hamburger menu; a color theme
-#: src/game_window.rs:461
+#: src/game_window.rs:465
 msgid "Classic"
 msgstr "Klassiskt"
 
 #. Translators: entry in the hamburger menu; a spawn strategy
-#: src/game_window.rs:472
+#: src/game_window.rs:476
 msgid "Twos only"
 msgstr "Endast tvåor"
 
 #. Translators: entry in the hamburger menu; a spawn strategy
-#: src/game_window.rs:477
+#: src/game_window.rs:481
 msgid "Classic (twos and fours)"
 msgstr "Klassisk (tvåor och fyror)"
 
 #. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/game_window.rs:501
+#: src/game_window.rs:505
 msgid "Scores"
 msgstr "Poäng"
 
 #. Translators: menu entry
-#: src/game_window.rs:512
+#: src/game_window.rs:516
 msgid "Keyboard Shortcuts"
 msgstr "Tangentbordsgenvägar"
 
 #. Translators: menu entry
-#: src/game_window.rs:517 src/game_window.rs:623
+#: src/game_window.rs:521 src/game_window.rs:630
 msgid "Help"
 msgstr "Hjälp"
 
 #. Translators: menu entry
-#: src/game_window.rs:522
+#: src/game_window.rs:526
 msgid "About 2048"
 msgstr "Om 2048"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button
-#: src/game_window.rs:534
+#: src/game_window.rs:538
 msgid "3 × 3"
 msgstr "3 × 3"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button
-#: src/game_window.rs:540
+#: src/game_window.rs:544
 msgid "4 × 4"
 msgstr "4 × 4"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button
-#: src/game_window.rs:546
+#: src/game_window.rs:550
 msgid "5 × 5"
 msgstr "5 × 5"
 
 #. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#: src/game_window.rs:555
+#: src/game_window.rs:559
 msgid "Custom"
 msgstr "Anpassat"
 
 #. Translators: title of the dialog that appears (with default settings) when you reach 2048
-#: src/game_window.rs:567
+#: src/game_window.rs:571
 msgid "Congratulations!"
 msgstr "Grattis!"
 
-#: src/game_window.rs:570
+#: src/game_window.rs:574
 msgid "You have obtained the %u tile for the first time!"
 msgstr "Du har erhållit %u-brickan för första gången!"
 
 #. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
-#: src/game_window.rs:583
+#: src/game_window.rs:587
 msgid "_Keep Playing"
 msgstr "_Fortsätt spela"
 
 #. Translators: header of the shortcut section
-#: src/game_window.rs:595
+#: src/game_window.rs:599
 msgid "Game"
 msgstr "Spel"
 
-#: src/game_window.rs:597
+#: src/game_window.rs:601
 msgid "Play with arrows"
 msgstr "Spela med piltangenter"
 
-#: src/game_window.rs:600
+#: src/game_window.rs:604
 msgid "Play with WASD"
 msgstr "Spela med WASD"
 
-#: src/game_window.rs:602
+#: src/game_window.rs:606
 msgid "Play with VIM-style bindings"
 msgstr "Spela med bindningar i VIM-stil"
 
 #. Translators: header of the shortcut section
-#: src/game_window.rs:608
+#: src/game_window.rs:612
 msgid "New Game"
 msgstr "Nytt spel"
 
-#: src/game_window.rs:610
+#: src/game_window.rs:614
 msgid "Choose a new game"
 msgstr "Välj ett nytt spel"
 
-#: src/game_window.rs:614
+#: src/game_window.rs:618
 msgid "Start a new game"
 msgstr "Starta ett nytt spel"
 
 #. Translators: header of the shortcut section
-#: src/game_window.rs:620
+#: src/game_window.rs:624
 msgid "Generic"
 msgstr "Allmänt"
 
-#: src/game_window.rs:621
+#: src/game_window.rs:625
 msgid "Toggle main menu"
 msgstr "Öppna/stäng huvudmeny"
 
-#: src/game_window.rs:622
+#: src/game_window.rs:627
 msgid "Toggle fullscreen mode"
 msgstr "Växla helskärmsläge"
 
-#: src/game_window.rs:625
+#: src/game_window.rs:632
 msgid "Keyboard shortcuts"
 msgstr "Tangentbordsgenvägar"
 
-#: src/game_window.rs:629
+#: src/game_window.rs:636
 msgid "About"
 msgstr "Om"
 
-#: src/game_window.rs:632
+#: src/game_window.rs:639
 msgid "Quit"
 msgstr "Avsluta"
 
