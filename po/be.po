@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
 "POT-Creation-Date: 2026-04-21 23:13+0000\n"
-"PO-Revision-Date: 2026-09-15 12:23+0300\n"
+"PO-Revision-Date: 2026-09-15 12:33+0300\n"
 "Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <Belarusian>\n"
 "Language: be\n"
@@ -462,29 +462,29 @@ msgid ""
 "Grid must have no more than 9 rows and columns and have at least 3 tiles"
 msgstr ""
 "Поле гульні павінна мець не больш за 9 радкоў ці слупкоў і не менш за 3 "
-"клеткі."
+"клеткі"
 
 #: src/scores.rs:84
 #| msgid "Grid 3 × 3"
 msgctxt "Scores category"
 msgid "Grid 3 × 3"
-msgstr "Поле гульні 3 × 3"
+msgstr "поле гульні 3 × 3"
 
 #: src/scores.rs:85
 #| msgid "Grid 4 × 4"
 msgctxt "Scores category"
 msgid "Grid 4 × 4"
-msgstr "Поле гульні 4 × 4"
+msgstr "поле гульні 4 × 4"
 
 #: src/scores.rs:86
 #| msgid "Grid 5 × 5"
 msgctxt "Scores category"
 msgid "Grid 5 × 5"
-msgstr "Поле гульні 5 × 5"
+msgstr "поле гульні 5 × 5"
 
 #: src/scores.rs:142
 msgid "Grid Size"
-msgstr "Памер поля гульні"
+msgstr "Памер"
 
 #~ msgid "GNOME 2048"
 #~ msgstr "GNOME 2048"
