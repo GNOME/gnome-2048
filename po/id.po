@@ -7,113 +7,163 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-2048 master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-2048/issues\n"
-"POT-Creation-Date: 2020-01-27 13:42+0000\n"
-"PO-Revision-Date: 2020-01-27 20:45+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"POT-Creation-Date: 2026-04-21 23:13+0000\n"
+"PO-Revision-Date: 2026-07-12 13:57+0700\n"
+"Last-Translator: Arvi Pratama <zycresth@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 3.9\n"
 
-#. Translators: title of the dialog that appears (with default settings) when you reach 2048
-#: data/congrats.ui:23
-msgid "Congratulations!"
-msgstr "Selamat!"
+#. Translators: about dialog text; the program name
+#: data/org.gnome.TwentyFortyEight.desktop.in:2
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:8 src/about.rs:27
+msgid "2048"
+msgstr "2048"
 
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
-#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:46 data/game-headerbar.ui:29
-msgid "_New Game"
-msgstr "Permai_nan Baru"
-
-#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
-#: data/congrats.ui:54
-msgid "_Keep Playing"
-msgstr "_Tetap Bermain"
-
-#. Translators: title of the window, displayed in the headerbar
-#: data/game-headerbar.ui:24 data/org.gnome.TwentyFortyEight.appdata.xml.in:8
-msgid "GNOME 2048"
-msgstr "GNOME 2048"
-
-#. Translators: header of the "Play with arrows" shortcut section
-#: data/help-overlay.ui:29
-msgctxt "shortcut window"
-msgid "Game"
-msgstr "Permainan"
-
-#. Translators: the application has no help, so the use of arrows for playing is documented here
-#: data/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Play with arrows"
-msgstr "Bermain dengan panah"
-
-#. Translators: header of the "Choose a new game" and "Start a new game" shortcuts section
-#: data/help-overlay.ui:44
-msgctxt "shortcut window"
-msgid "New game"
-msgstr "Permainan Baru"
-
-#. Translators: shortcut that opens the New Game menu, allowing to choose the board size of the next game
-#: data/help-overlay.ui:49
-msgctxt "shortcut window"
-msgid "Choose a new game"
-msgstr "Pilih permainan baru"
-
-#. Translators: shortcut that starts immediately a new game, with similar options
-#: data/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Start a new game"
-msgstr "Memulai permainan baru"
-
-#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
-#: data/help-overlay.ui:67
-msgctxt "shortcut window"
-msgid "Generic"
-msgstr "Generik"
-
-#. Translators: shortcut that toggles the hamburger menu
-#: data/help-overlay.ui:72
-msgctxt "shortcut window"
-msgid "Toggle main menu"
-msgstr "Jungkitkan menu utama"
-
-#. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/help-overlay.ui:80
-msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
-msgstr "Pintasan papan tik"
-
-#. Translators: shortcut that opens About dialog
-#: data/help-overlay.ui:88
-msgctxt "shortcut window"
-msgid "About"
-msgstr "Tentang"
-
-#. Translators: shortcut that quits application
-#: data/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Keluar"
-
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:9
-#: data/org.gnome.TwentyFortyEight.desktop.in:4
+#: data/org.gnome.TwentyFortyEight.desktop.in:3
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:9
 msgid "Obtain the 2048 tile"
 msgstr "Dapatkan ubin 2048"
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:11
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.TwentyFortyEight.desktop.in:13
+msgid "puzzle;"
+msgstr "teka-teki;"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:15
+msgid "Window width"
+msgstr "Lebar jendela"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:17
+msgid "Window width."
+msgstr "Lebar jendela."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:22
+msgid "Window height"
+msgstr "Tinggi jendela"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:24
+msgid "Window height."
+msgstr "Tinggi jendela."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:29
+msgid "Window maximized"
+msgstr "Jendela termaksimalkan"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:31
+msgid "Window maximization state."
+msgstr "Keadaan jendela termaksimalkan."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:37
+msgid "Number of rows"
+msgstr "Cacah baris"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:39
+msgid "Game grid number of rows."
+msgstr "Cacah baris kisi permainan."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:45
+msgid "Number of columns"
+msgstr "Cacah kolom"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:47
+msgid "Game grid number of columns."
+msgstr "Cacah kolom kisi permainan."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:53
+msgid "Target value"
+msgstr "Nilai target"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:55
+msgid "Tile value at which user is congratulated."
+msgstr "Nilai ubin saat pengguna diberi ucapan selamat."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:60
+msgid "Spawn strategy"
+msgstr "Strategi pemunculan"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/spawn-strategy'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:62
+msgid "Strategy of spawning new tiles."
+msgstr "Strategi pemunculan ubin baru."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:67
+msgid "Congrat on target tile"
+msgstr "Ucapan selamat pada ubin target"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:69
+msgid "Whether the user shall be congratulated on obtaining target tile."
+msgstr "Apakah pengguna diberi ucapan selamat saat mencapai ubin target."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:76
+msgid "Animations speed"
+msgstr "Kecepatan animasi"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:78
+msgid "Duration of animations: show tile, move tile, and dim tile."
+msgstr "Durasi animasi: tampilkan ubin, pindahkan ubin, dan redupkan ubin."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:83
+msgid "Allow undo"
+msgstr "Ijinkan tak jadi"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:85
+msgid "Whether tile movements can be undone."
+msgstr "Apakah pergerakan ubin dapat dibatalkan."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:91
+msgid "Number of undo movements"
+msgstr "Cacah pembatalan langkah"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:93
+msgid "Maximum number of tile movements that can be undone."
+msgstr "Cacah maksimum pergerakan ubin yang dapat dibatalkan."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:98
+msgid "Color theme"
+msgstr "Tema warna"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/theme'
+#: data/org.gnome.TwentyFortyEight.gschema.xml:100
+msgid "Color theme."
+msgstr "Tema warna."
+
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:11
 msgid ""
-"Play the highly addictive 2048 game. GNOME 2048 is a clone of the popular "
-"single-player puzzle game. Gameplay consists of joining numbers in a grid "
-"and obtain the 2048 tile."
+"Play the highly addictive 2048 game. 2048 is a clone of the popular single-"
+"player puzzle game. Gameplay consists of joining numbers in a grid and "
+"obtain the 2048 tile."
 msgstr ""
 "Mainkan 2048 yang sangat membuat ketagihan. GNOME 2048 adalah klon permainan "
-"tekai-teki pemain tunggal yang populer. Permainan terdiri dari penggabungan "
+"teka-teki pemain tunggal yang populer. Permainan terdiri dari penggabungan "
 "angka-angka dalam suatu kisi dan mendapatkan ubin 2048."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:16
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:16
 msgid ""
 "Use your keyboard's arrow keys to slide all tiles in the desired direction. "
 "Be careful: all tiles slide to their farthest possible positions, you cannot "
@@ -125,7 +175,7 @@ msgstr ""
 "mungkin, Anda tidak bisa menggeser hanya satu ubin atau satu baris atau "
 "kolom. Ubin dengan nilai sama akan digabung ketika diadu satu sama lain."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:22
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:22
 msgid ""
 "With every new tile obtained you increase your score. If you think you can "
 "easily get the 2048 tile, do not let it stop you, the game does not end "
@@ -136,7 +186,7 @@ msgstr ""
 "menghentikan Anda, permainan tidak berhenti di sana, Anda dapat melanjutkan "
 "menggabung ubin dan memperbaiki nilai Anda."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:27
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:27
 msgid ""
 "Originally created by Gabriele Cirulli, 2048 has gained much popularity due "
 "to it being highly addictive. Cirulli's 2048 is in turn a clone of the 1024 "
@@ -146,256 +196,310 @@ msgstr ""
 "popularitasnya karena sangat membuat kecanduan. 2048 Cirulli adalah klon "
 "dari permainan 1024 dan menyertakan ide-ide dari klon lain."
 
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:36
-msgid "A running game having reached the 2048 tile"
-msgstr "Sebuah permainan yang sedang berjalan telah mencapai 2048 ubin"
-
-#. this is a translatable version of project_group
-#: data/org.gnome.TwentyFortyEight.appdata.xml.in:50
-msgid "The GNOME Project"
-msgstr "Proyek GNOME"
-
-#. Translators: about dialog text; the program name
-#: data/org.gnome.TwentyFortyEight.desktop.in:3 src/game-window.vala:495
-msgid "2048"
-msgstr "2048"
-
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.TwentyFortyEight.desktop.in:14
-msgid "puzzle;"
-msgstr "teka-teki;"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:6
-msgid "Window width"
-msgstr "Lebar jendela"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-width'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:8
-msgid "Window width."
-msgstr "Lebar jendela."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:13
-msgid "Window height"
-msgstr "Tinggi jendela"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-height'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:15
-msgid "Window height."
-msgstr "Tinggi jendela."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:20
-msgid "Window maximized"
-msgstr "Jendela termaksimalkan"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/window-maximized'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:22
-msgid "Window maximization state."
-msgstr "Keadaan jendela termaksimalkan."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:28
-msgid "Number of rows"
-msgstr "Cacah baris"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/rows'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:30
-msgid "Game grid number of rows."
-msgstr "Cacah baris kisi permainan."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:36
-msgid "Number of columns"
-msgstr "Cacah kolom"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/cols'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:38
-msgid "Game grid number of columns."
-msgstr "Cacah kolom kisi permainan."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:44
-msgid "Target value"
-msgstr "Nilai target"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/target-value'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:46
-msgid "Tile value at which user is congratulated."
-msgstr "Nilai ubin saat pengguna diberi ucapan selamat."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:51
-msgid "Congrat on target tile"
-msgstr "Ucapan selamat pada ubin target"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/do-congrat'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:53
-msgid "Whether the user shall be congratulated on obtaining target tile."
-msgstr "Apakah pengguna diberi ucapan selamat saat mencapai ubin target."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:60
-msgid "Animations speed"
-msgstr "Kecepatan animasi"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/animations-speed'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:62
-msgid "Duration of animations: show tile, move tile, and dim tile."
-msgstr "Durasi animasi: tampilkan ubin, pindahkan ubin, dan redupkan ubin."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:67
-msgid "Allow undo"
-msgstr "Ijinkan tak jadi"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:69
-msgid "Whether tile movements can be undone."
-msgstr "Apakah pergerakan ubin dapat dibatalkan."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:75
-msgid "Number of undo movements"
-msgstr "Cacah pembatalan langkah"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/2048/allow-undo-max'
-#: data/org.gnome.TwentyFortyEight.gschema.xml:77
-msgid "Maximum number of tile movements that can be undone."
-msgstr "Cacah maksimum pergerakan ubin yang dapat dibatalkan."
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:36
-msgid "Play in the terminal (see “--cli=help”)"
-msgstr "Bermain di terminal (lihat \"--cli=help\")"
-
-#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-2048 --help'
-#: src/application.vala:39
-msgid "COMMAND"
-msgstr "PERINTAH"
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:42
-msgid "Start new game of given size"
-msgstr "Memulai permainan baru dengan ukuran yang diberikan"
-
-#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size', see 'gnome-2048 --help'
-#: src/application.vala:45
-msgid "SIZE"
-msgstr "UKURAN"
-
-#. Translators: command-line option description, see 'gnome-2048 --help'
-#: src/application.vala:48
-msgid "Print release version and exit"
-msgstr "Cetak versi rilis dan keluar"
-
-#. Translators: command-line error message, displayed for an incorrect game size request; try 'gnome-2048 -s 0'
-#: src/application.vala:122
-msgid "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
-msgstr ""
-"Gagal mengurai ukuran. Ukuran mesti di antara 2 dan 9, atau dalam bentuk 2x3."
-
-#. Translators: subtitle of the headerbar, when the user cannot move anymore
-#: src/game-headerbar.vala:67
-msgid "Game Over"
-msgstr "Permainan Berakhir"
-
-#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
-#: src/game-headerbar.vala:97
-msgid "Undo"
-msgstr "Tak jadi"
-
-#. Translators: entry in the hamburger menu; opens a window showing best scores
-#: src/game-headerbar.vala:108
-msgid "Scores"
-msgstr "Nilai"
-
-#. Translators: usual menu entry of the hamburger menu
-#: src/game-headerbar.vala:119
-msgid "Keyboard Shortcuts"
-msgstr "Pintasan Papan Tik"
-
-#. Translators: entry in the hamburger menu
-#: src/game-headerbar.vala:122
-msgid "About 2048"
-msgstr "Tentang 2048"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 3 × 3
-#: src/game-headerbar.vala:142
-msgid "3 × 3"
-msgstr "3 × 3"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 4 × 4
-#: src/game-headerbar.vala:148
-msgid "4 × 4"
-msgstr "4 × 4"
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; to change grid size to 5 × 5
-#: src/game-headerbar.vala:154
-msgid "5 × 5"
-msgstr "5 × 5"
-
-#. Translators: command-line warning displayed if the user manually sets a invalid grid size
-#: src/game-headerbar.vala:163
-msgid "Grids of size 1 by 2 are disallowed."
-msgstr "Kisi berukuran 1 kali 2 tidak diizinkan."
-
-#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
-#: src/game-headerbar.vala:167
-msgid "Custom"
-msgstr "Ubahan"
-
-#. Translators: text of the dialog that appears when the user obtains the first 2048 tile in the game; the %u is replaced by the number the user wanted to reach (usually, 2048)
-#: src/game-window.vala:415
-#, c-format
-msgid "You have obtained the %u tile for the first time!"
-msgstr "Anda telah memperoleh ubin %u untuk pertama kali!"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 3 × 3 game and one of other size
-#: src/game-window.vala:434
-msgid "Grid 3 × 3"
-msgstr "Kisi 3 × 3"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 4 × 4 game and one of other size
-#: src/game-window.vala:437
-msgid "Grid 4 × 4"
-msgstr "Kisi 4 × 4"
-
-#. Translators: combobox entry in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least one 5 × 5 game and one of other size
-#: src/game-window.vala:440
-msgid "Grid 5 × 5"
-msgstr "Kisi 5 × 5"
-
-#. Translators: label introducing a combobox in the dialog that appears when the user clicks the "Scores" entry in the hamburger menu, if the user has already finished at least two games of different size (between 3 × 3, 4 × 4 and 5 × 5)
-#: src/game-window.vala:443
-msgid "Grid Size:"
-msgstr "Ukuran Kisi:"
+#: data/org.gnome.TwentyFortyEight.metainfo.xml.in:36
+msgid "A running game"
+msgstr "Game yang sedang berjalan"
 
 #. Translators: about dialog text; a introduction to the game
-#: src/game-window.vala:499
+#: src/about.rs:31
 msgid "A clone of 2048 for GNOME"
 msgstr "Klon 2048 untuk GNOME"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/game-window.vala:504
+#: src/about.rs:36
 msgid "Copyright © 2014-2015 – Juan R. García Blanco"
 msgstr "Hak Cipta © 2014-2015 – Juan R. García Blanco"
 
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/game-window.vala:508
-#, c-format
-msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr "Hak Cipta © %u-%u – Arnaud Bonatti"
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:39
+msgid "Copyright © 2016-2020 – Arnaud Bonatti"
+msgstr "Hak Cipta © 2016-2020 – Arnaud Bonatti"
+
+#. Translators: text crediting a maintainer, seen in the About dialog
+#: src/about.rs:42
+msgid "Copyright © 2025-2026 – Andrey Kutejko"
+msgstr "Hak Cipta © 2025-2026 – Andrey Kutejko"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/game-window.vala:513
+#: src/about.rs:46
 msgid "translator-credits"
 msgstr ""
 "Andika Triwidada <andika@gmail.com>, 2016, 2017, 2020.\n"
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2018."
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2018.\n"
+"Arvi Pratama <zycresth@gmail.com>, 2026."
 
-#. Translators: about dialog text; label of the website link
-#: src/game-window.vala:517
-msgid "Page on GNOME wiki"
-msgstr "Halaman di wiki GNOME"
+#. Translators: command-line option description
+#: src/application.rs:73
+msgid "Play in the terminal (see \"--cli=help\")"
+msgstr "Bermain di terminal (lihat \"--cli=help\")"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal
+#: src/application.rs:75
+msgid "COMMAND"
+msgstr "PERINTAH"
+
+#. Translators: command-line option description
+#: src/application.rs:83
+msgid "Start new game of given size"
+msgstr "Memulai permainan baru dengan ukuran yang diberikan"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size after '--size'
+#: src/application.rs:85
+msgid "SIZE"
+msgstr "UKURAN"
+
+#. Translators: command-line option description
+#: src/application.rs:93
+msgid "Print release version and exit"
+msgstr "Cetak versi rilis dan keluar"
+
+#: src/application.rs:210
+msgid "Size must be in the form COLSxROWS."
+msgstr "Ukuran harus dalam format KOLOMxBARIS."
+
+#: src/cli.rs:71
+msgid "Size can only be given for new games."
+msgstr "Ukuran hanya dapat diberikan untuk permainan baru."
+
+#: src/cli.rs:92
+msgid "Cannot parse \"--cli\" command, aborting."
+msgstr "Gagal mengurai perintah \"--cli\", membatalkan."
+
+#: src/cli.rs:125
+msgid "Game is finished, impossible to move."
+msgstr "Permainan telah selesai, tidak bisa bergerak."
+
+#: src/cli.rs:129
+msgid "Impossible to move in that direction."
+msgstr "Tidak bisa bergerak ke arah itu."
+
+#: src/cli.rs:202
+#, rust-format
+msgid "You have obtained the {score} tile for the first time!"
+msgstr "Anda telah memperoleh ubin {score} untuk pertama kalinya!"
+
+#: src/cli.rs:207
+msgid "Game is finished!"
+msgstr "Permainan telah selesai!"
+
+#: src/cli.rs:211
+#, rust-format
+msgid "Your score is {score}."
+msgstr "Skor Anda adalah {score}."
+
+#: src/game_window.rs:112
+msgctxt "window title"
+msgid "2048"
+msgstr "2048"
+
+#. Translators: button in the headerbar (with a mnemonic that appears pressing Alt)
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:116 src/game_window.rs:582
+msgid "_New Game"
+msgstr "Permai_nan Baru"
+
+#. Translators: subtitle of the headerbar, when the user cannot move anymore
+#: src/game_window.rs:322
+msgid "Game Over"
+msgstr "Permainan Berakhir"
+
+#. Translators: entry in the hamburger menu
+#. Translators: entry in the hamburger menu, if the "Allow undo" option is set to true
+#: src/game_window.rs:429 src/game_window.rs:494
+msgid "Undo"
+msgstr "Tak jadi"
+
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:434
+msgid "Appearance"
+msgstr "Penampilan"
+
+#. Translators: entry in the hamburger menu
+#: src/game_window.rs:439
+msgid "Spawn tiles"
+msgstr "Munculkan ubin"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:455
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:460
+msgid "Tango"
+msgstr "Tango"
+
+#. Translators: entry in the hamburger menu; a color theme
+#: src/game_window.rs:465
+msgid "Classic"
+msgstr "Klasik"
+
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:476
+msgid "Twos only"
+msgstr "Hanya angka dua"
+
+#. Translators: entry in the hamburger menu; a spawn strategy
+#: src/game_window.rs:481
+msgid "Classic (twos and fours)"
+msgstr "Klasik (angka dua dan empat)"
+
+#. Translators: entry in the hamburger menu; opens a window showing best scores
+#: src/game_window.rs:505
+msgid "Scores"
+msgstr "Nilai"
+
+#. Translators: menu entry
+#: src/game_window.rs:516
+msgid "Keyboard Shortcuts"
+msgstr "Pintasan Papan Tik"
+
+#. Translators: menu entry
+#: src/game_window.rs:521 src/game_window.rs:630
+msgid "Help"
+msgstr "Bantuan"
+
+#. Translators: menu entry
+#: src/game_window.rs:526
+msgid "About 2048"
+msgstr "Tentang 2048"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:538
+msgid "3 × 3"
+msgstr "3 × 3"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:544
+msgid "4 × 4"
+msgstr "4 × 4"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button
+#: src/game_window.rs:550
+msgid "5 × 5"
+msgstr "5 × 5"
+
+#. Translators: on main window, entry of the menu when clicking on the "New Game" button; appears only if the user has set rows and cols manually
+#: src/game_window.rs:559
+msgid "Custom"
+msgstr "Ubahan"
+
+#. Translators: title of the dialog that appears (with default settings) when you reach 2048
+#: src/game_window.rs:571
+msgid "Congratulations!"
+msgstr "Selamat!"
+
+#: src/game_window.rs:574
+msgid "You have obtained the %u tile for the first time!"
+msgstr "Anda telah memperoleh ubin %u untuk pertama kali!"
+
+#. Translators: button in the "Congratulations" dialog that appears (with default settings) when you reach 2048; the player can continue playing after reaching 2048 (with a mnemonic that appears pressing Alt)
+#: src/game_window.rs:587
+msgid "_Keep Playing"
+msgstr "_Tetap Bermain"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:599
+msgid "Game"
+msgstr "Permainan"
+
+#: src/game_window.rs:601
+msgid "Play with arrows"
+msgstr "Bermain dengan panah"
+
+#: src/game_window.rs:604
+msgid "Play with WASD"
+msgstr "Bermain dengan WASD"
+
+#: src/game_window.rs:606
+msgid "Play with VIM-style bindings"
+msgstr "Bermain dengan kontrol gaya VIM"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:612
+msgid "New Game"
+msgstr "Permainan Baru"
+
+#: src/game_window.rs:614
+msgid "Choose a new game"
+msgstr "Pilih permainan baru"
+
+#: src/game_window.rs:618
+msgid "Start a new game"
+msgstr "Mulai permainan baru"
+
+#. Translators: header of the shortcut section
+#: src/game_window.rs:624
+msgid "Generic"
+msgstr "Generik"
+
+#: src/game_window.rs:625
+msgid "Toggle main menu"
+msgstr "Jungkitkan menu utama"
+
+#: src/game_window.rs:627
+msgid "Toggle fullscreen mode"
+msgstr "Jungkitkan mode layar penuh"
+
+#: src/game_window.rs:632
+msgid "Keyboard shortcuts"
+msgstr "Pintasan papan tik"
+
+#: src/game_window.rs:636
+msgid "About"
+msgstr "Tentang"
+
+#: src/game_window.rs:639
+msgid "Quit"
+msgstr "Keluar"
+
+#: src/grid.rs:46
+msgid ""
+"Grid must have no more than 9 rows and columns and have at least 3 tiles"
+msgstr ""
+"Kisi tidak boleh lebih dari 9 baris dan kolom dan harus memiliki setidaknya "
+"3 ubin"
+
+#: src/scores.rs:84
+msgctxt "Scores category"
+msgid "Grid 3 × 3"
+msgstr "Kisi 3 x 3"
+
+#: src/scores.rs:85
+msgctxt "Scores category"
+msgid "Grid 4 × 4"
+msgstr "Kisi 4 x 4"
+
+#: src/scores.rs:86
+msgctxt "Scores category"
+msgid "Grid 5 × 5"
+msgstr "Kisi 5 x 5"
+
+#: src/scores.rs:142
+msgid "Grid Size"
+msgstr "Ukuran Kisi"
+
+#~ msgid "GNOME 2048"
+#~ msgstr "GNOME 2048"
+
+#~ msgctxt "shortcut window"
+#~ msgid "New game"
+#~ msgstr "Permainan Baru"
+
+#~ msgid "A running game having reached the 2048 tile"
+#~ msgstr "Sebuah permainan yang sedang berjalan telah mencapai 2048 ubin"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Proyek GNOME"
+
+#~ msgid ""
+#~ "Failed to parse size. Size must be between 2 and 9, or in the form 2x3."
+#~ msgstr ""
+#~ "Gagal mengurai ukuran. Ukuran mesti di antara 2 dan 9, atau dalam bentuk "
+#~ "2x3."
+
+#~ msgid "Grids of size 1 by 2 are disallowed."
+#~ msgstr "Kisi berukuran 1 kali 2 tidak diizinkan."
+
+#~ msgid "Page on GNOME wiki"
+#~ msgstr "Halaman di wiki GNOME"
